@@ -444,7 +444,6 @@ function render(stories){
             <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(s.link)}" target="_blank" rel="noopener" style="font-size:12px;color:#152848;text-decoration:none;">Share on Facebook</a>
           </div>
         </article>`).join("")}
-    </div>`).join("");
 
   ticker.innerHTML = stories.slice(0, 12)
     .map(s => `<span><b>${s.source.toUpperCase()}:</b> ${s.title}</span>`).join("");

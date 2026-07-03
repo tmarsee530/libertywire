@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE LIBERTY WIRE — Breaking News, Every Minute</title>
+<meta name="description" content="The Liberty Wire — a real-time conservative news aggregator. Headlines, photos, and summaries from the sources that matter, refreshed every minute.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12100e;
+    --paper:#fbfaf6;
+    --rule:#d8d4c8;
+    --signal:#b91c1c;
+    --navy:#152848;
+    --brass:#8a6d1f;
+    --muted:#6b6558;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PT Serif",Georgia,serif;
+    line-height:1.5;
+  }
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}
+  img{display:block;max-width:100%;}
+
+  /* ---------- TICKER ---------- */
+  .ticker-bar{
+    background:var(--signal);
+    color:#fff;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    height:36px;
+  }
+  .ticker-label{
+    flex:0 0 auto;
+    background:var(--ink);
+    height:100%;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:0 14px;
+    font-weight:500;
+    letter-spacing:.12em;
+  }
+  .live-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#ff5a5a;
+    animation:pulse 1.2s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  @media (prefers-reduced-motion: reduce){
+    .live-dot{animation:none}
+    .ticker-track{animation:none !important;padding-left:16px !important;}
+  }
+  .ticker-viewport{flex:1;overflow:hidden;position:relative;height:100%;}
+  .ticker-track{
+    display:inline-flex;
+    align-items:center;
+    height:100%;
+    white-space:nowrap;
+    padding-left:100%;
+    animation:crawl 60s linear infinite;
+  }
+  .ticker-track span{margin-right:56px;}
+  .ticker-track b{color:#ffd9d9;font-weight:500;}
+  @keyframes crawl{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+  /* ---------- MASTHEAD ---------- */
+  header{
+    background:var(--navy);
+    color:#fff;
+    text-align:center;
+    padding:28px 16px 22px;
+    border-bottom:4px solid var(--signal);
+  }
+  .masthead{
+    font-family:"Oswald",sans-serif;
+    font-weight:700;
+    font-size:clamp(40px,7vw,76px);
+    letter-spacing:.06em;
+    line-height:1;
+    text-transform:uppercase;
+  }
+  .masthead .the{color:#c9d4ea;font-weight:500;font-size:.42em;display:block;letter-spacing:.5em;margin-bottom:6px;}
+  .masthead .wire{color:#e8b64c;}
+  .dateline{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:#aab6cf;
+    margin-top:12px;
+  }
+  .dateline .stamp{color:#fff;}
+
+  /* ---------- AD SLOTS ---------- */
+  .ad-slot{
+    max-width:1160px;
+    margin:22px auto;
+    padding:0 16px;
+  }
+  .ad-box{
+    border:1px dashed var(--rule);
+    background:#f2f0e8;
+    color:var(--muted);
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+  }
+  .ad-leaderboard{height:90px;}
+  .ad-infeed{height:250px;}
+
+  /* ---------- LEAD STORY ---------- */
+  main{max-width:1160px;margin:0 auto;padding:8px 16px 60px;}
+  .lead{
+    text-align:center;
+    padding:26px 8px 34px;
+    border-bottom:3px double var(--ink);
+  }
+  .lead .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    color:var(--signal);
+    font-size:13px;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .lead img{
+    margin:0 auto 20px;
+    max-height:430px;
+    width:auto;
+    max-width:100%;
+    border:1px solid var(--rule);
+  }
+  .lead h1{
+    font-family:"Oswald",sans-serif;
+    font-weight:700;
+    font-size:clamp(30px,4.6vw,54px);
+    line-height:1.08;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .lead h1 a:hover{color:var(--signal);}
+  .lead .summary{
+    max-width:680px;
+    margin:16px auto 0;
+    font-size:18px;
+    color:#3a352c;
+  }
+  .lead .source-tag{margin-top:14px;}
+
+  .source-tag{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  .source-tag .time{color:var(--muted);}
+
+  /* ---------- COLUMNS ---------- */
+  .section-label{
+    font-family:"Oswald",sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:14px;
+    color:var(--navy);
+    border-bottom:2px solid var(--ink);
+    padding:26px 0 8px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+  }
+  .section-label small{
+    font-family:"IBM Plex Mono",monospace;
+    font-weight:400;
+    letter-spacing:.1em;
+    font-size:11px;
+    color:var(--muted);
+    text-transform:none;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0 34px;
+  }
+  .col{border-right:1px solid var(--rule);padding-right:34px;}
+  .col:last-child{border-right:none;padding-right:0;}
+
+  .story{
+    padding:18px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .story:first-child{padding-top:0;}
+  .story img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    border:1px solid var(--rule);
+    margin-bottom:10px;
+    filter:saturate(.92);
+  }
+  .story h3{
+    font-family:"Oswald",sans-serif;
+    font-weight:600;
+    font-size:19px;
+    line-height:1.22;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+  }
+  .story h3 a:hover{color:var(--signal);}
+  .story p{
+    font-size:14.5px;
+    color:#4a4438;
+    margin-top:7px;
+  }
+  .story .source-tag{display:block;margin-top:8px;}
+
+  /* ---------- STATUS / FOOTER ---------- */
+  .status-banner{
+    display:none;
+    max-width:1160px;
+    margin:18px auto 0;
+    padding:10px 16px;
+    background:#fff4d6;
+    border:1px solid #e0c66a;
+    color:#6b5510;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+  }
+  footer{
+    background:var(--ink);
+    color:#b8b2a4;
+    text-align:center;
+    padding:34px 16px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+  }
+  footer .foot-mast{
+    font-family:"Oswald",sans-serif;
+    color:#fff;
+    font-size:20px;
+    letter-spacing:.14em;
+    margin-bottom:10px;
+  }
+  footer a{color:#e8b64c;}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr 1fr;}
+    .col{border-right:none;padding-right:0;}
+    .col:nth-child(odd){border-right:1px solid var(--rule);padding-right:24px;}
+  }
+  @media (max-width:640px){
+    .grid{grid-template-columns:1fr;}
+    .col:nth-child(odd){border-right:none;padding-right:0;}
+    .masthead .the{letter-spacing:.3em;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ BREAKING TICKER ============ -->
+<div class="ticker-bar" role="marquee" aria-label="Breaking headlines ticker">
+  <div class="ticker-label"><span class="live-dot" aria-hidden="true"></span>LIVE WIRE</div>
+  <div class="ticker-viewport"><div class="ticker-track" id="ticker"><span>Loading the wire…</span></div></div>
+</div>
+
+<!-- ============ MASTHEAD ============ -->
+<header>
+  <div class="masthead">
+    <span class="the">The</span>
+    LIBERTY <span class="wire">WIRE</span>
+  </div>
+  <div class="dateline">
+    <span id="today"></span> &nbsp;·&nbsp; UPDATED <span class="stamp" id="updated">—</span> &nbsp;·&nbsp; REFRESHES EVERY 60 SECONDS
+  </div>
+</header>
+
+<div class="status-banner" id="statusBanner">
+  Live feeds could not be reached from this preview. Deploy this file to any web host and the wire goes live automatically.
+</div>
+
+<!-- ============ AD SLOT: LEADERBOARD ============ -->
+<!-- MONETIZATION: paste your Google AdSense / Ezoic / Mediavine leaderboard (728x90) unit inside this div, replacing the placeholder -->
+<div class="ad-slot"><div class="ad-box ad-leaderboard">Advertisement — 728×90 leaderboard · paste your ad code here</div></div>
+
+<main>
+  <!-- ============ LEAD STORY ============ -->
+  <section class="lead" id="lead" aria-live="polite">
+    <div class="kicker">★ ★ ★ &nbsp;Developing&nbsp; ★ ★ ★</div>
+    <h1><a href="#">Standing by for the lead story…</a></h1>
+  </section>
+
+  <!-- ============ THE WIRE ============ -->
+  <div class="section-label">
+    <span>The Wire</span>
+    <small id="storyCount">gathering headlines…</small>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <!-- ============ AD SLOT: IN-FEED ============ -->
+  <!-- MONETIZATION: paste a responsive in-feed / rectangle (300x250 or fluid) ad unit here -->
+  <div class="ad-slot" style="padding:0"><div class="ad-box ad-infeed">Advertisement — 300×250 rectangle · paste your ad code here</div></div>
+</main>
+
+<footer>
+  <div class="foot-mast">THE LIBERTY WIRE</div>
+  <div>Headlines link directly to the original publishers. All reporting © its respective sources.</div>
+  <div style="margin-top:8px">Tips &amp; corrections: <a href="mailto:tips@example.com">tips@example.com</a></div>
+</footer>
+
+<script>
+/* =====================================================================
+   THE LIBERTY WIRE — live aggregation engine
+   - Pulls RSS from the sources below via rss2json (free, CORS-enabled)
+   - Refreshes every 60 seconds
+   - To add/remove sources, edit the FEEDS array
+   ===================================================================== */
+
+const FEEDS = [
+  { name: "Fox News",            url: "https://moxie.foxnews.com/google-publisher/latest.xml" },
+  { name: "New York Post",       url: "https://nypost.com/feed/" },
+  { name: "Daily Wire",          url: "https://www.dailywire.com/feeds/rss.xml" },
+  { name: "Breitbart",           url: "https://feeds.feedburner.com/breitbart" },
+  { name: "Daily Caller",        url: "https://dailycaller.com/feed/" },
+  { name: "The Federalist",      url: "https://thefederalist.com/feed/" },
+  { name: "Washington Times",    url: "https://www.washingtontimes.com/rss/headlines/news/politics/" },
+  { name: "National Review",     url: "https://www.nationalreview.com/feed/" },
+  { name: "Newsmax",             url: "https://www.newsmax.com/rss/Newsfront/16/" }
+];
+
+const REFRESH_MS = 60 * 1000;      // once per minute
+const MAX_PER_SOURCE = 5;          // keep the mix balanced
+const SUMMARY_LEN = 170;
+
+const grid   = document.getElementById("grid");
+const lead   = document.getElementById("lead");
+const ticker = document.getElementById("ticker");
+const banner = document.getElementById("statusBanner");
+
+document.getElementById("today").textContent =
+  new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"}).toUpperCase();
+
+function stripHTML(html){
+  const d = document.createElement("div");
+  d.innerHTML = html || "";
+  return (d.textContent || "").replace(/\s+/g," ").trim();
+}
+
+function firstImage(item){
+  if (item.enclosure && item.enclosure.link && /image|jpe?g|png|webp/i.test((item.enclosure.type||"") + item.enclosure.link)) return item.enclosure.link;
+  if (item.thumbnail) return item.thumbnail;
+  const m = /<img[^>]+src=["']([^"']+)["']/i.exec(item.content || item.description || "");
+  return m ? m[1] : null;
+}
+
+function summarize(item){
+  let t = stripHTML(item.description || item.content || "");
+  if (t.length > SUMMARY_LEN) t = t.slice(0, SUMMARY_LEN).replace(/\s+\S*$/,"") + "…";
+  return t;
+}
+
+function timeAgo(dateStr){
+  const then = new Date((dateStr||"").replace(" ","T"));
+  if (isNaN(then)) return "";
+  const mins = Math.max(0, Math.round((Date.now() - then.getTime())/60000));
+  if (mins < 1)  return "just now";
+  if (mins < 60) return mins + " min ago";
+  const hrs = Math.round(mins/60);
+  if (hrs < 24)  return hrs + " hr ago";
+  return Math.round(hrs/24) + " d ago";
+}
+
+async function fetchFeed(feed){
+  const api = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feed.url);
+  const res = await fetch(api);
+  if (!res.ok) throw new Error(feed.name + " HTTP " + res.status);
+  const data = await res.json();
+  if (data.status !== "ok" || !Array.isArray(data.items)) throw new Error(feed.name + " bad payload");
+  return data.items.slice(0, MAX_PER_SOURCE).map(item => ({
+    source: feed.name,
+    title: stripHTML(item.title),
+    link: item.link,
+    date: item.pubDate,
+    image: firstImage(item),
+    summary: summarize(item)
+  }));
+}
+
+function render(stories){
+  if (!stories.length) return;
+
+  // Lead: the freshest story that has an image
+  const leadStory = stories.find(s => s.image) || stories[0];
+  const rest = stories.filter(s => s !== leadStory);
+
+  lead.innerHTML = `
+    <div class="kicker">★ ★ ★ &nbsp;Developing&nbsp; ★ ★ ★</div>
+    ${leadStory.image ? `<a href="${leadStory.link}" target="_blank" rel="noopener"><img src="${leadStory.image}" alt=""></a>` : ""}
+    <h1><a href="${leadStory.link}" target="_blank" rel="noopener">${leadStory.title}</a></h1>
+    ${leadStory.summary ? `<p class="summary">${leadStory.summary}</p>` : ""}
+    <div class="source-tag">${leadStory.source} <span class="time">· ${timeAgo(leadStory.date)}</span></div>`;
+
+  // Three columns, dealt round-robin so each column stays fresh top-to-bottom
+  const cols = [[],[],[]];
+  rest.forEach((s,i) => cols[i % 3].push(s));
+
+  grid.innerHTML = cols.map(col => `
+    <div class="col">
+      ${col.map(s => `
+        <article class="story">
+          ${s.image ? `<a href="${s.link}" target="_blank" rel="noopener"><img loading="lazy" src="${s.image}" alt="" onerror="this.remove()"></a>` : ""}
+          <h3><a href="${s.link}" target="_blank" rel="noopener">${s.title}</a></h3>
+          ${s.summary ? `<p>${s.summary}</p>` : ""}
+          <span class="source-tag">${s.source} <span class="time">· ${timeAgo(s.date)}</span></span>
+        </article>`).join("")}
+    </div>`).join("");
+
+  ticker.innerHTML = stories.slice(0, 12)
+    .map(s => `<span><b>${s.source.toUpperCase()}:</b> ${s.title}</span>`).join("");
+
+  document.getElementById("storyCount").textContent =
+    stories.length + " headlines · " + new Set(stories.map(s=>s.source)).size + " sources";
+}
+
+async function refresh(){
+  const results = await Promise.allSettled(FEEDS.map(fetchFeed));
+  const stories = results
+    .filter(r => r.status === "fulfilled")
+    .flatMap(r => r.value)
+    .filter(s => s.title && s.link);
+
+  // Newest first, dedupe by headline
+  stories.sort((a,b) => new Date(b.date) - new Date(a.date));
+  const seen = new Set();
+  const unique = stories.filter(s => {
+    const k = s.title.toLowerCase();
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
+
+  if (unique.length){
+    banner.style.display = "none";
+    render(unique);
+  } else {
+    banner.style.display = "block";
+    renderSample();
+  }
+  document.getElementById("updated").textContent =
+    new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",second:"2-digit"});
+}
+
+/* Fallback so the design is visible even where outbound requests are blocked (e.g. sandboxed previews) */
+function renderSample(){
+  const demo = [
+    {source:"Sample Wire", title:"This is where your lead headline lands — big, bold, impossible to miss", link:"#", date:new Date().toUTCString(), image:null, summary:"Once this page is hosted on a live domain, the engine pulls real headlines, photos, and summaries from all nine sources and re-checks the wire every sixty seconds."},
+    {source:"Sample Wire", title:"Column stories flow here with photos and two-line summaries", link:"#", date:new Date().toUTCString(), image:null, summary:"Each card links straight to the original publisher, which keeps you on the right side of copyright while you monetize the traffic."},
+    {source:"Sample Wire", title:"Add or remove sources by editing one list in the code", link:"#", date:new Date().toUTCString(), image:null, summary:"The FEEDS array at the top of the script controls everything. Paste in any RSS URL and it joins the rotation on the next refresh."},
+    {source:"Sample Wire", title:"Ad slots are already positioned in the highest-value spots", link:"#", date:new Date().toUTCString(), image:null, summary:"A leaderboard under the masthead and an in-feed rectangle below the columns. Replace the placeholders with your ad network's code."}
+  ];
+  render(demo);
+}
+
+refresh();
+setInterval(refresh, REFRESH_MS);
+</script>
+</body>
+</html>

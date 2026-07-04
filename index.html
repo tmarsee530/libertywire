@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,10 +76,18 @@
   .lead h1 a:hover{color:var(--signal);}
   .lead .summary{max-width:660px;margin:18px auto 0;font-size:17.5px;color:#4a4438;font-family:"PT Serif",serif;}
   .lead .source-tag{margin-top:18px;justify-content:center;}
+  .lead .also-list{justify-content:center;}
 
   .source-tag{display:flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);}
   .source-tag .time{color:var(--muted);font-weight:500;}
   .source-tag .dot{color:var(--rule);}
+
+  .also-list{margin-top:14px;display:flex;flex-direction:column;gap:7px;text-align:left;}
+  .also-item{font-family:"PT Serif",serif;font-size:13.5px;line-height:1.35;color:#5a5448;}
+  .also-item .also-source{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:7px;}
+  .also-item a{color:var(--navy);border-bottom:1px solid var(--rule);}
+  .also-item a:hover{color:var(--signal);border-color:var(--signal);}
+  .lead .also-list{text-align:center;align-items:center;}
 
   .section-label{font-family:"Libre Franklin",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:15px;color:var(--navy);padding:34px 0 14px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);}
   .section-label small{font-family:"IBM Plex Mono",monospace;font-weight:500;letter-spacing:.06em;font-size:11px;color:var(--muted);text-transform:none;}
@@ -94,6 +101,7 @@
   .story h3 a:hover{color:var(--signal);}
   .story p{font-size:14px;color:#5a5448;margin-top:8px;font-family:"PT Serif",serif;flex:1;}
   .story .source-tag{margin-top:12px;}
+  .story .also-list{margin-top:12px;}
   .share-row{margin-top:12px;display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--rule);}
   .share-row a{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--navy);display:flex;align-items:center;gap:4px;}
   .share-row a:hover{color:var(--signal);}
@@ -282,7 +290,7 @@ async function fetchFeed(feed){
   }));
 }
 
-/* ---------- Silent coverage scoring (no visible tracker — just used to order stories) ---------- */
+/* ---------- Group stories covering the same event into one storyline ---------- */
 const STOPWORDS = new Set(["about","after","again","against","because","before","being","between","could","during","every","first","found","great","house","other","report","reports","reveals","should","their","there","these","those","under","where","which","while","would","years","today","biden","trump","white","house","people","state","states","america","american","americans","president","calls","claims","says","said"]);
 
 function significantWords(title){
@@ -295,54 +303,66 @@ function buildClusters(stories){
   const used = new Array(items.length).fill(false);
   for (let i = 0; i < items.length; i++){
     if (used[i]) continue;
-    const cluster = { items: [items[i]], sources: new Set([items[i].ref.source]) };
+    const cluster = { items: [items[i]] };
     used[i] = true;
     for (let j = i + 1; j < items.length; j++){
       if (used[j]) continue;
       let overlap = 0;
       for (const w of items[j].words) if (items[i].words.has(w)) overlap++;
-      if (overlap >= 2 && !cluster.sources.has(items[j].ref.source)){
+      if (overlap >= 2 && !cluster.items.some(it => it.ref.source === items[j].ref.source)){
         cluster.items.push(items[j]);
-        cluster.sources.add(items[j].ref.source);
         used[j] = true;
       }
     }
     clusters.push(cluster);
   }
-  return clusters;
-}
 
-/* Every story gets a "heat" score = how many outlets are covering the same
-   storyline. Stories are then sorted hottest-first, freshest-first as the
-   tiebreaker — so breaking, widely-covered news naturally leads the page. */
-function scoreStories(stories, clusters){
-  const heatByStory = new Map();
-  clusters.forEach(c => { c.items.forEach(it => heatByStory.set(it.ref, c.sources.size)); });
-  stories.forEach(s => { s.heat = heatByStory.get(s) || 1; });
-  return [...stories].sort((a, b) => {
-    if (b.heat !== a.heat) return b.heat - a.heat;
-    return minutesAgo(a.date) - minutesAgo(b.date);
+  // Finalize each cluster: pick the main story (prefer one with an image,
+  // then the freshest), collect the rest as "also reported by" links.
+  clusters.forEach(c => {
+    const refs = c.items.map(it => it.ref);
+    refs.sort((a, b) => minutesAgo(a.date) - minutesAgo(b.date));
+    const withImage = refs.find(r => r.image);
+    c.main = withImage || refs[0];
+    c.also = refs.filter(r => r !== c.main);
+    c.sourceCount = refs.length;
+    c.newestDate = refs.reduce((n, r) => minutesAgo(r.date) < minutesAgo(n) ? r.date : n, refs[0].date);
+  });
+
+  return clusters.sort((a, b) => {
+    if (b.sourceCount !== a.sourceCount) return b.sourceCount - a.sourceCount;
+    return minutesAgo(a.newestDate) - minutesAgo(b.newestDate);
   });
 }
 
-function render(sortedStories){
-  if (!sortedStories.length) return;
+function alsoListHTML(cluster, limit){
+  if (!cluster.also.length) return "";
+  const rows = cluster.also.slice(0, limit).map(r => `
+    <div class="also-item"><span class="also-source">${r.source}</span><a href="${r.link}" target="_blank" rel="noopener">${r.title}</a></div>`
+  ).join("");
+  return `<div class="also-list">${rows}</div>`;
+}
 
-  const leadStory = sortedStories.find(s => s.image) || sortedStories[0];
-  const rest = sortedStories.filter(s => s !== leadStory);
+function render(clusters){
+  if (!clusters.length) return;
 
-  const isBreaking = leadStory.heat >= 3 && minutesAgo(leadStory.date) <= 45;
+  const leadCluster = clusters[0];
+  const rest = clusters.slice(1);
+
+  const isBreaking = leadCluster.sourceCount >= 3 && minutesAgo(leadCluster.newestDate) <= 45;
   lead.innerHTML = `
     <div class="kicker">${isBreaking ? "Breaking" : "Developing"}</div>
-    ${leadStory.image ? `<a href="${leadStory.link}" target="_blank" rel="noopener"><img src="${leadStory.image}" alt=""></a>` : ""}
+    ${leadCluster.main.image ? `<a href="${leadCluster.main.link}" target="_blank" rel="noopener"><img src="${leadCluster.main.image}" alt=""></a>` : ""}
     <div class="lead-body">
-      <h1><a href="${leadStory.link}" target="_blank" rel="noopener">${leadStory.title}</a></h1>
-      ${leadStory.summary ? `<p class="summary">${leadStory.summary}</p>` : ""}
-      <div class="source-tag">${leadStory.source}<span class="dot">•</span><span class="time">${timeAgo(leadStory.date)}</span></div>
+      <h1><a href="${leadCluster.main.link}" target="_blank" rel="noopener">${leadCluster.main.title}</a></h1>
+      ${leadCluster.main.summary ? `<p class="summary">${leadCluster.main.summary}</p>` : ""}
+      <div class="source-tag">${leadCluster.main.source}<span class="dot">•</span><span class="time">${timeAgo(leadCluster.main.date)}</span></div>
+      ${alsoListHTML(leadCluster, 6)}
     </div>`;
 
-  grid.innerHTML = rest.map(s => {
-    const breaking = s.heat >= 3 && minutesAgo(s.date) <= 45;
+  grid.innerHTML = rest.map(c => {
+    const breaking = c.sourceCount >= 3 && minutesAgo(c.newestDate) <= 45;
+    const s = c.main;
     return `
     <article class="story">
       ${s.image ? `<a href="${s.link}" target="_blank" rel="noopener"><img loading="lazy" src="${s.image}" alt="" onerror="this.closest('article').querySelector('img').style.display='none'"></a>` : ""}
@@ -351,6 +371,7 @@ function render(sortedStories){
         <h3><a href="${s.link}" target="_blank" rel="noopener">${s.title}</a></h3>
         ${s.summary ? `<p>${s.summary}</p>` : ""}
         <div class="source-tag">${s.source}<span class="dot">•</span><span class="time">${timeAgo(s.date)}</span></div>
+        ${alsoListHTML(c, 4)}
         <div class="share-row">
           <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(s.title)}&url=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Share on X</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Facebook</a>
@@ -359,11 +380,12 @@ function render(sortedStories){
     </article>`;
   }).join("");
 
-  ticker.innerHTML = sortedStories.slice(0, 14)
+  const allStories = clusters.flatMap(c => c.items.map(it => it.ref));
+  ticker.innerHTML = allStories.slice(0, 14)
     .map(s => `<span><b>${s.source.toUpperCase()}</b> — ${s.title}</span>`).join("");
 
   document.getElementById("storyCount").textContent =
-    sortedStories.length + " headlines · " + new Set(sortedStories.map(s=>s.source)).size + " sources";
+    clusters.length + " storylines · " + new Set(allStories.map(s=>s.source)).size + " sources";
 }
 
 async function refresh(){
@@ -383,9 +405,7 @@ async function refresh(){
 
   if (unique.length){
     banner.style.display = "none";
-    const clusters = buildClusters(unique);
-    const sorted = scoreStories(unique, clusters);
-    render(sorted);
+    render(buildClusters(unique));
   } else {
     banner.style.display = "block";
     renderSample();
@@ -396,13 +416,13 @@ async function refresh(){
 
 function renderSample(){
   const demo = [
-    {source:"Sample Wire", title:"This is where your lead headline lands — big, bold, impossible to miss", link:"#", date:new Date().toUTCString(), image:null, summary:"Once this page is hosted on a live domain, it pulls from 30 conservative sources and re-checks every sixty seconds, with the most widely-covered breaking stories rising to the top automatically."},
-    {source:"Sample Wire", title:"Column stories flow here with photos and two-line summaries", link:"#", date:new Date().toUTCString(), image:null, summary:"Each card links straight to the original publisher, which keeps you on the right side of copyright while you monetize the traffic."},
+    {source:"Fox News", title:"Border security bill clears key committee hurdle after late-night vote", link:"#", date:new Date().toUTCString(), image:null, summary:"Once live, the biggest story of the moment leads the page with a photo, and every other outlet covering the same story is linked right underneath it."},
+    {source:"Breitbart", title:"Border security bill advances through committee in late vote", link:"#", date:new Date().toUTCString(), image:null, summary:""},
+    {source:"Daily Wire", title:"Committee approves border security bill in narrow vote", link:"#", date:new Date().toUTCString(), image:null, summary:""},
+    {source:"Sample Wire", title:"Single-source stories still get their own headline, just without an 'Also' row", link:"#", date:new Date().toUTCString(), image:null, summary:"Each card links straight to the original publisher, which keeps you on the right side of copyright while you monetize the traffic."},
     {source:"Sample Wire", title:"Add or remove sources by editing one list in the code", link:"#", date:new Date().toUTCString(), image:null, summary:"The FEEDS array at the top of the script controls everything."}
   ];
-  const clusters = buildClusters(demo);
-  const sorted = scoreStories(demo, clusters);
-  render(sorted);
+  render(buildClusters(demo));
 }
 
 refresh();

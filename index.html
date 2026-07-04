@@ -96,12 +96,15 @@
   .story{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column;}
   .story:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(15,29,56,.06), 0 14px 28px rgba(15,29,56,.1);}
   .story img{width:100%;aspect-ratio:16/10;object-fit:cover;}
+  .story .img-placeholder{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy-2),var(--navy));display:flex;align-items:center;justify-content:center;}
+  .story .img-placeholder span{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.55);text-transform:uppercase;}
   .story-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
-  .story h3{font-family:"Libre Franklin",sans-serif;font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.005em;color:var(--ink);}
+  .story h3{font-family:"Libre Franklin",sans-serif;font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.005em;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
   .story h3 a:hover{color:var(--signal);}
-  .story p{font-size:14px;color:#5a5448;margin-top:8px;font-family:"PT Serif",serif;flex:1;}
+  .story p{font-size:14px;color:#5a5448;margin-top:8px;font-family:"PT Serif",serif;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
   .story .source-tag{margin-top:12px;}
   .story .also-list{margin-top:12px;}
+  .also-item{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .share-row{margin-top:12px;display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--rule);}
   .share-row a{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--navy);display:flex;align-items:center;gap:4px;}
   .share-row a:hover{color:var(--signal);}
@@ -365,13 +368,17 @@ function render(clusters){
     const s = c.main;
     return `
     <article class="story">
-      ${s.image ? `<a href="${s.link}" target="_blank" rel="noopener"><img loading="lazy" src="${s.image}" alt="" onerror="this.closest('article').querySelector('img').style.display='none'"></a>` : ""}
+      <a href="${s.link}" target="_blank" rel="noopener">
+        ${s.image
+          ? `<img loading="lazy" src="${s.image}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',innerHTML:'<span>RALLY POINT</span>'}))">`
+          : `<div class="img-placeholder"><span>Rally Point</span></div>`}
+      </a>
       <div class="story-body">
         ${breaking ? `<span class="breaking-flag">Breaking</span>` : ""}
         <h3><a href="${s.link}" target="_blank" rel="noopener">${s.title}</a></h3>
-        ${s.summary ? `<p>${s.summary}</p>` : ""}
+        ${s.summary ? `<p>${s.summary}</p>` : `<p></p>`}
         <div class="source-tag">${s.source}<span class="dot">•</span><span class="time">${timeAgo(s.date)}</span></div>
-        ${alsoListHTML(c, 4)}
+        ${alsoListHTML(c, 3)}
         <div class="share-row">
           <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(s.title)}&url=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Share on X</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Facebook</a>

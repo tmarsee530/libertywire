@@ -31,10 +31,15 @@
   a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px;}
   img{display:block;max-width:100%;}
 
-  .utility-bar{background:var(--ink);color:#c9c5b8;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;display:flex;align-items:center;justify-content:space-between;padding:7px 20px;}
-  .utility-bar .brand-tag{color:#8a8577;}
+  .utility-bar{background:var(--ink);color:#c9c5b8;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;display:flex;align-items:center;justify-content:space-between;padding:7px 20px;gap:14px;}
+  .utility-bar .brand-tag{color:#8a8577;flex:0 0 auto;}
   .utility-bar a{color:#e8dcc0;}
   .utility-bar a:hover{color:var(--gold);}
+  .tone-index{display:flex;align-items:center;gap:8px;flex:0 0 auto;}
+  .tone-index .ti-label{color:#8a8577;text-transform:uppercase;}
+  .tone-index .ti-value{color:#fff;font-weight:600;padding:2px 8px;border-radius:12px;background:rgba(255,255,255,.08);}
+  .tone-index .ti-value.negative{background:rgba(185,28,28,.35);color:#ffd9d9;}
+  .tone-index .ti-value.positive{background:rgba(63,143,95,.35);color:#c9f2d6;}
 
   .ticker-bar{background:linear-gradient(180deg,var(--signal),var(--signal-dark));color:#fff;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;display:flex;align-items:center;overflow:hidden;height:38px;}
   .ticker-label{flex:0 0 auto;background:rgba(0,0,0,.18);height:100%;display:flex;align-items:center;gap:8px;padding:0 16px;letter-spacing:.14em;}
@@ -95,9 +100,7 @@
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .story{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column;position:relative;}
   .story:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(15,29,56,.06), 0 14px 28px rgba(15,29,56,.1);}
-  .importance-badge{position:absolute;top:10px;right:10px;z-index:2;background:rgba(14,13,12,.72);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.03em;padding:4px 8px;border-radius:20px;backdrop-filter:blur(2px);}
-  .importance-badge.high{background:rgba(185,28,28,.85);}
-  .lead .importance-badge{top:14px;right:14px;font-size:12px;padding:5px 10px;}
+  .importance-badge{display:none;}
   .story img{width:100%;aspect-ratio:16/10;object-fit:cover;}
   .story .img-placeholder{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy-2),var(--navy));display:flex;align-items:center;justify-content:center;}
   .story .img-placeholder span{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.55);text-transform:uppercase;}
@@ -135,6 +138,10 @@
 
 <div class="utility-bar">
   <span class="brand-tag">RALLY POINT NEWS · EST. 2026</span>
+  <div class="tone-index" title="Share of today's headlines using positive vs. negative language about the country, computed from all 30 sources.">
+    <span class="ti-label">Conservative Media Tone Index</span>
+    <span class="ti-value" id="toneIndexValue">—</span>
+  </div>
   <a href="mailto:tmarsee530@me.com">Tips &amp; Corrections</a>
 </div>
 
@@ -349,10 +356,41 @@ function alsoListHTML(cluster, limit){
   return `<div class="also-list">${rows}</div>`;
 }
 
-function importanceBadge(cluster){
-  const pct = Math.max(1, Math.round((cluster.sourceCount / FEEDS.length) * 100));
-  const cls = pct >= 30 ? " high" : "";
-  return `<div class="importance-badge${cls}">${pct}%</div>`;
+/* ---------- Conservative Media Tone Index ----------
+   A simple keyword heuristic, not real polling data. It measures whether
+   today's headlines across all sources skew toward negative or positive
+   language about the country, the economy, and national direction —
+   not actual public opinion. Recomputed on every refresh using headlines
+   already being fetched, so it stays current in real time (well under
+   the hour it would take a real pollster to move the needle). */
+const TONE_NEGATIVE = ["crisis","chaos","disaster","collapse","collapsing","decline","declining","failing","failure","fails","scandal","corrupt","corruption","threat","danger","dangerous","warns","warning","alarming","catastrophe","recession","inflation","debt","crime","broken","weak","struggling","spiraling"];
+const TONE_POSITIVE = ["wins","win","victory","triumph","surges","surge","soaring","booms","booming","thrives","thriving","strong","strength","growth","growing","success","successful","breakthrough","landmark","record","recovery","recovering","optimistic","progress"];
+
+function toneScoreText(text){
+  const t = text.toLowerCase();
+  let neg = 0, pos = 0;
+  for (const w of TONE_NEGATIVE) if (t.includes(w)) neg++;
+  for (const w of TONE_POSITIVE) if (t.includes(w)) pos++;
+  return { neg, pos };
+}
+
+function computeToneIndex(stories){
+  let neg = 0, pos = 0;
+  stories.forEach(s => {
+    const r = toneScoreText(s.title + " " + (s.summary || ""));
+    neg += r.neg; pos += r.pos;
+  });
+  const total = neg + pos;
+  const el = document.getElementById("toneIndexValue");
+  if (!el) return;
+  if (total < 3){
+    el.textContent = "Gathering data…";
+    el.className = "ti-value";
+    return;
+  }
+  const pct = Math.round((pos / total) * 100);
+  el.textContent = pct + "% Positive";
+  el.className = "ti-value" + (pct <= 40 ? " negative" : pct >= 60 ? " positive" : "");
 }
 
 function render(clusters){
@@ -363,7 +401,6 @@ function render(clusters){
 
   const isBreaking = leadCluster.sourceCount >= 3 && minutesAgo(leadCluster.newestDate) <= 45;
   lead.innerHTML = `
-    ${importanceBadge(leadCluster)}
     <div class="kicker">${isBreaking ? "Breaking" : "Developing"}</div>
     ${leadCluster.main.image ? `<a href="${leadCluster.main.link}" target="_blank" rel="noopener"><img src="${leadCluster.main.image}" alt=""></a>` : ""}
     <div class="lead-body">
@@ -378,7 +415,6 @@ function render(clusters){
     const s = c.main;
     return `
     <article class="story">
-      ${importanceBadge(c)}
       <a href="${s.link}" target="_blank" rel="noopener">
         ${s.image
           ? `<img loading="lazy" src="${s.image}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',innerHTML:'<span>RALLY POINT</span>'}))">`
@@ -424,6 +460,7 @@ async function refresh(){
   if (unique.length){
     banner.style.display = "none";
     render(buildClusters(unique));
+    computeToneIndex(unique);
   } else {
     banner.style.display = "block";
     renderSample();

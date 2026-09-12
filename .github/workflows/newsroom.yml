@@ -55,4 +55,6 @@ jobs:
           git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
           git add index.html data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json
           git commit -m "Refresh newsroom operating data"
-          git push
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

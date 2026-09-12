@@ -2,9 +2,23 @@
 from pathlib import Path
 p=Path(__file__).resolve().parents[1]/'index.html'
 s=p.read_text()
-css='<link rel="stylesheet" href="assets/homepage-v2.css">'
-js='<script src="assets/homepage-v2.js" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=3">'
+js='<script src="assets/homepage-v2.js?v=3" defer></script>'
 changed=False
+for old in (
+    '<link rel="stylesheet" href="assets/homepage-v2.css">',
+    '<link rel="stylesheet" href="assets/homepage-v2.css?v=1">',
+    '<link rel="stylesheet" href="assets/homepage-v2.css?v=2">',
+):
+    if old in s:
+        s=s.replace(old,css);changed=True
+for old in (
+    '<script src="assets/homepage-v2.js" defer></script>',
+    '<script src="assets/homepage-v2.js?v=1" defer></script>',
+    '<script src="assets/homepage-v2.js?v=2" defer></script>',
+):
+    if old in s:
+        s=s.replace(old,js);changed=True
 if css not in s:
     s=s.replace('</head>',css+'\n</head>',1);changed=True
 if js not in s:

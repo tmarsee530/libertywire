@@ -24,6 +24,7 @@ def cluster(stories):
             best['stories'].append(s);best['sources'].add(s.get('source'));best['tokens']|=t
         else:groups.append({'stories':[s],'sources':{s.get('source')},'tokens':set(t)})
     return groups
+def substantive(payload):return {k:v for k,v in payload.items() if k!='generated_at'}
 def main():
     news=json.loads(NEWS.read_text());now=datetime.now(timezone.utc);out=[]
     for g in cluster(news.get('stories',[])):
@@ -35,5 +36,12 @@ def main():
         out.append({'id':sid,'title':title,'importance_score':score,'source_count':len(sources),'sources':sources,'newest_epoch':newest,'newest_date':lead.get('date'),'risk_flags':risk,'status':'developing' if len(sources)>=3 and age<=90 else 'active','coverage':[{'source':s.get('source'),'title':s.get('title'),'link':s.get('link'),'date':s.get('date')} for s in ss[:8]]})
     out.sort(key=lambda x:x['importance_score'],reverse=True)
     payload={'generated_at':now.isoformat().replace('+00:00','Z'),'storyline_count':len(out),'multi_source_count':sum(1 for x in out if x['source_count']>=2),'developing_count':sum(1 for x in out if x['status']=='developing'),'storylines':out[:500]}
-    OUT.write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n');print(f"Built {len(out)} storylines; {payload['multi_source_count']} multi-source; {payload['developing_count']} developing")
+    if OUT.exists():
+        try:
+            old=json.loads(OUT.read_text())
+            if substantive(old)==substantive(payload):
+                print(f"Storylines unchanged; {len(out)} storylines; {payload['multi_source_count']} multi-source; {payload['developing_count']} developing")
+                return
+        except (json.JSONDecodeError,OSError):pass
+    OUT.parent.mkdir(parents=True,exist_ok=True);OUT.write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n');print(f"Built {len(out)} storylines; {payload['multi_source_count']} multi-source; {payload['developing_count']} developing")
 if __name__=='__main__':main()

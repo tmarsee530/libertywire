@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-12T16:18:43.570495Z",
+  "generated_at": "2026-09-12T16:50:28.256733Z",
   "business_status": "healthy",
   "newsroom": {
     "dataset_age_minutes": 0.0,
     "dataset_freshness": "fresh",
-    "stories": 134,
-    "healthy_sources": 27,
+    "stories": 130,
+    "healthy_sources": 26,
     "configured_sources": 31,
-    "source_health_pct": 87.1,
+    "source_health_pct": 83.9,
     "failed_sources": [
       {
         "source": "Washington Times",
@@ -22,21 +22,68 @@
         "error": "404 Client Error: Not Found for url: https://townhall.com/api/feeds; no advertised RSS/Atom feed found"
       },
       {
+        "source": "Commentary Magazine",
+        "error": "415 Client Error: Unsupported Media Type for url: https://www.commentary.org/feed/"
+      },
+      {
         "source": "Human Events",
         "error": "feed returned no entries; no advertised RSS/Atom feed found"
       }
     ]
   },
   "editorial": {
-    "storylines": 122,
-    "multi_source_storylines": 9,
-    "developing_storylines": 2,
-    "risk_queue_count": 5,
+    "storylines": 120,
+    "multi_source_storylines": 7,
+    "developing_storylines": 1,
+    "risk_queue_count": 10,
     "risk_queue": [
+      {
+        "id": "f399308c9910",
+        "title": "Lindsay Clancy black holdout juror attacked, doxxed by NBC station",
+        "flags": [
+          "doxx"
+        ],
+        "sources": [
+          "Daily Caller",
+          "LifeSiteNews",
+          "NewsBusters",
+          "The Federalist",
+          "Twitchy"
+        ],
+        "source_count": 5,
+        "action": "publish attributed coverage only"
+      },
+      {
+        "id": "c1e74a19baaf",
+        "title": "US House to Vote on Russia Sanctions Bill Next Week",
+        "flags": [
+          "fraud"
+        ],
+        "sources": [
+          "Just the News",
+          "The Epoch Times"
+        ],
+        "source_count": 2,
+        "action": "publish attributed coverage only"
+      },
+      {
+        "id": "dabdbe236852",
+        "title": "DHS confirms Muslim Rep. Ilhan Omar married her brother",
+        "flags": [
+          "married her brother"
+        ],
+        "sources": [
+          "LifeSiteNews",
+          "WND"
+        ],
+        "source_count": 2,
+        "action": "publish attributed coverage only"
+      },
       {
         "id": "1808de26214c",
         "title": "\u2018ANTI-DEMOCRATIC\u2019: Nonprofits That Received Tax Dollars Unite to Oppose Rules Cracking Down on Waste, Fraud, and Abuse",
         "flags": [
+          "abuse",
           "fraud"
         ],
         "sources": [
@@ -53,6 +100,18 @@
         ],
         "sources": [
           "The College Fix"
+        ],
+        "source_count": 1,
+        "action": "hold for extra scrutiny"
+      },
+      {
+        "id": "f71419b0dccd",
+        "title": "Fox News Stars Mourn Texas \u2018Fan Who Became A Friend\u2019 Murdered In Park Attack",
+        "flags": [
+          "murder"
+        ],
+        "sources": [
+          "Daily Wire"
         ],
         "source_count": 1,
         "action": "hold for extra scrutiny"
@@ -82,7 +141,7 @@
         "action": "hold for extra scrutiny"
       },
       {
-        "id": "b597d25ac7c7",
+        "id": "53476ddc59df",
         "title": "Man accused of throwing rocks at federal officers sentenced to 3 years in federal prison",
         "flags": [
           "accused"
@@ -92,50 +151,73 @@
         ],
         "source_count": 1,
         "action": "hold for extra scrutiny"
+      },
+      {
+        "id": "ace978acd5c7",
+        "title": "America hasn\u2019t learned the right lessons from Charlie Kirk\u2019s murder",
+        "flags": [
+          "murder"
+        ],
+        "sources": [
+          "WND"
+        ],
+        "source_count": 1,
+        "action": "hold for extra scrutiny"
       }
     ],
     "top_storylines": [
       {
-        "id": "3cb1755b9b35",
+        "id": "f399308c9910",
         "title": "Lindsay Clancy black holdout juror attacked, doxxed by NBC station",
-        "source_count": 4,
-        "importance_score": 16.86,
+        "source_count": 5,
+        "importance_score": 20.73,
         "sources": [
           "Daily Caller",
           "LifeSiteNews",
+          "NewsBusters",
           "The Federalist",
           "Twitchy"
         ],
         "status": "developing"
       },
       {
-        "id": "efcf5ca59465",
-        "title": "Man Waiving Palestinian Flag Runs Into Field At Yankee Stadium On 25th Anniversary Of 9/11",
-        "source_count": 3,
-        "importance_score": 12.94,
-        "sources": [
-          "Daily Caller",
-          "Legal Insurrection",
-          "RedState"
-        ],
-        "status": "developing"
-      },
-      {
-        "id": "6d5c93c8b16d",
-        "title": "Declassified 1998 CIA Document Shows Bin Laden Hijacking Plan Known",
+        "id": "c1e74a19baaf",
+        "title": "US House to Vote on Russia Sanctions Bill Next Week",
         "source_count": 2,
-        "importance_score": 8.95,
+        "importance_score": 10.0,
         "sources": [
-          "Commentary Magazine",
-          "PJ Media"
+          "Just the News",
+          "The Epoch Times"
         ],
         "status": "active"
       },
       {
-        "id": "6252e71737b7",
+        "id": "acfc41c5a3b0",
+        "title": "Trump says a united Ireland would be \u2018fantastic\u2019",
+        "source_count": 2,
+        "importance_score": 8.84,
+        "sources": [
+          "The Epoch Times",
+          "Washington Examiner"
+        ],
+        "status": "active"
+      },
+      {
+        "id": "4e5810760e99",
+        "title": "Man Waiving Palestinian Flag Runs Into Field At Yankee Stadium On 25th Anniversary Of 9/11",
+        "source_count": 2,
+        "importance_score": 8.81,
+        "sources": [
+          "Daily Caller",
+          "Legal Insurrection"
+        ],
+        "status": "active"
+      },
+      {
+        "id": "8666b2bb41c1",
         "title": "Anti-gun media outlet just sued DOJ",
         "source_count": 2,
-        "importance_score": 8.86,
+        "importance_score": 8.72,
         "sources": [
           "Daily Caller",
           "WND"
@@ -146,32 +228,10 @@
         "id": "dabdbe236852",
         "title": "DHS confirms Muslim Rep. Ilhan Omar married her brother",
         "source_count": 2,
-        "importance_score": 8.72,
+        "importance_score": 8.59,
         "sources": [
           "LifeSiteNews",
           "WND"
-        ],
-        "status": "active"
-      },
-      {
-        "id": "397ed58b421d",
-        "title": "High School Football Super 25: Biggest Winners and Surprises",
-        "source_count": 2,
-        "importance_score": 8.49,
-        "sources": [
-          "Daily Signal",
-          "The Political Insider"
-        ],
-        "status": "active"
-      },
-      {
-        "id": "12a2b72c7ff7",
-        "title": "Remember 9/12, Too",
-        "source_count": 2,
-        "importance_score": 8.0,
-        "sources": [
-          "National Review",
-          "Washington Free Beacon"
         ],
         "status": "active"
       },
@@ -197,13 +257,22 @@
         "status": "active"
       },
       {
-        "id": "fe78f99ef91d",
-        "title": "NYT: 25 Years Later, The Real Victims Of 9/11 Are Muslims",
-        "source_count": 2,
-        "importance_score": 8.0,
+        "id": "93260fc03acc",
+        "title": "Houthi advance in Yemen puts US in a new bind as Iran war enters seventh month",
+        "source_count": 1,
+        "importance_score": 6.97,
         "sources": [
-          "Commentary Magazine",
-          "The Federalist"
+          "New York Post"
+        ],
+        "status": "active"
+      },
+      {
+        "id": "538956a087e7",
+        "title": "Watchdog group demands House Ethics get Rep. Ilhan Omar financial docs after shock vote to dismiss probe",
+        "source_count": 1,
+        "importance_score": 6.9,
+        "sources": [
+          "New York Post"
         ],
         "status": "active"
       },
@@ -211,7 +280,7 @@
         "id": "d360bac5c0b5",
         "title": "Iowa supervisor slams ban on guaranteed income programs as state \u2018waging ideological wars\u2019",
         "source_count": 1,
-        "importance_score": 6.92,
+        "importance_score": 6.79,
         "sources": [
           "Fox News"
         ],
@@ -221,7 +290,7 @@
         "id": "05a92b112bc1",
         "title": "Los Perros del Mal send Los Psycho Circus to the dog house, win AAA trios titles at Triplemania 34",
         "source_count": 1,
-        "importance_score": 6.89,
+        "importance_score": 6.76,
         "sources": [
           "Fox News"
         ],
@@ -231,7 +300,7 @@
         "id": "f143d1c909cb",
         "title": "Trump Uses Alien Terrorist Court for First-Ever Deportation",
         "source_count": 1,
-        "importance_score": 6.42,
+        "importance_score": 6.29,
         "sources": [
           "Legal Insurrection"
         ],
@@ -241,7 +310,7 @@
         "id": "152fe3b5bd15",
         "title": "The congressional race in the county that powers Colorado",
         "source_count": 1,
-        "importance_score": 6.29,
+        "importance_score": 6.15,
         "sources": [
           "WND"
         ],
@@ -251,39 +320,9 @@
         "id": "703160ae074d",
         "title": "Trump says Houthis \u2018don\u2019t want to fight us\u2019 after strait offensive and Saudi pipeline shutdown",
         "source_count": 1,
-        "importance_score": 6.28,
+        "importance_score": 6.14,
         "sources": [
           "Washington Examiner"
-        ],
-        "status": "active"
-      },
-      {
-        "id": "5e4fd5f74881",
-        "title": "President Trump Visits Ireland",
-        "source_count": 1,
-        "importance_score": 6.22,
-        "sources": [
-          "The Epoch Times"
-        ],
-        "status": "active"
-      },
-      {
-        "id": "307f601fa441",
-        "title": "US House to Vote on Russia Sanctions Bill Next Week",
-        "source_count": 1,
-        "importance_score": 6.0,
-        "sources": [
-          "The Epoch Times"
-        ],
-        "status": "active"
-      },
-      {
-        "id": "f8fc4866c2eb",
-        "title": "Ex-Muslim Warns Islam\u2019s Threat Is Much More Than Terrorism",
-        "source_count": 1,
-        "importance_score": 6.0,
-        "sources": [
-          "PJ Media"
         ],
         "status": "active"
       },
@@ -304,6 +343,36 @@
         "importance_score": 6.0,
         "sources": [
           "Daily Signal"
+        ],
+        "status": "active"
+      },
+      {
+        "id": "759e1acce77f",
+        "title": "Houses of Worship Deserve Protection from Disruption",
+        "source_count": 1,
+        "importance_score": 6.0,
+        "sources": [
+          "National Review"
+        ],
+        "status": "active"
+      },
+      {
+        "id": "27948026a719",
+        "title": "U. Delaware endures \u2019employee backlash\u2019 for return-to-work mandate years after COVID",
+        "source_count": 1,
+        "importance_score": 6.0,
+        "sources": [
+          "The College Fix"
+        ],
+        "status": "active"
+      },
+      {
+        "id": "4fa8b81a3322",
+        "title": "Trump: Iran War Will End Even if GOP Loses Because People 'Think if We Lose,' I'll Be Mad and 'Just Take Care of Business'",
+        "source_count": 1,
+        "importance_score": 6.0,
+        "sources": [
+          "Breitbart"
         ],
         "status": "active"
       }

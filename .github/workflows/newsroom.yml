@@ -25,6 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Synchronize with latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -56,5 +60,10 @@ jobs:
           git add index.html data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json
           git commit -m "Refresh newsroom operating data"
           git fetch origin main
-          git rebase origin/main
+          PARENT_SHA="$(git rev-parse HEAD^)"
+          REMOTE_SHA="$(git rev-parse origin/main)"
+          if [ "$PARENT_SHA" != "$REMOTE_SHA" ]; then
+            echo "main advanced during this refresh; skipping stale generated-data push. The next scheduled run will rebuild from the newest main."
+            exit 0
+          fi
           git push origin HEAD:main

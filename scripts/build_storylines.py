@@ -5,7 +5,7 @@ import hashlib,json,re
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];NEWS=ROOT/'data'/'news.json';OUT=ROOT/'data'/'storylines.json'
-STOP={'this','that','with','from','have','will','into','after','over','about','says','said','amid','their','they','what','when','where','which','while','could','would','should','more','than','news','report','reports','live','update','updates','high','school','football','years','later','remember','watch','media'}
+STOP={'this','that','with','from','have','will','into','after','over','about','says','said','amid','their','they','what','when','where','which','while','could','would','should','more','than','news','report','reports','live','update','updates','high','school','football','years','later','remember','watch','media','next','week','weeks','bill','bills','today','latest'}
 IMPACT=('supreme court','congress','senate','house','president','white house','governor','election','war','economy','inflation','jobs','federal reserve','shutdown','border','tariff','court')
 RISK=(
     'accused','alleged','arrested','indicted','charged','dead','dies','killed','murder','rape','sexual assault',

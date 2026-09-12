@@ -1,45 +1,42 @@
-name: Autonomous Newsroom Health Check
+name: Autonomous Newsroom
 
 on:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: rally-point-newsroom
+  cancel-in-progress: false
 
 jobs:
-  check-feeds:
+  refresh-newsroom:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check configured feeds
-        shell: python
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install ingestion dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build shared newsroom dataset
+        run: python scripts/fetch_news.py
+
+      - name: Commit refreshed dataset when changed
         run: |
-          import json, urllib.request, urllib.error
-          from pathlib import Path
-
-          feeds = json.loads(Path('feeds.json').read_text())
-          healthy, failed = [], []
-          headers = {'User-Agent': 'RallyPointNews/1.0 feed-health-check'}
-
-          for feed in feeds:
-              try:
-                  req = urllib.request.Request(feed['url'], headers=headers)
-                  with urllib.request.urlopen(req, timeout=15) as response:
-                      status = getattr(response, 'status', 200)
-                      if 200 <= status < 400:
-                          healthy.append(feed['name'])
-                      else:
-                          failed.append((feed['name'], f'HTTP {status}'))
-              except Exception as exc:
-                  failed.append((feed['name'], str(exc)[:160]))
-
-          print(f'Healthy feeds: {len(healthy)}/{len(feeds)}')
-          for name, reason in failed:
-              print(f'FAILED: {name}: {reason}')
-
-          # Do not take the site down because one publisher changed its feed.
-          # Fail only when more than one third of the source universe is unreachable.
-          if len(failed) > len(feeds) / 3:
-              raise SystemExit('Too many feeds are unavailable; newsroom needs attention.')
+          if git diff --quiet -- data/news.json; then
+            echo "Newsroom dataset is unchanged."
+            exit 0
+          fi
+          git config user.name "rally-point-newsroom[bot]"
+          git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
+          git add data/news.json
+          git commit -m "Refresh newsroom data"
+          git push

@@ -1,6 +1,6 @@
 /* Progressive enhancement: server-side storyline intelligence for homepage. */
 (async()=>{
- const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const age=d=>{if(!d)return'';const m=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return m<60?`${m}m ago`:m<1440?`${Math.floor(m/60)}h ago`:`${Math.floor(m/1440)}d ago`};
  const norm=u=>{try{const x=new URL(u,location.href);x.hash='';return x.href.replace(/\/$/,'')}catch{return String(u||'')}};
  try{

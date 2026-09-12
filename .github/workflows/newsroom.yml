@@ -1,6 +1,13 @@
 name: Autonomous Newsroom
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'feeds.json'
+      - 'requirements.txt'
+      - 'scripts/**'
+      - '.github/workflows/newsroom.yml'
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:

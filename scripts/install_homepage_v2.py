@@ -31,7 +31,16 @@ if '<main>' in s:
     s=s.replace('<main>','<main id="main-content">',1);changed=True
 if 'Breaking News, Every Minute' in s:
     s=s.replace('RALLY POINT NEWS — Breaking News, Every Minute','RALLY POINT NEWS — Multi-Source News Intelligence');changed=True
+# A GitHub scheduled run can be delayed. Keep using the curated shared newsroom for
+# a reasonable grace window rather than immediately dropping readers into the weaker
+# browser-side RSS fallback after 45 minutes.
+if 'MAX_DATASET_AGE_MIN=45' in s:
+    s=s.replace('MAX_DATASET_AGE_MIN=45','MAX_DATASET_AGE_MIN=180');changed=True
+if 'The shared newsroom is unavailable, so Rally Point is using its backup live-feed system.' in s:
+    s=s.replace('The shared newsroom is unavailable, so Rally Point is using its backup live-feed system.','The newsroom refresh is delayed. Rally Point is temporarily using its backup wire.');changed=True
+if 'WIRE CHECKS EVERY 60 SECONDS' in s:
+    s=s.replace('WIRE CHECKS EVERY 60 SECONDS','PAGE CHECKS FOR UPDATES EVERY 60 SECONDS');changed=True
 if 'AUTO-CHECKS EVERY 60 SECONDS' in s:
-    s=s.replace('AUTO-CHECKS EVERY 60 SECONDS','WIRE CHECKS EVERY 60 SECONDS');changed=True
+    s=s.replace('AUTO-CHECKS EVERY 60 SECONDS','PAGE CHECKS FOR UPDATES EVERY 60 SECONDS');changed=True
 if changed:p.write_text(s);print('Installed homepage v2 presentation layer')
 else:print('Homepage v2 already installed')

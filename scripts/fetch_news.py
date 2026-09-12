@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Build Rally Point's shared news dataset from the configured RSS/Atom feeds."""
+"""Build Rally Point's shared news dataset from configured RSS/Atom feeds."""
 from __future__ import annotations
-import calendar, html, json, re, time
+import calendar, html, json, re
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urljoin
 import feedparser, requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -17,6 +19,16 @@ TIMEOUT_SECONDS=25
 USER_AGENT="RallyPointNews/1.0 (+https://rallypointnews.com/)"
 TAG_RE=re.compile(r"<[^>]+>")
 IMG_RE=re.compile(r"<img[^>]+src=[\"']([^\"']+)[\"']",re.I)
+
+class FeedLinkParser(HTMLParser):
+    def __init__(self):
+        super().__init__();self.links=[]
+    def handle_starttag(self,tag,attrs):
+        if tag.lower()!="link":return
+        a={str(k).lower():v for k,v in attrs if k}
+        rel=(a.get("rel") or "").lower();typ=(a.get("type") or "").lower();href=a.get("href")
+        if href and "alternate" in rel and typ in {"application/rss+xml","application/atom+xml","application/feed+json"}:
+            self.links.append(href)
 
 def session_with_retries():
     retry=Retry(total=2,connect=2,read=2,status=2,backoff_factor=1,status_forcelist=(429,500,502,503,504),allowed_methods=frozenset(["GET"]),respect_retry_after_header=True)
@@ -52,18 +64,39 @@ def published_epoch(entry):
 def iso_from_epoch(epoch):
     return datetime.fromtimestamp(epoch,tz=timezone.utc).isoformat().replace("+00:00","Z") if epoch else None
 
+def parse_feed(content,source):
+    parsed=feedparser.parse(content)
+    if not parsed.entries:return []
+    stories=[]
+    for entry in parsed.entries[:MAX_PER_SOURCE]:
+        title=clean_text(entry.get("title"));link=(entry.get("link") or "").strip()
+        if not title or not link:continue
+        epoch=published_epoch(entry)
+        stories.append({"source":source["name"],"title":title,"link":link,"date":iso_from_epoch(epoch),"published_epoch":epoch,"image":first_image(entry),"summary":summarize(entry)})
+    return stories
+
+def discover_feed(homepage,timeout):
+    response=SESSION.get(homepage,timeout=timeout,headers={"Accept":"text/html,application/xhtml+xml;q=0.9,*/*;q=0.8"});response.raise_for_status()
+    parser=FeedLinkParser();parser.feed(response.text)
+    return urljoin(response.url,parser.links[0]) if parser.links else None
+
 def fetch_source(source):
+    timeout=int(source.get("timeout",TIMEOUT_SECONDS));direct_error=None
     try:
-        response=SESSION.get(source["url"],timeout=TIMEOUT_SECONDS);response.raise_for_status();parsed=feedparser.parse(response.content)
-        if not parsed.entries:return [],"feed returned no entries"
-        stories=[]
-        for entry in parsed.entries[:MAX_PER_SOURCE]:
-            title=clean_text(entry.get("title"));link=(entry.get("link") or "").strip()
-            if not title or not link:continue
-            epoch=published_epoch(entry)
-            stories.append({"source":source["name"],"title":title,"link":link,"date":iso_from_epoch(epoch),"published_epoch":epoch,"image":first_image(entry),"summary":summarize(entry)})
-        return stories,None
-    except Exception as exc:return [],str(exc)[:240]
+        response=SESSION.get(source["url"],timeout=timeout);response.raise_for_status();stories=parse_feed(response.content,source)
+        if stories:return stories,None
+        direct_error="feed returned no entries"
+    except Exception as exc:direct_error=str(exc)[:240]
+    homepage=source.get("homepage")
+    if not homepage:return [],direct_error
+    try:
+        discovered=discover_feed(homepage,timeout)
+        if not discovered:return [],f"{direct_error}; no advertised RSS/Atom feed found"
+        if discovered.rstrip("/")==source["url"].rstrip("/"):return [],direct_error
+        response=SESSION.get(discovered,timeout=timeout);response.raise_for_status();stories=parse_feed(response.content,source)
+        if stories:return stories,None
+        return [],f"{direct_error}; advertised feed returned no entries"
+    except Exception as exc:return [],f"{direct_error}; feed autodiscovery failed: {str(exc)[:140]}"[:240]
 
 def dedupe(stories):
     seen=set();unique=[]

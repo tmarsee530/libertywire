@@ -5,24 +5,25 @@ import hashlib,json,re
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];NEWS=ROOT/'data'/'news.json';OUT=ROOT/'data'/'storylines.json'
-STOP={'this','that','with','from','have','will','into','after','over','about','says','said','amid','their','they','what','when','where','which','while','could','would','should','more','than','news','report','reports','live','update','updates'}
+STOP={'this','that','with','from','have','will','into','after','over','about','says','said','amid','their','they','what','when','where','which','while','could','would','should','more','than','news','report','reports','live','update','updates','high','school','football','years','later','remember','watch','media'}
 IMPACT=('supreme court','congress','senate','house','president','white house','governor','election','war','economy','inflation','jobs','federal reserve','shutdown','border','tariff','court')
 RISK=('accused','alleged','arrested','indicted','charged','dead','dies','killed','election called','projected winner','bankruptcy','insider trading','fraud')
 def tokens(title):return {x for x in re.findall(r"[a-z0-9']{4,}",(title or '').lower()) if x not in STOP}
-def sim(a,b):
-    if not a or not b:return 0
-    return len(a&b)/max(1,min(len(a),len(b)))
+def pair_score(a,b):
+    overlap=len(a&b)
+    if overlap<2:return 0
+    return overlap/max(1,min(len(a),len(b)))
 def cluster(stories):
     groups=[]
     for s in stories:
         t=tokens(s.get('title'));best=None;best_score=0
         for g in groups:
             if s.get('source') in g['sources']:continue
-            score=sim(t,g['tokens'])
+            score=max((pair_score(t,member) for member in g['member_tokens']),default=0)
             if score>best_score:best,best_score=g,score
         if best and best_score>=.42:
-            best['stories'].append(s);best['sources'].add(s.get('source'));best['tokens']|=t
-        else:groups.append({'stories':[s],'sources':{s.get('source')},'tokens':set(t)})
+            best['stories'].append(s);best['sources'].add(s.get('source'));best['tokens']|=t;best['member_tokens'].append(t)
+        else:groups.append({'stories':[s],'sources':{s.get('source')},'tokens':set(t),'member_tokens':[t]})
     return groups
 def substantive(payload):return {k:v for k,v in payload.items() if k!='generated_at'}
 def main():

@@ -1,0 +1,42 @@
+name: Autonomous Newsroom
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rally-point-newsroom
+  cancel-in-progress: false
+
+jobs:
+  refresh-newsroom:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install ingestion dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build shared newsroom dataset
+        run: python scripts/fetch_news.py
+
+      - name: Commit refreshed dataset when changed
+        run: |
+          if git diff --quiet -- data/news.json; then
+            echo "Newsroom dataset is unchanged."
+            exit 0
+          fi
+          git config user.name "rally-point-newsroom[bot]"
+          git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
+          git add data/news.json
+          git commit -m "Refresh newsroom data"
+          git push

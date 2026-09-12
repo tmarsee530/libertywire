@@ -12,7 +12,7 @@ When an item is completed, mark it complete and add the next evidence-based prio
 
 ## Priority queue
 
-1. **Reduce unnecessary newsroom commits/deployments** — Make `storylines.json` and `operations.json` write only when meaningful content changes, and make the workflow detect untracked/changed operating datasets robustly. Goal: preserve 15-minute checks without generating needless commits and Pages deployments.
+1. **COMPLETED — Reduce unnecessary newsroom commits/deployments** — Storyline and operations snapshots now avoid rewrites when only timestamps/continuous age change, operations tracks a meaningful freshness bucket, and the workflow uses `git status --porcelain` so changed or untracked operating datasets are detected robustly.
 2. **Use server-side storylines on the homepage** — Read `data/storylines.json` for ranking/grouping when healthy and fall back to existing client-side clustering when unavailable. Improve headline hierarchy and source transparency without exposing internal risk/operations data.
 3. **Unify business intelligence around storylines** — Refactor the business manager to consume the storyline engine rather than recomputing weaker duplicate clusters.
 4. **Create persistent storyline history / “What changed?” data** — Track first seen, last seen, source growth, coverage additions, and capped history with pruning. This should become the factual substrate for differentiated article and timeline products.

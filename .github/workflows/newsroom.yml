@@ -44,7 +44,7 @@ jobs:
 
       - name: Commit refreshed operating data when changed
         run: |
-          if git diff --quiet -- data/news.json data/storylines.json data/operations.json; then
+          if [ -z "$(git status --porcelain -- data/news.json data/storylines.json data/operations.json)" ]; then
             echo "Operating datasets are unchanged."
             exit 0
           fi

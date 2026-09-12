@@ -7,6 +7,7 @@ on:
       - 'feeds.json'
       - 'requirements.txt'
       - 'scripts/**'
+      - 'assets/**'
       - '.github/workflows/newsroom.yml'
   schedule:
     - cron: '*/15 * * * *'
@@ -24,38 +25,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
-
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
-
+      - name: Install homepage presentation layer
+        run: python scripts/install_homepage_v2.py
       - name: Build shared newsroom dataset
         run: python scripts/fetch_news.py
-
       - name: Build storyline intelligence
         run: python scripts/build_storylines.py
-
       - name: Build storyline history
         run: python scripts/build_history.py
-
       - name: Build brief writer queue
         run: python scripts/build_writer_queue.py
-
       - name: Run executive business manager
         run: python scripts/manage_business.py
-
       - name: Commit refreshed operating data when changed
         run: |
-          if [ -z "$(git status --porcelain -- data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json)" ]; then
-            echo "Operating datasets are unchanged."
+          if [ -z "$(git status --porcelain -- index.html data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json)" ]; then
+            echo "Operating datasets and homepage are unchanged."
             exit 0
           fi
           git config user.name "rally-point-newsroom[bot]"
           git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
-          git add data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json
+          git add index.html data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json
           git commit -m "Refresh newsroom operating data"
           git push

@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-KKT59K667B');
 </script>
 <meta charset="UTF-8">
@@ -15,482 +14,57 @@
 <meta name="google-adsense-account" content="ca-pub-8991835188033615">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RALLY POINT NEWS — Breaking News, Every Minute</title>
-<meta name="description" content="Rally Point News — a real-time conservative news aggregator pulling from 30 sources, refreshed every minute.">
+<meta name="description" content="Rally Point News — a real-time conservative news aggregator pulling from 31 sources.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#0e0d0c;
-    --paper:#faf9f6;
-    --card:#ffffff;
-    --rule:#e4e1d8;
-    --signal:#b91c1c;
-    --signal-dark:#8f1414;
-    --navy:#0f1d38;
-    --navy-2:#16294d;
-    --gold:#c8952c;
-    --muted:#6f6a5e;
-    --shadow:0 1px 2px rgba(15,29,56,.04), 0 6px 20px rgba(15,29,56,.06);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--paper);color:var(--ink);font-family:"PT Serif",Georgia,serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
-  a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px;}
-  img{display:block;max-width:100%;}
-
-  .utility-bar{background:var(--ink);color:#c9c5b8;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;display:flex;align-items:center;justify-content:space-between;padding:7px 20px;gap:14px;}
-  .utility-bar .brand-tag{color:#8a8577;flex:0 0 auto;}
-  .utility-bar a{color:#e8dcc0;}
-  .utility-bar a:hover{color:var(--gold);}
-  .tone-index{display:flex;align-items:center;gap:8px;flex:0 0 auto;}
-  .tone-index .ti-label{color:#8a8577;text-transform:uppercase;}
-  .tone-index .ti-value{color:#fff;font-weight:600;padding:2px 8px;border-radius:12px;background:rgba(255,255,255,.08);}
-  .tone-index .ti-value.negative{background:rgba(185,28,28,.35);color:#ffd9d9;}
-  .tone-index .ti-value.positive{background:rgba(63,143,95,.35);color:#c9f2d6;}
-
-  .ticker-bar{background:linear-gradient(180deg,var(--signal),var(--signal-dark));color:#fff;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;display:flex;align-items:center;overflow:hidden;height:38px;}
-  .ticker-label{flex:0 0 auto;background:rgba(0,0,0,.18);height:100%;display:flex;align-items:center;gap:8px;padding:0 16px;letter-spacing:.14em;}
-  .live-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.3s ease-in-out infinite;}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  @media (prefers-reduced-motion: reduce){.live-dot{animation:none}.ticker-track{animation:none !important;padding-left:16px !important;}}
-  .ticker-viewport{flex:1;overflow:hidden;position:relative;height:100%;}
-  .ticker-track{display:inline-flex;align-items:center;height:100%;white-space:nowrap;padding-left:100%;animation:crawl 70s linear infinite;}
-  .ticker-track span{margin-right:52px;opacity:.96;}
-  .ticker-track b{font-weight:600;letter-spacing:.03em;}
-  @keyframes crawl{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-
-  header{background:linear-gradient(180deg,var(--navy-2),var(--navy));color:#fff;text-align:center;padding:38px 20px 28px;position:relative;}
-  header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--signal-dark),var(--signal),var(--gold),var(--signal),var(--signal-dark));}
-  .masthead{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:clamp(34px,6vw,64px);letter-spacing:-.01em;line-height:1;text-transform:uppercase;}
-  .masthead .eyebrow{color:#9fb0d1;font-weight:600;font-size:.32em;display:block;letter-spacing:.55em;margin-bottom:14px;font-family:"IBM Plex Mono",monospace;text-transform:uppercase;}
-  .masthead .news{color:var(--gold);}
-  .dateline{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a9ac0;margin-top:16px;}
-  .dateline .stamp{color:#fff;font-weight:600;}
-  .dateline .dot{color:#4a5d85;margin:0 10px;}
-
-  .ad-slot{max-width:1180px;margin:28px auto;padding:0 20px;}
-  .ad-box{border:1px dashed var(--rule);background:var(--card);color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px;}
-  .ad-leaderboard{height:90px;}
-  .ad-infeed{height:250px;}
-
-  .newsletter-card{background:var(--card);border:1px solid var(--rule);border-radius:14px;box-shadow:var(--shadow);padding:2.25rem 2rem;text-align:center;max-width:520px;margin:2rem auto;}
-  .newsletter-card h2{font-family:"Libre Franklin",sans-serif;font-size:21px;font-weight:800;letter-spacing:.04em;color:var(--navy);margin-bottom:.4rem;text-transform:uppercase;}
-  .newsletter-card p{color:var(--muted);margin-bottom:1.4rem;font-size:14.5px;font-family:"PT Serif",serif;}
-
-  main{max-width:1180px;margin:0 auto;padding:6px 20px 70px;}
-  .lead{padding:22px 0 26px;border-bottom:1px solid var(--rule);}
-  .lead-inner{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;text-align:center;position:relative;}
-  .lead .kicker{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;color:var(--signal);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:16px 0 12px;}
-  .lead .kicker::before,.lead .kicker::after{content:"";width:22px;height:1px;background:var(--signal);opacity:.5;}
-  .lead img{width:100%;max-height:260px;object-fit:cover;}
-  .lead-body{padding:6px 26px 22px;}
-  .lead h1{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:clamp(21px,3vw,30px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin:0 auto;color:var(--ink);}
-  .lead h1 a:hover{color:var(--signal);}
-  .lead .summary{max-width:620px;margin:12px auto 0;font-size:15px;color:#4a4438;font-family:"PT Serif",serif;}
-  .lead .source-tag{margin-top:18px;justify-content:center;}
-  .lead .also-list{justify-content:center;}
-
-  .source-tag{display:flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);}
-  .source-tag .time{color:var(--muted);font-weight:500;}
-  .source-tag .dot{color:var(--rule);}
-
-  .also-list{margin-top:14px;display:flex;flex-direction:column;gap:7px;text-align:left;}
-  .also-item{font-family:"PT Serif",serif;font-size:13.5px;line-height:1.35;color:#5a5448;}
-  .also-item .also-source{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:7px;}
-  .also-item a{color:var(--navy);border-bottom:1px solid var(--rule);}
-  .also-item a:hover{color:var(--signal);border-color:var(--signal);}
-  .lead .also-list{text-align:center;align-items:center;}
-
-  .section-label{font-family:"Libre Franklin",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:15px;color:var(--navy);padding:34px 0 14px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);}
-  .section-label small{font-family:"IBM Plex Mono",monospace;font-weight:500;letter-spacing:.06em;font-size:11px;color:var(--muted);text-transform:none;}
-
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .story{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column;position:relative;}
-  .story:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(15,29,56,.06), 0 14px 28px rgba(15,29,56,.1);}
-  .importance-badge{display:none;}
-  .story img{width:100%;aspect-ratio:16/10;object-fit:cover;}
-  .story .img-placeholder{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy-2),var(--navy));display:flex;align-items:center;justify-content:center;}
-  .story .img-placeholder span{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.55);text-transform:uppercase;}
-  .story-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
-  .story h3{font-family:"Libre Franklin",sans-serif;font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.005em;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  .story h3 a:hover{color:var(--signal);}
-  .story p{font-size:14px;color:#5a5448;margin-top:8px;font-family:"PT Serif",serif;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  .story .source-tag{margin-top:12px;}
-  .story .also-list{margin-top:12px;}
-  .also-item{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .share-row{margin-top:12px;display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--rule);}
-  .share-row a{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--navy);display:flex;align-items:center;gap:4px;}
-  .share-row a:hover{color:var(--signal);}
-
-  .breaking-flag{display:inline-block;background:var(--signal);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;margin-bottom:8px;}
-
-  .status-banner{display:none;max-width:1180px;margin:20px auto 0;padding:12px 18px;background:#fdf3d9;border:1px solid #e9cf7f;border-radius:8px;color:#71590d;font-family:"IBM Plex Mono",monospace;font-size:12px;}
-
-  footer{background:var(--ink);color:#a8a396;text-align:center;padding:44px 20px 36px;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;}
-  footer .foot-mast{font-family:"Libre Franklin",sans-serif;color:#fff;font-weight:800;font-size:19px;letter-spacing:.04em;margin-bottom:12px;text-transform:uppercase;}
-  footer .foot-line{margin-top:8px;color:#7c7768;}
-  footer a{color:var(--gold);}
-  footer a:hover{color:#e8c977;}
-
-  @media (max-width:900px){.grid{grid-template-columns:1fr 1fr;}}
-  @media (max-width:640px){
-    .grid{grid-template-columns:1fr;}
-    .utility-bar{font-size:10.5px;padding:6px 14px;}
-    .lead-body{padding:8px 20px 28px;}
-    .masthead .eyebrow{letter-spacing:.35em;}
-  }
+  :root{--ink:#0e0d0c;--paper:#faf9f6;--card:#ffffff;--rule:#e4e1d8;--signal:#b91c1c;--signal-dark:#8f1414;--navy:#0f1d38;--navy-2:#16294d;--gold:#c8952c;--muted:#6f6a5e;--shadow:0 1px 2px rgba(15,29,56,.04),0 6px 20px rgba(15,29,56,.06);}
+  *{margin:0;padding:0;box-sizing:border-box;} html{scroll-behavior:smooth;} body{background:var(--paper);color:var(--ink);font-family:"PT Serif",Georgia,serif;line-height:1.55;-webkit-font-smoothing:antialiased;} a{color:inherit;text-decoration:none;} a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px;} img{display:block;max-width:100%;}
+  .utility-bar{background:var(--ink);color:#c9c5b8;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;display:flex;align-items:center;justify-content:space-between;padding:7px 20px;gap:14px}.utility-bar .brand-tag{color:#8a8577;flex:0 0 auto}.utility-bar a{color:#e8dcc0}.utility-bar a:hover{color:var(--gold)}.tone-index{display:flex;align-items:center;gap:8px;flex:0 0 auto}.tone-index .ti-label{color:#8a8577;text-transform:uppercase}.tone-index .ti-value{color:#fff;font-weight:600;padding:2px 8px;border-radius:12px;background:rgba(255,255,255,.08)}.tone-index .ti-value.negative{background:rgba(185,28,28,.35);color:#ffd9d9}.tone-index .ti-value.positive{background:rgba(63,143,95,.35);color:#c9f2d6}
+  .ticker-bar{background:linear-gradient(180deg,var(--signal),var(--signal-dark));color:#fff;font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;display:flex;align-items:center;overflow:hidden;height:38px}.ticker-label{flex:0 0 auto;background:rgba(0,0,0,.18);height:100%;display:flex;align-items:center;gap:8px;padding:0 16px;letter-spacing:.14em}.live-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.3s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}@media(prefers-reduced-motion:reduce){.live-dot{animation:none}.ticker-track{animation:none!important;padding-left:16px!important}}.ticker-viewport{flex:1;overflow:hidden;position:relative;height:100%}.ticker-track{display:inline-flex;align-items:center;height:100%;white-space:nowrap;padding-left:100%;animation:crawl 70s linear infinite}.ticker-track span{margin-right:52px;opacity:.96}.ticker-track b{font-weight:600;letter-spacing:.03em}@keyframes crawl{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  header{background:linear-gradient(180deg,var(--navy-2),var(--navy));color:#fff;text-align:center;padding:38px 20px 28px;position:relative}header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--signal-dark),var(--signal),var(--gold),var(--signal),var(--signal-dark))}.masthead{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:clamp(34px,6vw,64px);letter-spacing:-.01em;line-height:1;text-transform:uppercase}.masthead .eyebrow{color:#9fb0d1;font-weight:600;font-size:.32em;display:block;letter-spacing:.55em;margin-bottom:14px;font-family:"IBM Plex Mono",monospace;text-transform:uppercase}.masthead .news{color:var(--gold)}.dateline{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a9ac0;margin-top:16px}.dateline .stamp{color:#fff;font-weight:600}.dateline .dot{color:#4a5d85;margin:0 10px}
+  .ad-slot{max-width:1180px;margin:28px auto;padding:0 20px}.ad-box{border:1px dashed var(--rule);background:var(--card);color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px}.ad-leaderboard{height:90px}.ad-infeed{height:250px}
+  .newsletter-card{background:var(--card);border:1px solid var(--rule);border-radius:14px;box-shadow:var(--shadow);padding:2.25rem 2rem;text-align:center;max-width:520px;margin:2rem auto}.newsletter-card h2{font-family:"Libre Franklin",sans-serif;font-size:21px;font-weight:800;letter-spacing:.04em;color:var(--navy);margin-bottom:.4rem;text-transform:uppercase}.newsletter-card p{color:var(--muted);margin-bottom:1.4rem;font-size:14.5px;font-family:"PT Serif",serif}
+  main{max-width:1180px;margin:0 auto;padding:6px 20px 70px}.lead{padding:22px 0 26px;border-bottom:1px solid var(--rule)}.lead-inner{background:var(--card);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;text-align:center;position:relative}.lead .kicker{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;color:var(--signal);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin:16px 0 12px}.lead .kicker::before,.lead .kicker::after{content:"";width:22px;height:1px;background:var(--signal);opacity:.5}.lead img{width:100%;max-height:260px;object-fit:cover}.lead-body{padding:6px 26px 22px}.lead h1{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:clamp(21px,3vw,30px);line-height:1.18;letter-spacing:-.01em;max-width:760px;margin:0 auto;color:var(--ink)}.lead h1 a:hover{color:var(--signal)}.lead .summary{max-width:620px;margin:12px auto 0;font-size:15px;color:#4a4438;font-family:"PT Serif",serif}.lead .source-tag{margin-top:18px;justify-content:center}.lead .also-list{justify-content:center}
+  .source-tag{display:flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}.source-tag .time{color:var(--muted);font-weight:500}.source-tag .dot{color:var(--rule)}.also-list{margin-top:14px;display:flex;flex-direction:column;gap:7px;text-align:left}.also-item{font-family:"PT Serif",serif;font-size:13.5px;line-height:1.35;color:#5a5448;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.also-item .also-source{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:7px}.also-item a{color:var(--navy);border-bottom:1px solid var(--rule)}.also-item a:hover{color:var(--signal);border-color:var(--signal)}.lead .also-list{text-align:center;align-items:center}
+  .section-label{font-family:"Libre Franklin",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:15px;color:var(--navy);padding:34px 0 14px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink)}.section-label small{font-family:"IBM Plex Mono",monospace;font-weight:500;letter-spacing:.06em;font-size:11px;color:var(--muted);text-transform:none}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.story{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease;display:flex;flex-direction:column;position:relative}.story:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(15,29,56,.06),0 14px 28px rgba(15,29,56,.1)}.story img{width:100%;aspect-ratio:16/10;object-fit:cover}.story .img-placeholder{width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,var(--navy-2),var(--navy));display:flex;align-items:center;justify-content:center}.story .img-placeholder span{font-family:"Libre Franklin",sans-serif;font-weight:800;font-size:13px;letter-spacing:.14em;color:rgba(255,255,255,.55);text-transform:uppercase}.story-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}.story h3{font-family:"Libre Franklin",sans-serif;font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.005em;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.story h3 a:hover{color:var(--signal)}.story p{font-size:14px;color:#5a5448;margin-top:8px;font-family:"PT Serif",serif;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.story .source-tag{margin-top:12px}.story .also-list{margin-top:12px}.share-row{margin-top:12px;display:flex;gap:14px;padding-top:12px;border-top:1px solid var(--rule)}.share-row a{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--navy);display:flex;align-items:center;gap:4px}.share-row a:hover{color:var(--signal)}.breaking-flag{display:inline-block;background:var(--signal);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;margin-bottom:8px}.status-banner{display:none;max-width:1180px;margin:20px auto 0;padding:12px 18px;background:#fdf3d9;border:1px solid #e9cf7f;border-radius:8px;color:#71590d;font-family:"IBM Plex Mono",monospace;font-size:12px}footer{background:var(--ink);color:#a8a396;text-align:center;padding:44px 20px 36px;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em}footer .foot-mast{font-family:"Libre Franklin",sans-serif;color:#fff;font-weight:800;font-size:19px;letter-spacing:.04em;margin-bottom:12px;text-transform:uppercase}footer .foot-line{margin-top:8px;color:#7c7768}footer a{color:var(--gold)}footer a:hover{color:#e8c977}
+  @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:640px){.grid{grid-template-columns:1fr}.utility-bar{font-size:10.5px;padding:6px 14px}.lead-body{padding:8px 20px 28px}.masthead .eyebrow{letter-spacing:.35em}}
 </style>
 </head>
 <body>
-
-<div class="utility-bar">
-  <span class="brand-tag">RALLY POINT NEWS · EST. 2026</span>
-  <div class="tone-index" title="Share of today's headlines using positive vs. negative language about the country, computed from all 30 sources.">
-    <span class="ti-label">Conservative Media Tone Index</span>
-    <span class="ti-value" id="toneIndexValue">—</span>
-  </div>
-  <a href="mailto:tmarsee530@me.com">Tips &amp; Corrections</a>
-</div>
-
-<div class="ticker-bar" role="marquee" aria-label="Breaking headlines ticker">
-  <div class="ticker-label"><span class="live-dot" aria-hidden="true"></span>LIVE WIRE</div>
-  <div class="ticker-viewport"><div class="ticker-track" id="ticker"><span>Loading the wire…</span></div></div>
-</div>
-
-<header>
-  <div class="masthead">
-    <span class="eyebrow">Your Rally Point For</span>
-    RALLY POINT <span class="news">NEWS</span>
-  </div>
-  <div class="dateline">
-    <span id="today"></span><span class="dot">•</span>UPDATED <span class="stamp" id="updated">—</span><span class="dot">•</span>REFRESHES EVERY 60 SECONDS
-  </div>
-</header>
-
-<div class="status-banner" id="statusBanner">
-  Live feeds could not be reached from this preview. Deploy this file to any web host and the wire goes live automatically.
-</div>
-
+<div class="utility-bar"><span class="brand-tag">RALLY POINT NEWS · EST. 2026</span><div class="tone-index" title="Share of today's headlines using positive vs. negative language about the country, computed from the newsroom wire."><span class="ti-label">Conservative Media Tone Index</span><span class="ti-value" id="toneIndexValue">—</span></div><a href="mailto:tmarsee530@me.com">Tips &amp; Corrections</a></div>
+<div class="ticker-bar" role="marquee" aria-label="Breaking headlines ticker"><div class="ticker-label"><span class="live-dot" aria-hidden="true"></span>LIVE WIRE</div><div class="ticker-viewport"><div class="ticker-track" id="ticker"><span>Loading the wire…</span></div></div></div>
+<header><div class="masthead"><span class="eyebrow">Your Rally Point For</span>RALLY POINT <span class="news">NEWS</span></div><div class="dateline"><span id="today"></span><span class="dot">•</span>NEWSROOM UPDATED <span class="stamp" id="updated">—</span><span class="dot">•</span>AUTO-CHECKS EVERY 60 SECONDS</div></header>
+<div class="status-banner" id="statusBanner">The shared newsroom is unavailable, so Rally Point is using its backup live-feed system.</div>
 <div class="ad-slot"><div class="ad-box ad-leaderboard">Advertisement — 728×90 leaderboard</div></div>
-
-<main>
-  <section class="lead" id="lead-wrap">
-    <div class="lead-inner">
-      <div id="lead" aria-live="polite">
-        <div class="kicker">Developing</div>
-        <div class="lead-body">
-          <h1><a href="#">Standing by for the lead story…</a></h1>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-label">
-    <span>The Wire</span>
-    <small id="storyCount">gathering headlines…</small>
-  </div>
-
-  <div class="grid" id="grid"></div>
-
-  <div class="ad-slot" style="padding:0;margin-top:36px;"><div class="ad-box ad-infeed">Advertisement — 300×250 rectangle</div></div>
-
-  <div class="ad-slot">
-    <div class="newsletter-card">
-      <h2>Get The Briefing</h2>
-      <p>Five stories. One take. Every morning.</p>
-      <iframe src="https://rallypointnews.substack.com/embed" width="100%" height="140" style="border:none;background:transparent;" frameborder="0" scrolling="no"></iframe>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="foot-mast">Rally Point News</div>
-  <div>Headlines link directly to the original publishers. All reporting © its respective sources.</div>
-  <div class="foot-line">Tips &amp; corrections: <a href="mailto:tmarsee530@me.com">tmarsee530@me.com</a></div>
-</footer>
-
+<main><section class="lead" id="lead-wrap"><div class="lead-inner"><div id="lead" aria-live="polite"><div class="kicker">Developing</div><div class="lead-body"><h1><a href="#">Standing by for the lead story…</a></h1></div></div></div></section><div class="section-label"><span>The Wire</span><small id="storyCount">gathering headlines…</small></div><div class="grid" id="grid"></div><div class="ad-slot" style="padding:0;margin-top:36px;"><div class="ad-box ad-infeed">Advertisement — 300×250 rectangle</div></div><div class="ad-slot"><div class="newsletter-card"><h2>Get The Briefing</h2><p>Five stories. One take. Every morning.</p><iframe src="https://rallypointnews.substack.com/embed" width="100%" height="140" style="border:none;background:transparent;" frameborder="0" scrolling="no"></iframe></div></div></main>
+<footer><div class="foot-mast">Rally Point News</div><div>Headlines link directly to the original publishers. All reporting © its respective sources.</div><div class="foot-line">Tips &amp; corrections: <a href="mailto:tmarsee530@me.com">tmarsee530@me.com</a></div></footer>
 <script>
-/* =====================================================================
-   FEEDS — 30 conservative sources
-   ===================================================================== */
-const FEEDS = [
-  { name: "Fox News",             url: "https://moxie.foxnews.com/google-publisher/latest.xml" },
-  { name: "New York Post",        url: "https://nypost.com/feed/" },
-  { name: "Daily Wire",           url: "https://www.dailywire.com/feeds/rss.xml" },
-  { name: "Breitbart",            url: "https://feeds.feedburner.com/breitbart" },
-  { name: "Daily Caller",         url: "https://dailycaller.com/feed/" },
-  { name: "The Federalist",       url: "https://thefederalist.com/feed/" },
-  { name: "Washington Times",     url: "https://www.washingtontimes.com/rss/headlines/news/politics/" },
-  { name: "National Review",      url: "https://www.nationalreview.com/feed/" },
-  { name: "Newsmax",              url: "https://www.newsmax.com/rss/Newsfront/16/" },
-  { name: "Washington Examiner",  url: "https://www.washingtonexaminer.com/tag/news.rss" },
-  { name: "American Thinker",     url: "https://www.americanthinker.com/rss/index.php" },
-  { name: "Townhall",             url: "https://townhall.com/api/feeds" },
-  { name: "PJ Media",             url: "https://pjmedia.com/feed" },
-  { name: "RedState",             url: "https://redstate.com/feed" },
-  { name: "The Blaze",            url: "https://www.theblaze.com/feeds/feed.rss" },
-  { name: "Washington Free Beacon", url: "https://freebeacon.com/feed/" },
-  { name: "Daily Signal",         url: "https://www.dailysignal.com/feed/" },
-  { name: "NewsBusters",          url: "https://www.newsbusters.org/blog/feed" },
-  { name: "The Political Insider", url: "https://thepoliticalinsider.com/feed/" },
-  { name: "Commentary Magazine",  url: "https://www.commentary.org/feed/" },
-  { name: "American Spectator",   url: "https://spectator.org/feed/" },
-  { name: "Hot Air",              url: "https://hotair.com/feed" },
-  { name: "Twitchy",              url: "https://twitchy.com/feed" },
-  { name: "LifeSiteNews",         url: "https://www.lifesitenews.com/rss/full-site/" },
-  { name: "The Epoch Times",      url: "https://www.theepochtimes.com/c-us/feed" },
-  { name: "WND",                  url: "https://www.wnd.com/feed/" },
-  { name: "Human Events",         url: "https://humanevents.com/feed/" },
-  { name: "The College Fix",      url: "https://www.thecollegefix.com/feed/" },
-  { name: "Legal Insurrection",   url: "https://legalinsurrection.com/feed/" },
-  { name: "Just the News",        url: "https://justthenews.com/rss.xml" },
-  { name: "National Pulse",       url: "https://thenationalpulse.com/feed/" }
-];
-
-const REFRESH_MS = 60 * 1000;
-const MAX_PER_SOURCE = 3;
-const SUMMARY_LEN = 160;
-
-const grid   = document.getElementById("grid");
-const lead   = document.getElementById("lead");
-const ticker = document.getElementById("ticker");
-const banner = document.getElementById("statusBanner");
-
-document.getElementById("today").textContent =
-  new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"}).toUpperCase();
-
-function stripHTML(html){
-  const d = document.createElement("div");
-  d.innerHTML = html || "";
-  return (d.textContent || "").replace(/\s+/g," ").trim();
-}
-
-function firstImage(item){
-  if (item.enclosure && item.enclosure.link && /image|jpe?g|png|webp/i.test((item.enclosure.type||"") + item.enclosure.link)) return item.enclosure.link;
-  if (item.thumbnail) return item.thumbnail;
-  const m = /<img[^>]+src=["']([^"']+)["']/i.exec(item.content || item.description || "");
-  return m ? m[1] : null;
-}
-
-function summarize(item){
-  let t = stripHTML(item.description || item.content || "");
-  if (t.length > SUMMARY_LEN) t = t.slice(0, SUMMARY_LEN).replace(/\s+\S*$/,"") + "…";
-  return t;
-}
-
-function minutesAgo(dateStr){
-  const then = new Date((dateStr||"").replace(" ","T"));
-  if (isNaN(then)) return 99999;
-  return Math.max(0, (Date.now() - then.getTime())/60000);
-}
-
-function timeAgo(dateStr){
-  const mins = minutesAgo(dateStr);
-  if (mins >= 99999) return "";
-  if (mins < 1)  return "just now";
-  if (mins < 60) return Math.round(mins) + " min ago";
-  const hrs = Math.round(mins/60);
-  if (hrs < 24)  return hrs + " hr ago";
-  return Math.round(hrs/24) + " d ago";
-}
-
-async function fetchFeed(feed){
-  const api = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feed.url);
-  const res = await fetch(api);
-  if (!res.ok) throw new Error(feed.name + " HTTP " + res.status);
-  const data = await res.json();
-  if (data.status !== "ok" || !Array.isArray(data.items)) throw new Error(feed.name + " bad payload");
-  return data.items.slice(0, MAX_PER_SOURCE).map(item => ({
-    source: feed.name,
-    title: stripHTML(item.title),
-    link: item.link,
-    date: item.pubDate,
-    image: firstImage(item),
-    summary: summarize(item)
-  }));
-}
-
-/* ---------- Group stories covering the same event into one storyline ---------- */
-const STOPWORDS = new Set(["about","after","again","against","because","before","being","between","could","during","every","first","found","great","house","other","report","reports","reveals","should","their","there","these","those","under","where","which","while","would","years","today","biden","trump","white","house","people","state","states","america","american","americans","president","calls","claims","says","said"]);
-
-function significantWords(title){
-  return new Set((title.toLowerCase().match(/[a-z0-9']{5,}/g) || []).filter(w => !STOPWORDS.has(w)));
-}
-
-function buildClusters(stories){
-  const items = stories.map(s => ({ ref: s, words: significantWords(s.title) }));
-  const clusters = [];
-  const used = new Array(items.length).fill(false);
-  for (let i = 0; i < items.length; i++){
-    if (used[i]) continue;
-    const cluster = { items: [items[i]] };
-    used[i] = true;
-    for (let j = i + 1; j < items.length; j++){
-      if (used[j]) continue;
-      let overlap = 0;
-      for (const w of items[j].words) if (items[i].words.has(w)) overlap++;
-      if (overlap >= 2 && !cluster.items.some(it => it.ref.source === items[j].ref.source)){
-        cluster.items.push(items[j]);
-        used[j] = true;
-      }
-    }
-    clusters.push(cluster);
-  }
-
-  // Finalize each cluster: pick the main story (prefer one with an image,
-  // then the freshest), collect the rest as "also reported by" links.
-  clusters.forEach(c => {
-    const refs = c.items.map(it => it.ref);
-    refs.sort((a, b) => minutesAgo(a.date) - minutesAgo(b.date));
-    const withImage = refs.find(r => r.image);
-    c.main = withImage || refs[0];
-    c.also = refs.filter(r => r !== c.main);
-    c.sourceCount = refs.length;
-    c.newestDate = refs.reduce((n, r) => minutesAgo(r.date) < minutesAgo(n) ? r.date : n, refs[0].date);
-  });
-
-  return clusters.sort((a, b) => {
-    if (b.sourceCount !== a.sourceCount) return b.sourceCount - a.sourceCount;
-    return minutesAgo(a.newestDate) - minutesAgo(b.newestDate);
-  });
-}
-
-function alsoListHTML(cluster, limit){
-  if (!cluster.also.length) return "";
-  const rows = cluster.also.slice(0, limit).map(r => `
-    <div class="also-item"><span class="also-source">${r.source}</span><a href="${r.link}" target="_blank" rel="noopener">${r.title}</a></div>`
-  ).join("");
-  return `<div class="also-list">${rows}</div>`;
-}
-
-/* ---------- Conservative Media Tone Index ----------
-   A simple keyword heuristic, not real polling data. It measures whether
-   today's headlines across all sources skew toward negative or positive
-   language about the country, the economy, and national direction —
-   not actual public opinion. Recomputed on every refresh using headlines
-   already being fetched, so it stays current in real time (well under
-   the hour it would take a real pollster to move the needle). */
-const TONE_NEGATIVE = ["crisis","chaos","disaster","collapse","collapsing","decline","declining","failing","failure","fails","scandal","corrupt","corruption","threat","danger","dangerous","warns","warning","alarming","catastrophe","recession","inflation","debt","crime","broken","weak","struggling","spiraling"];
-const TONE_POSITIVE = ["wins","win","victory","triumph","surges","surge","soaring","booms","booming","thrives","thriving","strong","strength","growth","growing","success","successful","breakthrough","landmark","record","recovery","recovering","optimistic","progress"];
-
-function toneScoreText(text){
-  const t = text.toLowerCase();
-  let neg = 0, pos = 0;
-  for (const w of TONE_NEGATIVE) if (t.includes(w)) neg++;
-  for (const w of TONE_POSITIVE) if (t.includes(w)) pos++;
-  return { neg, pos };
-}
-
-function computeToneIndex(stories){
-  let neg = 0, pos = 0;
-  stories.forEach(s => {
-    const r = toneScoreText(s.title + " " + (s.summary || ""));
-    neg += r.neg; pos += r.pos;
-  });
-  const total = neg + pos;
-  const el = document.getElementById("toneIndexValue");
-  if (!el) return;
-  if (total < 3){
-    el.textContent = "Gathering data…";
-    el.className = "ti-value";
-    return;
-  }
-  const pct = Math.round((pos / total) * 100);
-  el.textContent = pct + "% Positive";
-  el.className = "ti-value" + (pct <= 40 ? " negative" : pct >= 60 ? " positive" : "");
-}
-
-function render(clusters){
-  if (!clusters.length) return;
-
-  const leadCluster = clusters[0];
-  const rest = clusters.slice(1);
-
-  const isBreaking = leadCluster.sourceCount >= 3 && minutesAgo(leadCluster.newestDate) <= 45;
-  lead.innerHTML = `
-    <div class="kicker">${isBreaking ? "Breaking" : "Developing"}</div>
-    ${leadCluster.main.image ? `<a href="${leadCluster.main.link}" target="_blank" rel="noopener"><img src="${leadCluster.main.image}" alt=""></a>` : ""}
-    <div class="lead-body">
-      <h1><a href="${leadCluster.main.link}" target="_blank" rel="noopener">${leadCluster.main.title}</a></h1>
-      ${leadCluster.main.summary ? `<p class="summary">${leadCluster.main.summary}</p>` : ""}
-      <div class="source-tag">${leadCluster.main.source}<span class="dot">•</span><span class="time">${timeAgo(leadCluster.main.date)}</span></div>
-      ${alsoListHTML(leadCluster, 4)}
-    </div>`;
-
-  grid.innerHTML = rest.map(c => {
-    const breaking = c.sourceCount >= 3 && minutesAgo(c.newestDate) <= 45;
-    const s = c.main;
-    return `
-    <article class="story">
-      <a href="${s.link}" target="_blank" rel="noopener">
-        ${s.image
-          ? `<img loading="lazy" src="${s.image}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',innerHTML:'<span>RALLY POINT</span>'}))">`
-          : `<div class="img-placeholder"><span>Rally Point</span></div>`}
-      </a>
-      <div class="story-body">
-        ${breaking ? `<span class="breaking-flag">Breaking</span>` : ""}
-        <h3><a href="${s.link}" target="_blank" rel="noopener">${s.title}</a></h3>
-        ${s.summary ? `<p>${s.summary}</p>` : `<p></p>`}
-        <div class="source-tag">${s.source}<span class="dot">•</span><span class="time">${timeAgo(s.date)}</span></div>
-        ${alsoListHTML(c, 3)}
-        <div class="share-row">
-          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(s.title)}&url=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Share on X</a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Facebook</a>
-        </div>
-      </div>
-    </article>`;
-  }).join("");
-
-  const allStories = clusters.flatMap(c => c.items.map(it => it.ref));
-  ticker.innerHTML = allStories.slice(0, 14)
-    .map(s => `<span><b>${s.source.toUpperCase()}</b> — ${s.title}</span>`).join("");
-
-  document.getElementById("storyCount").textContent =
-    clusters.length + " storylines · " + new Set(allStories.map(s=>s.source)).size + " sources";
-}
-
-async function refresh(){
-  const results = await Promise.allSettled(FEEDS.map(fetchFeed));
-  const stories = results
-    .filter(r => r.status === "fulfilled")
-    .flatMap(r => r.value)
-    .filter(s => s.title && s.link);
-
-  const seen = new Set();
-  const unique = stories.filter(s => {
-    const k = s.title.toLowerCase();
-    if (seen.has(k)) return false;
-    seen.add(k);
-    return true;
-  });
-
-  if (unique.length){
-    banner.style.display = "none";
-    render(buildClusters(unique));
-    computeToneIndex(unique);
-  } else {
-    banner.style.display = "block";
-    renderSample();
-  }
-  document.getElementById("updated").textContent =
-    new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",second:"2-digit"});
-}
-
-function renderSample(){
-  const demo = [
-    {source:"Fox News", title:"Border security bill clears key committee hurdle after late-night vote", link:"#", date:new Date().toUTCString(), image:null, summary:"Once live, the biggest story of the moment leads the page with a photo, and every other outlet covering the same story is linked right underneath it."},
-    {source:"Breitbart", title:"Border security bill advances through committee in late vote", link:"#", date:new Date().toUTCString(), image:null, summary:""},
-    {source:"Daily Wire", title:"Committee approves border security bill in narrow vote", link:"#", date:new Date().toUTCString(), image:null, summary:""},
-    {source:"Sample Wire", title:"Single-source stories still get their own headline, just without an 'Also' row", link:"#", date:new Date().toUTCString(), image:null, summary:"Each card links straight to the original publisher, which keeps you on the right side of copyright while you monetize the traffic."},
-    {source:"Sample Wire", title:"Add or remove sources by editing one list in the code", link:"#", date:new Date().toUTCString(), image:null, summary:"The FEEDS array at the top of the script controls everything."}
-  ];
-  render(buildClusters(demo));
-}
-
-refresh();
-setInterval(refresh, REFRESH_MS);
+const FEEDS=[
+{name:"Fox News",url:"https://moxie.foxnews.com/google-publisher/latest.xml"},{name:"New York Post",url:"https://nypost.com/feed/"},{name:"Daily Wire",url:"https://www.dailywire.com/feeds/rss.xml"},{name:"Breitbart",url:"https://feeds.feedburner.com/breitbart"},{name:"Daily Caller",url:"https://dailycaller.com/feed/"},{name:"The Federalist",url:"https://thefederalist.com/feed/"},{name:"Washington Times",url:"https://www.washingtontimes.com/rss/headlines/news/politics/"},{name:"National Review",url:"https://www.nationalreview.com/feed/"},{name:"Newsmax",url:"https://www.newsmax.com/rss/Newsfront/16/"},{name:"Washington Examiner",url:"https://www.washingtonexaminer.com/tag/news.rss"},{name:"American Thinker",url:"https://www.americanthinker.com/rss/index.php"},{name:"Townhall",url:"https://townhall.com/api/feeds"},{name:"PJ Media",url:"https://pjmedia.com/feed"},{name:"RedState",url:"https://redstate.com/feed"},{name:"The Blaze",url:"https://www.theblaze.com/feeds/feed.rss"},{name:"Washington Free Beacon",url:"https://freebeacon.com/feed/"},{name:"Daily Signal",url:"https://www.dailysignal.com/feed/"},{name:"NewsBusters",url:"https://www.newsbusters.org/blog/feed"},{name:"The Political Insider",url:"https://thepoliticalinsider.com/feed/"},{name:"Commentary Magazine",url:"https://www.commentary.org/feed/"},{name:"American Spectator",url:"https://spectator.org/feed/"},{name:"Hot Air",url:"https://hotair.com/feed"},{name:"Twitchy",url:"https://twitchy.com/feed"},{name:"LifeSiteNews",url:"https://www.lifesitenews.com/rss/full-site/"},{name:"The Epoch Times",url:"https://www.theepochtimes.com/c-us/feed"},{name:"WND",url:"https://www.wnd.com/feed/"},{name:"Human Events",url:"https://humanevents.com/feed/"},{name:"The College Fix",url:"https://www.thecollegefix.com/feed/"},{name:"Legal Insurrection",url:"https://legalinsurrection.com/feed/"},{name:"Just the News",url:"https://justthenews.com/rss.xml"},{name:"National Pulse",url:"https://thenationalpulse.com/feed/"}];
+const REFRESH_MS=60*1000,MAX_PER_SOURCE=3,SUMMARY_LEN=160,MAX_DATASET_AGE_MIN=45;
+const grid=document.getElementById("grid"),lead=document.getElementById("lead"),ticker=document.getElementById("ticker"),banner=document.getElementById("statusBanner");
+document.getElementById("today").textContent=new Date().toLocaleDateString("en-US",{weekday:"long",year:"numeric",month:"long",day:"numeric"}).toUpperCase();
+function stripHTML(html){const d=document.createElement("div");d.innerHTML=html||"";return(d.textContent||"").replace(/\s+/g," ").trim()}
+function firstImage(item){if(item.enclosure&&item.enclosure.link&&/image|jpe?g|png|webp/i.test((item.enclosure.type||"")+item.enclosure.link))return item.enclosure.link;if(item.thumbnail)return item.thumbnail;const m=/<img[^>]+src=["']([^"']+)["']/i.exec(item.content||item.description||"");return m?m[1]:null}
+function summarize(item){let t=stripHTML(item.description||item.content||"");if(t.length>SUMMARY_LEN)t=t.slice(0,SUMMARY_LEN).replace(/\s+\S*$/,"")+"…";return t}
+function minutesAgo(dateStr){const then=new Date((dateStr||"").replace(" ","T"));if(isNaN(then))return 99999;return Math.max(0,(Date.now()-then.getTime())/60000)}
+function timeAgo(dateStr){const mins=minutesAgo(dateStr);if(mins>=99999)return"";if(mins<1)return"just now";if(mins<60)return Math.round(mins)+" min ago";const hrs=Math.round(mins/60);if(hrs<24)return hrs+" hr ago";return Math.round(hrs/24)+" d ago"}
+async function fetchFeed(feed){const api="https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(feed.url);const res=await fetch(api);if(!res.ok)throw new Error(feed.name+" HTTP "+res.status);const data=await res.json();if(data.status!=="ok"||!Array.isArray(data.items))throw new Error(feed.name+" bad payload");return data.items.slice(0,MAX_PER_SOURCE).map(item=>({source:feed.name,title:stripHTML(item.title),link:item.link,date:item.pubDate,image:firstImage(item),summary:summarize(item)}))}
+async function fetchPreparedNews(){const res=await fetch("data/news.json?t="+Date.now(),{cache:"no-store"});if(!res.ok)throw new Error("shared newsroom HTTP "+res.status);const data=await res.json();if(!data.generated_at||!Array.isArray(data.stories)||!data.stories.length)throw new Error("shared newsroom empty");if(minutesAgo(data.generated_at)>MAX_DATASET_AGE_MIN)throw new Error("shared newsroom stale");return data}
+const STOPWORDS=new Set(["about","after","again","against","because","before","being","between","could","during","every","first","found","great","house","other","report","reports","reveals","should","their","there","these","those","under","where","which","while","would","years","today","biden","trump","white","house","people","state","states","america","american","americans","president","calls","claims","says","said"]);
+function significantWords(title){return new Set((title.toLowerCase().match(/[a-z0-9']{5,}/g)||[]).filter(w=>!STOPWORDS.has(w)))}
+function buildClusters(stories){const items=stories.map(s=>({ref:s,words:significantWords(s.title)})),clusters=[],used=new Array(items.length).fill(false);for(let i=0;i<items.length;i++){if(used[i])continue;const cluster={items:[items[i]]};used[i]=true;for(let j=i+1;j<items.length;j++){if(used[j])continue;let overlap=0;for(const w of items[j].words)if(items[i].words.has(w))overlap++;if(overlap>=2&&!cluster.items.some(it=>it.ref.source===items[j].ref.source)){cluster.items.push(items[j]);used[j]=true}}clusters.push(cluster)}clusters.forEach(c=>{const refs=c.items.map(it=>it.ref);refs.sort((a,b)=>minutesAgo(a.date)-minutesAgo(b.date));const withImage=refs.find(r=>r.image);c.main=withImage||refs[0];c.also=refs.filter(r=>r!==c.main);c.sourceCount=refs.length;c.newestDate=refs.reduce((n,r)=>minutesAgo(r.date)<minutesAgo(n)?r.date:n,refs[0].date)});return clusters.sort((a,b)=>b.sourceCount!==a.sourceCount?b.sourceCount-a.sourceCount:minutesAgo(a.newestDate)-minutesAgo(b.newestDate))}
+function alsoListHTML(cluster,limit){if(!cluster.also.length)return"";const rows=cluster.also.slice(0,limit).map(r=>`<div class="also-item"><span class="also-source">${r.source}</span><a href="${r.link}" target="_blank" rel="noopener">${r.title}</a></div>`).join("");return`<div class="also-list">${rows}</div>`}
+const TONE_NEGATIVE=["crisis","chaos","disaster","collapse","collapsing","decline","declining","failing","failure","fails","scandal","corrupt","corruption","threat","danger","dangerous","warns","warning","alarming","catastrophe","recession","inflation","debt","crime","broken","weak","struggling","spiraling"],TONE_POSITIVE=["wins","win","victory","triumph","surges","surge","soaring","booms","booming","thrives","thriving","strong","strength","growth","growing","success","successful","breakthrough","landmark","record","recovery","recovering","optimistic","progress"];
+function toneScoreText(text){const t=text.toLowerCase();let neg=0,pos=0;for(const w of TONE_NEGATIVE)if(t.includes(w))neg++;for(const w of TONE_POSITIVE)if(t.includes(w))pos++;return{neg,pos}}
+function computeToneIndex(stories){let neg=0,pos=0;stories.forEach(s=>{const r=toneScoreText(s.title+" "+(s.summary||""));neg+=r.neg;pos+=r.pos});const total=neg+pos,el=document.getElementById("toneIndexValue");if(!el)return;if(total<3){el.textContent="Gathering data…";el.className="ti-value";return}const pct=Math.round(pos/total*100);el.textContent=pct+"% Positive";el.className="ti-value"+(pct<=40?" negative":pct>=60?" positive":"")}
+function render(clusters){if(!clusters.length)return;const leadCluster=clusters[0],rest=clusters.slice(1),isBreaking=leadCluster.sourceCount>=3&&minutesAgo(leadCluster.newestDate)<=45;lead.innerHTML=`<div class="kicker">${isBreaking?"Breaking":"Developing"}</div>${leadCluster.main.image?`<a href="${leadCluster.main.link}" target="_blank" rel="noopener"><img src="${leadCluster.main.image}" alt=""></a>`:""}<div class="lead-body"><h1><a href="${leadCluster.main.link}" target="_blank" rel="noopener">${leadCluster.main.title}</a></h1>${leadCluster.main.summary?`<p class="summary">${leadCluster.main.summary}</p>`:""}<div class="source-tag">${leadCluster.main.source}<span class="dot">•</span><span class="time">${timeAgo(leadCluster.main.date)}</span></div>${alsoListHTML(leadCluster,4)}</div>`;grid.innerHTML=rest.map(c=>{const breaking=c.sourceCount>=3&&minutesAgo(c.newestDate)<=45,s=c.main;return`<article class="story"><a href="${s.link}" target="_blank" rel="noopener">${s.image?`<img loading="lazy" src="${s.image}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',innerHTML:'<span>RALLY POINT</span>'}))">`:`<div class="img-placeholder"><span>Rally Point</span></div>`}</a><div class="story-body">${breaking?`<span class="breaking-flag">Breaking</span>`:""}<h3><a href="${s.link}" target="_blank" rel="noopener">${s.title}</a></h3>${s.summary?`<p>${s.summary}</p>`:`<p></p>`}<div class="source-tag">${s.source}<span class="dot">•</span><span class="time">${timeAgo(s.date)}</span></div>${alsoListHTML(c,3)}<div class="share-row"><a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(s.title)}&url=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Share on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(s.link)}" target="_blank" rel="noopener">Facebook</a></div></div></article>`}).join("");const allStories=clusters.flatMap(c=>c.items.map(it=>it.ref));ticker.innerHTML=allStories.slice(0,14).map(s=>`<span><b>${s.source.toUpperCase()}</b> — ${s.title}</span>`).join("");document.getElementById("storyCount").textContent=clusters.length+" storylines · "+new Set(allStories.map(s=>s.source)).size+" sources"}
+async function fetchBackupNews(){const results=await Promise.allSettled(FEEDS.map(fetchFeed));const stories=results.filter(r=>r.status==="fulfilled").flatMap(r=>r.value).filter(s=>s.title&&s.link),seen=new Set();return stories.filter(s=>{const k=s.title.toLowerCase();if(seen.has(k))return false;seen.add(k);return true})}
+async function refresh(){let stories=[],generatedAt=null,usingBackup=false;try{const data=await fetchPreparedNews();stories=data.stories;generatedAt=data.generated_at;banner.style.display="none"}catch(err){usingBackup=true;stories=await fetchBackupNews();banner.style.display=stories.length?"block":"none"}if(stories.length){render(buildClusters(stories));computeToneIndex(stories)}else{renderSample();banner.style.display="block"}const stamp=generatedAt&&!usingBackup?new Date(generatedAt):new Date();document.getElementById("updated").textContent=stamp.toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}
+function renderSample(){const demo=[{source:"Rally Point",title:"The newsroom is temporarily unavailable",link:"#",date:new Date().toUTCString(),image:null,summary:"Rally Point will retry automatically."}];render(buildClusters(demo))}
+refresh();setInterval(refresh,REFRESH_MS);
 </script>
 </body>
 </html>

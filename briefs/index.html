@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rally Point Briefs — Rally Point News</title>
+<meta name="description" content="Original Rally Point News briefs synthesizing multiple sources, what changed, what is established, and what remains uncertain.">
+<link rel="canonical" href="https://rallypointnews.com/briefs/">
+<style>
+:root{--ink:#0e0d0c;--paper:#faf9f6;--card:#fff;--rule:#e4e1d8;--signal:#b91c1c;--navy:#0f1d38;--gold:#c8952c;--muted:#6f6a5e}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,serif;line-height:1.6}header{background:var(--navy);color:#fff;padding:34px 20px;text-align:center;border-bottom:3px solid var(--gold)}header a{color:inherit;text-decoration:none}h1{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:0;font-size:clamp(30px,6vw,52px)}header p{color:#cbd5e1;margin:.5rem 0 0}main{max-width:900px;margin:auto;padding:36px 20px 70px}.intro{border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:24px}.intro h2{font-family:Arial,sans-serif;color:var(--navy);margin:0 0 8px}.brief{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:22px;margin:0 0 18px}.brief h3{font-family:Arial,sans-serif;margin:0 0 6px;line-height:1.25}.brief a{color:var(--navy)}.brief a:hover{color:var(--signal)}.meta{font:12px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}.empty{color:var(--muted);font-style:italic}footer{background:var(--ink);color:#aaa;padding:30px 20px;text-align:center;font:12px Arial,sans-serif}footer a{color:var(--gold)}</style>
+</head>
+<body>
+<header><a href="/"><h1>Rally Point Briefs</h1></a><p>Multi-source reporting synthesis from the Rally Point News desk.</p></header>
+<main><section class="intro"><h2>What the Briefs add</h2><p>Briefs are original synthesis, not copied wire stories. They explain what multiple sources establish, what changed, what remains uncertain or disputed, and why the development matters. Material claims are attributed to underlying reporting or primary sources.</p></section><section id="briefList"><p class="empty">No Rally Point Briefs have been published yet.</p></section></main>
+<footer><a href="/">Rally Point News</a> · <a href="mailto:tmarsee530@me.com">Tips &amp; Corrections</a></footer>
+<script>
+(async()=>{try{const r=await fetch('/data/briefs.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const d=await r.json();if(!Array.isArray(d.briefs)||!d.briefs.length)return;const list=document.getElementById('briefList');list.innerHTML=d.briefs.map(b=>`<article class="brief"><div class="meta">${b.published_at?new Date(b.published_at).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}):''}${b.source_count?` · ${b.source_count} sources`:''}</div><h3><a href="${b.url}">${b.title}</a></h3>${b.description?`<p>${b.description}</p>`:''}</article>`).join('')}catch(e){}})();
+</script>
+</body>
+</html>

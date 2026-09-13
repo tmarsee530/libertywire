@@ -7,7 +7,7 @@ from html import escape
 root=Path(__file__).resolve().parents[1]
 p=root/'index.html'
 s=p.read_text()
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=5">'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=6">'
 js='<script src="assets/homepage-v2.js?v=5" defer></script>'
 changed=False
 
@@ -17,6 +17,7 @@ for old in (
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=2">',
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=3">',
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=4">',
+    '<link rel="stylesheet" href="assets/homepage-v2.css?v=5">',
 ):
     if old in s:
         s=s.replace(old,css);changed=True

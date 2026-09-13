@@ -2,14 +2,15 @@
 from pathlib import Path
 p=Path(__file__).resolve().parents[1]/'index.html'
 s=p.read_text()
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=4">'
-js='<script src="assets/homepage-v2.js?v=4" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=5">'
+js='<script src="assets/homepage-v2.js?v=5" defer></script>'
 changed=False
 for old in (
     '<link rel="stylesheet" href="assets/homepage-v2.css">',
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=1">',
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=2">',
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=3">',
+    '<link rel="stylesheet" href="assets/homepage-v2.css?v=4">',
 ):
     if old in s:
         s=s.replace(old,css);changed=True
@@ -18,6 +19,7 @@ for old in (
     '<script src="assets/homepage-v2.js?v=1" defer></script>',
     '<script src="assets/homepage-v2.js?v=2" defer></script>',
     '<script src="assets/homepage-v2.js?v=3" defer></script>',
+    '<script src="assets/homepage-v2.js?v=4" defer></script>',
 ):
     if old in s:
         s=s.replace(old,js);changed=True
@@ -31,9 +33,6 @@ if '<main>' in s:
     s=s.replace('<main>','<main id="main-content">',1);changed=True
 if 'Breaking News, Every Minute' in s:
     s=s.replace('RALLY POINT NEWS — Breaking News, Every Minute','RALLY POINT NEWS — Multi-Source News Intelligence');changed=True
-# A GitHub scheduled run can be delayed. Keep using the curated shared newsroom for
-# a reasonable grace window rather than immediately dropping readers into the weaker
-# browser-side RSS fallback after 45 minutes.
 if 'MAX_DATASET_AGE_MIN=45' in s:
     s=s.replace('MAX_DATASET_AGE_MIN=45','MAX_DATASET_AGE_MIN=180');changed=True
 if 'The shared newsroom is unavailable, so Rally Point is using its backup live-feed system.' in s:

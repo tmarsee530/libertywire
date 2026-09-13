@@ -29,6 +29,7 @@ Each published article lives at `briefs/<slug>/index.html` and must include:
 - source links
 - a visible corrections contact
 - a link back to `/briefs/` and `/`
+- the same sitewide Google Analytics tag used by the homepage, measurement ID `G-KKT59K667B`, included exactly once so article pageviews and engagement can be measured; do not add alternate measurement IDs or paid analytics services
 
 After publishing, prepend an entry to `data/briefs.json` with:
 
@@ -47,9 +48,11 @@ After publishing, prepend an entry to `data/briefs.json` with:
 
 Keep newest briefs first and set `brief_count` to the array length. Update `updated_at` only when the brief index meaningfully changes.
 
-## Search/discovery
+## Search, discovery, and measurement
 
 Add each published canonical URL to `sitemap.xml`. Do not manufacture keyword pages or scaled low-value AI content. A page should exist because it provides genuine reporting synthesis, chronology, comparison, or source value.
+
+Analytics are observational only. Never auto-reload pages, generate synthetic traffic, manufacture engagement, or interact with advertising to improve metrics.
 
 ## Cost and owner gates
 

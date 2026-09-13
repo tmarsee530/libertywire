@@ -2,20 +2,38 @@
 """Select a small deterministic queue of storylines for the AI brief writer."""
 from __future__ import annotations
 import json
+import re
 from datetime import datetime,timezone
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-STORYLINES=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';OUT=ROOT/'data'/'writer_queue.json'
+STORYLINES=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';BRIEFS=ROOT/'data'/'briefs.json';OUT=ROOT/'data'/'writer_queue.json'
 MAX_CANDIDATES=8
 MIN_SOURCES=3
+STOP={'a','an','and','are','as','at','be','been','but','by','for','from','has','have','he','her','his','in','into','is','it','its','new','of','on','or','says','she','that','the','their','this','to','us','u','s','was','were','will','with'}
 
 def substantive(payload):return {k:v for k,v in payload.items() if k!='generated_at'}
+def tokens(text):return {w for w in re.findall(r"[a-z0-9]+",str(text or '').lower()) if len(w)>2 and w not in STOP}
+def already_published(storyline,published_ids,published_docs):
+    sid=storyline.get('id')
+    if sid and sid in published_ids:return True
+    title_tokens=tokens(storyline.get('title'))
+    if len(title_tokens)<3:return False
+    for doc_tokens in published_docs:
+        overlap=len(title_tokens & doc_tokens)
+        if overlap>=3 and overlap/max(1,min(len(title_tokens),len(doc_tokens)))>=0.45:return True
+    return False
 
 def main():
-    data=json.loads(STORYLINES.read_text());history={}
+    data=json.loads(STORYLINES.read_text());history={};published_ids=set();published_docs=[]
     if HISTORY.exists():
         try:history={x.get('id'):x for x in json.loads(HISTORY.read_text()).get('storylines',[]) if x.get('id')}
         except (json.JSONDecodeError,OSError):history={}
+    if BRIEFS.exists():
+        try:
+            briefs=json.loads(BRIEFS.read_text()).get('briefs',[])
+            published_ids={b.get('storyline_id') for b in briefs if b.get('storyline_id')}
+            published_docs=[tokens(f"{b.get('title','')} {b.get('description','')}") for b in briefs]
+        except (json.JSONDecodeError,OSError):published_ids=set();published_docs=[]
     candidates=[]
     for s in data.get('storylines',[]):
         source_count=int(s.get('source_count') or 0);flags=set(s.get('risk_flags') or []);score=float(s.get('importance_score') or 0)
@@ -27,6 +45,9 @@ def main():
         # Keep them out of the unattended publication queue entirely; the public wire can
         # still show attributed coverage, but autonomous original synthesis must be safer.
         if flags:continue
+        # Storyline IDs can change when clusters are rebuilt. Exclude already-published
+        # subjects by exact prior ID and by conservative title/description token overlap.
+        if already_published(s,published_ids,published_docs):continue
         h=history.get(s.get('id'),{});growth=max(0,source_count-int(h.get('initial_source_count') or source_count))
         priority=round(score+min(source_count,5)*1.5+min(growth,3)*1.25,2)
         candidates.append({'storyline_id':s.get('id'),'title':s.get('title'),'priority_score':priority,'importance_score':score,'source_count':source_count,'sources':s.get('sources',[]),'status':s.get('status'),'risk_flags':[],'coverage':s.get('coverage',[])[:6],'history':{'first_seen':h.get('first_seen'),'last_seen':h.get('last_seen'),'max_source_count':h.get('max_source_count'),'source_growth':growth},'reason':'three-plus-source, lower-risk ranked candidate; requires fresh verification before publication'})

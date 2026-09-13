@@ -41,6 +41,12 @@ if 'WIRE CHECKS EVERY 60 SECONDS' in s:
     s=s.replace('WIRE CHECKS EVERY 60 SECONDS','PAGE CHECKS FOR UPDATES EVERY 60 SECONDS');changed=True
 if 'AUTO-CHECKS EVERY 60 SECONDS' in s:
     s=s.replace('AUTO-CHECKS EVERY 60 SECONDS','PAGE CHECKS FOR UPDATES EVERY 60 SECONDS');changed=True
+# The old political tone score is no longer part of the product. Rally Point's
+# useful intelligence is cross-source coverage, not an ideological sentiment score.
+import re
+ns=re.sub(r'<div class="tone-index"[^>]*>.*?</div>','',s,count=1,flags=re.S)
+if ns!=s:
+    s=ns;changed=True
 old_newsletter='<div class="newsletter-card"><h2>Get The Briefing</h2><p>Five stories. One take. Every morning.</p><iframe src="https://rallypointnews.substack.com/embed" width="100%" height="140" style="border:none;background:transparent;" frameborder="0" scrolling="no"></iframe></div>'
 new_newsletter='<div class="newsletter-card"><h2>Get the Rally Brief</h2><p>A concise morning email built around the stories that matter most, with links back to the reporting behind them.</p><iframe title="Subscribe to the Rally Point News newsletter" src="https://rallypointnews.substack.com/embed" width="100%" height="140" style="border:none;background:transparent;" frameborder="0" scrolling="no"></iframe><p class="newsletter-note">Free to subscribe. Unsubscribe anytime.</p></div>'
 if old_newsletter in s:

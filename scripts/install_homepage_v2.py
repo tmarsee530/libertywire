@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 from pathlib import Path
-p=Path(__file__).resolve().parents[1]/'index.html'
+import json
+import re
+from html import escape
+
+root=Path(__file__).resolve().parents[1]
+p=root/'index.html'
 s=p.read_text()
 css='<link rel="stylesheet" href="assets/homepage-v2.css?v=5">'
 js='<script src="assets/homepage-v2.js?v=5" defer></script>'
 changed=False
+
 for old in (
     '<link rel="stylesheet" href="assets/homepage-v2.css">',
     '<link rel="stylesheet" href="assets/homepage-v2.css?v=1">',
@@ -41,17 +47,53 @@ if 'WIRE CHECKS EVERY 60 SECONDS' in s:
     s=s.replace('WIRE CHECKS EVERY 60 SECONDS','PAGE CHECKS FOR UPDATES EVERY 60 SECONDS');changed=True
 if 'AUTO-CHECKS EVERY 60 SECONDS' in s:
     s=s.replace('AUTO-CHECKS EVERY 60 SECONDS','PAGE CHECKS FOR UPDATES EVERY 60 SECONDS');changed=True
-# The old political tone score is no longer part of the product. Rally Point's
-# useful intelligence is cross-source coverage, not an ideological sentiment score.
-import re
+
 ns=re.sub(r'<div class="tone-index"[^>]*>.*?</div>','',s,count=1,flags=re.S)
 if ns!=s:
     s=ns;changed=True
+
 old_newsletter='<div class="newsletter-card"><h2>Get The Briefing</h2><p>Five stories. One take. Every morning.</p><iframe src="https://rallypointnews.substack.com/embed" width="100%" height="140" style="border:none;background:transparent;" frameborder="0" scrolling="no"></iframe></div>'
 new_newsletter='<div class="newsletter-card"><h2>Get the Rally Brief</h2><p>A concise morning email built around the stories that matter most, with links back to the reporting behind them.</p><iframe title="Subscribe to the Rally Point News newsletter" src="https://rallypointnews.substack.com/embed" width="100%" height="140" style="border:none;background:transparent;" frameborder="0" scrolling="no"></iframe><p class="newsletter-note">Free to subscribe. Unsubscribe anytime.</p></div>'
 if old_newsletter in s:
     s=s.replace(old_newsletter,new_newsletter);changed=True
 elif 'title="Subscribe to the Rally Point News newsletter"' not in s and 'https://rallypointnews.substack.com/embed' in s:
     s=s.replace('<iframe src="https://rallypointnews.substack.com/embed"','<iframe title="Subscribe to the Rally Point News newsletter" src="https://rallypointnews.substack.com/embed"');changed=True
-if changed:p.write_text(s);print('Installed homepage v2 presentation layer')
-else:print('Homepage v2 already installed')
+
+# Core navigation and latest original Brief are rendered into the HTML itself so
+# they remain visible and crawlable even when the enhancement script fails.
+nav='''<!-- RALLY_POINT_CORE_NAV_START -->
+<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/">Rally Briefs</a><a href="sources/">Sources</a><a href="#briefing">Newsletter</a></nav>
+<!-- RALLY_POINT_CORE_NAV_END -->'''
+s=re.sub(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',nav,s,flags=re.S)
+if 'RALLY_POINT_CORE_NAV_START' not in s:
+    anchor='</header>'
+    if anchor in s:
+        s=s.replace(anchor,anchor+'\n'+nav,1);changed=True
+
+briefs_path=root/'data'/'briefs.json'
+if briefs_path.exists():
+    try:
+        latest=(json.loads(briefs_path.read_text()).get('briefs') or [])[0]
+    except (json.JSONDecodeError,IndexError,TypeError):
+        latest=None
+    if latest:
+        title=escape(str(latest.get('title') or 'Read the latest Rally Brief'))
+        url=escape(str(latest.get('url') or '/briefs/'),quote=True)
+        description=escape(str(latest.get('description') or 'Original context and synthesis from the Rally Point News Desk.'))
+        brief=f'''<!-- RALLY_POINT_LATEST_BRIEF_START -->
+<aside class="latest-brief latest-brief-core" aria-label="Latest Rally Brief"><div class="brief-eyebrow">Latest Rally Brief</div><div class="brief-copy"><a class="brief-title" href="{url}">{title}</a><div class="brief-dek">{description}</div><a class="brief-cta" href="{url}">Read the Brief →</a></div></aside>
+<!-- RALLY_POINT_LATEST_BRIEF_END -->'''
+        existing=re.search(r'<!-- RALLY_POINT_LATEST_BRIEF_START -->.*?<!-- RALLY_POINT_LATEST_BRIEF_END -->',s,flags=re.S)
+        if existing:
+            if existing.group(0)!=brief:
+                s=s[:existing.start()]+brief+s[existing.end():];changed=True
+        else:
+            marker='<div class="section-label"><span>The Wire</span>'
+            if marker in s:
+                s=s.replace(marker,brief+'\n'+marker,1);changed=True
+
+if changed:
+    p.write_text(s)
+    print('Installed homepage v2 presentation layer with server-rendered navigation and latest Brief')
+else:
+    print('Homepage v2 already installed')

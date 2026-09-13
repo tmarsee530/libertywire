@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KKT59K667B');
+</script>
 <title>Rally Point Briefs — Rally Point News</title>
 <meta name="description" content="Original Rally Point News briefs explaining what happened, what multiple sources establish, what changed, what remains uncertain, and why it matters.">
 <link rel="canonical" href="https://rallypointnews.com/briefs/">
@@ -18,7 +26,7 @@
 <main id="content"><section class="intro"><h2>More context. Less noise.</h2><p>Rally Briefs go beyond the headline. Each brief is original Rally Point News synthesis designed to explain what happened, what reliable sources establish, what changed, what remains uncertain or disputed, and why it matters.</p><p class="standards">Briefs identify the reporting or primary material they rely on. Rally Point does not manufacture quotes, reporting, certainty, or human bylines.</p></section><section id="briefList" aria-live="polite"><p class="empty">Loading Rally Briefs…</p></section></main>
 <footer><a href="/">Rally Point News</a> · <a href="/sources/">Sources &amp; Methodology</a> · <a href="mailto:tmarsee530@me.com">Tips &amp; Corrections</a></footer>
 <script>
-const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 (async()=>{const list=document.getElementById('briefList');try{const r=await fetch('/data/briefs.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const d=await r.json();if(!Array.isArray(d.briefs)||!d.briefs.length){list.innerHTML='<p class="empty">No Rally Point Briefs have been published yet.</p>';return}list.innerHTML=d.briefs.map(b=>`<article class="brief"><div class="meta"><span class="label">Rally Brief</span>${b.published_at?` · ${new Date(b.published_at).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`:''}${b.source_count?` · ${Number(b.source_count)} sources`:''}</div><h3><a href="${esc(b.url)}">${esc(b.title)}</a></h3>${b.description?`<p>${esc(b.description)}</p>`:''}</article>`).join('')}catch(e){list.innerHTML='<p class="empty">Briefs are temporarily unavailable. Please try again shortly.</p>'}})();
 </script>
 </body>

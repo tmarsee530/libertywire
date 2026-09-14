@@ -1,0 +1,28 @@
+name: Kit Connection Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/check_kit_connection.py'
+      - '.github/workflows/kit-connection-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Verify Kit connection
+        env:
+          KIT_API_KEY: ${{ secrets.KIT_API_KEY }}
+        run: python scripts/check_kit_connection.py

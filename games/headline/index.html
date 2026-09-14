@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Headline Five — Rally Point Games</title>
+  <meta name="description" content="A daily five-letter news-word game from Rally Point News.">
+  <link rel="canonical" href="https://rallypointnews.com/games/headline/">
+  <style>
+    :root{--ink:#13233a;--paper:#f4efe4;--card:#fffdf7;--line:#cfc5b3;--accent:#8f1f2c;--hit:#2f6a48;--near:#a77b1d;--miss:#73777d}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,sans-serif}.wrap{max-width:680px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--ink);padding-bottom:12px}.brand{font-weight:800;letter-spacing:.12em;text-transform:uppercase}.top a{color:inherit}.hero{text-align:center;padding:20px 0 10px}.hero h1{font-family:Georgia,serif;font-size:42px;margin:0}.hero p{line-height:1.4}.board{display:grid;gap:6px;max-width:330px;margin:18px auto}.row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.tile{aspect-ratio:1;border:2px solid #999;background:var(--card);display:grid;place-items:center;font-weight:800;font-size:28px;text-transform:uppercase}.tile.hit{background:var(--hit);color:#fff;border-color:var(--hit)}.tile.near{background:var(--near);color:#fff;border-color:var(--near)}.tile.miss{background:var(--miss);color:#fff;border-color:var(--miss)}.entry{display:flex;gap:8px;max-width:430px;margin:16px auto}.entry input{flex:1;padding:13px;font-size:20px;text-transform:uppercase;border:1px solid var(--line);background:#fff}.entry button,.actions button{border:0;background:var(--ink);color:#fff;font-weight:700;padding:12px 16px}.status{text-align:center;min-height:24px}.result{display:none;background:var(--card);border:1px solid var(--line);padding:18px;margin-top:20px}.result.show{display:block}.result h2{font-family:Georgia,serif;margin-top:0}.result a{color:var(--accent);font-weight:700}.actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.small{font-size:13px;color:#555;text-align:center;margin-top:18px}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-KKT59K667B');</script>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><span class="brand">Rally Point Games</span><a href="/games/">All games</a></div>
+  <section class="hero"><h1>Headline Five</h1><p>Guess the five-letter word tied to today's news. Six tries.</p></section>
+  <div id="board" class="board" aria-label="Guess board"></div>
+  <form id="guess-form" class="entry"><input id="guess" maxlength="5" minlength="5" pattern="[A-Za-z]{5}" autocomplete="off" autocapitalize="characters" aria-label="Five-letter guess" placeholder="ABCDE" required><button>Guess</button></form>
+  <div id="status" class="status" aria-live="polite"></div>
+  <section id="result" class="result"><h2 id="result-title"></h2><p id="result-copy"></p><p id="context"></p><a id="source-link" href="#" target="_blank" rel="noopener">Read the related coverage →</a><div class="actions"><button id="share" type="button">Share result</button><button id="tomorrow" type="button" onclick="location.href='/'">Back to the news</button></div></section>
+  <p class="small">Your streak and completion history stay on this device.</p>
+</main>
+<script>
+(async()=>{
+  const data=await fetch('/data/headline_game.json',{cache:'no-store'}).then(r=>r.json());
+  const answer=(data.answer||'').toUpperCase();
+  const key='rally-headline-five-'+data.puzzle_date;
+  const historyKey='rally-headline-five-history';
+  const state=JSON.parse(localStorage.getItem(key)||'{"guesses":[],"done":false,"won":false}');
+  const board=document.getElementById('board'), form=document.getElementById('guess-form'), input=document.getElementById('guess'), status=document.getElementById('status');
+  function score(guess){const a=answer.split(''),g=guess.split(''),out=Array(5).fill('miss'),used=Array(5).fill(false);for(let i=0;i<5;i++){if(g[i]===a[i]){out[i]='hit';used[i]=true}}for(let i=0;i<5;i++){if(out[i]==='hit')continue;for(let j=0;j<5;j++){if(!used[j]&&g[i]===a[j]){out[i]='near';used[j]=true;break}}}return out}
+  function render(){board.innerHTML='';for(let r=0;r<6;r++){const row=document.createElement('div');row.className='row';const guess=state.guesses[r]||'';const marks=guess?score(guess):[];for(let c=0;c<5;c++){const t=document.createElement('div');t.className='tile'+(marks[c]?' '+marks[c]:'');t.textContent=guess[c]||'';row.appendChild(t)}board.appendChild(row)}if(state.done)finish()}
+  function updateHistory(){let h=JSON.parse(localStorage.getItem(historyKey)||'{"last":null,"streak":0,"plays":0,"wins":0}');if(h.last!==data.puzzle_date){h.plays++;if(state.won)h.wins++;const yesterday=new Date(data.puzzle_date+'T12:00:00');yesterday.setDate(yesterday.getDate()-1);const yd=yesterday.toISOString().slice(0,10);h.streak=state.won?(h.last===yd?h.streak+1:1):0;h.last=data.puzzle_date;localStorage.setItem(historyKey,JSON.stringify(h))}return h}
+  function finish(){form.style.display='none';const h=updateHistory();document.getElementById('result').classList.add('show');document.getElementById('result-title').textContent=state.won?'Solved.':'Today’s word: '+answer;document.getElementById('result-copy').textContent=state.won?'You got '+answer+' in '+state.guesses.length+'/6. Current streak: '+h.streak+'.':'Come back tomorrow for another news word.';document.getElementById('context').textContent='Why it matters today: '+(data.context_title||'This word appears in today’s news picture.');const link=document.getElementById('source-link');if(data.source_url){link.href=data.source_url;link.textContent='Read related coverage'+(data.source_name?' from '+data.source_name:'')+' →'}else link.style.display='none';gtag('event','headline_five_complete',{won:state.won,guesses:state.guesses.length});}
+  form.addEventListener('submit',e=>{e.preventDefault();const guess=input.value.trim().toUpperCase();if(!/^[A-Z]{5}$/.test(guess)){status.textContent='Enter exactly five letters.';return}state.guesses.push(guess);if(guess===answer){state.done=true;state.won=true}else if(state.guesses.length>=6){state.done=true}localStorage.setItem(key,JSON.stringify(state));input.value='';status.textContent=state.done?'':'Try again.';render()});
+  document.getElementById('share').addEventListener('click',async()=>{const rows=state.guesses.map(g=>score(g).map(m=>m==='hit'?'🟩':m==='near'?'🟨':'⬛').join('')).join('\n');const text='Headline Five '+data.puzzle_date+' '+(state.won?state.guesses.length:'X')+'/6\n'+rows+'\nrallypointnews.com/games/headline/';try{await navigator.share({text})}catch{await navigator.clipboard.writeText(text);status.textContent='Result copied.'}gtag('event','headline_five_share');});
+  gtag('event','headline_five_start',{puzzle_date:data.puzzle_date});render();
+})().catch(()=>{document.getElementById('status').textContent='Today’s puzzle is temporarily unavailable.'});
+</script>
+</body>
+</html>

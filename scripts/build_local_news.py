@@ -99,12 +99,23 @@ def main():
     for market in config.get("markets", []):
         local = []
         rejected = 0
+        fetched_total = 0
+        feed_health = []
         for feed in market.get("feeds", []):
             fetched = fetch_feed(feed)
             relevant = [item for item in fetched if is_market_relevant(item, market)]
-            rejected += len(fetched) - len(relevant)
+            rejected_here = len(fetched) - len(relevant)
+            fetched_total += len(fetched)
+            rejected += rejected_here
             local.extend(relevant)
-        items = dedupe(national_matches(market) + local)[:MAX_PER_MARKET]
+            feed_health.append({
+                "source": feed["name"],
+                "fetched": len(fetched),
+                "kept": len(relevant),
+                "rejected": rejected_here,
+            })
+        shared = national_matches(market)
+        items = dedupe(shared + local)[:MAX_PER_MARKET]
         markets_out.append({
             "id": market["id"],
             "city": market["city"],
@@ -112,6 +123,13 @@ def main():
             "region_code": market["region_code"],
             "label": market["label"],
             "story_count": len(items),
+            "quality": {
+                "local_feed_items_fetched": fetched_total,
+                "local_feed_items_kept": len(local),
+                "syndicated_or_nonlocal_rejected": rejected,
+                "shared_news_matches": len(shared),
+                "feed_health": feed_health,
+            },
             "stories": items,
         })
         print(f"{market['id']}: kept {len(items)} market-relevant stories; rejected {rejected} syndicated/nonlocal feed items")

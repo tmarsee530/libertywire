@@ -64,10 +64,14 @@ elif 'title="Subscribe to the Rally Point News newsletter"' not in s and 'https:
 # Core navigation and latest original Brief are rendered into the HTML itself so
 # they remain visible and crawlable even when the enhancement script fails.
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->
-<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/">Rally Briefs</a><a href="games/">Games</a><a href="sources/">Sources</a><a href="#briefing">Newsletter</a></nav>
+<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/">Rally Briefs</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
 <!-- RALLY_POINT_CORE_NAV_END -->'''
-s=re.sub(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',nav,s,flags=re.S)
-if 'RALLY_POINT_CORE_NAV_START' not in s:
+existing_nav=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,flags=re.S)
+if existing_nav:
+    if existing_nav.group(0)!=nav:
+        s=s[:existing_nav.start()]+nav+s[existing_nav.end():]
+        changed=True
+else:
     anchor='</header>'
     if anchor in s:
         s=s.replace(anchor,anchor+'\n'+nav,1);changed=True

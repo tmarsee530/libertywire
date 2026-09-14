@@ -49,6 +49,16 @@ def fetch_feed(feed):
         return []
 
 
+def market_terms(market):
+    return [str(x).lower() for x in market.get("keywords", []) if str(x).strip()]
+
+
+def is_market_relevant(item, market):
+    """Reject syndicated national stories that happen to appear in a local outlet feed."""
+    hay = f"{item.get('title','')} {item.get('summary','')}".lower()
+    return any(term in hay for term in market_terms(market))
+
+
 def national_matches(market):
     if not NEWS.exists():
         return []
@@ -56,7 +66,7 @@ def national_matches(market):
         payload = json.loads(NEWS.read_text())
     except Exception:
         return []
-    terms = [x.lower() for x in market.get("keywords", [])]
+    terms = market_terms(market)
     matched = []
     for story in payload.get("stories", []):
         hay = f"{story.get('title','')} {story.get('description','')}".lower()
@@ -88,8 +98,12 @@ def main():
     markets_out = []
     for market in config.get("markets", []):
         local = []
+        rejected = 0
         for feed in market.get("feeds", []):
-            local.extend(fetch_feed(feed))
+            fetched = fetch_feed(feed)
+            relevant = [item for item in fetched if is_market_relevant(item, market)]
+            rejected += len(fetched) - len(relevant)
+            local.extend(relevant)
         items = dedupe(national_matches(market) + local)[:MAX_PER_MARKET]
         markets_out.append({
             "id": market["id"],
@@ -100,6 +114,7 @@ def main():
             "story_count": len(items),
             "stories": items,
         })
+        print(f"{market['id']}: kept {len(items)} market-relevant stories; rejected {rejected} syndicated/nonlocal feed items")
     payload = {
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "markets": markets_out,

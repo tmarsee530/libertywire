@@ -61,10 +61,10 @@ if old_newsletter in s:
 elif 'title="Subscribe to the Rally Point News newsletter"' not in s and 'https://rallypointnews.substack.com/embed' in s:
     s=s.replace('<iframe src="https://rallypointnews.substack.com/embed"','<iframe title="Subscribe to the Rally Point News newsletter" src="https://rallypointnews.substack.com/embed"');changed=True
 
-# Core navigation and latest original Brief are rendered into the HTML itself so
-# they remain visible and crawlable even when the enhancement script fails.
+# Core navigation is rendered into the HTML itself so it remains visible and
+# crawlable even when progressive enhancement scripts are delayed or disabled.
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->
-<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/">Rally Briefs</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
+<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/" data-rp-event="rally_briefs_nav_click">Rally Briefs</a><a href="local/" data-rp-event="local_rally_nav_click">Local Rally</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
 <!-- RALLY_POINT_CORE_NAV_END -->'''
 existing_nav=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,flags=re.S)
 if existing_nav:
@@ -75,6 +75,21 @@ else:
     anchor='</header>'
     if anchor in s:
         s=s.replace(anchor,anchor+'\n'+nav,1);changed=True
+
+# Render the methodology disclosure server-side for trust, accessibility, and
+# search crawlers. JavaScript enhancement will reuse this block when present.
+method='''<!-- RALLY_POINT_METHOD_NOTE_START -->
+<aside class="method-note method-note-core" aria-label="How Rally Point works"><strong>How Rally Point works:</strong> headlines are gathered from participating publishers, grouped into likely storylines, and ranked for recency and cross-source coverage. Multi-source means several publishers are covering the same apparent story; it does not mean Rally Point has independently confirmed every claim. <a href="sources/">See the source roster.</a></aside>
+<!-- RALLY_POINT_METHOD_NOTE_END -->'''
+existing_method=re.search(r'<!-- RALLY_POINT_METHOD_NOTE_START -->.*?<!-- RALLY_POINT_METHOD_NOTE_END -->',s,flags=re.S)
+if existing_method:
+    if existing_method.group(0)!=method:
+        s=s[:existing_method.start()]+method+s[existing_method.end():]
+        changed=True
+else:
+    nav_marker='<!-- RALLY_POINT_CORE_NAV_END -->'
+    if nav_marker in s:
+        s=s.replace(nav_marker,nav_marker+'\n'+method,1);changed=True
 
 briefs_path=root/'data'/'briefs.json'
 if briefs_path.exists():
@@ -87,7 +102,7 @@ if briefs_path.exists():
         url=escape(str(latest.get('url') or '/briefs/'),quote=True)
         description=escape(str(latest.get('description') or 'Original context and synthesis from the Rally Point News Desk.'))
         brief=f'''<!-- RALLY_POINT_LATEST_BRIEF_START -->
-<aside class="latest-brief latest-brief-core" aria-label="Latest Rally Brief"><div class="brief-eyebrow">Latest Rally Brief</div><div class="brief-copy"><a class="brief-title" href="{url}">{title}</a><div class="brief-dek">{description}</div><a class="brief-cta" href="{url}">Read the Brief →</a></div></aside>
+<aside class="latest-brief latest-brief-core" aria-label="Latest Rally Brief"><div class="brief-eyebrow">Latest Rally Brief</div><div class="brief-copy"><a class="brief-title" data-rp-event="rally_brief_click" href="{url}">{title}</a><div class="brief-dek">{description}</div><a class="brief-cta" data-rp-event="rally_brief_click" href="{url}">Read the Brief →</a></div></aside>
 <!-- RALLY_POINT_LATEST_BRIEF_END -->'''
         existing=re.search(r'<!-- RALLY_POINT_LATEST_BRIEF_START -->.*?<!-- RALLY_POINT_LATEST_BRIEF_END -->',s,flags=re.S)
         if existing:
@@ -100,6 +115,6 @@ if briefs_path.exists():
 
 if changed:
     p.write_text(s)
-    print('Installed homepage v2 presentation layer with server-rendered navigation and latest Brief')
+    print('Installed homepage v2 presentation layer with server-rendered navigation, methodology, and latest Brief')
 else:
     print('Homepage v2 already installed')

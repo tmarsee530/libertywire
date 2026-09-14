@@ -7,19 +7,18 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 STORYLINES = ROOT / "data" / "storylines.json"
+BRIEFS = ROOT / "data" / "briefs.json"
 OUTPUT = ROOT / "data" / "headline_game.json"
 
 CANDIDATES = [
-    "court", "judge", "house", "senate", "votes", "voter", "trade", "storm",
+    "court", "judge", "house", "votes", "voter", "trade", "storm",
     "plane", "press", "media", "union", "money", "stock", "banks", "rates",
-    "peace", "troop", "naval", "china", "india", "japan", "russia", "crime",
+    "peace", "troop", "naval", "china", "india", "japan", "crime",
     "trial", "order", "state", "local", "mayor", "party", "polls", "power",
-    "water", "fires", "flood", "earth", "space", "health", "virus", "drugs",
-    "labor", "jobs", "wages", "taxes", "funds", "roads", "school", "faith",
+    "water", "fires", "flood", "earth", "space", "virus", "drugs",
+    "labor", "wages", "taxes", "funds", "roads", "faith",
     "legal", "rules", "rights", "video", "radio", "chief", "staff", "watch"
 ]
-
-# only five-letter candidates are eligible
 CANDIDATES = [w for w in CANDIDATES if len(w) == 5]
 
 
@@ -48,17 +47,22 @@ def select_puzzle(storylines):
             if word in tokens:
                 score = float(story.get("importance_score") or 0) + float(story.get("source_count") or 0) * 2 - idx * 0.02
                 ranked.append((score, word, story))
-
     if ranked:
         ranked.sort(key=lambda item: (-item[0], item[1]))
         _, answer, story = ranked[0]
         return answer, story
 
-    # deterministic fallback from today's date; keeps game available even on a quiet feed
     date_seed = sum(ord(ch) for ch in today_eastern())
     answer = CANDIDATES[date_seed % len(CANDIDATES)]
     story = next((s for s in storylines if not s.get("risk_flags")), {})
     return answer, story
+
+
+def related_brief(storyline_id):
+    if not storyline_id:
+        return None
+    briefs = load_json(BRIEFS, {}).get("briefs") or []
+    return next((b for b in briefs if b.get("storyline_id") == storyline_id), None)
 
 
 def main():
@@ -71,10 +75,10 @@ def main():
     payload = load_json(STORYLINES, {})
     storylines = payload.get("storylines") or []
     answer, story = select_puzzle(storylines)
-
     coverage = story.get("coverage") or []
     first_link = coverage[0].get("link") if coverage else None
     first_source = coverage[0].get("source") if coverage else None
+    brief = related_brief(story.get("id"))
 
     output = {
         "puzzle_date": puzzle_date,
@@ -84,6 +88,8 @@ def main():
         "source_count": story.get("source_count") or 0,
         "source_name": first_source,
         "source_url": first_link,
+        "rally_url": (brief or {}).get("url") or "/",
+        "rally_title": (brief or {}).get("title") or "Back to today's Rally Point news",
         "generated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n")

@@ -9,6 +9,7 @@ on:
       - 'scripts/**'
       - 'assets/**'
       - 'briefs/**'
+      - 'games/**'
       - 'data/briefs.json'
       - '.github/workflows/newsroom.yml'
   schedule:
@@ -51,19 +52,21 @@ jobs:
         run: python scripts/build_history.py
       - name: Build brief writer queue
         run: python scripts/build_writer_queue.py
+      - name: Build daily Headline Five puzzle
+        run: python scripts/build_headline_game.py
       - name: Build standard and Google News sitemaps
         run: python scripts/build_sitemaps.py
       - name: Run executive business manager
         run: python scripts/manage_business.py
       - name: Commit refreshed operating data when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json)" ]; then
-            echo "Operating datasets, homepage, and sitemaps are unchanged."
+          if [ -z "$(git status --porcelain -- index.html sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json)" ]; then
+            echo "Operating datasets, homepage, game data, and sitemaps are unchanged."
             exit 0
           fi
           git config user.name "rally-point-newsroom[bot]"
           git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
-          git add index.html sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/writer_queue.json data/operations.json
+          git add index.html sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json
           git commit -m "Refresh newsroom operating data"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

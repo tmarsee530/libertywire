@@ -49,6 +49,7 @@ def write_standard(briefs):
         (BASE + "/newsletter/", None),
         (BASE + "/games/", None),
         (BASE + "/games/headline/", None),
+        (BASE + "/privacy/", None),
     ]
     for loc, lastmod in fixed + [(absolute(b.get("url", "")), b.get("updated_at") or b.get("published_at")) for b in briefs if b.get("url")]:
         u = SubElement(root, "url")

@@ -8,7 +8,7 @@ root=Path(__file__).resolve().parents[1]
 p=root/'index.html'
 s=p.read_text()
 css='<link rel="stylesheet" href="assets/homepage-v2.css?v=6">'
-js='<script src="assets/homepage-v2.js?v=5" defer></script>'
+js='<script src="assets/homepage-v2.js?v=6" defer></script>'
 changed=False
 
 for old in (
@@ -27,6 +27,7 @@ for old in (
     '<script src="assets/homepage-v2.js?v=2" defer></script>',
     '<script src="assets/homepage-v2.js?v=3" defer></script>',
     '<script src="assets/homepage-v2.js?v=4" defer></script>',
+    '<script src="assets/homepage-v2.js?v=5" defer></script>',
 ):
     if old in s:
         s=s.replace(old,js);changed=True
@@ -63,7 +64,7 @@ elif 'title="Subscribe to the Rally Point News newsletter"' not in s and 'https:
 # Core navigation and latest original Brief are rendered into the HTML itself so
 # they remain visible and crawlable even when the enhancement script fails.
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->
-<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/">Rally Briefs</a><a href="sources/">Sources</a><a href="#briefing">Newsletter</a></nav>
+<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/">Rally Briefs</a><a href="games/">Games</a><a href="sources/">Sources</a><a href="#briefing">Newsletter</a></nav>
 <!-- RALLY_POINT_CORE_NAV_END -->'''
 s=re.sub(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',nav,s,flags=re.S)
 if 'RALLY_POINT_CORE_NAV_START' not in s:

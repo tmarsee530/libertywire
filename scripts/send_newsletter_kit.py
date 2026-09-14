@@ -49,6 +49,9 @@ def main():
     send_at = (now + timedelta(minutes=5)).replace(microsecond=0).isoformat()
     published_at = now.replace(microsecond=0).isoformat()
 
+    # Kit V4 represents account-wide targeting explicitly as all_subscribers.
+    # Avoid an empty filter array so the first live edition does not depend on
+    # undocumented/ambiguous empty-array behavior.
     payload = {
         "content": ready["content_html"],
         "description": ready["description"],
@@ -56,7 +59,13 @@ def main():
         "published_at": published_at,
         "preview_text": ready["preview_text"],
         "subject": ready["subject"],
-        "subscriber_filter": [],
+        "subscriber_filter": [
+            {
+                "all": [
+                    {"type": "all_subscribers"}
+                ]
+            }
+        ],
         "send_at": send_at,
     }
     headers = {

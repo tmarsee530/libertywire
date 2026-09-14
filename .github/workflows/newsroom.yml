@@ -39,6 +39,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Install homepage presentation layer
         run: python scripts/install_homepage_v2.py
+      - name: Install native newsletter entry points
+        run: python scripts/install_native_newsletter.py
       - name: Install homepage discovery metadata
         run: python scripts/install_discovery_metadata.py
       - name: Build shared newsroom dataset

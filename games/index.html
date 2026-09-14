@@ -3,28 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Rally Point Games</title>
-  <meta name="description" content="Daily news games from Rally Point News.">
+  <title>Rally Point Games — Daily News Games</title>
+  <meta name="description" content="Daily news games from Rally Point News. Play Headline Five, track your streak, and connect the puzzle back to the day's reporting.">
   <link rel="canonical" href="https://rallypointnews.com/games/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rally Point News">
+  <meta property="og:title" content="Rally Point Games">
+  <meta property="og:description" content="Quick daily games built from the news, with context from Rally Point News.">
+  <meta property="og:url" content="https://rallypointnews.com/games/">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-KKT59K667B');</script>
   <style>
-    body{margin:0;background:#f4efe4;color:#13233a;font-family:Georgia,'Times New Roman',serif}.wrap{max-width:880px;margin:auto;padding:24px}.mast{font:700 14px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8f1f2c}.hero{border-top:4px solid #13233a;border-bottom:1px solid #b8ad9a;padding:28px 0 22px}.hero h1{font-size:clamp(38px,8vw,72px);line-height:.95;margin:0 0 12px}.hero p{font:18px/1.5 Arial,sans-serif;max-width:640px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px}.card{display:block;color:inherit;text-decoration:none;background:#fffdf7;border:1px solid #cfc5b3;padding:22px}.card:hover{transform:translateY(-2px)}.eyebrow{font:700 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8f1f2c}.card h2{font-size:30px;margin:8px 0}.card p{font:16px/1.45 Arial,sans-serif}.back{display:inline-block;margin-top:30px;font:700 14px Arial,sans-serif;color:#13233a}
+    :root{--ink:#0e0d0c;--paper:#f7f4ed;--card:#fffdf8;--rule:#d9d2c4;--navy:#0f1d38;--navy2:#182b4e;--red:#a51d2d;--gold:#c8952c;--muted:#676156;--green:#2f6a48;--shadow:0 10px 30px rgba(15,29,56,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}a{color:inherit}.site-top{background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}.site-top-inner{max-width:1100px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font:800 15px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;text-decoration:none}.brand span{color:var(--gold)}.site-nav{display:flex;gap:18px;flex-wrap:wrap}.site-nav a{font:700 12px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:#dce3ef}.site-nav a:hover,.site-nav a:focus-visible{color:#fff}.wrap{max-width:1100px;margin:auto;padding:34px 22px 60px}.kicker{font:800 12px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:34px;align-items:end;border-bottom:1px solid var(--rule);padding:22px 0 34px}.hero h1{font-size:clamp(48px,8vw,82px);letter-spacing:-.045em;line-height:.92;margin:0 0 18px;color:var(--navy)}.hero p{font:18px/1.55 Arial,sans-serif;max-width:680px;color:#49443c;margin:0}.hero-note{border-left:3px solid var(--gold);padding:4px 0 4px 18px;font:14px/1.55 Arial,sans-serif;color:var(--muted)}.hero-note strong{display:block;color:var(--navy);font-size:15px;margin-bottom:4px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:34px 0 16px}.section-head h2{font-size:28px;margin:0;color:var(--navy)}.section-head p{font:13px Arial,sans-serif;color:var(--muted);margin:0}.feature{display:grid;grid-template-columns:1.05fr .95fr;background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);overflow:hidden}.feature-art{background:linear-gradient(150deg,var(--navy2),var(--navy));min-height:360px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;position:relative}.feature-art:after{content:"";position:absolute;inset:auto -70px -110px auto;width:240px;height:240px;border:38px solid rgba(200,149,44,.18);transform:rotate(18deg)}.game-mark{font:800 12px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#cdd7e8}.tiles{display:flex;gap:8px;position:relative;z-index:1}.tile{width:54px;height:54px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);font:800 27px Arial,sans-serif;background:rgba(255,255,255,.07)}.tile:nth-child(1){background:var(--green);border-color:var(--green)}.tile:nth-child(2){background:#9c771f;border-color:#9c771f}.feature-art h3{font-size:42px;line-height:1;margin:18px 0 0;position:relative;z-index:1}.feature-copy{padding:34px;display:flex;flex-direction:column;justify-content:center}.eyebrow{font:800 11px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}.feature-copy h2{font-size:34px;margin:8px 0 10px;color:var(--navy)}.feature-copy p{font:16px/1.55 Arial,sans-serif;color:#514b42;margin:0 0 22px}.meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}.meta span{font:700 11px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-right:16px;border-right:1px solid var(--rule)}.meta span:last-child{border-right:0}.play{display:inline-flex;align-items:center;justify-content:center;width:max-content;background:var(--red);color:#fff;text-decoration:none;font:800 13px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:14px 20px;border-radius:2px}.play:hover{background:#821724}.secondary{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}.coming{background:transparent;border:1px solid var(--rule);padding:24px}.coming .status{font:800 10px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}.coming h3{font-size:24px;margin:8px 0 8px;color:var(--navy)}.coming p{font:14px/1.5 Arial,sans-serif;color:var(--muted);margin:0}.principle{margin-top:34px;border-top:3px solid var(--navy);padding-top:18px;display:grid;grid-template-columns:.55fr 1.45fr;gap:24px}.principle h2{font-size:25px;color:var(--navy);margin:0}.principle p{font:15px/1.6 Arial,sans-serif;color:#514b42;margin:0}.footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font:12px Arial,sans-serif;color:var(--muted)}.footer a{color:var(--navy);font-weight:700}.today-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:1px}
+    @media(max-width:760px){.site-top-inner{align-items:flex-start;flex-direction:column}.site-nav{gap:12px}.hero{grid-template-columns:1fr}.hero-note{margin-top:4px}.feature{grid-template-columns:1fr}.feature-art{min-height:280px}.secondary{grid-template-columns:1fr}.principle{grid-template-columns:1fr}.wrap{padding-top:24px}.hero h1{font-size:52px}.tile{width:46px;height:46px;font-size:23px}}
   </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="mast">Rally Point News</div>
-  <section class="hero">
-    <h1>Rally Point Games</h1>
-    <p>Quick daily games built from the news. Play, see why the answer matters, then go deeper into the reporting.</p>
-  </section>
-  <section class="grid" aria-label="Games">
-    <a class="card" href="headline/">
-      <div class="eyebrow">Daily game</div>
-      <h2>Headline Five</h2>
-      <p>Six guesses. Five letters. One word drawn from today's news picture.</p>
-    </a>
-  </section>
-  <a class="back" href="/">← Back to Rally Point News</a>
-</main>
+  <header class="site-top">
+    <div class="site-top-inner">
+      <a class="brand" href="/">Rally Point <span>News</span></a>
+      <nav class="site-nav" aria-label="Rally Point sections">
+        <a href="/">News</a><a href="/briefs/">Rally Briefs</a><a href="/games/" aria-current="page">Games</a><a href="/newsletter/">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="kicker">Rally Point Games</div>
+    <section class="hero">
+      <div>
+        <h1>Know the news.<br>Play the news.</h1>
+        <p>Short daily games drawn from the day's reporting. Solve the puzzle, keep your streak alive, then see the story behind the answer.</p>
+      </div>
+      <aside class="hero-note">
+        <strong><span class="today-dot"></span>New puzzle every day</strong>
+        Built from lower-risk Rally Point storylines and connected back to the reporting that inspired it.
+      </aside>
+    </section>
+
+    <div class="section-head">
+      <h2>Today’s game</h2>
+      <p>Designed for a two-minute break.</p>
+    </div>
+
+    <section class="feature" aria-label="Featured game">
+      <div class="feature-art" aria-hidden="true">
+        <div class="game-mark">Daily News Word Game</div>
+        <div>
+          <div class="tiles"><span class="tile">R</span><span class="tile">A</span><span class="tile">L</span><span class="tile">L</span><span class="tile">Y</span></div>
+          <h3>Headline Five</h3>
+        </div>
+      </div>
+      <div class="feature-copy">
+        <div class="eyebrow">Featured · Daily</div>
+        <h2>Headline Five</h2>
+        <p>Six guesses. Five letters. One word connected to the current news cycle. Finish the puzzle to reveal why the answer matters today.</p>
+        <div class="meta"><span>6 guesses</span><span>Daily streak</span><span>News context</span></div>
+        <a class="play" href="headline/" onclick="gtag('event','games_hub_play_click',{game:'headline_five'})">Play today’s puzzle →</a>
+      </div>
+    </section>
+
+    <section class="secondary" aria-label="More games in development">
+      <article class="coming"><div class="status">In development</div><h3>The Rally Mini</h3><p>A compact daily crossword built around the people, places, and events in the news.</p></article>
+      <article class="coming"><div class="status">Under consideration</div><h3>The Daily Five</h3><p>Five fast current-events questions, scored in under two minutes with links to the stories behind the answers.</p></article>
+    </section>
+
+    <section class="principle">
+      <h2>Games with a purpose</h2>
+      <p>Rally Point Games are meant to increase understanding, not detach from the news. Daily puzzles are built from verified or lower-risk newsroom context, avoid sensitive claims as game fodder, and send players back into useful reporting after they finish.</p>
+    </section>
+
+    <footer class="footer">
+      <span>Rally Point Games · A product of Rally Point News</span>
+      <span><a href="/">Back to the newsroom</a> · <a href="/newsletter/">Get The Rally Brief</a></span>
+    </footer>
+  </main>
 </body>
 </html>

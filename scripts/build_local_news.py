@@ -21,6 +21,31 @@ def clean(text):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", str(text or ""))).strip()
 
 
+def image_from_entry(entry):
+    for key in ("media_content", "media_thumbnail"):
+        rows = entry.get(key) or []
+        if isinstance(rows, dict):
+            rows = [rows]
+        for row in rows:
+            if isinstance(row, dict) and row.get("url"):
+                return str(row["url"]).strip()
+    for enclosure in entry.get("enclosures") or []:
+        if not isinstance(enclosure, dict):
+            continue
+        url = enclosure.get("href") or enclosure.get("url")
+        media_type = str(enclosure.get("type") or "")
+        if url and (media_type.startswith("image/") or not media_type):
+            return str(url).strip()
+    image = entry.get("image")
+    if isinstance(image, dict):
+        url = image.get("href") or image.get("url")
+        if url:
+            return str(url).strip()
+    raw = str(entry.get("summary") or entry.get("description") or "")
+    match = re.search(r'<img[^>]+src=["\']([^"\']+)', raw, flags=re.I)
+    return match.group(1).strip() if match else ""
+
+
 def normalize_entry(entry, source, source_type):
     link = str(entry.get("link") or "").strip()
     title = clean(entry.get("title"))
@@ -35,6 +60,7 @@ def normalize_entry(entry, source, source_type):
         "source_type": source_type,
         "date": date,
         "summary": summary[:500],
+        "image": image_from_entry(entry),
     }
 
 
@@ -79,6 +105,7 @@ def national_matches(market):
             "source_type": "rally_point_source",
             "date": story.get("date"),
             "summary": story.get("description", "")[:500],
+            "image": story.get("image") or "",
         })
     return matched
 
@@ -122,12 +149,14 @@ def main():
             "region": market["region"],
             "region_code": market["region_code"],
             "label": market["label"],
+            "aliases": market.get("aliases", []),
             "story_count": len(items),
             "quality": {
                 "local_feed_items_fetched": fetched_total,
                 "local_feed_items_kept": len(local),
                 "syndicated_or_nonlocal_rejected": rejected,
                 "shared_news_matches": len(shared),
+                "stories_with_images": sum(1 for item in items if item.get("image")),
                 "feed_health": feed_health,
             },
             "stories": items,

@@ -64,7 +64,7 @@ elif 'title="Subscribe to the Rally Point News newsletter"' not in s and 'https:
 # Core navigation is rendered into the HTML itself so it remains visible and
 # crawlable even when progressive enhancement scripts are delayed or disabled.
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->
-<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/" data-rp-event="rally_briefs_nav_click">Rally Briefs</a><a href="local/" data-rp-event="local_rally_nav_click">Local Rally</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
+<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">The Wire</a><a href="briefs/" data-rp-event="rally_briefs_nav_click">Rally Briefs</a><a href="topics/" data-rp-event="topics_nav_click">Topics</a><a href="local/" data-rp-event="local_rally_nav_click">Local Rally</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
 <!-- RALLY_POINT_CORE_NAV_END -->'''
 existing_nav=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,flags=re.S)
 if existing_nav:

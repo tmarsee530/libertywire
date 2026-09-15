@@ -40,14 +40,25 @@ def indent(tree):
         pass
 
 
+def topic_urls():
+    """Discover real topic landing pages so the sitemap scales with the topic renderer."""
+    topics = ROOT / "topics"
+    if not topics.exists():
+        return []
+    urls = []
+    for index in sorted(topics.glob("*/index.html")):
+        slug = index.parent.name
+        if slug:
+            urls.append((f"{BASE}/topics/{slug}/", None))
+    return urls
+
+
 def write_standard(briefs):
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     fixed = [
         (BASE + "/", None),
         (BASE + "/briefs/", None),
         (BASE + "/topics/", None),
-        (BASE + "/topics/government-policy/", None),
-        (BASE + "/topics/world-markets/", None),
         (BASE + "/local/", None),
         (BASE + "/sources/", None),
         (BASE + "/newsletter/", None),
@@ -55,7 +66,12 @@ def write_standard(briefs):
         (BASE + "/games/headline/", None),
         (BASE + "/privacy/", None),
     ]
-    for loc, lastmod in fixed + [(absolute(b.get("url", "")), b.get("updated_at") or b.get("published_at")) for b in briefs if b.get("url")]:
+    entries = fixed + topic_urls() + [(absolute(b.get("url", "")), b.get("updated_at") or b.get("published_at")) for b in briefs if b.get("url")]
+    seen = set()
+    for loc, lastmod in entries:
+        if not loc or loc in seen:
+            continue
+        seen.add(loc)
         u = SubElement(root, "url")
         SubElement(u, "loc").text = loc
         if lastmod:
@@ -87,4 +103,4 @@ if __name__ == "__main__":
     briefs = load_briefs()
     write_standard(briefs)
     write_news(briefs)
-    print(f"Built sitemaps from {len(briefs)} published Briefs")
+    print(f"Built sitemaps from {len(briefs)} published Briefs and {len(topic_urls())} topic pages")

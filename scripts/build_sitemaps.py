@@ -45,6 +45,7 @@ def write_standard(briefs):
     fixed = [
         (BASE + "/", None),
         (BASE + "/briefs/", None),
+        (BASE + "/topics/", None),
         (BASE + "/local/", None),
         (BASE + "/sources/", None),
         (BASE + "/newsletter/", None),

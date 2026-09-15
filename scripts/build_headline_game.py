@@ -19,8 +19,7 @@ def tokenize(text):return re.findall(r'[a-z]+',(text or '').lower())
 def meaningful(text):return {t for t in tokenize(text) if len(t)>=4 and t not in STOP}
 
 def select_puzzle(storylines,excluded_answers=None):
-    excluded={w.lower() for w in (excluded_answers or set()) if w}
-    ranked=[]
+    excluded={w.lower() for w in (excluded_answers or set()) if w};ranked=[]
     for idx,story in enumerate(storylines):
         if story.get('risk_flags'):continue
         tokens=set(tokenize(story.get('title') or ''))
@@ -43,17 +42,21 @@ def related_brief(story):
         if overlap>=2:ranked.append((overlap,b))
     return max(ranked,key=lambda x:x[0])[1] if ranked else None
 
+def masked_title(title,answer):
+    # Keep the news connection recognizable without producing awkward text such as
+    # "Supreme the answer". The blank itself becomes a useful semantic clue.
+    return re.sub(r'\b'+re.escape(answer)+r'\b','_____',title,flags=re.I)
+
 def make_clues(answer,story):
-    title=story.get('title') or "Today's news picture";sources=story.get('sources') or [];count=int(story.get('source_count') or 0)
-    clean=re.sub(r'\b'+re.escape(answer)+r'\b','the answer',title,flags=re.I)
+    title=story.get('title') or "Today's news picture";count=int(story.get('source_count') or 0)
     first=answer[0].upper();last=answer[-1].upper();vowels=sum(ch in 'aeiou' for ch in answer.lower())
-    clue1='This word is central to a story in today’s Rally Point news picture.'
-    if count>1:clue1=f'The related storyline is appearing across {count} publishers in the Rally Point wire.'
-    clue2='Story signal: '+clean
-    clue3=f'The answer has {len(answer)} letters and {vowels} vowel'+('' if vowels==1 else 's')+'.'
-    clue4=f'It begins with {first} and ends with {last}.'
     middle=answer[1:-1].upper() if len(answer)>2 else answer.upper()
-    clue5=f'Final clue: its middle letters are {middle}.'
+    clue1='It is a five-letter word connected to one of today’s significant news stories.'
+    if count>1:clue1=f'It is a five-letter word tied to a storyline Rally Point is seeing across {count} publishers.'
+    clue2='Complete the news signal: '+masked_title(title,answer)
+    clue3=f'The word contains {vowels} vowel'+('' if vowels==1 else 's')+f' and begins with {first}.'
+    clue4=f'It begins with {first}, ends with {last}, and its second letter is {answer[1].upper()}.'
+    clue5=f'Final clue: {first} {middle} {last}. Put the letters together.'
     return [clue1,clue2,clue3,clue4,clue5]
 
 def main():

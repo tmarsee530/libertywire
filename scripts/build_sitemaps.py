@@ -46,6 +46,8 @@ def write_standard(briefs):
         (BASE + "/", None),
         (BASE + "/briefs/", None),
         (BASE + "/topics/", None),
+        (BASE + "/topics/government-policy/", None),
+        (BASE + "/topics/world-markets/", None),
         (BASE + "/local/", None),
         (BASE + "/sources/", None),
         (BASE + "/newsletter/", None),

@@ -8,6 +8,7 @@ end='<!-- RALLY_POINT_DISCOVERY_END -->'
 description='Track developing stories across dozens of news sources with multi-source storyline intelligence and original Rally Briefs.'
 block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <link rel="canonical" href="https://rallypointnews.com/">
+<link rel="alternate" type="application/rss+xml" title="Rally Point News — Rally Briefs" href="https://rallypointnews.com/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rally Point News">
 <meta property="og:title" content="Rally Point News — Multi-Source News Intelligence">

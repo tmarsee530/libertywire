@@ -10,6 +10,7 @@ on:
       - 'scripts/**'
       - 'assets/**'
       - 'briefs/**'
+      - 'topics/**'
       - 'games/**'
       - 'local/**'
       - 'data/briefs.json'
@@ -50,6 +51,8 @@ jobs:
         run: python scripts/render_briefs_index.py
       - name: Install related Brief links
         run: python scripts/install_related_briefs.py
+      - name: Render topic landing pages
+        run: python scripts/render_topics.py
       - name: Build shared newsroom dataset
         run: python scripts/fetch_news.py
       - name: Build Local Rally datasets
@@ -68,13 +71,13 @@ jobs:
         run: python scripts/manage_business.py
       - name: Commit refreshed operating data when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html briefs sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json)" ]; then
-            echo "Operating datasets, homepage, Brief pages, local news, game data, and sitemaps are unchanged."
+          if [ -z "$(git status --porcelain -- index.html briefs topics sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json)" ]; then
+            echo "Operating datasets, homepage, Brief pages, topic pages, local news, game data, and sitemaps are unchanged."
             exit 0
           fi
           git config user.name "rally-point-newsroom[bot]"
           git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
-          git add index.html briefs sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json
+          git add index.html briefs topics sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json
           git commit -m "Refresh newsroom operating data"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

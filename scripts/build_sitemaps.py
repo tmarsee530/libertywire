@@ -86,7 +86,7 @@ def write_standard(briefs):
 def write_news(briefs):
     # Google News sitemaps should contain only articles published in roughly the
     # last two days. Older Briefs remain in the standard sitemap.
-    root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9", **{"xmlns:news": NEWS_NS})
+    root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     cutoff = datetime.now(timezone.utc) - timedelta(days=2)
     count = 0
     for brief in sorted(briefs, key=lambda b: b.get("published_at", ""), reverse=True):

@@ -3,28 +3,40 @@ from pathlib import Path
 import json,re
 from html import escape
 from datetime import datetime,timezone
-root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();css='<link rel="stylesheet" href="assets/homepage-v2.css?v=6">';js='<script src="assets/homepage-v2.js?v=6" defer></script>';changed=False
-for old in tuple(f'<link rel="stylesheet" href="assets/homepage-v2.css?v={i}">' for i in range(1,6))+('<link rel="stylesheet" href="assets/homepage-v2.css">',):
- if old in s:s=s.replace(old,css);changed=True
-for old in tuple(f'<script src="assets/homepage-v2.js?v={i}" defer></script>' for i in range(1,6))+('<script src="assets/homepage-v2.js" defer></script>',):
- if old in s:s=s.replace(old,js);changed=True
+root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
+# Cache-bust the current homepage presentation assets.
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=7">';js='<script src="assets/homepage-v2.js?v=7" defer></script>'
+ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
+if ns!=s:s=ns;changed=True
+ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
+if ns!=s:s=ns;changed=True
 if css not in s:s=s.replace('</head>',css+'\n</head>',1);changed=True
 if js not in s:s=s.replace('</body>',js+'\n</body>',1);changed=True
 if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s:s=s.replace('<body>','<body>\n<a class="skip-link" href="#main-content">Skip to main content</a>',1);changed=True
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True
-if 'Breaking News, Every Minute' in s:s=s.replace('RALLY POINT NEWS — Breaking News, Every Minute','RALLY POINT NEWS — Multi-Source News Intelligence');changed=True
+# Make the public-facing metadata describe the original newsroom rather than the ingestion wire.
+repls={
+ 'RALLY POINT NEWS — Breaking News, Every Minute':'Rally Point News — AI-Native Multi-Source Newsroom',
+ 'RALLY POINT NEWS — Multi-Source News Intelligence':'Rally Point News — AI-Native Multi-Source Newsroom',
+ 'Track developing stories across dozens of news sources with multi-source storyline intelligence and original Rally Briefs.':'Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.',
+ 'Multi-source news intelligence and original Rally Briefs.':'AI-assisted original multi-source reporting with sources and uncertainty kept visible.',
+ 'Rally Point News — Rally Briefs':'Rally Point News — AI Newsroom'
+}
+for a,b in repls.items():
+ if a in s:s=s.replace(a,b);changed=True
 if 'MAX_DATASET_AGE_MIN=45' in s:s=s.replace('MAX_DATASET_AGE_MIN=45','MAX_DATASET_AGE_MIN=180');changed=True
 ns=re.sub(r'<div class="tone-index"[^>]*>.*?</div>','',s,count=1,flags=re.S)
 if ns!=s:s=ns;changed=True
+# The wire remains useful infrastructure, but the navigation leads with original reporting.
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->
-<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead-wrap">Top Story</a><a href="#grid">Source Monitor</a><a href="briefs/" data-rp-event="rally_briefs_nav_click">AI Newsroom</a><a href="topics/" data-rp-event="topics_nav_click">Topics</a><a href="local/" data-rp-event="local_rally_nav_click">Local Rally</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
+<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#ai-newsroom-home">Top Stories</a><a href="briefs/" data-rp-event="rally_briefs_nav_click">AI Newsroom</a><a href="topics/" data-rp-event="topics_nav_click">Topics</a><a href="local/" data-rp-event="local_rally_nav_click">Local Rally</a><a href="games/" data-rp-event="games_nav_click">Games</a><a href="#grid">Source Monitor</a><a href="sources/">Sources</a><a href="newsletter/" data-rp-event="newsletter_nav_click">Newsletter</a></nav>
 <!-- RALLY_POINT_CORE_NAV_END -->'''
 m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,re.S)
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True
 elif '</header>' in s:s=s.replace('</header>','</header>\n'+nav,1);changed=True
 method='''<!-- RALLY_POINT_METHOD_NOTE_START -->
-<aside class="method-note method-note-core" aria-label="How Rally Point works"><strong>How Rally Point works:</strong> source monitoring identifies developing stories. Rally Point reporting is organized by editorial importance using neutral news-value signals such as public consequence, geographic reach, institutional significance, safety and economic impact; recency is secondary. <a href="sources/">See the methodology and source roster.</a></aside>
+<aside class="method-note method-note-core" aria-label="How Rally Point works"><strong>How Rally Point works:</strong> Rally Point monitors multiple publishers to identify developing stories, then organizes its original reports by neutral news-value signals including public consequence, geographic reach, institutional significance, safety and economic impact. Recency is secondary to importance. <a href="sources/">See sources and methodology.</a></aside>
 <!-- RALLY_POINT_METHOD_NOTE_END -->'''
 m=re.search(r'<!-- RALLY_POINT_METHOD_NOTE_START -->.*?<!-- RALLY_POINT_METHOD_NOTE_END -->',s,re.S)
 if m:
@@ -43,20 +55,37 @@ def importance(b):
  try:score+=min(8,max(0,int(b.get('source_count') or 0)-2)*2)
  except:pass
  return score
-bp=root/'data'/'briefs.json'
+def image_for(b):
+ for k in ('image','image_url','lead_image','hero_image'):
+  if b.get(k):return str(b[k])
+ return ''
+bp=root/'data'/'briefs.json';briefs=[]
 if bp.exists():
- try:briefs=json.loads(bp.read_text()).get('briefs') or [];top=max(briefs,key=importance) if briefs else None
- except:top=None
- if top:
-  title=escape(str(top.get('title') or 'Read the top Rally Point report'));url=escape(str(top.get('url') or '/briefs/'),quote=True);description=escape(str(top.get('description') or 'Original context and synthesis from the Rally Point News Desk.'))
-  brief=f'''<!-- RALLY_POINT_LATEST_BRIEF_START -->
-<aside class="latest-brief latest-brief-core" aria-label="Top Rally Point report"><div class="brief-eyebrow">Top Story · AI Newsroom</div><div class="brief-copy"><a class="brief-title" data-rp-event="rally_brief_click" href="{url}">{title}</a><div class="brief-dek">{description}</div><a class="brief-cta" data-rp-event="rally_brief_click" href="{url}">Read the Report →</a></div></aside>
-<!-- RALLY_POINT_LATEST_BRIEF_END -->'''
-  m=re.search(r'<!-- RALLY_POINT_LATEST_BRIEF_START -->.*?<!-- RALLY_POINT_LATEST_BRIEF_END -->',s,re.S)
-  if m:
-   if m.group()!=brief:s=s[:m.start()]+brief+s[m.end():];changed=True
-  else:
-   marker='<div class="section-label"><span>The Wire</span>'
-   if marker in s:s=s.replace(marker,brief+'\n'+marker,1);changed=True
-if changed:p.write_text(s);print('Installed homepage with importance-ranked AI Newsroom lead')
-else:print('Homepage v2 already installed')
+ try:briefs=json.loads(bp.read_text()).get('briefs') or []
+ except:briefs=[]
+ranked=sorted(briefs,key=lambda b:(importance(b),str(b.get('published_at') or '')),reverse=True)[:6]
+if ranked:
+ cards=[]
+ for i,b in enumerate(ranked):
+  title=escape(str(b.get('title') or 'Rally Point Report'));url=escape(str(b.get('url') or '/briefs/'),quote=True);desc=escape(str(b.get('description') or ''));img=image_for(b);sources=b.get('source_count')
+  visual=f'<a class="ai-home-visual" href="{url}"><img src="{escape(img,quote=True)}" alt="{escape(str(b.get("image_alt") or b.get("title") or ""),quote=True)}" width="1200" height="675" loading="{("eager" if i==0 else "lazy")}" decoding="async"></a>' if img else f'<a class="ai-home-visual ai-home-placeholder" href="{url}" aria-label="Read {title}"><span>RALLY POINT</span><b>AI NEWSROOM</b></a>'
+  cards.append(f'<article class="ai-home-card {"lead-report" if i==0 else ""}">{visual}<div class="ai-home-copy"><div class="ai-home-meta">{"Top Story" if i==0 else "Rally Point Report"}{(" · "+str(int(sources))+" sources") if sources else ""}</div><h3><a href="{url}" data-rp-event="rally_brief_click">{title}</a></h3>{f"<p>{desc}</p>" if desc else ""}<a class="ai-home-read" href="{url}" data-rp-event="rally_brief_click">Read report →</a></div></article>')
+ newsroom='''<!-- RALLY_POINT_AI_NEWSROOM_START -->
+<section class="ai-newsroom-home ai-newsroom-home-static" id="ai-newsroom-home" aria-labelledby="ai-newsroom-heading"><div class="ai-newsroom-head"><div><div class="ai-newsroom-eyebrow">AI-Native Newsroom</div><h2 id="ai-newsroom-heading">The stories that matter most.</h2><p>Original Rally Point reports are ordered by editorial importance, not simply by publication time.</p></div><a href="briefs/" data-rp-event="rally_briefs_nav_click">All reporting →</a></div><div class="ai-newsroom-grid">'''+''.join(cards)+'''</div></section>
+<!-- RALLY_POINT_AI_NEWSROOM_END -->'''
+ m=re.search(r'<!-- RALLY_POINT_AI_NEWSROOM_START -->.*?<!-- RALLY_POINT_AI_NEWSROOM_END -->',s,re.S)
+ if m:
+  if m.group()!=newsroom:s=s[:m.start()]+newsroom+s[m.end():];changed=True
+ else:
+  # Put original reporting immediately after methodology and before the source-monitor lead/wire.
+  anchor='<!-- RALLY_POINT_METHOD_NOTE_END -->'
+  if anchor in s:s=s.replace(anchor,anchor+'\n'+newsroom,1);changed=True
+# Rename remaining static Wire label as supporting infrastructure.
+if '<div class="section-label"><span>The Wire</span>' in s:s=s.replace('<div class="section-label"><span>The Wire</span>','<div class="section-label"><span>Source Monitor</span>',1);changed=True
+if 'Publisher coverage feeding the Rally Point newsroom' not in s:
+ s=s.replace('<span>Source Monitor</span><small>','<span>Source Monitor</span><small>Publisher coverage feeding the Rally Point newsroom · ',1)
+# Remove the old standalone latest-brief module now that the server-rendered newsroom owns top-story presentation.
+ns=re.sub(r'\n?<!-- RALLY_POINT_LATEST_BRIEF_START -->.*?<!-- RALLY_POINT_LATEST_BRIEF_END -->\n?','\n',s,flags=re.S)
+if ns!=s:s=ns;changed=True
+if changed:p.write_text(s);print(f'Installed server-rendered AI-first homepage with {len(ranked)} importance-ranked reports')
+else:print('AI-first homepage already installed')

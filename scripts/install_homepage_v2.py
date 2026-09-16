@@ -14,7 +14,10 @@ if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True
 for a,b in {'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire','Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire','Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.','Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'}.items():
  if a in s:s=s.replace(a,b);changed=True
-nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Stories</a><a href="#grid">The Wire</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
+# Keep key product surfaces as ordinary crawlable links on the indexed homepage.
+# This helps readers navigate the publication and gives search crawlers a stable path
+# to original Briefs and retention/ownership products instead of relying on sitemaps alone.
+nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Stories</a><a href="#grid">The Wire</a><a href="/briefs/">Rally Briefs</a><a href="/local/">Local Rally</a><a href="/games/">Games</a><a href="/newsletter/">Newsletter</a><a href="/sources/">Sources</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
 m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,re.S)
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True
@@ -88,5 +91,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with reader-visible subheadline dedupe and hot-only red hierarchy')
+if changed:p.write_text(s);print('Installed Rally Point homepage with crawlable product navigation, reader-visible subheadline dedupe and hot-only red hierarchy')
 else:print('Rally Point composed homepage already installed')

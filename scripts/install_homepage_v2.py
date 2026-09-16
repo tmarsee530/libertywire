@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import html,json,re
-from datetime import datetime,timezone
+from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=21">';js='<script src="assets/homepage-v2.js?v=21" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=22">';js='<script src="assets/homepage-v2.js?v=22" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -57,37 +57,13 @@ try:
    if best_i<0:break
    picked=pool.pop(best_i);kept.append(picked);seen|=best_novel
   return kept
- def new_labels(cov):
-  if not cov:return []
-  seen=set();out=[]
-  def norm(part):return re.sub(r"^[^a-z0-9']+|[^a-z0-9']+$",'',part.lower())
-  def content(n):return len(n)>3 and n not in stop
-  for i,item in enumerate(cov):
-   title=str(item.get('title') or '');parts=title.split();ns=[norm(x) for x in parts]
-   if i==0:
-    seen.update(n for n in ns if content(n));out.append((item,title));continue
-   fresh={n for n in ns if content(n) and n not in seen}
-   if not fresh:continue
-   first=next((j for j,n in enumerate(ns) if n in fresh),0);last=max(j for j,n in enumerate(ns) if n in fresh)
-   while first>0 and ns[first-1] and len(ns[first-1])<=3:first-=1
-   while last+1<len(ns) and ns[last+1] and len(ns[last+1])<=3:last+=1
-   label=[]
-   for j in range(first,last+1):
-    n=ns[j]
-    if not n:continue
-    if content(n) and n in seen:continue
-    label.append(parts[j])
-   seen.update(fresh)
-   text=' '.join(label).strip(' ,;:.!?–—-')
-   if text:out.append((item,text))
-  return out
  rows=[]
  for story in stories:
-  labeled=new_labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
-  if not labeled:continue
-  first=labeled[0][0];related=labeled[1:]
+  coverage=distinct([x for x in story.get('coverage',[]) if x.get('link')],8)
+  if not coverage:continue
+  first=coverage[0];related=coverage[1:]
   primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
-  related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
+  related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'">'+e(x.get('title'))+'</a> <span>'+e(x.get('source'))+'</span>' for x in related)
   rows.append('<section class="server-story"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
@@ -97,5 +73,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with non-repetitive crawlable topic stacks')
+if changed:p.write_text(s);print('Installed Rally Point homepage with intact, non-redundant topic headlines')
 else:print('Rally Point composed homepage already installed')

@@ -22,9 +22,12 @@ on:
 permissions:
   contents: write
 
+# A news refresh is perishable. If a newer code/data refresh is queued while an
+# older one is still running, finish the newest state rather than spending Actions
+# time publishing stale intermediate states.
 concurrency:
   group: rally-point-newsroom
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh-newsroom:
@@ -42,9 +45,6 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
 
-      # Freshness first: ingest and rank current coverage before generating any
-      # visitor- or crawler-facing surfaces. This prevents a refresh from
-      # rendering yesterday's ordering immediately before fetching new stories.
       - name: Build shared newsroom dataset
         run: python scripts/fetch_news.py
       - name: Build Local Rally datasets
@@ -58,7 +58,6 @@ jobs:
       - name: Build controlled publication queue
         run: python scripts/build_publication_queue.py
 
-      # Render discovery and retention surfaces from the fresh datasets above.
       - name: Install homepage presentation layer
         run: python scripts/install_homepage_v2.py
       - name: Install native newsletter entry points

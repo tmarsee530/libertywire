@@ -2,7 +2,7 @@
 from pathlib import Path
 import html,json,re
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=16">';js='<script src="assets/homepage-v2.js?v=16" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=17">';js='<script src="assets/homepage-v2.js?v=17" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -18,9 +18,6 @@ m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_EN
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True
 elif '</header>' in s:s=s.replace('</header>','</header>\n'+nav,1);changed=True
-# A plain deeplink is intentionally used instead of Google's JS widget: it gives
-# readers the official Preferred Sources flow without adding another render-blocking
-# library to the very lightweight front page.
 preferred='''<!-- RALLY_POINT_PREFERRED_SOURCE_START -->\n<a class="preferred-source" href="https://www.google.com/preferences/source?q=rallypointnews.com" rel="noopener" target="_blank" aria-label="Add Rally Point News as a preferred source in Google">Add Rally Point to Google Preferred Sources</a>\n<!-- RALLY_POINT_PREFERRED_SOURCE_END -->'''
 pm=re.search(r'<!-- RALLY_POINT_PREFERRED_SOURCE_START -->.*?<!-- RALLY_POINT_PREFERRED_SOURCE_END -->',s,re.S)
 if pm:
@@ -49,5 +46,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with preferred-source entry point and server-rendered headlines')
+if changed:p.write_text(s);print('Installed stripped Rally Point homepage with server-rendered headlines')
 else:print('Rally Point composed homepage already installed')

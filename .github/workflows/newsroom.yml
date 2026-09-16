@@ -1,35 +1,32 @@
-name: Autonomous Newsroom
+name: Rally Point Maintenance
 
 on:
   push:
     branches: [main]
     paths:
       - 'feeds.json'
-      - 'local_markets.json'
       - 'requirements.txt'
-      - 'scripts/**'
-      - 'assets/**'
-      - 'briefs/**'
-      - 'topics/**'
-      - 'games/**'
-      - 'local/**'
-      - 'data/briefs.json'
+      - 'scripts/fetch_news.py'
+      - 'scripts/build_storylines.py'
+      - 'scripts/install_homepage_v2.py'
+      - 'scripts/install_discovery_metadata.py'
+      - 'scripts/build_sitemaps.py'
+      - 'assets/homepage-v2.js'
+      - 'assets/homepage-v2.css'
       - '.github/workflows/newsroom.yml'
-  schedule:
-    # Heavy discovery/publication work stays on a slower cadence. The separate
-    # Fast Wire workflow refreshes public headline data every five minutes.
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+# Scheduled headline refreshes belong to wire-fast.yml. This workflow now exists
+# only for code/configuration changes that require homepage/search maintenance.
 concurrency:
-  group: rally-point-newsroom
+  group: rally-point-maintenance
   cancel-in-progress: true
 
 jobs:
-  refresh-newsroom:
+  maintain-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,56 +38,33 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-      - name: Install ingestion dependencies
+      - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Build shared newsroom dataset
+      - name: Refresh current headline data
         run: python scripts/fetch_news.py
-      - name: Build Local Rally datasets
-        run: python scripts/build_local_news.py
-      - name: Build storyline intelligence
+      - name: Re-rank current storylines
         run: python scripts/build_storylines.py
-      - name: Build storyline history
-        run: python scripts/build_history.py
-      - name: Build brief writer queue
-        run: python scripts/build_writer_queue.py
-      - name: Build controlled publication queue
-        run: python scripts/build_publication_queue.py
-      - name: Install homepage presentation layer
+      - name: Install homepage presentation
         run: python scripts/install_homepage_v2.py
-      - name: Install native newsletter entry points
-        run: python scripts/install_native_newsletter.py
-      - name: Install homepage discovery metadata
+      - name: Install discovery metadata
         run: python scripts/install_discovery_metadata.py
-      - name: Render Brief links for search discovery
-        run: python scripts/render_briefs_index.py
-      - name: Install related Brief links
-        run: python scripts/install_related_briefs.py
-      - name: Render topic landing pages
-        run: python scripts/render_topics.py
-      - name: Build Rally Brief RSS feed
-        run: python scripts/build_feed.py
-      - name: Build daily Headline Five puzzle
-        run: python scripts/build_headline_game.py
-      - name: Build standard and Google News sitemaps
+      - name: Build current sitemaps
         run: python scripts/build_sitemaps.py
-      - name: Run executive business manager
-        run: python scripts/manage_business.py
-      - name: Commit refreshed operating data when changed
+      - name: Commit current-site changes when needed
         run: |
-          if [ -z "$(git status --porcelain -- index.html briefs topics feed.xml sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/publication_queue.json data/headline_game.json data/operations.json)" ]; then
-            echo "Operating datasets, discovery pages, feed, and sitemaps are unchanged."
+          if [ -z "$(git status --porcelain -- index.html sitemap.xml news-sitemap.xml data/news.json data/storylines.json)" ]; then
+            echo "Current site is unchanged."
             exit 0
           fi
-          git config user.name "rally-point-newsroom[bot]"
-          git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
-          git add index.html briefs topics feed.xml sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/publication_queue.json data/headline_game.json data/operations.json
-          git commit -m "Refresh newsroom operating data"
+          git config user.name "rally-point-maintenance[bot]"
+          git config user.email "rally-point-maintenance[bot]@users.noreply.github.com"
+          git add index.html sitemap.xml news-sitemap.xml data/news.json data/storylines.json
+          git commit -m "Maintain Rally Point front page"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"
           REMOTE_SHA="$(git rev-parse origin/main)"
           if [ "$PARENT_SHA" != "$REMOTE_SHA" ]; then
-            echo "main advanced during this refresh; skipping stale generated-data push. The next scheduled run will rebuild from the newest main."
+            echo "main advanced during maintenance; skipping stale push."
             exit 0
           fi
           git push origin HEAD:main
-          echo "Refreshed newsroom data pushed to main."

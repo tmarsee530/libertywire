@@ -3,7 +3,7 @@ from pathlib import Path
 import html,json,re
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=22">';js='<script src="assets/homepage-v2.js?v=22" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=23">';js='<script src="assets/homepage-v2.js?v=23" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -57,13 +57,28 @@ try:
    if best_i<0:break
    picked=pool.pop(best_i);kept.append(picked);seen|=best_novel
   return kept
+ def labels(cov):
+  if not cov:return []
+  seen=set(toks(cov[0].get('title')));out=[(cov[0],str(cov[0].get('title') or ''))]
+  for item in cov[1:]:
+   title=str(item.get('title') or '');all_words=toks(title);novel=all_words-seen
+   if not novel:continue
+   clauses=[x.strip() for x in re.split(r'\s*(?:[|;]|\s[—–]\s|:\s+)\s*',title) if x.strip()]
+   best='';best_score=-1
+   for clause in clauses:
+    cw=toks(clause);fresh=len(cw-seen);repeated=len(cw&seen);count=len(re.findall(r"[A-Za-z0-9']+",clause))
+    if fresh<2 or count<4:continue
+    score=fresh*3-repeated*.8+(1 if count>=5 else 0)
+    if score>best_score:best,best_score=clause,score
+   out.append((item,best or title));seen|=novel
+  return out
  rows=[]
  for story in stories:
-  coverage=distinct([x for x in story.get('coverage',[]) if x.get('link')],8)
-  if not coverage:continue
-  first=coverage[0];related=coverage[1:]
+  labeled=labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
+  if not labeled:continue
+  first=labeled[0][0];related=labeled[1:]
   primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
-  related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'">'+e(x.get('title'))+'</a> <span>'+e(x.get('source'))+'</span>' for x in related)
+  related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   rows.append('<section class="server-story"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
@@ -73,5 +88,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with intact, non-redundant topic headlines')
+if changed:p.write_text(s);print('Installed Rally Point homepage with concise, readable topic subheadlines')
 else:print('Rally Point composed homepage already installed')

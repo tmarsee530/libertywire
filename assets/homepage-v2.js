@@ -3,6 +3,18 @@
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const age=d=>{if(!d)return'';const m=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return m<60?`${m}m ago`:m<1440?`${Math.floor(m/60)}h ago`:`${Math.floor(m/1440)}d ago`};
  const track=(name,params={})=>{try{if(typeof window.gtag==='function')window.gtag('event',name,params)}catch(e){}};
+ const STOP=new Set('the a an and or but for from with into over after amid says said report reports live update updates latest breaking exclusive video photo photos this that these those new news'.split(' '));
+ const topicSlug=coverage=>{
+  if(!coverage||coverage.length<2)return'';
+  const titles=coverage.map(x=>String(x.title||'').toLowerCase());
+  const counts=new Map();
+  for(const title of titles){const words=new Set((title.match(/[a-z0-9']+/g)||[]).filter(w=>w.length>3&&!STOP.has(w)));for(const w of words)counts.set(w,(counts.get(w)||0)+1)}
+  const need=Math.max(2,Math.ceil(titles.length*.4));const shared=[...counts].filter(([,n])=>n>=need).sort((a,b)=>b[1]-a[1]||b[0].length-a[0].length).map(([w])=>w);
+  if(!shared.length)return'';
+  const original=String(coverage[0].title||'').match(/[A-Za-z0-9']+/g)||[];const picked=[];
+  for(const w of original){if(shared.includes(w.toLowerCase())&&!picked.some(x=>x.toLowerCase()===w.toLowerCase()))picked.push(w);if(picked.length===3)break}
+  return picked.join(' ').slice(0,38);
+ };
  document.addEventListener('click',e=>{const a=e.target.closest('[data-rp-event]');if(a)track(a.dataset.rpEvent||'link_click',{link_url:a.href||'',link_text:(a.textContent||'').trim().slice(0,100)})});
  document.querySelectorAll('.ai-newsroom-home,.latest-brief,.method-note,.newsroom-strip,.newsletter-card,.ad-slot').forEach(x=>x.remove());
  const nav=document.querySelector('.newsroom-nav');if(nav)nav.innerHTML='<a href="#lead">Top Stories</a><a href="#grid">The Wire</a>';
@@ -15,17 +27,9 @@
   const lead=multi[0],c=(lead.coverage||[]).slice(0,8),first=c[0];if(first){const el=document.getElementById('lead');if(el)el.innerHTML=`<div class="kicker">Top Story</div><div class="lead-body"><h1><a href="${esc(first.link)}" target="_blank" rel="noopener">${esc(lead.title)}</a></h1><div class="source-tag">${esc(first.source)} <span class="dot">•</span><span class="time">${age(first.date)}</span></div><div class="also-list">${c.slice(1).map(x=>`<div class="also-item"><span class="also-source">${esc(x.source)}</span><a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a></div>`).join('')}</div></div>`}
   const grid=document.getElementById('grid');if(!grid)return;
   const groups=[];const used=new Set();
-  for(const story of d.storylines){
-   // Storyline builder already caps verified distinct-source coverage at eight.
-   // Preserve that full depth for major/developing topics rather than arbitrarily
-   // truncating a hot story to card-like dimensions.
-   const coverage=(story.coverage||[]).filter(x=>x.link&&!used.has(x.link)).slice(0,8);if(!coverage.length)continue;
-   coverage.forEach(x=>used.add(x.link));
-   const imageItem=coverage.find(x=>imageByLink.get(x.link));
-   groups.push({story,coverage,imageItem});
-  }
+  for(const story of d.storylines){const coverage=(story.coverage||[]).filter(x=>x.link&&!used.has(x.link)).slice(0,8);if(!coverage.length)continue;coverage.forEach(x=>used.add(x.link));const imageItem=coverage.find(x=>imageByLink.get(x.link));groups.push({story,coverage,imageItem})}
   for(const item of(news.stories||[])){if(used.has(item.link))continue;groups.push({story:{title:item.title,importance_score:0},coverage:[item],imageItem:null});used.add(item.link)}
   groups.sort((a,b)=>Number(b.story.importance_score||0)-Number(a.story.importance_score||0));
-  grid.innerHTML=groups.map((g,i)=>{const main=g.coverage[0],img=g.imageItem&&imageByLink.get(g.imageItem.link);return `<section class="wire-topic${i<3?' wire-topic-major':''}">${img?`<a class="wire-topic-image" href="${esc(g.imageItem.link)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="" loading="lazy" decoding="async"></a>`:''}<h3><a href="${esc(main.link)}" target="_blank" rel="noopener">${esc(main.title)}</a></h3>${g.coverage.slice(1,8).map(x=>`<div class="wire-related"><a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a> <span>${esc(x.source)}</span></div>`).join('')}</section>`}).join('');
+  grid.innerHTML=groups.map((g,i)=>{const main=g.coverage[0],img=g.imageItem&&imageByLink.get(g.imageItem.link),slug=topicSlug(g.coverage);return `<section class="wire-topic${i<3?' wire-topic-major':''}">${img?`<a class="wire-topic-image" href="${esc(g.imageItem.link)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="" loading="lazy" decoding="async"></a>`:''}${slug?`<div class="wire-topic-slug">${esc(slug)}</div>`:''}<h3><a href="${esc(main.link)}" target="_blank" rel="noopener">${esc(main.title)}</a></h3>${g.coverage.slice(1,8).map(x=>`<div class="wire-related"><a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a> <span>${esc(x.source)}</span></div>`).join('')}</section>`}).join('');
  }catch(e){}
 })();

@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
 # Bump when front-page behavior changes so returning readers do not run stale Wire JS/CSS.
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=14">';js='<script src="assets/homepage-v2.js?v=14" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=15">';js='<script src="assets/homepage-v2.js?v=15" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)

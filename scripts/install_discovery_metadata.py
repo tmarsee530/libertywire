@@ -6,11 +6,13 @@ p=Path(__file__).resolve().parents[1]/'index.html'
 s=p.read_text()
 start='<!-- RALLY_POINT_DISCOVERY_START -->'
 end='<!-- RALLY_POINT_DISCOVERY_END -->'
-title='Rally Point News — Top Stories & The Wire'
-description='Top stories ranked by news importance and a fast, continuously updated wire of headlines from across the news landscape.'
+title='Rally Point News — Conservative News & Breaking Headlines'
+description='Conservative news and breaking headlines from dozens of sources, organized by developing story and updated throughout the day.'
 block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <link rel="canonical" href="https://rallypointnews.com/">
-<link rel="alternate" type="application/rss+xml" title="Rally Point News" href="https://rallypointnews.com/feed.xml">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="application-name" content="Rally Point News">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rally Point News">
 <meta property="og:title" content="{title}">
@@ -19,7 +21,7 @@ block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
-<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/"}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}"}}]}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/"}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","alternateName":"Rally Point","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}","inLanguage":"en-US"}}]}}</script>
 <!-- RALLY_POINT_DISCOVERY_END -->'''
 changed=False
 ns=re.sub(r'<title>.*?</title>',f'<title>{title}</title>',s,count=1,flags=re.S)
@@ -31,5 +33,5 @@ if start in s and end in s:
     if merged!=s:s=merged;changed=True
 else:
     s=s.replace('</head>',block+'\n</head>',1);changed=True
-if changed:p.write_text(s);print('Installed top-stories discovery metadata')
+if changed:p.write_text(s);print('Installed current Rally Point search identity metadata')
 else:print('Discovery metadata already current')

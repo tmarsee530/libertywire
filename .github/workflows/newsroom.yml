@@ -65,6 +65,8 @@ jobs:
         run: python scripts/build_history.py
       - name: Build brief writer queue
         run: python scripts/build_writer_queue.py
+      - name: Build controlled publication queue
+        run: python scripts/build_publication_queue.py
       - name: Build daily Headline Five puzzle
         run: python scripts/build_headline_game.py
       - name: Build standard and Google News sitemaps
@@ -73,13 +75,13 @@ jobs:
         run: python scripts/manage_business.py
       - name: Commit refreshed operating data when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html briefs topics feed.xml sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json)" ]; then
+          if [ -z "$(git status --porcelain -- index.html briefs topics feed.xml sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/publication_queue.json data/headline_game.json data/operations.json)" ]; then
             echo "Operating datasets, discovery pages, feed, and sitemaps are unchanged."
             exit 0
           fi
           git config user.name "rally-point-newsroom[bot]"
           git config user.email "rally-point-newsroom[bot]@users.noreply.github.com"
-          git add index.html briefs topics feed.xml sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/headline_game.json data/operations.json
+          git add index.html briefs topics feed.xml sitemap.xml news-sitemap.xml data/news.json data/local_news.json data/storylines.json data/history.json data/writer_queue.json data/publication_queue.json data/headline_game.json data/operations.json
           git commit -m "Refresh newsroom operating data"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

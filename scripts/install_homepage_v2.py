@@ -2,7 +2,7 @@
 from pathlib import Path
 import html,json,re
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=17">';js='<script src="assets/homepage-v2.js?v=17" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=18">';js='<script src="assets/homepage-v2.js?v=18" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -33,9 +33,22 @@ if ns!=s:s=ns;changed=True
 try:
  d=json.loads((root/'data/storylines.json').read_text());stories=d.get('storylines',[])[:24]
  def e(v):return html.escape(str(v or ''),quote=True)
+ stop={'the','and','for','from','with','into','over','after','amid','says','said','report','reports','live','update','updates','latest','breaking','exclusive','video','photo','photos','this','that','these','those','new','news'}
+ def toks(title):return {w for w in re.findall(r"[a-z0-9']+",str(title or '').lower()) if len(w)>3 and w not in stop}
+ def distinct(cov,limit=4):
+  if not cov:return []
+  kept=[cov[0]];seen=set(toks(cov[0].get('title')))
+  for item in cov[1:]:
+   t=toks(item.get('title'))
+   if not t:continue
+   overlap=len(t&seen)/max(1,len(t));novel=t-seen
+   if len(novel)<2 and overlap>=.62:continue
+   kept.append(item);seen|=novel
+   if len(kept)>=limit:break
+  return kept
  rows=[]
  for story in stories:
-  cov=[x for x in story.get('coverage',[]) if x.get('link')][:4]
+  cov=distinct([x for x in story.get('coverage',[]) if x.get('link')],4)
   if not cov:continue
   rows.append('<section class="server-story"><h2>'+e(cov[0].get('title') or story.get('title'))+'</h2><p>'+' · '.join('<a href="'+e(x['link'])+'" rel="noopener">'+e(x.get('title'))+'</a> <span>'+e(x.get('source'))+'</span>' for x in cov)+'</p></section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
@@ -46,5 +59,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed stripped Rally Point homepage with server-rendered headlines')
+if changed:p.write_text(s);print('Installed stripped Rally Point homepage with distinct-angle server headlines')
 else:print('Rally Point composed homepage already installed')

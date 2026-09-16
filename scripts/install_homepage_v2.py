@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import html,json,re
+from datetime import datetime,timezone
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=18">';js='<script src="assets/homepage-v2.js?v=18" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=19">';js='<script src="assets/homepage-v2.js?v=19" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -35,16 +36,26 @@ try:
  def e(v):return html.escape(str(v or ''),quote=True)
  stop={'the','and','for','from','with','into','over','after','amid','says','said','report','reports','live','update','updates','latest','breaking','exclusive','video','photo','photos','this','that','these','those','new','news'}
  def toks(title):return {w for w in re.findall(r"[a-z0-9']+",str(title or '').lower()) if len(w)>3 and w not in stop}
+ def epoch(item):
+  raw=item.get('date')
+  if not raw:return 0
+  try:return datetime.fromisoformat(str(raw).replace('Z','+00:00')).timestamp()
+  except (ValueError,TypeError):return 0
  def distinct(cov,limit=4):
   if not cov:return []
-  kept=[cov[0]];seen=set(toks(cov[0].get('title')))
-  for item in cov[1:]:
-   t=toks(item.get('title'))
-   if not t:continue
-   overlap=len(t&seen)/max(1,len(t));novel=t-seen
-   if len(novel)<2 and overlap>=.62:continue
-   kept.append(item);seen|=novel
-   if len(kept)>=limit:break
+  kept=[cov[0]];seen=set(toks(cov[0].get('title')));pool=list(cov[1:]);newest=max([epoch(x) for x in cov] or [0])
+  while pool and len(kept)<limit:
+   best_i=-1;best_score=-1;best_novel=set()
+   for i,item in enumerate(pool):
+    t=toks(item.get('title'))
+    if not t:continue
+    novel=t-seen;overlap=len(t&seen)/max(1,len(t))
+    if len(novel)<2 and overlap>=.62:continue
+    freshness=max(0,1-max(0,newest-epoch(item))/(12*3600)) if newest else 0
+    score=len(novel)*2+(1-overlap)*2+freshness
+    if score>best_score:best_i=i;best_score=score;best_novel=novel
+   if best_i<0:break
+   picked=pool.pop(best_i);kept.append(picked);seen|=best_novel
   return kept
  rows=[]
  for story in stories:
@@ -59,5 +70,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed stripped Rally Point homepage with distinct-angle server headlines')
+if changed:p.write_text(s);print('Installed stripped Rally Point homepage with information-ranked server headlines')
 else:print('Rally Point composed homepage already installed')

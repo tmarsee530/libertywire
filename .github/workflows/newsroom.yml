@@ -16,15 +16,14 @@ on:
       - 'data/briefs.json'
       - '.github/workflows/newsroom.yml'
   schedule:
+    # Heavy discovery/publication work stays on a slower cadence. The separate
+    # Fast Wire workflow refreshes public headline data every five minutes.
     - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# A news refresh is perishable. If a newer code/data refresh is queued while an
-# older one is still running, finish the newest state rather than spending Actions
-# time publishing stale intermediate states.
 concurrency:
   group: rally-point-newsroom
   cancel-in-progress: true
@@ -44,7 +43,6 @@ jobs:
           cache: 'pip'
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
-
       - name: Build shared newsroom dataset
         run: python scripts/fetch_news.py
       - name: Build Local Rally datasets
@@ -57,7 +55,6 @@ jobs:
         run: python scripts/build_writer_queue.py
       - name: Build controlled publication queue
         run: python scripts/build_publication_queue.py
-
       - name: Install homepage presentation layer
         run: python scripts/install_homepage_v2.py
       - name: Install native newsletter entry points
@@ -96,4 +93,4 @@ jobs:
             exit 0
           fi
           git push origin HEAD:main
-          echo "Refreshed newsroom data pushed to main. GitHub Pages will deploy from the repository update."
+          echo "Refreshed newsroom data pushed to main."

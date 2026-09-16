@@ -1,0 +1,53 @@
+name: Fast Wire Refresh
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Keep the public headline layer fresh without rebuilding the heavier newsroom
+# products on every pass. A newer fast refresh makes an older one disposable.
+concurrency:
+  group: rally-point-wire-fast
+  cancel-in-progress: true
+
+jobs:
+  refresh-wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Synchronize with latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install ingestion dependencies
+        run: pip install -r requirements.txt
+      - name: Fetch newest headlines
+        run: python scripts/fetch_news.py
+      - name: Re-rank live storylines
+        run: python scripts/build_storylines.py
+      - name: Commit fresh Wire data when changed
+        run: |
+          if [ -z "$(git status --porcelain -- data/news.json data/storylines.json)" ]; then
+            echo "No headline changes."
+            exit 0
+          fi
+          git config user.name "rally-point-wire[bot]"
+          git config user.email "rally-point-wire[bot]@users.noreply.github.com"
+          git add data/news.json data/storylines.json
+          git commit -m "Refresh live Wire headlines"
+          git fetch origin main
+          PARENT_SHA="$(git rev-parse HEAD^)"
+          REMOTE_SHA="$(git rev-parse origin/main)"
+          if [ "$PARENT_SHA" != "$REMOTE_SHA" ]; then
+            echo "main advanced during this refresh; skipping stale Wire push."
+            exit 0
+          fi
+          git push origin HEAD:main

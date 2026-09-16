@@ -21,13 +21,13 @@ def indent(tree):
 
 
 def write_standard():
-    # The live product is the front page. Do not keep advertising retired Brief,
-    # topic, local, newsletter, or game URLs to crawlers simply because legacy
-    # files remain in the repository.
+    # Keep the sitemap limited to durable pages that are part of the current
+    # product. Retired Brief, topic, local, newsletter and game URLs stay out.
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     entries = [(BASE + "/", iso_mtime(ROOT / "index.html"))]
-    privacy = ROOT / "privacy" / "index.html"
-    if privacy.exists(): entries.append((BASE + "/privacy/", iso_mtime(privacy)))
+    for route in ("about", "privacy"):
+        page = ROOT / route / "index.html"
+        if page.exists(): entries.append((BASE + f"/{route}/", iso_mtime(page)))
     for loc,lastmod in entries:
         u=SubElement(root,"url");SubElement(u,"loc").text=loc
         if lastmod:SubElement(u,"lastmod").text=lastmod
@@ -43,4 +43,4 @@ def write_news():
 
 
 if __name__=="__main__":
-    write_standard();write_news();print("Built current-product sitemap: homepage + privacy; retired product URLs excluded")
+    write_standard();write_news();print("Built current-product sitemap: homepage + about + privacy; retired product URLs excluded")

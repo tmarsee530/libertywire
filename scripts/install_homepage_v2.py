@@ -3,7 +3,7 @@ from pathlib import Path
 import html,json,re
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=24">';js='<script src="assets/homepage-v2.js?v=24" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=25">';js='<script src="assets/homepage-v2.js?v=25" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -70,7 +70,7 @@ try:
     if fresh<2 or count<4:continue
     score=fresh*3-repeated*.8+(1 if count>=5 else 0)
     if score>best_score:best,best_score=clause,score
-   out.append((item,best or title));seen|=novel
+   display=best or title;out.append((item,display));seen|=toks(display)
   return out
  rows=[]
  for story in stories:
@@ -88,5 +88,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with hot-only red hierarchy and concise subheadlines')
+if changed:p.write_text(s);print('Installed Rally Point homepage with reader-visible subheadline dedupe and hot-only red hierarchy')
 else:print('Rally Point composed homepage already installed')

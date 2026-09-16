@@ -3,7 +3,7 @@ from pathlib import Path
 import html,json,re
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=23">';js='<script src="assets/homepage-v2.js?v=23" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=24">';js='<script src="assets/homepage-v2.js?v=24" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -76,10 +76,10 @@ try:
  for story in stories:
   labeled=labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
   if not labeled:continue
-  first=labeled[0][0];related=labeled[1:]
+  first=labeled[0][0];related=labeled[1:];hot=story.get('status')=='hot'
   primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
-  rows.append('<section class="server-story"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+'</section>')
+  rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
  if old:
@@ -88,5 +88,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with concise, readable topic subheadlines')
+if changed:p.write_text(s);print('Installed Rally Point homepage with hot-only red hierarchy and concise subheadlines')
 else:print('Rally Point composed homepage already installed')

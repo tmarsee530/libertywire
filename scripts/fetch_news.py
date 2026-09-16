@@ -12,6 +12,7 @@ from urllib3.util.retry import Retry
 
 ROOT=Path(__file__).resolve().parents[1]
 FEEDS_PATH=ROOT/"feeds.json"
+BREADTH_FEEDS_PATH=ROOT/"feeds_breadth.json"
 OUTPUT_PATH=ROOT/"data"/"news.json"
 MAX_PER_SOURCE=8
 SUMMARY_LEN=220
@@ -109,8 +110,19 @@ def dedupe(stories):
 def substantive(payload):
     return {k:v for k,v in payload.items() if k!="generated_at"}
 
+def load_feeds():
+    feeds=json.loads(FEEDS_PATH.read_text(encoding="utf-8"))
+    if BREADTH_FEEDS_PATH.exists():
+        feeds.extend(json.loads(BREADTH_FEEDS_PATH.read_text(encoding="utf-8")))
+    seen=set();unique=[]
+    for source in feeds:
+        key=(source.get("name"),source.get("url"))
+        if key in seen:continue
+        seen.add(key);unique.append(source)
+    return unique
+
 def main():
-    feeds=json.loads(FEEDS_PATH.read_text(encoding="utf-8"));all_stories=[];healthy=[];failed=[]
+    feeds=load_feeds();all_stories=[];healthy=[];failed=[]
     for source in feeds:
         stories,error=fetch_source(source)
         if stories:all_stories.extend(stories);healthy.append(source["name"])

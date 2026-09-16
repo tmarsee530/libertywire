@@ -41,6 +41,24 @@ jobs:
           cache: 'pip'
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
+
+      # Freshness first: ingest and rank current coverage before generating any
+      # visitor- or crawler-facing surfaces. This prevents a refresh from
+      # rendering yesterday's ordering immediately before fetching new stories.
+      - name: Build shared newsroom dataset
+        run: python scripts/fetch_news.py
+      - name: Build Local Rally datasets
+        run: python scripts/build_local_news.py
+      - name: Build storyline intelligence
+        run: python scripts/build_storylines.py
+      - name: Build storyline history
+        run: python scripts/build_history.py
+      - name: Build brief writer queue
+        run: python scripts/build_writer_queue.py
+      - name: Build controlled publication queue
+        run: python scripts/build_publication_queue.py
+
+      # Render discovery and retention surfaces from the fresh datasets above.
       - name: Install homepage presentation layer
         run: python scripts/install_homepage_v2.py
       - name: Install native newsletter entry points
@@ -55,18 +73,6 @@ jobs:
         run: python scripts/render_topics.py
       - name: Build Rally Brief RSS feed
         run: python scripts/build_feed.py
-      - name: Build shared newsroom dataset
-        run: python scripts/fetch_news.py
-      - name: Build Local Rally datasets
-        run: python scripts/build_local_news.py
-      - name: Build storyline intelligence
-        run: python scripts/build_storylines.py
-      - name: Build storyline history
-        run: python scripts/build_history.py
-      - name: Build brief writer queue
-        run: python scripts/build_writer_queue.py
-      - name: Build controlled publication queue
-        run: python scripts/build_publication_queue.py
       - name: Build daily Headline Five puzzle
         run: python scripts/build_headline_game.py
       - name: Build standard and Google News sitemaps

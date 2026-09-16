@@ -8,7 +8,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 STORYLINES=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';BRIEFS=ROOT/'data'/'briefs.json';OUT=ROOT/'data'/'writer_queue.json'
 MAX_CANDIDATES=8
-MIN_SOURCES=3
+# Two genuinely independent source families are enough to enter the *verification*
+# queue. They are not enough, by themselves, to establish a claim for publication:
+# every queued item still requires fresh verification and explicit uncertainty rules.
+MIN_SOURCES=2
 MIN_SOURCE_FAMILIES=2
 STOP={'a','an','and','are','as','at','be','been','but','by','for','from','has','have','he','her','his','in','into','is','it','its','new','of','on','or','says','she','that','the','their','this','to','us','u','s','was','were','will','with'}
 # Similar outlets are deliberately grouped. A cluster repeated by several outlets in
@@ -47,18 +50,17 @@ def main():
     for s in data.get('storylines',[]):
         source_count=int(s.get('source_count') or 0);flags=set(s.get('risk_flags') or []);score=float(s.get('importance_score') or 0);families=source_families(s)
         if source_count<MIN_SOURCES:continue
-        # Three headlines are not necessarily three independent confirmations.
-        # Require coverage spanning at least two source families before a storyline
-        # can enter the unattended AI-newsroom queue.
+        # Require independent editorial ecosystems before a storyline can enter the
+        # unattended verification queue. Publication still requires a fresh check.
         if len(families)<MIN_SOURCE_FAMILIES:continue
         if flags:continue
         if already_published(s,published_ids,published_docs):continue
         h=history.get(s.get('id'),{});growth=max(0,source_count-int(h.get('initial_source_count') or source_count))
         diversity_bonus=min(len(families),4)*1.5
         priority=round(score+min(source_count,5)*1.25+min(growth,3)*1.25+diversity_bonus,2)
-        candidates.append({'storyline_id':s.get('id'),'title':s.get('title'),'priority_score':priority,'importance_score':score,'source_count':source_count,'source_family_count':len(families),'source_families':families,'sources':s.get('sources',[]),'status':s.get('status'),'risk_flags':[],'coverage':s.get('coverage',[])[:6],'history':{'first_seen':h.get('first_seen'),'last_seen':h.get('last_seen'),'max_source_count':h.get('max_source_count'),'source_growth':growth},'publication_requirements':{'fresh_verification':True,'attribute_disputed_claims':True,'distinguish_allegations_from_established_facts':True,'preserve_source_links':True,'state_material_uncertainty':True},'reason':'three-plus-source, multi-family, lower-risk candidate; requires fresh verification before publication'})
+        candidates.append({'storyline_id':s.get('id'),'title':s.get('title'),'priority_score':priority,'importance_score':score,'source_count':source_count,'source_family_count':len(families),'source_families':families,'sources':s.get('sources',[]),'status':s.get('status'),'risk_flags':[],'coverage':s.get('coverage',[])[:6],'history':{'first_seen':h.get('first_seen'),'last_seen':h.get('last_seen'),'max_source_count':h.get('max_source_count'),'source_growth':growth},'publication_requirements':{'fresh_verification':True,'attribute_disputed_claims':True,'distinguish_allegations_from_established_facts':True,'preserve_source_links':True,'state_material_uncertainty':True},'reason':'two-plus-source, multi-family, lower-risk candidate for verification; fresh verification is required before publication'})
     candidates.sort(key=lambda x:(x['priority_score'],x['source_family_count'],x['source_count']),reverse=True)
-    payload={'generated_at':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'policy':{'minimum_sources':MIN_SOURCES,'minimum_source_families':MIN_SOURCE_FAMILIES,'risk_flagged_storylines_allowed':False,'fresh_verification_required':True},'candidate_count':min(len(candidates),MAX_CANDIDATES),'candidates':candidates[:MAX_CANDIDATES]}
+    payload={'generated_at':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'policy':{'minimum_sources':MIN_SOURCES,'minimum_source_families':MIN_SOURCE_FAMILIES,'risk_flagged_storylines_allowed':False,'fresh_verification_required':True,'queue_is_verification_gate_not_publication_approval':True},'candidate_count':min(len(candidates),MAX_CANDIDATES),'candidates':candidates[:MAX_CANDIDATES]}
     if OUT.exists():
         try:
             old=json.loads(OUT.read_text())

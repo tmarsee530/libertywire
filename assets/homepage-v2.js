@@ -1,6 +1,6 @@
 /* Rally Point News — Top Stories + compact, curated topical Wire. */
 (async()=>{
- const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const age=d=>{if(!d)return'';const m=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return m<60?`${m}m ago`:m<1440?`${Math.floor(m/60)}h ago`:`${Math.floor(m/1440)}d ago`};
  const track=(name,params={})=>{try{if(typeof window.gtag==='function')window.gtag('event',name,params)}catch(e){}};
  const STOP=new Set('the a an and or but for from with into over after amid says said report reports live update updates latest breaking exclusive video photo photos this that these those new news'.split(' '));
@@ -17,8 +17,6 @@
   if(groups.length<24){for(const item of(news.stories||[])){if(groups.length>=24)break;if(used.has(item.link))continue;groups.push({story:{title:item.title,importance_score:0,status:'active'},coverage:[item],imageItem:null});used.add(item.link)}}
   groups.sort((a,b)=>Number(b.story.importance_score||0)-Number(a.story.importance_score||0));
   const render=(g,i)=>{const main=g.coverage[0],img=g.imageItem&&imageByLink.get(g.imageItem.link),slug=topicSlug(g.coverage);return `<section class="wire-topic${i<3?' wire-topic-major':''}">${img?`<a class="wire-topic-image" href="${esc(g.imageItem.link)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="" loading="lazy" decoding="async"></a>`:''}${slug?`<div class="wire-topic-slug">${esc(slug)}</div>`:''}<h3><a href="${esc(main.link)}" target="_blank" rel="noopener">${esc(main.title)}</a></h3>${g.coverage.slice(1,8).map(x=>`<div class="wire-related"><a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.title)}</a> <span>${esc(x.source)}</span></div>`).join('')}</section>`};
-  // Three independent news columns: put the three strongest topics at the top, one per column,
-  // then balance subsequent topics by estimated visual weight. This preserves hierarchy without card-grid gaps.
   const cols=[[],[],[]],weights=[0,0,0];groups.forEach((g,i)=>{const weight=3+g.coverage.length*1.05+(g.imageItem?5:0)+(i<3?2:0);const col=i<3?i:weights.indexOf(Math.min(...weights));cols[col].push(render(g,i));weights[col]+=weight});
   grid.innerHTML=cols.map((items,i)=>`<div class="wire-column" data-column="${i+1}">${items.join('')}</div>`).join('');
  }catch(e){}

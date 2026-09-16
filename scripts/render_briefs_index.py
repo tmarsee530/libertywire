@@ -2,9 +2,8 @@
 from pathlib import Path
 from datetime import datetime,timezone
 from html import escape
-import json,re
-ROOT=Path(__file__).resolve().parents[1];INDEX=ROOT/'briefs'/'index.html';DATA=ROOT/'data'/'briefs.json'
-START='<!-- RALLY_BRIEFS_STATIC_START -->';END='<!-- RALLY_BRIEFS_STATIC_END -->'
+import json
+ROOT=Path(__file__).resolve().parents[1]; INDEX=ROOT/'briefs'/'index.html'; DATA=ROOT/'data'/'briefs.json'
 def fmt_date(v):
  try:return datetime.fromisoformat(str(v).replace('Z','+00:00')).strftime('%B %d, %Y').replace(' 0',' ')
  except:return ''
@@ -13,51 +12,32 @@ def image_for(b):
   if b.get(k):return str(b[k])
  return ''
 def importance(b):
- # Explicit editorial importance (0-100) wins when the publishing pipeline supplies it.
  try:
   if b.get('importance_score') is not None:return float(b['importance_score'])
  except:pass
- text=(' '+str(b.get('title',''))+' '+str(b.get('description',''))+' ').lower()
- score=50.0
- # Neutral news-value signals: public consequence, geographic reach, institutional significance, safety/economic impact.
- signals={
-  'supreme court':18,'congress':15,'federal':12,'president':12,'election':14,'midterm':14,'ballot':13,'court':10,'judge':8,
-  'war':18,'attack':14,'shipping':9,'oil':11,'market':8,'tariff':9,'emergency':10,'crash':12,'killed':12,'hurricane':10,
-  'fema':10,'usps':8,'ai ':8,'artificial intelligence':8,'crypto':6,'ethics':7,'shutdown':10
- }
- for term,weight in signals.items():
-  if term in text:score+=weight
+ t=(' '+str(b.get('title',''))+' '+str(b.get('description',''))+' ').lower(); score=50.0
+ for term,w in {'supreme court':18,'congress':15,'federal':12,'president':12,'election':14,'midterm':14,'ballot':13,'court':10,'judge':8,'war':18,'attack':14,'shipping':9,'oil':11,'market':8,'tariff':9,'emergency':10,'crash':12,'killed':12,'hurricane':10,'fema':10,'usps':8,'artificial intelligence':8,'crypto':6,'shutdown':10}.items():
+  if term in t:score+=w
  try:
-  dt=datetime.fromisoformat(str(b.get('published_at','')).replace('Z','+00:00'))
-  if dt.tzinfo is None:dt=dt.replace(tzinfo=timezone.utc)
-  age=max(0,(datetime.now(timezone.utc)-dt).total_seconds()/86400)
-  score+=max(0,12-age*2) # freshness is a tiebreaking signal, not the organizing principle.
+  dt=datetime.fromisoformat(str(b.get('published_at','')).replace('Z','+00:00'));dt=dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc);score+=max(0,12-max(0,(datetime.now(timezone.utc)-dt).total_seconds()/86400)*2)
  except:pass
  try:score+=min(8,max(0,int(b.get('source_count') or 0)-2)*2)
  except:pass
  return score
-def ranked(briefs):
- return sorted(briefs,key=lambda b:(importance(b),str(b.get('published_at') or '')),reverse=True)
-def build_html(briefs):
- cards=[]
- for i,b in enumerate(ranked(briefs)):
-  title=escape(str(b.get('title') or 'Rally Brief'));url=escape(str(b.get('url') or '#'),quote=True);desc=escape(str(b.get('description') or ''));date=fmt_date(b.get('published_at'));sources=b.get('source_count');img=image_for(b)
-  visual=(f'<a class="visual" href="{url}" aria-label="Read {title}"><img src="{escape(img,quote=True)}" alt="{escape(str(b.get("image_alt") or title),quote=True)}" width="1200" height="675" loading="{("eager" if i==0 else "lazy")}" decoding="async"></a>' if img else f'<a class="visual placeholder" href="{url}" aria-label="Read {title}"><span>RALLY POINT</span><b>{escape(str(b.get("image_label") or "AI NEWSROOM"))}</b></a>')
-  meta=' · '.join(x for x in [date,(f'{int(sources)} sources' if sources else '')] if x)
-  cards.append(f'<article class="brief{(" lead" if i==0 else "")}">{visual}<div class="copy"><div class="meta"><span>{("Top Story" if i==0 else "Rally Point Report")}</span>{(" · "+escape(meta) if meta else "")}</div><h2><a href="{url}">{title}</a></h2>{f"<p>{desc}</p>" if desc else ""}<a class="read" href="{url}">Read full report →</a></div></article>')
- return ''.join(cards) if cards else '<p>No reports have been published yet.</p>'
+def ranked(bs):return sorted(bs,key=lambda b:(importance(b),str(b.get('published_at') or '')),reverse=True)
+def card(b,i):
+ title=escape(str(b.get('title') or 'Rally Point Report'));url=escape(str(b.get('url') or '#'),quote=True);desc=escape(str(b.get('description') or ''));img=image_for(b);date=fmt_date(b.get('published_at'));sources=b.get('source_count')
+ visual=f'<a class="visual" href="{url}"><img src="{escape(img,quote=True)}" alt="{escape(str(b.get("image_alt") or b.get("title") or ""),quote=True)}" width="1200" height="675" loading="{("eager" if i==0 else "lazy")}" decoding="async"></a>' if img else f'<a class="visual placeholder" href="{url}" aria-label="Read {title}"><span>RALLY POINT</span><b>AI NEWSROOM</b></a>'
+ meta=' · '.join(x for x in [date,(f'{int(sources)} sources' if sources else '')] if x)
+ return f'<article class="report {"lead" if i==0 else ""}">{visual}<div class="copy"><div class="meta"><strong>{"Top Story" if i==0 else "Rally Point Report"}</strong>{(" · "+escape(meta)) if meta else ""}</div><h2><a href="{url}">{title}</a></h2>{f"<p>{desc}</p>" if desc else ""}<a class="read" href="{url}">Read full report →</a></div></article>'
 def main():
- data=json.loads(DATA.read_text()) if DATA.exists() else {'briefs':[]};briefs=data.get('briefs',[]) if isinstance(data,dict) else []
- if not isinstance(briefs,list):briefs=[]
- rendered=f'{START}{build_html(briefs)}{END}';page=INDEX.read_text() if INDEX.exists() else ''
- pattern=re.compile(re.escape(START)+r'.*?'+re.escape(END),re.S)
- if pattern.search(page):updated=pattern.sub(rendered,page,count=1)
- else:
-  target='<section id="briefList" aria-live="polite"><p class="empty">Loading Rally Briefs…</p></section>'
-  if target not in page:raise SystemExit('Could not locate briefList section')
-  updated=page.replace(target,f'<section id="briefList" aria-live="polite">{rendered}</section>',1)
- css='''<style id="rp-ai-newsroom-cards">#briefList{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}.brief{display:flex!important;flex-direction:column!important;background:#fff!important;border:1px solid #d8d3c7!important;padding:0!important;overflow:hidden!important}.brief.lead{grid-column:1/-1!important;display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)!important;border-top:4px solid #a51f24!important}.visual{display:block;aspect-ratio:16/9;overflow:hidden;background:#0d1b34;text-decoration:none!important}.visual img{width:100%;height:100%;object-fit:cover;display:block}.placeholder{color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:linear-gradient(145deg,#0d1b34,#1c3153)}.placeholder span{font:700 9px Arial,sans-serif;letter-spacing:.2em;color:#c89a3c}.placeholder b{font:900 clamp(22px,4vw,38px) Arial,sans-serif;letter-spacing:-.04em}.copy{padding:24px;display:flex;flex-direction:column;flex:1}.brief h2{font:900 clamp(22px,3vw,31px)/1.08 Arial,sans-serif!important;letter-spacing:-.025em;margin:9px 0 11px!important}.brief h2 a{text-decoration:none}.brief p{color:#68645b;margin:0 0 18px}.meta{font:800 9px Arial,sans-serif!important;letter-spacing:.09em;text-transform:uppercase;color:#68645b}.meta span{color:#a51f24}.read{margin-top:auto;padding-top:12px;border-top:1px solid #d8d3c7;font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;color:#0d1b34}@media(max-width:720px){#briefList{grid-template-columns:1fr!important}.brief.lead{grid-column:auto!important;display:flex!important}}</style>'''
- if 'id="rp-ai-newsroom-cards"' not in updated:updated=updated.replace('</head>',css+'</head>',1)
- if updated!=page:INDEX.write_text(updated);print(f'Rendered importance-ranked, image-ready newsroom archive with {len(briefs)} reports')
- else:print('AI newsroom archive already current')
+ try:d=json.loads(DATA.read_text())
+ except:d={'briefs':[]}
+ bs=ranked(d.get('briefs',[]) if isinstance(d,dict) else [])
+ cards=''.join(card(b,i) for i,b in enumerate(bs)) or '<p class="empty">No reports have been published yet.</p>'
+ count=len(bs); updated=escape(str(d.get('generated_at') or '')) if isinstance(d,dict) else ''
+ html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Newsroom | Rally Point News</title><meta name="description" content="Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible."><link rel="canonical" href="https://rallypointnews.com/briefs/"><link rel="alternate" type="application/rss+xml" title="Rally Point News" href="/feed.xml"><meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="AI Newsroom | Rally Point News"><meta property="og:description" content="Original multi-source reporting with sources and uncertainty kept visible."><meta property="og:url" content="https://rallypointnews.com/briefs/"><meta name="twitter:card" content="summary_large_image"><script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-KKT59K667B');</script><script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Rally Point News AI Newsroom","url":"https://rallypointnews.com/briefs/","description":"Original multi-source reporting synthesized by Rally Point News.","isPartOf":{{"@type":"WebSite","name":"Rally Point News","url":"https://rallypointnews.com/"}},"publisher":{{"@type":"Organization","name":"Rally Point News","url":"https://rallypointnews.com/"}}}}</script><style>
+:root{{--navy:#0b1d36;--red:#a82028;--gold:#bd8b2d;--paper:#fffdf9;--cream:#f7f4ed;--ink:#16191d;--muted:#68665f;--line:#ddd7ca}}*{{box-sizing:border-box}}body{{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,serif}}a{{color:inherit}}.skip{{position:absolute;left:-9999px}}.skip:focus{{left:12px;top:12px;background:#fff;padding:10px;z-index:99}}.utility{{background:#091525;color:#b9c2d0;padding:7px max(20px,calc((100vw - 1240px)/2));font:700 9px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}}header{{background:var(--navy);color:#fff;border-bottom:3px solid var(--gold);padding:27px 20px;text-align:center}}.brand{{font:900 clamp(30px,5vw,52px)/1 Arial,sans-serif;letter-spacing:-.04em;text-decoration:none}}.brand small{{display:block;color:#aebbd0;font-size:9px;letter-spacing:.25em;margin-bottom:7px}}nav{{height:45px;background:rgba(255,253,249,.98);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:24px;padding:0 max(20px,calc((100vw - 1240px)/2));font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap;overflow:auto}}nav a{{text-decoration:none}}nav a.active{{color:var(--red);border-bottom:3px solid var(--red);height:45px;display:flex;align-items:center}}main{{max-width:1240px;margin:auto;padding:34px 20px 70px}}.hero{{display:grid;grid-template-columns:1.45fr .55fr;gap:40px;border-top:5px solid var(--navy);border-bottom:1px solid var(--line);padding:27px 0 30px;margin-bottom:25px}}.eyebrow,.meta{{font:800 9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}}.eyebrow{{color:var(--red)}}h1{{font:900 clamp(38px,6vw,68px)/.96 Arial,sans-serif;letter-spacing:-.055em;color:var(--navy);margin:8px 0 15px;max-width:850px}}.hero p{{font-size:17px;line-height:1.55;color:var(--muted);max-width:760px}}.standards{{border-left:4px solid var(--gold);padding:15px 0 15px 20px;font:13px/1.55 Arial,sans-serif;color:var(--muted)}}.standards strong{{display:block;color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}}.proof{{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}}.proof span{{border:1px solid var(--line);background:var(--paper);padding:6px 8px;font:800 9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em}}.section-head{{display:flex;justify-content:space-between;align-items:end;border-bottom:3px solid var(--navy);padding-bottom:9px;margin-bottom:16px}}.section-head h2{{font:900 18px Arial,sans-serif;text-transform:uppercase;margin:0;color:var(--navy)}}.section-head span{{font:700 9px Arial,sans-serif;color:var(--muted);text-transform:uppercase}}#briefList{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}.report{{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}}.report.lead{{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(310px,.7fr);border-top:5px solid var(--red)}}.visual{{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--navy);text-decoration:none}}.visual img{{width:100%;height:100%;object-fit:cover;display:block}}.placeholder{{display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;background:linear-gradient(145deg,var(--navy),#19375f)}}.placeholder span{{font:700 8px Arial,sans-serif;letter-spacing:.2em;color:var(--gold)}}.placeholder b{{font:900 clamp(23px,4vw,38px) Arial,sans-serif;letter-spacing:-.04em}}.copy{{padding:24px;display:flex;flex-direction:column;flex:1}}.meta strong{{color:var(--red)}}.report h2{{font:900 clamp(22px,3vw,31px)/1.08 Arial,sans-serif;letter-spacing:-.025em;margin:9px 0 11px;color:var(--navy)}}.report h2 a{{text-decoration:none}}.report p{{color:var(--muted);line-height:1.5;margin:0 0 18px}}.read{{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font:800 10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;text-decoration:none;color:var(--red)}}footer{{background:#101317;color:#9ca3af;text-align:center;padding:30px 20px;font:11px Arial,sans-serif}}footer a{{color:#d5b66d}}@media(max-width:760px){{.hero{{grid-template-columns:1fr;gap:15px}}#briefList{{grid-template-columns:1fr}}.report.lead{{grid-column:auto;display:flex}}nav{{padding:0 14px;gap:18px}}main{{padding:25px 14px 55px}}}}
+</style></head><body><a class="skip" href="#content">Skip to content</a><div class="utility">Rally Point News · AI-Native Newsroom</div><header><a class="brand" href="/"><small>RALLY POINT NEWS</small>AI NEWSROOM</a></header><nav aria-label="Rally Point sections"><a href="/">Home</a><a class="active" href="/briefs/">AI Newsroom</a><a href="/topics/">Topics</a><a href="/local/">Local Rally</a><a href="/games/">Games</a><a href="/sources/">Sources</a><a href="/newsletter/">Newsletter</a></nav><main id="content"><section class="hero"><div><div class="eyebrow">Original Rally Point Reporting</div><h1>Reporting built from the sources up.</h1><p>Rally Point synthesizes multiple sources into original reports designed to separate established facts from claims, commentary and unresolved questions. Stories are positioned by news importance rather than simply by publication time.</p><div class="proof"><span>Multi-source synthesis</span><span>Sources visible</span><span>Uncertainty disclosed</span><span>Corrections open</span></div></div><aside class="standards"><strong>How this desk works</strong>Source monitoring identifies developing stories. Reports are published selectively when the available sourcing supports useful synthesis. AI materially assists the reporting process; source links and uncertainty remain visible so readers can inspect the basis for a report.</aside></section><div class="section-head"><h2>Newsroom Reports</h2><span>{count} published reports</span></div><section id="briefList">{cards}</section></main><footer>Rally Point News · AI-assisted original reporting · <a href="/sources/">Sources &amp; methodology</a> · <a href="/feed.xml">RSS</a></footer></body></html>'''
+ INDEX.parent.mkdir(parents=True,exist_ok=True);INDEX.write_text(html);print(f'Rendered authoritative AI Newsroom archive with {count} reports')
 if __name__=='__main__':main()

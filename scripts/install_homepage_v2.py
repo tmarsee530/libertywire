@@ -18,6 +18,14 @@ m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_EN
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True
 elif '</header>' in s:s=s.replace('</header>','</header>\n'+nav,1);changed=True
+# A plain deeplink is intentionally used instead of Google's JS widget: it gives
+# readers the official Preferred Sources flow without adding another render-blocking
+# library to the very lightweight front page.
+preferred='''<!-- RALLY_POINT_PREFERRED_SOURCE_START -->\n<a class="preferred-source" href="https://www.google.com/preferences/source?q=rallypointnews.com" rel="noopener" target="_blank" aria-label="Add Rally Point News as a preferred source in Google">Add Rally Point to Google Preferred Sources</a>\n<!-- RALLY_POINT_PREFERRED_SOURCE_END -->'''
+pm=re.search(r'<!-- RALLY_POINT_PREFERRED_SOURCE_START -->.*?<!-- RALLY_POINT_PREFERRED_SOURCE_END -->',s,re.S)
+if pm:
+ if pm.group()!=preferred:s=s[:pm.start()]+preferred+s[pm.end():];changed=True
+elif '<!-- RALLY_POINT_CORE_NAV_END -->' in s:s=s.replace('<!-- RALLY_POINT_CORE_NAV_END -->','<!-- RALLY_POINT_CORE_NAV_END -->\n'+preferred,1);changed=True
 for pattern in [r'\n?<!-- RALLY_POINT_METHOD_NOTE_START -->.*?<!-- RALLY_POINT_METHOD_NOTE_END -->\n?',r'\n?<!-- RALLY_POINT_AI_NEWSROOM_START -->.*?<!-- RALLY_POINT_AI_NEWSROOM_END -->\n?',r'\n?<!-- RALLY_POINT_LATEST_BRIEF_START -->.*?<!-- RALLY_POINT_LATEST_BRIEF_END -->\n?']:
  ns=re.sub(pattern,'\n',s,flags=re.S)
  if ns!=s:s=ns;changed=True
@@ -25,14 +33,8 @@ for old in ('Rally Wire','Source Monitor'):
  if f'<div class="section-label"><span>{old}</span>' in s:s=s.replace(f'<div class="section-label"><span>{old}</span>','<div class="section-label"><span>The Wire</span>',1);changed=True
 ns=re.sub(r'<span>The Wire</span><small>.*?</small>','<span>The Wire</span><small>The essential developing stories</small>',s,count=1,flags=re.S)
 if ns!=s:s=ns;changed=True
-
-# Search engines should receive useful current-news text in the initial HTML rather
-# than an empty JavaScript shell. This compact block is server-generated from the
-# same neutral storyline ranking used by the visible Wire; JS removes it after the
-# interactive presentation has rendered, while no-JS readers still get the links.
 try:
- d=json.loads((root/'data/storylines.json').read_text())
- stories=d.get('storylines',[])[:24]
+ d=json.loads((root/'data/storylines.json').read_text());stories=d.get('storylines',[])[:24]
  def e(v):return html.escape(str(v or ''),quote=True)
  rows=[]
  for story in stories:
@@ -47,5 +49,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with server-rendered discovery headlines')
+if changed:p.write_text(s);print('Installed Rally Point homepage with preferred-source entry point and server-rendered headlines')
 else:print('Rally Point composed homepage already installed')

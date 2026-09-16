@@ -13,7 +13,7 @@ from urllib3.util.retry import Retry
 ROOT=Path(__file__).resolve().parents[1]
 FEEDS_PATH=ROOT/"feeds.json"
 OUTPUT_PATH=ROOT/"data"/"news.json"
-MAX_PER_SOURCE=5
+MAX_PER_SOURCE=8
 SUMMARY_LEN=220
 TIMEOUT_SECONDS=25
 USER_AGENT="RallyPointNews/1.0 (+https://rallypointnews.com/)"

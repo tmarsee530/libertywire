@@ -41,7 +41,7 @@ try:
   if not raw:return 0
   try:return datetime.fromisoformat(str(raw).replace('Z','+00:00')).timestamp()
   except (ValueError,TypeError):return 0
- def distinct(cov,limit=4):
+ def distinct(cov,limit=8):
   if not cov:return []
   kept=[cov[0]];seen=set(toks(cov[0].get('title')));pool=list(cov[1:]);newest=max([epoch(x) for x in cov] or [0])
   while pool and len(kept)<limit:
@@ -83,10 +83,12 @@ try:
   return out
  rows=[]
  for story in stories:
-  labeled=new_labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],4))
+  labeled=new_labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
   if not labeled:continue
-  first=labeled[0][0]
-  rows.append('<section class="server-story"><h2>'+e(first.get('title') or story.get('title'))+'</h2><p>'+' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in labeled)+'</p></section>')
+  first=labeled[0][0];related=labeled[1:]
+  primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
+  related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
+  rows.append('<section class="server-story"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
  if old:
@@ -95,5 +97,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed Rally Point homepage with readable cumulative new-information sub-headlines')
+if changed:p.write_text(s);print('Installed Rally Point homepage with non-repetitive crawlable topic stacks')
 else:print('Rally Point composed homepage already installed')

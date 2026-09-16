@@ -14,7 +14,10 @@ ROOT=Path(__file__).resolve().parents[1]
 FEEDS_PATH=ROOT/"feeds.json"
 BREADTH_FEEDS_PATH=ROOT/"feeds_breadth.json"
 OUTPUT_PATH=ROOT/"data"/"news.json"
-MAX_PER_SOURCE=8
+# Ingestion depth is intentionally much larger than the homepage display depth.
+# This gives the ranking/clustering layer a broad radar while the homepage remains selective.
+DEFAULT_MAX_PER_SOURCE=20
+MAX_SOURCE_DEPTH=40
 SUMMARY_LEN=220
 TIMEOUT_SECONDS=25
 USER_AGENT="RallyPointNews/1.0 (+https://rallypointnews.com/)"
@@ -65,11 +68,16 @@ def published_epoch(entry):
 def iso_from_epoch(epoch):
     return datetime.fromtimestamp(epoch,tz=timezone.utc).isoformat().replace("+00:00","Z") if epoch else None
 
+def source_depth(source):
+    try:depth=int(source.get("max_entries",DEFAULT_MAX_PER_SOURCE))
+    except (TypeError,ValueError):depth=DEFAULT_MAX_PER_SOURCE
+    return max(1,min(depth,MAX_SOURCE_DEPTH))
+
 def parse_feed(content,source):
     parsed=feedparser.parse(content)
     if not parsed.entries:return []
     stories=[]
-    for entry in parsed.entries[:MAX_PER_SOURCE]:
+    for entry in parsed.entries[:source_depth(source)]:
         title=clean_text(entry.get("title"));link=(entry.get("link") or "").strip()
         if not title or not link:continue
         epoch=published_epoch(entry)
@@ -136,6 +144,6 @@ def main():
             if substantive(old)==substantive(payload):print(f"No substantive change: {len(stories)} stories from {len(healthy)}/{len(feeds)} sources.");return
         except Exception:pass
     OUTPUT_PATH.parent.mkdir(parents=True,exist_ok=True);OUTPUT_PATH.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print(f"Generated {len(stories)} stories from {len(healthy)}/{len(feeds)} healthy sources.")
+    print(f"Generated {len(stories)} stories from {len(healthy)}/{len(feeds)} healthy sources; default radar depth {DEFAULT_MAX_PER_SOURCE}/source.")
     for item in failed:print(f"FAILED: {item['source']}: {item['error']}")
 if __name__=="__main__":main()

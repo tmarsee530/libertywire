@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
 # Bump when front-page behavior changes so returning readers do not run stale Wire JS/CSS.
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=13">';js='<script src="assets/homepage-v2.js?v=13" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=14">';js='<script src="assets/homepage-v2.js?v=14" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -12,12 +12,7 @@ if css not in s:s=s.replace('</head>',css+'\n</head>',1);changed=True
 if js not in s:s=s.replace('</body>',js+'\n</body>',1);changed=True
 if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s:s=s.replace('<body>','<body>\n<a class="skip-link" href="#main-content">Skip to main content</a>',1);changed=True
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True
-for a,b in {
- 'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire',
- 'Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire',
- 'Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.',
- 'Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'
-}.items():
+for a,b in {'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire','Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire','Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.','Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'}.items():
  if a in s:s=s.replace(a,b);changed=True
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->
 <nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Stories</a><a href="#grid">The Wire</a></nav>
@@ -33,5 +28,5 @@ for old in ('Rally Wire','Source Monitor'):
  if f'<div class="section-label"><span>{old}</span>' in s:s=s.replace(f'<div class="section-label"><span>{old}</span>','<div class="section-label"><span>The Wire</span>',1);changed=True
 ns=re.sub(r'<span>The Wire</span><small>.*?</small>','<span>The Wire</span><small>The essential developing stories</small>',s,count=1,flags=re.S)
 if ns!=s:s=ns;changed=True
-if changed:p.write_text(s);print('Installed Rally Point compact Top Stories + The Wire homepage')
-else:print('Rally Point compact homepage already installed')
+if changed:p.write_text(s);print('Installed Rally Point composed Top Stories + The Wire homepage')
+else:print('Rally Point composed homepage already installed')

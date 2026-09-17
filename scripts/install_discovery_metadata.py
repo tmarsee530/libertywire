@@ -13,6 +13,8 @@ block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="application-name" content="Rally Point News">
+<meta name="theme-color" content="#ffffff">
+<link rel="alternate" type="application/rss+xml" title="Rally Point News — Live Headlines" href="https://rallypointnews.com/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rally Point News">
 <meta property="og:title" content="{title}">
@@ -21,7 +23,7 @@ block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
-<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/"}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","alternateName":"Rally Point","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}","inLanguage":"en-US"}}]}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/","description":"Independent conservative news aggregation front page organizing developing stories from a broad publisher network."}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","alternateName":"Rally Point","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}","inLanguage":"en-US"}}]}}</script>
 <!-- RALLY_POINT_DISCOVERY_END -->'''
 changed=False
 ns=re.sub(r'<title>.*?</title>',f'<title>{title}</title>',s,count=1,flags=re.S)

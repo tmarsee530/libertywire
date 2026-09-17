@@ -8,7 +8,7 @@ root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();cha
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=26">';js='<script src="assets/homepage-v2.js?v=26" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=27">';js='<script src="assets/homepage-v2.js?v=27" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -93,5 +93,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed lean Rally Point homepage shell with current crawlable headlines')
+if changed:p.write_text(s);print('Installed lean Rally Point homepage shell with resilient Wire fallback')
 else:print('Rally Point lean homepage already installed')

@@ -11,7 +11,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=29">';js='<script src="assets/homepage-v2.js?v=29" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=30">';js='<script src="assets/homepage-v2.js?v=30" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -32,6 +32,10 @@ pm=re.search(r'<!-- RALLY_POINT_PREFERRED_SOURCE_START -->.*?<!-- RALLY_POINT_PR
 if pm:
  if pm.group()!=preferred:s=s[:pm.start()]+preferred+s[pm.end():];changed=True
 elif '<!-- RALLY_POINT_CORE_NAV_END -->' in s:s=s.replace('<!-- RALLY_POINT_CORE_NAV_END -->','<!-- RALLY_POINT_CORE_NAV_END -->\n'+preferred,1);changed=True
+# Remove retired product chrome and stale status/advertising placeholders that are not part of the current front page.
+for pattern in [r'\n?<div class="status-banner" id="statusBanner">.*?</div>',r'\n?<div class="ad-slot"[^>]*>.*?</div></div>',r'\n?<div class="ad-slot">.*?</div></div>']:
+ ns=re.sub(pattern,'',s,count=1,flags=re.S)
+ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<!-- RALLY_POINT_METHOD_NOTE_START -->.*?<!-- RALLY_POINT_METHOD_NOTE_END -->\n?',r'\n?<!-- RALLY_POINT_AI_NEWSROOM_START -->.*?<!-- RALLY_POINT_AI_NEWSROOM_END -->\n?',r'\n?<!-- RALLY_POINT_LATEST_BRIEF_START -->.*?<!-- RALLY_POINT_LATEST_BRIEF_END -->\n?']:
  ns=re.sub(pattern,'\n',s,flags=re.S)
  if ns!=s:s=ns;changed=True
@@ -40,7 +44,7 @@ for old in ('Rally Wire','Source Monitor'):
 ns=re.sub(r'<span>The Wire</span><small>.*?</small>','<span>The Wire</span><small>The essential developing stories</small>',s,count=1,flags=re.S)
 if ns!=s:s=ns;changed=True
 try:
- d=json.loads((root/'data/storylines.json').read_text());stories=d.get('storylines',[])[:24]
+ d=json.loads((root/'data/storylines.json').read_text());stories=d.get('storylines',[])[:48]
  def e(v):return html.escape(str(v or ''),quote=True)
  stop={'the','and','for','from','with','into','over','after','amid','says','said','report','reports','live','update','updates','latest','breaking','exclusive','video','photo','photos','this','that','these','those','new','news'}
  def toks(title):return {w for w in re.findall(r"[a-z0-9']+",str(title or '').lower()) if len(w)>3 and w not in stop}

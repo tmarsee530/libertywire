@@ -1,5 +1,6 @@
 /* Rally Point News — Top Stories + compact, curated topical Wire. */
 (async()=>{
+ const updateDateline=()=>{const now=new Date(),today=document.getElementById('today'),updated=document.getElementById('updated');if(today)today.textContent=now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});if(updated)updated.textContent=now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})};updateDateline();
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const age=d=>{if(!d)return'';const m=Math.max(0,Math.floor((Date.now()-new Date(d).getTime())/60000));return m<60?`${m}m ago`:m<1440?`${Math.floor(m/60)}h ago`:`${Math.floor(m/1440)}d ago`};
  const track=(name,params={})=>{try{if(typeof window.gtag==='function')window.gtag('event',name,params)}catch(e){}};

@@ -4,11 +4,14 @@ import html,json,re
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
 # The v2 stylesheet is self-contained. Remove the obsolete original theme and hidden chrome
+# Remove the obsolete pre-v2 live-wire runtime too. It independently refreshed #lead/#grid every 60 seconds and could overwrite the current homepage after initial render.
+ns=re.sub(r'\n?<script>\s*const FEEDS=\[.*?setInterval\(refresh,REFRESH_MS\);\s*</script>','',s,count=1,flags=re.S)
+if ns!=s:s=ns;changed=True
 # so visitors and crawlers do not download/parse an interface that no longer exists.
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=27">';js='<script src="assets/homepage-v2.js?v=27" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=28">';js='<script src="assets/homepage-v2.js?v=28" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)

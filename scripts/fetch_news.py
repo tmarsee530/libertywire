@@ -2,6 +2,7 @@
 """Build Rally Point's shared news dataset from configured RSS/Atom feeds."""
 from __future__ import annotations
 import calendar, html, json, re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -20,6 +21,7 @@ DEFAULT_MAX_PER_SOURCE=20
 MAX_SOURCE_DEPTH=40
 SUMMARY_LEN=220
 TIMEOUT_SECONDS=25
+FETCH_WORKERS=12
 USER_AGENT="RallyPointNews/1.0 (+https://rallypointnews.com/)"
 TAG_RE=re.compile(r"<[^>]+>")
 IMG_RE=re.compile(r"<img[^>]+src=[\"']([^\"']+)[\"']",re.I)
@@ -131,8 +133,19 @@ def load_feeds():
 
 def main():
     feeds=load_feeds();all_stories=[];healthy=[];failed=[]
+    # Feeds are independent network requests. Fetch concurrently so a broad source
+    # radar does not make each newsroom refresh progressively slower.
+    results={}
+    with ThreadPoolExecutor(max_workers=min(FETCH_WORKERS,len(feeds))) as pool:
+        future_map={pool.submit(fetch_source,source):source for source in feeds}
+        for future in as_completed(future_map):
+            source=future_map[future]
+            try:stories,error=future.result()
+            except Exception as exc:stories,error=[],str(exc)[:240]
+            results[source["name"]]=(stories,error)
+    # Fold results back in configured order for deterministic output/health metadata.
     for source in feeds:
-        stories,error=fetch_source(source)
+        stories,error=results.get(source["name"],([],"fetch did not complete"))
         if stories:all_stories.extend(stories);healthy.append(source["name"])
         else:failed.append({"source":source["name"],"error":error or "unknown error"})
     stories=dedupe(all_stories);stories.sort(key=lambda x:x["published_epoch"],reverse=True)

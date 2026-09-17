@@ -14,7 +14,6 @@ block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="application-name" content="Rally Point News">
 <meta name="theme-color" content="#ffffff">
-<link rel="alternate" type="application/rss+xml" title="Rally Point News — Live Headlines" href="https://rallypointnews.com/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rally Point News">
 <meta property="og:title" content="{title}">

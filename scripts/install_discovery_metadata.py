@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import re, json
+import re
 
 p=Path(__file__).resolve().parents[1]/'index.html'
 s=p.read_text()
@@ -8,7 +8,6 @@ start='<!-- RALLY_POINT_DISCOVERY_START -->'
 end='<!-- RALLY_POINT_DISCOVERY_END -->'
 title='Rally Point News — Conservative News & Breaking Headlines'
 description='Conservative news and breaking headlines from dozens of sources, organized by developing story and updated throughout the day.'
-breadcrumb={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Rally Point News","item":"https://rallypointnews.com/"}]}
 block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <link rel="canonical" href="https://rallypointnews.com/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">

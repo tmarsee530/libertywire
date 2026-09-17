@@ -21,12 +21,11 @@ def indent(tree):
 
 
 def write_standard():
-    # Rally Point's current product is the live news/link-ranking experience.
-    # Keep retired Brief/topic/local/newsletter/game product URLs out of discovery
-    # even if legacy files remain in the repository.
+    # Index only durable pages in the current live-news product. Sources is a
+    # first-party transparency page and is linked from the primary navigation.
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     entries = [(BASE + "/", iso_mtime(ROOT / "index.html"))]
-    for route in ("about", "privacy"):
+    for route in ("sources", "about", "privacy"):
         page = ROOT / route / "index.html"
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))
@@ -40,8 +39,9 @@ def write_standard():
 
 
 def write_news():
-    # The current product links/ranks publisher reporting rather than publishing
-    # first-party Google News articles. Do not expose legacy Briefs as current news.
+    # Rally Point currently ranks and links publisher reporting rather than
+    # publishing first-party articles. Do not misrepresent aggregator pages as
+    # first-party Google News articles.
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     tree = ElementTree(root); indent(tree)
     tree.write(ROOT / "news-sitemap.xml", encoding="utf-8", xml_declaration=True)
@@ -50,4 +50,4 @@ def write_news():
 if __name__ == "__main__":
     write_standard()
     write_news()
-    print("Built current-product sitemap: homepage + about + privacy; retired product URLs excluded")
+    print("Built current-product sitemap: homepage + sources + about + privacy")

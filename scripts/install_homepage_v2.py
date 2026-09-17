@@ -3,7 +3,12 @@ from pathlib import Path
 import html,json,re
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=25">';js='<script src="assets/homepage-v2.js?v=25" defer></script>'
+# The v2 stylesheet is self-contained. Remove the obsolete original theme and hidden chrome
+# so visitors and crawlers do not download/parse an interface that no longer exists.
+for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
+ ns=re.sub(pattern,'',s,count=1,flags=re.S)
+ if ns!=s:s=ns;changed=True
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=26">';js='<script src="assets/homepage-v2.js?v=26" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -14,8 +19,6 @@ if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True
 for a,b in {'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire','Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire','Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.','Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'}.items():
  if a in s:s=s.replace(a,b);changed=True
-# Current product navigation: Rally Point is a focused live news/link-ranking product.
-# Keep legacy Briefs, Local, Games and Newsletter surfaces out of the primary UI.
 nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Stories</a><a href="#grid">The Wire</a><a href="/sources/">Sources</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
 m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,re.S)
 if m:
@@ -90,5 +93,5 @@ try:
   marker='<main id="main-content">'
   if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
-if changed:p.write_text(s);print('Installed current Rally Point live-news homepage with focused navigation, reader-visible subheadline dedupe and hot-only red hierarchy')
-else:print('Rally Point current live-news homepage already installed')
+if changed:p.write_text(s);print('Installed lean Rally Point homepage shell with current crawlable headlines')
+else:print('Rally Point lean homepage already installed')

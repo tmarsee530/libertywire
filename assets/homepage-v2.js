@@ -22,6 +22,12 @@
   groups.sort((a,b)=>Number(b.story.importance_score||0)-Number(a.story.importance_score||0));
   const render=(g,i)=>{const main=g.coverage[0],img=g.imageItem&&imageByLink.get(g.imageItem.link),slug=topicSlug(g.coverage),hot=g.story.status==='hot';return `<section class="wire-topic${i<3?' wire-topic-major':''}${hot?' is-hot':''}">${img?`<a class="wire-topic-image" href="${esc(g.imageItem.link)}" target="_blank" rel="noopener"><img src="${esc(img)}" alt="" loading="lazy" decoding="async"></a>`:''}${slug?`<div class="wire-topic-slug">${esc(slug)}</div>`:''}<h3><a href="${esc(main.link)}" target="_blank" rel="noopener">${esc(main.title)}</a></h3>${g.coverage.slice(1,8).map(x=>`<div class="wire-related"><a href="${esc(x.link)}" target="_blank" rel="noopener" title="${esc(x.title)}" aria-label="${esc(x.title)}">${esc(x.displayTitle)}</a> <span>${esc(x.source)}</span></div>`).join('')}</section>`};
   const cols=[[],[],[]],weights=[0,0,0];groups.forEach((g,i)=>{const weight=3+g.coverage.length*1.05+(g.imageItem?5:0)+(i<3?2:0),col=i<3?i:weights.indexOf(Math.min(...weights));cols[col].push(render(g,i));weights[col]+=weight});grid.innerHTML=cols.map((items,i)=>`<div class="wire-column" data-column="${i+1}">${items.join('')}</div>`).join('');
-  const server=document.getElementById('server-wire');if(server)server.remove();
+  const server=document.getElementById('server-wire');
+  if(server&&grid.querySelector('.wire-topic')){
+   server.hidden=true;
+   const restoreFallback=()=>{if(!grid.querySelector('.wire-topic'))server.hidden=false};
+   new MutationObserver(restoreFallback).observe(grid,{childList:true,subtree:true});
+   window.addEventListener('pageshow',restoreFallback);
+  }
  }catch(e){}
 })();

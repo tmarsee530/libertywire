@@ -6,8 +6,8 @@ p=Path(__file__).resolve().parents[1]/'index.html'
 s=p.read_text()
 start='<!-- RALLY_POINT_DISCOVERY_START -->'
 end='<!-- RALLY_POINT_DISCOVERY_END -->'
-title='Rally Point News — Conservative News & Breaking Headlines'
-description='Conservative news and breaking headlines from dozens of sources, organized by developing story and updated throughout the day.'
+title='Rally Point News — Live News Timelines & Breaking Headlines'
+description='Track developing stories in finite live timelines that show what changed, suppress repetitive coverage, and link to original reporting.'
 block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <link rel="canonical" href="https://rallypointnews.com/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -22,7 +22,7 @@ block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
-<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/","description":"Independent conservative news aggregation front page organizing developing stories from a broad publisher network."}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","alternateName":"Rally Point","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}","inLanguage":"en-US"}}]}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/","description":"Independent news aggregation service organizing developing stories into finite, source-backed live timelines."}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","alternateName":"Rally Point","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}","inLanguage":"en-US"}}]}}</script>
 <!-- RALLY_POINT_DISCOVERY_END -->'''
 changed=False
 ns=re.sub(r'<title>.*?</title>',f'<title>{title}</title>',s,count=1,flags=re.S)

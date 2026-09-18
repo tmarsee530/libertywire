@@ -39,6 +39,11 @@ jobs:
         run: python scripts/build_recent.py
       - name: Refresh crawl discovery
         run: python scripts/build_sitemaps.py
+      - name: Verify generated publication surfaces
+        run: |
+          test -s recent/index.html
+          grep -q 'https://rallypointnews.com/recent/' sitemap.xml
+          grep -q 'Recent Headlines' recent/index.html
       - name: Commit fresh Wire and crawlable homepage when changed
         run: |
           if [ -z "$(git status --porcelain -- index.html recent/index.html data/news.json data/storylines.json sitemap.xml news-sitemap.xml)" ]; then

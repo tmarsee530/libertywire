@@ -94,6 +94,17 @@ def main():
     records.sort(key=lambda x: parse_dt(x.get("last_seen")), reverse=True)
     records = records[:MAX_PAGES]
     STORIES.mkdir(parents=True, exist_ok=True)
+    keep = {str(record["id"]) for record in records}
+    # Prune generated timelines that no longer meet the publication threshold.
+    for child in STORIES.iterdir():
+        if child.is_dir() and child.name not in keep:
+            generated = child / "index.html"
+            if generated.exists():
+                generated.unlink()
+            try:
+                child.rmdir()
+            except OSError:
+                pass
     for record in records:
         target = STORIES / str(record["id"])
         target.mkdir(parents=True, exist_ok=True)

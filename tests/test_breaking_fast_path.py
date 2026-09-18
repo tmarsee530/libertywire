@@ -6,6 +6,7 @@ from pathlib import Path
 
 from scripts.build_breaking_fast_path import build_payload, evaluate_clusters
 from scripts import build_storylines as storyline_builder
+from scripts import run_newsroom
 
 
 NOW = datetime(2026, 9, 18, 12, 0, tzinfo=timezone.utc)
@@ -138,6 +139,30 @@ class BreakingFastPathTests(unittest.TestCase):
         }]})
         self.assertFalse(payload["storylines"][0]["fast_path"])
         self.assertEqual(payload["fast_path_count"], 0)
+
+    def test_health_does_not_count_valid_editorial_suppression_as_a_miss(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data = root / "data"; data.mkdir()
+            link = "https://news.test/one-fact"
+            fixtures = {
+                "news.json": {"source_count": 80, "healthy_source_count": 80, "failed_sources": [], "story_count": 1},
+                "storylines.json": {"storylines": [{"id": "story-1", "source_family_count": 3, "coverage": [{"link": link}]}]},
+                "history.json": {"storylines": [{"id": "story-1", "max_source_family_count": 3, "material_update_count": 1, "coverage": [{"link": link}, {"link": "https://b.test/1"}, {"link": "https://c.test/1"}]}]},
+                "published_timelines.json": {"ids": [], "count": 0},
+                "breaking_fast_path.json": {"metrics": {"fast_path_events": 1}, "candidates": [{"id": "fast-1", "eligible": True, "primary_source_link": link, "corroborating_links": [link]}]},
+            }
+            for name, payload in fixtures.items(): (data / name).write_text(json.dumps(payload))
+            old_data, old_fast = run_newsroom.DATA, run_newsroom.FAST_PATH
+            try:
+                run_newsroom.DATA, run_newsroom.FAST_PATH = data, data / "breaking_fast_path.json"
+                signals = run_newsroom.build_signals({}, NOW, {})
+            finally:
+                run_newsroom.DATA, run_newsroom.FAST_PATH = old_data, old_fast
+            self.assertEqual(signals["fast_path"]["publication_outcomes"]["editorially_suppressed"], 1)
+            self.assertEqual(signals["fast_path"]["true_missed_fast_path_events"], 0)
+            _, alerts = run_newsroom.classify(signals)
+            self.assertNotIn("FAST_PATH_PUBLICATION_GAP", {x["code"] for x in alerts})
 
 
 if __name__ == "__main__":

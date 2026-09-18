@@ -20,14 +20,14 @@ if css not in s:s=s.replace('</head>',css+'\n</head>',1);changed=True
 if js not in s:s=s.replace('</body>',js+'\n</body>',1);changed=True
 if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s:s=s.replace('<body>','<body>\n<a class="skip-link" href="#main-content">Skip to main content</a>',1);changed=True
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True
-footer='<footer><div class="foot-mast">Rally Point News</div><div>Headlines link directly to the original publishers. All reporting © its respective sources.</div><div class="foot-line"><a href="/sources/">News Sources</a> · <a href="/about/">About &amp; Editorial Standards</a> · <a href="/privacy/">Privacy</a></div><div class="foot-line">Tips &amp; corrections: <a href="mailto:tmarsee530@me.com">tmarsee530@me.com</a></div></footer>'
+footer='<footer><div class="foot-mast">Rally Point News</div><div>Headlines link directly to the original publishers. All reporting © its respective sources.</div><div class="foot-line"><a href="/recent/">Recent Headlines</a> · <a href="/sources/">News Sources</a> · <a href="/about/">About &amp; Editorial Standards</a> · <a href="/privacy/">Privacy</a></div><div class="foot-line">Tips &amp; corrections: <a href="mailto:tmarsee530@me.com">tmarsee530@me.com</a></div></footer>'
 ns=re.sub(r'<footer>.*?</footer>',footer,s,count=1,flags=re.S)
 if ns!=s:s=ns;changed=True
 ns=s.replace('PAGE CHECKS FOR UPDATES EVERY 60 SECONDS','UPDATED THROUGHOUT THE DAY')
 if ns!=s:s=ns;changed=True
 for a,b in {'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire','Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire','Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.','Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'}.items():
  if a in s:s=s.replace(a,b);changed=True
-nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Stories</a><a href="#grid">The Wire</a><a href="/sources/">Sources</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
+nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Stories</a><a href="#grid">The Wire</a><a href="/recent/">Recent</a><a href="/sources/">Sources</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
 m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,re.S)
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True

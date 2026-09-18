@@ -54,8 +54,9 @@ def breaking_bonus(all_titles,family_count,age_minutes):
 def headline_quality(story,newest_epoch,core_tokens):
  title=(story.get('title') or '').strip();low=title.lower();words=re.findall(r"[A-Za-z0-9']+",title);age=max(0,newest_epoch-(story.get('published_epoch') or 0))/60
  freshness=max(0,5-min(age,180)/36);specificity=min(4,len(tokens(title)&core_tokens)*1.35);length_score=3 if 6<=len(words)<=18 else (1.5 if 4<=len(words)<=24 else 0);penalty=0
- for phrase in ('watch live','live updates','live update','video:','photos:','photo:','opinion:','exclusive:'):
+ for phrase in ('watch live','live updates','live update','video:','photos:','photo:','opinion:','exclusive:','weekly quiz','morning greatness'):
   if phrase in low:penalty+=1.25
+ if any(x in low for x in ('humiliating','destroys','slams','meltdown','nightmare','bombshell','shocking')):penalty+=1.25
  if title.isupper():penalty+=1
  if len(title)>145:penalty+=1
  return round(freshness+specificity+length_score-penalty,3)

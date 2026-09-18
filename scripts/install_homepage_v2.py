@@ -74,6 +74,12 @@ try:
    if best_i<0:break
    picked=pool.pop(best_i);kept.append(picked);seen|=best_novel
   return kept
+ def timeline_ready(story):
+  cov=sorted([x for x in story.get('coverage',[]) if x.get('link')],key=epoch)
+  if story.get('source_family_count',0)<3 or len(cov)<3:return False
+  # Match the timeline publisher: require multiple distinct developments, not
+  # merely several publishers repeating one event.
+  return len(labels(cov))>=2
  def labels(cov):
   if not cov:return []
   seen=set(toks(cov[0].get('title')));out=[(cov[0],str(cov[0].get('title') or ''))]
@@ -96,7 +102,7 @@ try:
   first=labeled[0][0];related=labeled[1:];hot=story.get('status')=='hot'
   primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
-  timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open live story →</a>' if story.get('source_family_count',0)>=3 and len(story.get('coverage',[]))>=3 else ''
+  timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open live story →</a>' if timeline_ready(story) else ''
   rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+timeline+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)

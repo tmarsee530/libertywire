@@ -26,7 +26,9 @@ def write_standard():
     # first-party transparency page and is linked from the primary navigation.
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     entries = [(BASE + "/", iso_mtime(ROOT / "index.html"))]
-    for route in ("recent", "stories", "sources", "about", "privacy"):
+    # Utility/transparency pages remain crawlable through internal links, but the
+    # sitemap concentrates discovery on the product surfaces we want indexed.
+    for route in ("stories",):
         page = ROOT / route / "index.html"
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))
@@ -65,4 +67,4 @@ def write_news():
 if __name__ == "__main__":
     write_standard()
     write_news()
-    print("Built current-product sitemap including live story timelines")
+    print("Built focused sitemap for homepage, Story Desk, and qualified timelines")

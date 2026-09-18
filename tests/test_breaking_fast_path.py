@@ -112,7 +112,7 @@ class BreakingFastPathTests(unittest.TestCase):
 
     def test_fast_candidate_is_promoted_by_normal_storyline_publisher(self):
         detected = NOW.isoformat().replace("+00:00", "Z")
-        payload, link = self._run_storyline_builder({"candidates": [{
+        payload, link = self._run_storyline_builder({"generated_at": datetime.now(timezone.utc).isoformat(), "candidates": [{
             "eligible": True, "urgency_score": 88, "reason": "trusted_primary_source",
             "detected_at": detected, "primary_source_link": "https://fbi.test/emergency",
             "corroborating_links": ["https://fbi.test/emergency"],
@@ -126,6 +126,16 @@ class BreakingFastPathTests(unittest.TestCase):
     def test_normal_storyline_ingestion_still_works_without_fast_artifact(self):
         payload, _ = self._run_storyline_builder()
         self.assertEqual(payload["storyline_count"], 1)
+        self.assertFalse(payload["storylines"][0]["fast_path"])
+        self.assertEqual(payload["fast_path_count"], 0)
+
+    def test_stale_fast_artifact_fails_safe_to_normal_path(self):
+        stale = (datetime.now(timezone.utc) - timedelta(minutes=20)).isoformat()
+        payload, _ = self._run_storyline_builder({"generated_at": stale, "candidates": [{
+            "eligible": True, "urgency_score": 99, "reason": "trusted_primary_source",
+            "primary_source_link": "https://fbi.test/emergency",
+            "corroborating_links": ["https://fbi.test/emergency"],
+        }]})
         self.assertFalse(payload["storylines"][0]["fast_path"])
         self.assertEqual(payload["fast_path_count"], 0)
 

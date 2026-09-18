@@ -96,7 +96,7 @@ try:
   first=labeled[0][0];related=labeled[1:];hot=story.get('status')=='hot'
   primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
-  timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Follow live timeline →</a>' if story.get('source_family_count',0)>=3 and len(story.get('coverage',[]))>=3 else ''
+  timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open live story →</a>' if story.get('source_family_count',0)>=3 and len(story.get('coverage',[]))>=3 else ''
   rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+timeline+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)

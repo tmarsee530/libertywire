@@ -51,3 +51,4 @@ if __name__ == "__main__":
     write_standard()
     write_news()
     print("Built current-product sitemap: homepage + recent + sources + about + privacy")
+

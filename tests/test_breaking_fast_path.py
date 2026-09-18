@@ -46,6 +46,16 @@ class BreakingFastPathTests(unittest.TestCase):
         self.assertEqual(candidates[0]["reason"], "independently_corroborated")
         self.assertEqual(candidates[0]["trusted_independent_source_count"], 2)
 
+    def test_brand_variants_do_not_count_as_independent_confirmations(self):
+        title = "Supreme Court issues emergency ruling after major attack"
+        items = [
+            story(title, "Fox News", 3, "https://fox.test/ruling"),
+            story("Supreme Court emergency ruling follows major attack", "Fox News Politics", 4, "https://fox.test/politics/ruling"),
+        ]
+        candidate = evaluate_clusters(items, [], NOW)[0]
+        self.assertFalse(candidate["eligible"])
+        self.assertEqual(candidate["trusted_independent_source_count"], 1)
+
     def test_low_signal_single_source_stays_on_normal_path(self):
         candidate = evaluate_clusters([story("Analysis: what the new season means", "BBC News")], [], NOW)[0]
         self.assertFalse(candidate["eligible"])

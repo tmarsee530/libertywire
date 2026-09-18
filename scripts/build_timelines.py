@@ -42,7 +42,19 @@ def source_domain(link):
 def eligible(record):
     families = int(record.get("max_source_family_count", 0) or 0)
     sources = int(record.get("max_source_count", 0) or 0)
-    return bool(record.get("id") and record.get("coverage") and (families >= 2 or sources >= 3))
+    coverage = record.get("coverage") or []
+    # Winno-style timelines should represent genuinely developing stories, not
+    # two-headline coincidences. Require three distinct source families and
+    # enough chronological material to make the destination useful.
+    distinct_families = {family_name(x.get("source")) for x in coverage if x.get("source")}
+    return bool(record.get("id") and len(coverage) >= 3 and families >= 3 and len(distinct_families) >= 3)
+
+def family_name(source):
+    s = str(source or "").strip().lower()
+    aliases = {"fox news politics":"fox news","fox news world":"fox news","fox business":"fox news",
+               "national review the corner":"national review","realclearpolicy":"realclear",
+               "realclearworld":"realclear","realcleardefense":"realclear","realclearpolitics":"realclear"}
+    return aliases.get(s, s)
 
 
 def page(record):

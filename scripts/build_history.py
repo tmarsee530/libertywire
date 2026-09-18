@@ -6,7 +6,7 @@ from datetime import datetime,timezone,timedelta
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 STORYLINES=ROOT/"data"/"storylines.json";OUT=ROOT/"data"/"history.json"
-MAX_ENTRIES=500;RETENTION_DAYS=7;MAX_TITLES=10;MAX_COVERAGE=24
+MAX_ENTRIES=1000;RETENTION_DAYS=30;MAX_TITLES=16;MAX_COVERAGE=40
 
 def parse_dt(value):
     if not value:return None

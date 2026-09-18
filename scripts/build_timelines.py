@@ -107,13 +107,17 @@ def page(record, published_records):
         if not link or not snapshot_title: continue
         updates.append(f'''<li class="timeline-update" data-published="{esc(item.get('date'))}"><time datetime="{esc(item.get('date'))}">{esc(display_time(item.get('date')))}</time><div><h2>{esc(snapshot_title)}</h2><p><a href="{esc(link)}" rel="noopener" target="_blank" title="{esc(clean_title(item.get('title')))}">{esc(item.get('source') or source_domain(link))} ↗</a><span>{esc(source_domain(link))}</span></p></div></li>''')
     source_names=sorted({str(x.get("source") or "").strip() for x in coverage if x.get("source")})
-    related=[]
+    related=[]; base_tokens=tokens_for_related(title)
     for candidate in published_records:
         if candidate.get("id")==record.get("id") or not eligible(candidate): continue
-        candidate_title=clean_title(candidate.get("current_title")); overlap=len(tokens_for_related(title)&tokens_for_related(candidate_title))
-        if overlap>=2: related.append((overlap,parse_dt(candidate.get("last_seen")),candidate))
-    related.sort(key=lambda x:(x[0],x[1]),reverse=True)
-    related_html="".join(f'<li><a href="/stories/{esc(x[2].get("id"))}/">{esc(clean_title(x[2].get("current_title")))}</a></li>' for x in related[:4])
+        candidate_title=clean_title(candidate.get("current_title")); candidate_tokens=tokens_for_related(candidate_title); overlap=len(base_tokens&candidate_tokens)
+        if overlap<2: continue
+        # Prefer genuinely connected stories, not pages that merely share two generic words.
+        similarity=overlap/max(1,min(len(base_tokens),len(candidate_tokens)))
+        if similarity<.34: continue
+        related.append((similarity,overlap,parse_dt(candidate.get("last_seen")),candidate))
+    related.sort(key=lambda x:(x[0],x[1],x[2]),reverse=True)
+    related_html="".join(f'<li><a href="/stories/{esc(x[3].get("id"))}/">{esc(clean_title(x[3].get("current_title")))}</a></li>' for x in related[:4])
     related_section=('<section class="related"><h2>Related developing stories</h2><ul>'+related_html+'</ul></section>') if related_html else ""
     status=str(record.get("status") or "developing").upper()
     updates.reverse()  # newest information first for returning readers

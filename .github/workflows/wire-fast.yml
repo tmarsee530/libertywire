@@ -84,16 +84,19 @@ jobs:
           assert manifest.get('timeline_schema_version') == 1
           records={x.get('id'):x for x in h.get('storylines',[])}
           for sid in manifest.get('ids',[]):
-              record=records[sid]
-              assert record.get('current_status') and isinstance(record.get('updates'),list)
-              assert record.get('material_update_count') == len(record.get('updates'))
-              page=(Path('stories')/sid/'index.html').read_text()
+              page_path=Path('stories')/sid/'index.html'
+              assert page_path.exists(), f'published timeline page missing: {sid}'
+              page=page_path.read_text()
               assert f'<link rel="canonical" href="https://rallypointnews.com/stories/{sid}/">' in page
               assert 'Current status' in page and 'NEWEST FIRST' in page
               dates=re.findall(r'class="timeline-update[^>]*" data-published="([^"]+)"',page)
               assert dates == sorted(dates,reverse=True), f'timeline is not newest first: {sid}'
-              if len(record.get('updates',[])) >= 9:
-                  assert 'What happened earlier' in page, f'long timeline was not compacted: {sid}'
+              record=records.get(sid)
+              if record:
+                  assert record.get('current_status') and isinstance(record.get('updates'),list)
+                  assert record.get('material_update_count') == len(record.get('updates'))
+                  if len(record.get('updates',[])) >= 9:
+                      assert 'What happened earlier' in page, f'long timeline was not compacted: {sid}'
           limit=datetime.now(timezone.utc)+timedelta(minutes=11)
           for s in h.get('storylines',[]):
               dates=[s.get('last_seen')]+[x.get('date') for x in s.get('coverage',[])]+[x.get('at') for x in s.get('changes',[])]

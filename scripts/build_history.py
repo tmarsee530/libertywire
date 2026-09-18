@@ -14,6 +14,12 @@ def parse_dt(value):
     except ValueError:return None
 
 def coverage_key(item):return (item.get("source") or "",item.get("link") or "")
+def clamp_dt(value,now):
+    dt=parse_dt(value)
+    if not dt:return None
+    # Bad publisher timestamps can otherwise pin a storyline in the future and
+    # distort Winno-style ordering/retention. Allow only a small clock skew.
+    return min(dt,now+timedelta(minutes=10))
 def substantive(payload):return {k:v for k,v in payload.items() if k!="generated_at"}
 
 def main():
@@ -41,7 +47,9 @@ def main():
             prior_cov[key]=cov
         coverage=sorted(prior_cov.values(),key=lambda x:x.get("date") or "",reverse=True)[:MAX_COVERAGE]
         sources=sorted(set(prev.get("sources",[]))|set(item.get("sources",[])))
-        newest=item.get("newest_date") or prev.get("last_seen") or now.isoformat().replace("+00:00","Z")
+        raw_newest=item.get("newest_date") or prev.get("last_seen")
+        safe_newest=clamp_dt(raw_newest,now)
+        newest=(safe_newest or now).isoformat().replace("+00:00","Z")
         changes=list(prev.get("changes",[]))
         if additions or set(item.get("sources",[]))-set(prev.get("current_sources",[])) or (prev and title!=prev.get("current_title")):
             changes.append({"at":newest,"source_count":item.get("source_count",0),"new_sources":sorted(set(item.get("sources",[]))-set(prev.get("current_sources",[]))),"coverage_added":[{"source":x.get("source"),"title":x.get("title"),"link":x.get("link"),"date":x.get("date")} for x in additions[:8]]})

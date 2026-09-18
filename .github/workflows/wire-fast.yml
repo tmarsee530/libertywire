@@ -34,7 +34,9 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+      - name: Test breaking-news fast path
+        run: python -m unittest -v tests/test_breaking_fast_path.py
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
       - name: Verify generated publication surfaces
@@ -42,6 +44,7 @@ jobs:
           test -s recent/index.html
           test -s data/newsroom_health.json
           test -s data/newsroom_dead_letters.json
+          test -s data/breaking_fast_path.json
           test -s health/index.html
           grep -q 'Newsroom Health' health/index.html
           grep -q 'Recent Headlines' recent/index.html
@@ -71,6 +74,10 @@ jobs:
           for target in Path('stories').glob('*/index.html'):
               sid=target.parent.name
               assert f'https://rallypointnews.com/stories/{sid}/' in sitemap, f'timeline missing from sitemap: {sid}'
+          fast=json.load(open('data/breaking_fast_path.json'))
+          assert fast.get('policy',{}).get('normal_path_preserved') is True
+          assert fast.get('policy',{}).get('ideology_used_in_scoring') is False
+          assert 'duplicate_event_rate_pct' in fast.get('metrics',{})
           h=json.load(open('data/history.json'))
           limit=datetime.now(timezone.utc)+timedelta(minutes=11)
           for s in h.get('storylines',[]):
@@ -81,13 +88,13 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories health assets/timeline.css data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories health assets/timeline.css data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml
+          git add index.html recent/index.html stories health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml
           git commit -m "Refresh live timelines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

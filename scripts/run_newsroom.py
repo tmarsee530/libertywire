@@ -137,8 +137,12 @@ def build_signals(stage_results, cycle_started, previous):
     published_fast = []
     publication_latencies = []
     published_at = parse_dt(manifest.get("generated_at"))
+    current_by_id = {x.get("id"): x for x in current if x.get("id")}
+    history_by_id = {x.get("id"): x for x in records if x.get("id")}
+    outcomes = []
     for candidate in fast_candidates:
-        story_id = next((link_story_ids.get(link) for link in candidate.get("corroborating_links", []) if link_story_ids.get(link) in published_ids), None)
+        links = candidate.get("corroborating_links", [])
+        story_id = next((link_story_ids.get(link) for link in links if link_story_ids.get(link) in published_ids), None)
         if story_id:
             candidate["published_storyline_id"] = story_id
             candidate["published_at"] = manifest.get("generated_at")
@@ -148,9 +152,45 @@ def build_signals(stage_results, cycle_started, previous):
                 latency = max(0, (published_at - detected).total_seconds())
                 candidate["detection_to_publication_latency_seconds"] = round(latency, 1)
                 publication_latencies.append(latency)
+            outcomes.append({"candidate_id": candidate.get("id"), "status": "published", "storyline_id": story_id})
+            continue
+
+        # Publication requires multiple *material developments*, not merely
+        # several publishers repeating one fact. Resolve the candidate's lead
+        # report to its actual storyline before deciding whether this is a miss.
+        primary_story_id = link_story_ids.get(candidate.get("primary_source_link"))
+        target_id = primary_story_id or candidate.get("matched_storyline_id")
+        target = history_by_id.get(target_id) or current_by_id.get(target_id) or {}
+        material_count = int(target.get("material_update_count", 0) or 0)
+        family_count = int(target.get("max_source_family_count", target.get("source_family_count", 0)) or 0)
+        coverage_count = len(target.get("coverage") or [])
+        if target and (material_count < 2 or family_count < 3 or coverage_count < 3):
+            reasons = []
+            if material_count < 2: reasons.append("insufficient_material_developments")
+            if family_count < 3: reasons.append("insufficient_independent_sources")
+            if coverage_count < 3: reasons.append("insufficient_coverage")
+            outcomes.append({
+                "candidate_id": candidate.get("id"), "status": "editorially_suppressed",
+                "storyline_id": target_id, "reason": ",".join(reasons),
+            })
+        elif target:
+            outcomes.append({
+                "candidate_id": candidate.get("id"), "status": "missed",
+                "storyline_id": target_id, "reason": "publication_threshold_met_but_not_published",
+            })
+        else:
+            outcomes.append({
+                "candidate_id": candidate.get("id"), "status": "deferred",
+                "storyline_id": None, "reason": "not_yet_resolved_to_a_storyline",
+            })
     fast_metrics = dict(fast_path.get("metrics") or {})
+    outcome_counts = {name: sum(x["status"] == name for x in outcomes) for name in ("published", "editorially_suppressed", "deferred", "missed")}
+    accountable = outcome_counts["published"] + outcome_counts["missed"]
     fast_metrics["published_fast_path_events"] = len(published_fast)
-    fast_metrics["high_urgency_capture_pct"] = round(len(published_fast) / len(fast_candidates) * 100, 2) if fast_candidates else None
+    fast_metrics["high_urgency_capture_pct"] = round(outcome_counts["published"] / accountable * 100, 2) if accountable else 100.0 if fast_candidates else None
+    fast_metrics["publication_outcomes"] = outcome_counts
+    fast_metrics["true_missed_fast_path_events"] = outcome_counts["missed"]
+    fast_path["publication_outcomes"] = outcomes
     fast_metrics["detection_to_publication_latency_seconds"] = round(sorted(publication_latencies)[len(publication_latencies) // 2], 1) if publication_latencies else None
     if fast_path:
         fast_path["metrics"] = fast_metrics
@@ -217,8 +257,8 @@ def classify(signals):
     if story_age is not None and story_age > 120:
         alerts.append(("WARNING", "NO_MEANINGFUL_UPDATE", f"No current storyline update detected for {story_age} minutes."))
     fast = signals.get("fast_path") or {}
-    if fast.get("fast_path_events", 0) and fast.get("high_urgency_capture_pct") is not None and fast["high_urgency_capture_pct"] < 100:
-        alerts.append(("WARNING", "FAST_PATH_PUBLICATION_GAP", f"{fast['high_urgency_capture_pct']}% of eligible fast-path events reached a published timeline this cycle."))
+    if fast.get("true_missed_fast_path_events", 0):
+        alerts.append(("WARNING", "FAST_PATH_PUBLICATION_GAP", f"{fast['true_missed_fast_path_events']} eligible fast-path event(s) met editorial publication standards but did not reach a timeline this cycle."))
     state = "CRITICAL" if any(x[0] == "CRITICAL" for x in alerts) else "DEGRADED" if any(x[0] == "WARNING" for x in alerts) else "HEALTHY"
     return state, [{"severity": a, "code": b, "message": c} for a, b, c in alerts]
 

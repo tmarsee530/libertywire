@@ -6,6 +6,7 @@ legacy records can be upgraded in place without changing durable story IDs.
 """
 from __future__ import annotations
 
+import hashlib
 import re
 from datetime import datetime, timezone
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
@@ -157,6 +158,14 @@ def _source_entry(item):
     }
 
 
+def durable_update_id(item):
+    """Identify a material development independently of labels/classes/sources."""
+    stable = canonical_link(item.get("link"))
+    if not stable:
+        stable = " ".join(sorted(fact_tokens(item.get("title"))))
+    return hashlib.sha1(stable.encode("utf-8")).hexdigest()[:16]
+
+
 def _merge_source(update, item):
     incoming = _source_entry(item)
     key = (incoming["source"].lower(), canonical_link(incoming["link"]))
@@ -236,6 +245,7 @@ def meaningful_updates(coverage, record_status="developing"):
                 _merge_source(updates[closest_index], item)
             continue
         update = {
+            "id": durable_update_id(item),
             "label": label,
             "classification": "UPDATE",
             "date": item.get("date"),

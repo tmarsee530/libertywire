@@ -7,6 +7,10 @@ from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.parse import urlparse
+try:
+    from timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
+except ModuleNotFoundError:  # package import in the unit-test runner
+    from scripts.timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
 
 ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "history.json"
@@ -15,6 +19,8 @@ STORIES = ROOT / "stories"
 BASE = "https://rallypointnews.com"
 MAX_PAGES = 500
 MANIFEST = ROOT / "data" / "published_timelines.json"
+LONG_TIMELINE_THRESHOLD = 9
+VISIBLE_RECENT_UPDATES = 6
 
 
 def esc(value): return html.escape(str(value or ""), quote=True)
@@ -44,7 +50,17 @@ def family_name(source):
     aliases = {"fox news politics":"fox news","fox news world":"fox news","fox business":"fox news","national review the corner":"national review","realclearpolicy":"realclear","realclearworld":"realclear","realcleardefense":"realclear","realclearpolitics":"realclear"}
     return aliases.get(s, s)
 
-def eligible(record):
+def timeline_model(record):
+    if int(record.get("timeline_schema_version", 0) or 0) == SCHEMA_VERSION and isinstance(record.get("updates"), list) and record.get("current_status"):
+        return {
+            "timeline_schema_version": SCHEMA_VERSION,
+            "current_status": record["current_status"],
+            "material_update_count": int(record.get("material_update_count", len(record["updates"])) or 0),
+            "updates": record["updates"],
+        }
+    return serializable_model(record)
+
+def eligible(record, legacy_ids=None):
     families = int(record.get("max_source_family_count", 0) or 0)
     coverage = record.get("coverage") or []
     title = clean_title(record.get("current_title")).lower()
@@ -52,8 +68,11 @@ def eligible(record):
     distinct_families = {family_name(x.get("source")) for x in coverage if x.get("source")}
     # A durable page must contain enough distinct developments to justify its own URL,
     # not merely three publishers repeating essentially the same headline.
-    development_count = len(snapshot_titles(sorted(coverage, key=lambda x: parse_dt(x.get("date")))))
-    return bool(record.get("id") and len(coverage) >= 3 and families >= 3 and len(distinct_families) >= 3 and development_count >= 2)
+    development_count = timeline_model(record)["material_update_count"]
+    qualifies = bool(record.get("id") and len(coverage) >= 3 and families >= 3 and len(distinct_families) >= 3 and development_count >= 2)
+    # Once a canonical story URL has been published, keep it stable while the
+    # retained history record exists—even if stronger deduplication compresses it.
+    return qualifies or bool(record.get("id") in set(legacy_ids or ()) and coverage)
 
 def snapshot_titles(coverage):
     """Keep only publisher wording that contributes meaningful new information."""
@@ -106,16 +125,38 @@ def analytics_tag():
     # Kept outside f-strings so JavaScript braces can never be interpreted by Python.
     return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script>'
 
+def source_links(update, compact=False):
+    sources=update.get("sources") or [{"source":update.get("source"),"link":update.get("link"),"title":update.get("source_title")}]
+    links=[]
+    for source in sources[:3]:
+        link=source.get("link")
+        if not link: continue
+        name=source.get("source") or source_domain(link)
+        links.append(f'<a href="{esc(link)}" rel="noopener" target="_blank" title="{esc(source.get("title"))}">{esc(name)} ↗</a>')
+    extra=max(0,len(sources)-3)
+    more=f'<span>+{extra} more source{"s" if extra!=1 else ""}</span>' if extra else ""
+    domain="" if compact else f'<span>{esc(source_domain(update.get("link")))}</span>'
+    return " · ".join(links)+more+domain
+
+def update_html(update, compact=False):
+    classification=clean_title(update.get("classification")) or "UPDATE"
+    return f'''<li class="timeline-update{' compact' if compact else ''}" data-published="{esc(update.get('date'))}"><time datetime="{esc(update.get('date'))}">{esc(display_time(update.get('date')))}</time><div><p class="update-class update-{esc(classification.lower().replace(' ','-'))}">{esc(classification)}</p><h2>{esc(update.get('label'))}</h2><p class="update-sources">{source_links(update,compact)}</p></div></li>'''
+
 def page(record, published_records):
     sid = esc(record["id"]); title = clean_title(record.get("current_title")) or "Developing story"
-    coverage = sorted(record.get("coverage", []), key=lambda x: parse_dt(x.get("date")))
-    description = f"{title}: a source-backed timeline of distinct developments, newest first, with repeated coverage suppressed."
-    updates=[]
-    for item,snapshot_title in snapshot_titles(coverage):
-        link=item.get("link")
-        if not link or not snapshot_title: continue
-        updates.append(f'''<li class="timeline-update" data-published="{esc(item.get('date'))}"><time datetime="{esc(item.get('date'))}">{esc(display_time(item.get('date')))}</time><div><h2>{esc(snapshot_title)}</h2><p><a href="{esc(link)}" rel="noopener" target="_blank" title="{esc(clean_title(item.get('title')))}">{esc(item.get('source') or source_domain(link))} ↗</a><span>{esc(source_domain(link))}</span></p></div></li>''')
-    source_names=sorted({str(x.get("source") or "").strip() for x in coverage if x.get("source")})
+    model=timeline_model(record); updates=list(model["updates"]); newest=list(reversed(updates)); current=model["current_status"]
+    summary=clean_title(current.get("summary")) or f"Rally Point is tracking material developments in {title}."
+    description=(summary+f" Follow {title} in a source-backed, reverse-chronological timeline.")[:300]
+    source_names=sorted({str(x.get("source") or "").strip() for update in updates for x in (update.get("sources") or []) if x.get("source")})
+    if len(newest)>=LONG_TIMELINE_THRESHOLD:
+        recent=newest[:VISIBLE_RECENT_UPDATES]; earlier=newest[VISIBLE_RECENT_UPDATES:]
+    else:
+        recent=newest; earlier=[]
+    recent_html="".join(update_html(update) for update in recent)
+    earlier_html=""
+    if earlier:
+        earlier_html=f'''<details class="earlier"><summary><strong>What happened earlier</strong><span>{len(earlier)} earlier development{"s" if len(earlier)!=1 else ""}</span></summary><ol class="timeline timeline-earlier" aria-label="Earlier developments, newest first">{"".join(update_html(update,True) for update in earlier)}</ol></details>'''
+    current_source=(f'<a href="{esc(current.get("link"))}" rel="noopener" target="_blank">{esc(current.get("source") or source_domain(current.get("link")))} ↗</a>' if current.get("link") else "")
     related=[]; base_tokens=tokens_for_related(title)
     for candidate in published_records:
         if candidate.get("id")==record.get("id") or not eligible(candidate): continue
@@ -129,33 +170,35 @@ def page(record, published_records):
     related_html="".join(f'<li><a href="/stories/{esc(x[3].get("id"))}/">{esc(clean_title(x[3].get("current_title")))}</a></li>' for x in related[:4])
     related_section=('<section class="related"><h2>Related developing stories</h2><ul>'+related_html+'</ul></section>') if related_html else ""
     status=str(record.get("status") or "developing").upper()
-    updates.reverse()  # newest information first for returning readers
-    schema_items=[{"@type":"ListItem","position":i+1,"name":snapshot_title,"url":item.get("link")} for i,(item,snapshot_title) in enumerate(reversed(snapshot_titles(coverage))) if item.get("link") and snapshot_title]
-    schema=json.dumps({"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":f"{BASE}/stories/{record['id']}/#page","name":title,"description":description,"url":f"{BASE}/stories/{record['id']}/","dateModified":record.get("last_seen"),"mainEntity":{"@type":"ItemList","numberOfItems":len(schema_items),"itemListOrder":"https://schema.org/ItemListOrderDescending","itemListElement":schema_items},"isPartOf":{"@type":"WebSite","name":"Rally Point News","url":BASE+"/"},"breadcrumb":{"@id":f"{BASE}/stories/{record['id']}/#breadcrumb"}},{"@type":"BreadcrumbList","@id":f"{BASE}/stories/{record['id']}/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Rally Point News","item":BASE+"/"},{"@type":"ListItem","position":2,"name":"Live News Timelines","item":BASE+"/stories/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}/stories/{record['id']}/"}]}]},ensure_ascii=False).replace("</","<\\/")
+    schema_items=[{"@type":"ListItem","position":i+1,"name":update.get("label"),"url":update.get("link")} for i,update in enumerate(newest) if update.get("link") and update.get("label")]
+    schema=json.dumps({"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":f"{BASE}/stories/{record['id']}/#page","name":title,"headline":title,"description":description,"url":f"{BASE}/stories/{record['id']}/","datePublished":record.get("first_seen"),"dateModified":record.get("last_seen"),"mainEntity":{"@type":"ItemList","numberOfItems":len(schema_items),"itemListOrder":"https://schema.org/ItemListOrderDescending","itemListElement":schema_items},"isPartOf":{"@type":"WebSite","name":"Rally Point News","url":BASE+"/"},"breadcrumb":{"@id":f"{BASE}/stories/{record['id']}/#breadcrumb"}},{"@type":"BreadcrumbList","@id":f"{BASE}/stories/{record['id']}/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Rally Point News","item":BASE+"/"},{"@type":"ListItem","position":2,"name":"Live News Timelines","item":BASE+"/stories/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}/stories/{record['id']}/"}]}]},ensure_ascii=False).replace("</","<\\/")
     ga=analytics_tag()
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} — Live Timeline | Rally Point News</title><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/{sid}/">{ga}<meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="{esc(title)} — Live Timeline"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{BASE}/stories/{sid}/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{esc(title)} — Live Timeline"><meta name="twitter:description" content="{esc(description)}"><link rel="stylesheet" href="/assets/timeline.css?v=3"><script type="application/ld+json">{schema}</script></head><body><a class="skip-link" href="#timeline">Skip to updates</a><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/stories/">Live Timelines</a></nav><p class="status">{esc(status)}</p><h1>{esc(title)}</h1><p class="dek">What changed, in one finite feed. Newest developments first; repeated coverage is suppressed and every update links to the publisher that reported it.</p><div class="story-meta"><span>Updated {esc(display_time(record.get('last_seen')))}</span><span>Tracking since {esc(display_time(record.get('first_seen')))}</span><span>{len(updates)} developments</span><span>{len(source_names)} sources</span></div><aside><strong>What changed:</strong> Each entry adds distinct information reported about this story. Scan the developments, open the original reporting when you want more, and stop when you reach what you already know.</aside><div class="return-state" id="return-state" hidden><strong id="return-count"></strong><span>since your last visit</span></div><div class="caught-up"><strong id="catchup-label">NEWEST FIRST</strong><span id="catchup-detail">Eastern Time · finite feed</span></div><ol class="timeline" id="timeline">{''.join(updates)}</ol><div class="end-card"><strong>You’ve reached the beginning.</strong><span>That’s the earliest tracked development in this story.</span></div><script>(function(){{try{{var k="rp-story-{sid}",now=Date.now(),last=Number(localStorage.getItem(k)||0),items=[].slice.call(document.querySelectorAll(".timeline-update")),fresh=last?items.filter(function(x){{var d=Date.parse(x.dataset.published||"");return Number.isFinite(d)&&d>last}}):[];if(fresh.length){{fresh.forEach(function(x){{x.classList.add("is-new")}});var box=document.getElementById("return-state"),n=document.getElementById("return-count"),label=document.getElementById("catchup-label"),detail=document.getElementById("catchup-detail");n.textContent=fresh.length+" new development"+(fresh.length===1?"":"s");box.hidden=false;if(label)label.textContent="CATCH UP";if(detail)detail.textContent="New since your last visit · then you’re caught up"}}localStorage.setItem(k,String(now));var state={{id:"{sid}",title:{json.dumps(title,ensure_ascii=False)},visitedAt:now,lastSeen:{json.dumps(record.get("last_seen"),ensure_ascii=False)}}};localStorage.setItem("rp-follow-{sid}",JSON.stringify(state))}}catch(e){{}}}})();</script><section class="sources"><h2>Sources tracking this story</h2><p>{esc(' · '.join(source_names))}</p></section>{related_section}<p class="back"><a href="/">← Back to Rally Point News</a></p></main><footer>Rally Point News · Headlines and reporting belong to their respective publishers. <a href="/about/">Editorial standards</a></footer></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} — Live Timeline | Rally Point News</title><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/{sid}/">{ga}<meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="{esc(title)} — Live Timeline"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{BASE}/stories/{sid}/"><meta property="article:published_time" content="{esc(record.get('first_seen'))}"><meta property="article:modified_time" content="{esc(record.get('last_seen'))}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{esc(title)} — Live Timeline"><meta name="twitter:description" content="{esc(description)}"><link rel="stylesheet" href="/assets/timeline.css?v=4"><script type="application/ld+json">{schema}</script></head><body><a class="skip-link" href="#timeline">Skip to updates</a><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/stories/">Live Timelines</a></nav><p class="status">{esc(status)}</p><h1>{esc(title)}</h1><p class="dek">A concise, source-backed record of what materially changed.</p><div class="story-meta"><span>Updated {esc(display_time(record.get('last_seen')))}</span><span>Tracking since {esc(display_time(record.get('first_seen')))}</span><span>{len(updates)} material developments</span><span>{len(source_names)} sources</span></div><section class="current-status" aria-labelledby="current-status-heading"><p class="status-kicker">{esc(current.get('classification') or 'CURRENT STATUS')}</p><h2 id="current-status-heading">Current status</h2><p class="status-summary">{esc(summary)}</p><p class="status-source"><time datetime="{esc(current.get('as_of'))}">As of {esc(display_time(current.get('as_of')))}</time>{' · '+current_source if current_source else ''}</p></section><div class="caught-up"><strong>NEWEST FIRST</strong><span>Eastern Time · material updates only</span></div><ol class="timeline" id="timeline" aria-label="Latest developments, newest first">{recent_html}</ol>{earlier_html}<div class="end-card"><strong>You’ve reached the beginning.</strong><span>That’s the earliest material development tracked in this story.</span></div><section class="sources"><h2>Sources tracking this story</h2><p>{esc(' · '.join(source_names))}</p></section>{related_section}<p class="back"><a href="/">← Back to Rally Point News</a></p></main><footer>Rally Point News · Headlines and reporting belong to their respective publishers. <a href="/about/">Editorial standards</a></footer></body></html>'''
 
 def index_page(records):
     cards=[]
     for r in records:
-        development_count=len(snapshot_titles(sorted(r.get("coverage", []), key=lambda x: parse_dt(x.get("date")))))
+        development_count=timeline_model(r)["material_update_count"]
         cards.append(f'''<article><p>{esc(str(r.get("status") or "developing").upper())}</p><h2><a href="/stories/{esc(r["id"])}/">{esc(clean_title(r.get("current_title")))}</a></h2><span>Updated {esc(display_time(r.get("last_seen")))} · {development_count} key developments</span></article>''')
     ga=analytics_tag()
     schema=json.dumps({"@context":"https://schema.org","@type":"CollectionPage","name":"Live News Timelines","url":BASE+"/stories/","description":"Finite, source-backed feeds of distinct developments in major ongoing stories.","mainEntity":{"@type":"ItemList","numberOfItems":len(records),"itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{BASE}/stories/{r['id']}/","name":clean_title(r.get("current_title"))} for i,r in enumerate(records)]},"isPartOf":{"@type":"WebSite","name":"Rally Point News","url":BASE+"/"}},ensure_ascii=False).replace("</","<\\/")
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live News Timelines | Rally Point News</title><meta name="description" content="Follow major developing stories in finite, source-backed feeds with the newest distinct developments first."><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/">{ga}<meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="Live News Timelines | Rally Point News"><meta property="og:description" content="Finite, source-backed feeds of distinct developments in major ongoing stories."><meta property="og:url" content="{BASE}/stories/"><meta name="twitter:card" content="summary"><script type="application/ld+json">{schema}</script><link rel="stylesheet" href="/assets/timeline.css?v=3"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><p class="status">LIVE STORY DESK</p><h1>Developing stories, without the endless scroll</h1><p class="dek">Finite feeds of the developments that matter. Open a story, scan what changed, and reach the end.</p><section class="timeline-index">{''.join(cards)}</section></main><footer>Rally Point News · <a href="/about/">Editorial standards</a></footer></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live News Timelines | Rally Point News</title><meta name="description" content="Follow major developing stories in finite, source-backed feeds with the newest distinct developments first."><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/">{ga}<meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="Live News Timelines | Rally Point News"><meta property="og:description" content="Finite, source-backed feeds of distinct developments in major ongoing stories."><meta property="og:url" content="{BASE}/stories/"><meta name="twitter:card" content="summary"><script type="application/ld+json">{schema}</script><link rel="stylesheet" href="/assets/timeline.css?v=4"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><p class="status">LIVE STORY DESK</p><h1>Developing stories, without the endless scroll</h1><p class="dek">Finite feeds of the developments that matter. Open a story, scan what changed, and reach the end.</p><section class="timeline-index">{''.join(cards)}</section></main><footer>Rally Point News · <a href="/about/">Editorial standards</a></footer></body></html>'''
 
 def main():
     payload=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"storylines":[]}
     by_id={x.get("id"):x for x in payload.get("storylines",[]) if x.get("id")}
     current=json.loads(CURRENT.read_text(encoding="utf-8")) if CURRENT.exists() else {"storylines":[]}
+    try:previous_ids=set(json.loads(MANIFEST.read_text(encoding="utf-8")).get("ids",[])) if MANIFEST.exists() else set()
+    except (OSError,json.JSONDecodeError):previous_ids=set()
     for item in current.get("storylines",[]):
         sid=item.get("id")
         if not sid: continue
-        prior=by_id.get(sid,{}); coverage={((x.get("source") or ""),(x.get("link") or "")):x for x in prior.get("coverage",[])}
-        for update in item.get("coverage",[]): coverage[(update.get("source") or "",update.get("link") or "")]=update
-        by_id[sid]={**prior,"id":sid,"current_title":item.get("title") or prior.get("current_title"),"last_seen":item.get("newest_date") or prior.get("last_seen"),"status":item.get("status") or prior.get("status"),"max_source_count":max(int(prior.get("max_source_count",0) or 0),int(item.get("source_count",0) or 0)),"max_source_family_count":max(int(prior.get("max_source_family_count",0) or 0),int(item.get("source_family_count",0) or 0)),"coverage":list(coverage.values())}
-    records=[x for x in by_id.values() if eligible(x)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
-    manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"count":len(records),"ids":[str(x["id"]) for x in records]}
+        prior=by_id.get(sid,{}); coverage={((x.get("source") or ""),canonical_link(x.get("link"))):x for x in prior.get("coverage",[])}
+        for update in item.get("coverage",[]): coverage[(update.get("source") or "",canonical_link(update.get("link")))]=update
+        merged={**prior,"id":sid,"current_title":item.get("title") or prior.get("current_title"),"last_seen":item.get("newest_date") or prior.get("last_seen"),"status":item.get("status") or prior.get("status"),"max_source_count":max(int(prior.get("max_source_count",0) or 0),int(item.get("source_count",0) or 0)),"max_source_family_count":max(int(prior.get("max_source_family_count",0) or 0),int(item.get("source_family_count",0) or 0)),"coverage":list(coverage.values())}
+        by_id[sid]={**merged,**serializable_model(merged)}
+    records=[x for x in by_id.values() if eligible(x,previous_ids)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
+    manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     STORIES.mkdir(parents=True,exist_ok=True); keep={str(record["id"]) for record in records}
     for child in STORIES.iterdir():

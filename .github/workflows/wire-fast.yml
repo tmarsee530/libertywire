@@ -34,9 +34,9 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
-      - name: Test breaking-news fast path
-        run: python -m unittest -v tests/test_breaking_fast_path.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+      - name: Test fast path and core timeline product
+        run: python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
       - name: Verify generated publication surfaces
@@ -79,6 +79,20 @@ jobs:
           assert fast.get('policy',{}).get('ideology_used_in_scoring') is False
           assert 'duplicate_event_rate_pct' in fast.get('metrics',{})
           h=json.load(open('data/history.json'))
+          manifest=json.load(open('data/published_timelines.json'))
+          assert manifest.get('timeline_schema_version') == 1
+          records={x.get('id'):x for x in h.get('storylines',[])}
+          for sid in manifest.get('ids',[]):
+              record=records[sid]
+              assert record.get('current_status') and isinstance(record.get('updates'),list)
+              assert record.get('material_update_count') == len(record.get('updates'))
+              page=(Path('stories')/sid/'index.html').read_text()
+              assert f'<link rel="canonical" href="https://rallypointnews.com/stories/{sid}/">' in page
+              assert 'Current status' in page and 'NEWEST FIRST' in page
+              dates=re.findall(r'class="timeline-update[^>]*" data-published="([^"]+)"',page)
+              assert dates == sorted(dates,reverse=True), f'timeline is not newest first: {sid}'
+              if len(record.get('updates',[])) >= 9:
+                  assert 'What happened earlier' in page, f'long timeline was not compacted: {sid}'
           limit=datetime.now(timezone.utc)+timedelta(minutes=11)
           for s in h.get('storylines',[]):
               dates=[s.get('last_seen')]+[x.get('date') for x in s.get('coverage',[])]+[x.get('at') for x in s.get('changes',[])]

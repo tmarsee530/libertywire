@@ -4,6 +4,10 @@ from __future__ import annotations
 import json
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
+try:
+    from timeline_intelligence import canonical_link, serializable_model
+except ModuleNotFoundError:  # package import in the unit-test runner
+    from scripts.timeline_intelligence import canonical_link, serializable_model
 ROOT=Path(__file__).resolve().parents[1]
 STORYLINES=ROOT/"data"/"storylines.json";OUT=ROOT/"data"/"history.json"
 MAX_ENTRIES=1000;RETENTION_DAYS=30;MAX_TITLES=16;MAX_COVERAGE=40
@@ -13,7 +17,7 @@ def parse_dt(value):
     try:return datetime.fromisoformat(value.replace("Z","+00:00"))
     except ValueError:return None
 
-def coverage_key(item):return (item.get("source") or "",item.get("link") or "")
+def coverage_key(item):return (item.get("source") or "",canonical_link(item.get("link")))
 def clamp_dt(value,now):
     dt=parse_dt(value)
     if not dt:return None
@@ -22,6 +26,22 @@ def clamp_dt(value,now):
     return now if dt>now+timedelta(minutes=10) else dt
 def substantive(payload):return {k:v for k,v in payload.items() if k!="generated_at"}
 
+def merge_same_id(left,right):
+    """Collapse duplicate clusters that resolve to the same durable canonical ID."""
+    latest=max((left,right),key=lambda x:parse_dt(x.get("last_seen")) or datetime.min.replace(tzinfo=timezone.utc))
+    coverage={coverage_key(x):x for x in left.get("coverage",[])+right.get("coverage",[]) if coverage_key(x)!=("","")}
+    combined=sorted(coverage.values(),key=lambda x:x.get("date") or "",reverse=True)[:MAX_COVERAGE]
+    sources=sorted(set(left.get("sources",[]))|set(right.get("sources",[])))
+    current_sources=sorted(set(left.get("current_sources",[]))|set(right.get("current_sources",[])))
+    titles=[]
+    for title in list(left.get("title_history",[]))+list(right.get("title_history",[])):
+        if title and title not in titles:titles.append(title)
+    changes=sorted(left.get("changes",[])+right.get("changes",[]),key=lambda x:x.get("at") or "")[-20:]
+    first=min(filter(None,(left.get("first_seen"),right.get("first_seen"))),default=latest.get("first_seen"))
+    merged={**latest,"first_seen":first,"max_source_count":max(int(left.get("max_source_count",0) or 0),int(right.get("max_source_count",0) or 0),len(sources)),"current_source_count":len(current_sources),"max_source_family_count":max(int(left.get("max_source_family_count",0) or 0),int(right.get("max_source_family_count",0) or 0)),"current_source_family_count":len({x.get("source_family") or x.get("source") for x in combined if x.get("source_family") or x.get("source")}),"current_sources":current_sources,"sources":sources,"title_history":titles[-MAX_TITLES:],"coverage":combined,"changes":changes}
+    merged.update(serializable_model(merged))
+    return merged
+
 def main():
     now=datetime.now(timezone.utc);cutoff=now-timedelta(days=RETENTION_DAYS)
     current=json.loads(STORYLINES.read_text()) if STORYLINES.exists() else {"storylines":[]}
@@ -29,7 +49,11 @@ def main():
     if OUT.exists():
         try:old=json.loads(OUT.read_text())
         except (json.JSONDecodeError,OSError):pass
-    prior={x.get("id"):x for x in old.get("storylines",[]) if x.get("id")}
+    prior={}
+    for record in old.get("storylines",[]):
+        sid=record.get("id")
+        if not sid:continue
+        prior[sid]=merge_same_id(prior[sid],record) if sid in prior else record
     merged=[]
     for item in current.get("storylines",[]):
         sid=item.get("id")
@@ -68,12 +92,20 @@ def main():
         observed_dates=[x for x in observed_dates if x]
         first_observed=min(observed_dates).isoformat().replace("+00:00","Z") if observed_dates else newest
         record={"id":sid,"current_title":title,"title_history":titles,"first_seen":prev.get("first_seen") or first_observed,"last_seen":newest,"max_source_count":max(prev.get("max_source_count",0),item.get("source_count",0)),"current_source_count":item.get("source_count",0),"max_source_family_count":max(prev.get("max_source_family_count",0),item.get("source_family_count",0)),"current_source_family_count":item.get("source_family_count",0),"current_sources":sorted(item.get("sources",[])),"sources":sources,"status":item.get("status","active"),"risk_flags":item.get("risk_flags",[]),"coverage":coverage,"changes":changes[-20:]}
+        record.update(serializable_model(record))
         merged.append(record)
+    unique={}
+    for record in merged:
+        sid=record.get("id")
+        unique[sid]=merge_same_id(unique[sid],record) if sid in unique else record
+    merged=list(unique.values())
     active_ids={x.get("id") for x in current.get("storylines",[])}
     for sid,record in prior.items():
         if sid in active_ids:continue
         last=parse_dt(record.get("last_seen"))
-        if last and last>=cutoff:merged.append(record)
+        if last and last>=cutoff:
+            if int(record.get("timeline_schema_version",0) or 0)<1:record={**record,**serializable_model(record)}
+            merged.append(record)
     merged.sort(key=lambda x:parse_dt(x.get("last_seen")) or datetime.min.replace(tzinfo=timezone.utc),reverse=True)
     merged=merged[:MAX_ENTRIES]
     payload={"generated_at":now.isoformat().replace("+00:00","Z"),"retention_days":RETENTION_DAYS,"storyline_count":len(merged),"storylines":merged}

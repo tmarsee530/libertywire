@@ -43,6 +43,8 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Verify publisher code before maintenance
+        run: python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
       - name: Refresh current headline data
         run: python scripts/fetch_news.py
       - name: Re-rank current storylines

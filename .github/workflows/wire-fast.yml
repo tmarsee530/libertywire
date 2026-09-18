@@ -54,6 +54,7 @@ jobs:
           grep -q 'G-KKT59K667B' recent/index.html
           grep -q 'https://rallypointnews.com/stories/' sitemap.xml
           grep -q 'ItemListOrderDescending' scripts/build_timelines.py
+          grep -q 'history_dates.get(page.parent.name)' scripts/build_sitemaps.py
           python - <<'PY'
           import re
           from pathlib import Path

@@ -39,6 +39,11 @@ def source_domain(link):
     return host.removeprefix("www.")
 
 
+def tokens_for_related(value):
+    stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates"}
+    return {x for x in re.findall(r"[a-z0-9\u0027]{4,}", clean_title(value).lower()) if x not in stop}
+
+
 def eligible(record):
     families = int(record.get("max_source_family_count", 0) or 0)
     sources = int(record.get("max_source_count", 0) or 0)
@@ -69,6 +74,14 @@ def page(record):
         if not link or not item_title: continue
         updates.append(f'''<li class="timeline-update"><time datetime="{esc(item.get('date'))}">{esc(display_time(item.get('date')))}</time><div><h2>{esc(item_title)}</h2><p><a href="{esc(link)}" rel="noopener" target="_blank">{esc(item.get('source') or source_domain(link))} ↗</a><span>{esc(source_domain(link))}</span></p></div></li>''')
     source_names = sorted({str(x.get("source") or "").strip() for x in coverage if x.get("source")})
+    related=[]
+    current_payload=json.loads(CURRENT.read_text(encoding="utf-8")) if CURRENT.exists() else {"storylines":[]}
+    for candidate in current_payload.get("storylines",[]):
+        if candidate.get("id")==record.get("id") or not eligible(candidate): continue
+        overlap=len(tokens_for_related(title)&tokens_for_related(candidate.get("title")))
+        if overlap>=2: related.append((overlap,candidate))
+    related.sort(key=lambda x:(x[0],parse_dt(x[1].get("newest_date"))),reverse=True)
+    related_html="".join(f\u0027<li><a href="/stories/{esc(x[1].get("id"))}/">{esc(clean_title(x[1].get("title")))}</a></li>\u0027 for x in related[:4])
     status = str(record.get("status") or "developing").upper()
     schema = json.dumps({"@context":"https://schema.org","@type":"CollectionPage","name":title,"description":description,"url":f"{BASE}/stories/{record['id']}/","dateModified":record.get("last_seen"),"mainEntity":{"@type":"ItemList","numberOfItems":len(updates),"itemListOrder":"https://schema.org/ItemListOrderAscending"},"isPartOf":{"@type":"WebSite","name":"Rally Point News","url":BASE+"/"}}, ensure_ascii=False).replace("</", "<\\/")
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} — Live Timeline | Rally Point News</title><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/{sid}/"><script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="{esc(title)} — Live Timeline"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{BASE}/stories/{sid}/"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{esc(title)} — Live Timeline"><meta name="twitter:description" content="{esc(description)}"><link rel="stylesheet" href="/assets/timeline.css?v=1"><script type="application/ld+json">{schema}</script></head><body><a class="skip-link" href="#timeline">Skip to updates</a><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><p class="status">{esc(status)} · AI-ORGANIZED</p><h1>{esc(title)}</h1><p class="dek">One developing story, from the first tracked development to the latest. Every update links to the publisher that reported it.</p><div class="story-meta"><span>Updated {esc(display_time(record.get('last_seen')))}</span><span>{len(updates)} developments</span><span>{len(source_names)} sources</span></div><aside><strong>How this works:</strong> Rally Point software groups related coverage, removes repeats, and orders new developments automatically. It does not invent reporting; read the linked source for full context.</aside><ol class="timeline" id="timeline">{''.join(updates)}</ol><section class="sources"><h2>Sources tracking this story</h2><p>{esc(' · '.join(source_names))}</p></section><p class="back"><a href="/">← Back to Rally Point News</a></p></main><footer>Rally Point News · Headlines and reporting belong to their respective publishers. <a href="/about/">Editorial standards</a></footer></body></html>'''

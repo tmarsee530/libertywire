@@ -42,6 +42,13 @@ class TimelineIntelligenceTests(unittest.TestCase):
         self.assertEqual(len(updates[0]["sources"]), 2)
         self.assertEqual(canonical_link(items[0]["link"]), canonical_link(items[1]["link"]))
 
+    def test_update_id_survives_reclassification_and_corroboration(self):
+        base = coverage("Court orders city election recount", "Source A", 0)
+        first = meaningful_updates([base], "developing")[0]
+        corroborated = meaningful_updates([base, {**base, "source": "Source B", "title": "Court orders city election recount — confirmed"}], "breaking")[0]
+        self.assertEqual(first["id"], corroborated["id"])
+        self.assertEqual(len(corroborated["sources"]), 2)
+
     def test_material_state_change_becomes_new_classified_update(self):
         items = [
             coverage("Court hears arguments in city election case", "Source A", 0),
@@ -116,17 +123,22 @@ class TimelineRenderingTests(unittest.TestCase):
             history.write_text(json.dumps({"storylines": [legacy]}))
             current.write_text(json.dumps({"storylines": []}))
             manifest.write_text(json.dumps({"ids": [legacy["id"]]}))
-            old = (build_timelines.HISTORY, build_timelines.CURRENT, build_timelines.STORIES, build_timelines.MANIFEST)
+            state_index = root / "timeline_state_index.json"
+            old = (build_timelines.HISTORY, build_timelines.CURRENT, build_timelines.STORIES, build_timelines.MANIFEST, build_timelines.STATE_INDEX)
             try:
                 build_timelines.HISTORY, build_timelines.CURRENT = history, current
-                build_timelines.STORIES, build_timelines.MANIFEST = stories, manifest
+                build_timelines.STORIES, build_timelines.MANIFEST, build_timelines.STATE_INDEX = stories, manifest, state_index
                 build_timelines.main()
                 published = json.loads(manifest.read_text())
                 self.assertIn(legacy["id"], published["ids"])
                 body = (stories / legacy["id"] / "index.html").read_text()
                 self.assertIn(f'https://rallypointnews.com/stories/{legacy["id"]}/', body)
+                self.assertIn('data-update-id=', body)
+                self.assertIn('/assets/timeline-state.js?v=1', body)
+                index = json.loads(state_index.read_text())
+                self.assertEqual(len(index["timelines"][legacy["id"]]["update_ids"]), serializable_model(legacy)["material_update_count"])
             finally:
-                build_timelines.HISTORY, build_timelines.CURRENT, build_timelines.STORIES, build_timelines.MANIFEST = old
+                build_timelines.HISTORY, build_timelines.CURRENT, build_timelines.STORIES, build_timelines.MANIFEST, build_timelines.STATE_INDEX = old
 
     def test_new_qualified_timeline_is_published(self):
         items = [

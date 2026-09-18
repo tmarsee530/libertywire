@@ -52,24 +52,45 @@ def eligible(record):
     return bool(record.get("id") and len(coverage) >= 3 and families >= 3 and len(distinct_families) >= 3)
 
 def snapshot_titles(coverage):
-    stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates","report","reports","says","said","exclusive","video","photos","photo","amid","have","will","their","they","more"}
-    def toks(value): return {x for x in re.findall(r"[a-z0-9']{4,}", clean_title(value).lower()) if x not in stop}
+    """Keep only publisher wording that contributes meaningful new information."""
+    stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates","report","reports","says","said","exclusive","video","photos","photo","amid","have","will","their","they","more","story","developing"}
+    def toks(value):
+        return {x for x in re.findall(r"[a-z0-9']{3,}", clean_title(value).lower()) if x not in stop}
+    def clauses(title):
+        parts=[x.strip(" -–—:;,.") for x in re.split(r"\s*(?:[|;]|\s[—–-]\s|:\s+|[.!?]\s+)\s*",title) if x.strip()]
+        return parts or [title]
+
     seen=set(); out=[]
     for i,item in enumerate(coverage):
         title=clean_title(item.get("title"))
         if not title: continue
-        if i==0: label=title
+        title_words=toks(title)
+        novel=title_words-seen
+        if i==0:
+            label=title
         else:
-            clauses=[x.strip(" -–—:;,.") for x in re.split(r"\s*(?:[|;]|\s[—–]\s|:\s+)\s*",title) if x.strip()]
+            # If a headline adds too little, it is additional coverage rather than a new development.
+            if len(novel)<2:
+                continue
             candidates=[]
-            for clause in clauses:
-                words=toks(clause); novel=words-seen; repeated=words&seen
+            for clause in clauses(title):
+                words=toks(clause)
+                clause_novel=words-seen
+                repeated=words&seen
                 count=len(re.findall(r"[A-Za-z0-9']+",clause))
-                if len(novel)>=2 and 3<=count<=18: candidates.append((len(novel)*3-len(repeated),-count,clause))
-            label=max(candidates)[2] if candidates else title
-        words=toks(label); novel=words-seen
-        if i and len(novel)<2: continue
-        out.append((item,label)); seen|=words
+                if len(clause_novel)>=2 and 2<=count<=16:
+                    candidates.append((len(clause_novel)*5-len(repeated)*2,-count,clause))
+            if not candidates:
+                # Do not repeat the full headline just because clause extraction failed.
+                continue
+            label=max(candidates)[2]
+        words=toks(label)
+        if i and len(words-seen)<2:
+            continue
+        out.append((item,label))
+        # Learn from the full source headline, not just the displayed fragment, so
+        # subsequent entries cannot repackage information already encountered.
+        seen|=title_words
     return out
 
 def analytics_tag():

@@ -45,7 +45,11 @@ def main():
             if key==("",""):continue
             if key not in prior_cov:additions.append(cov)
             prior_cov[key]=cov
-        coverage=sorted(prior_cov.values(),key=lambda x:x.get("date") or "",reverse=True)[:MAX_COVERAGE]
+        normalized_cov=[]
+        for cov in prior_cov.values():
+            safe=clamp_dt(cov.get("date"),now)
+            normalized_cov.append({**cov,"date":(safe or now).isoformat().replace("+00:00","Z")})
+        coverage=sorted(normalized_cov,key=lambda x:x.get("date") or "",reverse=True)[:MAX_COVERAGE]
         sources=sorted(set(prev.get("sources",[]))|set(item.get("sources",[])))
         raw_newest=item.get("newest_date") or prev.get("last_seen")
         safe_newest=clamp_dt(raw_newest,now)

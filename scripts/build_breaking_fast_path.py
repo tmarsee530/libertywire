@@ -31,6 +31,7 @@ ESTABLISHED_SOURCES = {
     "npr", "pbs newshour", "the guardian", "the hill", "usa today",
     "washington post", "new york times", "reuters", "associated press",
     "ap news", "bloomberg", "cnbc", "politico", "axios", "scotusblog",
+    "defense news", "spacenews", "ars technica", "the verge", "techcrunch",
 }
 STOP_WORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from",
@@ -93,6 +94,10 @@ def source_family(source):
     aliases = {
         "ap": "associated press", "ap news": "associated press",
         "reuters world": "reuters", "bbc": "bbc news",
+        "npr news": "npr", "fox news politics": "fox news",
+        "fox news world": "fox news", "fox business": "fox news",
+        "bbc science & environment": "bbc news", "bbc sport": "bbc news",
+        "bbc entertainment & arts": "bbc news",
     }
     return aliases.get(value, value)
 

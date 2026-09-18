@@ -1,7 +1,11 @@
+import json
+import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 from scripts.build_breaking_fast_path import build_payload, evaluate_clusters
+from scripts import build_storylines as storyline_builder
 
 
 NOW = datetime(2026, 9, 18, 12, 0, tzinfo=timezone.utc)
@@ -70,6 +74,50 @@ class BreakingFastPathTests(unittest.TestCase):
     def test_stale_reports_are_not_fast_path_candidates(self):
         stale = story("FBI declares emergency warning", "FBI National Press Releases", 300)
         self.assertEqual(evaluate_clusters([stale], [], NOW), [])
+
+    def _run_storyline_builder(self, fast_payload=None):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            date = (NOW - timedelta(minutes=2)).isoformat().replace("+00:00", "Z")
+            link = "https://fbi.test/emergency"
+            news = {"stories": [{
+                "title": "FBI declares emergency warning after attack",
+                "source": "FBI National Press Releases", "link": link,
+                "date": date, "published_epoch": (NOW - timedelta(minutes=2)).timestamp(),
+            }]}
+            (root / "news.json").write_text(json.dumps(news))
+            (root / "history.json").write_text(json.dumps({"storylines": []}))
+            if fast_payload is not None:
+                (root / "fast.json").write_text(json.dumps(fast_payload))
+            old = (storyline_builder.NEWS, storyline_builder.OUT, storyline_builder.HISTORY, storyline_builder.FAST)
+            try:
+                storyline_builder.NEWS = root / "news.json"
+                storyline_builder.OUT = root / "storylines.json"
+                storyline_builder.HISTORY = root / "history.json"
+                storyline_builder.FAST = root / "fast.json"
+                storyline_builder.main()
+                return json.loads(storyline_builder.OUT.read_text()), link
+            finally:
+                storyline_builder.NEWS, storyline_builder.OUT, storyline_builder.HISTORY, storyline_builder.FAST = old
+
+    def test_fast_candidate_is_promoted_by_normal_storyline_publisher(self):
+        detected = NOW.isoformat().replace("+00:00", "Z")
+        payload, link = self._run_storyline_builder({"candidates": [{
+            "eligible": True, "urgency_score": 88, "reason": "trusted_primary_source",
+            "detected_at": detected, "primary_source_link": "https://fbi.test/emergency",
+            "corroborating_links": ["https://fbi.test/emergency"],
+        }]})
+        item = payload["storylines"][0]
+        self.assertTrue(item["fast_path"])
+        self.assertEqual(item["status"], "breaking")
+        self.assertEqual(item["urgency_score"], 88)
+        self.assertEqual(item["coverage"][0]["link"], link)
+
+    def test_normal_storyline_ingestion_still_works_without_fast_artifact(self):
+        payload, _ = self._run_storyline_builder()
+        self.assertEqual(payload["storyline_count"], 1)
+        self.assertFalse(payload["storylines"][0]["fast_path"])
+        self.assertEqual(payload["fast_path_count"], 0)
 
 
 if __name__ == "__main__":

@@ -52,7 +52,8 @@ jobs:
           grep -q 'Live News Timelines' stories/index.html
           grep -q 'G-KKT59K667B' stories/index.html
           grep -q 'G-KKT59K667B' recent/index.html
-          grep -q 'https://rallypointnews.com/stories/' sitemap.xml\n          grep -q 'ItemListOrderDescending' scripts/build_timelines.py
+          grep -q 'https://rallypointnews.com/stories/' sitemap.xml
+          grep -q 'ItemListOrderDescending' scripts/build_timelines.py
           python - <<'PY'
           import re
           from pathlib import Path

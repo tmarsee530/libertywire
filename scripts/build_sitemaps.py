@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, ElementTree
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://rallypointnews.com"
@@ -30,9 +31,19 @@ def write_standard():
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))
     stories = ROOT / "stories"
+    history_dates = {}
+    history = ROOT / "data" / "history.json"
+    if history.exists():
+        try:
+            payload=json.loads(history.read_text(encoding="utf-8"))
+            history_dates={str(x.get("id")):x.get("last_seen") for x in payload.get("storylines",[]) if x.get("id") and x.get("last_seen")}
+        except (json.JSONDecodeError,OSError):
+            history_dates={}
     if stories.exists():
         for page in sorted(stories.glob("*/index.html")):
-            entries.append((BASE + f"/stories/{page.parent.name}/", iso_mtime(page)))
+            # Story lastmod should mean substantive story change, not merely that
+            # the five-minute generator rewrote an identical HTML file.
+            entries.append((BASE + f"/stories/{page.parent.name}/", history_dates.get(page.parent.name) or iso_mtime(page)))
     for loc, lastmod in entries:
         u = SubElement(root, "url")
         SubElement(u, "loc").text = loc

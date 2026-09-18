@@ -102,7 +102,9 @@ def page(record, published_records):
 
 def index_page(records):
     cards=[]
-    for r in records: cards.append(f'''<article><p>{esc(str(r.get('status') or 'developing').upper())}</p><h2><a href="/stories/{esc(r['id'])}/">{esc(clean_title(r.get('current_title')))}</a></h2><span>Updated {esc(display_time(r.get('last_seen')))} · {len(r.get('coverage', []))} developments</span></article>''')
+    for r in records:
+        development_count=len(snapshot_titles(sorted(r.get("coverage", []), key=lambda x: parse_dt(x.get("date")))))
+        cards.append(f'''<article><p>{esc(str(r.get("status") or "developing").upper())}</p><h2><a href="/stories/{esc(r["id"])}/">{esc(clean_title(r.get("current_title")))}</a></h2><span>Updated {esc(display_time(r.get("last_seen")))} · {development_count} key developments</span></article>''')
     ga=analytics_tag()
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live News Timelines | Rally Point News</title><meta name="description" content="Follow major developing stories in finite, source-backed feeds with the newest distinct developments first."><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/">{ga}<link rel="stylesheet" href="/assets/timeline.css?v=1"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><p class="status">LIVE STORY DESK</p><h1>Developing stories, without the endless scroll</h1><p class="dek">Finite feeds of the developments that matter. Open a story, scan what changed, and reach the end.</p><section class="timeline-index">{''.join(cards)}</section></main><footer>Rally Point News · <a href="/about/">Editorial standards</a></footer></body></html>'''
 

@@ -116,10 +116,12 @@ def build_signals(stage_results, cycle_started, previous):
     failures = news.get("failed_sources") or []
     failure_pct = round((len(failures) / total) * 100, 1) if total else 100.0
     current = storylines.get("storylines") or []
-    newest_story = max((parse_dt(x.get("newest_date")) for x in current), default=None)
+    story_dates = [parse_dt(x.get("newest_date")) for x in current]
+    newest_story = max((x for x in story_dates if x is not None), default=None)
     newest_story = newest_story if newest_story and newest_story <= now() else now()
     records = history.get("storylines") or []
-    newest_timeline = max((parse_dt(x.get("last_seen")) for x in records), default=None)
+    timeline_dates = [parse_dt(x.get("last_seen")) for x in records]
+    newest_timeline = max((x for x in timeline_dates if x is not None), default=None)
     newest_timeline = newest_timeline if newest_timeline and newest_timeline <= now() else now()
     active_queue = False  # legacy writer queue is retained but not part of the live timeline product
     return {

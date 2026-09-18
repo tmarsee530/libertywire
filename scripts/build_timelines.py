@@ -58,6 +58,7 @@ def eligible(record):
 def snapshot_titles(coverage):
     """Keep only publisher wording that contributes meaningful new information."""
     stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates","report","reports","says","said","exclusive","video","photos","photo","amid","have","will","their","they","more","story","developing"}
+    state={"approves","approved","blocks","blocked","orders","ordered","resigns","resigned","dies","died","killed","arrests","arrested","indicts","indicted","charges","charged","wins","won","loses","lost","launches","launched","strikes","struck","evacuates","evacuated","confirms","confirmed","withdraws","withdrew","suspends","suspended","rejects","rejected","passes","passed","fails","failed","overturns","overturned","delays","delayed","cancels","canceled","cancelled","announces","announced"}
     def toks(value):
         return {x for x in re.findall(r"[a-z0-9']{3,}", clean_title(value).lower()) if x not in stop}
     def clauses(title):
@@ -74,7 +75,8 @@ def snapshot_titles(coverage):
             label=title
         else:
             # If a headline adds too little, it is additional coverage rather than a new development.
-            if len(novel)<2:
+            decisive={x for x in novel if x in state or any(ch.isdigit() for ch in x)}
+            if len(novel)<2 and not decisive:
                 continue
             candidates=[]
             for clause in clauses(title):
@@ -82,15 +84,18 @@ def snapshot_titles(coverage):
                 clause_novel=words-seen
                 repeated=words&seen
                 count=len(re.findall(r"[A-Za-z0-9']+",clause))
-                if len(clause_novel)>=2 and 2<=count<=16:
-                    candidates.append((len(clause_novel)*5-len(repeated)*2,-count,clause))
+                clause_decisive={x for x in clause_novel if x in state or any(ch.isdigit() for ch in x)}
+                if (len(clause_novel)>=2 or clause_decisive) and 2<=count<=16:
+                    candidates.append((len(clause_novel)*5+len(clause_decisive)*3-len(repeated)*2,-count,clause))
             if not candidates:
                 # Do not repeat the full headline just because clause extraction failed.
                 continue
             label=max(candidates)[2]
         words=toks(label)
-        if i and len(words-seen)<2:
-            continue
+        if i:
+            remaining=words-seen
+            if len(remaining)<2 and not {x for x in remaining if x in state or any(ch.isdigit() for ch in x)}:
+                continue
         out.append((item,label))
         # Learn from the full source headline, not just the displayed fragment, so
         # subsequent entries cannot repackage information already encountered.

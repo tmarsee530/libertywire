@@ -53,6 +53,7 @@ try:
  manifest=json.loads((root/'data/published_timelines.json').read_text());published_ids={str(x) for x in manifest.get('ids',[])}
  def e(v):return html.escape(str(v or ''),quote=True)
  stop={'the','and','for','from','with','into','over','after','amid','says','said','report','reports','live','update','updates','latest','breaking','exclusive','video','photo','photos','this','that','these','those','new','news'}
+ state={'approves','approved','blocks','blocked','orders','ordered','resigns','resigned','dies','died','killed','arrests','arrested','indicts','indicted','charges','charged','wins','won','loses','lost','launches','launched','strikes','struck','evacuates','evacuated','confirms','confirmed','withdraws','withdrew','suspends','suspended','rejects','rejected','passes','passed','fails','failed','overturns','overturned','delays','delayed','cancels','canceled','cancelled','announces','announced'}
  def toks(title):return {w for w in re.findall(r"[a-z0-9']+",str(title or '').lower()) if len(w)>3 and w not in stop}
  def epoch(item):
   raw=item.get('date')
@@ -86,12 +87,12 @@ try:
   seen=set(toks(cov[0].get('title')));out=[(cov[0],str(cov[0].get('title') or ''))]
   for item in cov[1:]:
    title=str(item.get('title') or '');all_words=toks(title);novel=all_words-seen
-   if not novel:continue
+   if len(novel)<2 and not (novel&state):continue
    clauses=[x.strip() for x in re.split(r'\s*(?:[|;]|\s[—–]\s|:\s+)\s*',title) if x.strip()]
    best='';best_score=-1
    for clause in clauses:
     cw=toks(clause);fresh=len(cw-seen);repeated=len(cw&seen);count=len(re.findall(r"[A-Za-z0-9']+",clause))
-    if fresh<2 or count<4:continue
+    if (fresh<2 and not ((cw-seen)&state)) or count<4:continue
     score=fresh*3-repeated*.8+(1 if count>=5 else 0)
     if score>best_score:best,best_score=clause,score
    display=best or title;out.append((item,display));seen|=toks(display)

@@ -50,6 +50,8 @@ jobs:
           grep -q 'Recent Headlines' recent/index.html
           test -s stories/index.html
           grep -q 'Live News Timelines' stories/index.html
+          grep -q 'G-KKT59K667B' stories/index.html
+          python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py
           python - <<'PY'
           import json
           from datetime import datetime, timezone, timedelta

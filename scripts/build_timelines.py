@@ -14,6 +14,7 @@ CURRENT = ROOT / "data" / "storylines.json"
 STORIES = ROOT / "stories"
 BASE = "https://rallypointnews.com"
 MAX_PAGES = 500
+MANIFEST = ROOT / "data" / "published_timelines.json"
 
 
 def esc(value): return html.escape(str(value or ""), quote=True)

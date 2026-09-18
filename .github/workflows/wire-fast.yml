@@ -10,6 +10,8 @@ on:
     # Offset from exact 5-minute boundaries to reduce scheduler congestion and re-register the schedule.
     - cron: '2-59/5 * * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types: [fast_wire_tick]
 
 permissions:
   contents: write
@@ -125,3 +127,13 @@ jobs:
       - name: Enforce newsroom health gate
         if: always()
         run: python scripts/run_newsroom.py --assert-healthy
+      - name: Hand off to next Fast Wire cycle
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # GitHub's schedule event has been unreliable for this repository.
+          # Keep the cron as a backup, but maintain a five-minute self-renewing
+          # loop through repository_dispatch, which GitHub permits with GITHUB_TOKEN.
+          sleep 240
+          curl --fail-with-body -L             -X POST             -H "Accept: application/vnd.github+json"             -H "Authorization: Bearer $GH_TOKEN"             -H "X-GitHub-Api-Version: 2022-11-28"             "https://api.github.com/repos/${{ github.repository }}/dispatches"             -d '{"event_type":"fast_wire_tick"}'

@@ -35,17 +35,19 @@ jobs:
         run: python scripts/install_homepage_v2.py
       - name: Refresh homepage search metadata
         run: python scripts/install_discovery_metadata.py
+      - name: Build recent-headlines utility
+        run: python scripts/build_recent.py
       - name: Refresh crawl discovery
         run: python scripts/build_sitemaps.py
       - name: Commit fresh Wire and crawlable homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html data/news.json data/storylines.json sitemap.xml news-sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html data/news.json data/storylines.json sitemap.xml news-sitemap.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html data/news.json data/storylines.json sitemap.xml news-sitemap.xml
+          git add index.html recent/index.html data/news.json data/storylines.json sitemap.xml news-sitemap.xml
           git commit -m "Refresh live Wire headlines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

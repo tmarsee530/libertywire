@@ -55,6 +55,19 @@ jobs:
         run: python scripts/build_timelines.py
       - name: Install homepage presentation
         run: python scripts/install_homepage_v2.py
+      - name: Verify timeline-first homepage integrity
+        run: |
+          test -s data/published_timelines.json
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          ids=set(json.loads(Path('data/published_timelines.json').read_text()).get('ids',[]))
+          body=Path('index.html').read_text()
+          links=set(re.findall(r'href="/stories/([a-f0-9]{12})/"',body))
+          assert links <= ids, f'homepage links to unpublished timelines: {sorted(links-ids)}'
+          for sid in links:
+              assert (Path('stories')/sid/'index.html').exists(), f'missing timeline page: {sid}'
+          PY
       - name: Install discovery metadata
         run: python scripts/install_discovery_metadata.py
       - name: Build current sitemaps

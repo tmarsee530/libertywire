@@ -1,0 +1,135 @@
+{
+  "cycle": {
+    "started_at": "2026-09-18T15:03:59.258541Z",
+    "completed_at": "2026-09-18T15:04:28.880327Z",
+    "duration_seconds": 29.62,
+    "previous_completed_at": null
+  },
+  "ingestion": {
+    "last_successful_run": "2026-09-18T15:04:05.647008Z",
+    "age_minutes": 0.4,
+    "configured_sources": 80,
+    "successful_sources": 80,
+    "failed_sources": 0,
+    "source_failure_pct": 0.0,
+    "failed_source_details": [],
+    "stories_available": 1358
+  },
+  "content": {
+    "last_story_created": "2026-09-18T15:04:28.879855Z",
+    "last_story_age_minutes": 0.0,
+    "last_timeline_update": "2026-09-18T15:04:28.261869Z",
+    "last_timeline_age_minutes": 0.0,
+    "published_timelines": 30,
+    "manifest_updated_at": "2026-09-18T15:04:28.453574Z"
+  },
+  "queue": {
+    "active": false,
+    "backlog": 0,
+    "oldest_item_age_minutes": null,
+    "note": "Legacy article-writer queue is inactive; live timelines publish directly."
+  },
+  "ai_processing": {
+    "enabled": false,
+    "failures": 0,
+    "note": "Core live pipeline is deterministic and uses no paid AI API."
+  },
+  "distribution": {
+    "last_job_at": "2026-09-16T11:35:27+00:00",
+    "last_job_status": "scheduled",
+    "affects_core_health": false
+  },
+  "stages": {
+    "ingestion": {
+      "label": "Source ingestion",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 6.44,
+      "completed_at": "2026-09-18T15:04:05.703275Z",
+      "consecutive_failures": 0,
+      "artifact": "data/news.json",
+      "message": "Generated 1358 stories from 80/80 healthy sources; default radar depth 20/source."
+    },
+    "clustering": {
+      "label": "Story clustering",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 22.53,
+      "completed_at": "2026-09-18T15:04:28.236529Z",
+      "consecutive_failures": 0,
+      "artifact": "data/storylines.json",
+      "message": "Built 1253 storylines; 70 multi-family; 30 breaking; 35 developing; 2 hot"
+    },
+    "history": {
+      "label": "Timeline history",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.12,
+      "completed_at": "2026-09-18T15:04:28.352381Z",
+      "consecutive_failures": 0,
+      "artifact": "data/history.json",
+      "message": "History updated; 964 retained storylines"
+    },
+    "publication": {
+      "label": "Timeline publication",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.32,
+      "completed_at": "2026-09-18T15:04:28.671041Z",
+      "consecutive_failures": 0,
+      "artifact": "data/published_timelines.json",
+      "message": "Published 30 autonomous source-backed story timelines"
+    },
+    "homepage": {
+      "label": "Homepage refresh",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.04,
+      "completed_at": "2026-09-18T15:04:28.714482Z",
+      "consecutive_failures": 0,
+      "artifact": "index.html",
+      "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
+    },
+    "metadata": {
+      "label": "Discovery metadata",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.02,
+      "completed_at": "2026-09-18T15:04:28.739243Z",
+      "consecutive_failures": 0,
+      "artifact": "index.html",
+      "message": "Discovery metadata already current"
+    },
+    "recent": {
+      "label": "Recent-headlines page",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.04,
+      "completed_at": "2026-09-18T15:04:28.783301Z",
+      "consecutive_failures": 0,
+      "artifact": "recent/index.html",
+      "message": "Built recent-headlines page with 150 attributed links."
+    },
+    "sitemap": {
+      "label": "Sitemap refresh",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.07,
+      "completed_at": "2026-09-18T15:04:28.855387Z",
+      "consecutive_failures": 0,
+      "artifact": "sitemap.xml",
+      "message": "Built focused sitemap for homepage, Story Desk, and qualified timelines"
+    }
+  },
+  "mode": "maintenance",
+  "state": "HEALTHY",
+  "alerts": [],
+  "dead_letter_count": 0,
+  "thresholds": {
+    "ingestion_warning_minutes": 10,
+    "ingestion_critical_minutes": 15,
+    "source_warning_pct": 20,
+    "source_critical_pct": 50,
+    "meaningful_update_warning_minutes": 120
+  }
+}

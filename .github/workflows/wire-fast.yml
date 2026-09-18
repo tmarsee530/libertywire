@@ -32,27 +32,17 @@ jobs:
           cache: 'pip'
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
-      - name: Verify publisher code before fetching
-        run: python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
-      - name: Fetch newest headlines
-        run: python scripts/fetch_news.py
-      - name: Re-rank live storylines
-        run: python scripts/build_storylines.py
-      - name: Preserve developing-story history
-        run: python scripts/build_history.py
-      - name: Publish source-backed live timelines
-        run: python scripts/build_timelines.py
-      - name: Server-render current homepage timelines
-        run: python scripts/install_homepage_v2.py
-      - name: Refresh homepage search metadata
-        run: python scripts/install_discovery_metadata.py
-      - name: Build recent-headlines utility
-        run: python scripts/build_recent.py
-      - name: Refresh crawl discovery
-        run: python scripts/build_sitemaps.py
+      - name: Verify publisher and reliability code before fetching
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+      - name: Run resilient live-news pipeline
+        run: python scripts/run_newsroom.py --mode fast
       - name: Verify generated publication surfaces
         run: |
           test -s recent/index.html
+          test -s data/newsroom_health.json
+          test -s data/newsroom_dead_letters.json
+          test -s health/index.html
+          grep -q 'Newsroom Health' health/index.html
           grep -q 'Recent Headlines' recent/index.html
           test -s stories/index.html
           test -s data/published_timelines.json
@@ -90,13 +80,13 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories assets/timeline.css data/news.json data/storylines.json data/history.json data/published_timelines.json sitemap.xml news-sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories health assets/timeline.css data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories assets/timeline.css data/news.json data/storylines.json data/history.json data/published_timelines.json sitemap.xml news-sitemap.xml
+          git add index.html recent/index.html stories health assets/timeline.css data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml
           git commit -m "Refresh live timelines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"
@@ -106,3 +96,6 @@ jobs:
             exit 0
           fi
           git push origin HEAD:main
+      - name: Enforce newsroom health gate
+        if: always()
+        run: python scripts/run_newsroom.py --assert-healthy

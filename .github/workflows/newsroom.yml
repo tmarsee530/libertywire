@@ -7,6 +7,7 @@ on:
       - 'feeds.json'
       - 'requirements.txt'
       - 'scripts/fetch_news.py'
+      - 'scripts/run_newsroom.py'
       - 'scripts/build_storylines.py'
       - 'scripts/build_history.py'
       - 'scripts/build_timelines.py'
@@ -43,21 +44,16 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Verify publisher code before maintenance
-        run: python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
-      - name: Refresh current headline data
-        run: python scripts/fetch_news.py
-      - name: Re-rank current storylines
-        run: python scripts/build_storylines.py
-      - name: Preserve developing-story history
-        run: python scripts/build_history.py
-      - name: Publish source-backed live timelines
-        run: python scripts/build_timelines.py
-      - name: Install homepage presentation
-        run: python scripts/install_homepage_v2.py
+      - name: Verify publisher and reliability code before maintenance
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+      - name: Run resilient maintenance pipeline
+        run: python scripts/run_newsroom.py --mode maintenance
       - name: Verify timeline-first homepage integrity
         run: |
           test -s data/published_timelines.json
+          test -s data/newsroom_health.json
+          test -s data/newsroom_dead_letters.json
+          test -s health/index.html
           python - <<'PY'
           import json,re
           from pathlib import Path
@@ -68,19 +64,15 @@ jobs:
           for sid in links:
               assert (Path('stories')/sid/'index.html').exists(), f'missing timeline page: {sid}'
           PY
-      - name: Install discovery metadata
-        run: python scripts/install_discovery_metadata.py
-      - name: Build current sitemaps
-        run: python scripts/build_sitemaps.py
       - name: Commit current-site changes when needed
         run: |
-          if [ -z "$(git status --porcelain -- index.html stories assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/published_timelines.json)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json)" ]; then
             echo "Current site is unchanged."
             exit 0
           fi
           git config user.name "rally-point-maintenance[bot]"
           git config user.email "rally-point-maintenance[bot]@users.noreply.github.com"
-          git add index.html stories assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/published_timelines.json
+          git add index.html recent/index.html stories health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json
           git commit -m "Maintain Rally Point front page"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"
@@ -90,3 +82,6 @@ jobs:
             exit 0
           fi
           git push origin HEAD:main
+      - name: Enforce newsroom health gate
+        if: always()
+        run: python scripts/run_newsroom.py --assert-healthy

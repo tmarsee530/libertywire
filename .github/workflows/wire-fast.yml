@@ -1,6 +1,10 @@
 name: Fast Wire Refresh
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/wire-fast.yml'
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
@@ -15,6 +19,7 @@ concurrency:
 jobs:
   refresh-wire:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - name: Synchronize with latest main

@@ -19,6 +19,7 @@ STORIES = ROOT / "stories"
 BASE = "https://rallypointnews.com"
 MAX_PAGES = 500
 MANIFEST = ROOT / "data" / "published_timelines.json"
+STATE_INDEX = ROOT / "data" / "timeline_state_index.json"
 LONG_TIMELINE_THRESHOLD = 9
 VISIBLE_RECENT_UPDATES = 6
 
@@ -123,7 +124,7 @@ def snapshot_titles(coverage):
 
 def analytics_tag():
     # Kept outside f-strings so JavaScript braces can never be interpreted by Python.
-    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script>'
+    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=1" defer></script>'
 
 def source_links(update, compact=False):
     sources=update.get("sources") or [{"source":update.get("source"),"link":update.get("link"),"title":update.get("source_title")}]
@@ -140,7 +141,7 @@ def source_links(update, compact=False):
 
 def update_html(update, compact=False):
     classification=clean_title(update.get("classification")) or "UPDATE"
-    return f'''<li class="timeline-update{' compact' if compact else ''}" data-published="{esc(update.get('date'))}"><time datetime="{esc(update.get('date'))}">{esc(display_time(update.get('date')))}</time><div><p class="update-class update-{esc(classification.lower().replace(' ','-'))}">{esc(classification)}</p><h2>{esc(update.get('label'))}</h2><p class="update-sources">{source_links(update,compact)}</p></div></li>'''
+    return f'''<li class="timeline-update{' compact' if compact else ''}" data-update-id="{esc(update.get('id'))}" data-published="{esc(update.get('date'))}"><time datetime="{esc(update.get('date'))}">{esc(display_time(update.get('date')))}</time><div><p class="update-class update-{esc(classification.lower().replace(' ','-'))}">{esc(classification)}</p><h2>{esc(update.get('label'))}</h2><p class="update-sources">{source_links(update,compact)}</p></div></li>'''
 
 def page(record, published_records):
     sid = esc(record["id"]); title = clean_title(record.get("current_title")) or "Developing story"
@@ -200,6 +201,8 @@ def main():
     records=[x for x in by_id.values() if eligible(x,previous_ids)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
     manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
+    state_index={"generated_at":manifest["generated_at"],"schema_version":1,"timelines":{str(x["id"]):{"last_updated":x.get("last_seen"),"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")]} for x in records}}
+    STATE_INDEX.write_text(json.dumps(state_index,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     STORIES.mkdir(parents=True,exist_ok=True); keep={str(record["id"]) for record in records}
     for child in STORIES.iterdir():
         if child.is_dir() and child.name not in keep:

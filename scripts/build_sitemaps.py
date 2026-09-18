@@ -25,10 +25,14 @@ def write_standard():
     # first-party transparency page and is linked from the primary navigation.
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     entries = [(BASE + "/", iso_mtime(ROOT / "index.html"))]
-    for route in ("recent", "sources", "about", "privacy"):
+    for route in ("recent", "stories", "sources", "about", "privacy"):
         page = ROOT / route / "index.html"
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))
+    stories = ROOT / "stories"
+    if stories.exists():
+        for page in sorted(stories.glob("*/index.html")):
+            entries.append((BASE + f"/stories/{page.parent.name}/", iso_mtime(page)))
     for loc, lastmod in entries:
         u = SubElement(root, "url")
         SubElement(u, "loc").text = loc
@@ -50,5 +54,4 @@ def write_news():
 if __name__ == "__main__":
     write_standard()
     write_news()
-    print("Built current-product sitemap: homepage + recent + sources + about + privacy")
-
+    print("Built current-product sitemap including live story timelines")

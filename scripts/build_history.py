@@ -45,7 +45,7 @@ def main():
         changes=list(prev.get("changes",[]))
         if additions or set(item.get("sources",[]))-set(prev.get("current_sources",[])) or (prev and title!=prev.get("current_title")):
             changes.append({"at":newest,"source_count":item.get("source_count",0),"new_sources":sorted(set(item.get("sources",[]))-set(prev.get("current_sources",[]))),"coverage_added":[{"source":x.get("source"),"title":x.get("title"),"link":x.get("link"),"date":x.get("date")} for x in additions[:8]]})
-        record={"id":sid,"current_title":title,"title_history":titles,"first_seen":prev.get("first_seen") or now.isoformat().replace("+00:00","Z"),"last_seen":newest,"max_source_count":max(prev.get("max_source_count",0),item.get("source_count",0)),"current_source_count":item.get("source_count",0),"current_sources":sorted(item.get("sources",[])),"sources":sources,"status":item.get("status","active"),"risk_flags":item.get("risk_flags",[]),"coverage":coverage,"changes":changes[-20:]}
+        record={"id":sid,"current_title":title,"title_history":titles,"first_seen":prev.get("first_seen") or now.isoformat().replace("+00:00","Z"),"last_seen":newest,"max_source_count":max(prev.get("max_source_count",0),item.get("source_count",0)),"current_source_count":item.get("source_count",0),"max_source_family_count":max(prev.get("max_source_family_count",0),item.get("source_family_count",0)),"current_source_family_count":item.get("source_family_count",0),"current_sources":sorted(item.get("sources",[])),"sources":sources,"status":item.get("status","active"),"risk_flags":item.get("risk_flags",[]),"coverage":coverage,"changes":changes[-20:]}
         merged.append(record)
     active_ids={x.get("id") for x in current.get("storylines",[])}
     for sid,record in prior.items():

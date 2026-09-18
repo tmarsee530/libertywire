@@ -7,12 +7,13 @@ Rally Point should not require a separately billed OpenAI API account for its no
 ## Current architecture
 
 - Static GitHub Pages site.
-- `index.html` contains the entire application.
-- Browser fetches publisher RSS feeds through rss2json.
-- Browser clusters similar headlines and ranks clusters by source count/freshness.
+- GitHub Actions ingests publisher RSS/Atom feeds every five minutes.
+- The deterministic editorial engine clusters, ranks, deduplicates, and preserves developing-story history.
+- Multi-source stories receive stable, source-backed live timeline pages under `/stories/`.
+- The server-rendered homepage and timeline archive remain usable and crawlable without JavaScript.
 - Google Analytics, AdSense metadata, and a Substack signup are already present.
 
-## Target architecture
+## Operating architecture
 
 ### Layer 1 — Always-on deterministic newsroom
 Runs without AI tokens.
@@ -53,10 +54,11 @@ AI automation must never:
 2. Move feed collection out of each visitor's browser into a shared generated dataset.
 3. Make the frontend consume that shared dataset with a graceful fallback.
 4. Improve deterministic clustering and scoring.
-5. Add persistent storyline/history data.
-6. Add scheduled ChatGPT editorial review within available account task limits.
-7. Add analytics/business review and owner report.
-8. Add original briefing pages only after sourcing/copyright/quality gates are implemented.
+5. Add persistent storyline/history data. (Complete.)
+6. Publish finite, chronological, source-backed live timelines. (Complete.)
+7. Add optional scheduled ChatGPT editorial review within available account task limits.
+8. Add analytics/business review and owner report.
+9. Add original briefing pages only after sourcing/copyright/quality gates are implemented.
 
 ## Token strategy
 

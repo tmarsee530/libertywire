@@ -48,6 +48,9 @@ def eligible(record):
     families = int(record.get("max_source_family_count", 0) or 0)
     sources = int(record.get("max_source_count", 0) or 0)
     coverage = record.get("coverage") or []
+    title = clean_title(record.get("current_title")).lower()
+    non_news_formats = ("weekly quiz", "morning greatness")
+    if any(marker in title for marker in non_news_formats): return False
     # Winno-style timelines should represent genuinely developing stories, not
     # two-headline coincidences. Require three distinct source families and
     # enough chronological material to make the destination useful.
@@ -75,8 +78,7 @@ def page(record, published_records):
         updates.append(f'''<li class="timeline-update"><time datetime="{esc(item.get('date'))}">{esc(display_time(item.get('date')))}</time><div><h2>{esc(item_title)}</h2><p><a href="{esc(link)}" rel="noopener" target="_blank">{esc(item.get('source') or source_domain(link))} ↗</a><span>{esc(source_domain(link))}</span></p></div></li>''')
     source_names = sorted({str(x.get("source") or "").strip() for x in coverage if x.get("source")})
     related=[]
-    history_payload=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"storylines":[]}
-    for candidate in history_payload.get("storylines",[]):
+    for candidate in published_records:
         if candidate.get("id")==record.get("id") or not eligible(candidate): continue
         candidate_title=clean_title(candidate.get("current_title"))
         overlap=len(tokens_for_related(title)&tokens_for_related(candidate_title))

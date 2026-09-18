@@ -48,6 +48,19 @@ jobs:
           test -s recent/index.html
           grep -q 'https://rallypointnews.com/recent/' sitemap.xml
           grep -q 'Recent Headlines' recent/index.html
+          test -s stories/index.html
+          grep -q 'Live News Timelines' stories/index.html
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone, timedelta
+          h=json.load(open('data/history.json'))
+          limit=datetime.now(timezone.utc)+timedelta(minutes=11)
+          for s in h.get('storylines',[]):
+              dates=[s.get('last_seen')]+[x.get('date') for x in s.get('coverage',[])]+[x.get('at') for x in s.get('changes',[])]
+              for value in filter(None,dates):
+                  dt=datetime.fromisoformat(value.replace('Z','+00:00'))
+                  assert dt <= limit, f'future timestamp survived normalization: {value}'
+          PY
       - name: Commit fresh Wire and crawlable homepage when changed
         run: |
           if [ -z "$(git status --porcelain -- index.html recent/index.html stories assets/timeline.css data/news.json data/storylines.json data/history.json sitemap.xml news-sitemap.xml)" ]; then

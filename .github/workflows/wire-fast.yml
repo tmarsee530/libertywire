@@ -46,8 +46,9 @@ jobs:
       - name: Verify generated publication surfaces
         run: |
           test -s recent/index.html
-          grep -q 'https://rallypointnews.com/recent/' sitemap.xml
           grep -q 'Recent Headlines' recent/index.html
+          ! grep -q 'https://rallypointnews.com/recent/' sitemap.xml
+          ! grep -q 'https://rallypointnews.com/about/' sitemap.xml
           test -s stories/index.html
           grep -q 'Live News Timelines' stories/index.html
           grep -q 'G-KKT59K667B' stories/index.html

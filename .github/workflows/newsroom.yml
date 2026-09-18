@@ -8,6 +8,8 @@ on:
       - 'requirements.txt'
       - 'scripts/fetch_news.py'
       - 'scripts/run_newsroom.py'
+      - 'scripts/build_breaking_fast_path.py'
+      - 'tests/test_breaking_fast_path.py'
       - 'scripts/build_storylines.py'
       - 'scripts/build_history.py'
       - 'scripts/build_timelines.py'
@@ -45,7 +47,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before maintenance
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+      - name: Test breaking-news fast path
+        run: python -m unittest -v tests/test_breaking_fast_path.py
       - name: Run resilient maintenance pipeline
         run: python scripts/run_newsroom.py --mode maintenance
       - name: Verify timeline-first homepage integrity
@@ -53,10 +57,14 @@ jobs:
           test -s data/published_timelines.json
           test -s data/newsroom_health.json
           test -s data/newsroom_dead_letters.json
+          test -s data/breaking_fast_path.json
           test -s health/index.html
           python - <<'PY'
           import json,re
           from pathlib import Path
+          fast=json.loads(Path('data/breaking_fast_path.json').read_text())
+          assert fast.get('policy',{}).get('normal_path_preserved') is True
+          assert fast.get('policy',{}).get('ideology_used_in_scoring') is False
           ids=set(json.loads(Path('data/published_timelines.json').read_text()).get('ids',[]))
           body=Path('index.html').read_text()
           links=set(re.findall(r'href="/stories/([a-f0-9]{12})/"',body))
@@ -66,13 +74,13 @@ jobs:
           PY
       - name: Commit current-site changes when needed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json)" ]; then
             echo "Current site is unchanged."
             exit 0
           fi
           git config user.name "rally-point-maintenance[bot]"
           git config user.email "rally-point-maintenance[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json
+          git add index.html recent/index.html stories health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/newsroom_health.json data/newsroom_dead_letters.json
           git commit -m "Maintain Rally Point front page"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

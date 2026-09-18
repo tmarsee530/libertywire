@@ -96,8 +96,11 @@ def history_match(toks,records,title=''):
 def fast_lookup():
  try:
   payload=json.loads(FAST.read_text());eligible=[x for x in payload.get('candidates',[]) if x.get('eligible')]
+  generated=datetime.fromisoformat(str(payload.get('generated_at','')).replace('Z','+00:00'))
+  if not generated.tzinfo:generated=generated.replace(tzinfo=timezone.utc)
+  if (datetime.now(timezone.utc)-generated).total_seconds()>900:return {}
   return {link:item for item in eligible for link in item.get('corroborating_links',[]) if link}
- except (OSError,json.JSONDecodeError,TypeError):return {}
+ except (OSError,json.JSONDecodeError,TypeError,ValueError):return {}
 def main():
  news=json.loads(NEWS.read_text());now=datetime.now(timezone.utc);out=[];history=prior_records();claimed_history_ids=set();fast=fast_lookup()
  for g in cluster(news.get('stories',[])):

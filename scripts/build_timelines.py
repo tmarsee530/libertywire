@@ -49,7 +49,10 @@ def eligible(record):
     title = clean_title(record.get("current_title")).lower()
     if any(marker in title for marker in ("weekly quiz", "morning greatness")): return False
     distinct_families = {family_name(x.get("source")) for x in coverage if x.get("source")}
-    return bool(record.get("id") and len(coverage) >= 3 and families >= 3 and len(distinct_families) >= 3)
+    # A durable page must contain enough distinct developments to justify its own URL,
+    # not merely three publishers repeating essentially the same headline.
+    development_count = len(snapshot_titles(sorted(coverage, key=lambda x: parse_dt(x.get("date")))))
+    return bool(record.get("id") and len(coverage) >= 3 and families >= 3 and len(distinct_families) >= 3 and development_count >= 2)
 
 def snapshot_titles(coverage):
     """Keep only publisher wording that contributes meaningful new information."""

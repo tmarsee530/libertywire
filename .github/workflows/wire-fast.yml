@@ -56,6 +56,53 @@ jobs:
           grep -q 'https://rallypointnews.com/stories/' sitemap.xml
           grep -q 'ItemListOrderDescending' scripts/build_timelines.py
           grep -q 'history_dates.get(page.parent.name)' scripts/build_sitemaps.py
+          grep -q '^Sitemap: https://rallypointnews.com/sitemap.xml
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          for page in (Path('index.html'), Path('stories/index.html')):
+              body=page.read_text()
+              for sid in re.findall(r'href="/stories/([a-f0-9]{12})/"',body):
+                  assert (Path('stories')/sid/'index.html').exists(), f'broken timeline link in {page}: {sid}'
+          sitemap=Path('sitemap.xml').read_text()
+          for target in Path('stories').glob('*/index.html'):
+              sid=target.parent.name
+              assert f'https://rallypointnews.com/stories/{sid}/' in sitemap, f'timeline missing from sitemap: {sid}'
+          PY
+          python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone, timedelta
+          h=json.load(open('data/history.json'))
+          limit=datetime.now(timezone.utc)+timedelta(minutes=11)
+          for s in h.get('storylines',[]):
+              dates=[s.get('last_seen')]+[x.get('date') for x in s.get('coverage',[])]+[x.get('at') for x in s.get('changes',[])]
+              for value in filter(None,dates):
+                  dt=datetime.fromisoformat(value.replace('Z','+00:00'))
+                  assert dt <= limit, f'future timestamp survived normalization: {value}'
+          PY
+      - name: Commit fresh Wire and crawlable homepage when changed
+        run: |
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories assets/timeline.css data/news.json data/storylines.json data/history.json sitemap.xml news-sitemap.xml)" ]; then
+            echo "No headline or discovery changes."
+            exit 0
+          fi
+          git config user.name "rally-point-wire[bot]"
+          git config user.email "rally-point-wire[bot]@users.noreply.github.com"
+          git add index.html recent/index.html stories assets/timeline.css data/news.json data/storylines.json data/history.json sitemap.xml news-sitemap.xml
+          git commit -m "Refresh live Wire headlines"
+          git fetch origin main
+          PARENT_SHA="$(git rev-parse HEAD^)"
+          REMOTE_SHA="$(git rev-parse origin/main)"
+          if [ "$PARENT_SHA" != "$REMOTE_SHA" ]; then
+            echo "main advanced during this refresh; skipping stale Wire push."
+            exit 0
+          fi
+          git push origin HEAD:main
+ robots.txt
+          grep -q 'Live News Timelines & Breaking Headlines' scripts/install_discovery_metadata.py
+          grep -q 'development_count >= 2' scripts/build_timelines.py
+          grep -q 'timeline_ready(story)' scripts/install_homepage_v2.py
           python - <<'PY'
           import re
           from pathlib import Path

@@ -51,6 +51,14 @@ jobs:
           test -s stories/index.html
           grep -q 'Live News Timelines' stories/index.html
           grep -q 'G-KKT59K667B' stories/index.html
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          for page in (Path('index.html'), Path('stories/index.html')):
+              body=page.read_text()
+              for sid in re.findall(r'href="/stories/([a-f0-9]{12})/"',body):
+                  assert (Path('stories')/sid/'index.html').exists(), f'broken timeline link in {page}: {sid}'
+          PY
           python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py
           python - <<'PY'
           import json

@@ -21,11 +21,13 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 HEALTH = DATA / "newsroom_health.json"
 DEAD_LETTERS = DATA / "newsroom_dead_letters.json"
+FAST_PATH = DATA / "breaking_fast_path.json"
 DASHBOARD = ROOT / "health" / "index.html"
 MAX_DEAD_LETTERS = 100
 
 STAGES = [
     ("ingestion", "Source ingestion", "scripts/fetch_news.py", "data/news.json"),
+    ("fast_path", "Breaking-news fast path", "scripts/build_breaking_fast_path.py", "data/breaking_fast_path.json"),
     ("clustering", "Story clustering", "scripts/build_storylines.py", "data/storylines.json"),
     ("history", "Timeline history", "scripts/build_history.py", "data/history.json"),
     ("publication", "Timeline publication", "scripts/build_timelines.py", "data/published_timelines.json"),
@@ -109,6 +111,7 @@ def build_signals(stage_results, cycle_started, previous):
     storylines = load(DATA / "storylines.json", {})
     history = load(DATA / "history.json", {})
     manifest = load(DATA / "published_timelines.json", {})
+    fast_path = load(FAST_PATH, {})
     writer = load(DATA / "writer_queue.json", {})
     newsletter = load(DATA / "newsletter_state.json", {})
     healthy = int(news.get("healthy_source_count", 0) or 0)
@@ -124,6 +127,34 @@ def build_signals(stage_results, cycle_started, previous):
     newest_timeline = max((x for x in timeline_dates if x is not None), default=None)
     newest_timeline = newest_timeline if newest_timeline and newest_timeline <= now() else now()
     active_queue = False  # legacy writer queue is retained but not part of the live timeline product
+    fast_candidates = [x for x in fast_path.get("candidates", []) if x.get("eligible")]
+    published_ids = set(manifest.get("ids") or [])
+    link_story_ids = {}
+    for item in current:
+        for coverage in item.get("coverage") or []:
+            if coverage.get("link"):
+                link_story_ids[coverage["link"]] = item.get("id")
+    published_fast = []
+    publication_latencies = []
+    published_at = parse_dt(manifest.get("generated_at"))
+    for candidate in fast_candidates:
+        story_id = next((link_story_ids.get(link) for link in candidate.get("corroborating_links", []) if link_story_ids.get(link) in published_ids), None)
+        if story_id:
+            candidate["published_storyline_id"] = story_id
+            candidate["published_at"] = manifest.get("generated_at")
+            published_fast.append(candidate)
+            detected = parse_dt(candidate.get("detected_at"))
+            if detected and published_at:
+                latency = max(0, (published_at - detected).total_seconds())
+                candidate["detection_to_publication_latency_seconds"] = round(latency, 1)
+                publication_latencies.append(latency)
+    fast_metrics = dict(fast_path.get("metrics") or {})
+    fast_metrics["published_fast_path_events"] = len(published_fast)
+    fast_metrics["high_urgency_capture_pct"] = round(len(published_fast) / len(fast_candidates) * 100, 2) if fast_candidates else None
+    fast_metrics["detection_to_publication_latency_seconds"] = round(sorted(publication_latencies)[len(publication_latencies) // 2], 1) if publication_latencies else None
+    if fast_path:
+        fast_path["metrics"] = fast_metrics
+        FAST_PATH.write_text(json.dumps(fast_path, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return {
         "cycle": {
             "started_at": iso(cycle_started), "completed_at": iso(),
@@ -145,6 +176,7 @@ def build_signals(stage_results, cycle_started, previous):
             "published_timelines": int(manifest.get("count", 0) or 0),
             "manifest_updated_at": manifest.get("generated_at"),
         },
+        "fast_path": fast_metrics,
         "queue": {
             "active": active_queue, "backlog": int(writer.get("candidate_count", 0) or 0) if active_queue else 0,
             "oldest_item_age_minutes": None, "note": "Legacy article-writer queue is inactive; live timelines publish directly.",
@@ -184,6 +216,9 @@ def classify(signals):
     story_age = signals["content"].get("last_story_age_minutes")
     if story_age is not None and story_age > 120:
         alerts.append(("WARNING", "NO_MEANINGFUL_UPDATE", f"No current storyline update detected for {story_age} minutes."))
+    fast = signals.get("fast_path") or {}
+    if fast.get("fast_path_events", 0) and fast.get("high_urgency_capture_pct") is not None and fast["high_urgency_capture_pct"] < 100:
+        alerts.append(("WARNING", "FAST_PATH_PUBLICATION_GAP", f"{fast['high_urgency_capture_pct']}% of eligible fast-path events reached a published timeline this cycle."))
     state = "CRITICAL" if any(x[0] == "CRITICAL" for x in alerts) else "DEGRADED" if any(x[0] == "WARNING" for x in alerts) else "HEALTHY"
     return state, [{"severity": a, "code": b, "message": c} for a, b, c in alerts]
 
@@ -197,6 +232,8 @@ def render_dashboard(payload, dead_letters):
         ("Sources", f"{metrics.get('successful_sources')}/{metrics.get('configured_sources')} healthy"),
         ("Source failures", f"{metrics.get('source_failure_pct')}%"),
         ("Published timelines", metrics.get("published_timelines")),
+        ("Fast-path events", payload.get("fast_path", {}).get("fast_path_events", 0)),
+        ("Fast-path capture", f"{payload.get('fast_path', {}).get('high_urgency_capture_pct')}%" if payload.get("fast_path", {}).get("high_urgency_capture_pct") is not None else "—"),
         ("Last timeline update", f"{metrics.get('last_timeline_age_minutes')} min ago"),
         ("Queue backlog", payload["queue"].get("backlog")),
     ]
@@ -218,6 +255,8 @@ def emit_actions(payload):
             f.write(f"- Sources: {payload['ingestion']['successful_sources']}/{payload['ingestion']['configured_sources']}\n")
             f.write(f"- Ingestion age: {payload['ingestion']['age_minutes']} minutes\n")
             f.write(f"- Published timelines: {payload['content']['published_timelines']}\n")
+            f.write(f"- Fast-path events: {payload.get('fast_path', {}).get('fast_path_events', 0)}\n")
+            f.write(f"- Fast-path capture: {payload.get('fast_path', {}).get('high_urgency_capture_pct')}%\n")
             for alert in payload["alerts"]:
                 f.write(f"- **{alert['severity']} {alert['code']}** — {alert['message']}\n")
 

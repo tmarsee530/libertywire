@@ -11,7 +11,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=37">';js='<script src="assets/homepage-v2.js?v=37" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=37">';js='<script src="assets/homepage-v2.js?v=38" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -100,10 +100,10 @@ try:
   labeled=labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
   if not labeled:continue
   first=labeled[0][0];related=labeled[1:];hot=story.get('status')=='hot'
-  primary='<a href="'+e(first['link'])+'" rel="noopener" title="'+e(first.get('title'))+'">'+e(first.get('title') or story.get('title'))+'</a>'
+  primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(story.get('title') or first.get('title'))+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open timeline →</a>' if timeline_ready(story) else ''
-  rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+timeline+'</section>')
+  rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><span class="server-timeline-label">LIVE TIMELINE</span><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+timeline+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
  if old:

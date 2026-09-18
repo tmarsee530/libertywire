@@ -149,6 +149,8 @@ def main():
         for update in item.get("coverage",[]): coverage[(update.get("source") or "",update.get("link") or "")]=update
         by_id[sid]={**prior,"id":sid,"current_title":item.get("title") or prior.get("current_title"),"last_seen":item.get("newest_date") or prior.get("last_seen"),"status":item.get("status") or prior.get("status"),"max_source_count":max(int(prior.get("max_source_count",0) or 0),int(item.get("source_count",0) or 0)),"max_source_family_count":max(int(prior.get("max_source_family_count",0) or 0),int(item.get("source_family_count",0) or 0)),"coverage":list(coverage.values())}
     records=[x for x in by_id.values() if eligible(x)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
+    manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"count":len(records),"ids":[str(x["id"]) for x in records]}
+    MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     STORIES.mkdir(parents=True,exist_ok=True); keep={str(record["id"]) for record in records}
     for child in STORIES.iterdir():
         if child.is_dir() and child.name not in keep:

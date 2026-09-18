@@ -54,7 +54,14 @@ def main():
         raw_newest=item.get("newest_date") or prev.get("last_seen")
         safe_newest=clamp_dt(raw_newest,now)
         newest=(safe_newest or now).isoformat().replace("+00:00","Z")
-        changes=list(prev.get("changes",[]))
+        changes=[]
+        for change in prev.get("changes",[]):
+            safe_at=clamp_dt(change.get("at"),now)
+            added=[]
+            for x in change.get("coverage_added",[]):
+                safe_date=clamp_dt(x.get("date"),now)
+                added.append({**x,"date":(safe_date or now).isoformat().replace("+00:00","Z")})
+            changes.append({**change,"at":(safe_at or now).isoformat().replace("+00:00","Z"),"coverage_added":added})
         if additions or set(item.get("sources",[]))-set(prev.get("current_sources",[])) or (prev and title!=prev.get("current_title")):
             changes.append({"at":newest,"source_count":item.get("source_count",0),"new_sources":sorted(set(item.get("sources",[]))-set(prev.get("current_sources",[]))),"coverage_added":[{"source":x.get("source"),"title":x.get("title"),"link":x.get("link"),"date":x.get("date")} for x in additions[:8]]})
         record={"id":sid,"current_title":title,"title_history":titles,"first_seen":prev.get("first_seen") or now.isoformat().replace("+00:00","Z"),"last_seen":newest,"max_source_count":max(prev.get("max_source_count",0),item.get("source_count",0)),"current_source_count":item.get("source_count",0),"max_source_family_count":max(prev.get("max_source_family_count",0),item.get("source_family_count",0)),"current_source_family_count":item.get("source_family_count",0),"current_sources":sorted(item.get("sources",[])),"sources":sources,"status":item.get("status","active"),"risk_flags":item.get("risk_flags",[]),"coverage":coverage,"changes":changes[-20:]}

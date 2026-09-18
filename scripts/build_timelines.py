@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html, json, re
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -28,7 +29,8 @@ def parse_dt(value):
 def display_time(value):
     dt = parse_dt(value)
     if dt.year == 1: return "Time unavailable"
-    return dt.astimezone(timezone.utc).strftime("%b %-d, %Y · %-I:%M %p UTC")
+    local = dt.astimezone(ZoneInfo("America/New_York"))
+    return local.strftime("%b %-d, %Y · %-I:%M %p %Z")
 
 
 def clean_title(value): return re.sub(r"\s+", " ", str(value or "")).strip()
@@ -65,6 +67,32 @@ def family_name(source):
     return aliases.get(s, s)
 
 
+
+def snapshot_titles(coverage):
+    """Return concise publisher-derived labels emphasizing information not already seen."""
+    stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates","report","reports","says","said","exclusive","video","photos","photo","amid","have","will","their","they","more"}
+    def toks(value):
+        return {x for x in re.findall(r"[a-z0-9']{4,}", clean_title(value).lower()) if x not in stop}
+    seen=set(); out=[]
+    for i,item in enumerate(coverage):
+        title=clean_title(item.get("title"))
+        if not title: continue
+        if i==0:
+            label=title
+        else:
+            clauses=[x.strip(" -–—:;,.") for x in re.split(r"\\s*(?:[|;]|\\s[—–]\\s|:\\s+)\\s*",title) if x.strip()]
+            candidates=[]
+            for clause in clauses:
+                words=toks(clause); novel=words-seen; repeated=words&seen
+                count=len(re.findall(r"[A-Za-z0-9']+",clause))
+                if len(novel)>=2 and 3<=count<=18:
+                    candidates.append((len(novel)*3-len(repeated),-count,clause))
+            label=max(candidates)[2] if candidates else title
+        words=toks(label); novel=words-seen
+        if i and len(novel)<2: continue
+        out.append((item,label)); seen|=words
+    return out
+
 def page(record, published_records):
     sid = esc(record["id"]); title = clean_title(record.get("current_title")) or "Developing story"
     coverage = sorted(record.get("coverage", []), key=lambda x: parse_dt(x.get("date")))
@@ -72,10 +100,10 @@ def page(record, published_records):
     # then progress toward the newest update. The index itself remains newest-first.
     description = f"A chronological, source-backed timeline tracking {title}. Updated automatically as publisher coverage develops."
     updates = []
-    for item in coverage:
-        link = item.get("link"); item_title = clean_title(item.get("title"))
+    for item, snapshot_title in snapshot_titles(coverage):
+        link = item.get("link"); item_title = snapshot_title
         if not link or not item_title: continue
-        updates.append(f'''<li class="timeline-update"><time datetime="{esc(item.get('date'))}">{esc(display_time(item.get('date')))}</time><div><h2>{esc(item_title)}</h2><p><a href="{esc(link)}" rel="noopener" target="_blank">{esc(item.get('source') or source_domain(link))} ↗</a><span>{esc(source_domain(link))}</span></p></div></li>''')
+        updates.append(f'''<li class="timeline-update"><time datetime="{esc(item.get('date'))}">{esc(display_time(item.get('date')))}</time><div><h2>{esc(item_title)}</h2><p><a href="{esc(link)}" rel="noopener" target="_blank" title="{esc(clean_title(item.get('title')))}">{esc(item.get('source') or source_domain(link))} ↗</a><span>{esc(source_domain(link))}</span></p></div></li>''')
     source_names = sorted({str(x.get("source") or "").strip() for x in coverage if x.get("source")})
     related=[]
     for candidate in published_records:

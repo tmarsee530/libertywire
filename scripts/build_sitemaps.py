@@ -25,7 +25,7 @@ def write_standard():
     # first-party transparency page and is linked from the primary navigation.
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     entries = [(BASE + "/", iso_mtime(ROOT / "index.html"))]
-    for route in ("sources", "about", "privacy"):
+    for route in ("recent", "sources", "about", "privacy"):
         page = ROOT / route / "index.html"
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))
@@ -50,4 +50,4 @@ def write_news():
 if __name__ == "__main__":
     write_standard()
     write_news()
-    print("Built current-product sitemap: homepage + sources + about + privacy")
+    print("Built current-product sitemap: homepage + recent + sources + about + privacy")

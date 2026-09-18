@@ -51,6 +51,8 @@ jobs:
           test -s stories/index.html
           grep -q 'Live News Timelines' stories/index.html
           grep -q 'G-KKT59K667B' stories/index.html
+          grep -q 'G-KKT59K667B' recent/index.html
+          grep -q 'https://rallypointnews.com/stories/' sitemap.xml
           python - <<'PY'
           import re
           from pathlib import Path
@@ -58,6 +60,10 @@ jobs:
               body=page.read_text()
               for sid in re.findall(r'href="/stories/([a-f0-9]{12})/"',body):
                   assert (Path('stories')/sid/'index.html').exists(), f'broken timeline link in {page}: {sid}'
+          sitemap=Path('sitemap.xml').read_text()
+          for target in Path('stories').glob('*/index.html'):
+              sid=target.parent.name
+              assert f'https://rallypointnews.com/stories/{sid}/' in sitemap, f'timeline missing from sitemap: {sid}'
           PY
           python -m py_compile scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py
           python - <<'PY'

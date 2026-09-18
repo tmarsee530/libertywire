@@ -11,12 +11,13 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=38">';js='<script src="assets/homepage-v2.js?v=41" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=39">';state_js='<script src="assets/timeline-state.js?v=1" defer></script>';js='<script src="assets/homepage-v2.js?v=42" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
 if ns!=s:s=ns;changed=True
 if css not in s:s=s.replace('</head>',css+'\n</head>',1);changed=True
+if state_js not in s:s=s.replace(js,state_js+'\n'+js,1);changed=True
 if js not in s:s=s.replace('</body>',js+'\n</body>',1);changed=True
 if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s:s=s.replace('<body>','<body>\n<a class="skip-link" href="#main-content">Skip to main content</a>',1);changed=True
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True

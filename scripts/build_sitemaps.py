@@ -28,7 +28,7 @@ def write_standard():
     entries = [(BASE + "/", iso_mtime(ROOT / "index.html"))]
     # Utility/transparency pages remain crawlable through internal links, but the
     # sitemap concentrates discovery on the product surfaces we want indexed.
-    for route in ("stories",):
+    for route in ("stories", "about", "sources"):
         page = ROOT / route / "index.html"
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))

@@ -31,6 +31,7 @@ STAGES = [
     ("clustering", "Story clustering", "scripts/build_storylines.py", "data/storylines.json"),
     ("history", "Timeline history", "scripts/build_history.py", "data/history.json"),
     ("publication", "Timeline publication", "scripts/build_timelines.py", "data/published_timelines.json"),
+    ("archive", "Permanent timeline archive", "scripts/build_archive.py", "archive/index.html"),
     ("notifications", "Notification foundation", "scripts/build_notification_foundation.py", "data/notification_health.json"),
     ("homepage", "Homepage refresh", "scripts/install_homepage_v2.py", "index.html"),
     ("metadata", "Discovery metadata", "scripts/install_discovery_metadata.py", "index.html"),

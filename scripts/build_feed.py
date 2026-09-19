@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a standards-based RSS feed from published Rally Brief metadata."""
+"""Build a standards-based RSS feed from published Rally Point live timelines."""
 from __future__ import annotations
 
 import json
@@ -10,47 +10,52 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://rallypointnews.com"
-DATA = ROOT / "data" / "briefs.json"
+HISTORY = ROOT / "data" / "history.json"
+MANIFEST = ROOT / "data" / "published_timelines.json"
 OUT = ROOT / "feed.xml"
-
-
-def absolute(url: str) -> str:
-    return url if url.startswith("http") else BASE + "/" + url.lstrip("/")
 
 
 def rss_date(value: str) -> str:
     try:
-        dt = datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
-    except (ValueError, AttributeError):
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00")).astimezone(timezone.utc)
+    except (ValueError, TypeError, AttributeError):
         dt = datetime.now(timezone.utc)
     return format_datetime(dt)
 
 
 def main():
-    briefs = json.loads(DATA.read_text(encoding="utf-8")).get("briefs", []) if DATA.exists() else []
-    briefs = sorted(briefs, key=lambda b: b.get("published_at", ""), reverse=True)[:50]
+    history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"storylines": []}
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"ids": []}
+    ids = {str(x) for x in manifest.get("ids", [])}
+    records = [x for x in history.get("storylines", []) if str(x.get("id")) in ids]
+    records.sort(key=lambda x: str(x.get("last_seen") or ""), reverse=True)
+    records = records[:75]
 
     rss = Element("rss", version="2.0")
     channel = SubElement(rss, "channel")
-    SubElement(channel, "title").text = "Rally Point News — Rally Briefs"
-    SubElement(channel, "link").text = BASE + "/briefs/"
-    SubElement(channel, "description").text = "Source-based explainers and original Rally Briefs from Rally Point News."
+    SubElement(channel, "title").text = "Rally Point News — Live Timelines"
+    SubElement(channel, "link").text = BASE + "/stories/"
+    SubElement(channel, "description").text = "Material developments from Rally Point News live timelines, newest updates first."
     SubElement(channel, "language").text = "en-us"
-    SubElement(channel, "ttl").text = "15"
-    if briefs:
-        SubElement(channel, "lastBuildDate").text = rss_date(briefs[0].get("updated_at") or briefs[0].get("published_at"))
+    SubElement(channel, "ttl").text = "5"
+    if records:
+        SubElement(channel, "lastBuildDate").text = rss_date(records[0].get("last_seen"))
 
-    for brief in briefs:
-        if not brief.get("title") or not brief.get("url"):
+    for record in records:
+        sid = str(record.get("id") or "")
+        title = str(record.get("current_title") or "").strip()
+        if not sid or not title:
             continue
-        url = absolute(brief["url"])
+        url = f"{BASE}/stories/{sid}/"
+        current = record.get("current_status") or {}
+        description = str(current.get("summary") or f"Follow material developments in {title}.").strip()
         item = SubElement(channel, "item")
-        SubElement(item, "title").text = str(brief["title"])
+        SubElement(item, "title").text = title
         SubElement(item, "link").text = url
         SubElement(item, "guid", isPermaLink="true").text = url
-        SubElement(item, "description").text = str(brief.get("description") or "Source-based Rally Point News explainer.")
-        if brief.get("published_at"):
-            SubElement(item, "pubDate").text = rss_date(brief["published_at"])
+        SubElement(item, "description").text = description
+        if record.get("last_seen"):
+            SubElement(item, "pubDate").text = rss_date(record.get("last_seen"))
 
     tree = ElementTree(rss)
     try:
@@ -58,7 +63,7 @@ def main():
     except AttributeError:
         pass
     tree.write(OUT, encoding="utf-8", xml_declaration=True)
-    print(f"Built RSS feed with {len(briefs)} Rally Briefs")
+    print(f"Built RSS feed with {len(records)} live timelines")
 
 
 if __name__ == "__main__":

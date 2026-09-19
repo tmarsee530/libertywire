@@ -149,12 +149,13 @@ def _best_label(title, seen):
     return title if len(words) <= 22 else " ".join(words[:22]).rstrip(" ,;:") + "…"
 
 
-def _source_entry(item):
+def _source_entry(item, role="primary"):
     return {
         "source": clean_text(item.get("source")) or "Original source",
         "link": str(item.get("link") or ""),
         "date": item.get("date"),
         "title": clean_text(item.get("title")),
+        "role": role,
     }
 
 
@@ -167,7 +168,7 @@ def durable_update_id(item):
 
 
 def _merge_source(update, item):
-    incoming = _source_entry(item)
+    incoming = _source_entry(item, "corroborating")
     key = (incoming["source"].lower(), canonical_link(incoming["link"]))
     existing = {(x.get("source", "").lower(), canonical_link(x.get("link"))) for x in update["sources"]}
     if key not in existing:
@@ -228,7 +229,12 @@ def meaningful_updates(coverage, record_status="developing"):
             if similarity > closest_similarity:
                 closest_index, closest_similarity = index, similarity
         same_event_index = next((index for index, update in enumerate(updates) if concepts and concepts & set(update.get("state_concepts") or []) and anchors & set(update.get("anchors") or [])), None)
-        material = not updates or bool(decisive or major_novel or novel_concepts) or (len(novel) >= 3 and len(novel) / max(1, len(tokens)) >= 0.32)
+        narrative_change = bool(
+            len(novel) >= 4
+            and len(novel) / max(1, len(tokens)) >= 0.42
+            and (novel_anchors or len(novel) >= 5)
+        )
+        material = not updates or bool(decisive or major_novel or novel_concepts) or narrative_change
         duplicate_event = same_event_index is not None and not (novel_concepts or major_novel or _numbers(novel))
         if duplicate_event:
             closest_index = same_event_index
@@ -244,6 +250,15 @@ def meaningful_updates(coverage, record_status="developing"):
             if closest_index is not None:
                 _merge_source(updates[closest_index], item)
             continue
+        basis = [
+            name for name, active in (
+                ("initial_report", not updates),
+                ("state_change", bool(decisive or novel_concepts)),
+                ("major_fact", bool(major_novel)),
+                ("new_named_actor", bool(novel_anchors)),
+                ("substantive_new_detail", narrative_change),
+            ) if active
+        ]
         update = {
             "id": durable_update_id(item),
             "label": label,
@@ -253,6 +268,7 @@ def meaningful_updates(coverage, record_status="developing"):
             "link": str(item.get("link") or ""),
             "source_title": title,
             "sources": [_source_entry(item)],
+            "material_basis": basis,
             "fact_tokens": sorted(tokens),
             "state_concepts": sorted(concepts),
             "anchors": sorted(anchors),
@@ -267,6 +283,8 @@ def meaningful_updates(coverage, record_status="developing"):
             newest=index == len(updates) - 1,
             oldest=index == 0,
         )
+        update["source_count"] = len(update.get("sources") or [])
+        update["corroborated"] = update["source_count"] > 1
     return updates
 
 
@@ -286,6 +304,8 @@ def current_status(updates):
         "source": latest.get("source"),
         "link": latest.get("link"),
         "classification": latest.get("classification"),
+        "source_count": latest.get("source_count", len(latest.get("sources") or [])),
+        "corroborated": bool(latest.get("corroborated")),
     }
 
 

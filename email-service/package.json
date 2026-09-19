@@ -1,0 +1,13 @@
+{
+  "name": "rally-point-email-pilot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "deploy": "wrangler deploy",
+    "migrate": "wrangler d1 migrations apply rally-point-email --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.38.0"
+  }
+}

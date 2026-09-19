@@ -124,7 +124,7 @@ def snapshot_titles(coverage):
 
 def analytics_tag():
     # Kept outside f-strings so JavaScript braces can never be interpreted by Python.
-    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=2" defer></script>'
+    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=2" defer></script><script src="/assets/email-opt-in.js?v=1" defer></script>'
 
 def source_links(update, compact=False):
     sources=update.get("sources") or [{"source":update.get("source"),"link":update.get("link"),"title":update.get("source_title")}]
@@ -191,7 +191,7 @@ def follow_enabled_page(body, record):
     body=body.replace('/assets/timeline.css?v=4','/assets/timeline.css?v=5')
     body=body.replace('</head>',f'<script type="application/json" id="timeline-follow-data">{data}</script></head>',1)
     body=body.replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/sources/">Sources</a>',1)
-    control='<div class="follow-row"><button type="button" class="follow-control" data-follow-control aria-pressed="false">Follow this story</button><span>Saved on this device</span></div>'
+    control='''<div class="follow-row"><button type="button" class="follow-control" data-follow-control aria-pressed="false">Follow this story</button><span>Saved on this device</span></div><section class="email-pilot" data-email-pilot hidden aria-labelledby="email-pilot-heading"><h2 id="email-pilot-heading">Email me when something important changes</h2><p>Optional. Rally Point sends only meaningful developments—not every update. Confirm your address before alerts begin.</p><form><label for="story-alert-email">Email address</label><div><input id="story-alert-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required><button type="submit">Send confirmation</button></div><input class="email-honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="email-consent">By continuing, you agree to receive alerts for this story. Unsubscribe anytime. Your local follow remains separate.</p></form><p class="email-result" data-email-status role="status" aria-live="polite"></p></section>'''
     return body.replace('</div><section class="current-status"',f'</div>{control}<section class="current-status"',1)
 
 def following_page():

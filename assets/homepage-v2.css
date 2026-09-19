@@ -19,3 +19,11 @@
 .live-update-notice button{flex:0 0 auto;border:0;border-radius:6px;padding:9px 11px;background:#fff;color:#10213d;font:700 .76rem/1 Arial,sans-serif;cursor:pointer}
 .live-update-notice button:hover,.live-update-notice button:focus-visible{background:#e8f0fc;outline:2px solid #fff;outline-offset:2px}
 @media(max-width:640px){.live-update-notice{left:12px;right:12px;bottom:12px;max-width:none;justify-content:space-between}}
+
+
+/* Live-refresh targeting: make changed timelines unmistakable after "Show updates". */
+.lead-package.has-live-update,.wire-topic.has-live-update{background:#eef8ee!important;box-shadow:inset 4px 0 0 #2f7d32;padding-left:10px!important;padding-right:8px!important}
+.lead-package.has-live-update .lead-topic,.wire-topic.has-live-update .wire-topic-slug{color:#2f7d32!important}
+.lead-package.has-live-update h1 a,.wire-topic.has-live-update h3 a{color:#1f5f24!important}
+.lead-package.has-live-update .timeline-link,.wire-topic.has-live-update .timeline-link{color:#2f7d32!important}
+@media(max-width:640px){.lead-package.has-live-update,.wire-topic.has-live-update{padding-left:7px!important;padding-right:5px!important}}

@@ -156,6 +156,44 @@ class TimelineRenderingTests(unittest.TestCase):
         self.assertTrue(build_timelines.eligible(fresh))
 
 
+    def test_publication_dedupe_detects_same_event_without_merging_unrelated_story(self):
+        a = record([
+            coverage("Trump says CNN and Politico are banned from White House", "Source A", 0),
+            coverage("CNN reporters denied White House access after ban", "Source B", 10),
+            coverage("Politico confirms White House access denied", "Source C", 20),
+        ], "sameevent1111")
+        b = record([
+            coverage("CNN, Politico reporters barred from White House after Trump ban", "Source D", 0),
+            coverage("White House revokes badges for CNN reporters", "Source E", 10),
+            coverage("Politico staff denied entry after Trump announcement", "Source F", 20),
+        ], "sameevent2222")
+        c = record([
+            coverage("Federal Reserve cuts interest rates by quarter point", "Source G", 0),
+            coverage("Markets rise after Federal Reserve rate cut", "Source H", 10),
+            coverage("Powell explains interest-rate decision", "Source I", 20),
+        ], "different333")
+        self.assertTrue(build_timelines.same_publication_event(a, b))
+        self.assertFalse(build_timelines.same_publication_event(a, c))
+
+    def test_publication_dedupe_keeps_stronger_canonical_record(self):
+        weak = record([
+            coverage("CNN and Politico reporters barred from White House after Trump ban", "Source A", 0),
+            coverage("White House denies CNN reporter entry", "Source B", 10),
+            coverage("Politico reporter also denied entry", "Source C", 20),
+        ], "weak11111111")
+        strong = record([
+            coverage("CNN, Politico reporters barred from White House after Trump ban", "Source A", 0),
+            coverage("White House revokes press badges after ban", "Source B", 10),
+            coverage("Politico confirms reporter denied entry", "Source C", 20),
+            coverage("CNN confirms White House access denial", "Source D", 30),
+        ], "strong222222")
+        strong["max_source_family_count"] = 4
+        strong["max_source_count"] = 4
+        selected, suppressed = build_timelines.dedupe_publication_records([weak, strong])
+        self.assertEqual([x["id"] for x in selected], ["strong222222"])
+        self.assertEqual(suppressed[0]["canonical_timeline_id"], "strong222222")
+
+
 class TimelineHistoryTests(unittest.TestCase):
     def test_history_adds_backward_compatible_timeline_model(self):
         items = [

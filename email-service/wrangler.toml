@@ -1,0 +1,18 @@
+name = "rally-point-email-pilot"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[triggers]
+crons = ["*/2 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rally-point-email"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[vars]
+SITE_ORIGIN = "https://rallypointnews.com"
+PUBLIC_ORIGIN = "https://alerts.rallypointnews.com"
+EMAIL_FROM = "Rally Point News <alerts@notify.rallypointnews.com>"
+DELIVERY_ENABLED = "false"

@@ -27,6 +27,7 @@ HISTORY = ROOT / "data" / "history.json"
 MANIFEST = ROOT / "data" / "published_timelines.json"
 QUEUE = ROOT / "data" / "notification_queue.json"
 HEALTH = ROOT / "data" / "notification_health.json"
+EMAIL_HEALTH = ROOT / "data" / "email_delivery_health.json"
 DASHBOARD = ROOT / "notification-health" / "index.html"
 SCHEMA_VERSION = 1
 QUEUE_LIMIT = 10000
@@ -187,9 +188,10 @@ def build(follows_payload, history_payload, manifest_payload, prior_queue, stamp
 def render_dashboard(health, queue_payload):
     esc = lambda value: html.escape(str(value if value is not None else "—"))
     rows = "".join(f"<tr><td>{esc(item.get('timeline_id'))}</td><td>{esc(item.get('material_update_id'))}</td><td>{esc(item.get('classification'))}</td><td>{esc(item.get('status'))}</td><td>{esc(item.get('significance_reason'))}</td></tr>" for item in (queue_payload.get("items") or [])[-50:]) or "<tr><td colspan='5'>No server-side follows or notification candidates are configured.</td></tr>"
-    cards = [("Server follows", health["configured_follows"]),("Candidates",health["candidates_created"]),("Suppressed",health["candidates_suppressed"]),("Deduped",health["candidates_deduped"]),("Pending",health["queue_backlog"]),("Delivery", "DISABLED")]
+    email = health.get("email_pilot") or {}
+    cards = [("Server follows", health["configured_follows"]),("Candidates",health["candidates_created"]),("Suppressed",health["candidates_suppressed"]),("Deduped",health["candidates_deduped"]),("Pending",health["queue_backlog"]),("Email pilot", email.get("state", "SETUP_REQUIRED"))]
     card_html="".join(f"<div><span>{esc(k)}</span><strong>{esc(v)}</strong></div>" for k,v in cards)
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Notification Foundation · Rally Point News</title><style>body{{font:14px/1.45 Arial,sans-serif;color:#12213a;background:#f5f7fa;margin:0}}main{{max-width:1100px;margin:auto;padding:28px 16px}}h1{{font:700 38px Georgia,serif;margin:0}}.warning{{background:#fff4d6;border:1px solid #d9ae45;padding:12px;margin:18px 0}}.cards{{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}.cards div,section{{background:#fff;border:1px solid #d9e0ea;padding:15px}}.cards span{{display:block;color:#667085;text-transform:uppercase;font-size:11px}}.cards strong{{font-size:22px}}section{{margin-top:16px;overflow:auto}}table{{border-collapse:collapse;width:100%}}th,td{{padding:8px;text-align:left;border-bottom:1px solid #ddd}}@media(max-width:650px){{.cards{{grid-template-columns:1fr 1fr}}}}</style></head><body><main><h1>Notification Foundation</h1><p>Generated {esc(health['generated_at'])} · aggregate diagnostics only</p><div class="warning"><strong>No delivery is enabled.</strong> This foundation creates inspectable candidates; it cannot send email or push notifications.</div><div class="cards">{card_html}</div><section><h2>Recent candidate state</h2><table><thead><tr><th>Timeline</th><th>Update</th><th>Class</th><th>Status</th><th>Reason</th></tr></thead><tbody>{rows}</tbody></table></section></main></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Notification Foundation · Rally Point News</title><style>body{{font:14px/1.45 Arial,sans-serif;color:#12213a;background:#f5f7fa;margin:0}}main{{max-width:1100px;margin:auto;padding:28px 16px}}h1{{font:700 38px Georgia,serif;margin:0}}.warning{{background:#fff4d6;border:1px solid #d9ae45;padding:12px;margin:18px 0}}.cards{{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}.cards div,section{{background:#fff;border:1px solid #d9e0ea;padding:15px}}.cards span{{display:block;color:#667085;text-transform:uppercase;font-size:11px}}.cards strong{{font-size:22px}}section{{margin-top:16px;overflow:auto}}table{{border-collapse:collapse;width:100%}}th,td{{padding:8px;text-align:left;border-bottom:1px solid #ddd}}@media(max-width:650px){{.cards{{grid-template-columns:1fr 1fr}}}}</style></head><body><main><h1>Notification Foundation</h1><p>Generated {esc(health['generated_at'])} · aggregate diagnostics only</p><div class="warning"><strong>Repository queue delivery is disabled.</strong> Email pilot: {esc(email.get('state', 'SETUP_REQUIRED'))}. No web push delivery exists.</div><div class="cards">{card_html}</div><section><h2>Recent candidate state</h2><table><thead><tr><th>Timeline</th><th>Update</th><th>Class</th><th>Status</th><th>Reason</th></tr></thead><tbody>{rows}</tbody></table></section></main></body></html>'''
 
 
 def main():
@@ -198,6 +200,7 @@ def main():
     manifest = load(MANIFEST, {"ids": []})
     prior = load(QUEUE, {"schema_version": SCHEMA_VERSION, "items": []})
     queue_payload, health = build(follows, history, manifest, prior)
+    health["email_pilot"] = load(EMAIL_HEALTH, {"state": "SETUP_REQUIRED", "delivery_enabled": False})
     atomic_json(QUEUE, queue_payload); atomic_json(HEALTH, health)
     DASHBOARD.parent.mkdir(parents=True, exist_ok=True)
     DASHBOARD.write_text(render_dashboard(health, queue_payload), encoding="utf-8")

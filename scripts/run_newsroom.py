@@ -115,6 +115,7 @@ def build_signals(stage_results, cycle_started, previous):
     fast_path = load(FAST_PATH, {})
     newsletter = load(DATA / "newsletter_state.json", {})
     notification_health = load(DATA / "notification_health.json", {})
+    email_health = load(DATA / "email_delivery_health.json", {})
     healthy = int(news.get("healthy_source_count", 0) or 0)
     total = int(news.get("source_count", 0) or 0)
     failures = news.get("failed_sources") or []
@@ -228,6 +229,16 @@ def build_signals(stage_results, cycle_started, previous):
             "processing_errors": int(notification_health.get("processing_errors", 0) or 0),
             "note": "Notification candidates are observable; delivery is disabled.",
         },
+        "email_delivery": {
+            "state": email_health.get("state", "SETUP_REQUIRED"),
+            "delivery_enabled": bool(email_health.get("delivery_enabled")),
+            "provider_configured": bool(email_health.get("provider_configured")),
+            "active_subscribers": int(email_health.get("active_subscribers", 0) or 0),
+            "active_story_subscriptions": int(email_health.get("active_story_subscriptions", 0) or 0),
+            "delivery_counts": email_health.get("delivery_counts") or {},
+            "oldest_pending_at": email_health.get("oldest_pending_at"),
+            "affects_core_health": False,
+        },
         "ai_processing": {"enabled": False, "failures": 0, "note": "Core live pipeline is deterministic and uses no paid AI API."},
         "distribution": {
             "last_job_at": newsletter.get("updated_at"),
@@ -268,6 +279,9 @@ def classify(signals):
     fast = signals.get("fast_path") or {}
     if fast.get("true_missed_fast_path_events", 0):
         alerts.append(("WARNING", "FAST_PATH_PUBLICATION_GAP", f"{fast['true_missed_fast_path_events']} eligible fast-path event(s) met editorial publication standards but did not reach a timeline this cycle."))
+    email = signals.get("email_delivery") or {}
+    if email.get("delivery_enabled") and email.get("state") not in {"READY", "HEALTHY"}:
+        alerts.append(("WARNING", "EMAIL_DELIVERY_DEGRADED", "The auxiliary email pilot is enabled but its worker or provider health is degraded; newsroom publication is unaffected."))
     state = "CRITICAL" if any(x[0] == "CRITICAL" for x in alerts) else "DEGRADED" if any(x[0] == "WARNING" for x in alerts) else "HEALTHY"
     return state, [{"severity": a, "code": b, "message": c} for a, b, c in alerts]
 
@@ -285,6 +299,7 @@ def render_dashboard(payload, dead_letters):
         ("Fast-path capture", f"{payload.get('fast_path', {}).get('high_urgency_capture_pct')}%" if payload.get("fast_path", {}).get("high_urgency_capture_pct") is not None else "—"),
         ("Last timeline update", f"{metrics.get('last_timeline_age_minutes')} min ago"),
         ("Queue backlog", payload["queue"].get("backlog")),
+        ("Email pilot", payload.get("email_delivery", {}).get("state", "SETUP_REQUIRED")),
     ]
     stage_rows = "".join(f"<tr><td>{esc(v['label'])}</td><td><b class='{v['status'].lower()}'>{esc(v['status'])}</b></td><td>{esc(v.get('attempts'))}</td><td>{esc(v.get('duration_seconds'))}s</td><td>{esc(v.get('message'))}</td></tr>" for v in payload["stages"].values())
     alert_rows = "".join(f"<li class='{x['severity'].lower()}'><b>{esc(x['severity'])} · {esc(x['code'])}</b><span>{esc(x['message'])}</span></li>" for x in payload["alerts"]) or "<li><b>No active alerts</b><span>All monitored core signals are within thresholds.</span></li>"
@@ -307,6 +322,7 @@ def emit_actions(payload):
             f.write(f"- Fast-path events: {payload.get('fast_path', {}).get('fast_path_events', 0)}\n")
             f.write(f"- Fast-path capture: {payload.get('fast_path', {}).get('high_urgency_capture_pct')}%\n")
             f.write(f"- Notification candidates: {payload.get('queue', {}).get('candidates_created', 0)} created / {payload.get('queue', {}).get('candidates_suppressed', 0)} suppressed / {payload.get('queue', {}).get('candidates_deduped', 0)} deduped\n")
+            f.write(f"- Email pilot: {payload.get('email_delivery', {}).get('state', 'SETUP_REQUIRED')} / {payload.get('email_delivery', {}).get('active_subscribers', 0)} active subscribers\n")
             for alert in payload["alerts"]:
                 f.write(f"- **{alert['severity']} {alert['code']}** — {alert['message']}\n")
 

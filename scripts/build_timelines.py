@@ -60,10 +60,11 @@ def same_publication_event(left,right):
     title_overlap=len(lt&rt); title_cont=title_overlap/max(1,min(len(lt),len(rt)))
     ls=clean_title(timeline_model(left)["current_status"].get("summary"))
     rs=clean_title(timeline_model(right)["current_status"].get("summary"))
-    lc=event_tokens(clean_title(left.get("current_title"))+" "+ls)
-    rc=event_tokens(clean_title(right.get("current_title"))+" "+rs)
+    left_context=" ".join([clean_title(left.get("current_title")),ls]+[clean_title(x.get("title")) for x in (left.get("coverage") or [])[:8]])
+    right_context=" ".join([clean_title(right.get("current_title")),rs]+[clean_title(x.get("title")) for x in (right.get("coverage") or [])[:8]])
+    lc=event_tokens(left_context); rc=event_tokens(right_context)
     combined_overlap=len(lc&rc); combined_cont=combined_overlap/max(1,min(len(lc),len(rc)))
-    return title_overlap>=3 and title_cont>=.55 and combined_overlap>=5 and combined_cont>=.58
+    return ((title_overlap>=3 and title_cont>=.50) or (title_overlap>=2 and combined_cont>=.60)) and combined_overlap>=5 and combined_cont>=.55
 
 def publication_strength(record):
     return (

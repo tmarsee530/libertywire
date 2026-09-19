@@ -2,13 +2,16 @@
 """Build a small, neutral queue of Rally Point timelines worth promoting externally.
 
 This does not post anywhere. It identifies only fresh, materially updated,
-well-corroborated timelines so distribution can stay selective.
+well-corroborated timelines so distribution can stay selective, measurable,
+and free of duplicate promotion for the same underlying event.
 """
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "history.json"
@@ -17,6 +20,13 @@ OUT = ROOT / "data" / "distribution_candidates.json"
 BASE = "https://rallypointnews.com"
 MAX_AGE_HOURS = 12
 MAX_CANDIDATES = 12
+
+STOP = {
+    "this","that","with","from","after","about","into","over","news","live",
+    "latest","breaking","update","updates","report","reports","says","said",
+    "the","and","for","are","was","were","has","have","had","will","would",
+    "trump","president","white","house",
+}
 
 
 def parse_dt(value):
@@ -29,6 +39,40 @@ def parse_dt(value):
 
 def clean(value):
     return " ".join(str(value or "").split())
+
+
+def title_tokens(value):
+    return {
+        token
+        for token in re.findall(r"[a-z0-9']{3,}", clean(value).lower())
+        if token not in STOP
+    }
+
+
+def same_event(left, right):
+    """Conservative promotion-level dedupe.
+
+    This does not merge newsroom timelines. It only prevents social distribution
+    from pushing several URLs that plainly describe the same event.
+    """
+    a = title_tokens(left.get("title"))
+    b = title_tokens(right.get("title"))
+    if len(a) < 2 or len(b) < 2:
+        return False
+    overlap = len(a & b)
+    containment = overlap / max(1, min(len(a), len(b)))
+    jaccard = overlap / max(1, len(a | b))
+    return overlap >= 3 and (containment >= 0.58 or jaccard >= 0.46)
+
+
+def tracked_url(sid, source):
+    query = urlencode({
+        "utm_source": source,
+        "utm_medium": "social",
+        "utm_campaign": "live_timeline",
+        "utm_content": sid,
+    })
+    return f"{BASE}/stories/{sid}/?{query}"
 
 
 def candidate(record, now):
@@ -51,8 +95,6 @@ def candidate(record, now):
     material_count = int(record.get("material_update_count", 0) or 0)
     risk_flags = list(record.get("risk_flags") or [])
 
-    # Promotion is intentionally stricter than publication.
-    # Minor/context-only changes never enter the distribution queue.
     eligible = (
         family_count >= 3
         and material_count >= 2
@@ -65,7 +107,6 @@ def candidate(record, now):
     if not eligible:
         return None
 
-    # Sensitive claims need extra corroboration before a candidate is marked ready.
     needs_manual_review = bool(risk_flags and family_count < 4)
     if classification == "BREAKING":
         priority = "urgent"
@@ -76,11 +117,18 @@ def candidate(record, now):
 
     title = clean(record.get("current_title") or "Developing story")
     summary = clean(current.get("summary"))
-    url = f"{BASE}/stories/{sid}/"
+    canonical_url = f"{BASE}/stories/{sid}/"
+
+    # Social copy should add information, not repeat the same sentence twice.
     copy = title
-    if summary and summary.lower() not in title.lower():
-        remaining = 220 - len(url)
-        if remaining > len(title) + 6:
+    if (
+        summary
+        and summary.lower() != title.lower()
+        and summary.lower() not in title.lower()
+        and title.lower() not in summary.lower()
+    ):
+        remaining = 220 - len(canonical_url)
+        if remaining > len(title) + 12:
             copy = f"{title} — {summary}"
     if len(copy) > 220:
         copy = copy[:217].rstrip() + "…"
@@ -93,9 +141,12 @@ def candidate(record, now):
     if status in {"breaking", "hot"}:
         reasons.append(f"status_{status}")
 
+    x_url = tracked_url(sid, "x")
+    facebook_url = tracked_url(sid, "facebook")
+
     return {
         "timeline_id": sid,
-        "url": url,
+        "url": canonical_url,
         "title": title,
         "current_summary": summary,
         "classification": classification,
@@ -109,8 +160,29 @@ def candidate(record, now):
         "needs_manual_review": needs_manual_review,
         "risk_flags": risk_flags,
         "reason_codes": reasons,
-        "suggested_post": f"{copy}\n\n{url}",
+        "x_url": x_url,
+        "facebook_url": facebook_url,
+        "suggested_post_x": f"{copy}\n\n{x_url}",
+        "suggested_post_facebook": f"{copy}\n\nFollow the live timeline: {facebook_url}",
     }
+
+
+def dedupe_events(items):
+    """Keep the strongest promotion candidate for each apparent event."""
+    selected = []
+    suppressed = []
+    for item in items:
+        match = next((kept for kept in selected if same_event(item, kept)), None)
+        if match:
+            suppressed.append({
+                "timeline_id": item["timeline_id"],
+                "duplicate_of": match["timeline_id"],
+                "title": item["title"],
+                "reason": "same_event_distribution_dedupe",
+            })
+            continue
+        selected.append(item)
+    return selected, suppressed
 
 
 def main():
@@ -137,6 +209,8 @@ def main():
         ),
         reverse=True,
     )
+
+    items, suppressed = dedupe_events(items)
     items = items[:MAX_CANDIDATES]
 
     payload = {
@@ -146,15 +220,19 @@ def main():
             "purpose": "selective distribution of materially changed, well-corroborated live timelines",
             "minor_refreshes_suppressed": True,
             "context_only_suppressed": True,
+            "same_event_duplicate_promotion_suppressed": True,
             "ideology_used_in_selection": False,
             "sensitive_claims_require_extra_corroboration": True,
+            "measurable_social_links": True,
             "max_age_hours": MAX_AGE_HOURS,
         },
         "candidate_count": len(items),
+        "suppressed_duplicate_count": len(suppressed),
         "candidates": items,
+        "suppressed_duplicates": suppressed,
     }
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Built {len(items)} selective distribution candidates")
+    print(f"Built {len(items)} selective distribution candidates; suppressed {len(suppressed)} duplicate event promotions")
 
 
 if __name__ == "__main__":

@@ -224,7 +224,7 @@ def main():
     # but aging out of newsroom history must never delete an indexed story page.
     for record in records:
         target=STORIES/str(record["id"]); target.mkdir(parents=True,exist_ok=True); (target/"index.html").write_text(follow_enabled_page(page(record,records),record),encoding="utf-8")
-    (STORIES/"index.html").write_text(index_page(records).replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/sources/">Sources</a>',1),encoding="utf-8")
+    (STORIES/"index.html").write_text(index_page(records).replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/archive/">Archive</a><a href="/sources/">Sources</a>',1),encoding="utf-8")
     following=ROOT/"following"; following.mkdir(parents=True,exist_ok=True); (following/"index.html").write_text(following_page(),encoding="utf-8")
     print(f"Published {len(records)} autonomous source-backed story timelines")
 

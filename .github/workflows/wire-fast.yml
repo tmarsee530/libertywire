@@ -34,7 +34,7 @@ jobs:
         run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
       - name: Test fast path and core timeline product
         run: |
-          python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py tests/test_notification_foundation.py tests/test_email_pilot.py
+          python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py tests/test_distribution_candidates.py tests/test_notification_foundation.py tests/test_email_pilot.py
           node --test tests/test_timeline_state.js
           node --test email-service/test/*.test.js
       - name: Run resilient live-news pipeline
@@ -64,6 +64,8 @@ jobs:
           test -s data/distribution_candidates.json
           grep -q '"auto_post_enabled": false' data/distribution_candidates.json
           grep -q '"ideology_used_in_selection": false' data/distribution_candidates.json
+          grep -q '"same_event_duplicate_promotion_suppressed": true' data/distribution_candidates.json
+          grep -q 'utm_campaign=live_timeline' data/distribution_candidates.json
           grep -q 'application/rss+xml' index.html
           grep -q 'More live timelines' stories/*/index.html
           test -s data/published_timelines.json

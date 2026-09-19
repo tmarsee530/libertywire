@@ -31,12 +31,10 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
-      - name: Test fast path and core timeline product
-        run: |
-          python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py tests/test_distribution_candidates.py tests/test_notification_foundation.py tests/test_email_pilot.py
-          node --test tests/test_timeline_state.js
-          node --test email-service/test/*.test.js
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
+      - name: Check auxiliary code without blocking publication
+        continue-on-error: true
+        run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
       - name: Publish eligible events to email pilot
@@ -45,12 +43,12 @@ jobs:
           EMAIL_PILOT_API_URL: ${{ secrets.EMAIL_PILOT_API_URL }}
           EMAIL_PILOT_INGEST_SECRET: ${{ secrets.EMAIL_PILOT_INGEST_SECRET }}
         run: python scripts/publish_email_events.py
-      - name: Verify generated publication surfaces
+      - name: Verify core publication surfaces
+        run: python scripts/verify_core_publication.py
+      - name: Check auxiliary publication surfaces
+        continue-on-error: true
         run: |
           test -s recent/index.html
-          test -s data/newsroom_health.json
-          test -s data/newsroom_dead_letters.json
-          test -s data/breaking_fast_path.json
           test -s health/index.html
           grep -q 'Newsroom Health' health/index.html
           grep -q 'Recent Headlines' recent/index.html
@@ -68,8 +66,6 @@ jobs:
           grep -q 'utm_campaign=live_timeline' data/distribution_candidates.json
           grep -q 'application/rss+xml' index.html
           grep -q 'More live timelines' stories/*/index.html
-          test -s data/published_timelines.json
-          test -s data/timeline_state_index.json
           test -s assets/timeline-state.js
           test -s assets/following.js
           test -s following/index.html
@@ -96,60 +92,18 @@ jobs:
           grep -q 'https://rallypointnews.com/sources/' sitemap.xml
           grep -q '^Sitemap: https://rallypointnews.com/sitemap.xml$' robots.txt
           grep -q 'Live News Timelines & Breaking Headlines' scripts/install_discovery_metadata.py
-          grep -q 'development_count >= 2' scripts/build_timelines.py
-          grep -q 'timeline_ready(story)' scripts/install_homepage_v2.py
           grep -q 'history_dates.get(page.parent.name)' scripts/build_sitemaps.py
-          grep -q 'ItemListOrderDescending' scripts/build_timelines.py
-          python - <<'PY'
-          import json,re
-          from datetime import datetime, timezone, timedelta
-          from pathlib import Path
-          for page in (Path('index.html'), Path('stories/index.html')):
-              body=page.read_text()
-              for sid in re.findall(r'href="/stories/([a-f0-9]{12})/"',body):
-                  assert (Path('stories')/sid/'index.html').exists(), f'broken timeline link in {page}: {sid}'
-          sitemap=Path('sitemap.xml').read_text()
-          for target in Path('stories').glob('*/index.html'):
-              sid=target.parent.name
-              assert f'https://rallypointnews.com/stories/{sid}/' in sitemap, f'timeline missing from sitemap: {sid}'
-          fast=json.load(open('data/breaking_fast_path.json'))
-          assert fast.get('policy',{}).get('normal_path_preserved') is True
-          assert fast.get('policy',{}).get('ideology_used_in_scoring') is False
-          assert 'duplicate_event_rate_pct' in fast.get('metrics',{})
-          h=json.load(open('data/history.json'))
-          manifest=json.load(open('data/published_timelines.json'))
-          assert manifest.get('timeline_schema_version') == 1
-          records={x.get('id'):x for x in h.get('storylines',[])}
-          for sid in manifest.get('ids',[]):
-              page_path=Path('stories')/sid/'index.html'
-              assert page_path.exists(), f'published timeline page missing: {sid}'
-              page=page_path.read_text()
-              assert f'<link rel="canonical" href="https://rallypointnews.com/stories/{sid}/">' in page
-              assert 'Current status' in page and 'NEWEST FIRST' in page
-              dates=re.findall(r'class="timeline-update[^>]*" data-published="([^"]+)"',page)
-              assert dates == sorted(dates,reverse=True), f'timeline is not newest first: {sid}'
-              record=records.get(sid)
-              if record:
-                  assert record.get('current_status') and isinstance(record.get('updates'),list)
-                  assert record.get('material_update_count') == len(record.get('updates'))
-                  if len(record.get('updates',[])) >= 9:
-                      assert 'What happened earlier' in page, f'long timeline was not compacted: {sid}'
-          limit=datetime.now(timezone.utc)+timedelta(minutes=11)
-          for s in h.get('storylines',[]):
-              dates=[s.get('last_seen')]+[x.get('date') for x in s.get('coverage',[])]+[x.get('at') for x in s.get('changes',[])]
-              for value in filter(None,dates):
-                  dt=datetime.fromisoformat(value.replace('Z','+00:00'))
-                  assert dt <= limit, f'future timestamp survived normalization: {value}'
-          PY
+      - name: Enforce newsroom health gate
+        run: python scripts/run_newsroom.py --assert-healthy
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
+          python scripts/stage_publication.py
+          if git diff --cached --quiet; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml
           git commit -m "Refresh live timelines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"
@@ -159,9 +113,6 @@ jobs:
             exit 0
           fi
           git push origin HEAD:main
-      - name: Enforce newsroom health gate
-        if: always()
-        run: python scripts/run_newsroom.py --assert-healthy
       - name: Hand off to next Fast Wire cycle
         if: always()
         env:

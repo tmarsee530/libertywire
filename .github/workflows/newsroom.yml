@@ -8,11 +8,14 @@ on:
       - 'requirements.txt'
       - 'scripts/fetch_news.py'
       - 'scripts/run_newsroom.py'
+      - 'scripts/verify_core_publication.py'
+      - 'scripts/stage_publication.py'
       - 'scripts/build_breaking_fast_path.py'
       - 'scripts/timeline_intelligence.py'
       - 'tests/test_breaking_fast_path.py'
       - 'tests/test_timeline_product.py'
       - 'tests/test_timeline_state.js'
+      - 'tests/test_reliability_hardening.py'
       - 'assets/timeline-state.js'
       - 'assets/following.js'
       - 'RETENTION_ANALYTICS.md'
@@ -35,13 +38,15 @@ on:
       - 'assets/homepage-v2.css'
       - 'assets/timeline.css'
       - '.github/workflows/newsroom.yml'
+      - '.github/workflows/wire-fast.yml'
+      - '.github/workflows/wire-watchdog.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Scheduled headline refreshes belong to wire-fast.yml. This workflow now exists
-# only for code/configuration changes that require homepage/search maintenance.
+# Scheduled headline refreshes and all production writes belong to wire-fast.yml.
+# This workflow validates code/configuration changes without competing for main.
 concurrency:
   group: rally-point-maintenance
   cancel-in-progress: true
@@ -62,20 +67,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before maintenance
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/stage_publication.py scripts/verify_core_publication.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
       - name: Test fast path and core timeline product
         run: |
-          python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py tests/test_notification_foundation.py tests/test_email_pilot.py
+          python -m unittest discover -s tests -v
           node --test tests/test_timeline_state.js
           node --test email-service/test/*.test.js
       - name: Run resilient maintenance pipeline
         run: python scripts/run_newsroom.py --mode maintenance
-      - name: Publish eligible events to email pilot
-        continue-on-error: true
-        env:
-          EMAIL_PILOT_API_URL: ${{ secrets.EMAIL_PILOT_API_URL }}
-          EMAIL_PILOT_INGEST_SECRET: ${{ secrets.EMAIL_PILOT_INGEST_SECRET }}
-        run: python scripts/publish_email_events.py
       - name: Verify timeline-first homepage integrity
         run: |
           test -s data/published_timelines.json
@@ -115,24 +114,6 @@ jobs:
           for sid in links:
               assert (Path('stories')/sid/'index.html').exists(), f'missing timeline page: {sid}'
           PY
-      - name: Commit current-site changes when needed
-        run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories following health notification-health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json)" ]; then
-            echo "Current site is unchanged."
-            exit 0
-          fi
-          git config user.name "rally-point-maintenance[bot]"
-          git config user.email "rally-point-maintenance[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories following health notification-health assets/timeline.css sitemap.xml news-sitemap.xml data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json
-          git commit -m "Maintain Rally Point front page"
-          git fetch origin main
-          PARENT_SHA="$(git rev-parse HEAD^)"
-          REMOTE_SHA="$(git rev-parse origin/main)"
-          if [ "$PARENT_SHA" != "$REMOTE_SHA" ]; then
-            echo "main advanced during maintenance; skipping stale push."
-            exit 0
-          fi
-          git push origin HEAD:main
       - name: Enforce newsroom health gate
         if: always()
         run: python scripts/run_newsroom.py --assert-healthy

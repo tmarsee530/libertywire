@@ -11,8 +11,10 @@ import argparse
 import html
 import json
 import os
+import shutil
 import subprocess
 import sys
+import tempfile
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -26,21 +28,66 @@ DASHBOARD = ROOT / "health" / "index.html"
 MAX_DEAD_LETTERS = 100
 # Recovery note: maintenance pushes may be used to restore publication after a failed fast-wire commit.
 
+# Core stages are the only stages allowed to prevent a refresh commit. Everything
+# else is useful, observable, and retryable, but must not make fresh news stale.
+# outputs lists every path a stage may mutate so a failed attempt can be rolled
+# back to the exact last-known-good state before the pipeline continues.
 STAGES = [
-    ("ingestion", "Source ingestion", "scripts/fetch_news.py", "data/news.json"),
-    ("fast_path", "Breaking-news fast path", "scripts/build_breaking_fast_path.py", "data/breaking_fast_path.json"),
-    ("clustering", "Story clustering", "scripts/build_storylines.py", "data/storylines.json"),
-    ("history", "Timeline history", "scripts/build_history.py", "data/history.json"),
-    ("publication", "Timeline publication", "scripts/build_timelines.py", "data/published_timelines.json"),
-    ("archive", "Permanent timeline archive", "scripts/build_archive.py", "archive/index.html"),
-    ("notifications", "Notification foundation", "scripts/build_notification_foundation.py", "data/notification_health.json"),
-    ("homepage", "Homepage refresh", "scripts/install_homepage_v2.py", "index.html"),
-    ("metadata", "Discovery metadata", "scripts/install_discovery_metadata.py", "index.html"),
-    ("recent", "Recent-headlines page", "scripts/build_recent.py", "recent/index.html"),
-    ("feed", "Live timeline RSS", "scripts/build_feed.py", "feed.xml"),
-    ("distribution", "Selective distribution queue", "scripts/build_distribution_candidates.py", "data/distribution_candidates.json"),
-    ("sitemap", "Sitemap refresh", "scripts/build_sitemaps.py", "sitemap.xml"),
+    {"key": "ingestion", "label": "Source ingestion", "script": "scripts/fetch_news.py", "expected": "data/news.json", "core": True, "outputs": ("data/news.json",)},
+    {"key": "fast_path", "label": "Breaking-news fast path", "script": "scripts/build_breaking_fast_path.py", "expected": "data/breaking_fast_path.json", "core": False, "outputs": ("data/breaking_fast_path.json",)},
+    {"key": "clustering", "label": "Story clustering", "script": "scripts/build_storylines.py", "expected": "data/storylines.json", "core": True, "outputs": ("data/storylines.json",)},
+    {"key": "history", "label": "Timeline history", "script": "scripts/build_history.py", "expected": "data/history.json", "core": True, "outputs": ("data/history.json",)},
+    {"key": "publication", "label": "Timeline publication", "script": "scripts/build_timelines.py", "expected": "data/published_timelines.json", "core": True, "outputs": ("stories", "data/published_timelines.json", "data/timeline_state_index.json")},
+    {"key": "homepage", "label": "Homepage refresh", "script": "scripts/install_homepage_v2.py", "expected": "index.html", "core": True, "outputs": ("index.html",)},
+    {"key": "archive", "label": "Permanent timeline archive", "script": "scripts/build_archive.py", "expected": "archive/index.html", "core": False, "outputs": ("archive", "data/archive_index.json", "stories")},
+    {"key": "notifications", "label": "Notification foundation", "script": "scripts/build_notification_foundation.py", "expected": "data/notification_health.json", "core": False, "outputs": ("data/server_follows.json", "data/notification_queue.json", "data/notification_health.json", "notification-health")},
+    {"key": "metadata", "label": "Discovery metadata", "script": "scripts/install_discovery_metadata.py", "expected": "index.html", "core": False, "outputs": ("index.html",)},
+    {"key": "recent", "label": "Recent-headlines page", "script": "scripts/build_recent.py", "expected": "recent/index.html", "core": False, "outputs": ("recent",)},
+    {"key": "feed", "label": "Live timeline RSS", "script": "scripts/build_feed.py", "expected": "feed.xml", "core": False, "outputs": ("feed.xml",)},
+    {"key": "distribution", "label": "Selective distribution queue", "script": "scripts/build_distribution_candidates.py", "expected": "data/distribution_candidates.json", "core": False, "outputs": ("data/distribution_candidates.json",)},
+    {"key": "sitemap", "label": "Sitemap refresh", "script": "scripts/build_sitemaps.py", "expected": "sitemap.xml", "core": False, "outputs": ("sitemap.xml", "news-sitemap.xml")},
 ]
+CORE_STAGE_KEYS = {stage["key"] for stage in STAGES if stage["core"]}
+
+
+class ArtifactSnapshot:
+    """Restorable snapshot for a stage's declared outputs."""
+
+    def __init__(self, root, paths):
+        self.root = Path(root)
+        self.paths = tuple(dict.fromkeys(paths))
+        self.temp = Path(tempfile.mkdtemp(prefix="rally-point-stage-"))
+        self.existed = set()
+        for relative in self.paths:
+            source = self.root / relative
+            if not source.exists():
+                continue
+            self.existed.add(relative)
+            target = self.temp / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if source.is_dir():
+                shutil.copytree(source, target)
+            else:
+                shutil.copy2(source, target)
+
+    def restore(self):
+        for relative in self.paths:
+            target = self.root / relative
+            if target.is_dir():
+                shutil.rmtree(target)
+            elif target.exists():
+                target.unlink()
+            if relative not in self.existed:
+                continue
+            source = self.temp / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if source.is_dir():
+                shutil.copytree(source, target)
+            else:
+                shutil.copy2(source, target)
+
+    def close(self):
+        shutil.rmtree(self.temp, ignore_errors=True)
 
 
 def now():
@@ -71,29 +118,46 @@ def age_minutes(value):
     return round(max(0, (now() - dt).total_seconds() / 60), 1) if dt else None
 
 
-def run_stage(key, label, script, expected, previous):
+def run_stage(stage, previous):
+    key, label = stage["key"], stage["label"]
+    script, expected = stage["script"], stage["expected"]
     prior = (previous.get("stages") or {}).get(key, {})
-    attempts = 3
+    attempts = 3 if stage["core"] else 1
+    timeout_seconds = 120 if stage["core"] else 30
     started = time.monotonic()
     errors = []
     output = ""
-    for attempt in range(1, attempts + 1):
-        proc = subprocess.run(
-            [sys.executable, script], cwd=ROOT, text=True,
-            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-        )
-        output = (proc.stdout or "").strip()[-3000:]
-        if proc.returncode == 0 and (ROOT / expected).exists():
-            recovered = attempt > 1 or int(prior.get("consecutive_failures", 0) or 0) > 0
-            return {
-                "label": label, "status": "RECOVERED" if recovered else "HEALTHY",
-                "attempts": attempt, "duration_seconds": round(time.monotonic() - started, 2),
-                "completed_at": iso(), "consecutive_failures": 0,
-                "artifact": expected, "message": output.splitlines()[-1] if output else "completed",
-            }, None
-        errors.append(output or f"exit code {proc.returncode}; expected {expected}")
-        if attempt < attempts:
-            time.sleep(2 ** attempt)
+    snapshot = ArtifactSnapshot(ROOT, stage["outputs"])
+    try:
+        for attempt in range(1, attempts + 1):
+            try:
+                proc = subprocess.run(
+                    [sys.executable, script], cwd=ROOT, text=True,
+                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    timeout=timeout_seconds,
+                )
+                output = (proc.stdout or "").strip()[-3000:]
+                returncode = proc.returncode
+            except subprocess.TimeoutExpired as exc:
+                output = f"stage timed out after {timeout_seconds}s: {(exc.stdout or '')[-1000:]}"
+                returncode = 124
+            if returncode == 0 and (ROOT / expected).exists():
+                recovered = attempt > 1 or int(prior.get("consecutive_failures", 0) or 0) > 0
+                return {
+                    "label": label, "status": "RECOVERED" if recovered else "HEALTHY",
+                    "criticality": "core" if stage["core"] else "auxiliary",
+                    "attempts": attempt, "duration_seconds": round(time.monotonic() - started, 2),
+                    "completed_at": iso(), "consecutive_failures": 0,
+                    "artifact": expected, "message": output.splitlines()[-1] if output else "completed",
+                }, None
+            errors.append(output or f"exit code {returncode}; expected {expected}")
+            # Never let a failed or partially-written attempt become the input
+            # to a retry or a later publication stage.
+            snapshot.restore()
+            if attempt < attempts:
+                time.sleep(2 ** attempt)
+    finally:
+        snapshot.close()
     consecutive = int(prior.get("consecutive_failures", 0) or 0) + 1
     artifact_exists = (ROOT / expected).exists()
     failure = {
@@ -104,6 +168,7 @@ def run_stage(key, label, script, expected, previous):
     }
     return {
         "label": label, "status": "FAILED", "attempts": attempts,
+        "criticality": "core" if stage["core"] else "auxiliary",
         "duration_seconds": round(time.monotonic() - started, 2), "completed_at": iso(),
         "consecutive_failures": consecutive, "artifact": expected,
         "fallback": "last-known-good" if artifact_exists else "unavailable",
@@ -271,15 +336,23 @@ def classify(signals):
         alerts.append(("WARNING", "SOURCE_FAILURE_ELEVATED", f"{pct}% of configured sources failed."))
     for key, result in stages.items():
         if result.get("status") == "FAILED":
-            # Notification candidate generation is deliberately auxiliary. Even
-            # repeated failure must never stop or mark core publishing CRITICAL.
-            severity = "WARNING" if key == "notifications" else "CRITICAL" if key in {"ingestion", "publication", "homepage", "sitemap"} or result.get("consecutive_failures", 0) >= 2 else "WARNING"
+            severity = "CRITICAL" if key in CORE_STAGE_KEYS else "WARNING"
             alerts.append((severity, f"STAGE_{key.upper()}_FAILED", f"{result['label']} failed after {result['attempts']} attempts; fallback: {result.get('fallback')}."))
+        elif result.get("status") == "BLOCKED":
+            severity = "CRITICAL" if key in CORE_STAGE_KEYS else "WARNING"
+            alerts.append((severity, f"STAGE_{key.upper()}_BLOCKED", f"{result['label']} was not run because an earlier core stage failed."))
         elif result.get("status") == "RECOVERED":
             alerts.append(("INFO", f"STAGE_{key.upper()}_RECOVERED", f"{result['label']} recovered automatically."))
     story_age = signals["content"].get("last_story_age_minutes")
     if story_age is not None and story_age > 120:
         alerts.append(("WARNING", "NO_MEANINGFUL_UPDATE", f"No current storyline update detected for {story_age} minutes."))
+    manifest_updated_at = signals["content"].get("manifest_updated_at")
+    if manifest_updated_at:
+        publication_age = age_minutes(manifest_updated_at)
+        if publication_age is None or publication_age > 15:
+            alerts.append(("CRITICAL", "PUBLICATION_STALE", f"No verified timeline publication for {publication_age if publication_age is not None else 'unknown'} minutes."))
+        elif publication_age > 10:
+            alerts.append(("WARNING", "PUBLICATION_DELAYED", f"Last verified timeline publication is {publication_age} minutes old."))
     fast = signals.get("fast_path") or {}
     if fast.get("true_missed_fast_path_events", 0):
         alerts.append(("WARNING", "FAST_PATH_PUBLICATION_GAP", f"{fast['true_missed_fast_path_events']} eligible fast-path event(s) met editorial publication standards but did not reach a timeline this cycle."))
@@ -348,11 +421,25 @@ def main():
     previous = load(HEALTH, {})
     dead = load(DEAD_LETTERS, {"dead_letters": []}).get("dead_letters", [])
     results = {}
-    for key, label, script, expected in STAGES:
-        result, failure = run_stage(key, label, script, expected, previous)
+    core_blocked = False
+    for stage in STAGES:
+        key = stage["key"]
+        if core_blocked:
+            results[key] = {
+                "label": stage["label"], "status": "BLOCKED",
+                "criticality": "core" if stage["core"] else "auxiliary",
+                "attempts": 0, "duration_seconds": 0, "completed_at": iso(),
+                "consecutive_failures": int((previous.get("stages") or {}).get(key, {}).get("consecutive_failures", 0) or 0),
+                "artifact": stage["expected"], "fallback": "last-known-good",
+                "message": "Earlier core stage failed; stage was not run.",
+            }
+            continue
+        result, failure = run_stage(stage, previous)
         results[key] = result
         if failure:
             dead.append(failure)
+            if stage["core"]:
+                core_blocked = True
     dead = dead[-MAX_DEAD_LETTERS:]
     payload = build_signals(results, cycle_started, previous)
     payload["mode"] = args.mode
@@ -366,6 +453,8 @@ def main():
     DASHBOARD.write_text(render_dashboard(payload, dead), encoding="utf-8")
     emit_actions(payload)
     print(f"Newsroom pipeline completed: {payload['state']}; {len(payload['alerts'])} alert(s); {len(dead)} dead letter(s).")
+    if any(results.get(key, {}).get("status") in {"FAILED", "BLOCKED"} for key in CORE_STAGE_KEYS):
+        raise SystemExit("Core newsroom publication failed; last-known-good production remains in place.")
 
 
 if __name__ == "__main__":

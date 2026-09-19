@@ -220,12 +220,8 @@ def main():
     state_index={"generated_at":manifest["generated_at"],"schema_version":2,"timelines":{str(x["id"]):{"title":clean_title(x.get("current_title")),"status":str(x.get("status") or "developing"),"currentStatus":clean_title(timeline_model(x)["current_status"].get("summary")),"last_updated":x.get("last_seen"),"url":f'/stories/{x["id"]}/',"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")]} for x in records}}
     STATE_INDEX.write_text(json.dumps(state_index,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     STORIES.mkdir(parents=True,exist_ok=True); keep={str(record["id"]) for record in records}
-    for child in STORIES.iterdir():
-        if child.is_dir() and child.name not in keep:
-            generated=child/"index.html"
-            if generated.exists(): generated.unlink()
-            try: child.rmdir()
-            except OSError: pass
+    # Published timeline URLs are permanent. The active working set is bounded,
+    # but aging out of newsroom history must never delete an indexed story page.
     for record in records:
         target=STORIES/str(record["id"]); target.mkdir(parents=True,exist_ok=True); (target/"index.html").write_text(follow_enabled_page(page(record,records),record),encoding="utf-8")
     (STORIES/"index.html").write_text(index_page(records).replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/sources/">Sources</a>',1),encoding="utf-8")

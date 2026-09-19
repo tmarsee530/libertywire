@@ -96,9 +96,12 @@ class TimelineIntelligenceTests(unittest.TestCase):
 class TimelineRenderingTests(unittest.TestCase):
     def test_homepage_prefers_authoritative_timeline_developments_with_safe_fallback(self):
         asset = (Path(__file__).resolve().parents[1] / "assets" / "homepage-v2.js").read_text()
+        installer = (Path(__file__).resolve().parents[1] / "scripts" / "install_homepage_v2.py").read_text()
         self.assertIn("entry&&entry.developments", asset)
         self.assertIn("return newInfoLabels(distinctCoverage", asset)
         self.assertIn("c=materialDevelopments(lead,8)", asset)
+        self.assertIn("timeline-state\\.js", installer)
+        self.assertIn("if state_js not in s", installer)
 
     def test_legacy_record_renders_current_status_reverse_order_and_seo(self):
         items = [

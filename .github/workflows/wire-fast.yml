@@ -85,7 +85,8 @@ jobs:
           grep -q 'G-KKT59K667B' recent/index.html
           grep -q 'https://rallypointnews.com/stories/' sitemap.xml
           ! grep -q 'https://rallypointnews.com/recent/' sitemap.xml
-          ! grep -q 'https://rallypointnews.com/about/' sitemap.xml
+          grep -q 'https://rallypointnews.com/about/' sitemap.xml
+          grep -q 'https://rallypointnews.com/sources/' sitemap.xml
           grep -q '^Sitemap: https://rallypointnews.com/sitemap.xml$' robots.txt
           grep -q 'Live News Timelines & Breaking Headlines' scripts/install_discovery_metadata.py
           grep -q 'development_count >= 2' scripts/build_timelines.py

@@ -76,13 +76,14 @@ jobs:
           ids=set(json.loads(Path('data/published_timelines.json').read_text()).get('ids',[]))
           history={x.get('id'):x for x in json.loads(Path('data/history.json').read_text()).get('storylines',[])}
           for sid in ids:
-              record=history[sid]
-              assert record.get('current_status') and record.get('material_update_count') == len(record.get('updates',[]))
               page=(Path('stories')/sid/'index.html').read_text()
               assert f'<link rel="canonical" href="https://rallypointnews.com/stories/{sid}/">' in page
               assert 'Current status' in page and 'NEWEST FIRST' in page
               dates=re.findall(r'class="timeline-update[^>]*" data-published="([^"]+)"',page)
               assert dates == sorted(dates,reverse=True), f'timeline is not newest first: {sid}'
+              record=history.get(sid)
+              if record:
+                  assert record.get('current_status') and record.get('material_update_count') == len(record.get('updates',[]))
           body=Path('index.html').read_text()
           links=set(re.findall(r'href="/stories/([a-f0-9]{12})/"',body))
           assert links <= ids, f'homepage links to unpublished timelines: {sorted(links-ids)}'

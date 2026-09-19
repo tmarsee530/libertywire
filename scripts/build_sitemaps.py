@@ -8,7 +8,6 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://rallypointnews.com"
-PUBLICATION_DEDUPE = ROOT / "data" / "publication_dedupe.json"
 
 
 def iso_mtime(path: Path):
@@ -34,13 +33,6 @@ def write_standard():
         if page.exists():
             entries.append((BASE + f"/{route}/", iso_mtime(page)))
     stories = ROOT / "stories"
-    duplicate_ids=set()
-    if PUBLICATION_DEDUPE.exists():
-        try:
-            dedupe=json.loads(PUBLICATION_DEDUPE.read_text(encoding="utf-8"))
-            duplicate_ids={str(x.get("timeline_id")) for x in dedupe.get("suppressed",[]) if x.get("timeline_id")}
-        except (json.JSONDecodeError,OSError):
-            duplicate_ids=set()
     history_dates = {}
     history = ROOT / "data" / "history.json"
     if history.exists():
@@ -51,8 +43,6 @@ def write_standard():
             history_dates={}
     if stories.exists():
         for page in sorted(stories.glob("*/index.html")):
-            if page.parent.name in duplicate_ids:
-                continue
             # Story lastmod should mean substantive story change, not merely that
             # the five-minute generator rewrote an identical HTML file.
             entries.append((BASE + f"/stories/{page.parent.name}/", history_dates.get(page.parent.name) or iso_mtime(page)))

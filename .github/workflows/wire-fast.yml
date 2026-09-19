@@ -69,8 +69,6 @@ jobs:
           grep -q 'application/rss+xml' index.html
           grep -q 'More live timelines' stories/*/index.html
           test -s data/published_timelines.json
-          test -s data/publication_dedupe.json
-          grep -q 'same_event_publication_dedupe' data/publication_dedupe.json || grep -q '"suppressed_count": 0' data/publication_dedupe.json
           test -s data/timeline_state_index.json
           test -s assets/timeline-state.js
           test -s assets/following.js
@@ -111,15 +109,9 @@ jobs:
               for sid in re.findall(r'href="/stories/([a-f0-9]{12})/"',body):
                   assert (Path('stories')/sid/'index.html').exists(), f'broken timeline link in {page}: {sid}'
           sitemap=Path('sitemap.xml').read_text()
-          dedupe=json.load(open('data/publication_dedupe.json'))
-          suppressed={str(x.get('timeline_id')) for x in dedupe.get('suppressed',[])}
           for target in Path('stories').glob('*/index.html'):
               sid=target.parent.name
-              present=f'https://rallypointnews.com/stories/{sid}/' in sitemap
-              if sid in suppressed:
-                  assert not present, f'duplicate timeline should be excluded from sitemap: {sid}'
-              else:
-                  assert present, f'timeline missing from sitemap: {sid}'
+              assert f'https://rallypointnews.com/stories/{sid}/' in sitemap, f'timeline missing from sitemap: {sid}'
           fast=json.load(open('data/breaking_fast_path.json'))
           assert fast.get('policy',{}).get('normal_path_preserved') is True
           assert fast.get('policy',{}).get('ideology_used_in_scoring') is False
@@ -151,7 +143,7 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/publication_dedupe.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi

@@ -111,9 +111,15 @@ jobs:
               for sid in re.findall(r'href="/stories/([a-f0-9]{12})/"',body):
                   assert (Path('stories')/sid/'index.html').exists(), f'broken timeline link in {page}: {sid}'
           sitemap=Path('sitemap.xml').read_text()
+          dedupe=json.load(open('data/publication_dedupe.json'))
+          suppressed={str(x.get('timeline_id')) for x in dedupe.get('suppressed',[])}
           for target in Path('stories').glob('*/index.html'):
               sid=target.parent.name
-              assert f'https://rallypointnews.com/stories/{sid}/' in sitemap, f'timeline missing from sitemap: {sid}'
+              present=f'https://rallypointnews.com/stories/{sid}/' in sitemap
+              if sid in suppressed:
+                  assert not present, f'duplicate timeline should be excluded from sitemap: {sid}'
+              else:
+                  assert present, f'timeline missing from sitemap: {sid}'
           fast=json.load(open('data/breaking_fast_path.json'))
           assert fast.get('policy',{}).get('normal_path_preserved') is True
           assert fast.get('policy',{}).get('ideology_used_in_scoring') is False

@@ -1,35 +1,40 @@
 {
   "cycle": {
-    "started_at": "2026-09-19T05:10:30.618079Z",
-    "completed_at": "2026-09-19T05:11:03.262335Z",
-    "duration_seconds": 32.64,
-    "previous_completed_at": "2026-09-19T05:06:16.922215Z"
+    "started_at": "2026-09-19T05:15:17.272782Z",
+    "completed_at": "2026-09-19T05:15:50.073532Z",
+    "duration_seconds": 32.8,
+    "previous_completed_at": "2026-09-19T05:11:03.262335Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-19T05:10:35.366083Z",
+    "last_successful_run": "2026-09-19T05:15:22.496043Z",
     "age_minutes": 0.5,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1373
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "Defense News",
+        "error": "feed returned no entries; no advertised RSS/Atom feed found"
+      }
+    ],
+    "stories_available": 1353
   },
   "content": {
-    "last_story_created": "2026-09-19T05:11:03.258592Z",
+    "last_story_created": "2026-09-19T05:15:50.069620Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-09-19T05:11:02.334792Z",
+    "last_timeline_update": "2026-09-19T05:15:49.139200Z",
     "last_timeline_age_minutes": 0.0,
     "published_timelines": 63,
-    "manifest_updated_at": "2026-09-19T05:11:02.827099Z"
+    "manifest_updated_at": "2026-09-19T05:15:49.624343Z"
   },
   "fast_path": {
-    "reports_evaluated": 89,
-    "candidate_events": 85,
+    "reports_evaluated": 88,
+    "candidate_events": 84,
     "fast_path_events": 0,
-    "held_for_normal_path": 85,
+    "held_for_normal_path": 84,
     "duplicate_reports_suppressed": 4,
-    "duplicate_event_rate_pct": 4.49,
+    "duplicate_event_rate_pct": 4.55,
     "median_source_detection_latency_seconds": null,
     "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
@@ -70,38 +75,38 @@
       "label": "Source ingestion",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 4.8,
-      "completed_at": "2026-09-19T05:10:35.416079Z",
+      "duration_seconds": 5.28,
+      "completed_at": "2026-09-19T05:15:22.552168Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1373 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: Defense News: feed returned no entries; no advertised RSS/Atom feed found"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.54,
-      "completed_at": "2026-09-19T05:10:35.951920Z",
+      "duration_seconds": 0.52,
+      "completed_at": "2026-09-19T05:15:23.076048Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 0 promoted, 85 kept on normal path, 4 duplicates grouped."
+      "message": "Fast path: 0 promoted, 84 kept on normal path, 4 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 26.36,
-      "completed_at": "2026-09-19T05:11:02.307054Z",
+      "duration_seconds": 26.03,
+      "completed_at": "2026-09-19T05:15:49.108537Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1221 storylines; 84 multi-family; 2 breaking; 13 developing; 1 hot"
+      "message": "Built 1205 storylines; 81 multi-family; 2 breaking; 13 developing; 1 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.32,
-      "completed_at": "2026-09-19T05:11:02.624712Z",
+      "completed_at": "2026-09-19T05:15:49.426956Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -110,8 +115,8 @@
       "label": "Timeline publication",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.33,
-      "completed_at": "2026-09-19T05:11:02.956976Z",
+      "duration_seconds": 0.32,
+      "completed_at": "2026-09-19T05:15:49.751639Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 63 autonomous source-backed story timelines"
@@ -120,8 +125,8 @@
       "label": "Notification foundation",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.06,
-      "completed_at": "2026-09-19T05:11:03.020445Z",
+      "duration_seconds": 0.07,
+      "completed_at": "2026-09-19T05:15:49.819923Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -131,17 +136,17 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-19T05:11:03.068062Z",
+      "completed_at": "2026-09-19T05:15:49.871590Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
-      "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
+      "message": "Rally Point lean homepage already installed"
     },
     "metadata": {
       "label": "Discovery metadata",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.02,
-      "completed_at": "2026-09-19T05:11:03.091929Z",
+      "duration_seconds": 0.03,
+      "completed_at": "2026-09-19T05:15:49.898967Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -151,7 +156,7 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-09-19T05:11:03.131751Z",
+      "completed_at": "2026-09-19T05:15:49.943066Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -161,7 +166,7 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.09,
-      "completed_at": "2026-09-19T05:11:03.220266Z",
+      "completed_at": "2026-09-19T05:15:50.030675Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and qualified timelines"

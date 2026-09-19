@@ -124,7 +124,7 @@ def snapshot_titles(coverage):
 
 def analytics_tag():
     # Kept outside f-strings so JavaScript braces can never be interpreted by Python.
-    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=1" defer></script>'
+    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=2" defer></script>'
 
 def source_links(update, compact=False):
     sources=update.get("sources") or [{"source":update.get("source"),"link":update.get("link"),"title":update.get("source_title")}]
@@ -185,6 +185,18 @@ def index_page(records):
     schema=json.dumps({"@context":"https://schema.org","@type":"CollectionPage","name":"Live News Timelines","url":BASE+"/stories/","description":"Finite, source-backed feeds of distinct developments in major ongoing stories.","mainEntity":{"@type":"ItemList","numberOfItems":len(records),"itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{BASE}/stories/{r['id']}/","name":clean_title(r.get("current_title"))} for i,r in enumerate(records)]},"isPartOf":{"@type":"WebSite","name":"Rally Point News","url":BASE+"/"}},ensure_ascii=False).replace("</","<\\/")
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live News Timelines | Rally Point News</title><meta name="description" content="Follow major developing stories in finite, source-backed feeds with the newest distinct developments first."><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><link rel="canonical" href="{BASE}/stories/">{ga}<meta property="og:type" content="website"><meta property="og:site_name" content="Rally Point News"><meta property="og:title" content="Live News Timelines | Rally Point News"><meta property="og:description" content="Finite, source-backed feeds of distinct developments in major ongoing stories."><meta property="og:url" content="{BASE}/stories/"><meta name="twitter:card" content="summary"><script type="application/ld+json">{schema}</script><link rel="stylesheet" href="/assets/timeline.css?v=4"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/#grid">The Wire</a><a href="/stories/">Live Timelines</a><a href="/sources/">Sources</a></nav></header><main><p class="status">LIVE STORY DESK</p><h1>Developing stories, without the endless scroll</h1><p class="dek">Finite feeds of the developments that matter. Open a story, scan what changed, and reach the end.</p><section class="timeline-index">{''.join(cards)}</section></main><footer>Rally Point News · <a href="/about/">Editorial standards</a></footer></body></html>'''
 
+def follow_enabled_page(body, record):
+    current=timeline_model(record)["current_status"]
+    data=json.dumps({"timelineId":record["id"],"title":clean_title(record.get("current_title")),"currentStatus":clean_title(current.get("summary")),"lastUpdated":record.get("last_seen")},ensure_ascii=False).replace("</","<\\/")
+    body=body.replace('/assets/timeline.css?v=4','/assets/timeline.css?v=5')
+    body=body.replace('</head>',f'<script type="application/json" id="timeline-follow-data">{data}</script></head>',1)
+    body=body.replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/sources/">Sources</a>',1)
+    control='<div class="follow-row"><button type="button" class="follow-control" data-follow-control aria-pressed="false">Follow this story</button><span>Saved on this device</span></div>'
+    return body.replace('</div><section class="current-status"',f'</div>{control}<section class="current-status"',1)
+
+def following_page():
+    return '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your Stories | Rally Point News</title><meta name="description" content="Stories you intentionally follow on this device."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://rallypointnews.com/following/"><script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=2" defer></script><script src="/assets/following.js?v=1" defer></script><link rel="stylesheet" href="/assets/timeline.css?v=5"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/stories/">Live Timelines</a><a href="/following/" aria-current="page">Your Stories</a><a href="/sources/">Sources</a></nav></header><main><p class="status">YOUR STORIES</p><h1>Stories you chose to follow</h1><p class="dek">A private, device-local list of developing stories you want to return to.</p><div id="following-status" class="following-status" role="status" aria-live="polite">Loading your stories…</div><section id="following-list" class="following-list" aria-label="Followed stories"></section></main><footer>Follows stay in this browser. No account is required. · <a href="/privacy/">Privacy</a></footer></body></html>'''
+
 def main():
     payload=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"storylines":[]}
     by_id={x.get("id"):x for x in payload.get("storylines",[]) if x.get("id")}
@@ -201,7 +213,7 @@ def main():
     records=[x for x in by_id.values() if eligible(x,previous_ids)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
     manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
-    state_index={"generated_at":manifest["generated_at"],"schema_version":1,"timelines":{str(x["id"]):{"last_updated":x.get("last_seen"),"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")]} for x in records}}
+    state_index={"generated_at":manifest["generated_at"],"schema_version":2,"timelines":{str(x["id"]):{"title":clean_title(x.get("current_title")),"status":str(x.get("status") or "developing"),"currentStatus":clean_title(timeline_model(x)["current_status"].get("summary")),"last_updated":x.get("last_seen"),"url":f'/stories/{x["id"]}/',"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")]} for x in records}}
     STATE_INDEX.write_text(json.dumps(state_index,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     STORIES.mkdir(parents=True,exist_ok=True); keep={str(record["id"]) for record in records}
     for child in STORIES.iterdir():
@@ -211,8 +223,9 @@ def main():
             try: child.rmdir()
             except OSError: pass
     for record in records:
-        target=STORIES/str(record["id"]); target.mkdir(parents=True,exist_ok=True); (target/"index.html").write_text(page(record,records),encoding="utf-8")
-    (STORIES/"index.html").write_text(index_page(records),encoding="utf-8")
+        target=STORIES/str(record["id"]); target.mkdir(parents=True,exist_ok=True); (target/"index.html").write_text(follow_enabled_page(page(record,records),record),encoding="utf-8")
+    (STORIES/"index.html").write_text(index_page(records).replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/sources/">Sources</a>',1),encoding="utf-8")
+    following=ROOT/"following"; following.mkdir(parents=True,exist_ok=True); (following/"index.html").write_text(following_page(),encoding="utf-8")
     print(f"Published {len(records)} autonomous source-backed story timelines")
 
 if __name__ == "__main__": main()

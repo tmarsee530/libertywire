@@ -134,9 +134,15 @@ class TimelineRenderingTests(unittest.TestCase):
                 body = (stories / legacy["id"] / "index.html").read_text()
                 self.assertIn(f'https://rallypointnews.com/stories/{legacy["id"]}/', body)
                 self.assertIn('data-update-id=', body)
-                self.assertIn('/assets/timeline-state.js?v=1', body)
+                self.assertIn('/assets/timeline-state.js?v=2', body)
+                self.assertIn('data-follow-control', body)
+                self.assertIn('id="timeline-follow-data"', body)
                 index = json.loads(state_index.read_text())
                 self.assertEqual(len(index["timelines"][legacy["id"]]["update_ids"]), serializable_model(legacy)["material_update_count"])
+                self.assertEqual(index["schema_version"], 2)
+                self.assertEqual(index["timelines"][legacy["id"]]["url"], f'/stories/{legacy["id"]}/')
+                self.assertIn('id="following-list"', build_timelines.following_page())
+                self.assertIn('noindex,follow', build_timelines.following_page())
             finally:
                 build_timelines.HISTORY, build_timelines.CURRENT, build_timelines.STORIES, build_timelines.MANIFEST, build_timelines.STATE_INDEX = old
 

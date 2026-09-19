@@ -11,7 +11,6 @@ STORIES = ROOT / "stories"
 MANIFEST = ROOT / "data" / "published_timelines.json"
 OUT = ROOT / "archive" / "index.html"
 INDEX = ROOT / "data" / "archive_index.json"
-PUBLICATION_DEDUPE = ROOT / "data" / "publication_dedupe.json"
 BASE = "https://rallypointnews.com"
 
 def esc(value):
@@ -28,19 +27,13 @@ def extract(pattern, body, default=""):
     m = re.search(pattern, body, re.I | re.S)
     return html.unescape(re.sub(r"<[^>]+>", "", m.group(1)).strip()) if m else default
 
-def mark_archived(path, canonical_id=None):
+def mark_archived(path):
     body = path.read_text(encoding="utf-8")
-    if canonical_id:
-        canonical = f'{BASE}/stories/{canonical_id}/'
-        body = re.sub(r'<link rel="canonical" href="[^"]+">', f'<link rel="canonical" href="{canonical}">', body, count=1)
-        body = re.sub(r'<meta name="robots" content="[^"]+">', '<meta name="robots" content="noindex,follow">', body, count=1)
-        if 'class="duplicate-notice"' not in body:
-            notice = f'<div class="archive-notice duplicate-notice"><strong>Consolidated timeline.</strong> Rally Point identified this page as duplicate coverage of the same developing event. <a href="/stories/{canonical_id}/">Open the canonical timeline →</a></div>'
-            body = body.replace('<section class="current-status"', notice + '<section class="current-status"', 1)
-    elif 'class="archive-notice"' not in body:
-        notice = '<div class="archive-notice"><strong>Archived timeline.</strong> This page is preserved as a historical record and is no longer actively updating. The status below reflects the last material development Rally Point tracked.</div>'
-        body = body.replace('<section class="current-status"', notice + '<section class="current-status"', 1)
-    # An archived or consolidated story should not invite new follows or email alerts.
+    if 'class="archive-notice"' in body:
+        return
+    notice = '<div class="archive-notice"><strong>Archived timeline.</strong> This page is preserved as a historical record and is no longer actively updating. The status below reflects the last material development Rally Point tracked.</div>'
+    body = body.replace('<section class="current-status"', notice + '<section class="current-status"', 1)
+    # An archived story should not invite new follows or email alerts.
     body = re.sub(r'<div class="follow-row">.*?</div><section class="email-pilot".*?</section>', "", body, count=1, flags=re.S)
     path.write_text(body, encoding="utf-8")
 
@@ -51,11 +44,6 @@ def main():
     except (OSError, json.JSONDecodeError):
         active = set()
 
-    try:
-        dedupe_payload = json.loads(PUBLICATION_DEDUPE.read_text(encoding="utf-8")) if PUBLICATION_DEDUPE.exists() else {"suppressed":[]}
-        duplicate_map = {str(x.get("timeline_id")): str(x.get("canonical_timeline_id")) for x in dedupe_payload.get("suppressed", []) if x.get("timeline_id") and x.get("canonical_timeline_id")}
-    except (OSError, json.JSONDecodeError):
-        duplicate_map = {}
 
     entries = []
     if STORIES.exists():
@@ -65,9 +53,7 @@ def main():
             title = extract(r"<h1[^>]*>(.*?)</h1>", body, "Rally Point timeline")
             modified = extract(r'<meta property="article:modified_time" content="([^"]+)"', body)
             published = extract(r'<meta property="article:published_time" content="([^"]+)"', body)
-            if sid in duplicate_map:
-                mark_archived(page, duplicate_map[sid])
-            elif sid not in active:
+            if sid not in active:
                 mark_archived(page)
             entries.append({
                 "id": sid,
@@ -76,7 +62,6 @@ def main():
                 "first_seen": published,
                 "last_seen": modified,
                 "active": sid in active,
-                "duplicate_of": duplicate_map.get(sid),
             })
 
     entries.sort(key=lambda x: parse_dt(x.get("last_seen")), reverse=True)
@@ -85,8 +70,6 @@ def main():
 
     cards = []
     for item in entries:
-        if item.get("duplicate_of"):
-            continue
         state = "LIVE" if item["active"] else "ARCHIVED"
         cards.append(f'<article><p>{state}</p><h2><a href="{esc(item["url"])}">{esc(item["title"])}</a></h2><span>Last material update: {esc(item.get("last_seen") or "date unavailable")}</span></article>')
 

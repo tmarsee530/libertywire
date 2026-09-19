@@ -1,36 +1,36 @@
 {
   "cycle": {
-    "started_at": "2026-09-19T16:26:30.904497Z",
-    "completed_at": "2026-09-19T16:27:12.877053Z",
-    "duration_seconds": 41.97,
-    "previous_completed_at": "2026-09-19T16:25:21.444435Z"
+    "started_at": "2026-09-19T16:31:28.837881Z",
+    "completed_at": "2026-09-19T16:32:04.522030Z",
+    "duration_seconds": 35.68,
+    "previous_completed_at": "2026-09-19T16:27:12.877053Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-19T16:26:36.387728Z",
-    "age_minutes": 0.6,
+    "last_successful_run": "2026-09-19T16:31:34.080869Z",
+    "age_minutes": 0.5,
     "configured_sources": 80,
     "successful_sources": 80,
     "failed_sources": 0,
     "source_failure_pct": 0.0,
     "failed_source_details": [],
-    "stories_available": 1379
+    "stories_available": 1380
   },
   "content": {
-    "last_story_created": "2026-09-19T16:25:19Z",
-    "last_story_age_minutes": 1.9,
-    "last_timeline_update": "2026-09-19T16:25:19Z",
-    "last_timeline_age_minutes": 1.9,
-    "published_timelines": 64,
-    "manifest_updated_at": "2026-09-19T16:27:06.117611Z"
+    "last_story_created": "2026-09-19T16:30:00Z",
+    "last_story_age_minutes": 2.1,
+    "last_timeline_update": "2026-09-19T16:30:00Z",
+    "last_timeline_age_minutes": 2.1,
+    "published_timelines": 63,
+    "manifest_updated_at": "2026-09-19T16:32:03.814182Z"
   },
   "fast_path": {
-    "reports_evaluated": 263,
-    "candidate_events": 211,
+    "reports_evaluated": 262,
+    "candidate_events": 210,
     "fast_path_events": 1,
-    "held_for_normal_path": 210,
+    "held_for_normal_path": 209,
     "duplicate_reports_suppressed": 52,
-    "duplicate_event_rate_pct": 19.77,
-    "median_source_detection_latency_seconds": 294.5,
+    "duplicate_event_rate_pct": 19.85,
+    "median_source_detection_latency_seconds": 329.2,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 1,
     "detection_to_publication_latency_seconds": 29.6,
@@ -80,38 +80,38 @@
       "label": "Source ingestion",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 5.53,
-      "completed_at": "2026-09-19T16:26:36.438252Z",
+      "duration_seconds": 5.3,
+      "completed_at": "2026-09-19T16:31:34.133411Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1379 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "Generated 1380 stories from 80/80 healthy sources; default radar depth 20/source."
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 1.64,
-      "completed_at": "2026-09-19T16:26:38.076028Z",
+      "duration_seconds": 1.62,
+      "completed_at": "2026-09-19T16:31:35.752597Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 1 promoted, 210 kept on normal path, 52 duplicates grouped."
+      "message": "Fast path: 1 promoted, 209 kept on normal path, 52 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 27.51,
-      "completed_at": "2026-09-19T16:27:05.588843Z",
+      "duration_seconds": 27.52,
+      "completed_at": "2026-09-19T16:32:03.273228Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1213 storylines; 74 multi-family; 17 breaking; 27 developing; 1 hot"
+      "message": "Built 1210 storylines; 77 multi-family; 15 breaking; 26 developing; 1 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.32,
-      "completed_at": "2026-09-19T16:27:05.913807Z",
+      "duration_seconds": 0.33,
+      "completed_at": "2026-09-19T16:32:03.605479Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -121,17 +121,27 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.38,
-      "completed_at": "2026-09-19T16:27:06.297329Z",
+      "completed_at": "2026-09-19T16:32:03.987776Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
-      "message": "Published 64 autonomous source-backed story timelines"
+      "message": "Published 63 autonomous source-backed story timelines"
+    },
+    "archive": {
+      "label": "Permanent timeline archive",
+      "status": "HEALTHY",
+      "attempts": 1,
+      "duration_seconds": 0.04,
+      "completed_at": "2026-09-19T16:32:04.025496Z",
+      "consecutive_failures": 0,
+      "artifact": "archive/index.html",
+      "message": "Archived 64 permanent timeline URLs; 63 currently active"
     },
     "notifications": {
       "label": "Notification foundation",
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-09-19T16:27:06.362959Z",
+      "completed_at": "2026-09-19T16:32:04.091936Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -141,28 +151,27 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-19T16:27:06.410498Z",
+      "completed_at": "2026-09-19T16:32:04.139871Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
     },
     "metadata": {
       "label": "Discovery metadata",
-      "status": "FAILED",
-      "attempts": 3,
-      "duration_seconds": 6.07,
-      "completed_at": "2026-09-19T16:27:12.484964Z",
-      "consecutive_failures": 4,
+      "status": "RECOVERED",
+      "attempts": 1,
+      "duration_seconds": 0.02,
+      "completed_at": "2026-09-19T16:32:04.164679Z",
+      "consecutive_failures": 0,
       "artifact": "index.html",
-      "fallback": "last-known-good",
-      "message": "}</script>\n                                                                                                                                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Invalid format specifier '\"ImageObject\",\"url\":\"https://rallypointnews.com/assets/rally-point-news-mark.svg\"' for object of type 'str'"
+      "message": "Installed current Rally Point search identity metadata"
     },
     "recent": {
       "label": "Recent-headlines page",
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-09-19T16:27:12.525162Z",
+      "completed_at": "2026-09-19T16:32:04.205884Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -171,18 +180,18 @@
       "label": "Live timeline RSS",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.18,
-      "completed_at": "2026-09-19T16:27:12.702847Z",
+      "duration_seconds": 0.14,
+      "completed_at": "2026-09-19T16:32:04.346784Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
-      "message": "Built RSS feed with 62 live timelines"
+      "message": "Built RSS feed with 61 live timelines"
     },
     "distribution": {
       "label": "Selective distribution queue",
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.06,
-      "completed_at": "2026-09-19T16:27:12.762175Z",
+      "completed_at": "2026-09-19T16:32:04.406748Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates"
@@ -192,19 +201,19 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-09-19T16:27:12.827583Z",
+      "completed_at": "2026-09-19T16:32:04.472802Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and qualified timelines"
     }
   },
   "mode": "fast",
-  "state": "CRITICAL",
+  "state": "HEALTHY",
   "alerts": [
     {
-      "severity": "CRITICAL",
-      "code": "STAGE_METADATA_FAILED",
-      "message": "Discovery metadata failed after 3 attempts; fallback: last-known-good."
+      "severity": "INFO",
+      "code": "STAGE_METADATA_RECOVERED",
+      "message": "Discovery metadata recovered automatically."
     }
   ],
   "dead_letter_count": 4,

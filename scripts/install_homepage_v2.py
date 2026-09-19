@@ -17,6 +17,11 @@ if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
 if ns!=s:s=ns;changed=True
 if css not in s:s=s.replace('</head>',css+'\n</head>',1);changed=True
+# Normalize legacy state-runtime includes before adding the current one. Older
+# generated homepages could otherwise load v1 and v2 together and register
+# duplicate return-state listeners.
+ns=re.sub(r'\n?<script src="assets/timeline-state\.js(?:\?v=\d+)?" defer></script>','',s)
+if ns!=s:s=ns;changed=True
 if state_js not in s:s=s.replace(js,state_js+'\n'+js,1);changed=True
 if js not in s:s=s.replace('</body>',js+'\n</body>',1);changed=True
 rss='<link rel="alternate" type="application/rss+xml" title="Rally Point News — Live Timelines" href="/feed.xml">'

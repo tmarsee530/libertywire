@@ -18,8 +18,8 @@ block=f'''<!-- RALLY_POINT_DISCOVERY_START -->
 <meta property="og:site_name" content="Rally Point News">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
-<meta property="og:url" content="https://rallypointnews.com/">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://rallypointnews.com/">\n<meta property="og:image" content="https://rallypointnews.com/assets/rally-point-news-mark.svg">\n<meta property="og:image:alt" content="Rally Point News">
+<meta name="twitter:card" content="summary">\n<meta name="twitter:image" content="https://rallypointnews.com/assets/rally-point-news-mark.svg">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
 <script type="application/ld+json">{{"@context":"https://schema.org","@graph":[{{"@type":"Organization","@id":"https://rallypointnews.com/#organization","name":"Rally Point News","url":"https://rallypointnews.com/","description":"Independent news aggregation service organizing developing stories into finite, source-backed live timelines.","logo":{"@type":"ImageObject","url":"https://rallypointnews.com/assets/rally-point-news-mark.svg"}}},{{"@type":"WebSite","@id":"https://rallypointnews.com/#website","url":"https://rallypointnews.com/","name":"Rally Point News","alternateName":"Rally Point","publisher":{{"@id":"https://rallypointnews.com/#organization"}},"description":"{description}","inLanguage":"en-US"}}]}}</script>

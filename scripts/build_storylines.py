@@ -116,10 +116,37 @@ def prior_records():
 def history_match(toks,records,title=''):
  best=None;score=0;a=anchors(title)
  for r in records:
-  prior_titles=[r.get('current_title','')]+list(r.get('title_history',[]))[-4:];rt=tokens(' '.join(prior_titles));s=pair_score(toks,rt);ra=set().union(*(anchors(x) for x in prior_titles)) if prior_titles else set()
-  if a and ra and not (a&ra):continue
-  if s>score:best,score=r,s
+  # Compare against individual historical headlines. Combining every title into
+  # one token bag made unrelated clusters look identical after a record had
+  # accumulated broad coverage, which created duplicate canonical timelines.
+  prior_titles=[r.get('current_title','')]+list(r.get('title_history',[]))[-6:]
+  prior_titles += [x.get('title','') for x in list(r.get('coverage',[]))[:6]]
+  candidate_score=0
+  for prior_title in filter(None,prior_titles):
+   rt=tokens(prior_title);ra=anchors(prior_title)
+   if a and ra and not (a&ra):continue
+   candidate_score=max(candidate_score,pair_score(toks,rt))
+  if candidate_score>score:best,score=r,candidate_score
  return best if score>=.48 else None
+
+def merge_current_ids(items):
+ """Guarantee one current storyline for each durable canonical timeline ID."""
+ merged={}
+ for item in items:
+  sid=item.get('id')
+  if not sid or sid not in merged:
+   if sid:merged[sid]=item
+   continue
+  prior=merged[sid];latest=max((prior,item),key=lambda x:x.get('newest_epoch') or 0)
+  coverage=[];seen=set()
+  for source in sorted(prior.get('coverage',[])+item.get('coverage',[]),key=lambda x:x.get('date') or '',reverse=True):
+   key=(str(source.get('source') or '').lower(),str(source.get('link') or ''))
+   if key in seen:continue
+   seen.add(key);coverage.append(source)
+  sources=sorted(set(prior.get('sources',[]))|set(item.get('sources',[])))
+  families=sorted(set(prior.get('source_families',[]))|set(item.get('source_families',[])))
+  merged[sid]={**prior,**latest,'id':sid,'coverage':coverage[:16],'sources':sources,'source_count':len(sources),'source_families':families,'source_family_count':len(families),'importance_score':max(float(prior.get('importance_score',0) or 0),float(item.get('importance_score',0) or 0)),'base_importance_score':max(float(prior.get('base_importance_score',0) or 0),float(item.get('base_importance_score',0) or 0)),'fast_path':bool(prior.get('fast_path') or item.get('fast_path')),'risk_flags':sorted(set(prior.get('risk_flags',[]))|set(item.get('risk_flags',[])))}
+ return list(merged.values())
 def fast_lookup():
  try:
   payload=json.loads(FAST.read_text());eligible=[x for x in payload.get('candidates',[]) if x.get('eligible')];generated=datetime.fromisoformat(str(payload.get('generated_at','')).replace('Z','+00:00'))
@@ -136,7 +163,7 @@ def main():
   prior_families=int((prior or {}).get('max_source_family_count',0) or 0);current_prior_families=int((prior or {}).get('current_source_family_count',0) or 0);growth=max(0,family_count-current_prior_families);persistent=bool(prior and (prior_families>=3 or int((prior or {}).get('max_source_count',0))>=3));hot_bonus=min(8,max(0,family_count-2)*1.5+min(growth,3)*1.5+(2 if persistent and age<=360 else 0));break_bonus=breaking_bonus(all_titles,family_count,age);fast_urgency=float((best_fast or {}).get('urgency_score',0) or 0);fast_bonus=round(min(12,max(0,fast_urgency-60)*.3),2);score=round(base+hot_bonus+break_bonus+fast_bonus,2)
   status='breaking' if (best_fast and fast_urgency>=60) or (break_bonus>=6 and age<=120) else ('hot' if family_count>=4 and age<=180 else ('developing' if family_count>=3 and age<=360 else 'active'));ordered=information_coverage(ss,lead,8)
   out.append({'id':sid,'title':title,'importance_score':score,'base_importance_score':base,'hot_bonus':round(hot_bonus,2),'breaking_bonus':break_bonus,'fast_path_bonus':fast_bonus,'fast_path':bool(best_fast),'urgency_score':fast_urgency if best_fast else None,'fast_path_reason':(best_fast or {}).get('reason'),'fast_path_detected_at':(best_fast or {}).get('detected_at'),'source_count':len(sources),'source_family_count':family_count,'source_families':families,'sources':sources,'newest_epoch':newest,'newest_date':next((s.get('date') for s in ss if (s.get('published_epoch') or 0)==newest),lead.get('date')),'risk_flags':risk,'status':status,'coverage':[{'source':s.get('source'),'source_family':family(s.get('source')),'title':s.get('title'),'link':s.get('link'),'date':s.get('date')} for s in ordered]})
- out.sort(key=lambda x:(x['importance_score'],x['newest_epoch'],x['source_family_count'],x['source_count']),reverse=True);payload={'generated_at':now.isoformat().replace('+00:00','Z'),'importance_method':'deterministic neutral news-value signals: consequence/institutional significance/safety/economic impact + independent publisher breadth + sustained cross-source development + short-lived breaking-news freshness boost for consequential new topics; novelty alone does not qualify','headline_method':'deterministic recency + cluster specificity + readable headline length; generic live/video/photo/opinion labels are mildly deprioritized; ideology and sentiment are not scored','fast_path_method':'fresh high-confidence developments from trusted primary sources or two independent trusted publishers are promoted ahead of the normal path; uncertain claims remain on the normal path','coverage_method':'primary headline establishes the topic; subsequent publisher headlines are selected by incremental substantive information, with a modest independent-publisher-family tie-break and freshness secondary; repetitive coverage is omitted','clustering_method':'distinctive-token overlap + cluster-core consistency + shared proper-name anchors, followed by a stricter duplicate-cluster merge requiring strong lexical overlap and shared named anchors; durable-history matching also requires stronger lexical similarity and shared named anchors when available; generic political/news terms excluded to reduce false merges','storyline_count':len(out),'multi_source_count':sum(1 for x in out if x['source_count']>=2),'multi_family_count':sum(1 for x in out if x['source_family_count']>=2),'breaking_count':sum(1 for x in out if x['status']=='breaking'),'fast_path_count':sum(1 for x in out if x.get('fast_path')),'developing_count':sum(1 for x in out if x['status'] in ('breaking','developing','hot')),'hot_count':sum(1 for x in out if x['status']=='hot'),'storylines':out[:500]}
+ out=merge_current_ids(out);out.sort(key=lambda x:(x['importance_score'],x['newest_epoch'],x['source_family_count'],x['source_count']),reverse=True);payload={'generated_at':now.isoformat().replace('+00:00','Z'),'importance_method':'deterministic neutral news-value signals: consequence/institutional significance/safety/economic impact + independent publisher breadth + sustained cross-source development + short-lived breaking-news freshness boost for consequential new topics; novelty alone does not qualify','headline_method':'deterministic recency + cluster specificity + readable headline length; generic live/video/photo/opinion labels are mildly deprioritized; ideology and sentiment are not scored','fast_path_method':'fresh high-confidence developments from trusted primary sources or two independent trusted publishers are promoted ahead of the normal path; uncertain claims remain on the normal path','coverage_method':'primary headline establishes the topic; subsequent publisher headlines are selected by incremental substantive information, with a modest independent-publisher-family tie-break and freshness secondary; repetitive coverage is omitted','clustering_method':'distinctive-token overlap + cluster-core consistency + shared proper-name anchors, followed by a stricter duplicate-cluster merge requiring strong lexical overlap and shared named anchors; durable-history matching compares individual prior headlines rather than an expanding combined token bag; duplicate current assignments collapse to one canonical timeline ID','storyline_count':len(out),'multi_source_count':sum(1 for x in out if x['source_count']>=2),'multi_family_count':sum(1 for x in out if x['source_family_count']>=2),'breaking_count':sum(1 for x in out if x['status']=='breaking'),'fast_path_count':sum(1 for x in out if x.get('fast_path')),'developing_count':sum(1 for x in out if x['status'] in ('breaking','developing','hot')),'hot_count':sum(1 for x in out if x['status']=='hot'),'storylines':out[:500]}
  if OUT.exists():
   try:
    old=json.loads(OUT.read_text())

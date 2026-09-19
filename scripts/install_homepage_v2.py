@@ -11,7 +11,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=40">';state_js='<script src="assets/timeline-state.js?v=2" defer></script>';js='<script src="assets/homepage-v2.js?v=43" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=40">';state_js='<script src="assets/timeline-state.js?v=2" defer></script>';js='<script src="assets/homepage-v2.js?v=44" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -54,6 +54,7 @@ if ns!=s:s=ns;changed=True
 try:
  d=json.loads((root/'data/storylines.json').read_text());stories=d.get('storylines',[])[:48]
  manifest=json.loads((root/'data/published_timelines.json').read_text());published_ids={str(x) for x in manifest.get('ids',[])}
+ state_index=json.loads((root/'data/timeline_state_index.json').read_text()).get('timelines',{})
  def e(v):return html.escape(str(v or ''),quote=True)
  stop={'the','and','for','from','with','into','over','after','amid','says','said','report','reports','live','update','updates','latest','breaking','exclusive','video','photo','photos','this','that','these','those','new','news'}
  state={'approves','approved','blocks','blocked','orders','ordered','resigns','resigned','dies','died','killed','arrests','arrested','indicts','indicted','charges','charged','wins','won','loses','lost','launches','launched','strikes','struck','evacuates','evacuated','confirms','confirmed','withdraws','withdrew','suspends','suspended','rejects','rejected','passes','passed','fails','failed','overturns','overturned','delays','delayed','cancels','canceled','cancelled','announces','announced'}
@@ -100,10 +101,15 @@ try:
     if score>best_score:best,best_score=clause,score
    display=best or title;out.append((item,display));seen|=toks(display)
   return out
+ def material_developments(story):
+  developments=state_index.get(str(story.get('id')),{}).get('developments',[])
+  if developments:
+   return [(dict(item,title=item.get('source_title') or item.get('label')),item.get('label') or item.get('source_title') or '') for item in developments[:8] if item.get('link')]
+  return labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
  rows=[]
  for story in stories:
   if str(story.get('id')) not in published_ids:continue
-  labeled=labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
+  labeled=material_developments(story)
   if not labeled:continue
   first=labeled[0][0];related=labeled[1:];hot=story.get('status')=='hot'
   primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(story.get('title') or first.get('title'))+'</a>'

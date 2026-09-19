@@ -5,7 +5,7 @@ import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from scripts import build_history, build_timelines
+from scripts import build_history, build_storylines, build_timelines
 from scripts.timeline_intelligence import canonical_link, meaningful_updates, serializable_model
 
 
@@ -48,6 +48,19 @@ class TimelineIntelligenceTests(unittest.TestCase):
         corroborated = meaningful_updates([base, {**base, "source": "Source B", "title": "Court orders city election recount — confirmed"}], "breaking")[0]
         self.assertEqual(first["id"], corroborated["id"])
         self.assertEqual(len(corroborated["sources"]), 2)
+        self.assertEqual(corroborated["source_count"], 2)
+        self.assertTrue(corroborated["corroborated"])
+        self.assertEqual(corroborated["sources"][0]["role"], "primary")
+        self.assertEqual(corroborated["sources"][1]["role"], "corroborating")
+
+    def test_small_wording_change_is_not_a_material_development(self):
+        items = [
+            coverage("Agency reviews Pine County bridge closure", "Source A", 0),
+            coverage("Agency reviews Pine County bridge closure today", "Source B", 5),
+        ]
+        updates = meaningful_updates(items)
+        self.assertEqual(len(updates), 1)
+        self.assertEqual(updates[0]["source_count"], 2)
 
     def test_material_state_change_becomes_new_classified_update(self):
         items = [
@@ -81,6 +94,12 @@ class TimelineIntelligenceTests(unittest.TestCase):
 
 
 class TimelineRenderingTests(unittest.TestCase):
+    def test_homepage_prefers_authoritative_timeline_developments_with_safe_fallback(self):
+        asset = (Path(__file__).resolve().parents[1] / "assets" / "homepage-v2.js").read_text()
+        self.assertIn("entry&&entry.developments", asset)
+        self.assertIn("return newInfoLabels(distinctCoverage", asset)
+        self.assertIn("c=materialDevelopments(lead,8)", asset)
+
     def test_legacy_record_renders_current_status_reverse_order_and_seo(self):
         items = [
             coverage("Court hears arguments in city election case", "Source A", 0),
@@ -139,8 +158,13 @@ class TimelineRenderingTests(unittest.TestCase):
                 self.assertIn('id="timeline-follow-data"', body)
                 index = json.loads(state_index.read_text())
                 self.assertEqual(len(index["timelines"][legacy["id"]]["update_ids"]), serializable_model(legacy)["material_update_count"])
-                self.assertEqual(index["schema_version"], 2)
+                self.assertEqual(index["schema_version"], 3)
                 self.assertEqual(index["timelines"][legacy["id"]]["url"], f'/stories/{legacy["id"]}/')
+                self.assertEqual(
+                    [x["id"] for x in index["timelines"][legacy["id"]]["developments"]],
+                    list(reversed(index["timelines"][legacy["id"]]["update_ids"])),
+                )
+                self.assertIn("source_count", index["timelines"][legacy["id"]]["developments"][0])
                 self.assertIn('id="following-list"', build_timelines.following_page())
                 self.assertIn('noindex,follow', build_timelines.following_page())
             finally:
@@ -159,6 +183,31 @@ class TimelineRenderingTests(unittest.TestCase):
 
 
 class TimelineHistoryTests(unittest.TestCase):
+    def test_history_matching_does_not_combine_unrelated_old_headlines(self):
+        old = {
+            "id": "old-event-id",
+            "current_title": "Orion agency reviews harbor policy schedule",
+            "title_history": ["Orion workers close tunnel maintenance overnight"],
+            "coverage": [{"title": "Orion board delays airport terminal vote"}],
+        }
+        current = "Orion harbor tunnel airport contract permit"
+        # The combined historical token bag overlaps strongly, but no individual
+        # prior report describes this event. It must receive a new identity.
+        self.assertIsNone(build_storylines.history_match(build_storylines.tokens(current), [old], current))
+
+    def test_duplicate_current_assignments_collapse_to_one_canonical_id(self):
+        first = {"id": "same123id456", "title": "Orion closes tunnel", "newest_epoch": 1,
+                 "source_count": 1, "source_family_count": 1, "sources": ["A"], "source_families": ["a"],
+                 "importance_score": 4, "base_importance_score": 3, "coverage": [{"source": "A", "link": "https://a.test/1"}]}
+        second = {"id": "same123id456", "title": "Orion tunnel remains closed", "newest_epoch": 2,
+                  "source_count": 1, "source_family_count": 1, "sources": ["B"], "source_families": ["b"],
+                  "importance_score": 5, "base_importance_score": 4, "coverage": [{"source": "B", "link": "https://b.test/2"}]}
+        merged = build_storylines.merge_current_ids([first, second])
+        self.assertEqual(len(merged), 1)
+        self.assertEqual(merged[0]["id"], "same123id456")
+        self.assertEqual(merged[0]["source_count"], 2)
+        self.assertEqual(len(merged[0]["coverage"]), 2)
+
     def test_history_adds_backward_compatible_timeline_model(self):
         items = [
             coverage("Court hears arguments in city election case", "Source A", 0),

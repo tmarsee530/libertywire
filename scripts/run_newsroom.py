@@ -24,6 +24,7 @@ DEAD_LETTERS = DATA / "newsroom_dead_letters.json"
 FAST_PATH = DATA / "breaking_fast_path.json"
 DASHBOARD = ROOT / "health" / "index.html"
 MAX_DEAD_LETTERS = 100
+# Recovery note: maintenance pushes may be used to restore publication after a failed fast-wire commit.
 
 STAGES = [
     ("ingestion", "Source ingestion", "scripts/fetch_news.py", "data/news.json"),

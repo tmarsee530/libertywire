@@ -20,7 +20,6 @@ BASE = "https://rallypointnews.com"
 MAX_PAGES = 500
 MANIFEST = ROOT / "data" / "published_timelines.json"
 STATE_INDEX = ROOT / "data" / "timeline_state_index.json"
-PUBLICATION_DEDUPE = ROOT / "data" / "publication_dedupe.json"
 LONG_TIMELINE_THRESHOLD = 9
 VISIBLE_RECENT_UPDATES = 6
 
@@ -46,49 +45,6 @@ def source_domain(link):
 def tokens_for_related(value):
     stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates"}
     return {x for x in re.findall(r"[a-z0-9\u0027]{4,}", clean_title(value).lower()) if x not in stop}
-
-EVENT_STOP={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates","report","reports","says","said","the","and","for","are","was","were","has","have","had","will","would"}
-
-def event_tokens(value):
-    text=clean_title(value).lower().replace("ms now","msnow")
-    return {x for x in re.findall(r"[a-z0-9']{3,}",text) if x not in EVENT_STOP}
-
-def same_publication_event(left,right):
-    lt=event_tokens(left.get("current_title")); rt=event_tokens(right.get("current_title"))
-    if not lt or not rt:return False
-    if clean_title(left.get("current_title")).lower()==clean_title(right.get("current_title")).lower():return True
-    title_overlap=len(lt&rt); title_cont=title_overlap/max(1,min(len(lt),len(rt)))
-    ls=clean_title(timeline_model(left)["current_status"].get("summary"))
-    rs=clean_title(timeline_model(right)["current_status"].get("summary"))
-    left_context=" ".join([clean_title(left.get("current_title")),ls]+[clean_title(x.get("title")) for x in (left.get("coverage") or [])[:8]])
-    right_context=" ".join([clean_title(right.get("current_title")),rs]+[clean_title(x.get("title")) for x in (right.get("coverage") or [])[:8]])
-    lc=event_tokens(left_context); rc=event_tokens(right_context)
-    combined_overlap=len(lc&rc); combined_cont=combined_overlap/max(1,min(len(lc),len(rc)))
-    return ((title_overlap>=3 and title_cont>=.50) or (title_overlap>=2 and combined_cont>=.60) or (combined_overlap>=7 and combined_cont>=.65)) and combined_overlap>=5 and combined_cont>=.55
-
-def publication_strength(record):
-    return (
-        int(record.get("max_source_family_count",0) or 0),
-        int(timeline_model(record).get("material_update_count",0) or 0),
-        int(record.get("max_source_count",0) or 0),
-        parse_dt(record.get("last_seen")),
-    )
-
-def dedupe_publication_records(records):
-    selected=[]; suppressed=[]
-    for record in sorted(records,key=publication_strength,reverse=True):
-        canonical=next((x for x in selected if same_publication_event(record,x)),None)
-        if canonical:
-            suppressed.append({
-                "timeline_id":str(record.get("id")),
-                "canonical_timeline_id":str(canonical.get("id")),
-                "title":clean_title(record.get("current_title")),
-                "canonical_title":clean_title(canonical.get("current_title")),
-                "reason":"same_event_publication_dedupe",
-            })
-        else:selected.append(record)
-    selected.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True)
-    return selected,suppressed
 
 def family_name(source):
     s = str(source or "").strip().lower()
@@ -258,8 +214,7 @@ def main():
         for update in item.get("coverage",[]): coverage[(update.get("source") or "",canonical_link(update.get("link")))]=update
         merged={**prior,"id":sid,"current_title":item.get("title") or prior.get("current_title"),"last_seen":item.get("newest_date") or prior.get("last_seen"),"status":item.get("status") or prior.get("status"),"max_source_count":max(int(prior.get("max_source_count",0) or 0),int(item.get("source_count",0) or 0)),"max_source_family_count":max(int(prior.get("max_source_family_count",0) or 0),int(item.get("source_family_count",0) or 0)),"coverage":list(coverage.values())}
         by_id[sid]={**merged,**serializable_model(merged)}
-    records=[x for x in by_id.values() if eligible(x,previous_ids)]; records,suppressed=dedupe_publication_records(records); records=records[:MAX_PAGES]
-    PUBLICATION_DEDUPE.write_text(json.dumps({"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"suppressed_count":len(suppressed),"suppressed":suppressed},indent=2,ensure_ascii=False)+"\\n",encoding="utf-8")
+    records=[x for x in by_id.values() if eligible(x,previous_ids)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
     manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     state_index={"generated_at":manifest["generated_at"],"schema_version":2,"timelines":{str(x["id"]):{"title":clean_title(x.get("current_title")),"status":str(x.get("status") or "developing"),"currentStatus":clean_title(timeline_model(x)["current_status"].get("summary")),"last_updated":x.get("last_seen"),"url":f'/stories/{x["id"]}/',"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")]} for x in records}}

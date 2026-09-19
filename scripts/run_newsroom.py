@@ -31,6 +31,7 @@ STAGES = [
     ("clustering", "Story clustering", "scripts/build_storylines.py", "data/storylines.json"),
     ("history", "Timeline history", "scripts/build_history.py", "data/history.json"),
     ("publication", "Timeline publication", "scripts/build_timelines.py", "data/published_timelines.json"),
+    ("notifications", "Notification foundation", "scripts/build_notification_foundation.py", "data/notification_health.json"),
     ("homepage", "Homepage refresh", "scripts/install_homepage_v2.py", "index.html"),
     ("metadata", "Discovery metadata", "scripts/install_discovery_metadata.py", "index.html"),
     ("recent", "Recent-headlines page", "scripts/build_recent.py", "recent/index.html"),
@@ -112,8 +113,8 @@ def build_signals(stage_results, cycle_started, previous):
     history = load(DATA / "history.json", {})
     manifest = load(DATA / "published_timelines.json", {})
     fast_path = load(FAST_PATH, {})
-    writer = load(DATA / "writer_queue.json", {})
     newsletter = load(DATA / "newsletter_state.json", {})
+    notification_health = load(DATA / "notification_health.json", {})
     healthy = int(news.get("healthy_source_count", 0) or 0)
     total = int(news.get("source_count", 0) or 0)
     failures = news.get("failed_sources") or []
@@ -126,7 +127,6 @@ def build_signals(stage_results, cycle_started, previous):
     timeline_dates = [parse_dt(x.get("last_seen")) for x in records]
     newest_timeline = max((x for x in timeline_dates if x is not None), default=None)
     newest_timeline = newest_timeline if newest_timeline and newest_timeline <= now() else now()
-    active_queue = False  # legacy writer queue is retained but not part of the live timeline product
     fast_candidates = [x for x in fast_path.get("candidates", []) if x.get("eligible")]
     published_ids = set(manifest.get("ids") or [])
     link_story_ids = {}
@@ -218,8 +218,15 @@ def build_signals(stage_results, cycle_started, previous):
         },
         "fast_path": fast_metrics,
         "queue": {
-            "active": active_queue, "backlog": int(writer.get("candidate_count", 0) or 0) if active_queue else 0,
-            "oldest_item_age_minutes": None, "note": "Legacy article-writer queue is inactive; live timelines publish directly.",
+            "active": bool(notification_health.get("configured_follows")),
+            "backlog": int(notification_health.get("queue_backlog", 0) or 0),
+            "oldest_item_age_minutes": notification_health.get("oldest_pending_age_minutes"),
+            "delivery_enabled": False,
+            "candidates_created": int(notification_health.get("candidates_created", 0) or 0),
+            "candidates_suppressed": int(notification_health.get("candidates_suppressed", 0) or 0),
+            "candidates_deduped": int(notification_health.get("candidates_deduped", 0) or 0),
+            "processing_errors": int(notification_health.get("processing_errors", 0) or 0),
+            "note": "Notification candidates are observable; delivery is disabled.",
         },
         "ai_processing": {"enabled": False, "failures": 0, "note": "Core live pipeline is deterministic and uses no paid AI API."},
         "distribution": {
@@ -249,7 +256,9 @@ def classify(signals):
         alerts.append(("WARNING", "SOURCE_FAILURE_ELEVATED", f"{pct}% of configured sources failed."))
     for key, result in stages.items():
         if result.get("status") == "FAILED":
-            severity = "CRITICAL" if key in {"ingestion", "publication", "homepage", "sitemap"} or result.get("consecutive_failures", 0) >= 2 else "WARNING"
+            # Notification candidate generation is deliberately auxiliary. Even
+            # repeated failure must never stop or mark core publishing CRITICAL.
+            severity = "WARNING" if key == "notifications" else "CRITICAL" if key in {"ingestion", "publication", "homepage", "sitemap"} or result.get("consecutive_failures", 0) >= 2 else "WARNING"
             alerts.append((severity, f"STAGE_{key.upper()}_FAILED", f"{result['label']} failed after {result['attempts']} attempts; fallback: {result.get('fallback')}."))
         elif result.get("status") == "RECOVERED":
             alerts.append(("INFO", f"STAGE_{key.upper()}_RECOVERED", f"{result['label']} recovered automatically."))
@@ -297,6 +306,7 @@ def emit_actions(payload):
             f.write(f"- Published timelines: {payload['content']['published_timelines']}\n")
             f.write(f"- Fast-path events: {payload.get('fast_path', {}).get('fast_path_events', 0)}\n")
             f.write(f"- Fast-path capture: {payload.get('fast_path', {}).get('high_urgency_capture_pct')}%\n")
+            f.write(f"- Notification candidates: {payload.get('queue', {}).get('candidates_created', 0)} created / {payload.get('queue', {}).get('candidates_suppressed', 0)} suppressed / {payload.get('queue', {}).get('candidates_deduped', 0)} deduped\n")
             for alert in payload["alerts"]:
                 f.write(f"- **{alert['severity']} {alert['code']}** — {alert['message']}\n")
 

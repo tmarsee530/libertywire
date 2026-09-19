@@ -31,10 +31,10 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_notification_foundation.py scripts/build_recent.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
       - name: Test fast path and core timeline product
         run: |
-          python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py
+          python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py tests/test_notification_foundation.py
           node --test tests/test_timeline_state.js
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
@@ -55,6 +55,12 @@ jobs:
           test -s following/index.html
           grep -q 'Your Stories' following/index.html
           grep -q 'data-follow-control' stories/*/index.html
+          test -s data/server_follows.json
+          test -s data/notification_queue.json
+          test -s data/notification_health.json
+          test -s notification-health/index.html
+          grep -q 'No delivery is enabled' notification-health/index.html
+          grep -q '"delivery_enabled": false' data/notification_queue.json
           grep -q 'Live News Timelines' stories/index.html
           grep -q 'G-KKT59K667B' stories/index.html
           grep -q 'G-KKT59K667B' recent/index.html
@@ -110,13 +116,13 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories following health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json sitemap.xml news-sitemap.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories following health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json sitemap.xml news-sitemap.xml
+          git add index.html recent/index.html stories following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json sitemap.xml news-sitemap.xml
           git commit -m "Refresh live timelines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

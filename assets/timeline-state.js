@@ -59,6 +59,9 @@
   const unfollowStory=(storage,id)=>{const state=readFollows(storage);if(!state)return false;delete state.stories[id];return writeFollows(storage,state)};
   const isFollowed=(storage,id)=>{const state=readFollows(storage);return Boolean(state&&state.stories[id])};
   const followedStories=storage=>{const state=readFollows(storage);return state?Object.values(state.stories):[]};
+  // Explicit export primitive for a future opt-in account/email/push sync.
+  // Nothing calls or transmits this automatically.
+  const exportFollowsForSync=storage=>({schemaVersion:1,source:'rp-follows-v1',stories:followedStories(storage).map(story=>({timelineId:story.timelineId,followedAt:story.followedAt,lastKnownUpdateId:story.lastKnownUpdateId||null,lastKnownUpdateAt:story.lastKnownUpdateAt||null}))});
   const unseenCount=(storage,id,updateIds)=>{const read=readState(storage,id);return read?unseenIds(updateIds||[],read).length:0};
   const mergeFollowIndex=(stored,index)=>{const live=index&&index[stored.timelineId];return {...stored,...(live||{}),timelineId:stored.timelineId,url:(live&&live.url)||`/stories/${stored.timelineId}/`,active:Boolean(live)}};
   const sortFollowed=(items,index)=>items.map(item=>mergeFollowIndex(item,index)).sort((a,b)=>{if(a.active!==b.active)return a.active?-1:1;return String(b.last_updated||b.lastKnownUpdateAt||b.followedAt||'').localeCompare(String(a.last_updated||a.lastKnownUpdateAt||a.followedAt||''))});
@@ -79,7 +82,7 @@
     try{const response=await root.fetch(`/data/timeline_state_index.json?t=${Date.now()}`,{cache:'no-store'});if(!response.ok)return{};return (await response.json()).timelines||{}}catch(e){return{}}
   }
 
-  const api={PREFIX,FOLLOW_KEY,cleanIds,storageAvailable,readState,writeState,unseenIds,mergeSeen,emptyFollows,readFollows,writeFollows,followStory,unfollowStory,isFollowed,followedStories,unseenCount,mergeFollowIndex,sortFollowed,initFollowControl,initTimeline,homepageIndex};
+  const api={PREFIX,FOLLOW_KEY,cleanIds,storageAvailable,readState,writeState,unseenIds,mergeSeen,emptyFollows,readFollows,writeFollows,followStory,unfollowStory,isFollowed,followedStories,exportFollowsForSync,unseenCount,mergeFollowIndex,sortFollowed,initFollowControl,initTimeline,homepageIndex};
   if(root&&root.document)root.document.addEventListener('DOMContentLoaded',initTimeline,{once:true});
   return api;
 });

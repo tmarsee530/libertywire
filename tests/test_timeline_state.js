@@ -86,3 +86,12 @@ test('follow unseen counts use read state and blocked storage is safe',()=>{
   assert.equal(state.followStory(blocked,{timelineId:'abc123def456'}),false);
   assert.deepEqual(state.followedStories(blocked),[]);
 });
+
+test('local follows can be explicitly exported without visit state or transmission',()=>{
+  const storage=new MemoryStorage();
+  state.writeState(storage,'abc123def456',{seenUpdateIds:['private-read-state']});
+  state.followStory(storage,{timelineId:'abc123def456',title:'Story',lastKnownUpdateId:'u1'},'2026-09-19T00:00:00Z');
+  assert.deepEqual(state.exportFollowsForSync(storage),{
+    schemaVersion:1,source:'rp-follows-v1',stories:[{timelineId:'abc123def456',followedAt:'2026-09-19T00:00:00Z',lastKnownUpdateId:'u1',lastKnownUpdateAt:null}]
+  });
+});

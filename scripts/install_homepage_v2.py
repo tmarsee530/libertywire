@@ -19,6 +19,8 @@ if ns!=s:s=ns;changed=True
 if css not in s:s=s.replace('</head>',css+'\n</head>',1);changed=True
 if state_js not in s:s=s.replace(js,state_js+'\n'+js,1);changed=True
 if js not in s:s=s.replace('</body>',js+'\n</body>',1);changed=True
+rss='<link rel="alternate" type="application/rss+xml" title="Rally Point News — Live Timelines" href="/feed.xml">'
+if rss not in s:s=s.replace('</head>',rss+'\n</head>',1);changed=True
 if '<a class="skip-link" href="#main-content">Skip to main content</a>' not in s:s=s.replace('<body>','<body>\n<a class="skip-link" href="#main-content">Skip to main content</a>',1);changed=True
 if '<main>' in s:s=s.replace('<main>','<main id="main-content">',1);changed=True
 footer='<footer><div class="foot-mast">Rally Point News</div><div>Headlines link directly to the original publishers. All reporting © its respective sources.</div><div class="foot-line"><a href="/recent/">Recent Headlines</a> · <a href="/sources/">News Sources</a> · <a href="/about/">About &amp; Editorial Standards</a> · <a href="/privacy/">Privacy</a></div><div class="foot-line">Tips &amp; corrections: <a href="mailto:tmarsee530@me.com">tmarsee530@me.com</a></div></footer>'

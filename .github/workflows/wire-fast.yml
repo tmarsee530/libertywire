@@ -151,13 +151,13 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/publication_dedupe.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json data/publication_dedupe.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/publication_dedupe.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml
+          git add index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/publication_dedupe.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml
           git commit -m "Refresh live timelines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

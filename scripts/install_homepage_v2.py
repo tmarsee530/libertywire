@@ -11,7 +11,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=39">';state_js='<script src="assets/timeline-state.js?v=1" defer></script>';js='<script src="assets/homepage-v2.js?v=42" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=40">';state_js='<script src="assets/timeline-state.js?v=2" defer></script>';js='<script src="assets/homepage-v2.js?v=43" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -28,7 +28,7 @@ ns=s.replace('PAGE CHECKS FOR UPDATES EVERY 60 SECONDS','UPDATED THROUGHOUT THE 
 if ns!=s:s=ns;changed=True
 for a,b in {'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire','Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire','Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.','Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'}.items():
  if a in s:s=s.replace(a,b);changed=True
-nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Timeline</a><a href="#grid">Live Timelines</a><a href="/stories/">All Timelines</a><a href="/recent/">Recent</a><a href="/sources/">Sources</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
+nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Timeline</a><a href="#grid">Live Timelines</a><a href="/stories/">All Timelines</a><a href="/following/">Your Stories</a><a href="/recent/">Recent</a><a href="/sources/">Sources</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
 m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,re.S)
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True

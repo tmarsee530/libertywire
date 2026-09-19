@@ -1,27 +1,32 @@
 {
   "cycle": {
-    "started_at": "2026-09-19T10:39:59.295500Z",
-    "completed_at": "2026-09-19T10:40:31.918629Z",
-    "duration_seconds": 32.62,
-    "previous_completed_at": "2026-09-19T10:35:45.666482Z"
+    "started_at": "2026-09-19T10:44:45.600594Z",
+    "completed_at": "2026-09-19T10:45:18.506552Z",
+    "duration_seconds": 32.91,
+    "previous_completed_at": "2026-09-19T10:40:31.918629Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-19T10:40:03.971883Z",
+    "last_successful_run": "2026-09-19T10:44:50.944575Z",
     "age_minutes": 0.5,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1366
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "Federal Reserve Press Releases",
+        "error": "404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml; no advertised RSS/Atom feed found"
+      }
+    ],
+    "stories_available": 1346
   },
   "content": {
-    "last_story_created": "2026-09-19T10:40:31.914805Z",
+    "last_story_created": "2026-09-19T10:45:18.502924Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-09-19T10:40:30.973415Z",
+    "last_timeline_update": "2026-09-19T10:45:17.504884Z",
     "last_timeline_age_minutes": 0.0,
     "published_timelines": 63,
-    "manifest_updated_at": "2026-09-19T10:40:31.445033Z"
+    "manifest_updated_at": "2026-09-19T10:45:17.997334Z"
   },
   "fast_path": {
     "reports_evaluated": 84,
@@ -70,18 +75,18 @@
       "label": "Source ingestion",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 4.74,
-      "completed_at": "2026-09-19T10:40:04.034716Z",
+      "duration_seconds": 5.39,
+      "completed_at": "2026-09-19T10:44:50.994964Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1366 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: Federal Reserve Press Releases: 404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml; no advertised RSS/Atom feed found"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.51,
-      "completed_at": "2026-09-19T10:40:04.540596Z",
+      "duration_seconds": 0.5,
+      "completed_at": "2026-09-19T10:44:51.494076Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
       "message": "Fast path: 0 promoted, 80 kept on normal path, 4 duplicates grouped."
@@ -90,18 +95,18 @@
       "label": "Story clustering",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 26.4,
-      "completed_at": "2026-09-19T10:40:30.941676Z",
+      "duration_seconds": 25.98,
+      "completed_at": "2026-09-19T10:45:17.476827Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1209 storylines; 86 multi-family; 7 breaking; 12 developing; 5 hot"
+      "message": "Built 1190 storylines; 85 multi-family; 5 breaking; 12 developing; 6 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.31,
-      "completed_at": "2026-09-19T10:40:31.252916Z",
+      "duration_seconds": 0.32,
+      "completed_at": "2026-09-19T10:45:17.794686Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -110,8 +115,8 @@
       "label": "Timeline publication",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.32,
-      "completed_at": "2026-09-19T10:40:31.575771Z",
+      "duration_seconds": 0.34,
+      "completed_at": "2026-09-19T10:45:18.132639Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 63 autonomous source-backed story timelines"
@@ -121,7 +126,7 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-09-19T10:40:31.649167Z",
+      "completed_at": "2026-09-19T10:45:18.198476Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -131,17 +136,17 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-19T10:40:31.703882Z",
+      "completed_at": "2026-09-19T10:45:18.249253Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
-      "message": "Rally Point lean homepage already installed"
+      "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
     },
     "metadata": {
       "label": "Discovery metadata",
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-09-19T10:40:31.732962Z",
+      "completed_at": "2026-09-19T10:45:18.277099Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -151,7 +156,7 @@
       "status": "HEALTHY",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-19T10:40:31.780084Z",
+      "completed_at": "2026-09-19T10:45:18.325025Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -160,8 +165,8 @@
       "label": "Sitemap refresh",
       "status": "HEALTHY",
       "attempts": 1,
-      "duration_seconds": 0.09,
-      "completed_at": "2026-09-19T10:40:31.874305Z",
+      "duration_seconds": 0.14,
+      "completed_at": "2026-09-19T10:45:18.464289Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and qualified timelines"

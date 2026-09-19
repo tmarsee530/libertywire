@@ -35,6 +35,7 @@ STAGES = [
     ("homepage", "Homepage refresh", "scripts/install_homepage_v2.py", "index.html"),
     ("metadata", "Discovery metadata", "scripts/install_discovery_metadata.py", "index.html"),
     ("recent", "Recent-headlines page", "scripts/build_recent.py", "recent/index.html"),
+    ("feed", "Live timeline RSS", "scripts/build_feed.py", "feed.xml"),
     ("sitemap", "Sitemap refresh", "scripts/build_sitemaps.py", "sitemap.xml"),
 ]
 

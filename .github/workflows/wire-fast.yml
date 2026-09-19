@@ -31,7 +31,7 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
       - name: Test fast path and core timeline product
         run: |
           python -m unittest -v tests/test_breaking_fast_path.py tests/test_timeline_product.py tests/test_notification_foundation.py tests/test_email_pilot.py
@@ -57,6 +57,9 @@ jobs:
           test -s stories/index.html
           test -s feed.xml
           grep -q 'Rally Point News — Live Timelines' feed.xml
+          test -s data/distribution_candidates.json
+          grep -q '"auto_post_enabled": false' data/distribution_candidates.json
+          grep -q '"ideology_used_in_selection": false' data/distribution_candidates.json
           grep -q 'application/rss+xml' index.html
           grep -q 'More live timelines' stories/*/index.html
           test -s data/published_timelines.json
@@ -132,13 +135,13 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi
           git config user.name "rally-point-wire[bot]"
           git config user.email "rally-point-wire[bot]@users.noreply.github.com"
-          git add index.html recent/index.html stories following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json sitemap.xml news-sitemap.xml feed.xml
+          git add index.html recent/index.html stories following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json sitemap.xml news-sitemap.xml feed.xml
           git commit -m "Refresh live timelines"
           git fetch origin main
           PARENT_SHA="$(git rev-parse HEAD^)"

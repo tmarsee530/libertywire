@@ -69,6 +69,8 @@ jobs:
           grep -q 'application/rss+xml' index.html
           grep -q 'More live timelines' stories/*/index.html
           test -s data/published_timelines.json
+          test -s data/publication_dedupe.json
+          grep -q 'same_event_publication_dedupe' data/publication_dedupe.json || grep -q '"suppressed_count": 0' data/publication_dedupe.json
           test -s data/timeline_state_index.json
           test -s assets/timeline-state.js
           test -s assets/following.js
@@ -143,7 +145,7 @@ jobs:
           PY
       - name: Commit fresh timelines and homepage when changed
         run: |
-          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
+          if [ -z "$(git status --porcelain -- index.html recent/index.html stories archive following health notification-health assets/timeline.css data/news.json data/breaking_fast_path.json data/storylines.json data/history.json data/published_timelines.json data/publication_dedupe.json data/timeline_state_index.json data/newsroom_health.json data/newsroom_dead_letters.json data/notification_queue.json data/notification_health.json data/email_delivery_health.json data/distribution_candidates.json data/archive_index.json data/publication_dedupe.json sitemap.xml news-sitemap.xml feed.xml)" ]; then
             echo "No headline or discovery changes."
             exit 0
           fi

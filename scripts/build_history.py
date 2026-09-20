@@ -5,9 +5,9 @@ import json
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 try:
-    from timeline_intelligence import canonical_link, serializable_model
+    from timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
 except ModuleNotFoundError:  # package import in the unit-test runner
-    from scripts.timeline_intelligence import canonical_link, serializable_model
+    from scripts.timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
 ROOT=Path(__file__).resolve().parents[1]
 STORYLINES=ROOT/"data"/"storylines.json";OUT=ROOT/"data"/"history.json"
 MAX_ENTRIES=1000;RETENTION_DAYS=30;MAX_TITLES=16;MAX_COVERAGE=40
@@ -104,7 +104,7 @@ def main():
         if sid in active_ids:continue
         last=parse_dt(record.get("last_seen"))
         if last and last>=cutoff:
-            if int(record.get("timeline_schema_version",0) or 0)<1:record={**record,**serializable_model(record)}
+            if int(record.get("timeline_schema_version",0) or 0)<SCHEMA_VERSION:record={**record,**serializable_model(record)}
             merged.append(record)
     merged.sort(key=lambda x:parse_dt(x.get("last_seen")) or datetime.min.replace(tzinfo=timezone.utc),reverse=True)
     merged=merged[:MAX_ENTRIES]

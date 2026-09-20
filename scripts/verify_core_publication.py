@@ -6,6 +6,10 @@ import json
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+try:
+    from timeline_intelligence import SCHEMA_VERSION
+except ModuleNotFoundError:
+    from scripts.timeline_intelligence import SCHEMA_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -35,7 +39,7 @@ def verify(root=ROOT):
     news = load_json(data / "news.json")
     assert int(news.get("healthy_source_count", 0)) > 0, "no healthy sources in core publication"
     manifest = load_json(data / "published_timelines.json")
-    assert manifest.get("timeline_schema_version") == 1
+    assert manifest.get("timeline_schema_version") == SCHEMA_VERSION
     ids = set(manifest.get("ids") or [])
     assert int(manifest.get("count", -1)) == len(ids)
     history_payload = load_json(data / "history.json")

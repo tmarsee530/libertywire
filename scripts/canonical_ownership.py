@@ -171,6 +171,35 @@ def enforce_unique_updates(records, current_ids):
                 purity_decisions.append({"timeline_id": str(record.get("id")), "material_update_id": str(update.get("id")), "reason": reason})
             else:
                 kept.append(update)
+        # A legacy cluster can contain several unrelated event frames even
+        # when every individual item is factual. Anchor current publication
+        # to the authoritative current event and retain only developments for
+        # which the matcher establishes semantic or causal continuity. Raw
+        # history remains untouched for review.
+        anchor = str(record.get("current_title") or (record.get("current_status") or {}).get("summary") or "")
+        anchor_updates = [item for item in kept if compare_events(anchor, str(item.get("label") or item.get("source_title") or "")).same_event]
+        if anchor and anchor_updates:
+            coherent = []
+            for update in kept:
+                label = str(update.get("label") or update.get("source_title") or "")
+                match = compare_events(anchor, label)
+                # Low-confidence non-matches are genuinely ambiguous (for
+                # example, an injury followed by a terse testing update).
+                # Preserve them. Suppress only when the matcher sees enough
+                # overlapping structure to show that the shared topic/place
+                # is bridging distinct event frames.
+                if match.same_event or match.confidence < .30:
+                    coherent.append(update)
+                    continue
+                purity_decisions.append({
+                    "timeline_id": str(record.get("id")),
+                    "material_update_id": str(update.get("id")),
+                    "reason": "event_identity_mismatch",
+                    "identity_reason": match.reason,
+                    "identity_confidence": match.confidence,
+                })
+            if coherent:
+                kept = coherent
         # Never erase a timeline solely because a heuristic rejected every
         # item. Leave it for explicit review rather than manufacturing purity.
         if kept:

@@ -11,7 +11,7 @@ import re
 from datetime import datetime, timezone
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 TRACKING_QUERY_KEYS = {
     "fbclid", "gclid", "mc_cid", "mc_eid", "ocid", "ref", "ref_src",
     "source", "cmpid", "output",
@@ -65,10 +65,30 @@ CONCEPT_PATTERNS = {
     "evacuate": ("evacuat",),
     "delay": (" delays", " delayed", "postpon"),
     "approve": (" approves", " approved", "passes", " passed"),
-    "reject": (" rejects", " rejected", "blocks", " blocked"),
+    "reject": (" rejects", " rejected", "blocks", " blocked", " bars", " barred", "denied access", "denied entry"),
     "suspend": (" suspends", " suspended"),
     "settle": (" settles", " settled"),
+    "access_decision": ("bans ", "ban on ", "to ban ", "announces ban", "banning ", "will bar ", "he'll bar ", "trump bars "),
+    "access_enforcement": ("denied access", "denied white house access", "denied from white house", "blocked from access", "blocks ", " bars ", "turned away", "credentials revoked", "badge did not work", "barred from"),
+    "agreement": (" agreement", " deal", " pact", "reaches deal", "struck deal"),
+    "creation": (" creates ", " creating ", " will create", " form ", " will form", "appoint ", "appointing ", "ai force"),
 }
+SOURCE_FAMILY_ALIASES = {
+    "fox news politics": "fox", "fox news world": "fox", "fox business": "fox", "fox news": "fox",
+    "national review the corner": "national-review", "national review": "national-review",
+    "associated press": "ap", "ap": "ap", "npr news": "npr", "npr": "npr",
+    "realclearpolitics": "realclear", "realclearpolicy": "realclear", "realclearworld": "realclear",
+    "realcleardefense": "realclear", "daily signal": "daily-signal", "the daily signal": "daily-signal",
+}
+REACTION_PATTERNS = (
+    "analysis:", "commentary:", "opinion:", "reacts to", "reaction to", "weighs in",
+    "rips ", "slams ", "defends ", "praises ", "condemns ", "what it means",
+    "week in review", "week in pictures", "talk about", "expert says",
+    "calls ", "responds to", "says it would", "shows lead with", "avoids news of", "welcomes ",
+    "expresses optimism", "victory lap", "what it means",
+    ": expert", "expert:",
+)
+CORRECTION_PATTERNS = ("corrects", "corrected", "correction", "revise", "revises", "revised", "updated count", "now reports", "now says")
 
 
 def clean_text(value):
@@ -98,10 +118,8 @@ def canonical_link(value):
 
 
 def fact_tokens(value):
-    return {
-        token for token in re.findall(r"[a-z0-9']{3,}", clean_text(value).lower())
-        if token not in STOP_WORDS and token not in HYPE_WORDS
-    }
+    raw = re.findall(r"[a-z']+|\d+(?:[.,]\d+)?", clean_text(value).lower())
+    return {token for token in raw if (any(char.isdigit() for char in token) or len(token) >= 3) and token not in STOP_WORDS and token not in HYPE_WORDS}
 
 
 def proper_anchors(value):
@@ -112,13 +130,22 @@ def proper_anchors(value):
 def state_concepts(value):
     low = " " + clean_text(value).lower()
     concepts = {name for name, patterns in CONCEPT_PATTERNS.items() if any(pattern in low for pattern in patterns)}
-    concepts |= fact_tokens(value) & STATE_TERMS
-    return concepts
+    return concepts or (fact_tokens(value) & STATE_TERMS)
 
 
 def low_signal(value):
     text = clean_text(value); low = text.lower()
     return text.endswith("?") or any(phrase in low for phrase in LOW_SIGNAL_PHRASES)
+
+
+def commentary_only(value):
+    low = clean_text(value).lower()
+    return any(phrase in low for phrase in REACTION_PATTERNS)
+
+
+def source_family(value):
+    clean = clean_text(value).lower()
+    return SOURCE_FAMILY_ALIASES.get(clean, clean or "unknown")
 
 
 def _clauses(title):
@@ -149,13 +176,15 @@ def _best_label(title, seen):
     return title if len(words) <= 22 else " ".join(words[:22]).rstrip(" ,;:") + "…"
 
 
-def _source_entry(item, role="primary"):
+def _source_entry(item, role="primary", independent=True):
     return {
         "source": clean_text(item.get("source")) or "Original source",
         "link": str(item.get("link") or ""),
         "date": item.get("date"),
         "title": clean_text(item.get("title")),
         "role": role,
+        "source_family": source_family(item.get("source")),
+        "independent": bool(independent),
     }
 
 
@@ -168,7 +197,16 @@ def durable_update_id(item):
 
 
 def _merge_source(update, item):
-    incoming = _source_entry(item, "corroborating")
+    incoming_tokens = fact_tokens(item.get("title"))
+    primary_tokens = fact_tokens(update.get("source_title"))
+    same_family = source_family(item.get("source")) in {source_family(x.get("source")) for x in update.get("sources", [])}
+    # Near-verbatim copy is not independent corroboration. An explicit claim
+    # that the second newsroom independently confirmed it is the conservative
+    # exception; generic attribution such as "officials say" is not.
+    explicit_confirmation = any(word in clean_text(item.get("title")).lower() for word in ("confirmed", "independently confirms", "independently verified"))
+    likely_republication = _similarity(incoming_tokens, primary_tokens) >= .88 and not explicit_confirmation
+    independent = not same_family and not likely_republication
+    incoming = _source_entry(item, "corroborating" if independent else "republication", independent)
     key = (incoming["source"].lower(), canonical_link(incoming["link"]))
     existing = {(x.get("source", "").lower(), canonical_link(x.get("link"))) for x in update["sources"]}
     if key not in existing:
@@ -221,6 +259,8 @@ def meaningful_updates(coverage, record_status="developing"):
         prior_concepts = set().union(*(set(update.get("state_concepts") or []) for update in updates)) if updates else set()
         prior_anchors = set().union(*(set(update.get("anchors") or []) for update in updates)) if updates else set()
         novel_concepts = concepts - prior_concepts
+        if "confirm" in novel_concepts and concepts & prior_concepts:
+            novel_concepts.discard("confirm")
         novel_anchors = anchors - prior_anchors
         closest_index = None
         closest_similarity = 0.0
@@ -229,16 +269,34 @@ def meaningful_updates(coverage, record_status="developing"):
             if similarity > closest_similarity:
                 closest_index, closest_similarity = index, similarity
         same_event_index = next((index for index, update in enumerate(updates) if concepts and concepts & set(update.get("state_concepts") or []) and anchors & set(update.get("anchors") or [])), None)
+        revision_index = None
+        current_numbers = _numbers(tokens)
+        if current_numbers:
+            for index, update in enumerate(updates):
+                prior_tokens = set(update.get("fact_tokens") or [])
+                prior_numbers = _numbers(prior_tokens)
+                shared_non_numbers = (tokens - current_numbers) & (prior_tokens - prior_numbers)
+                related_state = concepts & set(update.get("state_concepts") or [])
+                related_anchor = anchors & set(update.get("anchors") or [])
+                if prior_numbers and current_numbers != prior_numbers and related_anchor and len(shared_non_numbers) >= 2 and (related_state or _similarity(tokens-current_numbers, prior_tokens-prior_numbers) >= .4):
+                    revision_index = index
+                    break
         narrative_change = bool(
             len(novel) >= 4
             and len(novel) / max(1, len(tokens)) >= 0.42
             and (novel_anchors or len(novel) >= 5)
         )
-        material = not updates or bool(decisive or major_novel or novel_concepts) or narrative_change
+        commentary = commentary_only(title)
+        if commentary and not updates:
+            continue
+        material = not updates or revision_index is not None or bool(decisive or major_novel or novel_concepts) or (narrative_change and not commentary)
         duplicate_event = same_event_index is not None and not (novel_concepts or major_novel or _numbers(novel))
         if duplicate_event:
             closest_index = same_event_index
-        if updates and (not material or duplicate_event or (closest_similarity >= 0.62 and not (decisive or major_novel or novel_concepts))):
+        if updates and commentary:
+            # Reactions and opinion are neither chronology nor corroboration.
+            continue
+        if updates and revision_index is None and (not material or duplicate_event or (closest_similarity >= 0.62 and not (decisive or major_novel or novel_concepts))):
             if closest_index is not None:
                 _merge_source(updates[closest_index], item)
                 if url_key:
@@ -246,7 +304,7 @@ def meaningful_updates(coverage, record_status="developing"):
             continue
         label = _best_label(title, seen)
         label_tokens = fact_tokens(label)
-        if updates and len(label_tokens - seen) < 2 and not ((label_tokens - seen) & STATE_TERMS) and not _numbers(label_tokens - seen):
+        if updates and len(label_tokens - seen) < 2 and not ((label_tokens - seen) & STATE_TERMS) and not _numbers(label_tokens - seen) and not novel_concepts:
             if closest_index is not None:
                 _merge_source(updates[closest_index], item)
             continue
@@ -264,6 +322,8 @@ def meaningful_updates(coverage, record_status="developing"):
             "label": label,
             "classification": "UPDATE",
             "date": item.get("date"),
+            "published_at": item.get("date"),
+            "time_basis": "source_published_at",
             "source": clean_text(item.get("source")) or "Original source",
             "link": str(item.get("link") or ""),
             "source_title": title,
@@ -273,18 +333,18 @@ def meaningful_updates(coverage, record_status="developing"):
             "state_concepts": sorted(concepts),
             "anchors": sorted(anchors),
         }
+        if revision_index is not None:
+            update["revision_kind"] = "correction" if any(term in title.lower() for term in CORRECTION_PATTERNS) else "numerical_revision"
+            update["supersedes_update_id"] = updates[revision_index].get("id")
         updates.append(update)
         if url_key:
             url_index[url_key] = len(updates) - 1
         seen |= tokens
     for index, update in enumerate(updates):
-        update["classification"] = classify_update(
-            update["label"], record_status,
-            newest=index == len(updates) - 1,
-            oldest=index == 0,
-        )
+        update["classification"] = "CORRECTION" if update.get("revision_kind") == "correction" else ("REVISION" if update.get("revision_kind") else classify_update(update["label"], record_status,newest=index == len(updates) - 1,oldest=index == 0))
         update["source_count"] = len(update.get("sources") or [])
-        update["corroborated"] = update["source_count"] > 1
+        update["independent_source_count"] = len({source_family(x.get("source")) for x in update.get("sources") or [] if x.get("independent", True)})
+        update["corroborated"] = update["independent_source_count"] > 1
     return updates
 
 
@@ -305,6 +365,7 @@ def current_status(updates):
         "link": latest.get("link"),
         "classification": latest.get("classification"),
         "source_count": latest.get("source_count", len(latest.get("sources") or [])),
+        "independent_source_count": latest.get("independent_source_count", 1),
         "corroborated": bool(latest.get("corroborated")),
     }
 

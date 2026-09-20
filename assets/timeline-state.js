@@ -31,6 +31,7 @@
     const unseenSet=new Set(unseen); nodes.forEach(node=>{if(unseenSet.has(node.dataset.updateId))node.classList.add('is-new')});
     if(unseen.length){
       trackOnce('new_updates_available',id,{timeline_id:id,new_update_count:unseen.length});
+      const firstNew=nodes.find(x=>unseenSet.has(x.dataset.updateId));if(firstNew&&firstNew.parentNode){const boundary=root.document.createElement('li');boundary.className='new-update-boundary';boundary.setAttribute('role','separator');boundary.textContent=`${unseen.length} meaningful development${unseen.length===1?'':'s'} since your last visit`;firstNew.parentNode.insertBefore(boundary,firstNew)}
       const box=root.document.createElement('aside'); box.className='return-state'; box.setAttribute('role','status');
       box.innerHTML=`<strong>${unseen.length} new development${unseen.length===1?'':'s'} since your last visit</strong><span>Your previous reading state stays on this device.</span><button type="button">Jump to first new update</button>`;
       const status=root.document.querySelector('.current-status'); if(status)status.insertAdjacentElement('afterend',box);

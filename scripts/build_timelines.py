@@ -124,39 +124,44 @@ def snapshot_titles(coverage):
 
 def analytics_tag():
     # Kept outside f-strings so JavaScript braces can never be interpreted by Python.
-    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=2" defer></script><script src="/assets/email-opt-in.js?v=1" defer></script>'
+    return '<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=3" defer></script><script src="/assets/email-opt-in.js?v=1" defer></script>'
 
 def source_links(update, compact=False):
     sources=update.get("sources") or [{"source":update.get("source"),"link":update.get("link"),"title":update.get("source_title")}]
     links=[]
-    for source in sources[:3]:
+    for index,source in enumerate(sources[:3]):
         link=source.get("link")
         if not link: continue
         name=source.get("source") or source_domain(link)
-        links.append(f'<a href="{esc(link)}" rel="noopener" target="_blank" title="{esc(source.get("title"))}">{esc(name)} ↗</a>')
+        role=source.get("role") or ("primary" if index==0 else "corroborating")
+        prefix="Primary: " if index==0 else ("Confirmed by: " if role=="corroborating" else "Also reported by: ")
+        links.append(prefix+f'<a href="{esc(link)}" rel="noopener" target="_blank" title="{esc(source.get("title"))}">{esc(name)} ↗</a>')
     extra=max(0,len(sources)-3)
     more=f'<span>+{extra} more source{"s" if extra!=1 else ""}</span>' if extra else ""
     domain="" if compact else f'<span>{esc(source_domain(update.get("link")))}</span>'
-    label="Sources: " if len(sources)>1 else "Source: "
-    return label+" · ".join(links)+more+domain
+    return " · ".join(links)+more+domain
 
 def update_html(update, compact=False):
     classification=clean_title(update.get("classification")) or "UPDATE"
-    return f'''<li class="timeline-update{' compact' if compact else ''}" data-update-id="{esc(update.get('id'))}" data-published="{esc(update.get('date'))}"><time datetime="{esc(update.get('date'))}">{esc(display_time(update.get('date')))}</time><div><p class="update-class update-{esc(classification.lower().replace(' ','-'))}">{esc(classification)}</p><h2>{esc(update.get('label'))}</h2><p class="update-sources">{source_links(update,compact)}</p></div></li>'''
+    revision=f'<p class="revision-note">Supersedes an earlier reported fact in this timeline.</p>' if update.get("supersedes_update_id") else ''
+    return f'''<li class="timeline-update{' compact' if compact else ''}" data-update-id="{esc(update.get('id'))}" data-published="{esc(update.get('date'))}"><time datetime="{esc(update.get('date'))}" title="Source publication time">Published {esc(display_time(update.get('date')))}</time><div><p class="update-class update-{esc(classification.lower().replace(' ','-'))}">{esc(classification)}</p><h2>{esc(update.get('label'))}</h2>{revision}<p class="update-sources">{source_links(update,compact)}</p></div></li>'''
 
 def state_development(update):
     """Public, compact representation shared by the Wire and return-state UI."""
     sources=[]
     for source in (update.get("sources") or [])[:5]:
         if source.get("link"):
-            sources.append({key:source.get(key) for key in ("source","link","title","date","role")})
+            sources.append({key:source.get(key) for key in ("source","link","title","date","role","source_family","independent")})
     return {
         "id":update.get("id"), "label":clean_title(update.get("label")),
         "classification":clean_title(update.get("classification")) or "UPDATE",
         "date":update.get("date"), "source":update.get("source"),
         "link":update.get("link"), "source_title":update.get("source_title"),
         "source_count":int(update.get("source_count",len(sources)) or 0),
-        "corroborated":bool(update.get("corroborated")), "sources":sources,
+        "independent_source_count":int(update.get("independent_source_count",1) or 0),
+        "corroborated":bool(update.get("corroborated")), "published_at":update.get("published_at") or update.get("date"),
+        "time_basis":update.get("time_basis") or "source_published_at", "revision_kind":update.get("revision_kind"),
+        "supersedes_update_id":update.get("supersedes_update_id"), "sources":sources,
     }
 
 def page(record, published_records):
@@ -174,8 +179,8 @@ def page(record, published_records):
     if earlier:
         earlier_html=f'''<details class="earlier"><summary><strong>What happened earlier</strong><span>{len(earlier)} earlier development{"s" if len(earlier)!=1 else ""}</span></summary><ol class="timeline timeline-earlier" aria-label="Earlier developments, newest first">{"".join(update_html(update,True) for update in earlier)}</ol></details>'''
     current_source=(f'<a href="{esc(current.get("link"))}" rel="noopener" target="_blank">{esc(current.get("source") or source_domain(current.get("link")))} ↗</a>' if current.get("link") else "")
-    current_source_count=int(current.get("source_count",0) or 0)
-    current_corroboration=f' · {current_source_count} attributed sources' if current_source_count>1 else ''
+    current_source_count=int(current.get("independent_source_count",current.get("source_count",0)) or 0)
+    current_corroboration=f' · independently confirmed by {current_source_count} sources' if current_source_count>1 else ''
     related=[]; base_tokens=tokens_for_related(title)
     for candidate in published_records:
         if candidate.get("id")==record.get("id") or not eligible(candidate): continue
@@ -210,14 +215,14 @@ def index_page(records):
 def follow_enabled_page(body, record):
     current=timeline_model(record)["current_status"]
     data=json.dumps({"timelineId":record["id"],"title":clean_title(record.get("current_title")),"currentStatus":clean_title(current.get("summary")),"lastUpdated":record.get("last_seen")},ensure_ascii=False).replace("</","<\\/")
-    body=body.replace('/assets/timeline.css?v=4','/assets/timeline.css?v=5')
+    body=body.replace('/assets/timeline.css?v=4','/assets/timeline.css?v=6')
     body=body.replace('</head>',f'<script type="application/json" id="timeline-follow-data">{data}</script></head>',1)
     body=body.replace('<a href="/sources/">Sources</a>','<a href="/following/">Your Stories</a><a href="/sources/">Sources</a>',1)
     control='''<div class="follow-row"><button type="button" class="follow-control" data-follow-control aria-pressed="false">Follow this story</button><span>Saved on this device</span></div><section class="email-pilot" data-email-pilot hidden aria-labelledby="email-pilot-heading"><h2 id="email-pilot-heading">Email me when something important changes</h2><p>Optional. Rally Point sends only meaningful developments—not every update. Confirm your address before alerts begin.</p><form><label for="story-alert-email">Email address</label><div><input id="story-alert-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required><button type="submit">Send confirmation</button></div><input class="email-honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="email-consent">By continuing, you agree to receive alerts for this story. Unsubscribe anytime. Your local follow remains separate.</p></form><p class="email-result" data-email-status role="status" aria-live="polite"></p></section>'''
     return body.replace('</div><section class="current-status"',f'</div>{control}<section class="current-status"',1)
 
 def following_page():
-    return '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your Stories | Rally Point News</title><meta name="description" content="Stories you intentionally follow on this device."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://rallypointnews.com/following/"><script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=2" defer></script><script src="/assets/following.js?v=1" defer></script><link rel="stylesheet" href="/assets/timeline.css?v=5"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/stories/">Live Timelines</a><a href="/following/" aria-current="page">Your Stories</a><a href="/sources/">Sources</a></nav></header><main><p class="status">YOUR STORIES</p><h1>Stories you chose to follow</h1><p class="dek">A private, device-local list of developing stories you want to return to.</p><div id="following-status" class="following-status" role="status" aria-live="polite">Loading your stories…</div><section id="following-list" class="following-list" aria-label="Followed stories"></section></main><footer>Follows stay in this browser. No account is required. · <a href="/privacy/">Privacy</a></footer></body></html>'''
+    return '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your Stories | Rally Point News</title><meta name="description" content="Stories you intentionally follow on this device."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://rallypointnews.com/following/"><script async src="https://www.googletagmanager.com/gtag/js?id=G-KKT59K667B"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-KKT59K667B");</script><script src="/assets/timeline-state.js?v=3" defer></script><script src="/assets/following.js?v=1" defer></script><link rel="stylesheet" href="/assets/timeline.css?v=6"></head><body><header><a class="mast" href="/">Rally Point News</a><nav><a href="/">Top Stories</a><a href="/stories/">Live Timelines</a><a href="/following/" aria-current="page">Your Stories</a><a href="/sources/">Sources</a></nav></header><main><p class="status">YOUR STORIES</p><h1>Stories you chose to follow</h1><p class="dek">A private, device-local list of developing stories you want to return to.</p><div id="following-status" class="following-status" role="status" aria-live="polite">Loading your stories…</div><section id="following-list" class="following-list" aria-label="Followed stories"></section></main><footer>Follows stay in this browser. No account is required. · <a href="/privacy/">Privacy</a></footer></body></html>'''
 
 def main():
     payload=json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"storylines":[]}
@@ -235,7 +240,7 @@ def main():
     records=[x for x in by_id.values() if eligible(x,previous_ids)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
     manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
-    state_index={"generated_at":manifest["generated_at"],"schema_version":3,"timelines":{str(x["id"]):{"title":clean_title(x.get("current_title")),"status":str(x.get("status") or "developing"),"currentStatus":clean_title(timeline_model(x)["current_status"].get("summary")),"last_updated":x.get("last_seen"),"url":f'/stories/{x["id"]}/',"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")],"developments":[state_development(u) for u in reversed(timeline_model(x)["updates"])]} for x in records}}
+    state_index={"generated_at":manifest["generated_at"],"schema_version":4,"timelines":{str(x["id"]):{"title":clean_title(x.get("current_title")),"status":str(x.get("status") or "developing"),"currentStatus":clean_title(timeline_model(x)["current_status"].get("summary")),"last_updated":x.get("last_seen"),"url":f'/stories/{x["id"]}/',"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")],"developments":[state_development(u) for u in reversed(timeline_model(x)["updates"])]} for x in records}}
     STATE_INDEX.write_text(json.dumps(state_index,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     STORIES.mkdir(parents=True,exist_ok=True); keep={str(record["id"]) for record in records}
     # Published timeline URLs are permanent. The active working set is bounded,

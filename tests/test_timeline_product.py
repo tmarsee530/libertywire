@@ -156,12 +156,12 @@ class TimelineRenderingTests(unittest.TestCase):
                 body = (stories / legacy["id"] / "index.html").read_text()
                 self.assertIn(f'https://rallypointnews.com/stories/{legacy["id"]}/', body)
                 self.assertIn('data-update-id=', body)
-                self.assertIn('/assets/timeline-state.js?v=2', body)
+                self.assertIn('/assets/timeline-state.js?v=3', body)
                 self.assertIn('data-follow-control', body)
                 self.assertIn('id="timeline-follow-data"', body)
                 index = json.loads(state_index.read_text())
                 self.assertEqual(len(index["timelines"][legacy["id"]]["update_ids"]), serializable_model(legacy)["material_update_count"])
-                self.assertEqual(index["schema_version"], 3)
+                self.assertEqual(index["schema_version"], 4)
                 self.assertEqual(index["timelines"][legacy["id"]]["url"], f'/stories/{legacy["id"]}/')
                 self.assertEqual(
                     [x["id"] for x in index["timelines"][legacy["id"]]["developments"]],
@@ -231,7 +231,7 @@ class TimelineHistoryTests(unittest.TestCase):
                 build_history.STORYLINES, build_history.OUT = source, target
                 build_history.main()
                 stored = json.loads(target.read_text())["storylines"][0]
-                self.assertEqual(stored["timeline_schema_version"], 1)
+                self.assertEqual(stored["timeline_schema_version"], 2)
                 self.assertEqual(stored["material_update_count"], 3)
                 self.assertIn("current_status", stored)
                 self.assertEqual(len(stored["updates"]), 3)

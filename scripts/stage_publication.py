@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Stage verified newsroom outputs without requiring optional artifacts."""
+"""Stage verified newsroom outputs without requiring optional artifacts.
+
+Before staging, normalize volatile generation timestamps when the underlying
+artifact is otherwise unchanged. This prevents the autonomous fast loop from
+creating a new production commit/deployment merely because a JSON file was
+rebuilt a few minutes later with identical substantive state.
+"""
 from __future__ import annotations
 
 import argparse
@@ -24,6 +30,47 @@ AUXILIARY_PATHS = {
     "sitemap": ("sitemap.xml", "news-sitemap.xml"),
 }
 GOOD = {"HEALTHY", "RECOVERED"}
+VOLATILE_KEYS = {"generated_at", "updated_at", "refreshed_at", "built_at", "last_run_at", "checked_at"}
+
+
+def _git_head_text(relative, root=ROOT):
+    result = subprocess.run(
+        ["git", "show", f"HEAD:{relative}"], cwd=root, capture_output=True, text=True
+    )
+    return result.stdout if result.returncode == 0 else None
+
+
+def _without_volatile(value):
+    if isinstance(value, dict):
+        return {k: _without_volatile(v) for k, v in value.items() if k not in VOLATILE_KEYS}
+    if isinstance(value, list):
+        return [_without_volatile(v) for v in value]
+    return value
+
+
+def restore_timestamp_only_json(root=ROOT):
+    """Restore tracked JSON whose only differences are volatile timestamps."""
+    root = Path(root)
+    data_dir = root / "data"
+    if not data_dir.exists():
+        return []
+    restored = []
+    for path in data_dir.glob("*.json"):
+        relative = path.relative_to(root).as_posix()
+        prior_text = _git_head_text(relative, root)
+        if prior_text is None:
+            continue
+        try:
+            current = json.loads(path.read_text(encoding="utf-8"))
+            prior = json.loads(prior_text)
+        except (OSError, json.JSONDecodeError):
+            continue
+        if current == prior:
+            continue
+        if _without_volatile(current) == _without_volatile(prior):
+            path.write_text(prior_text, encoding="utf-8")
+            restored.append(relative)
+    return restored
 
 
 def selected_paths(root=ROOT):
@@ -47,6 +94,7 @@ def selected_paths(root=ROOT):
 
 
 def stage(root=ROOT):
+    restore_timestamp_only_json(root)
     paths = selected_paths(root)
     if not paths:
         raise RuntimeError("no verified publication paths are available")

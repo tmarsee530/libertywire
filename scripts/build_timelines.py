@@ -8,8 +8,10 @@ from zoneinfo import ZoneInfo
 from pathlib import Path
 from urllib.parse import urlparse
 try:
+    from canonical_ownership import canonical_groups, enforce_unique_updates, ownership_map, violations
     from timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
 except ModuleNotFoundError:  # package import in the unit-test runner
+    from scripts.canonical_ownership import canonical_groups, enforce_unique_updates, ownership_map, violations
     from scripts.timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -237,8 +239,43 @@ def main():
         for update in item.get("coverage",[]): coverage[(update.get("source") or "",canonical_link(update.get("link")))]=update
         merged={**prior,"id":sid,"current_title":item.get("title") or prior.get("current_title"),"last_seen":item.get("newest_date") or prior.get("last_seen"),"status":item.get("status") or prior.get("status"),"max_source_count":max(int(prior.get("max_source_count",0) or 0),int(item.get("source_count",0) or 0)),"max_source_family_count":max(int(prior.get("max_source_family_count",0) or 0),int(item.get("source_family_count",0) or 0)),"coverage":list(coverage.values())}
         by_id[sid]={**merged,**serializable_model(merged)}
-    records=[x for x in by_id.values() if eligible(x,previous_ids)]; records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
-    manifest={"generated_at":datetime.now(timezone.utc).isoformat().replace("+00:00","Z"),"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
+    # Resolve duplicate current canonicals before publication. Historical pages
+    # remain on disk; only their claim to current authoritative ownership is
+    # suppressed. If an older established owner wins, move the current cluster
+    # onto it without minting a new ID.
+    current_ids={str(x.get("id")) for x in current.get("storylines",[]) if x.get("id")}
+    aliases,duplicate_groups=ownership_map(list(by_id.values()),current_ids)
+    for alias,owner in aliases.items():
+        if alias not in current_ids or alias not in by_id or owner not in by_id: continue
+        owner_record=by_id[owner]; alias_record=by_id[alias]
+        coverage={((x.get("source") or ""),canonical_link(x.get("link"))):x for x in owner_record.get("coverage",[])}
+        for item in alias_record.get("coverage",[]):coverage[((item.get("source") or ""),canonical_link(item.get("link")))]=item
+        merged={**owner_record,"last_seen":max(owner_record.get("last_seen") or "",alias_record.get("last_seen") or ""),"coverage":list(coverage.values()),"status":alias_record.get("status") or owner_record.get("status")}
+        by_id[owner]={**merged,**serializable_model(merged)}
+        current_ids.add(owner)
+    candidates=[]
+    for sid,record in by_id.items():
+        if sid in aliases or not eligible(record,previous_ids): continue
+        model=timeline_model(record)
+        candidates.append({**record,**model})
+    records,update_decisions,purity_decisions=enforce_unique_updates(candidates,current_ids)
+    records=[x for x in records if x.get("updates")]
+    records.sort(key=lambda x:parse_dt(x.get("last_seen")),reverse=True); records=records[:MAX_PAGES]
+    detected=violations(records)
+    if detected["shared_material_update_ids"] or detected["identical_material_update_sets"]:
+        raise RuntimeError(f"canonical ownership invariant failed: {detected}")
+    generated_at=datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+    historical_groups=canonical_groups(list(by_id.values()),set(by_id))
+    ownership_report=MANIFEST.parent/"canonical_ownership_report.json"
+    historical_review=MANIFEST.parent/"historical_duplicate_candidates.json"
+    ownership_report.write_text(json.dumps({"generated_at":generated_at,"schema_version":1,"authoritative_timeline_count":len(records),"duplicate_groups_collapsed":duplicate_groups,"material_update_ownership_decisions":update_decisions,"event_purity_suppressions":purity_decisions,"shared_material_update_ids":{},"identical_material_update_sets":[],"status":"HEALTHY"},indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    try:
+        historical_review.write_text(json.dumps({"generated_at":generated_at,"schema_version":1,"automatic_action":False,"candidate_count":len(historical_groups),"candidates":historical_groups},indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    except OSError as exc:
+        # Review tooling is auxiliary; publication ownership is already
+        # enforced in memory and must not fail because a diagnostic cannot be written.
+        print(f"Historical duplicate review unavailable: {exc}")
+    manifest={"generated_at":generated_at,"timeline_schema_version":SCHEMA_VERSION,"count":len(records),"ids":[str(x["id"]) for x in records]}
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,separators=(",",":")),encoding="utf-8")
     state_index={"generated_at":manifest["generated_at"],"schema_version":4,"timelines":{str(x["id"]):{"title":clean_title(x.get("current_title")),"status":str(x.get("status") or "developing"),"currentStatus":clean_title(timeline_model(x)["current_status"].get("summary")),"last_updated":x.get("last_seen"),"url":f'/stories/{x["id"]}/',"update_ids":[u.get("id") for u in timeline_model(x)["updates"] if u.get("id")],"developments":[state_development(u) for u in reversed(timeline_model(x)["updates"])]} for x in records}}
     STATE_INDEX.write_text(json.dumps(state_index,ensure_ascii=False,separators=(",",":")),encoding="utf-8")

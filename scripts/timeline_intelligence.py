@@ -68,7 +68,7 @@ CONCEPT_PATTERNS = {
     "reject": (" rejects", " rejected", "blocks", " blocked", " bars", " barred", "denied access", "denied entry"),
     "suspend": (" suspends", " suspended"),
     "settle": (" settles", " settled"),
-    "access_decision": ("bans ", "ban on ", "to ban ", "announces ban", "banning ", "banned from white house", "will bar ", "he'll bar ", "trump bars "),
+    "access_decision": ("bans ", "ban on ", "to ban ", "announces ban", "banning ", "banned from white house", "kicks ", "will bar ", "he'll bar ", "trump bars "),
     "access_enforcement": ("denied access", "denied white house access", "denied from white house", "blocked from access", "blocks ", " bars ", "turned away", "credentials revoked", "badge did not work", "barred from"),
     "agreement": (" agreement", " deal", " pact", "reaches deal", "struck deal"),
     "creation": (" creates ", " creating ", " will create", " form ", " will form", "appoint ", "appointing ", "ai force"),
@@ -87,6 +87,9 @@ REACTION_PATTERNS = (
     "calls ", "responds to", "says it would", "shows lead with", "avoids news of", "welcomes ",
     "expresses optimism", "victory lap", "what it means",
     ": expert", "expert:", "press ban is illegal",
+    "tries shaming", "appeal to", "tells ", "don't you dare", "do not cave",
+    "uses constitution like", "suggestion box", "takes aim at", "fires back",
+    "blasts ", "mocks ", "criticizes ", "pushes back on", "freak out", "freaks out",
 )
 EVENT_PHASE_CONCEPTS = {"access_decision", "access_enforcement", "creation"}
 CORRECTION_PATTERNS = ("corrects", "corrected", "correction", "revise", "revises", "revised", "updated count", "now reports", "now says")
@@ -141,7 +144,18 @@ def low_signal(value):
 
 def commentary_only(value):
     low = clean_text(value).lower()
-    return any(phrase in low for phrase in REACTION_PATTERNS)
+    if any(phrase in low for phrase in REACTION_PATTERNS):
+        return True
+    # Rhetorical quotations and personality-driven reactions are context, not
+    # factual state changes. Concrete legal/physical state verbs override this.
+    reaction_verbs = re.search(r"\b(?:reacts?|responds?|condemns?|praises?|defends?|slams?|rips?|blasts?|mocks?|criticizes?)\b", low)
+    factual_state = bool(fact_tokens(value) & STATE_TERMS or state_concepts(value) & {"rule", "order", "charge", "resign", "launch", "evacuate", "approve", "reject", "suspend", "settle", "access_enforcement"})
+    if reaction_verbs and not factual_state:
+        return True
+    # Speaker-prefix headlines followed by a rhetorical quotation are normally
+    # reactions. Concrete state verbs keep factual announcements eligible.
+    rhetorical_quote = bool(re.match(r"^[^:]{2,45}:\s*.*[‘’'\"]", clean_text(value)))
+    return bool(rhetorical_quote and not factual_state)
 
 
 def source_family(value):

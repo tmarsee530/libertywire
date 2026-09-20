@@ -29,6 +29,8 @@ on:
       - 'tests/test_email_pilot.py'
       - 'data/email_pilot_config.json'
       - 'scripts/build_storylines.py'
+      - 'scripts/event_identity.py'
+      - 'scripts/canonical_ownership.py'
       - 'scripts/build_history.py'
       - 'scripts/build_timelines.py'
       - 'scripts/install_homepage_v2.py'
@@ -67,7 +69,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before maintenance
-        run: python -m py_compile scripts/run_newsroom.py scripts/stage_publication.py scripts/verify_core_publication.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/stage_publication.py scripts/verify_core_publication.py scripts/fetch_news.py scripts/build_breaking_fast_path.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_homepage_v2.py scripts/install_discovery_metadata.py
       - name: Test fast path and core timeline product
         run: |
           python -m unittest discover -s tests -v

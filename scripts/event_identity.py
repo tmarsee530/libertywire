@@ -65,6 +65,12 @@ ACTION_PATTERNS = {
     "hospitalization": (r"\bhospitali[sz](?:e|ed|ation)\b", r"remains? in (?:the )?hospital"),
 }
 CAUSAL_PATTERNS = (r"\bafter\b", r"\bfollowing\b", r"\bresulting from\b", r"\bover the\b", r"\bstemming from\b", r"\bin response to\b")
+SPORTS_CONTENT_PATTERNS = {
+    "injury": (r"\binjur", r"exits? .*after", r"ruled out", r"questionable", r"non.contact"),
+    "betting": (r"\bbet(?:s|ting)?\b", r"\bodds\b", r"\bpicks?\b", r"predictions?", r"promo code", r"sportsbook", r"parlay", r"spread", r"fantasy football", r"rankings", r"roundtable", r"proven model", r"model backs"),
+    "viewing": (r"how to watch", r"livestream", r"start time", r"tv channel", r"where to watch"),
+    "game_result": (r"\bbeats?\b", r"\bdefeats?\b", r"\bwins?\b", r"final score", r"upsets?\b"),
+}
 
 
 def _normalized(value):
@@ -90,6 +96,11 @@ def actions(value):
     return {name for name, patterns in ACTION_PATTERNS.items() if any(re.search(pattern, low) for pattern in patterns)}
 
 
+def content_kinds(value):
+    low = " ".join(_normalized(value).split())
+    return {name for name, patterns in SPORTS_CONTENT_PATTERNS.items() if any(re.search(pattern, low) for pattern in patterns)}
+
+
 def specifics(value):
     return _words(value) - GENERIC_TOKENS - {part for pats in ACTION_PATTERNS.values() for pattern in pats for part in re.findall(r"[a-z]{3,}", pattern)}
 
@@ -111,6 +122,7 @@ def compare(left, right):
     lac, rac = actions(left), actions(right)
     ls, rs = specifics(left), specifics(right)
     shared_a, shared_ac, shared_s = la & ra, lac & rac, ls & rs
+    left_kinds, right_kinds = content_kinds(left), content_kinds(right)
     all_words_left, all_words_right = _words(left) - GENERIC_TOKENS, _words(right) - GENERIC_TOKENS
     overlap = len(all_words_left & all_words_right)
     lexical = max(
@@ -118,6 +130,12 @@ def compare(left, right):
         overlap / max(1, len(all_words_left | all_words_right)),
     )
     causal = any(re.search(pattern, str(left or "").lower()) or re.search(pattern, str(right or "").lower()) for pattern in CAUSAL_PATTERNS)
+
+    # Sports pages routinely share teams, players, leagues and dates while
+    # describing different games or content products. Those broad entities
+    # cannot bridge an injury event into betting, viewing or schedule pages.
+    if left_kinds and right_kinds and left_kinds.isdisjoint(right_kinds):
+        return EventMatch(False, round(lexical, 3), "incompatible_content_kind", tuple(sorted(shared_a)), tuple(sorted(shared_ac)), tuple(sorted(shared_s)))
 
     # Known actions that disagree are strong evidence of separate events unless
     # a headline explicitly states a causal follow-up and preserves the event object.

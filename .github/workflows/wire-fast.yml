@@ -31,7 +31,7 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
       - name: Check auxiliary code without blocking publication
         continue-on-error: true
         run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py

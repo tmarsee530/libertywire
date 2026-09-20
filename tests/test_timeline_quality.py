@@ -5,7 +5,8 @@ from pathlib import Path
 
 from scripts.event_identity import compare
 from scripts.build_storylines import cluster
-from scripts.timeline_intelligence import meaningful_updates
+from scripts.canonical_ownership import canonical_groups, enforce_unique_updates, violations
+from scripts.timeline_intelligence import meaningful_updates, serializable_model
 
 
 FIXTURE = Path(__file__).parent / "fixtures" / "timeline_quality_corpus.json"
@@ -58,6 +59,29 @@ class EventIdentityCorpusTests(unittest.TestCase):
         for left, right in pairs:
             with self.subTest(left=left):
                 self.assertTrue(compare(left, right).same_event)
+
+    def test_mamdani_meeting_does_not_merge_with_us_china_negotiations(self):
+        self.assertFalse(compare(
+            "NYC Mayor Zohran Mamdani and Trump to meet again this week",
+            "Top US and China trade negotiators meet in New York ahead of Trump-Xi summit",
+        ).same_event)
+
+    def test_player_injury_does_not_merge_with_unrelated_nfl_products(self):
+        injury = "Bears QB Caleb Williams exits against Vikings after non-contact hamstring injury"
+        unrelated = [
+            "Vikings vs Bears odds, picks and betting preview for NFL Week 2",
+            "How to watch Panthers vs Falcons: start time and livestream",
+            "NFL Week 2 picks for every game",
+        ]
+        for title in unrelated:
+            with self.subTest(title=title):
+                self.assertFalse(compare(injury, title).same_event)
+
+    def test_paramount_antitrust_reaction_does_not_match_white_house_access_event(self):
+        self.assertFalse(compare(
+            "White House bars CNN, MS NOW and Politico reporters",
+            "Mark Ruffalo tells California attorney general not to settle Paramount antitrust lawsuit",
+        ).same_event)
 
 
 class MaterialDevelopmentQualityTests(unittest.TestCase):
@@ -148,6 +172,80 @@ class MaterialDevelopmentQualityTests(unittest.TestCase):
         updates = meaningful_updates(items)
         self.assertEqual(len(updates), 1)
         self.assertEqual(updates[0]["source_count"], 2)
+
+    def test_white_house_reactions_do_not_replace_factual_current_state(self):
+        items = [
+            report("White House bars CNN, MS NOW and Politico reporters", "Source A", 0),
+            report("Reporters denied White House entry as access decision takes effect", "Source B", 20),
+            report("Governor says the president uses the Constitution like a suggestion box", "Source C", 40),
+            report("TV host tries shaming official for defending White House media decision", "Source D", 50),
+            report("Actors freak out over reports of unrelated antitrust settlement", "Source E", 60),
+        ]
+        updates = meaningful_updates(items)
+        self.assertEqual(len(updates), 2)
+        self.assertIn("denied white house entry", updates[-1]["label"].lower())
+
+    def test_access_decision_wording_is_phase_based_not_one_off(self):
+        items = [
+            report("Administration kicks three outlets out of the White House", "Source A", 0),
+            report("Administration bans the same outlets from White House access", "Source B", 4),
+            report("Their journalists are turned away when access decision takes effect", "Source C", 30),
+        ]
+        updates = meaningful_updates(items)
+        self.assertEqual(len(updates), 2)
+
+
+class CanonicalOwnershipTests(unittest.TestCase):
+    def timeline(self, sid, items, first_seen, families=3):
+        model = serializable_model({"coverage": items, "status": "developing"})
+        return {
+            "id": sid, "current_title": items[-1]["title"], "first_seen": first_seen,
+            "last_seen": items[-1]["date"], "max_source_count": families,
+            "max_source_family_count": families, "coverage": items, **model,
+        }
+
+    def test_identical_update_sets_have_one_authoritative_owner(self):
+        items = [
+            report("US and Denmark reach Greenland security agreement", "Source A", 0),
+            report("Agreement grants permanent US security role in Greenland", "Source B", 20),
+        ]
+        older = self.timeline("older-owner", items, "2026-09-18T10:00:00Z", 4)
+        duplicate = self.timeline("newer-copy", items, "2026-09-18T12:00:00Z", 3)
+        groups = canonical_groups([older, duplicate], {"newer-copy"})
+        self.assertEqual(groups[0]["owner_id"], "older-owner")
+        self.assertEqual(groups[0]["suppressed_ids"], ["newer-copy"])
+
+    def test_near_identical_update_sets_collapse_only_with_event_identity(self):
+        shared = [
+            report("White House announces media access decision", "Source A", 0),
+            report("Reporters denied entry as White House access decision takes effect", "Source B", 20),
+        ]
+        one = self.timeline("owner-one", shared, "2026-09-18T10:00:00Z", 5)
+        two = self.timeline("owner-two", shared + [report("Badges revoked under White House access decision", "Source C", 30)], "2026-09-18T11:00:00Z", 4)
+        groups = canonical_groups([one, two], {"owner-one", "owner-two"})
+        self.assertEqual(len(groups), 1)
+
+    def test_shared_update_is_removed_from_incoherent_timeline_not_deleted(self):
+        shared = report("Bears quarterback exits with hamstring injury", "Source A", 0)
+        injury = self.timeline("injury-owner", [shared, report("Team confirms quarterback will undergo testing", "Source B", 20)], "2026-09-18T10:00:00Z", 4)
+        betting = self.timeline("betting-page", [shared, report("NFL Week 2 odds and betting picks", "Source C", 30)], "2026-09-18T11:00:00Z", 3)
+        fixed, decisions, purity = enforce_unique_updates([injury, betting], {"injury-owner", "betting-page"})
+        self.assertEqual(decisions, [])
+        self.assertTrue(any(x["timeline_id"] == "betting-page" for x in purity))
+        self.assertEqual(violations(fixed)["shared_material_update_ids"], {})
+        self.assertIn(shared["link"], {update["link"] for record in fixed for update in record["updates"]})
+
+    def test_publication_purity_removes_betting_from_injury_timeline(self):
+        items = [
+            report("Bears quarterback exits with hamstring injury", "Source A", 0),
+            report("Vikings vs Bears odds, picks and betting preview", "Source B", 10),
+            report("How to watch Panthers vs Falcons: start time and livestream", "Source C", 20),
+        ]
+        record = self.timeline("injury-owner", items, "2026-09-18T10:00:00Z", 4)
+        record["current_title"] = items[0]["title"]
+        fixed, _ownership, purity = enforce_unique_updates([record], {"injury-owner"})
+        self.assertEqual([x["label"] for x in fixed[0]["updates"]], [items[0]["title"]])
+        self.assertEqual({x["reason"] for x in purity}, {"incompatible_content_kind"})
 
 
 if __name__ == "__main__":

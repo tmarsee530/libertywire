@@ -113,11 +113,17 @@ try:
   return labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
  rows=[]
  for story in stories:
-  if str(story.get('id')) not in published_ids:continue
+ if str(story.get('id')) not in published_ids:continue
+  authoritative=state_index.get(str(story.get('id')),{})
   labeled=material_developments(story)
   if not labeled:continue
-  first=labeled[0][0];related=labeled[1:];hot=story.get('status')=='hot'
-  primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(story.get('title') or first.get('title'))+'</a>'
+  first=labeled[0][0];related=labeled[1:];hot=authoritative.get('status',story.get('status'))=='hot'
+  # The Wire is a discovery view of the canonical event, not a second event
+  # interpretation.  A raw cluster can contain bridge coverage that publication
+  # correctly rejected, so its evolving title must not override the published
+  # timeline title or reintroduce contamination on the homepage.
+  primary_title=authoritative.get('title') or story.get('title') or first.get('title')
+  primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(primary_title)+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open timeline →</a>'
   rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><span class="server-timeline-label">LIVE TIMELINE</span><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+timeline+'</section>')

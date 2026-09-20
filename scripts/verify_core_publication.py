@@ -63,8 +63,11 @@ def verify(root=ROOT):
         if record:
             assert record.get("current_status")
             assert record.get("material_update_count") == len(record.get("updates") or [])
-            if len(record.get("updates") or []) >= 9:
-                assert "What happened earlier" in page, f"long timeline was not compacted: {sid}"
+        # Publication may conservatively remove an update claimed by another
+        # canonical while retaining the raw historical record. Compaction must
+        # therefore be validated against what the page actually publishes.
+        if len(dates) >= 9:
+            assert "What happened earlier" in page, f"long timeline was not compacted: {sid}"
 
     for story in history_payload.get("storylines", []):
         values = [story.get("last_seen")]
@@ -76,6 +79,16 @@ def verify(root=ROOT):
 
     state_index = load_json(data / "timeline_state_index.json")
     assert int(state_index.get("schema_version", 0)) >= 2
+    update_owners = {}
+    update_sets = {}
+    for sid, timeline in state_index.get("timelines", {}).items():
+        update_ids = tuple(sorted(str(value) for value in timeline.get("update_ids", []) if value))
+        if update_ids:
+            assert update_ids not in update_sets, f"identical current canonical update sets: {update_sets.get(update_ids)}, {sid}"
+            update_sets[update_ids] = sid
+        for update_id in update_ids:
+            assert update_id not in update_owners, f"material update has multiple canonical owners: {update_id}, {update_owners.get(update_id)}, {sid}"
+            update_owners[update_id] = sid
     return {"healthy_sources": news.get("healthy_source_count"), "published_timelines": len(ids)}
 
 

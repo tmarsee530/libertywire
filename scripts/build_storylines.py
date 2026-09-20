@@ -6,9 +6,11 @@ from datetime import datetime,timezone
 from functools import lru_cache
 from pathlib import Path
 try:
+ from canonical_ownership import ownership_map
  from event_identity import best_match as best_event_match, compare as compare_events
  from timeline_intelligence import commentary_only, meaningful_updates
 except ModuleNotFoundError:
+ from scripts.canonical_ownership import ownership_map
  from scripts.event_identity import best_match as best_event_match, compare as compare_events
  from scripts.timeline_intelligence import commentary_only, meaningful_updates
 ROOT=Path(__file__).resolve().parents[1];NEWS=ROOT/'data'/'news.json';OUT=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';FAST=ROOT/'data'/'breaking_fast_path.json'
@@ -163,7 +165,12 @@ def timeline_activity(coverage,provisional_status,now,fast_path=False,breaking_s
  return {'updates':updates,'status':status,'momentum':round(freshness+velocity+significance,2),'last_material_epoch':last,'recent_material_count':recent}
 def prior_records():
  if not HISTORY.exists():return []
- try:return json.loads(HISTORY.read_text()).get('storylines',[])
+ try:
+  records=json.loads(HISTORY.read_text()).get('storylines',[])
+  ids={str(item.get('id')) for item in records if item.get('id')}
+  aliases,_groups=ownership_map(records,ids)
+  by_id={str(item.get('id')):item for item in records if item.get('id')}
+  return [{**item,'canonical_owner_id':aliases.get(str(item.get('id')),str(item.get('id')))} for item in records if item.get('id') and aliases.get(str(item.get('id')),str(item.get('id'))) in by_id]
  except (json.JSONDecodeError,OSError):return []
 def history_match(toks,records,title='',titles=None):
  best=None;score=0;best_strength=(-1,-1)
@@ -186,7 +193,9 @@ def history_match(toks,records,title='',titles=None):
   # tie-breaker: that would migrate new reporting toward a younger duplicate.
   strength=(int(r.get('max_source_family_count',0) or 0),int(r.get('max_source_count',0) or 0))
   if event.confidence>score or (event.confidence==score and strength>best_strength):best,score,best_strength=r,event.confidence,strength
- return best if score>=.74 else None
+ if score<.74:return None
+ owner_id=str(best.get('canonical_owner_id') or best.get('id'))
+ return next((record for record in records if str(record.get('id'))==owner_id),best)
 
 def merge_current_ids(items):
  """Guarantee one current storyline for each durable canonical timeline ID."""
@@ -218,7 +227,10 @@ def main():
  for g in cluster(news.get('stories',[])):
   ss=sorted(g['stories'],key=lambda s:s.get('published_epoch') or 0,reverse=True);newest=max((s.get('published_epoch') or 0 for s in ss),default=0);fast_hits=[fast[s.get('link')] for s in ss if s.get('link') in fast];best_fast=max(fast_hits,key=lambda x:x.get('urgency_score',0),default=None);lead=choose_lead(ss,g['core_tokens']);lead=next((s for s in ss if best_fast and s.get('link')==best_fast.get('primary_source_link')),lead);title=lead.get('title','');sources=sorted(x for x in g['sources'] if x);families=sorted({family(x) for x in sources});family_count=len(families);age=(now.timestamp()-newest)/60 if newest else 10**9;all_titles=' '.join((s.get('title') or '').lower() for s in ss);risk=sorted({x for x in RISK if x in all_titles});base=importance(all_titles,family_count,age);identity=' '.join(sorted(g['tokens']))[:300] or title.lower();sid=hashlib.sha1(identity.encode()).hexdigest()[:12]
   prior=history_match(g['tokens'],history,title,[s.get('title','') for s in ss])
-  if prior and prior.get('id') and prior['id'] not in claimed_history_ids:sid=prior['id'];claimed_history_ids.add(sid)
+  # Multiple independently formed clusters may legitimately resolve to the
+  # same established event. Reuse that owner and merge the clusters below;
+  # refusing an already-claimed ID was the source of parallel canonicals.
+  if prior and prior.get('id'):sid=prior['id'];claimed_history_ids.add(sid)
   prior_families=int((prior or {}).get('max_source_family_count',0) or 0);current_prior_families=int((prior or {}).get('current_source_family_count',0) or 0);growth=max(0,family_count-current_prior_families);break_bonus=breaking_bonus(all_titles,family_count,age);fast_urgency=float((best_fast or {}).get('urgency_score',0) or 0);fast_bonus=round(min(12,max(0,fast_urgency-60)*.3),2);ordered=information_coverage(ss,lead,8);coverage=[{'source':s.get('source'),'source_family':family(s.get('source')),'title':s.get('title'),'link':s.get('link'),'date':s.get('date')} for s in ordered];provisional='breaking' if (best_fast and fast_urgency>=60) or break_bonus>=6 else 'developing';activity=timeline_activity(list(reversed(coverage)),provisional,now,bool(best_fast),break_bonus);momentum=activity['momentum'];score=round(base+momentum+fast_bonus,2);status=activity['status'];material_epoch=activity['last_material_epoch'] or newest;display_title=next((x.get('source_title') for x in reversed(activity['updates']) if x.get('source_title')),title)
   out.append({'id':sid,'title':display_title,'importance_score':score,'base_importance_score':base,'event_momentum':momentum,'recent_material_development_count':activity['recent_material_count'],'breaking_bonus':break_bonus,'fast_path_bonus':fast_bonus,'fast_path':bool(best_fast),'urgency_score':fast_urgency if best_fast else None,'fast_path_reason':(best_fast or {}).get('reason'),'fast_path_detected_at':(best_fast or {}).get('detected_at'),'source_count':len(sources),'source_family_count':family_count,'source_families':families,'sources':sources,'newest_epoch':material_epoch,'newest_date':next((x.get('date') for x in reversed(activity['updates']) if x.get('date')),next((s.get('date') for s in ss if (s.get('published_epoch') or 0)==newest),lead.get('date'))),'risk_flags':risk,'status':status,'coverage':coverage})
  out=merge_current_ids(out);out.sort(key=lambda x:(x['importance_score'],x['newest_epoch'],x['source_family_count'],x['source_count']),reverse=True);payload={'generated_at':now.isoformat().replace('+00:00','Z'),'importance_method':'deterministic event importance + recency/significance/velocity of material developments; publisher breadth is capped as a confidence signal and repetitive article volume does not create momentum','headline_method':'deterministic recency + cluster specificity + readable headline length; generic live/video/photo/opinion labels are mildly deprioritized; ideology and sentiment are not scored','fast_path_method':'fresh high-confidence developments from trusted primary sources or two independent trusted publishers are promoted ahead of the normal path; uncertain claims remain on the normal path','coverage_method':'primary headline establishes the topic; subsequent publisher headlines are selected by incremental substantive information, with a modest independent-publisher-family tie-break and freshness secondary; repetitive coverage is omitted','clustering_method':'conservative event-frame matching requires compatible principal entities, actions, objects, or explicit causal continuity; durable-history matching compares individual reports and preserves the strongest established canonical ID; duplicate current assignments collapse to one canonical timeline ID','storyline_count':len(out),'multi_source_count':sum(1 for x in out if x['source_count']>=2),'multi_family_count':sum(1 for x in out if x['source_family_count']>=2),'breaking_count':sum(1 for x in out if x['status']=='breaking'),'fast_path_count':sum(1 for x in out if x.get('fast_path')),'developing_count':sum(1 for x in out if x['status'] in ('breaking','developing')),'updated_count':sum(1 for x in out if x['status']=='updated'),'quiet_count':sum(1 for x in out if x['status']=='quiet'),'resolved_count':sum(1 for x in out if x['status']=='resolved'),'hot_count':0,'storylines':out[:500]}

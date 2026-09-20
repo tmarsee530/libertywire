@@ -18,10 +18,11 @@ CORE_PATHS = (
     "index.html", "stories", "assets/timeline.css", "data/news.json",
     "data/breaking_fast_path.json", "data/storylines.json", "data/history.json",
     "data/published_timelines.json", "data/timeline_state_index.json",
+    "data/canonical_ownership_report.json",
     "data/newsroom_health.json", "data/newsroom_dead_letters.json", "health",
 )
 AUXILIARY_PATHS = {
-    "archive": ("archive", "data/archive_index.json"),
+    "archive": ("archive", "data/archive_index.json", "data/historical_duplicate_candidates.json"),
     "notifications": ("notification-health", "data/server_follows.json", "data/notification_queue.json", "data/notification_health.json", "data/email_delivery_health.json"),
     "metadata": (),  # Metadata is installed into the already-core homepage.
     "recent": ("recent",),

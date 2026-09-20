@@ -81,7 +81,7 @@ SOURCE_FAMILY_ALIASES = {
     "realcleardefense": "realclear", "daily signal": "daily-signal", "the daily signal": "daily-signal",
 }
 REACTION_PATTERNS = (
-    "analysis:", "commentary:", "opinion:", "reacts to", "reaction to", "weighs in",
+    "analysis:", "commentary:", "opinion:", "preview:", "reacts to", "reaction to", "weighs in",
     "rips ", "slams ", "defends ", "praises ", "condemns ", "what it means",
     "week in review", "week in pictures", "talk about", "expert says",
     "calls ", "responds to", "says it would", "shows lead with", "avoids news of", "welcomes ",

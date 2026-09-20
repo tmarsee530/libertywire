@@ -247,6 +247,18 @@ class CanonicalOwnershipTests(unittest.TestCase):
         self.assertEqual([x["label"] for x in fixed[0]["updates"]], [items[0]["title"]])
         self.assertEqual({x["reason"] for x in purity}, {"incompatible_content_kind"})
 
+    def test_publication_purity_removes_cross_event_bridge_content(self):
+        items = [
+            report("Top US and China trade negotiators meet in New York ahead of summit", "Source A", 0),
+            report("Trump to visit Mamdani in New York City for first meeting", "Source B", 20),
+            report("Zelensky and Trump agree to meet in New York for diplomatic talks", "Source C", 40),
+        ]
+        record = self.timeline("diplomatic-owner", items, "2026-09-18T10:00:00Z", 4)
+        record["current_title"] = items[-1]["title"]
+        fixed, _ownership, purity = enforce_unique_updates([record], {"diplomatic-owner"})
+        self.assertEqual([x["label"] for x in fixed[0]["updates"]], [items[-1]["title"]])
+        self.assertEqual(sum(x["reason"] == "event_identity_mismatch" for x in purity), 2)
+
 
 if __name__ == "__main__":
     unittest.main()

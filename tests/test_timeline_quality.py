@@ -116,6 +116,18 @@ class MaterialDevelopmentQualityTests(unittest.TestCase):
         self.assertEqual(len(updates), 2)
         self.assertEqual([item["source_count"] for item in updates], [2, 2])
 
+    def test_access_phase_merges_different_affected_outlets(self):
+        items = [
+            report("Trump to ban left-wing news outlets from White House", "Source A", 0),
+            report("Trump says CNN, MS NOW and Politico banned from White House", "Source B", 4),
+            report("CNN journalists blocked from accessing White House", "Source C", 30),
+            report("MS NOW staff denied access, credentials revoked", "Source D", 34),
+            report("CNN says Trump press ban is illegal", "Source E", 40),
+        ]
+        updates = meaningful_updates(items)
+        self.assertEqual(len(updates), 2)
+        self.assertEqual([item["source_count"] for item in updates], [2, 2])
+
     def test_repeated_creation_announcement_is_one_development(self):
         items = [
             report("Trump says US will form AI Force and appoint AI czar", "Source A", 0),

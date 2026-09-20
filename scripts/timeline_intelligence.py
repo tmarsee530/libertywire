@@ -68,7 +68,7 @@ CONCEPT_PATTERNS = {
     "reject": (" rejects", " rejected", "blocks", " blocked", " bars", " barred", "denied access", "denied entry"),
     "suspend": (" suspends", " suspended"),
     "settle": (" settles", " settled"),
-    "access_decision": ("bans ", "ban on ", "to ban ", "announces ban", "banning ", "will bar ", "he'll bar ", "trump bars "),
+    "access_decision": ("bans ", "ban on ", "to ban ", "announces ban", "banning ", "banned from white house", "will bar ", "he'll bar ", "trump bars "),
     "access_enforcement": ("denied access", "denied white house access", "denied from white house", "blocked from access", "blocks ", " bars ", "turned away", "credentials revoked", "badge did not work", "barred from"),
     "agreement": (" agreement", " deal", " pact", "reaches deal", "struck deal"),
     "creation": (" creates ", " creating ", " will create", " form ", " will form", "appoint ", "appointing ", "ai force"),
@@ -86,8 +86,9 @@ REACTION_PATTERNS = (
     "week in review", "week in pictures", "talk about", "expert says",
     "calls ", "responds to", "says it would", "shows lead with", "avoids news of", "welcomes ",
     "expresses optimism", "victory lap", "what it means",
-    ": expert", "expert:",
+    ": expert", "expert:", "press ban is illegal",
 )
+EVENT_PHASE_CONCEPTS = {"access_decision", "access_enforcement", "creation"}
 CORRECTION_PATTERNS = ("corrects", "corrected", "correction", "revise", "revises", "revised", "updated count", "now reports", "now says")
 
 
@@ -268,7 +269,7 @@ def meaningful_updates(coverage, record_status="developing"):
             similarity = _similarity(tokens, set(update["fact_tokens"]))
             if similarity > closest_similarity:
                 closest_index, closest_similarity = index, similarity
-        same_event_index = next((index for index, update in enumerate(updates) if concepts and concepts & set(update.get("state_concepts") or []) and anchors & set(update.get("anchors") or [])), None)
+        same_event_index = next((index for index, update in enumerate(updates) if concepts and concepts & set(update.get("state_concepts") or []) and (anchors & set(update.get("anchors") or []) or concepts & set(update.get("state_concepts") or []) & EVENT_PHASE_CONCEPTS)), None)
         revision_index = None
         current_numbers = _numbers(tokens)
         if current_numbers:

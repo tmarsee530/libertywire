@@ -102,6 +102,8 @@ class TimelineRenderingTests(unittest.TestCase):
         self.assertIn("c=materialDevelopments(lead,8)", asset)
         self.assertIn("timeline-state\\.js", installer)
         self.assertIn("if state_js not in s", installer)
+        self.assertIn("primary_title=authoritative.get('title')", installer)
+        self.assertNotIn("e(story.get('title') or first.get('title'))", installer)
 
     def test_legacy_record_renders_current_status_reverse_order_and_seo(self):
         items = [

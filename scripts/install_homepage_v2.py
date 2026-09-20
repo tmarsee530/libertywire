@@ -113,7 +113,7 @@ try:
   return labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
  rows=[]
  for story in stories:
- if str(story.get('id')) not in published_ids:continue
+  if str(story.get('id')) not in published_ids:continue
   authoritative=state_index.get(str(story.get('id')),{})
   labeled=material_developments(story)
   if not labeled:continue

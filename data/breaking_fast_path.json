@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T07:18:09.472577Z",
+  "generated_at": "2026-09-21T07:22:48.248792Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,12 +7,12 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 87,
-    "candidate_events": 80,
+    "reports_evaluated": 82,
+    "candidate_events": 76,
     "fast_path_events": 0,
-    "held_for_normal_path": 80,
-    "duplicate_reports_suppressed": 7,
-    "duplicate_event_rate_pct": 8.05,
+    "held_for_normal_path": 76,
+    "duplicate_reports_suppressed": 6,
+    "duplicate_event_rate_pct": 7.32,
     "median_source_detection_latency_seconds": null,
     "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
@@ -29,27 +29,101 @@
   },
   "candidates": [
     {
+      "id": "bf5159606c0d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 53.87,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 14.87,
+        "magnitude": 10,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d313f2884595",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T06:43:38Z",
+      "source_detection_latency_seconds": 2350.2,
+      "factual_update": "Volkswagen recalls 208,000 SUVs over bolts that could cause steering loss",
+      "source": "Fox Business",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxbusiness.com/economy/volkswagen-recalls-208000-suvs-over-bolts-could-cause-steering-loss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox Business"
+      ],
+      "corroborating_links": [
+        "https://www.foxbusiness.com/economy/volkswagen-recalls-208000-suvs-over-bolts-could-cause-steering-loss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 39.2
+    },
+    {
+      "id": "74469dac02b2",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 53.84,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.84,
+        "magnitude": 12,
+        "public_safety": 5,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0f1734edbc7a",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:01:51Z",
+      "source_detection_latency_seconds": 1257.2,
+      "factual_update": "FBI Director Kash Patel Says AI Is Helping Stop School Shooting Plots",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/21/fbi-director-kash-patel-says-ai-is-helping-stop-school-shooting-plots/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/21/fbi-director-kash-patel-says-ai-is-helping-stop-school-shooting-plots/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.0
+    },
+    {
       "id": "418ad7c5a184",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 62.61,
+      "urgency_score": 53.76,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.61,
+        "recency": 17.76,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 12,
         "independent_confirmations": 12,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "cd68a67794d9",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T07:01:25Z",
-      "source_detection_latency_seconds": 1004.5,
+      "source_detection_latency_seconds": 1283.2,
       "factual_update": "Presley Gerber, Cindy Crawford's son, dies aged 27",
       "source": "BBC News",
       "source_tier": 2,
@@ -73,91 +147,17 @@
         "https://www.foxnews.com/entertainment/presley-gerber-son-cindy-crawford-rande-gerber-dead-27"
       ],
       "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "74469dac02b2",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 54.69,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.69,
-        "magnitude": 12,
-        "public_safety": 5,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0f1734edbc7a",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:01:51Z",
-      "source_detection_latency_seconds": 978.5,
-      "factual_update": "FBI Director Kash Patel Says AI Is Helping Stop School Shooting Plots",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/21/fbi-director-kash-patel-says-ai-is-helping-stop-school-shooting-plots/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/21/fbi-director-kash-patel-says-ai-is-helping-stop-school-shooting-plots/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.3
-    },
-    {
-      "id": "bf5159606c0d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 54.58,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 15.58,
-        "magnitude": 10,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d313f2884595",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T06:43:38Z",
-      "source_detection_latency_seconds": 2071.5,
-      "factual_update": "Volkswagen recalls 208,000 SUVs over bolts that could cause steering loss",
-      "source": "Fox Business",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxbusiness.com/economy/volkswagen-recalls-208000-suvs-over-bolts-could-cause-steering-loss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox Business"
-      ],
-      "corroborating_links": [
-        "https://www.foxbusiness.com/economy/volkswagen-recalls-208000-suvs-over-bolts-could-cause-steering-loss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 34.5
+      "age_minutes": 21.4
     },
     {
       "id": "8819f84e0535",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 47.9,
+      "urgency_score": 47.58,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.9,
+        "recency": 6.58,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -168,9 +168,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b014477bd786",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:22:09Z",
-      "source_detection_latency_seconds": 6960.5,
+      "source_detection_latency_seconds": 7239.2,
       "factual_update": "Which emergency foods should you stock up on?",
       "source": "BBC Science & Environment",
       "source_tier": 2,
@@ -184,17 +184,17 @@
         "https://www.bbc.co.uk/news/videos/ckly58lmy2gvo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 116.0
+      "age_minutes": 120.7
     },
     {
       "id": "deb768e3c5cd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 42.55,
+      "urgency_score": 41.71,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.55,
+        "recency": 17.71,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -205,9 +205,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "42cd17714e0e",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:00:05Z",
-      "source_detection_latency_seconds": 11884.5,
+      "source_detection_latency_seconds": 12163.2,
       "factual_update": "Young people aren't snowflakes - mental distress is rising, says head of official review",
       "source": "BBC News",
       "source_tier": 2,
@@ -223,17 +223,17 @@
         "https://www.tmz.com/2026/09/21/anthony-ingruber-as-young-william-jones-in-the-age-of-adaline/"
       ],
       "risk_flags": [],
-      "age_minutes": 17.0
+      "age_minutes": 21.7
     },
     {
       "id": "7bdadb5f6508",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.67,
+      "urgency_score": 40.32,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.67,
+        "recency": 7.32,
         "magnitude": 9,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -244,9 +244,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fe09efe574c3",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:32:44Z",
-      "source_detection_latency_seconds": 6325.5,
+      "source_detection_latency_seconds": 6604.2,
       "factual_update": "'I've asked for forgiveness' - Eckert and Southampton braced for Spygate verdict",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -260,17 +260,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cmp30p934g4lo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 105.4
+      "age_minutes": 110.1
     },
     {
       "id": "c4b3d527d3fd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 36.9,
+      "urgency_score": 36.14,
       "score_components": {
         "source_trust": 10,
-        "recency": 16.9,
+        "recency": 16.14,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -281,9 +281,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "95a6b737dc71",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T06:51:48Z",
-      "source_detection_latency_seconds": 1581.5,
+      "source_detection_latency_seconds": 1860.2,
       "factual_update": "'Far from their best' to 'a joy to watch' - ranking Premier League teams' start to season",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -297,17 +297,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cq70d74g4d8go?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 26.4
+      "age_minutes": 31.0
     },
     {
       "id": "c5f7b43bedc5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 35.46,
+      "urgency_score": 35.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.46,
+        "recency": 7.12,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -318,9 +318,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e5c1ae9510c3",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:30:00Z",
-      "source_detection_latency_seconds": 6489.5,
+      "source_detection_latency_seconds": 6768.2,
       "factual_update": "Karan Johar’s Dharma Productions Confirms Film on Indian Spymaster Rameshwar Nath Kao, Targets 2028 Release (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -334,17 +334,17 @@
         "https://variety.com/2026/film/news/karan-johar-dharma-raw-rameshwar-nath-kao-film-1236867651/"
       ],
       "risk_flags": [],
-      "age_minutes": 108.2
+      "age_minutes": 112.8
     },
     {
       "id": "b40a06af5374",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.97,
+      "urgency_score": 33.34,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.97,
+        "recency": 13.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -355,9 +355,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f49a9b7e1840",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T06:32:46Z",
-      "source_detection_latency_seconds": 2723.5,
+      "source_detection_latency_seconds": 3002.2,
       "factual_update": "League B return, no Bradley and Kvaratskhelia test - NI talking points",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -371,17 +371,17 @@
         "https://www.bbc.co.uk/sport/football/articles/crz6zeqz678jo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 45.4
+      "age_minutes": 50.0
     },
     {
       "id": "6e85eb615a17",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.0,
+      "urgency_score": 32.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.0,
+        "recency": 4.77,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -392,9 +392,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7b8011f02f27",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:50:00Z",
-      "source_detection_latency_seconds": 8889.5,
+      "source_detection_latency_seconds": 9168.2,
       "factual_update": "Tatiana Huezo, Juan Sebastián Mesa, Mónica Lima, Val Jashari Among 10 Filmmakers Vying for WIP LatAm and Europa Awards at San Sebastián",
       "source": "Variety",
       "source_tier": 3,
@@ -408,881 +408,30 @@
         "https://variety.com/2026/film/global/tatiana-huezo-juan-sebastian-mesa-wips-san-sebastian-1236866661/"
       ],
       "risk_flags": [],
-      "age_minutes": 148.2
-    },
-    {
-      "id": "e2ed5fce3ccc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.53,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 12.53,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "7b5a37b4c5a9",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T06:21:54Z",
-      "source_detection_latency_seconds": 3375.5,
-      "factual_update": "Bessent: US proposes AI incident alert system in talks with China",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/Technology/wireStory/bessent-us-proposes-ai-incident-alert-system-talks-136609079",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/Technology/wireStory/bessent-us-proposes-ai-incident-alert-system-talks-136609079"
-      ],
-      "risk_flags": [],
-      "age_minutes": 56.3
-    },
-    {
-      "id": "34152d59cb6d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.4,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 20.4,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "6a1c4dca99e1",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:10:35Z",
-      "source_detection_latency_seconds": 454.5,
-      "factual_update": "Vessels trickle through Strait of Hormuz as Middle East conflict persists",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/21/world-news/vessels-trickle-through-strait-of-hormuz-as-middle-east-conflict-persists/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/21/world-news/vessels-trickle-through-strait-of-hormuz-as-middle-east-conflict-persists/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 7.6
-    },
-    {
-      "id": "53a3c866f484",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.27,
-      "score_components": {
-        "source_trust": 15,
-        "recency": 7.27,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9c2f0de85a8b",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:27:29Z",
-      "source_detection_latency_seconds": 6640.5,
-      "factual_update": "Atlantic Tropical Weather Outlook",
-      "source": "National Hurricane Center Atlantic",
-      "source_tier": 1,
-      "primary_source_link": "https://www.nhc.noaa.gov/gtwo.php?basin=atlc",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "National Hurricane Center Atlantic"
-      ],
-      "corroborating_links": [
-        "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
-      ],
-      "risk_flags": [],
-      "age_minutes": 110.7
-    },
-    {
-      "id": "d136b9238016",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.82,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.82,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d0e70a721155",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:23:10Z",
-      "source_detection_latency_seconds": 10499.5,
-      "factual_update": "First female Archbishop of Canterbury revokes award she gave on 9/11 to Muslim cleric who praised bin Laden",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/21/world-news/archbishop-of-canterbury-withdraws-award-she-gave-on-9-11-to-muslim-cleric-who-praised-bin-laden/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/21/world-news/archbishop-of-canterbury-withdraws-award-she-gave-on-9-11-to-muslim-cleric-who-praised-bin-laden/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 175.0
-    },
-    {
-      "id": "504cbc454b33",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.19,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.19,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "a451c87012a1",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T06:10:32Z",
-      "source_detection_latency_seconds": 4057.5,
-      "factual_update": "Chiefs back in business as star QBs go down - five things from NFL week two",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/american-football/articles/crz6z2pypgqlo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/american-football/articles/crz6z2pypgqlo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 67.6
-    },
-    {
-      "id": "6449fcd3b72a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.96,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.96,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "a0c2167daca3",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:03:17Z",
-      "source_detection_latency_seconds": 892.5,
-      "factual_update": "Trump Says Proposed D.C. Triumphal Arch Will Double as Military Complex",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/21/trump-says-proposed-d-c-triumphal-arch-will-double-as-military-complex/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/21/trump-says-proposed-d-c-triumphal-arch-will-double-as-military-complex/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 14.9
-    },
-    {
-      "id": "e6fdcc0803c3",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.87,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.87,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "1824fb2ed3a6",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:02:48Z",
-      "source_detection_latency_seconds": 921.5,
-      "factual_update": "Saudi Arabia Intercepts Houthi Ballistic Missile Targeting Riyadh",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/21/saudi-arabia-intercepts-houthi-ballistic-missile-targeting-riyadh/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/21/saudi-arabia-intercepts-houthi-ballistic-missile-targeting-riyadh/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 15.4
-    },
-    {
-      "id": "8225b134b424",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.45,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.45,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c8b0645894be",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:00:32Z",
-      "source_detection_latency_seconds": 1057.5,
-      "factual_update": "Those Who Walk Away from Effective Altruism",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/21/those-who-walk-away-from-effective-altruism/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/21/those-who-walk-away-from-effective-altruism/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 17.6
-    },
-    {
-      "id": "36b8d17adac4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.4,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.4,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5fbc8bcfd16c",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:00:17Z",
-      "source_detection_latency_seconds": 1072.5,
-      "factual_update": "Tent vs. Big Top: What the Dallas Convention Just Proved",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/21/tent-vs-big-top-what-the-dallas-convention-just-proved/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/21/tent-vs-big-top-what-the-dallas-convention-just-proved/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 17.9
-    },
-    {
-      "id": "4e90a539d48c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.36,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.36,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2424a70a5a5a",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:00:03Z",
-      "source_detection_latency_seconds": 1086.5,
-      "factual_update": "Lindsay Clancy’s Devil’s Bargain",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/21/lindsay-clancys-devils-bargain/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/21/lindsay-clancys-devils-bargain/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 18.1
-    },
-    {
-      "id": "3cbc944171bb",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.35,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.35,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "6bd8d501cff1",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:00:01Z",
-      "source_detection_latency_seconds": 1088.5,
-      "factual_update": "Vitamin C linked to improved outcomes in people with precancerous blood disorders",
-      "source": "Medical Xpress",
-      "source_tier": 3,
-      "primary_source_link": "https://medicalxpress.com/news/2026-09-vitamin-linked-outcomes-people-precancerous.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Medical Xpress"
-      ],
-      "corroborating_links": [
-        "https://medicalxpress.com/news/2026-09-vitamin-linked-outcomes-people-precancerous.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 18.1
-    },
-    {
-      "id": "3b008efdfb13",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.35,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.35,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9bd69ab99b86",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:00:00Z",
-      "source_detection_latency_seconds": 1089.5,
-      "factual_update": "Open Thread",
-      "source": "Reason",
-      "source_tier": 3,
-      "primary_source_link": "https://reason.com/volokh/2026/09/21/open-thread-334/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Reason"
-      ],
-      "corroborating_links": [
-        "https://reason.com/volokh/2026/09/21/open-thread-334/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 18.2
-    },
-    {
-      "id": "ca962086c36d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.35,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.35,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3be71f62192d",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:00:00Z",
-      "source_detection_latency_seconds": 1089.5,
-      "factual_update": "The Peacemaker of Utah | Interview: Spencer Cox",
-      "source": "The Dispatch",
-      "source_tier": 3,
-      "primary_source_link": "https://thedispatch.com/podcast/remnant/the-peacemaker-of-utah-interview-spencer-cox/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Dispatch"
-      ],
-      "corroborating_links": [
-        "https://thedispatch.com/podcast/remnant/the-peacemaker-of-utah-interview-spencer-cox/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 18.2
-    },
-    {
-      "id": "fed8296a51aa",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.49,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.49,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "861eec0c940b",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:54:06Z",
-      "source_detection_latency_seconds": 5043.5,
-      "factual_update": "Flex your football brain with our daily quizzes",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cqdj4nk270meo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/cqdj4nk270meo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 84.1
-    },
-    {
-      "id": "150eb06d3812",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.38,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.38,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "134113320091",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:52:57Z",
-      "source_detection_latency_seconds": 5112.5,
-      "factual_update": "Lindsay Clancy's ex-husband explains why he forgave her over children's killings",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cq5yme200n8go?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cq5yme200n8go?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 85.2
-    },
-    {
-      "id": "8b29e289be41",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.38,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.38,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d6db33bd9a83",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:52:56Z",
-      "source_detection_latency_seconds": 5113.5,
-      "factual_update": "The pros and cons of being a long-distance football manager",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c7v4l3z659vo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/c7v4l3z659vo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 85.2
-    },
-    {
-      "id": "907d728ac596",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.19,
-      "score_components": {
-        "source_trust": 15,
-        "recency": 3.19,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "991fbc6a1abe",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:05:00Z",
-      "source_detection_latency_seconds": 11589.5,
-      "factual_update": "APOD: 2026 September 21 – Cocoon Nebula Wide Field",
-      "source": "NASA News",
-      "source_tier": 1,
-      "primary_source_link": "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "NASA News"
-      ],
-      "corroborating_links": [
-        "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 193.2
-    },
-    {
-      "id": "8809ea5275b8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.69,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.69,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d91444737bfc",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T06:44:22Z",
-      "source_detection_latency_seconds": 2027.5,
-      "factual_update": "Hong Kong socialite Abby Choi’s ex-husband and in-laws on trial for murder, 3 years after she was found dismembered",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/21/world-news/abby-chois-ex-husband-and-in-laws-on-trial-for-hong-kong-socialites-murder/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/21/world-news/abby-chois-ex-husband-and-in-laws-on-trial-for-hong-kong-socialites-murder/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 33.8
-    },
-    {
-      "id": "45177d204b7c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.67,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 8.67,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "e8251fbbf34e",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:45:00Z",
-      "source_detection_latency_seconds": 5589.5,
-      "factual_update": "Spanish Government Pledges to Continue Audiovisual Hub Through Spain Crece Fund",
-      "source": "Variety",
-      "source_tier": 3,
-      "primary_source_link": "https://variety.com/2026/film/global/spanish-government-audiovisual-hub-through-spain-crece-fund-1236870443/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Variety"
-      ],
-      "corroborating_links": [
-        "https://variety.com/2026/film/global/spanish-government-audiovisual-hub-through-spain-crece-fund-1236870443/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 93.2
-    },
-    {
-      "id": "53767d8dca34",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.09,
-      "score_components": {
-        "source_trust": 15,
-        "recency": 2.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "597f3f388ebb",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T03:22:47Z",
-      "source_detection_latency_seconds": 14122.5,
-      "factual_update": "Tropical Storm Fay Graphics",
-      "source": "National Hurricane Center Atlantic",
-      "source_tier": 1,
-      "primary_source_link": "https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/032247.shtml?cone",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "National Hurricane Center Atlantic"
-      ],
-      "corroborating_links": [
-        "https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/032247.shtml?cone"
-      ],
-      "risk_flags": [],
-      "age_minutes": 235.4
-    },
-    {
-      "id": "87b1e19af238",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.43,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 14.43,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3a897ce5dae4",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T06:36:00Z",
-      "source_detection_latency_seconds": 2529.5,
-      "factual_update": "Stunning 2,000-year-old Roman mosaic unearthed in Turkey appears to honor family’s beloved cat and dog",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/21/lifestyle/roman-mosaic-discovered-at-adramytteion-villa-in-turkey-reveals-names-of-ancient-familys-pet-cat-and-dog/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/21/lifestyle/roman-mosaic-discovered-at-adramytteion-villa-in-turkey-reveals-names-of-ancient-familys-pet-cat-and-dog/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 42.2
-    },
-    {
-      "id": "857be66ae20d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.0,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 6.0,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2c4026442979",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:08:14Z",
-      "source_detection_latency_seconds": 7795.5,
-      "factual_update": "The Papers: 'Russia to test Nato pact' and 'Labour eye tax raid'",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/crp3kpy905plo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/crp3kpy905plo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 129.9
-    },
-    {
-      "id": "c705ff5ec5ca",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.92,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 5.92,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "592d6af95098",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T05:06:57Z",
-      "source_detection_latency_seconds": 7872.5,
-      "factual_update": "ICE officer shoots and injures DoorDash delivery driver in Austin: Police",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/US/man-hospitalized-after-ice-involved-shooting-austin-officials/story?id=136604992",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/US/man-hospitalized-after-ice-involved-shooting-austin-officials/story?id=136604992"
-      ],
-      "risk_flags": [],
-      "age_minutes": 131.2
+      "age_minutes": 152.8
     },
     {
       "id": "32baa01dd918",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.57,
+      "urgency_score": 32.59,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.57,
+        "recency": 20.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "matched_storyline_id": "cd68a67794d9",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T07:16:12Z",
-      "source_detection_latency_seconds": 117.5,
+      "source_detection_latency_seconds": 396.2,
       "factual_update": "Paris Hilton pays tribute to Presley Gerber following his death at 27: ‘Beautiful soul’",
       "source": "New York Post",
       "source_tier": 3,
@@ -1296,17 +445,831 @@
         "https://pagesix.com/2026/09/21/entertainment/presley-gerber-paid-tribute-by-paris-hilton-following-his-death-at-27/"
       ],
       "risk_flags": [],
-      "age_minutes": 2.0
+      "age_minutes": 6.6
+    },
+    {
+      "id": "e2ed5fce3ccc",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.97,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.97,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "7b5a37b4c5a9",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T06:21:54Z",
+      "source_detection_latency_seconds": 3654.2,
+      "factual_update": "Bessent: US proposes AI incident alert system in talks with China",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/Technology/wireStory/bessent-us-proposes-ai-incident-alert-system-talks-136609079",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "ABC News"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/Technology/wireStory/bessent-us-proposes-ai-incident-alert-system-talks-136609079"
+      ],
+      "risk_flags": [],
+      "age_minutes": 60.9
+    },
+    {
+      "id": "53a3c866f484",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.94,
+      "score_components": {
+        "source_trust": 15,
+        "recency": 6.94,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9c2f0de85a8b",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:27:29Z",
+      "source_detection_latency_seconds": 6919.2,
+      "factual_update": "Atlantic Tropical Weather Outlook",
+      "source": "National Hurricane Center Atlantic",
+      "source_tier": 1,
+      "primary_source_link": "https://www.nhc.noaa.gov/gtwo.php?basin=atlc",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "National Hurricane Center Atlantic"
+      ],
+      "corroborating_links": [
+        "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
+      ],
+      "risk_flags": [],
+      "age_minutes": 115.3
+    },
+    {
+      "id": "d136b9238016",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.65,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.65,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d0e70a721155",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:23:10Z",
+      "source_detection_latency_seconds": 10778.2,
+      "factual_update": "First female Archbishop of Canterbury revokes award she gave on 9/11 to Muslim cleric who praised bin Laden",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/21/world-news/archbishop-of-canterbury-withdraws-award-she-gave-on-9-11-to-muslim-cleric-who-praised-bin-laden/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/21/world-news/archbishop-of-canterbury-withdraws-award-she-gave-on-9-11-to-muslim-cleric-who-praised-bin-laden/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 179.6
+    },
+    {
+      "id": "34152d59cb6d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.47,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.47,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "6a1c4dca99e1",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:10:35Z",
+      "source_detection_latency_seconds": 733.2,
+      "factual_update": "Vessels trickle through Strait of Hormuz as Middle East conflict persists",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/21/world-news/vessels-trickle-through-strait-of-hormuz-as-middle-east-conflict-persists/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/21/world-news/vessels-trickle-through-strait-of-hormuz-as-middle-east-conflict-persists/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 12.2
+    },
+    {
+      "id": "504cbc454b33",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.68,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 10.68,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "a451c87012a1",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T06:10:32Z",
+      "source_detection_latency_seconds": 4336.2,
+      "factual_update": "Chiefs back in business as star QBs go down - five things from NFL week two",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/american-football/articles/crz6z2pypgqlo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/american-football/articles/crz6z2pypgqlo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 72.3
+    },
+    {
+      "id": "6449fcd3b72a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.1,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 18.1,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "a0c2167daca3",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:03:17Z",
+      "source_detection_latency_seconds": 1171.2,
+      "factual_update": "Trump Says Proposed D.C. Triumphal Arch Will Double as Military Complex",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/21/trump-says-proposed-d-c-triumphal-arch-will-double-as-military-complex/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/21/trump-says-proposed-d-c-triumphal-arch-will-double-as-military-complex/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 19.5
+    },
+    {
+      "id": "e6fdcc0803c3",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.01,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 18.01,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "1824fb2ed3a6",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:02:48Z",
+      "source_detection_latency_seconds": 1200.2,
+      "factual_update": "Saudi Arabia Intercepts Houthi Ballistic Missile Targeting Riyadh",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/21/saudi-arabia-intercepts-houthi-ballistic-missile-targeting-riyadh/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/21/saudi-arabia-intercepts-houthi-ballistic-missile-targeting-riyadh/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.0
+    },
+    {
+      "id": "8225b134b424",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.61,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.61,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c8b0645894be",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:00:32Z",
+      "source_detection_latency_seconds": 1336.2,
+      "factual_update": "Those Who Walk Away from Effective Altruism",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/21/those-who-walk-away-from-effective-altruism/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/21/those-who-walk-away-from-effective-altruism/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 22.3
+    },
+    {
+      "id": "36b8d17adac4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.56,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.56,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5fbc8bcfd16c",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:00:17Z",
+      "source_detection_latency_seconds": 1351.2,
+      "factual_update": "Tent vs. Big Top: What the Dallas Convention Just Proved",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/21/tent-vs-big-top-what-the-dallas-convention-just-proved/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/21/tent-vs-big-top-what-the-dallas-convention-just-proved/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 22.5
+    },
+    {
+      "id": "4e90a539d48c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.52,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.52,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2424a70a5a5a",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:00:03Z",
+      "source_detection_latency_seconds": 1365.2,
+      "factual_update": "Lindsay Clancy’s Devil’s Bargain",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/21/lindsay-clancys-devils-bargain/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/21/lindsay-clancys-devils-bargain/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 22.8
+    },
+    {
+      "id": "3cbc944171bb",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.52,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.52,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "6bd8d501cff1",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:00:01Z",
+      "source_detection_latency_seconds": 1367.2,
+      "factual_update": "Vitamin C linked to improved outcomes in people with precancerous blood disorders",
+      "source": "Medical Xpress",
+      "source_tier": 3,
+      "primary_source_link": "https://medicalxpress.com/news/2026-09-vitamin-linked-outcomes-people-precancerous.html",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Medical Xpress"
+      ],
+      "corroborating_links": [
+        "https://medicalxpress.com/news/2026-09-vitamin-linked-outcomes-people-precancerous.html"
+      ],
+      "risk_flags": [],
+      "age_minutes": 22.8
+    },
+    {
+      "id": "3b008efdfb13",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.51,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.51,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9bd69ab99b86",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:00:00Z",
+      "source_detection_latency_seconds": 1368.2,
+      "factual_update": "Open Thread",
+      "source": "Reason",
+      "source_tier": 3,
+      "primary_source_link": "https://reason.com/volokh/2026/09/21/open-thread-334/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Reason"
+      ],
+      "corroborating_links": [
+        "https://reason.com/volokh/2026/09/21/open-thread-334/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 22.8
+    },
+    {
+      "id": "ca962086c36d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.51,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.51,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "3be71f62192d",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:00:00Z",
+      "source_detection_latency_seconds": 1368.2,
+      "factual_update": "The Peacemaker of Utah | Interview: Spencer Cox",
+      "source": "The Dispatch",
+      "source_tier": 3,
+      "primary_source_link": "https://thedispatch.com/podcast/remnant/the-peacemaker-of-utah-interview-spencer-cox/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Dispatch"
+      ],
+      "corroborating_links": [
+        "https://thedispatch.com/podcast/remnant/the-peacemaker-of-utah-interview-spencer-cox/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 22.8
+    },
+    {
+      "id": "fed8296a51aa",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.06,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.06,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "861eec0c940b",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:54:06Z",
+      "source_detection_latency_seconds": 5322.2,
+      "factual_update": "Flex your football brain with our daily quizzes",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cqdj4nk270meo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/cqdj4nk270meo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 88.7
+    },
+    {
+      "id": "150eb06d3812",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.96,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.96,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "134113320091",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:52:57Z",
+      "source_detection_latency_seconds": 5391.2,
+      "factual_update": "Lindsay Clancy's ex-husband explains why he forgave her over children's killings",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cq5yme200n8go?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cq5yme200n8go?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 89.9
+    },
+    {
+      "id": "8b29e289be41",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.96,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.96,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d6db33bd9a83",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:52:56Z",
+      "source_detection_latency_seconds": 5392.2,
+      "factual_update": "The pros and cons of being a long-distance football manager",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c7v4l3z659vo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/c7v4l3z659vo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 89.9
+    },
+    {
+      "id": "907d728ac596",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.04,
+      "score_components": {
+        "source_trust": 15,
+        "recency": 3.04,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "991fbc6a1abe",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:05:00Z",
+      "source_detection_latency_seconds": 11868.2,
+      "factual_update": "APOD: 2026 September 21 – Cocoon Nebula Wide Field",
+      "source": "NASA News",
+      "source_tier": 1,
+      "primary_source_link": "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "NASA News"
+      ],
+      "corroborating_links": [
+        "https://science.nasa.gov/image-article/apod-2026-september-21-cocoon-nebula-wide-field/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 197.8
+    },
+    {
+      "id": "45177d204b7c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.27,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 8.27,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "e8251fbbf34e",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:45:00Z",
+      "source_detection_latency_seconds": 5868.2,
+      "factual_update": "Spanish Government Pledges to Continue Audiovisual Hub Through Spain Crece Fund",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/2026/film/global/spanish-government-audiovisual-hub-through-spain-crece-fund-1236870443/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/2026/film/global/spanish-government-audiovisual-hub-through-spain-crece-fund-1236870443/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 97.8
+    },
+    {
+      "id": "8809ea5275b8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.98,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.98,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d91444737bfc",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T06:44:22Z",
+      "source_detection_latency_seconds": 2306.2,
+      "factual_update": "Hong Kong socialite Abby Choi’s ex-husband and in-laws on trial for murder, 3 years after she was found dismembered",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/21/world-news/abby-chois-ex-husband-and-in-laws-on-trial-for-hong-kong-socialites-murder/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/21/world-news/abby-chois-ex-husband-and-in-laws-on-trial-for-hong-kong-socialites-murder/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 38.4
+    },
+    {
+      "id": "87b1e19af238",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "3a897ce5dae4",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T06:36:00Z",
+      "source_detection_latency_seconds": 2808.2,
+      "factual_update": "Stunning 2,000-year-old Roman mosaic unearthed in Turkey appears to honor family’s beloved cat and dog",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/21/lifestyle/roman-mosaic-discovered-at-adramytteion-villa-in-turkey-reveals-names-of-ancient-familys-pet-cat-and-dog/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/21/lifestyle/roman-mosaic-discovered-at-adramytteion-villa-in-turkey-reveals-names-of-ancient-familys-pet-cat-and-dog/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 46.8
+    },
+    {
+      "id": "857be66ae20d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.73,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 5.73,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2c4026442979",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:08:14Z",
+      "source_detection_latency_seconds": 8074.2,
+      "factual_update": "The Papers: 'Russia to test Nato pact' and 'Labour eye tax raid'",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/crp3kpy905plo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/crp3kpy905plo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 134.6
+    },
+    {
+      "id": "c705ff5ec5ca",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.65,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 5.65,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "592d6af95098",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T05:06:57Z",
+      "source_detection_latency_seconds": 8151.2,
+      "factual_update": "ICE officer shoots and injures DoorDash delivery driver in Austin: Police",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/US/man-hospitalized-after-ice-involved-shooting-austin-officials/story?id=136604992",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "ABC News"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/US/man-hospitalized-after-ice-involved-shooting-austin-officials/story?id=136604992"
+      ],
+      "risk_flags": [],
+      "age_minutes": 135.9
     },
     {
       "id": "f4b0d3109f60",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.56,
+      "urgency_score": 25.31,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.56,
+        "recency": 5.31,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1317,9 +1280,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c67d25a16381",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:00:34Z",
-      "source_detection_latency_seconds": 8255.5,
+      "source_detection_latency_seconds": 8534.2,
       "factual_update": "Oxford grooming gang survivors tell BBC 'hundreds' of abusers still free",
       "source": "BBC News",
       "source_tier": 2,
@@ -1333,17 +1296,17 @@
         "https://www.bbc.co.uk/news/articles/cmpwln09gknzo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 137.6
+      "age_minutes": 142.2
     },
     {
       "id": "594cdecad88d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.63,
+      "urgency_score": 24.37,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.63,
+        "recency": 5.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1354,9 +1317,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d45f98809983",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:01:48Z",
-      "source_detection_latency_seconds": 8181.5,
+      "source_detection_latency_seconds": 8460.2,
       "factual_update": "Secuoya Studios Taps Carla Gómez to Lead Latin American Development as Regional Expansion Accelerates (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -1370,54 +1333,17 @@
         "https://variety.com/2026/film/global/secuoya-studios-carla-gomez-latin-america-development-1236870069/"
       ],
       "risk_flags": [],
-      "age_minutes": 136.4
-    },
-    {
-      "id": "fc55f5146e7f",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.86,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.86,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "85ab8464e69e",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T06:16:21Z",
-      "source_detection_latency_seconds": 3708.5,
-      "factual_update": "Sen. John Kennedy raises eyebrows with bizarre praise of Nebraska: ‘Better than sex’",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/21/us-news/sen-john-kennedy-says-he-loves-nebraska-better-than-sex-in-bizarre-address/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/21/us-news/sen-john-kennedy-says-he-loves-nebraska-better-than-sex-in-bizarre-address/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 61.8
+      "age_minutes": 141.0
     },
     {
       "id": "aa5414616bad",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.56,
+      "urgency_score": 23.45,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.56,
+        "recency": 2.45,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -1428,9 +1354,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "0e23a2eb4788",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:43:07Z",
-      "source_detection_latency_seconds": 12902.5,
+      "source_detection_latency_seconds": 13181.2,
       "factual_update": "Watch: Protesters Already Creating Chaos in North Austin Streets After ICE-Involved Shooting",
       "source": "RedState",
       "source_tier": 3,
@@ -1444,17 +1370,54 @@
         "https://redstate.com/nick-arama/2026/09/20/protest-in-austin-n2207175"
       ],
       "risk_flags": [],
-      "age_minutes": 215.0
+      "age_minutes": 219.7
+    },
+    {
+      "id": "fc55f5146e7f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.32,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.32,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "85ab8464e69e",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T06:16:21Z",
+      "source_detection_latency_seconds": 3987.2,
+      "factual_update": "Sen. John Kennedy raises eyebrows with bizarre praise of Nebraska: ‘Better than sex’",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/21/us-news/sen-john-kennedy-says-he-loves-nebraska-better-than-sex-in-bizarre-address/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/21/us-news/sen-john-kennedy-says-he-loves-nebraska-better-than-sex-in-bizarre-address/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 66.5
     },
     {
       "id": "70001ae83e90",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.39,
+      "urgency_score": 23.24,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.39,
+        "recency": 3.24,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1465,9 +1428,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "60ad6ff3d767",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:11:08Z",
-      "source_detection_latency_seconds": 11221.5,
+      "source_detection_latency_seconds": 11500.2,
       "factual_update": "Manhunt underway in California after armed suspect allegedly points gun at people, shoots at officers",
       "source": "Fox News",
       "source_tier": 2,
@@ -1481,54 +1444,17 @@
         "https://www.foxnews.com/us/manhunt-underway-california-after-armed-suspect-allegedly-points-gun-people-shoots-officers"
       ],
       "risk_flags": [],
-      "age_minutes": 187.0
-    },
-    {
-      "id": "ddf51a38c30a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.13,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 19.13,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T07:04:11Z",
-      "source_detection_latency_seconds": 838.5,
-      "factual_update": "Taylor Swift Celebrates Travis Kelce’s First Touchdown of the Season: ‘That’s My Husband!’",
-      "source": "Rolling Stone",
-      "source_tier": 3,
-      "primary_source_link": "https://www.rollingstone.com/music/music-news/taylor-swift-travis-kelce-first-touchdown-celebration-nfl-1235629448/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Rolling Stone"
-      ],
-      "corroborating_links": [
-        "https://www.rollingstone.com/music/music-news/taylor-swift-travis-kelce-first-touchdown-celebration-nfl-1235629448/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 14.0
+      "age_minutes": 191.7
     },
     {
       "id": "dcadafec03ae",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.05,
+      "urgency_score": 22.91,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.05,
+        "recency": 2.91,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1539,9 +1465,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "644af5ec4ee7",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:00:38Z",
-      "source_detection_latency_seconds": 11851.5,
+      "source_detection_latency_seconds": 12130.2,
       "factual_update": "UK should 'team up' with Canada in new Europe alliance, Canadian minister tells BBC",
       "source": "BBC News",
       "source_tier": 2,
@@ -1555,17 +1481,17 @@
         "https://www.bbc.co.uk/news/articles/cmed7p06epxjo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 197.5
+      "age_minutes": 202.2
     },
     {
       "id": "36c1dcbe7f28",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.82,
+      "urgency_score": 22.69,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.82,
+        "recency": 2.69,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1576,9 +1502,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7d25ae4aaa3e",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:52:45Z",
-      "source_detection_latency_seconds": 12324.5,
+      "source_detection_latency_seconds": 12603.2,
       "factual_update": "What will 'greatest captain' bring to Bellamy's Wales?",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1592,91 +1518,54 @@
         "https://www.bbc.co.uk/sport/football/articles/c58jdvlejve2o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 205.4
+      "age_minutes": 210.1
     },
     {
-      "id": "c346ef593f3e",
+      "id": "ddf51a38c30a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.09,
+      "urgency_score": 22.26,
       "score_components": {
-        "source_trust": 10,
-        "recency": 2.09,
+        "source_trust": 2,
+        "recency": 18.26,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "1680ff1f7651",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T03:22:44Z",
-      "source_detection_latency_seconds": 14125.5,
-      "factual_update": "German Chancellor Merz calls state election a 'disaster' for his party but vows to stay on",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cvwyz29n0nn2o?at_medium=RSS&at_campaign=rss",
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T07:04:11Z",
+      "source_detection_latency_seconds": 1117.2,
+      "factual_update": "Taylor Swift Celebrates Travis Kelce’s First Touchdown of the Season: ‘That’s My Husband!’",
+      "source": "Rolling Stone",
+      "source_tier": 3,
+      "primary_source_link": "https://www.rollingstone.com/music/music-news/taylor-swift-travis-kelce-first-touchdown-celebration-nfl-1235629448/",
       "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
+      "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "BBC News"
+        "Rolling Stone"
       ],
       "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cvwyz29n0nn2o?at_medium=RSS&at_campaign=rss"
+        "https://www.rollingstone.com/music/music-news/taylor-swift-travis-kelce-first-touchdown-celebration-nfl-1235629448/"
       ],
       "risk_flags": [],
-      "age_minutes": 235.4
-    },
-    {
-      "id": "9b7cfd2f1cdf",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.04,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.04,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fcd2f6d5e55d",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T03:20:08Z",
-      "source_detection_latency_seconds": 14281.5,
-      "factual_update": "Tafoya blames Kristi Noem, Minnesota leadership for ICE rollout",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/campaign/6101001-taforya-criticizes-noem-immigration-rollout/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Hill"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/homenews/campaign/6101001-taforya-criticizes-noem-immigration-rollout/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 238.0
+      "age_minutes": 18.6
     },
     {
       "id": "6405d87ccfc4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.99,
+      "urgency_score": 21.85,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.99,
+        "recency": 2.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1687,9 +1576,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "69ded9b39263",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:58:33Z",
-      "source_detection_latency_seconds": 11976.5,
+      "source_detection_latency_seconds": 12255.2,
       "factual_update": "18 Suspects Accused in the July 2021 Killing of Haiti’s President Being Extradited From Haiti to US",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1703,17 +1592,17 @@
         "https://www.theepochtimes.com/world/18-suspects-accused-in-the-july-2021-killing-of-haitis-president-being-extradited-from-haiti-to-us-6092563"
       ],
       "risk_flags": [],
-      "age_minutes": 199.6
+      "age_minutes": 204.3
     },
     {
       "id": "6d06bc8e23e1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.47,
+      "urgency_score": 19.13,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.47,
+        "recency": 7.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1724,9 +1613,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4c98f1f672e2",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:30:11Z",
-      "source_detection_latency_seconds": 6478.5,
+      "source_detection_latency_seconds": 6757.2,
       "factual_update": "Chile Film Industry Surges 20.5% Compared to Previous Season, New Catalog Reveals (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -1740,56 +1629,17 @@
         "https://variety.com/2026/film/global/chile-film-industry-surges-20-5-per-cent-unveils-catalog-1236870115/"
       ],
       "risk_flags": [],
-      "age_minutes": 108.0
-    },
-    {
-      "id": "0424b94cc73a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 18.99,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.99,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0756acad5536",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T03:58:44Z",
-      "source_detection_latency_seconds": 11965.5,
-      "factual_update": "Patrick Clancy Gives First TV Interview on ’60 Minutes’ After Lindsay Clancy Mistrial",
-      "source": "The Epoch Times",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theepochtimes.com/us/patrick-clancy-gives-first-tv-interview-on-60-minutes-after-lindsay-clancy-mistrial-6092564",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Epoch Times",
-        "Washington Examiner"
-      ],
-      "corroborating_links": [
-        "https://www.theepochtimes.com/us/patrick-clancy-gives-first-tv-interview-on-60-minutes-after-lindsay-clancy-mistrial-6092564",
-        "https://www.washingtonexaminer.com/news/crime/4735443/patrick-clancy-family-tragedy-60-minutes-interview/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 199.4
+      "age_minutes": 112.6
     },
     {
       "id": "59df14ce6778",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.94,
+      "urgency_score": 18.62,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.94,
+        "recency": 6.62,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1800,9 +1650,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "90d863b1d83d",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:22:46Z",
-      "source_detection_latency_seconds": 6923.5,
+      "source_detection_latency_seconds": 7202.2,
       "factual_update": "Patrick Mahomes, Chiefs beat Colts in overtime thriller after bizarre sequence nearly cost them game",
       "source": "New York Post",
       "source_tier": 3,
@@ -1816,17 +1666,17 @@
         "https://nypost.com/2026/09/21/sports/chiefs-beat-colts-in-overtime-after-bizarre-sequence-nearly-cost-them-game/"
       ],
       "risk_flags": [],
-      "age_minutes": 115.4
+      "age_minutes": 120.0
     },
     {
       "id": "c9f57ff07a8b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.42,
+      "urgency_score": 18.13,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.42,
+        "recency": 6.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1837,9 +1687,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ca13b8bfa829",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:15:00Z",
-      "source_detection_latency_seconds": 7389.5,
+      "source_detection_latency_seconds": 7668.2,
       "factual_update": "Latido Takes Isaki Lacuesta’s ‘Flamenco Sketches,’ San Sebastian’s Zabaltegi-Tabakalera Closer (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -1853,17 +1703,17 @@
         "https://variety.com/2026/film/global/isaki-lacuesta-flamenco-sketches-latido-san-sebastian-1236870389/"
       ],
       "risk_flags": [],
-      "age_minutes": 123.2
+      "age_minutes": 127.8
     },
     {
       "id": "45c8a79e449b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.53,
+      "urgency_score": 17.28,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.53,
+        "recency": 5.28,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1874,9 +1724,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "472e22680fbe",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:00:00Z",
-      "source_detection_latency_seconds": 8289.5,
+      "source_detection_latency_seconds": 8568.2,
       "factual_update": "The Plight of Ukrainian Parolees in the United States",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -1890,17 +1740,17 @@
         "https://thedispatch.com/article/ukrainian-refugees-immigration-compliance-costs/"
       ],
       "risk_flags": [],
-      "age_minutes": 138.2
+      "age_minutes": 142.8
     },
     {
       "id": "fdffe3c8a352",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.53,
+      "urgency_score": 17.28,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.53,
+        "recency": 5.28,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1911,9 +1761,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8ff06acabe85",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T05:00:00Z",
-      "source_detection_latency_seconds": 8289.5,
+      "source_detection_latency_seconds": 8568.2,
       "factual_update": "Make Motherhood Normal Again",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -1927,17 +1777,17 @@
         "https://thedispatch.com/article/clancy-motherhood-progressive-conservative/"
       ],
       "risk_flags": [],
-      "age_minutes": 138.2
+      "age_minutes": 142.8
     },
     {
       "id": "aba79e0e4744",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.52,
+      "urgency_score": 17.27,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.52,
+        "recency": 5.27,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1948,9 +1798,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "59433f3ca5d8",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:59:58Z",
-      "source_detection_latency_seconds": 8291.5,
+      "source_detection_latency_seconds": 8570.2,
       "factual_update": "Man dodges $12,055 late fee by returning 132-year-old magazine to New Hampshire library",
       "source": "New York Post",
       "source_tier": 3,
@@ -1964,17 +1814,17 @@
         "https://nypost.com/2026/09/21/us-news/man-dodges-12055-late-fee-by-returning-132-year-old-magazine-to-new-hampshire-library/"
       ],
       "risk_flags": [],
-      "age_minutes": 138.2
+      "age_minutes": 142.8
     },
     {
       "id": "0053484eadea",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.8,
+      "urgency_score": 16.58,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.8,
+        "recency": 4.58,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1985,9 +1835,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b7b7127a3949",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:45:56Z",
-      "source_detection_latency_seconds": 9133.5,
+      "source_detection_latency_seconds": 9412.2,
       "factual_update": "Korea Box Office: Local Comedy Remake ‘The Intern’ Leads Weekend Admissions as ‘The Odyssey’ Retains Revenue Crown",
       "source": "Variety",
       "source_tier": 3,
@@ -2001,17 +1851,17 @@
         "https://variety.com/2026/film/box-office/korea-box-office-the-intern-odyssey-1236870836/"
       ],
       "risk_flags": [],
-      "age_minutes": 152.2
+      "age_minutes": 156.9
     },
     {
       "id": "415813b83a4c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.75,
+      "urgency_score": 16.53,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.75,
+        "recency": 4.53,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2022,9 +1872,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b52dbf7fbfda",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:44:51Z",
-      "source_detection_latency_seconds": 9198.5,
+      "source_detection_latency_seconds": 9477.2,
       "factual_update": "LA Review of Books spikes feature on pro-Israel professor",
       "source": "The College Fix",
       "source_tier": 3,
@@ -2038,17 +1888,17 @@
         "https://www.thecollegefix.com/la-review-of-books-spikes-feature-on-pro-israel-professor/"
       ],
       "risk_flags": [],
-      "age_minutes": 153.3
+      "age_minutes": 158.0
     },
     {
       "id": "148becba2239",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.71,
+      "urgency_score": 16.49,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.71,
+        "recency": 4.49,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2059,9 +1909,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c73dc7f46263",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:43:56Z",
-      "source_detection_latency_seconds": 9253.5,
+      "source_detection_latency_seconds": 9532.2,
       "factual_update": "Tourists stranded on isolated Oregon beach after trying to snap ‘dramatic’ photo",
       "source": "New York Post",
       "source_tier": 3,
@@ -2075,17 +1925,17 @@
         "https://nypost.com/2026/09/21/us-news/tourists-stranded-on-oregon-beach-after-trying-to-snap-dramatic-photo/"
       ],
       "risk_flags": [],
-      "age_minutes": 154.2
+      "age_minutes": 158.9
     },
     {
       "id": "6363951cccb7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.63,
+      "urgency_score": 16.42,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.63,
+        "recency": 4.42,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2096,9 +1946,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "93dbb7212643",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:42:23Z",
-      "source_detection_latency_seconds": 9346.5,
+      "source_detection_latency_seconds": 9625.2,
       "factual_update": "Todd Monken fires back at Mike Tomlin’s Browns diss: ‘F–k that!’",
       "source": "New York Post",
       "source_tier": 3,
@@ -2112,17 +1962,17 @@
         "https://nypost.com/2026/09/21/sports/todd-monken-fires-back-at-mike-tomlins-browns-diss-fk-that/"
       ],
       "risk_flags": [],
-      "age_minutes": 155.8
+      "age_minutes": 160.4
     },
     {
       "id": "64dbdbad6867",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.59,
+      "urgency_score": 16.39,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.59,
+        "recency": 4.39,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2133,9 +1983,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ed18bf2157c0",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:41:32Z",
-      "source_detection_latency_seconds": 9397.5,
+      "source_detection_latency_seconds": 9676.2,
       "factual_update": "Vitek Vanecek making case to be third goalie as Islanders weigh Semyon Varlamov’s health risk",
       "source": "New York Post",
       "source_tier": 3,
@@ -2149,17 +1999,17 @@
         "https://nypost.com/2026/09/21/sports/vitek-vanecek-making-case-to-be-third-goalie-as-islanders-weigh-semyon-varlamovs-health-risk/"
       ],
       "risk_flags": [],
-      "age_minutes": 156.6
+      "age_minutes": 161.3
     },
     {
       "id": "fcce651d85b7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.3,
+      "urgency_score": 16.1,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.3,
+        "recency": 4.1,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2170,9 +2020,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e29fcf8d2768",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:34:49Z",
-      "source_detection_latency_seconds": 9800.5,
+      "source_detection_latency_seconds": 10079.2,
       "factual_update": "Rebecca Allen’s patience allowing her to find flow from deep for Liberty",
       "source": "New York Post",
       "source_tier": 3,
@@ -2186,17 +2036,17 @@
         "https://nypost.com/2026/09/21/sports/rebecca-allens-patience-allowing-her-to-find-flow-from-deep-for-liberty/"
       ],
       "risk_flags": [],
-      "age_minutes": 163.3
+      "age_minutes": 168.0
     },
     {
       "id": "955f10640ed6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.09,
+      "urgency_score": 15.91,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.09,
+        "recency": 3.91,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2207,9 +2057,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "02aabdfdb9bd",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:30:00Z",
-      "source_detection_latency_seconds": 10089.5,
+      "source_detection_latency_seconds": 10368.2,
       "factual_update": "Abhishek Chaubey, Navdeep Singh to Present Shivam Shankar’s ‘Bhed, Bakri, Bhoot’ on Anurag Kashyap-Curated YouTube Channel (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -2223,17 +2073,17 @@
         "https://variety.com/2026/tv/news/anurag-kashyap-oh-short-flips-bhed-bakri-bhoot-1236866877/"
       ],
       "risk_flags": [],
-      "age_minutes": 168.2
+      "age_minutes": 172.8
     },
     {
       "id": "fe4f8773338b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.99,
+      "urgency_score": 15.81,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.99,
+        "recency": 3.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2244,9 +2094,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "afa7d21fa29f",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:27:31Z",
-      "source_detection_latency_seconds": 10238.5,
+      "source_detection_latency_seconds": 10517.2,
       "factual_update": "Clarke Schmidt kept out of Yankees loss after feeling biceps cramping",
       "source": "New York Post",
       "source_tier": 3,
@@ -2260,17 +2110,17 @@
         "https://nypost.com/2026/09/21/sports/clarke-schmidt-kept-out-of-yankees-loss-after-feeling-biceps-cramping/"
       ],
       "risk_flags": [],
-      "age_minutes": 170.6
+      "age_minutes": 175.3
     },
     {
       "id": "73438ae0b1c0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.99,
+      "urgency_score": 15.81,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.99,
+        "recency": 3.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2281,9 +2131,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fd7dea7cfb7e",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:27:24Z",
-      "source_detection_latency_seconds": 10245.5,
+      "source_detection_latency_seconds": 10524.2,
       "factual_update": "Heroes, zeros from Jets’ loss to the Packers: Green Bay defensive end was everywhere",
       "source": "New York Post",
       "source_tier": 3,
@@ -2297,17 +2147,17 @@
         "https://nypost.com/2026/09/21/sports/heroes-zeros-from-jets-loss-to-the-packers/"
       ],
       "risk_flags": [],
-      "age_minutes": 170.8
+      "age_minutes": 175.4
     },
     {
       "id": "4d13929d86e5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.96,
+      "urgency_score": 15.78,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.96,
+        "recency": 3.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2318,9 +2168,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:26:45Z",
-      "source_detection_latency_seconds": 10284.5,
+      "source_detection_latency_seconds": 10563.2,
       "factual_update": "Harrison Butker drills game-winner as Chiefs survive overtime thriller against Colts",
       "source": "Fox News",
       "source_tier": 2,
@@ -2334,17 +2184,17 @@
         "https://www.foxnews.com/outkick-sports/harrison-butker-drills-game-winner-chiefs-survive-overtime-thriller-colts"
       ],
       "risk_flags": [],
-      "age_minutes": 171.4
+      "age_minutes": 176.1
     },
     {
       "id": "e65f2c19ed92",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.7,
+      "urgency_score": 15.54,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.7,
+        "recency": 3.54,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2355,9 +2205,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bf57c019f8e0",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:20:01Z",
-      "source_detection_latency_seconds": 10688.5,
+      "source_detection_latency_seconds": 10967.2,
       "factual_update": "Falcons’ Drake London gets in heated exchange with fan he claims got ‘personal’ during blowout loss",
       "source": "New York Post",
       "source_tier": 3,
@@ -2371,17 +2221,17 @@
         "https://nypost.com/2026/09/21/sports/falcons-drake-london-gets-in-heated-exchange-with-fan-during-blowout-loss/"
       ],
       "risk_flags": [],
-      "age_minutes": 178.1
+      "age_minutes": 182.8
     },
     {
       "id": "9d4c88fe9892",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.36,
+      "urgency_score": 15.2,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.36,
+        "recency": 3.2,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2392,9 +2242,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e1a6eb41b68b",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:10:06Z",
-      "source_detection_latency_seconds": 11283.5,
+      "source_detection_latency_seconds": 11562.2,
       "factual_update": "Commentary calls for dementia-level support to address cognitive impairment in homelessness",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -2408,17 +2258,17 @@
         "https://medicalxpress.com/news/2026-09-commentary-dementia-cognitive-impairment-homelessness.html"
       ],
       "risk_flags": [],
-      "age_minutes": 188.1
+      "age_minutes": 192.7
     },
     {
       "id": "27cf478e3ea4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.35,
+      "urgency_score": 15.2,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.35,
+        "recency": 3.2,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2429,9 +2279,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c09a54b4a480",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:10:01Z",
-      "source_detection_latency_seconds": 11288.5,
+      "source_detection_latency_seconds": 11567.2,
       "factual_update": "Working with engineered stone countertops can lead to silicosis lung disease",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -2445,17 +2295,17 @@
         "https://medicalxpress.com/news/2026-09-stone-countertops-silicosis-lung-disease.html"
       ],
       "risk_flags": [],
-      "age_minutes": 188.1
+      "age_minutes": 192.8
     },
     {
       "id": "2611c1f3d16a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.27,
+      "urgency_score": 15.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.27,
+        "recency": 3.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2466,9 +2316,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a503cf2bc38b",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:07:38Z",
-      "source_detection_latency_seconds": 11431.5,
+      "source_detection_latency_seconds": 11710.2,
       "factual_update": "NFL Week 2 grades for all 32 teams: Saints earn an 'A' for stunning Ravens, Steelers get low mark",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -2482,17 +2332,17 @@
         "https://www.cbssports.com/nfl/news/nfl-week-2-grades-saints-ravens-steelers/"
       ],
       "risk_flags": [],
-      "age_minutes": 190.5
+      "age_minutes": 195.2
     },
     {
       "id": "9bd580169e7b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.19,
+      "urgency_score": 15.04,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.19,
+        "recency": 3.04,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2503,9 +2353,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "dcd75e0952db",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:05:00Z",
-      "source_detection_latency_seconds": 11589.5,
+      "source_detection_latency_seconds": 11868.2,
       "factual_update": "Is the Greenland Deal a Win?",
       "source": "The American Conservative",
       "source_tier": 3,
@@ -2519,17 +2369,17 @@
         "https://www.theamericanconservative.com/the-greenland-deal-is-a-win/"
       ],
       "risk_flags": [],
-      "age_minutes": 193.2
+      "age_minutes": 197.8
     },
     {
       "id": "72e0b2d25200",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.17,
+      "urgency_score": 15.03,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.17,
+        "recency": 3.03,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2540,9 +2390,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "56367ef5314f",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:04:32Z",
-      "source_detection_latency_seconds": 11617.5,
+      "source_detection_latency_seconds": 11896.2,
       "factual_update": "Cover 32: Steelers offense is broken under Aaron Rodgers, plus games balls, biggest gaffes from Week 2",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -2556,232 +2406,10 @@
         "https://www.cbssports.com/nfl/news/nfl-week-2-storylines-games-balls-gaffes/"
       ],
       "risk_flags": [],
-      "age_minutes": 193.6
+      "age_minutes": 198.3
     },
     {
       "id": "eea759b56e81",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.16,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.16,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ec2e40045410",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:04:00Z",
-      "source_detection_latency_seconds": 11649.5,
-      "factual_update": "‘Queering God’ and ‘Thinking with Bad Bunny’: Inside YAF’s new report criticizing college curricula",
-      "source": "The College Fix",
-      "source_tier": 3,
-      "primary_source_link": "https://www.thecollegefix.com/queering-god-and-thinking-with-bad-bunny-inside-yafs-new-report-criticizing-college-curricula/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The College Fix"
-      ],
-      "corroborating_links": [
-        "https://www.thecollegefix.com/queering-god-and-thinking-with-bad-bunny-inside-yafs-new-report-criticizing-college-curricula/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 194.2
-    },
-    {
-      "id": "1986f4e5cc47",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.13,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.13,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4f83bec7df81",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:03:00Z",
-      "source_detection_latency_seconds": 11709.5,
-      "factual_update": "Chicago community college will train midwives to help ‘birthing individuals’",
-      "source": "The College Fix",
-      "source_tier": 3,
-      "primary_source_link": "https://www.thecollegefix.com/chicago-community-college-will-train-midwives-to-help-birthing-individuals/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The College Fix"
-      ],
-      "corroborating_links": [
-        "https://www.thecollegefix.com/chicago-community-college-will-train-midwives-to-help-birthing-individuals/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 195.2
-    },
-    {
-      "id": "83be1db36e39",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.13,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.13,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d695a504bad9",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:03:00Z",
-      "source_detection_latency_seconds": 11709.5,
-      "factual_update": "You Want a Real Commie?",
-      "source": "The American Conservative",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theamericanconservative.com/you-want-a-real-commie/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The American Conservative"
-      ],
-      "corroborating_links": [
-        "https://www.theamericanconservative.com/you-want-a-real-commie/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 195.2
-    },
-    {
-      "id": "d75489966a3c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.03,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.03,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "e2ab0b919fef",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:00:04Z",
-      "source_detection_latency_seconds": 11885.5,
-      "factual_update": "Guideline to reduce vaccination distress offers menu of options",
-      "source": "Medical Xpress",
-      "source_tier": 3,
-      "primary_source_link": "https://medicalxpress.com/news/2026-09-guideline-vaccination-distress-menu-options.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Medical Xpress"
-      ],
-      "corroborating_links": [
-        "https://medicalxpress.com/news/2026-09-guideline-vaccination-distress-menu-options.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 198.1
-    },
-    {
-      "id": "6be62ee4f025",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.03,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.03,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0c6b47f22fa2",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:00:02Z",
-      "source_detection_latency_seconds": 11887.5,
-      "factual_update": "Q&A: Meet a scientist who's dedicated decades to solving one of prosthetics' biggest problems",
-      "source": "Medical Xpress",
-      "source_tier": 3,
-      "primary_source_link": "https://medicalxpress.com/news/2026-09-qa-scientist-dedicated-decades-prosthetics.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Medical Xpress"
-      ],
-      "corroborating_links": [
-        "https://medicalxpress.com/news/2026-09-qa-scientist-dedicated-decades-prosthetics.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 198.1
-    },
-    {
-      "id": "00e2123d5ab1",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.03,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.03,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3a3393faee96",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T04:00:00Z",
-      "source_detection_latency_seconds": 11889.5,
-      "factual_update": "As Texas lawmakers crack down on DEI curriculum, lawsuits fly and professors revolt",
-      "source": "The College Fix",
-      "source_tier": 3,
-      "primary_source_link": "https://www.thecollegefix.com/as-texas-lawmakers-crack-down-on-dei-curriculum-lawsuits-fly-and-professors-revolt/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The College Fix"
-      ],
-      "corroborating_links": [
-        "https://www.thecollegefix.com/as-texas-lawmakers-crack-down-on-dei-curriculum-lawsuits-fly-and-professors-revolt/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 198.2
-    },
-    {
-      "id": "797fd412338e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -2798,10 +2426,232 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "ec2e40045410",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:04:00Z",
+      "source_detection_latency_seconds": 11928.2,
+      "factual_update": "‘Queering God’ and ‘Thinking with Bad Bunny’: Inside YAF’s new report criticizing college curricula",
+      "source": "The College Fix",
+      "source_tier": 3,
+      "primary_source_link": "https://www.thecollegefix.com/queering-god-and-thinking-with-bad-bunny-inside-yafs-new-report-criticizing-college-curricula/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The College Fix"
+      ],
+      "corroborating_links": [
+        "https://www.thecollegefix.com/queering-god-and-thinking-with-bad-bunny-inside-yafs-new-report-criticizing-college-curricula/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 198.8
+    },
+    {
+      "id": "1986f4e5cc47",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.98,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.98,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "4f83bec7df81",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:03:00Z",
+      "source_detection_latency_seconds": 11988.2,
+      "factual_update": "Chicago community college will train midwives to help ‘birthing individuals’",
+      "source": "The College Fix",
+      "source_tier": 3,
+      "primary_source_link": "https://www.thecollegefix.com/chicago-community-college-will-train-midwives-to-help-birthing-individuals/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The College Fix"
+      ],
+      "corroborating_links": [
+        "https://www.thecollegefix.com/chicago-community-college-will-train-midwives-to-help-birthing-individuals/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 199.8
+    },
+    {
+      "id": "83be1db36e39",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.98,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.98,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d695a504bad9",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:03:00Z",
+      "source_detection_latency_seconds": 11988.2,
+      "factual_update": "You Want a Real Commie?",
+      "source": "The American Conservative",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theamericanconservative.com/you-want-a-real-commie/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The American Conservative"
+      ],
+      "corroborating_links": [
+        "https://www.theamericanconservative.com/you-want-a-real-commie/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 199.8
+    },
+    {
+      "id": "d75489966a3c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.9,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.9,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "e2ab0b919fef",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:00:04Z",
+      "source_detection_latency_seconds": 12164.2,
+      "factual_update": "Guideline to reduce vaccination distress offers menu of options",
+      "source": "Medical Xpress",
+      "source_tier": 3,
+      "primary_source_link": "https://medicalxpress.com/news/2026-09-guideline-vaccination-distress-menu-options.html",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Medical Xpress"
+      ],
+      "corroborating_links": [
+        "https://medicalxpress.com/news/2026-09-guideline-vaccination-distress-menu-options.html"
+      ],
+      "risk_flags": [],
+      "age_minutes": 202.7
+    },
+    {
+      "id": "6be62ee4f025",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.9,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.9,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0c6b47f22fa2",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:00:02Z",
+      "source_detection_latency_seconds": 12166.2,
+      "factual_update": "Q&A: Meet a scientist who's dedicated decades to solving one of prosthetics' biggest problems",
+      "source": "Medical Xpress",
+      "source_tier": 3,
+      "primary_source_link": "https://medicalxpress.com/news/2026-09-qa-scientist-dedicated-decades-prosthetics.html",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Medical Xpress"
+      ],
+      "corroborating_links": [
+        "https://medicalxpress.com/news/2026-09-qa-scientist-dedicated-decades-prosthetics.html"
+      ],
+      "risk_flags": [],
+      "age_minutes": 202.8
+    },
+    {
+      "id": "00e2123d5ab1",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.9,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.9,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "3a3393faee96",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T04:00:00Z",
+      "source_detection_latency_seconds": 12168.2,
+      "factual_update": "As Texas lawmakers crack down on DEI curriculum, lawsuits fly and professors revolt",
+      "source": "The College Fix",
+      "source_tier": 3,
+      "primary_source_link": "https://www.thecollegefix.com/as-texas-lawmakers-crack-down-on-dei-curriculum-lawsuits-fly-and-professors-revolt/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The College Fix"
+      ],
+      "corroborating_links": [
+        "https://www.thecollegefix.com/as-texas-lawmakers-crack-down-on-dei-curriculum-lawsuits-fly-and-professors-revolt/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 202.8
+    },
+    {
+      "id": "797fd412338e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.87,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.87,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "b165e9f90952",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:59:07Z",
-      "source_detection_latency_seconds": 11942.5,
+      "source_detection_latency_seconds": 12221.2,
       "factual_update": "Tropical Storm Polo Forms Off Southwestern Mexico",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -2815,17 +2665,54 @@
         "https://www.theepochtimes.com/us/tropical-storm-polo-forms-off-southwestern-mexico-6092716"
       ],
       "risk_flags": [],
-      "age_minutes": 199.0
+      "age_minutes": 203.7
+    },
+    {
+      "id": "771ca6a4f9b3",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.86,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.86,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "741761ed5719",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
+      "source_published_at": "2026-09-21T03:58:44Z",
+      "source_detection_latency_seconds": 12244.2,
+      "factual_update": "Patrick Clancy Gives First TV Interview on ’60 Minutes’ After Lindsay Clancy Mistrial",
+      "source": "The Epoch Times",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theepochtimes.com/us/patrick-clancy-gives-first-tv-interview-on-60-minutes-after-lindsay-clancy-mistrial-6092564",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Epoch Times"
+      ],
+      "corroborating_links": [
+        "https://www.theepochtimes.com/us/patrick-clancy-gives-first-tv-interview-on-60-minutes-after-lindsay-clancy-mistrial-6092564"
+      ],
+      "risk_flags": [],
+      "age_minutes": 204.1
     },
     {
       "id": "1cce06b31d73",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.56,
+      "urgency_score": 14.44,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.56,
+        "recency": 2.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2836,9 +2723,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0274336e430d",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:42:56Z",
-      "source_detection_latency_seconds": 12913.5,
+      "source_detection_latency_seconds": 13192.2,
       "factual_update": "John Oliver Takes Swipe at David Ellison and His ‘Business Daddy’ Larry Ellison on ‘Last Week Tonight’",
       "source": "Variety",
       "source_tier": 3,
@@ -2852,17 +2739,17 @@
         "https://variety.com/2026/tv/news/john-oliver-david-ellison-larry-ellison-last-week-tonight-1236870834/"
       ],
       "risk_flags": [],
-      "age_minutes": 215.2
+      "age_minutes": 219.9
     },
     {
       "id": "9de207ebf21f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.53,
+      "urgency_score": 14.42,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.53,
+        "recency": 2.42,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2873,9 +2760,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c74a60f37236",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:41:58Z",
-      "source_detection_latency_seconds": 12971.5,
+      "source_detection_latency_seconds": 13250.2,
       "factual_update": "Troy Jackson downplays ties to socialists after prior backing from Maine DSA and Hasan Piker",
       "source": "New York Post",
       "source_tier": 3,
@@ -2889,17 +2776,17 @@
         "https://nypost.com/2026/09/20/us-news/troy-jackson-downplays-ties-to-socialists-after-prior-backing-from-maine-dsa-and-hasan-piker/"
       ],
       "risk_flags": [],
-      "age_minutes": 216.2
+      "age_minutes": 220.8
     },
     {
       "id": "820e7ffcd53d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.45,
+      "urgency_score": 14.34,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.45,
+        "recency": 2.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2910,9 +2797,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d4d6e93e6e93",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T03:38:49Z",
-      "source_detection_latency_seconds": 13160.5,
+      "source_detection_latency_seconds": 13439.2,
       "factual_update": "Maryland Hunter Shoots Mother of Five He Mistook for a Deer",
       "source": "Breitbart",
       "source_tier": 3,
@@ -2926,54 +2813,17 @@
         "https://www.breitbart.com/sports/2026/09/20/maryland-hunter-shoots-mother-of-five-he-mistook-for-a-deer/"
       ],
       "risk_flags": [],
-      "age_minutes": 219.3
-    },
-    {
-      "id": "57dc91678c7c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.05,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.05,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "7fb59e025942",
-      "detected_at": "2026-09-21T07:18:09.472577Z",
-      "source_published_at": "2026-09-21T03:21:02Z",
-      "source_detection_latency_seconds": 14227.5,
-      "factual_update": "Fantasy Baseball Week 27 Preview: Top 10 sleeper pitchers highlight Jared Jones, Walbert Urena",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/fantasy/baseball/news/fantasy-baseball-week-27-preview-top-10-sleeper-pitchers-highlight-jared-jones-walbert-urena/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/fantasy/baseball/news/fantasy-baseball-week-27-preview-top-10-sleeper-pitchers-highlight-jared-jones-walbert-urena/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 237.1
+      "age_minutes": 224.0
     },
     {
       "id": "386f85878cdc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 7.13,
+      "urgency_score": 6.98,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.13,
+        "recency": 2.98,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2984,9 +2834,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-21T07:18:09.472577Z",
+      "detected_at": "2026-09-21T07:22:48.248792Z",
       "source_published_at": "2026-09-21T04:03:00Z",
-      "source_detection_latency_seconds": 11709.5,
+      "source_detection_latency_seconds": 11988.2,
       "factual_update": "Will AI Kill Us All?",
       "source": "The American Conservative",
       "source_tier": 3,
@@ -3000,7 +2850,7 @@
         "https://www.theamericanconservative.com/will-ai-kill-us-all/"
       ],
       "risk_flags": [],
-      "age_minutes": 195.2
+      "age_minutes": 199.8
     }
   ],
   "publication_outcomes": []

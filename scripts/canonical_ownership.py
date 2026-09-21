@@ -44,10 +44,11 @@ def identity_evidence(left, right):
 def duplicate_evidence(left, right):
     """Return high-confidence current-duplicate evidence, or None.
 
-    Identical non-empty durable update sets are deterministic evidence.  A
-    near-identical set also requires a strong event-frame match so related but
-    separate events are not collapsed merely because a roundup source leaked
-    into both.
+    Multiple identical durable updates are strong deterministic evidence. A
+    single shared update is not: legacy leakage can place one update in two
+    otherwise unrelated timelines. Single-update duplicates therefore require
+    positive event-identity evidence before canonical ownership is collapsed.
+    A near-identical set likewise requires a strong event-frame match.
     """
     left_ids, right_ids = update_ids(left), update_ids(right)
     if not left_ids or not right_ids:
@@ -57,7 +58,9 @@ def duplicate_evidence(left, right):
     union_ratio = overlap / max(1, len(left_ids | right_ids))
     match = identity_evidence(left, right)
     if left_ids == right_ids:
-        return {"reason": "identical_material_update_set", "overlap": overlap, "overlap_coefficient": 1.0, "event_confidence": match.confidence}
+        if overlap >= 2 or (match.same_event and match.confidence >= .70):
+            return {"reason": "identical_material_update_set", "overlap": overlap, "overlap_coefficient": 1.0, "event_confidence": match.confidence}
+        return None
     if overlap >= 2 and coefficient >= .80 and union_ratio >= .60 and match.same_event and match.confidence >= .78:
         return {"reason": "near_identical_material_update_set", "overlap": overlap, "overlap_coefficient": round(coefficient, 3), "event_confidence": match.confidence}
     return None
@@ -99,8 +102,6 @@ def canonical_groups(records, current_ids):
         if a != b:
             parent[max(a, b)] = min(a, b)
 
-    # Only compare pairs sharing a durable update. This is both conservative
-    # and fast enough for thousands of retained history records.
     owners = defaultdict(set)
     for sid, record in by_id.items():
         for update_id in update_ids(record):
@@ -171,11 +172,6 @@ def enforce_unique_updates(records, current_ids):
                 purity_decisions.append({"timeline_id": str(record.get("id")), "material_update_id": str(update.get("id")), "reason": reason})
             else:
                 kept.append(update)
-        # A legacy cluster can contain several unrelated event frames even
-        # when every individual item is factual. Anchor current publication
-        # to the authoritative current event and retain only developments for
-        # which the matcher establishes semantic or causal continuity. Raw
-        # history remains untouched for review.
         anchor = str(record.get("current_title") or (record.get("current_status") or {}).get("summary") or "")
         anchor_updates = [item for item in kept if compare_events(anchor, str(item.get("label") or item.get("source_title") or "")).same_event]
         if anchor and anchor_updates:
@@ -183,11 +179,6 @@ def enforce_unique_updates(records, current_ids):
             for update in kept:
                 label = str(update.get("label") or update.get("source_title") or "")
                 match = compare_events(anchor, label)
-                # Low-confidence non-matches are genuinely ambiguous (for
-                # example, an injury followed by a terse testing update).
-                # Preserve them. Suppress only when the matcher sees enough
-                # overlapping structure to show that the shared topic/place
-                # is bridging distinct event frames.
                 if match.same_event or match.confidence < .30:
                     coherent.append(update)
                     continue
@@ -200,8 +191,6 @@ def enforce_unique_updates(records, current_ids):
                 })
             if coherent:
                 kept = coherent
-        # Never erase a timeline solely because a heuristic rejected every
-        # item. Leave it for explicit review rather than manufacturing purity.
         if kept:
             record["updates"] = kept
     claims = defaultdict(list)

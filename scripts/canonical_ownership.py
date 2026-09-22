@@ -69,17 +69,18 @@ def duplicate_evidence(left, right):
 def owner_rank(record, current_ids):
     """Rank established ownership without using generation recency.
 
-    An active continuity signal wins first, followed by established source
-    breadth and the earliest durable first_seen.  The ID is the final stable
-    tie-breaker.
+    Active continuity wins first so a retained historical record cannot steal
+    the canonical URL from the timeline currently representing the event.
+    Established source breadth and earliest durable first_seen then break ties;
+    the ID is the final stable tie-breaker.
     """
     first = parse_dt(record.get("first_seen"))
     first_rank = -first.timestamp() if first.year < 9999 else float("-inf")
     return (
+        int(record.get("id") in current_ids),
         int(record.get("max_source_family_count", 0) or 0),
         int(record.get("max_source_count", 0) or 0),
         first_rank,
-        int(record.get("id") in current_ids),
         str(record.get("id") or ""),
     )
 

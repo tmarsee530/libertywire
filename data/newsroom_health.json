@@ -1,53 +1,49 @@
 {
   "cycle": {
-    "started_at": "2026-09-22T18:57:40.232249Z",
-    "completed_at": "2026-09-22T18:58:02.298534Z",
-    "duration_seconds": 22.07,
-    "previous_completed_at": "2026-09-22T18:53:25.132474Z"
+    "started_at": "2026-09-22T19:02:22.856037Z",
+    "completed_at": "2026-09-22T19:02:41.543139Z",
+    "duration_seconds": 18.69,
+    "previous_completed_at": "2026-09-22T18:58:02.298534Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-22T18:57:45.734706Z",
-    "age_minutes": 0.3,
+    "last_successful_run": "2026-09-22T19:02:27.954757Z",
+    "age_minutes": 0.2,
     "configured_sources": 80,
-    "successful_sources": 78,
-    "failed_sources": 2,
-    "source_failure_pct": 2.5,
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
     "failed_source_details": [
       {
         "source": "LifeSiteNews",
         "error": "403 Client Error: Forbidden for url: https://www.lifesitenews.com/rss/full-site/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.lifesitenews.com/"
-      },
-      {
-        "source": "Rolling Stone",
-        "error": "403 Client Error: Forbidden for url: https://www.rollingstone.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.rollingstone.com/feed/"
       }
     ],
-    "stories_available": 1341
+    "stories_available": 1349
   },
   "content": {
-    "last_story_created": "2026-09-22T18:57:11Z",
-    "last_story_age_minutes": 0.9,
-    "last_timeline_update": "2026-09-22T18:57:11Z",
-    "last_timeline_age_minutes": 0.9,
+    "last_story_created": "2026-09-22T19:02:15Z",
+    "last_story_age_minutes": 0.4,
+    "last_timeline_update": "2026-09-22T19:02:15Z",
+    "last_timeline_age_minutes": 0.4,
     "published_timelines": 40,
-    "manifest_updated_at": "2026-09-22T18:58:01.460118Z"
+    "manifest_updated_at": "2026-09-22T19:02:40.873577Z"
   },
   "fast_path": {
-    "reports_evaluated": 455,
-    "candidate_events": 347,
-    "fast_path_events": 1,
-    "held_for_normal_path": 346,
-    "duplicate_reports_suppressed": 108,
-    "duplicate_event_rate_pct": 23.74,
-    "median_source_detection_latency_seconds": 356.9,
+    "reports_evaluated": 456,
+    "candidate_events": 362,
+    "fast_path_events": 2,
+    "held_for_normal_path": 360,
+    "duplicate_reports_suppressed": 94,
+    "duplicate_event_rate_pct": 20.61,
+    "median_source_detection_latency_seconds": 2788.2,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 1,
-    "detection_to_publication_latency_seconds": 15.6,
+    "detection_to_publication_latency_seconds": 12.7,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
       "published": 1,
-      "editorially_suppressed": 0,
+      "editorially_suppressed": 1,
       "deferred": 0,
       "missed": 0
     },
@@ -90,41 +86,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 5.55,
-      "completed_at": "2026-09-22T18:57:45.784996Z",
+      "duration_seconds": 5.27,
+      "completed_at": "2026-09-22T19:02:28.126064Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "FAILED: Rolling Stone: 403 Client Error: Forbidden for url: https://www.rollingstone.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.rollingstone.com/feed/"
+      "message": "FAILED: LifeSiteNews: 403 Client Error: Forbidden for url: https://www.lifesitenews.com/rss/full-site/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.lifesitenews.com/"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 3.24,
-      "completed_at": "2026-09-22T18:57:49.028271Z",
+      "duration_seconds": 2.65,
+      "completed_at": "2026-09-22T19:02:30.777677Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 1 promoted, 346 kept on normal path, 108 duplicates grouped."
+      "message": "Fast path: 2 promoted, 360 kept on normal path, 94 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 10.2,
-      "completed_at": "2026-09-22T18:57:59.229661Z",
+      "duration_seconds": 8.31,
+      "completed_at": "2026-09-22T19:02:39.088816Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1165 storylines; 48 multi-family; 42 breaking; 47 developing; 0 hot"
+      "message": "Built 1167 storylines; 49 multi-family; 28 breaking; 35 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.56,
-      "completed_at": "2026-09-22T18:57:59.794295Z",
+      "duration_seconds": 0.41,
+      "completed_at": "2026-09-22T19:02:39.499421Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -134,8 +130,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 1.87,
-      "completed_at": "2026-09-22T18:58:01.662188Z",
+      "duration_seconds": 1.52,
+      "completed_at": "2026-09-22T19:02:41.016320Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 40 autonomous source-backed story timelines"
@@ -145,8 +141,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.05,
-      "completed_at": "2026-09-22T18:58:01.724961Z",
+      "duration_seconds": 0.04,
+      "completed_at": "2026-09-22T19:02:41.069570Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -156,8 +152,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.1,
-      "completed_at": "2026-09-22T18:58:01.828334Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-09-22T19:02:41.149092Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 233 permanent timeline URLs; 40 currently active"
@@ -167,8 +163,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.08,
-      "completed_at": "2026-09-22T18:58:01.920054Z",
+      "duration_seconds": 0.06,
+      "completed_at": "2026-09-22T19:02:41.222088Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -178,8 +174,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.03,
-      "completed_at": "2026-09-22T18:58:01.945481Z",
+      "duration_seconds": 0.02,
+      "completed_at": "2026-09-22T19:02:41.244503Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -190,7 +186,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-09-22T18:58:01.986722Z",
+      "completed_at": "2026-09-22T19:02:41.279999Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -200,8 +196,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.1,
-      "completed_at": "2026-09-22T18:58:02.088323Z",
+      "duration_seconds": 0.09,
+      "completed_at": "2026-09-22T19:02:41.367535Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 39 live timelines"
@@ -211,8 +207,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.07,
-      "completed_at": "2026-09-22T18:58:02.159068Z",
+      "duration_seconds": 0.06,
+      "completed_at": "2026-09-22T19:02:41.426275Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -222,8 +218,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.08,
-      "completed_at": "2026-09-22T18:58:02.238436Z",
+      "duration_seconds": 0.07,
+      "completed_at": "2026-09-22T19:02:41.493452Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and qualified timelines"

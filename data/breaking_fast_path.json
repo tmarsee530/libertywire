@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T07:50:19.422401Z",
+  "generated_at": "2026-09-22T07:54:58.783983Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -8,19 +8,19 @@
   },
   "metrics": {
     "reports_evaluated": 80,
-    "candidate_events": 78,
-    "fast_path_events": 0,
-    "held_for_normal_path": 78,
-    "duplicate_reports_suppressed": 2,
-    "duplicate_event_rate_pct": 2.5,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
-    "published_fast_path_events": 0,
-    "detection_to_publication_latency_seconds": null,
+    "candidate_events": 76,
+    "fast_path_events": 1,
+    "held_for_normal_path": 75,
+    "duplicate_reports_suppressed": 4,
+    "duplicate_event_rate_pct": 5.0,
+    "median_source_detection_latency_seconds": 368.8,
+    "high_urgency_capture_pct": 100.0,
+    "published_fast_path_events": 1,
+    "detection_to_publication_latency_seconds": 16.9,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 0,
+      "published": 1,
       "editorially_suppressed": 0,
       "deferred": 0,
       "missed": 0
@@ -29,14 +29,58 @@
   },
   "candidates": [
     {
+      "id": "4c550c830603",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 70.69,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 20.69,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 8,
+        "independent_confirmations": 6,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d353f2aec394",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:48:50Z",
+      "source_detection_latency_seconds": 368.8,
+      "factual_update": "Trump to address UN General Assembly as Iran war looms large",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/Politics/trump-address-general-assembly-iran-war-looms-large/story?id=136621201",
+      "independent_source_count": 3,
+      "trusted_independent_source_count": 2,
+      "corroborating_sources": [
+        "ABC News",
+        "BBC News",
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/Politics/trump-address-general-assembly-iran-war-looms-large/story?id=136621201",
+        "https://nypost.com/2026/09/22/us-news/trump-meets-with-macron-in-new-york-ahead-of-united-nations-general-assembly/",
+        "https://www.bbc.co.uk/news/articles/cwm2qpmepmlzo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 6.1,
+      "published_storyline_id": "ec0cbed7e7dd",
+      "published_at": "2026-09-22T07:55:15.687970Z",
+      "detection_to_publication_latency_seconds": 16.9
+    },
+    {
       "id": "b68f46a0854a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 56.68,
+      "urgency_score": 55.74,
       "score_components": {
         "source_trust": 10,
-        "recency": 20.68,
+        "recency": 19.74,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -47,9 +91,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c2655dbd5fa6",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:44:07Z",
-      "source_detection_latency_seconds": 372.4,
+      "source_detection_latency_seconds": 651.8,
       "factual_update": "Iran warns new U.S. assault would see it expand \"geography of the war\"",
       "source": "CBS News",
       "source_tier": 2,
@@ -63,17 +107,17 @@
         "https://www.cbsnews.com/live-updates/us-iran-war-trump-decision-tehran-warns-of-expansion/"
       ],
       "risk_flags": [],
-      "age_minutes": 6.2
+      "age_minutes": 10.9
     },
     {
       "id": "aeb59fd2c015",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 52.87,
+      "urgency_score": 52.24,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.87,
+        "recency": 13.24,
         "magnitude": 23,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -84,9 +128,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ea3cb2aa4e42",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:04:11Z",
-      "source_detection_latency_seconds": 2768.4,
+      "source_detection_latency_seconds": 3047.8,
       "factual_update": "Jon Stewart Criticizes Trump’s Attack on Free Press: ‘He Gives No F-ucks’",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -100,30 +144,30 @@
         "https://www.rollingstone.com/tv-movies/tv-movie-news/jon-stewart-donald-trump-free-press-attack-daily-show-1235629672/"
       ],
       "risk_flags": [],
-      "age_minutes": 46.1
+      "age_minutes": 50.8
     },
     {
       "id": "715ce9d596a1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.96,
+      "urgency_score": 52.01,
       "score_components": {
         "source_trust": 10,
-        "recency": 20.96,
+        "recency": 20.01,
         "magnitude": 8,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "matched_storyline_id": "76c40975e600",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:45:29Z",
-      "source_detection_latency_seconds": 290.4,
+      "source_detection_latency_seconds": 569.8,
       "factual_update": "Flights resuming after equipment outage disrupts Northeast air travel: Duffy",
       "source": "ABC News",
       "source_tier": 2,
@@ -137,17 +181,17 @@
         "https://abcnews.com/US/northeast-airspace-closing-30-minutes-due-equipment-outage/story?id=136626017"
       ],
       "risk_flags": [],
-      "age_minutes": 4.8
+      "age_minutes": 9.5
     },
     {
       "id": "76deff03394e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.1,
+      "urgency_score": 43.01,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.1,
+        "recency": 2.01,
         "magnitude": 20,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -158,9 +202,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d3f5f6f07759",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T03:55:39Z",
-      "source_detection_latency_seconds": 14080.4,
+      "source_detection_latency_seconds": 14359.8,
       "factual_update": "California Declares State of Emergency Ahead of Strong El Niño",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -174,17 +218,17 @@
         "https://www.theepochtimes.com/us/california-declares-state-of-emergency-ahead-of-strong-el-nino-6093148"
       ],
       "risk_flags": [],
-      "age_minutes": 234.7
+      "age_minutes": 239.3
     },
     {
       "id": "24456df27426",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 42.15,
+      "urgency_score": 41.33,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.15,
+        "recency": 17.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -195,9 +239,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "53d93592f6d2",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:41:08Z",
-      "source_detection_latency_seconds": 7751.4,
+      "source_detection_latency_seconds": 8030.8,
       "factual_update": "Grand jury declines to indict anyone in death of Nolan Wells",
       "source": "CBS News",
       "source_tier": 2,
@@ -213,17 +257,17 @@
         "https://www.rollingstone.com/culture/culture-news/nolan-wells-death-grand-jury-indictments-1235629677/"
       ],
       "risk_flags": [],
-      "age_minutes": 19.2
+      "age_minutes": 23.9
     },
     {
       "id": "0a11d56131c9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 41.57,
+      "urgency_score": 40.59,
       "score_components": {
         "source_trust": 10,
-        "recency": 21.57,
+        "recency": 20.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -234,9 +278,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3c342358a48d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:48:21Z",
-      "source_detection_latency_seconds": 118.4,
+      "source_detection_latency_seconds": 397.8,
       "factual_update": "UK to provide Saudi Arabia with 'defensive' military support, says Burnham",
       "source": "BBC News",
       "source_tier": 2,
@@ -250,54 +294,17 @@
         "https://www.bbc.co.uk/news/articles/cqlykpe4dk0yo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 2.0
-    },
-    {
-      "id": "e1a1cdc42855",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 40.52,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 20.52,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "21652e07e9b2",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:43:23Z",
-      "source_detection_latency_seconds": 416.4,
-      "factual_update": "Borrowing surge puts pressure on chancellor ahead of Budget",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c68049m18435o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/c68049m18435o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 6.9
+      "age_minutes": 6.6
     },
     {
       "id": "b87bbf2f0b19",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.32,
+      "urgency_score": 39.72,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.32,
+        "recency": 12.72,
         "magnitude": 11,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -308,9 +315,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e6b034a1c3a2",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:00:11Z",
-      "source_detection_latency_seconds": 3008.4,
+      "source_detection_latency_seconds": 3287.8,
       "factual_update": "The Disingenuous Left-Wing Attacks on Trump’s Housing Policies",
       "source": "American Greatness",
       "source_tier": 3,
@@ -324,17 +331,17 @@
         "https://amgreatness.com/2026/09/22/the-disingenuous-left-wing-attacks-on-trumps-housing-policies/"
       ],
       "risk_flags": [],
-      "age_minutes": 50.1
+      "age_minutes": 54.8
     },
     {
-      "id": "183f1681dd55",
+      "id": "e1a1cdc42855",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 39.76,
+      "urgency_score": 39.59,
       "score_components": {
         "source_trust": 10,
-        "recency": 19.76,
+        "recency": 19.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -344,34 +351,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "bf742ee3c78e",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:39:35Z",
-      "source_detection_latency_seconds": 644.4,
-      "factual_update": "Vet prescription fees capped under rule changes",
+      "matched_storyline_id": "21652e07e9b2",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:43:23Z",
+      "source_detection_latency_seconds": 695.8,
+      "factual_update": "Borrowing surge puts pressure on chancellor ahead of Budget",
       "source": "BBC News",
       "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqzjz2gx18ggo?at_medium=RSS&at_campaign=rss",
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c68049m18435o?at_medium=RSS&at_campaign=rss",
       "independent_source_count": 1,
       "trusted_independent_source_count": 1,
       "corroborating_sources": [
         "BBC News"
       ],
       "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cqzjz2gx18ggo?at_medium=RSS&at_campaign=rss"
+        "https://www.bbc.co.uk/news/articles/c68049m18435o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 10.7
+      "age_minutes": 11.6
     },
     {
       "id": "521e1377c615",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 39.65,
+      "urgency_score": 39.07,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.65,
+        "recency": 12.07,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -382,9 +389,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0345739ba485",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:54:57Z",
-      "source_detection_latency_seconds": 3322.4,
+      "source_detection_latency_seconds": 3601.8,
       "factual_update": "Martha's Rule rolled out at every A&E department in England",
       "source": "BBC News",
       "source_tier": 2,
@@ -398,17 +405,54 @@
         "https://www.bbc.co.uk/news/articles/c6lyep7l7qppo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 55.4
+      "age_minutes": 60.0
+    },
+    {
+      "id": "183f1681dd55",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 38.86,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 18.86,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "bf742ee3c78e",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:39:35Z",
+      "source_detection_latency_seconds": 923.8,
+      "factual_update": "Vet prescription fees capped under rule changes",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqzjz2gx18ggo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cqzjz2gx18ggo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 15.4
     },
     {
       "id": "e4ad97d7f4dc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 37.46,
+      "urgency_score": 36.62,
       "score_components": {
         "source_trust": 2,
-        "recency": 18.46,
+        "recency": 17.62,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -419,9 +463,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0eaacb0cbe7d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:32:46Z",
-      "source_detection_latency_seconds": 1053.4,
+      "source_detection_latency_seconds": 1332.8,
       "factual_update": "US backs Taiwan just days before Trump hosts Xi at White House",
       "source": "New York Post",
       "source_tier": 3,
@@ -435,622 +479,30 @@
         "https://nypost.com/2026/09/22/us-news/us-backs-taiwan-before-trump-hosts-xi-at-white-house/"
       ],
       "risk_flags": [],
-      "age_minutes": 17.6
-    },
-    {
-      "id": "147ec0dad904",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 35.33,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 15.33,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d353f2aec394",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:14:12Z",
-      "source_detection_latency_seconds": 2167.4,
-      "factual_update": "Iran must stop arming Houthis in Yemen, G7 says ahead of UN General Assembly",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cwm2qpmepmlzo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cwm2qpmepmlzo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 36.1
-    },
-    {
-      "id": "cd4ebc3264a4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 33.8,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 21.8,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "89eebc1b9dd4",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:49:24Z",
-      "source_detection_latency_seconds": 55.4,
-      "factual_update": "Georgia’s youngest mayor blasts city after being ousted over sexting and spending scandals",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/22/us-news/jayden-williams-stockbridge-georgias-former-mayor-breaks-silence-after-being-ousted/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/22/us-news/jayden-williams-stockbridge-georgias-former-mayor-breaks-silence-after-being-ousted/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 0.9
-    },
-    {
-      "id": "2bbffd551a3a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.59,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 12.59,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fa4a557fcd08",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:54:30Z",
-      "source_detection_latency_seconds": 3349.4,
-      "factual_update": "Democratic lawmakers urge Trump to preserve ban on Chinese automakers as he prepares to meet Xi",
-      "source": "Fox Business",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxbusiness.com/politics/democratic-lawmakers-urge-trump-preserve-ban-chinese-automakers-he-prepares-meet-xi",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox Business"
-      ],
-      "corroborating_links": [
-        "https://www.foxbusiness.com/politics/democratic-lawmakers-urge-trump-preserve-ban-chinese-automakers-he-prepares-meet-xi"
-      ],
-      "risk_flags": [],
-      "age_minutes": 55.8
-    },
-    {
-      "id": "eb3b3e24f08a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.3,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.3,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "1f15616e5cf3",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:00Z",
-      "source_detection_latency_seconds": 3019.4,
-      "factual_update": "Are Marijuana Contracts Legal in Federal Court?",
-      "source": "The Dispatch",
-      "source_tier": 3,
-      "primary_source_link": "https://thedispatch.com/podcast/advisoryopinions/are-marijuana-contracts-legal-in-federal-court/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Dispatch"
-      ],
-      "corroborating_links": [
-        "https://thedispatch.com/podcast/advisoryopinions/are-marijuana-contracts-legal-in-federal-court/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 50.3
-    },
-    {
-      "id": "5560a2dba5a1",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.07,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 4.07,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ea909c435c3d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T05:01:36Z",
-      "source_detection_latency_seconds": 10123.4,
-      "factual_update": "Health officials warn of measles exposure at Philadelphia International Airport",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/22/us-news/health-officials-warn-of-measles-exposure-at-philadelphia-international-airport/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/22/us-news/health-officials-warn-of-measles-exposure-at-philadelphia-international-airport/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 168.7
-    },
-    {
-      "id": "a440d3d79d4a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.96,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 10.96,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "cb91e5631aab",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:40:41Z",
-      "source_detection_latency_seconds": 4178.4,
-      "factual_update": "'Alarming' - does WSL have a homegrown problem?",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cew9nqnz9lno?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/cew9nqnz9lno?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 69.6
-    },
-    {
-      "id": "340cc53b0f81",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.87,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.87,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8a752a1e3ec6",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T04:26:31Z",
-      "source_detection_latency_seconds": 12228.4,
-      "factual_update": "Breanna Stewart blows her top after critical Angel Reese no-call in Liberty loss",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/22/sports/breanna-stewart-blows-her-top-after-angel-reese-no-call-in-liberty-loss/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/22/sports/breanna-stewart-blows-her-top-after-angel-reese-no-call-in-liberty-loss/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 203.8
-    },
-    {
-      "id": "255508808bd9",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.68,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 10.68,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4b34d250342b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:38:06Z",
-      "source_detection_latency_seconds": 4333.4,
-      "factual_update": "Why is Monaco staging a sprint race? F1 Q&A",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/formula1/articles/c9vgyzm2xv3do?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/formula1/articles/c9vgyzm2xv3do?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 72.2
-    },
-    {
-      "id": "53a3c866f484",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.11,
-      "score_components": {
-        "source_trust": 15,
-        "recency": 5.11,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9c2f0de85a8b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T05:24:16Z",
-      "source_detection_latency_seconds": 8763.4,
-      "factual_update": "Atlantic Tropical Weather Outlook",
-      "source": "National Hurricane Center Atlantic",
-      "source_tier": 1,
-      "primary_source_link": "https://www.nhc.noaa.gov/gtwo.php?basin=atlc",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "National Hurricane Center Atlantic"
-      ],
-      "corroborating_links": [
-        "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
-      ],
-      "risk_flags": [],
-      "age_minutes": 146.1
-    },
-    {
-      "id": "3d41de9b1f36",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.1,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 10.1,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "315f2b91081d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:32:26Z",
-      "source_detection_latency_seconds": 4673.4,
-      "factual_update": "McPake's 'colourful' journey from club-less to Scotland call-up in three years",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cmx2z1jldpnzo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/cmx2z1jldpnzo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 77.9
-    },
-    {
-      "id": "3561b934de77",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.99,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 8.99,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "1fe4ee7a17fa",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:20:52Z",
-      "source_detection_latency_seconds": 5367.4,
-      "factual_update": "How fields of Fermanagh helped Daisy Edgar-Jones prepare for her latest film",
-      "source": "BBC Entertainment & Arts",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c6j9xpg19x43o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Entertainment & Arts"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/c6j9xpg19x43o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 89.5
-    },
-    {
-      "id": "1c520f1b760f",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.85,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 8.85,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9a4198485796",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:19:17Z",
-      "source_detection_latency_seconds": 5462.4,
-      "factual_update": "Chelsea struggles to Villa bench - Garnacho faces defining season",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c51kxgj43n89o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/c51kxgj43n89o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 91.0
-    },
-    {
-      "id": "90bc39ceb74f",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.55,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 7.55,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d88e53229dbb",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:03:22Z",
-      "source_detection_latency_seconds": 6417.4,
-      "factual_update": "Burnham expects to find 'common ground' with Trump in first meeting",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqevwpmvpekeo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cqevwpmvpekeo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 107.0
-    },
-    {
-      "id": "456bb691c45d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.3,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 7.3,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0969d376d59b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:00:00Z",
-      "source_detection_latency_seconds": 6619.4,
-      "factual_update": "Morphotonics raises €40M to expand its display tech into data centers",
-      "source": "TechCrunch",
-      "source_tier": 2,
-      "primary_source_link": "https://techcrunch.com/2026/09/21/morphotonics-raises-e40m-as-it-tk-tk-tk-t/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "TechCrunch"
-      ],
-      "corroborating_links": [
-        "https://techcrunch.com/2026/09/21/morphotonics-raises-e40m-as-it-tk-tk-tk-t/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 110.3
-    },
-    {
-      "id": "228f64a4d4bc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.2,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 7.2,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "10200f3a9c93",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T05:58:35Z",
-      "source_detection_latency_seconds": 6704.4,
-      "factual_update": "Four dead after powerful Typhoon Dujuan lashes Japan",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cm3wj2lexl97o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cm3wj2lexl97o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 111.7
-    },
-    {
-      "id": "e5703e04fc59",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.7,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 14.7,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "1072dda2e296",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:10:00Z",
-      "source_detection_latency_seconds": 2419.4,
-      "factual_update": "Sedentary Terry: Ex-ABC ‘Journo’ Moran Did Nothing When Old Network Killed His Biden Health Story",
-      "source": "Twitchy",
-      "source_tier": 3,
-      "primary_source_link": "https://twitchy.com/warren-squire/2026/09/22/terry-moran-biden-health-story-squashed-by-abc-news-n2432571",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Twitchy"
-      ],
-      "corroborating_links": [
-        "https://twitchy.com/warren-squire/2026/09/22/terry-moran-biden-health-story-squashed-by-abc-news-n2432571"
-      ],
-      "risk_flags": [],
-      "age_minutes": 40.3
+      "age_minutes": 22.2
     },
     {
       "id": "95459d31ffe7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.12,
+      "urgency_score": 33.48,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.12,
+        "recency": 13.48,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "matched_storyline_id": "be8b924436e5",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:06:00Z",
-      "source_detection_latency_seconds": 2659.4,
+      "source_detection_latency_seconds": 2938.8,
       "factual_update": "Egan's late career resurgence back to Premier League",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1064,17 +516,572 @@
         "https://www.bbc.co.uk/sport/articles/cgjq1x0wj7qo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 44.3
+      "age_minutes": 49.0
+    },
+    {
+      "id": "cd4ebc3264a4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 32.81,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 20.81,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ed1ceda0b002",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:49:24Z",
+      "source_detection_latency_seconds": 334.8,
+      "factual_update": "Georgia’s youngest mayor blasts city after being ousted over sexting and spending scandals",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/22/us-news/jayden-williams-stockbridge-georgias-former-mayor-breaks-silence-after-being-ousted/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/22/us-news/jayden-williams-stockbridge-georgias-former-mayor-breaks-silence-after-being-ousted/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 5.6
+    },
+    {
+      "id": "2bbffd551a3a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 32.02,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 12.02,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "fa4a557fcd08",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:54:30Z",
+      "source_detection_latency_seconds": 3628.8,
+      "factual_update": "Democratic lawmakers urge Trump to preserve ban on Chinese automakers as he prepares to meet Xi",
+      "source": "Fox Business",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxbusiness.com/politics/democratic-lawmakers-urge-trump-preserve-ban-chinese-automakers-he-prepares-meet-xi",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox Business"
+      ],
+      "corroborating_links": [
+        "https://www.foxbusiness.com/politics/democratic-lawmakers-urge-trump-preserve-ban-chinese-automakers-he-prepares-meet-xi"
+      ],
+      "risk_flags": [],
+      "age_minutes": 60.5
+    },
+    {
+      "id": "5560a2dba5a1",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.89,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.89,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ea909c435c3d",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T05:01:36Z",
+      "source_detection_latency_seconds": 10402.8,
+      "factual_update": "Health officials warn of measles exposure at Philadelphia International Airport",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/22/us-news/health-officials-warn-of-measles-exposure-at-philadelphia-international-airport/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/22/us-news/health-officials-warn-of-measles-exposure-at-philadelphia-international-airport/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 173.4
+    },
+    {
+      "id": "eb3b3e24f08a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.7,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.7,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "1f15616e5cf3",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:00Z",
+      "source_detection_latency_seconds": 3298.8,
+      "factual_update": "Are Marijuana Contracts Legal in Federal Court?",
+      "source": "The Dispatch",
+      "source_tier": 3,
+      "primary_source_link": "https://thedispatch.com/podcast/advisoryopinions/are-marijuana-contracts-legal-in-federal-court/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Dispatch"
+      ],
+      "corroborating_links": [
+        "https://thedispatch.com/podcast/advisoryopinions/are-marijuana-contracts-legal-in-federal-court/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 55.0
+    },
+    {
+      "id": "340cc53b0f81",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.74,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.74,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8a752a1e3ec6",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T04:26:31Z",
+      "source_detection_latency_seconds": 12507.8,
+      "factual_update": "Breanna Stewart blows her top after critical Angel Reese no-call in Liberty loss",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/22/sports/breanna-stewart-blows-her-top-after-angel-reese-no-call-in-liberty-loss/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/22/sports/breanna-stewart-blows-her-top-after-angel-reese-no-call-in-liberty-loss/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 208.5
+    },
+    {
+      "id": "a440d3d79d4a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.47,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 10.47,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "cb91e5631aab",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:40:41Z",
+      "source_detection_latency_seconds": 4457.8,
+      "factual_update": "'Alarming' - does WSL have a homegrown problem?",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cew9nqnz9lno?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/cew9nqnz9lno?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 74.3
+    },
+    {
+      "id": "255508808bd9",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.2,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 10.2,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "4b34d250342b",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:38:06Z",
+      "source_detection_latency_seconds": 4612.8,
+      "factual_update": "Why is Monaco staging a sprint race? F1 Q&A",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/formula1/articles/c9vgyzm2xv3do?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/formula1/articles/c9vgyzm2xv3do?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 76.9
+    },
+    {
+      "id": "53a3c866f484",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.87,
+      "score_components": {
+        "source_trust": 15,
+        "recency": 4.87,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9c2f0de85a8b",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T05:24:16Z",
+      "source_detection_latency_seconds": 9042.8,
+      "factual_update": "Atlantic Tropical Weather Outlook",
+      "source": "National Hurricane Center Atlantic",
+      "source_tier": 1,
+      "primary_source_link": "https://www.nhc.noaa.gov/gtwo.php?basin=atlc",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "National Hurricane Center Atlantic"
+      ],
+      "corroborating_links": [
+        "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
+      ],
+      "risk_flags": [],
+      "age_minutes": 150.7
+    },
+    {
+      "id": "3d41de9b1f36",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.64,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.64,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "315f2b91081d",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:32:26Z",
+      "source_detection_latency_seconds": 4952.8,
+      "factual_update": "McPake's 'colourful' journey from club-less to Scotland call-up in three years",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cmx2z1jldpnzo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/cmx2z1jldpnzo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 82.5
+    },
+    {
+      "id": "3561b934de77",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.58,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.58,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "1fe4ee7a17fa",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:20:52Z",
+      "source_detection_latency_seconds": 5646.8,
+      "factual_update": "How fields of Fermanagh helped Daisy Edgar-Jones prepare for her latest film",
+      "source": "BBC Entertainment & Arts",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c6j9xpg19x43o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Entertainment & Arts"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/c6j9xpg19x43o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 94.1
+    },
+    {
+      "id": "1c520f1b760f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.45,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.45,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9a4198485796",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:19:17Z",
+      "source_detection_latency_seconds": 5741.8,
+      "factual_update": "Chelsea struggles to Villa bench - Garnacho faces defining season",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c51kxgj43n89o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/c51kxgj43n89o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 95.7
+    },
+    {
+      "id": "90bc39ceb74f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.21,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 7.21,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d88e53229dbb",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:03:22Z",
+      "source_detection_latency_seconds": 6696.8,
+      "factual_update": "Burnham expects to find 'common ground' with Trump in first meeting",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqevwpmvpekeo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cqevwpmvpekeo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 111.6
+    },
+    {
+      "id": "456bb691c45d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.97,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.97,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0969d376d59b",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:00:00Z",
+      "source_detection_latency_seconds": 6898.8,
+      "factual_update": "Morphotonics raises €40M to expand its display tech into data centers",
+      "source": "TechCrunch",
+      "source_tier": 2,
+      "primary_source_link": "https://techcrunch.com/2026/09/21/morphotonics-raises-e40m-as-it-tk-tk-tk-t/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "TechCrunch"
+      ],
+      "corroborating_links": [
+        "https://techcrunch.com/2026/09/21/morphotonics-raises-e40m-as-it-tk-tk-tk-t/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 115.0
+    },
+    {
+      "id": "228f64a4d4bc",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.87,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.87,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "10200f3a9c93",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T05:58:35Z",
+      "source_detection_latency_seconds": 6983.8,
+      "factual_update": "Four dead after powerful Typhoon Dujuan lashes Japan",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cm3wj2lexl97o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cm3wj2lexl97o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 116.4
+    },
+    {
+      "id": "e5703e04fc59",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.03,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.03,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "1072dda2e296",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:10:00Z",
+      "source_detection_latency_seconds": 2698.8,
+      "factual_update": "Sedentary Terry: Ex-ABC ‘Journo’ Moran Did Nothing When Old Network Killed His Biden Health Story",
+      "source": "Twitchy",
+      "source_tier": 3,
+      "primary_source_link": "https://twitchy.com/warren-squire/2026/09/22/terry-moran-biden-health-story-squashed-by-abc-news-n2432571",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Twitchy"
+      ],
+      "corroborating_links": [
+        "https://twitchy.com/warren-squire/2026/09/22/terry-moran-biden-health-story-squashed-by-abc-news-n2432571"
+      ],
+      "risk_flags": [],
+      "age_minutes": 45.0
     },
     {
       "id": "cbfe9f685b65",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.01,
+      "urgency_score": 25.74,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.01,
+        "recency": 5.74,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1085,9 +1092,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "861eec0c940b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:40:36Z",
-      "source_detection_latency_seconds": 7783.4,
+      "source_detection_latency_seconds": 8062.8,
       "factual_update": "Flex your football brain with our daily quizzes",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1101,54 +1108,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cw20v5yelx3mo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 129.7
-    },
-    {
-      "id": "12154cf530f5",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.82,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 5.82,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "246985b7421c",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T05:37:20Z",
-      "source_detection_latency_seconds": 7979.4,
-      "factual_update": "Divers spend six hours clearing river of waste",
-      "source": "BBC Science & Environment",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/ckj06p16q2eyo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Science & Environment"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/ckj06p16q2eyo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 133.0
+      "age_minutes": 134.4
     },
     {
       "id": "2ff2c8095072",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.77,
+      "urgency_score": 25.6,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.77,
+        "recency": 3.6,
         "magnitude": 6,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1159,9 +1129,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a278def8cad6",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:53:54Z",
-      "source_detection_latency_seconds": 10585.4,
+      "source_detection_latency_seconds": 10864.8,
       "factual_update": "Giants report card from NFL Week 2 loss to Rams: John Harbaugh immediately questioned one telling decision",
       "source": "New York Post",
       "source_tier": 3,
@@ -1175,17 +1145,54 @@
         "https://nypost.com/2026/09/22/sports/giants-report-card-from-nfl-week-2-loss-to-rams/"
       ],
       "risk_flags": [],
-      "age_minutes": 176.4
+      "age_minutes": 181.1
+    },
+    {
+      "id": "12154cf530f5",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.55,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 5.55,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "246985b7421c",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T05:37:20Z",
+      "source_detection_latency_seconds": 8258.8,
+      "factual_update": "Divers spend six hours clearing river of waste",
+      "source": "BBC Science & Environment",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/ckj06p16q2eyo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Science & Environment"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/ckj06p16q2eyo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 137.6
     },
     {
       "id": "467fb6f147ca",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.47,
+      "urgency_score": 24.86,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.47,
+        "recency": 12.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1196,9 +1203,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "08bc8448322c",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:01:18Z",
-      "source_detection_latency_seconds": 2941.4,
+      "source_detection_latency_seconds": 3220.8,
       "factual_update": "Guess The Bravo Star This Cute Kid Turned Into!",
       "source": "TMZ",
       "source_tier": 3,
@@ -1212,17 +1219,17 @@
         "https://www.tmz.com/2026/09/22/michelle-saniei-cute-baby-picture/"
       ],
       "risk_flags": [],
-      "age_minutes": 49.0
+      "age_minutes": 53.7
     },
     {
       "id": "cc21de3b3b5c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.42,
+      "urgency_score": 24.81,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.42,
+        "recency": 12.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1233,9 +1240,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "beae8b66ce3a",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T07:00:55Z",
-      "source_detection_latency_seconds": 2964.4,
+      "source_detection_latency_seconds": 3243.8,
       "factual_update": "AI and the Same Old Politicized Hysteria",
       "source": "American Greatness",
       "source_tier": 3,
@@ -1249,239 +1256,17 @@
         "https://amgreatness.com/2026/09/22/ai-and-the-same-old-politicized-hysteria/"
       ],
       "risk_flags": [],
-      "age_minutes": 49.4
-    },
-    {
-      "id": "20332aa93ac7",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.41,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.41,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "b18237211b59",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:48Z",
-      "source_detection_latency_seconds": 2971.4,
-      "factual_update": "From Common Ground to Battle Grounds",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/22/from-common-ground-to-battle-grounds/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/22/from-common-ground-to-battle-grounds/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 49.5
-    },
-    {
-      "id": "b841ca212c06",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.4,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.4,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5297902a38af",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:44Z",
-      "source_detection_latency_seconds": 2975.4,
-      "factual_update": "Scores on PISA Are Leaning the Wrong Way",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/22/scores-on-pisa-are-leaning-the-wrong-way/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/22/scores-on-pisa-are-leaning-the-wrong-way/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 49.6
-    },
-    {
-      "id": "d6ecbc0f6772",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.31,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.31,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "519280fc625f",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:05Z",
-      "source_detection_latency_seconds": 3014.4,
-      "factual_update": "'90 Day Fiancé' Star Kara Leona Gets Vagina Molded for New Sex Toy",
-      "source": "TMZ",
-      "source_tier": 3,
-      "primary_source_link": "https://www.tmz.com/2026/09/22/kara-leona-makes-sex-toy-based-off-vagina/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "TMZ"
-      ],
-      "corroborating_links": [
-        "https://www.tmz.com/2026/09/22/kara-leona-makes-sex-toy-based-off-vagina/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 50.2
-    },
-    {
-      "id": "5629a0ea08e9",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.3,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.3,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "edad29d6e75e",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:00Z",
-      "source_detection_latency_seconds": 3019.4,
-      "factual_update": "Dear Abby: I’m upset my friends gave excuses for not attending my mother’s funeral",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/22/lifestyle/dear-abby-im-upset-my-friends-gave-excuses-for-not-attending-my-mothers-funeral/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/22/lifestyle/dear-abby-im-upset-my-friends-gave-excuses-for-not-attending-my-mothers-funeral/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 50.3
-    },
-    {
-      "id": "bc5df0300e21",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.3,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.3,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9bd69ab99b86",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:00Z",
-      "source_detection_latency_seconds": 3019.4,
-      "factual_update": "Open Thread",
-      "source": "Reason",
-      "source_tier": 3,
-      "primary_source_link": "https://reason.com/volokh/2026/09/22/open-thread-335/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Reason"
-      ],
-      "corroborating_links": [
-        "https://reason.com/volokh/2026/09/22/open-thread-335/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 50.3
-    },
-    {
-      "id": "8b84e4174f52",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.3,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.3,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3b5ecb913e5d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T07:00:00Z",
-      "source_detection_latency_seconds": 3019.4,
-      "factual_update": "Is Trump’s Greenland Deal a Foreign Policy Victory?",
-      "source": "The Dispatch",
-      "source_tier": 3,
-      "primary_source_link": "https://thedispatch.com/podcast/dispatch-podcast/is-trumps-greenland-deal-a-foreign-policy-victory/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Dispatch"
-      ],
-      "corroborating_links": [
-        "https://thedispatch.com/podcast/dispatch-podcast/is-trumps-greenland-deal-a-foreign-policy-victory/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 50.3
+      "age_minutes": 54.1
     },
     {
       "id": "5503ff35e377",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.04,
+      "urgency_score": 24.81,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.04,
+        "recency": 4.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1492,9 +1277,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a10f0dd0ab6f",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:22:58Z",
-      "source_detection_latency_seconds": 8841.4,
+      "source_detection_latency_seconds": 9120.8,
       "factual_update": "Apple Music to open concert venue in Battersea",
       "source": "BBC Entertainment & Arts",
       "source_tier": 2,
@@ -1508,17 +1293,239 @@
         "https://www.bbc.co.uk/news/articles/c607l2j2rj8ro?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 147.4
+      "age_minutes": 152.0
+    },
+    {
+      "id": "20332aa93ac7",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.8,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.8,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "b18237211b59",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:48Z",
+      "source_detection_latency_seconds": 3250.8,
+      "factual_update": "From Common Ground to Battle Grounds",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/22/from-common-ground-to-battle-grounds/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/22/from-common-ground-to-battle-grounds/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 54.2
+    },
+    {
+      "id": "b841ca212c06",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.79,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.79,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5297902a38af",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:44Z",
+      "source_detection_latency_seconds": 3254.8,
+      "factual_update": "Scores on PISA Are Leaning the Wrong Way",
+      "source": "American Greatness",
+      "source_tier": 3,
+      "primary_source_link": "https://amgreatness.com/2026/09/22/scores-on-pisa-are-leaning-the-wrong-way/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Greatness"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/22/scores-on-pisa-are-leaning-the-wrong-way/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 54.2
+    },
+    {
+      "id": "d6ecbc0f6772",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.71,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.71,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "519280fc625f",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:05Z",
+      "source_detection_latency_seconds": 3293.8,
+      "factual_update": "'90 Day Fiancé' Star Kara Leona Gets Vagina Molded for New Sex Toy",
+      "source": "TMZ",
+      "source_tier": 3,
+      "primary_source_link": "https://www.tmz.com/2026/09/22/kara-leona-makes-sex-toy-based-off-vagina/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "TMZ"
+      ],
+      "corroborating_links": [
+        "https://www.tmz.com/2026/09/22/kara-leona-makes-sex-toy-based-off-vagina/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 54.9
+    },
+    {
+      "id": "5629a0ea08e9",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.7,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.7,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "edad29d6e75e",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:00Z",
+      "source_detection_latency_seconds": 3298.8,
+      "factual_update": "Dear Abby: I’m upset my friends gave excuses for not attending my mother’s funeral",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/22/lifestyle/dear-abby-im-upset-my-friends-gave-excuses-for-not-attending-my-mothers-funeral/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/22/lifestyle/dear-abby-im-upset-my-friends-gave-excuses-for-not-attending-my-mothers-funeral/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 55.0
+    },
+    {
+      "id": "bc5df0300e21",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.7,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.7,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9bd69ab99b86",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:00Z",
+      "source_detection_latency_seconds": 3298.8,
+      "factual_update": "Open Thread",
+      "source": "Reason",
+      "source_tier": 3,
+      "primary_source_link": "https://reason.com/volokh/2026/09/22/open-thread-335/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Reason"
+      ],
+      "corroborating_links": [
+        "https://reason.com/volokh/2026/09/22/open-thread-335/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 55.0
+    },
+    {
+      "id": "8b84e4174f52",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.7,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.7,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "3b5ecb913e5d",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T07:00:00Z",
+      "source_detection_latency_seconds": 3298.8,
+      "factual_update": "Is Trump’s Greenland Deal a Foreign Policy Victory?",
+      "source": "The Dispatch",
+      "source_tier": 3,
+      "primary_source_link": "https://thedispatch.com/podcast/dispatch-podcast/is-trumps-greenland-deal-a-foreign-policy-victory/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Dispatch"
+      ],
+      "corroborating_links": [
+        "https://thedispatch.com/podcast/dispatch-podcast/is-trumps-greenland-deal-a-foreign-policy-victory/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 55.0
     },
     {
       "id": "2560fea60f30",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.27,
+      "urgency_score": 24.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.27,
+        "recency": 2.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -1529,9 +1536,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4e092af43e99",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:03:00Z",
-      "source_detection_latency_seconds": 13639.4,
+      "source_detection_latency_seconds": 13918.8,
       "factual_update": "State Supreme Court backs professor in public records fight with University of Arizona",
       "source": "The College Fix",
       "source_tier": 3,
@@ -1545,54 +1552,17 @@
         "https://www.thecollegefix.com/state-supreme-court-backs-professor-in-public-records-fight-with-university-of-arizona/"
       ],
       "risk_flags": [],
-      "age_minutes": 227.3
-    },
-    {
-      "id": "2b4f67a57831",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 24.19,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 12.19,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "679a5fbbcdba",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T06:51:19Z",
-      "source_detection_latency_seconds": 3540.4,
-      "factual_update": "Japan Pitch Heads to Busan Film Festival With Four Co-Production Projects (EXCLUSIVE)",
-      "source": "Variety",
-      "source_tier": 3,
-      "primary_source_link": "https://variety.com/2026/film/markets-festivals/japan-pitch-busan-film-festival-1236871781/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Variety"
-      ],
-      "corroborating_links": [
-        "https://variety.com/2026/film/markets-festivals/japan-pitch-busan-film-festival-1236871781/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 59.0
+      "age_minutes": 232.0
     },
     {
       "id": "f47886081e40",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.02,
+      "urgency_score": 23.83,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.02,
+        "recency": 3.83,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1603,9 +1573,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a9146c97a7d3",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:00:15Z",
-      "source_detection_latency_seconds": 10204.4,
+      "source_detection_latency_seconds": 10483.8,
       "factual_update": "Inside Scotland's wildcat HQ - 'It's like Big Brother for cats'",
       "source": "BBC News",
       "source_tier": 2,
@@ -1619,17 +1589,54 @@
         "https://www.bbc.co.uk/news/articles/c3vgyzkyr0r8o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 170.1
+      "age_minutes": 174.7
+    },
+    {
+      "id": "2b4f67a57831",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.64,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.64,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "679a5fbbcdba",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
+      "source_published_at": "2026-09-22T06:51:19Z",
+      "source_detection_latency_seconds": 3819.8,
+      "factual_update": "Japan Pitch Heads to Busan Film Festival With Four Co-Production Projects (EXCLUSIVE)",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/2026/film/markets-festivals/japan-pitch-busan-film-festival-1236871781/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/2026/film/markets-festivals/japan-pitch-busan-film-festival-1236871781/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 63.7
     },
     {
       "id": "15518236ef75",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.54,
+      "urgency_score": 22.07,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.54,
+        "recency": 10.07,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1640,9 +1647,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8984f4435151",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:36:47Z",
-      "source_detection_latency_seconds": 4412.4,
+      "source_detection_latency_seconds": 4691.8,
       "factual_update": "Channing Tatum Says He Hasn’t Been Harassing Zoë Kravitz and Harry Styles With Burner Account",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -1656,17 +1663,17 @@
         "https://www.rollingstone.com/tv-movies/tv-movie-news/channing-tatum-zoe-kravitz-harry-styles-burner-account-1235629668/"
       ],
       "risk_flags": [],
-      "age_minutes": 73.5
+      "age_minutes": 78.2
     },
     {
       "id": "eeb906ca7189",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.1,
+      "urgency_score": 22.01,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.1,
+        "recency": 2.01,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1677,9 +1684,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2cf08feb63e2",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T03:55:38Z",
-      "source_detection_latency_seconds": 14081.4,
+      "source_detection_latency_seconds": 14360.8,
       "factual_update": "The Papers: 'Air traffic out of control' and 'RAF to help Saudis'",
       "source": "BBC News",
       "source_tier": 2,
@@ -1693,17 +1700,17 @@
         "https://www.bbc.co.uk/news/articles/cmj4jpj9144wo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 234.7
+      "age_minutes": 239.3
     },
     {
       "id": "8b93e6075e00",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.85,
+      "urgency_score": 21.41,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.85,
+        "recency": 9.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1714,9 +1721,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "765888aeb30b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:30:00Z",
-      "source_detection_latency_seconds": 4819.4,
+      "source_detection_latency_seconds": 5098.8,
       "factual_update": "Exit Rage Left: Poll Ranks Five Routes Dems Hope Trump Takes to Leave Office Before His Term Ends",
       "source": "Twitchy",
       "source_tier": 3,
@@ -1730,17 +1737,17 @@
         "https://twitchy.com/warren-squire/2026/09/22/five-routes-dems-want-for-trump-to-leave-office-death-coup-assassination-n2432570"
       ],
       "risk_flags": [],
-      "age_minutes": 80.3
+      "age_minutes": 85.0
     },
     {
       "id": "5479a48e367f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.14,
+      "urgency_score": 20.73,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.14,
+        "recency": 8.73,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1751,9 +1758,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d1a9112d63be",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:22:30Z",
-      "source_detection_latency_seconds": 5269.4,
+      "source_detection_latency_seconds": 5548.8,
       "factual_update": "Norwegian skater rollerblading across US killed after allegedly being struck by 82-year-old driver in Kansas hit and run",
       "source": "New York Post",
       "source_tier": 3,
@@ -1767,54 +1774,17 @@
         "https://nypost.com/2026/09/22/us-news/norwegian-skater-joachim-lanham-rollerblading-across-us-killed-after-allegedly-being-struck-by-82-year-old-driver-in-kansas-hit-and-run/"
       ],
       "risk_flags": [],
-      "age_minutes": 87.8
-    },
-    {
-      "id": "7c9723ff0073",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 21.05,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.05,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0e71cd4ec425",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T03:53:07Z",
-      "source_detection_latency_seconds": 14232.4,
-      "factual_update": "Foreign Actors Disrupt 2 Colorado Water Systems: Governor’s Office",
-      "source": "The Epoch Times",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theepochtimes.com/us/foreign-actors-disrupt-2-colorado-water-systems-6093149",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Epoch Times"
-      ],
-      "corroborating_links": [
-        "https://www.theepochtimes.com/us/foreign-actors-disrupt-2-colorado-water-systems-6093149"
-      ],
-      "risk_flags": [],
-      "age_minutes": 237.2
+      "age_minutes": 92.5
     },
     {
       "id": "1fc77b5444a4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.99,
+      "urgency_score": 20.58,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.99,
+        "recency": 8.58,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1825,9 +1795,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "eab6148a73d0",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:20:51Z",
-      "source_detection_latency_seconds": 5368.4,
+      "source_detection_latency_seconds": 5647.8,
       "factual_update": "Rima Das, Shan Zuolong, Shim Eun-kyung Named to Busan’s New Currents Jury",
       "source": "Variety",
       "source_tier": 3,
@@ -1841,17 +1811,17 @@
         "https://variety.com/2026/film/festivals/rima-das-shan-zuolong-shim-eun-kyung-busan-new-currents-jury-1236871769/"
       ],
       "risk_flags": [],
-      "age_minutes": 89.5
+      "age_minutes": 94.1
     },
     {
       "id": "c5f2e87fea19",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.3,
+      "urgency_score": 18.97,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.3,
+        "recency": 6.97,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1862,9 +1832,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5b06bfcb6a7d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:00:00Z",
-      "source_detection_latency_seconds": 6619.4,
+      "source_detection_latency_seconds": 6898.8,
       "factual_update": "From Memory to Horror: Eight New Gen Basque Filmmakers to Track",
       "source": "Variety",
       "source_tier": 3,
@@ -1878,17 +1848,17 @@
         "https://variety.com/2026/global/global/spain-basque-san-sebastian-filmax-1236870094/"
       ],
       "risk_flags": [],
-      "age_minutes": 110.3
+      "age_minutes": 115.0
     },
     {
       "id": "e7ffa9e4e2d8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.3,
+      "urgency_score": 18.97,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.3,
+        "recency": 6.97,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1899,9 +1869,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "027afa4a8e6d",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T06:00:00Z",
-      "source_detection_latency_seconds": 6619.4,
+      "source_detection_latency_seconds": 6898.8,
       "factual_update": "Inside the Basque Production Boom: Who Owns the Growth?",
       "source": "Variety",
       "source_tier": 3,
@@ -1915,17 +1885,17 @@
         "https://variety.com/2026/global/global/spain-basque-production-irusoin-the-last-goodbye-1236870276/"
       ],
       "risk_flags": [],
-      "age_minutes": 110.3
+      "age_minutes": 115.0
     },
     {
       "id": "0f42eff157dc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.98,
+      "urgency_score": 18.67,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.98,
+        "recency": 6.67,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1936,9 +1906,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2f65797f8c31",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:55:35Z",
-      "source_detection_latency_seconds": 6884.4,
+      "source_detection_latency_seconds": 7163.8,
       "factual_update": "Werner Herzog’s ‘Ghost Elephants’ Lands Home Entertainment Deal With Buffalo 8 (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -1952,17 +1922,17 @@
         "https://variety.com/2026/film/markets-festivals/werner-herzog-ghost-elephants-buffalo-8-1236871758/"
       ],
       "risk_flags": [],
-      "age_minutes": 114.7
+      "age_minutes": 119.4
     },
     {
       "id": "262fb4bd6967",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.41,
+      "urgency_score": 17.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.41,
+        "recency": 5.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1973,9 +1943,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "53be64a592f0",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:30:02Z",
-      "source_detection_latency_seconds": 8417.4,
+      "source_detection_latency_seconds": 8696.8,
       "factual_update": "Inside the 2026 San Sebastián-CAA Media Finance Creative Investors’ Conference",
       "source": "Variety",
       "source_tier": 3,
@@ -1989,17 +1959,17 @@
         "https://variety.com/2026/film/global/2026-san-sebastian-caa-creative-investors-conference-1236871746/"
       ],
       "risk_flags": [],
-      "age_minutes": 140.3
+      "age_minutes": 144.9
     },
     {
       "id": "61e492ad1b4c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.41,
+      "urgency_score": 17.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.41,
+        "recency": 5.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2010,9 +1980,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d7c9d14d2983",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:30:00Z",
-      "source_detection_latency_seconds": 8419.4,
+      "source_detection_latency_seconds": 8698.8,
       "factual_update": "The Morning Briefing: Republicans Aren't Letting El-Sayed Memory Hole Hasan Piker",
       "source": "PJ Media",
       "source_tier": 3,
@@ -2026,17 +1996,17 @@
         "https://pjmedia.com/stephen-kruiser/2026/09/22/the-morning-briefing-republicans-arent-letting-el-sayed-memory-hole-hasan-piker-n4957500"
       ],
       "risk_flags": [],
-      "age_minutes": 140.3
+      "age_minutes": 145.0
     },
     {
       "id": "e4a995e2ed40",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.41,
+      "urgency_score": 17.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.41,
+        "recency": 5.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2047,9 +2017,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3be769f5390c",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:30:00Z",
-      "source_detection_latency_seconds": 8419.4,
+      "source_detection_latency_seconds": 8698.8,
       "factual_update": "Madrid Pitches Itself as a Global Production Hub as It Looks Ahead to Hosting the Upcoming 6th Iberseries & Platino Industria",
       "source": "Variety",
       "source_tier": 3,
@@ -2063,17 +2033,17 @@
         "https://variety.com/2026/film/global/madrid-global-production-hub-hosting-iberseries-1236871274/"
       ],
       "risk_flags": [],
-      "age_minutes": 140.3
+      "age_minutes": 145.0
     },
     {
       "id": "42125f29bbc6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.08,
+      "urgency_score": 16.85,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.08,
+        "recency": 4.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2084,9 +2054,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6027279cd95b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:23:43Z",
-      "source_detection_latency_seconds": 8796.4,
+      "source_detection_latency_seconds": 9075.8,
       "factual_update": "Malik Nabers, Brian Burns hoping to avoid the worst with their Giants injuries",
       "source": "New York Post",
       "source_tier": 3,
@@ -2100,17 +2070,17 @@
         "https://nypost.com/2026/09/22/sports/malik-nabers-brian-burns-hoping-to-avoid-worst-with-injuries/"
       ],
       "risk_flags": [],
-      "age_minutes": 146.6
+      "age_minutes": 151.3
     },
     {
       "id": "2b871c565526",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.65,
+      "urgency_score": 16.44,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.65,
+        "recency": 4.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2121,9 +2091,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1c0c6e8e2439",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:15:00Z",
-      "source_detection_latency_seconds": 9319.4,
+      "source_detection_latency_seconds": 9598.8,
       "factual_update": "3Cat’s ‘Gènesi’ Tells Origin Story of El Bulli, the Iconic Restaurant of Celebrity Chef Ferran Adrià",
       "source": "Variety",
       "source_tier": 3,
@@ -2137,17 +2107,17 @@
         "https://variety.com/2026/film/global/3cat-genesi-origin-el-bulli-iconic-restaurant-ferran-adria-1236865455/"
       ],
       "risk_flags": [],
-      "age_minutes": 155.3
+      "age_minutes": 160.0
     },
     {
       "id": "9962f55a0f7c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.65,
+      "urgency_score": 16.44,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.65,
+        "recency": 4.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2158,9 +2128,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b81e5307f5b3",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:15:00Z",
-      "source_detection_latency_seconds": 9319.4,
+      "source_detection_latency_seconds": 9598.8,
       "factual_update": "‘The Harvester’ Star Antonio de la Torre: ‘Violence Has No Justification, but It Does Have an Explanation’",
       "source": "Variety",
       "source_tier": 3,
@@ -2174,17 +2144,17 @@
         "https://variety.com/2026/global/global/the-harvester-antonio-de-la-torre-patricia-lopez-arnaiz-1236871286/"
       ],
       "risk_flags": [],
-      "age_minutes": 155.3
+      "age_minutes": 160.0
     },
     {
       "id": "02800dea2dc8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.09,
+      "urgency_score": 15.9,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.09,
+        "recency": 3.9,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2195,9 +2165,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "52b8cac04cd0",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:02:00Z",
-      "source_detection_latency_seconds": 10099.4,
+      "source_detection_latency_seconds": 10378.8,
       "factual_update": "Why AI and Washington Talk Past Each Other",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -2211,17 +2181,17 @@
         "https://thedispatch.com/article/ai-safety-politics-conversation/"
       ],
       "risk_flags": [],
-      "age_minutes": 168.3
+      "age_minutes": 173.0
     },
     {
       "id": "a970e6c2e6e9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.01,
+      "urgency_score": 15.82,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.01,
+        "recency": 3.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2232,9 +2202,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a41eb0af2158",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:00:00Z",
-      "source_detection_latency_seconds": 10219.4,
+      "source_detection_latency_seconds": 10498.8,
       "factual_update": "Demographics Aren’t What’s Ailing Colleges",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -2248,17 +2218,17 @@
         "https://thedispatch.com/article/higher-education-college-demographics-enrollment-market-forces/"
       ],
       "risk_flags": [],
-      "age_minutes": 170.3
+      "age_minutes": 175.0
     },
     {
       "id": "c7077aa7bf6b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.01,
+      "urgency_score": 15.82,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.01,
+        "recency": 3.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2269,9 +2239,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bbd6cc222fb9",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:00:00Z",
-      "source_detection_latency_seconds": 10219.4,
+      "source_detection_latency_seconds": 10498.8,
       "factual_update": "How Israel Changed the Middle East",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -2285,17 +2255,17 @@
         "https://thedispatch.com/article/israel-hamas-war-gaza-hezbollah-choices/"
       ],
       "risk_flags": [],
-      "age_minutes": 170.3
+      "age_minutes": 175.0
     },
     {
       "id": "b1af287f2a13",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.01,
+      "urgency_score": 15.82,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.01,
+        "recency": 3.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2306,9 +2276,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cc0fa6df9b2e",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:00:00Z",
-      "source_detection_latency_seconds": 10219.4,
+      "source_detection_latency_seconds": 10498.8,
       "factual_update": "San Sebastian Startup Challenge Puts AI, Immersive Tech and Green Production in Focus",
       "source": "Variety",
       "source_tier": 3,
@@ -2322,54 +2292,17 @@
         "https://variety.com/2026/global/global/san-sebastian-startup-challenge-unviels-finalists-2026-1236845864/"
       ],
       "risk_flags": [],
-      "age_minutes": 170.3
-    },
-    {
-      "id": "e67bae1ea9bb",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.34,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.34,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0cf0af3411be",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
-      "source_published_at": "2026-09-22T04:41:50Z",
-      "source_detection_latency_seconds": 11309.4,
-      "factual_update": "Trump meets with Macron in New York ahead of United Nations General Assembly",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/22/us-news/trump-meets-with-macron-in-new-york-ahead-of-united-nations-general-assembly/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/22/us-news/trump-meets-with-macron-in-new-york-ahead-of-united-nations-general-assembly/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 188.5
+      "age_minutes": 175.0
     },
     {
       "id": "c3eb87593fe1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.08,
+      "urgency_score": 14.94,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2380,9 +2313,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "86965381834c",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:33:35Z",
-      "source_detection_latency_seconds": 11804.4,
+      "source_detection_latency_seconds": 12083.8,
       "factual_update": "Dylan Garand makes his case in uphill battle to be Rangers backup goalie",
       "source": "New York Post",
       "source_tier": 3,
@@ -2396,17 +2329,17 @@
         "https://nypost.com/2026/09/22/sports/dylan-garand-makes-case-in-battle-to-be-rangers-backup-goalie/"
       ],
       "risk_flags": [],
-      "age_minutes": 196.7
+      "age_minutes": 201.4
     },
     {
       "id": "3643f252d552",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.9,
+      "urgency_score": 14.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.9,
+        "recency": 2.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2417,9 +2350,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f4876c699b05",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:27:49Z",
-      "source_detection_latency_seconds": 12150.4,
+      "source_detection_latency_seconds": 12429.8,
       "factual_update": "Giants feel Deonte Banks’ absence as Rams roll over banged up cornerbacks",
       "source": "New York Post",
       "source_tier": 3,
@@ -2433,17 +2366,17 @@
         "https://nypost.com/2026/09/22/sports/giants-feel-deonte-banks-absence-in-banged-up-cornerbacks-group/"
       ],
       "risk_flags": [],
-      "age_minutes": 202.5
+      "age_minutes": 207.2
     },
     {
       "id": "5dc7d0e063e5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.51,
+      "urgency_score": 14.39,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.51,
+        "recency": 2.39,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2454,9 +2387,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3752efbc298b",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:13:08Z",
-      "source_detection_latency_seconds": 13031.4,
+      "source_detection_latency_seconds": 13310.8,
       "factual_update": "Sean McVay takes hilarious jab at ‘dumbass coach’ after Giants shellacking",
       "source": "New York Post",
       "source_tier": 3,
@@ -2470,17 +2403,17 @@
         "https://nypost.com/2026/09/22/sports/sean-mcvay-hilarious-jab-himself-rams-travel-plans/"
       ],
       "risk_flags": [],
-      "age_minutes": 217.2
+      "age_minutes": 221.8
     },
     {
       "id": "a243678c30b9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.48,
+      "urgency_score": 14.37,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.48,
+        "recency": 2.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2491,9 +2424,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "893026c75c24",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:12:00Z",
-      "source_detection_latency_seconds": 13099.4,
+      "source_detection_latency_seconds": 13378.8,
       "factual_update": "Graduation speakers becoming increasingly liberal: study",
       "source": "The College Fix",
       "source_tier": 3,
@@ -2507,17 +2440,17 @@
         "https://www.thecollegefix.com/graduation-speakers-are-becoming-increasingly-liberal-georgia-state-u-study-finds/"
       ],
       "risk_flags": [],
-      "age_minutes": 218.3
+      "age_minutes": 223.0
     },
     {
       "id": "77fd8521900b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.43,
+      "urgency_score": 14.32,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.43,
+        "recency": 2.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2528,9 +2461,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "94b7df96619e",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:10:01Z",
-      "source_detection_latency_seconds": 13218.4,
+      "source_detection_latency_seconds": 13497.8,
       "factual_update": "Mothers' poor sleep quality in late pregnancy linked to higher obesity risk in their children",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -2544,17 +2477,17 @@
         "https://medicalxpress.com/news/2026-09-mothers-poor-quality-late-pregnancy.html"
       ],
       "risk_flags": [],
-      "age_minutes": 220.3
+      "age_minutes": 225.0
     },
     {
       "id": "94f2944011fd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.31,
+      "urgency_score": 14.21,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.31,
+        "recency": 2.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2565,9 +2498,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "db994f0e5c7f",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:05:00Z",
-      "source_detection_latency_seconds": 13519.4,
+      "source_detection_latency_seconds": 13798.8,
       "factual_update": "Will Germany’s Chancellor Go Down?",
       "source": "The American Conservative",
       "source_tier": 3,
@@ -2581,17 +2514,17 @@
         "https://www.theamericanconservative.com/can-germanys-chancellor-survive/"
       ],
       "risk_flags": [],
-      "age_minutes": 225.3
+      "age_minutes": 230.0
     },
     {
       "id": "a630ba561c79",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.3,
+      "urgency_score": 14.19,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.3,
+        "recency": 2.19,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2602,9 +2535,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9d35ad8486d9",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:04:27Z",
-      "source_detection_latency_seconds": 13552.4,
+      "source_detection_latency_seconds": 13831.8,
       "factual_update": "Controversial ‘looksmaxxing’ streamer Clavicular charged with rape, drugging woman for sex: report",
       "source": "New York Post",
       "source_tier": 3,
@@ -2618,17 +2551,17 @@
         "https://nypost.com/2026/09/22/us-news/controversial-streamer-clavicular-charged-with-rape-drugging-report/"
       ],
       "risk_flags": [],
-      "age_minutes": 225.9
+      "age_minutes": 230.5
     },
     {
       "id": "c5467dea8c8b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.27,
+      "urgency_score": 14.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.27,
+        "recency": 2.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2639,9 +2572,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2912d22976db",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:03:00Z",
-      "source_detection_latency_seconds": 13639.4,
+      "source_detection_latency_seconds": 13918.8,
       "factual_update": "A Little History Would Have Stopped Trump’s Iran Caper",
       "source": "The American Conservative",
       "source_tier": 3,
@@ -2655,17 +2588,17 @@
         "https://www.theamericanconservative.com/a-little-history-would-have-stopped-trumps-iran-caper/"
       ],
       "risk_flags": [],
-      "age_minutes": 227.3
+      "age_minutes": 232.0
     },
     {
       "id": "730db3077f38",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.26,
+      "urgency_score": 14.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.26,
+        "recency": 2.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2676,9 +2609,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2497c53b6fac",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:02:47Z",
-      "source_detection_latency_seconds": 13652.4,
+      "source_detection_latency_seconds": 13931.8,
       "factual_update": "North Korea touts new weapons system it says will give foes ‘incurable headache’",
       "source": "New York Post",
       "source_tier": 3,
@@ -2692,17 +2625,17 @@
         "https://nypost.com/2026/09/22/world-news/north-korea-touts-new-weapons-system-it-says-will-give-foes-incurable-headache/"
       ],
       "risk_flags": [],
-      "age_minutes": 227.5
+      "age_minutes": 232.2
     },
     {
       "id": "59b4579d82c5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.22,
+      "urgency_score": 14.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.22,
+        "recency": 2.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2713,9 +2646,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "eccc0c6e33ef",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:01:00Z",
-      "source_detection_latency_seconds": 13759.4,
+      "source_detection_latency_seconds": 14038.8,
       "factual_update": "Why Riyadh Won’t Be Forced Into Israel’s Arms",
       "source": "The American Conservative",
       "source_tier": 3,
@@ -2729,17 +2662,17 @@
         "https://www.theamericanconservative.com/why-riyadh-wont-be-forced-into-israels-arms/"
       ],
       "risk_flags": [],
-      "age_minutes": 229.3
+      "age_minutes": 234.0
     },
     {
       "id": "3d978e747daa",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.22,
+      "urgency_score": 14.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.22,
+        "recency": 2.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2750,9 +2683,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5b1b555aacfd",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:01:00Z",
-      "source_detection_latency_seconds": 13759.4,
+      "source_detection_latency_seconds": 14038.8,
       "factual_update": "Muse Entertainment Unveils ‘Doula: A True Crime’ Trailer As Boat Rocker Studios Boards CBC Doc",
       "source": "Deadline",
       "source_tier": 3,
@@ -2766,17 +2699,17 @@
         "https://deadline.com/2026/09/doula-true-crime-trailer-boat-rocker-studios-cbc-1237109202/"
       ],
       "risk_flags": [],
-      "age_minutes": 229.3
+      "age_minutes": 234.0
     },
     {
       "id": "7ff140b10005",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 12.53,
+      "urgency_score": 12.33,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.53,
+        "recency": 4.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2787,9 +2720,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "5587de2ae09e",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T05:12:21Z",
-      "source_detection_latency_seconds": 9478.4,
+      "source_detection_latency_seconds": 9757.8,
       "factual_update": "Watch: Ukraine's race to counter new jet-powered Russian drones",
       "source": "BBC News",
       "source_tier": 2,
@@ -2803,17 +2736,17 @@
         "https://www.bbc.co.uk/news/videos/cm1j422wdjn1o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 158.0
+      "age_minutes": 162.6
     },
     {
       "id": "1d0e7bcdb716",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 8.65,
+      "urgency_score": 8.53,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.65,
+        "recency": 2.53,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2824,9 +2757,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:18:46Z",
-      "source_detection_latency_seconds": 12693.4,
+      "source_detection_latency_seconds": 12972.8,
       "factual_update": "Giants’ two ballyhooed units betrayed them after Jaxson Dart’s exit",
       "source": "New York Post",
       "source_tier": 3,
@@ -2841,17 +2774,17 @@
         "https://nypost.com/2026/09/22/sports/jaxson-darts-exit-shouldnt-have-meant-the-rest-of-the-giants-gave-up/"
       ],
       "risk_flags": [],
-      "age_minutes": 211.6
+      "age_minutes": 216.2
     },
     {
       "id": "c6e86171d88c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 2.36,
+      "urgency_score": 2.25,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.36,
+        "recency": 2.25,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2862,9 +2795,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "d88dc6f80fe7",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:07:00Z",
-      "source_detection_latency_seconds": 13399.4,
+      "source_detection_latency_seconds": 13678.8,
       "factual_update": "WATCH: How often do students REALLY use AI?",
       "source": "The College Fix",
       "source_tier": 3,
@@ -2878,7 +2811,7 @@
         "https://www.thecollegefix.com/watch-how-often-do-students-really-use-ai/"
       ],
       "risk_flags": [],
-      "age_minutes": 223.3
+      "age_minutes": 228.0
     },
     {
       "id": "823afc0304a5",
@@ -2888,7 +2821,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.22,
+        "recency": 2.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2899,9 +2832,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "c2f1ef445b71",
-      "detected_at": "2026-09-22T07:50:19.422401Z",
+      "detected_at": "2026-09-22T07:54:58.783983Z",
       "source_published_at": "2026-09-22T04:01:00Z",
-      "source_detection_latency_seconds": 13759.4,
+      "source_detection_latency_seconds": 14038.8,
       "factual_update": "More college students may have autism than previously thought, research finds",
       "source": "The College Fix",
       "source_tier": 3,
@@ -2917,8 +2850,14 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 229.3
+      "age_minutes": 234.0
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "4c550c830603",
+      "status": "published",
+      "storyline_id": "ec0cbed7e7dd"
+    }
+  ]
 }

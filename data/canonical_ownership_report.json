@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T13:04:57.135013Z",
+  "generated_at": "2026-09-22T13:14:12.832413Z",
   "schema_version": 1,
   "authoritative_timeline_count": 44,
   "duplicate_groups_collapsed": [],
@@ -9,6 +9,14 @@
       "owner_id": "22eee03c6e65",
       "removed_from": [
         "b2677d3b3024"
+      ],
+      "reason": "strongest_event_coherence"
+    },
+    {
+      "material_update_id": "3117d7803177f853",
+      "owner_id": "d7a235bfc6fc",
+      "removed_from": [
+        "55fb6a97e30d"
       ],
       "reason": "strongest_event_coherence"
     },
@@ -41,14 +49,6 @@
       "owner_id": "dc6b45e316e2",
       "removed_from": [
         "ae1115326c86"
-      ],
-      "reason": "strongest_event_coherence"
-    },
-    {
-      "material_update_id": "5ab4e535a022412d",
-      "owner_id": "55fb6a97e30d",
-      "removed_from": [
-        "d7a235bfc6fc"
       ],
       "reason": "strongest_event_coherence"
     },
@@ -196,17 +196,16 @@
         "b2677d3b3024"
       ],
       "reason": "strongest_event_coherence"
-    },
-    {
-      "material_update_id": "efd451b4ba12f403",
-      "owner_id": "55fb6a97e30d",
-      "removed_from": [
-        "d7a235bfc6fc"
-      ],
-      "reason": "strongest_event_coherence"
     }
   ],
   "event_purity_suppressions": [
+    {
+      "timeline_id": "55fb6a97e30d",
+      "material_update_id": "efd451b4ba12f403",
+      "reason": "event_identity_mismatch",
+      "identity_reason": "insufficient_event_evidence",
+      "identity_confidence": 0.4
+    },
     {
       "timeline_id": "dc6b45e316e2",
       "material_update_id": "fe4ef4dbc34cc5e7",
@@ -387,15 +386,15 @@
       "identity_confidence": 0.625
     },
     {
-      "timeline_id": "ae1115326c86",
-      "material_update_id": "050dc62aae037300",
-      "reason": "event_identity_mismatch",
-      "identity_reason": "insufficient_event_evidence",
-      "identity_confidence": 0.429
-    },
-    {
       "timeline_id": "0756acad5536",
       "material_update_id": "860d350c9077c684",
+      "reason": "event_identity_mismatch",
+      "identity_reason": "insufficient_event_evidence",
+      "identity_confidence": 0.333
+    },
+    {
+      "timeline_id": "ae1115326c86",
+      "material_update_id": "050dc62aae037300",
       "reason": "event_identity_mismatch",
       "identity_reason": "insufficient_event_evidence",
       "identity_confidence": 0.333

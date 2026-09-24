@@ -1,39 +1,44 @@
 {
   "cycle": {
-    "started_at": "2026-09-24T12:51:34.868163Z",
-    "completed_at": "2026-09-24T12:51:55.997843Z",
-    "duration_seconds": 21.13,
-    "previous_completed_at": "2026-09-24T12:47:16.634823Z"
+    "started_at": "2026-09-24T12:56:20.177384Z",
+    "completed_at": "2026-09-24T12:56:43.247874Z",
+    "duration_seconds": 23.07,
+    "previous_completed_at": "2026-09-24T12:51:55.997843Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-24T12:51:39.927224Z",
+    "last_successful_run": "2026-09-24T12:56:26.512645Z",
     "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1381
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "E! News",
+        "error": "400 Client Error: Bad Request for url: https://eol-feeds.eonline.com/rssfeed/us/top_stories?_=1790254492112; no advertised RSS/Atom feed found"
+      }
+    ],
+    "stories_available": 1361
   },
   "content": {
-    "last_story_created": "2026-09-24T12:50:26Z",
-    "last_story_age_minutes": 1.5,
-    "last_timeline_update": "2026-09-24T12:50:26Z",
-    "last_timeline_age_minutes": 1.5,
+    "last_story_created": "2026-09-24T12:55:18Z",
+    "last_story_age_minutes": 1.4,
+    "last_timeline_update": "2026-09-24T12:55:18Z",
+    "last_timeline_age_minutes": 1.4,
     "published_timelines": 35,
-    "manifest_updated_at": "2026-09-24T12:51:55.101499Z"
+    "manifest_updated_at": "2026-09-24T12:56:42.351436Z"
   },
   "fast_path": {
     "reports_evaluated": 255,
-    "candidate_events": 209,
+    "candidate_events": 208,
     "fast_path_events": 3,
-    "held_for_normal_path": 206,
-    "duplicate_reports_suppressed": 46,
-    "duplicate_event_rate_pct": 18.04,
-    "median_source_detection_latency_seconds": 505.1,
+    "held_for_normal_path": 205,
+    "duplicate_reports_suppressed": 47,
+    "duplicate_event_rate_pct": 18.43,
+    "median_source_detection_latency_seconds": 791.6,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 2,
-    "detection_to_publication_latency_seconds": 15.0,
+    "detection_to_publication_latency_seconds": 15.7,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
@@ -81,41 +86,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 5.11,
-      "completed_at": "2026-09-24T12:51:39.980088Z",
+      "duration_seconds": 6.39,
+      "completed_at": "2026-09-24T12:56:26.568525Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1381 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: E! News: 400 Client Error: Bad Request for url: https://eol-feeds.eonline.com/rssfeed/us/top_stories?_=1790254492112; no advertised RSS/Atom feed found"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 1.63,
-      "completed_at": "2026-09-24T12:51:41.613581Z",
+      "duration_seconds": 1.62,
+      "completed_at": "2026-09-24T12:56:28.188220Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 3 promoted, 206 kept on normal path, 46 duplicates grouped."
+      "message": "Fast path: 3 promoted, 205 kept on normal path, 47 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 12.06,
-      "completed_at": "2026-09-24T12:51:53.675261Z",
+      "duration_seconds": 12.69,
+      "completed_at": "2026-09-24T12:56:40.881186Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1210 storylines; 56 multi-family; 29 breaking; 33 developing; 0 hot"
+      "message": "Built 1195 storylines; 55 multi-family; 29 breaking; 33 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.5,
-      "completed_at": "2026-09-24T12:51:54.172112Z",
+      "duration_seconds": 0.51,
+      "completed_at": "2026-09-24T12:56:41.388871Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -125,8 +130,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 1.06,
-      "completed_at": "2026-09-24T12:51:55.232181Z",
+      "duration_seconds": 1.09,
+      "completed_at": "2026-09-24T12:56:42.479603Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 35 autonomous source-backed story timelines"
@@ -137,7 +142,7 @@
       "criticality": "core",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-24T12:51:55.302755Z",
+      "completed_at": "2026-09-24T12:56:42.553160Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -148,7 +153,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.13,
-      "completed_at": "2026-09-24T12:51:55.430589Z",
+      "completed_at": "2026-09-24T12:56:42.684338Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 302 permanent timeline URLs; 35 currently active"
@@ -158,8 +163,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.08,
-      "completed_at": "2026-09-24T12:51:55.537128Z",
+      "duration_seconds": 0.09,
+      "completed_at": "2026-09-24T12:56:42.793658Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -170,7 +175,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-09-24T12:51:55.562598Z",
+      "completed_at": "2026-09-24T12:56:42.819826Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -181,7 +186,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-09-24T12:51:55.603583Z",
+      "completed_at": "2026-09-24T12:56:42.862832Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -191,8 +196,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.17,
-      "completed_at": "2026-09-24T12:51:55.770438Z",
+      "duration_seconds": 0.15,
+      "completed_at": "2026-09-24T12:56:43.014793Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 33 live timelines"
@@ -203,10 +208,10 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.08,
-      "completed_at": "2026-09-24T12:51:55.848753Z",
+      "completed_at": "2026-09-24T12:56:43.095859Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
-      "message": "Built 8 selective distribution candidates; suppressed 0 duplicate event promotions"
+      "message": "Built 7 selective distribution candidates; suppressed 0 duplicate event promotions"
     },
     "sitemap": {
       "label": "Sitemap refresh",
@@ -214,7 +219,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.08,
-      "completed_at": "2026-09-24T12:51:55.932004Z",
+      "completed_at": "2026-09-24T12:56:43.180514Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

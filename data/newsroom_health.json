@@ -1,39 +1,44 @@
 {
   "cycle": {
-    "started_at": "2026-09-24T02:45:56.451774Z",
-    "completed_at": "2026-09-24T02:46:11.364530Z",
-    "duration_seconds": 14.91,
-    "previous_completed_at": "2026-09-24T02:41:43.137981Z"
+    "started_at": "2026-09-24T02:50:28.006486Z",
+    "completed_at": "2026-09-24T02:50:48.637566Z",
+    "duration_seconds": 20.63,
+    "previous_completed_at": "2026-09-24T02:46:11.364530Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-24T02:46:00.165315Z",
-    "age_minutes": 0.2,
+    "last_successful_run": "2026-09-24T02:50:33.609790Z",
+    "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1378
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "National Hurricane Center Atlantic",
+        "error": "feed returned no entries; advertised feed returned no entries"
+      }
+    ],
+    "stories_available": 1371
   },
   "content": {
-    "last_story_created": "2026-09-24T02:43:59Z",
-    "last_story_age_minutes": 2.2,
-    "last_timeline_update": "2026-09-24T02:43:59Z",
-    "last_timeline_age_minutes": 2.2,
+    "last_story_created": "2026-09-24T02:48:09Z",
+    "last_story_age_minutes": 2.7,
+    "last_timeline_update": "2026-09-24T02:48:09Z",
+    "last_timeline_age_minutes": 2.7,
     "published_timelines": 37,
-    "manifest_updated_at": "2026-09-24T02:46:10.705997Z"
+    "manifest_updated_at": "2026-09-24T02:50:47.792270Z"
   },
   "fast_path": {
-    "reports_evaluated": 253,
-    "candidate_events": 191,
+    "reports_evaluated": 245,
+    "candidate_events": 188,
     "fast_path_events": 1,
-    "held_for_normal_path": 190,
-    "duplicate_reports_suppressed": 62,
-    "duplicate_event_rate_pct": 24.51,
-    "median_source_detection_latency_seconds": 8183.3,
+    "held_for_normal_path": 187,
+    "duplicate_reports_suppressed": 57,
+    "duplicate_event_rate_pct": 23.27,
+    "median_source_detection_latency_seconds": 8456.7,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 1,
-    "detection_to_publication_latency_seconds": 10.5,
+    "detection_to_publication_latency_seconds": 14.1,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
@@ -81,41 +86,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 3.76,
-      "completed_at": "2026-09-24T02:46:00.211266Z",
+      "duration_seconds": 5.66,
+      "completed_at": "2026-09-24T02:50:33.664402Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1378 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: National Hurricane Center Atlantic: feed returned no entries; advertised feed returned no entries"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 1.13,
-      "completed_at": "2026-09-24T02:46:01.337585Z",
+      "duration_seconds": 1.46,
+      "completed_at": "2026-09-24T02:50:35.127742Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 1 promoted, 190 kept on normal path, 62 duplicates grouped."
+      "message": "Fast path: 1 promoted, 187 kept on normal path, 57 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 8.2,
-      "completed_at": "2026-09-24T02:46:09.541604Z",
+      "duration_seconds": 11.04,
+      "completed_at": "2026-09-24T02:50:46.170818Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1203 storylines; 62 multi-family; 11 breaking; 19 developing; 0 hot"
+      "message": "Built 1201 storylines; 61 multi-family; 10 breaking; 18 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.43,
-      "completed_at": "2026-09-24T02:46:09.974920Z",
+      "duration_seconds": 0.57,
+      "completed_at": "2026-09-24T02:50:46.736319Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -125,8 +130,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.82,
-      "completed_at": "2026-09-24T02:46:10.797509Z",
+      "duration_seconds": 1.18,
+      "completed_at": "2026-09-24T02:50:47.919135Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 37 autonomous source-backed story timelines"
@@ -136,8 +141,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.04,
-      "completed_at": "2026-09-24T02:46:10.853185Z",
+      "duration_seconds": 0.05,
+      "completed_at": "2026-09-24T02:50:47.988965Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -147,8 +152,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.09,
-      "completed_at": "2026-09-24T02:46:10.945299Z",
+      "duration_seconds": 0.13,
+      "completed_at": "2026-09-24T02:50:48.114247Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 290 permanent timeline URLs; 37 currently active"
@@ -158,8 +163,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.07,
-      "completed_at": "2026-09-24T02:46:11.030085Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-09-24T02:50:48.219545Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -169,8 +174,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.02,
-      "completed_at": "2026-09-24T02:46:11.051789Z",
+      "duration_seconds": 0.03,
+      "completed_at": "2026-09-24T02:50:48.245469Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -180,8 +185,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.03,
-      "completed_at": "2026-09-24T02:46:11.085664Z",
+      "duration_seconds": 0.04,
+      "completed_at": "2026-09-24T02:50:48.289061Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -191,8 +196,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.09,
-      "completed_at": "2026-09-24T02:46:11.179847Z",
+      "duration_seconds": 0.12,
+      "completed_at": "2026-09-24T02:50:48.404825Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 34 live timelines"
@@ -202,8 +207,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.06,
-      "completed_at": "2026-09-24T02:46:11.244263Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-09-24T02:50:48.485866Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 10 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -213,8 +218,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.07,
-      "completed_at": "2026-09-24T02:46:11.312212Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-09-24T02:50:48.569684Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

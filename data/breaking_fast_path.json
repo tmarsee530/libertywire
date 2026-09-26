@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T04:07:11.867174Z",
+  "generated_at": "2026-09-26T04:12:06.590897Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,21 +7,21 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 113,
-    "candidate_events": 88,
-    "fast_path_events": 0,
-    "held_for_normal_path": 88,
+    "reports_evaluated": 118,
+    "candidate_events": 93,
+    "fast_path_events": 1,
+    "held_for_normal_path": 92,
     "duplicate_reports_suppressed": 25,
-    "duplicate_event_rate_pct": 22.12,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
+    "duplicate_event_rate_pct": 21.19,
+    "median_source_detection_latency_seconds": 8504.6,
+    "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 0,
     "detection_to_publication_latency_seconds": null,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
       "published": 0,
-      "editorially_suppressed": 0,
+      "editorially_suppressed": 1,
       "deferred": 0,
       "missed": 0
     },
@@ -29,14 +29,61 @@
   },
   "candidates": [
     {
+      "id": "a3a7136f5b75",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 65.49,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 20.49,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 12,
+        "independent_confirmations": 6,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8c98bcc6cf55",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T01:50:22Z",
+      "source_detection_latency_seconds": 8504.6,
+      "factual_update": "Trump rescinds nearly $1B in federal funding, bypassing congressional approval",
+      "source": "The Hill",
+      "source_tier": 2,
+      "primary_source_link": "https://thehill.com/homenews/administration/6112779-trump-cancels-billion-federal-funding/",
+      "independent_source_count": 6,
+      "trusted_independent_source_count": 2,
+      "corroborating_sources": [
+        "CBS News",
+        "STAT",
+        "The American Conservative",
+        "The Epoch Times",
+        "The Hill",
+        "Washington Examiner"
+      ],
+      "corroborating_links": [
+        "https://thehill.com/homenews/administration/6112779-trump-cancels-billion-federal-funding/",
+        "https://www.cbsnews.com/news/trump-cancels-billion-spending-pocket-rescission/",
+        "https://www.statnews.com/2026/09/25/trump-administration-cancel-spending-hhs-programs/?utm_campaign=rss",
+        "https://www.theamericanconservative.com/the-gop-trump-saved-us-from-hype-videos-for-neocons/",
+        "https://www.theepochtimes.com/article/in-photos-what-we-saw-in-dc-outside-trump-xi-summit-6095147",
+        "https://www.washingtonexaminer.com/news/white-house/4743853/trump-dei-noncitizen-programs-1-billion-pocket-rescission/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 7.1
+    },
+    {
       "id": "74c3e09c9ebb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 69.3,
+      "urgency_score": 68.76,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.3,
+        "recency": 10.76,
         "magnitude": 24,
         "public_safety": 10,
         "institutional_prominence": 0,
@@ -47,9 +94,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "52c8df0c9c04",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:00:36Z",
-      "source_detection_latency_seconds": 3995.9,
+      "source_detection_latency_seconds": 4290.6,
       "factual_update": "Hurricane Nolo could cause \"catastrophic\" flooding in Hawaii, forecasters warn",
       "source": "CBS News",
       "source_tier": 2,
@@ -63,17 +110,17 @@
         "https://www.cbsnews.com/news/storm-nolo-hurricane-hawaii/"
       ],
       "risk_flags": [],
-      "age_minutes": 66.6
+      "age_minutes": 71.5
     },
     {
       "id": "cc3458d6975a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 68.03,
+      "urgency_score": 67.26,
       "score_components": {
         "source_trust": 10,
-        "recency": 16.03,
+        "recency": 15.26,
         "magnitude": 14,
         "public_safety": 10,
         "institutional_prominence": 0,
@@ -84,9 +131,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e32b140bbfcd",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:31:43Z",
-      "source_detection_latency_seconds": 9328.9,
+      "source_detection_latency_seconds": 9623.6,
       "factual_update": "How El Niño is supercharging Pacific storms",
       "source": "CBS News",
       "source_tier": 2,
@@ -102,63 +149,17 @@
         "https://www.theepochtimes.com/us/hurricanes-in-the-pacific-threaten-hawaii-and-mexico-with-floods-and-high-surf-6095225"
       ],
       "risk_flags": [],
-      "age_minutes": 31.7
-    },
-    {
-      "id": "06ad41bf6d64",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 60.59,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 15.59,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 12,
-        "independent_confirmations": 6,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8c98bcc6cf55",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T01:50:22Z",
-      "source_detection_latency_seconds": 8209.9,
-      "factual_update": "Trump rescinds nearly $1B in federal funding, bypassing congressional approval",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/administration/6112779-trump-cancels-billion-federal-funding/",
-      "independent_source_count": 5,
-      "trusted_independent_source_count": 2,
-      "corroborating_sources": [
-        "CBS News",
-        "STAT",
-        "The Epoch Times",
-        "The Hill",
-        "Washington Examiner"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/homenews/administration/6112779-trump-cancels-billion-federal-funding/",
-        "https://www.cbsnews.com/news/trump-cancels-billion-spending-pocket-rescission/",
-        "https://www.statnews.com/2026/09/25/trump-administration-cancel-spending-hhs-programs/?utm_campaign=rss",
-        "https://www.theepochtimes.com/article/in-photos-what-we-saw-in-dc-outside-trump-xi-summit-6095147",
-        "https://www.theepochtimes.com/us/trump-rescinds-nearly-1-billion-in-congress-approved-funding-6095230",
-        "https://www.washingtonexaminer.com/news/white-house/4743853/trump-dei-noncitizen-programs-1-billion-pocket-rescission/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 34.4
+      "age_minutes": 36.6
     },
     {
       "id": "81b414292bb7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 56.9,
+      "urgency_score": 56.52,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.9,
+        "recency": 7.52,
         "magnitude": 20,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -169,9 +170,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f5abf7820c0e",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:24:48Z",
-      "source_detection_latency_seconds": 6143.9,
+      "source_detection_latency_seconds": 6438.6,
       "factual_update": "Tracking the nor'easter: State of emergency declared in New York City",
       "source": "ABC News",
       "source_tier": 2,
@@ -185,17 +186,17 @@
         "https://abcnews.com/US/tracking-noreaster-millions-brace-weekends-powerful-storm/story?id=136747598"
       ],
       "risk_flags": [],
-      "age_minutes": 102.4
+      "age_minutes": 107.3
     },
     {
       "id": "658da66195a0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 52.46,
+      "urgency_score": 51.91,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.46,
+        "recency": 10.91,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -206,9 +207,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "34542eff71f5",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:02:01Z",
-      "source_detection_latency_seconds": 3910.9,
+      "source_detection_latency_seconds": 4205.6,
       "factual_update": "New York, New Jersey declare states of emergency ahead of nor’easter",
       "source": "The Hill",
       "source_tier": 2,
@@ -222,17 +223,17 @@
         "https://thehill.com/homenews/state-watch/6112822-ny-nj-noreaster-declare-emergency/"
       ],
       "risk_flags": [],
-      "age_minutes": 65.2
+      "age_minutes": 70.1
     },
     {
       "id": "fd17605d7422",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 51.98,
+      "urgency_score": 51.26,
       "score_components": {
         "source_trust": 15,
-        "recency": 14.98,
+        "recency": 14.26,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -243,9 +244,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b165e9f90952",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:28:46Z",
-      "source_detection_latency_seconds": 2305.9,
+      "source_detection_latency_seconds": 2600.6,
       "factual_update": "Tropical Storm Gonzalo Graphics",
       "source": "National Hurricane Center Atlantic",
       "source_tier": 1,
@@ -268,17 +269,17 @@
         "https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/260232.shtml"
       ],
       "risk_flags": [],
-      "age_minutes": 38.4
+      "age_minutes": 43.3
     },
     {
       "id": "8b3ba72b4601",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 49.03,
+      "urgency_score": 48.55,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.03,
+        "recency": 9.55,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -289,9 +290,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "61a39dfd7d1a",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:14:15Z",
-      "source_detection_latency_seconds": 6776.9,
+      "source_detection_latency_seconds": 7071.6,
       "factual_update": "CNN says its reporters were barred from joining press pool on Air Force One",
       "source": "The Hill",
       "source_tier": 2,
@@ -311,17 +312,17 @@
         "https://www.washingtonexaminer.com/news/white-house/4743878/cnn-barred-air-force-one-pool-trump-tennessee-trip/"
       ],
       "risk_flags": [],
-      "age_minutes": 78.5
+      "age_minutes": 83.4
     },
     {
       "id": "069cc9ce5a91",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 48.47,
+      "urgency_score": 47.58,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.47,
+        "recency": 17.58,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -332,9 +333,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5a32863e4739",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:49:41Z",
-      "source_detection_latency_seconds": 1050.9,
+      "source_detection_latency_seconds": 1345.6,
       "factual_update": "Iran offers US deal to reopen Strait of Hormuz in seven days",
       "source": "BBC News",
       "source_tier": 2,
@@ -350,17 +351,17 @@
         "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/"
       ],
       "risk_flags": [],
-      "age_minutes": 17.5
+      "age_minutes": 22.4
     },
     {
       "id": "35151f84502b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.76,
+      "urgency_score": 44.58,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.76,
+        "recency": 3.58,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -371,9 +372,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2a19b6b948bb",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:10:33Z",
-      "source_detection_latency_seconds": 10598.9,
+      "source_detection_latency_seconds": 10893.6,
       "factual_update": "Transcript: Iranian President Masoud Pezeshkian on \"Face the Nation with Margaret Brennan\"",
       "source": "CBS News",
       "source_tier": 2,
@@ -388,17 +389,17 @@
         "https://www.cbsnews.com/video/extended-interview-iranian-president-masoud-pezeshkian-on-the-u-s-iran-war/"
       ],
       "risk_flags": [],
-      "age_minutes": 176.6
+      "age_minutes": 181.6
     },
     {
       "id": "a07e9fc4fabc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.69,
+      "urgency_score": 43.89,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.69,
+        "recency": 15.89,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -409,9 +410,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "007b10a4e89d",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:39:35Z",
-      "source_detection_latency_seconds": 1656.9,
+      "source_detection_latency_seconds": 1951.6,
       "factual_update": "Will Warren delivers in relief in final act of regular season as Yankees playoff role comes into view",
       "source": "New York Post",
       "source_tier": 3,
@@ -425,17 +426,17 @@
         "https://nypost.com/2026/09/25/sports/yankees-will-warren-delivers-in-relief-in-final-act-of-regular-season/"
       ],
       "risk_flags": [],
-      "age_minutes": 27.6
+      "age_minutes": 32.5
     },
     {
       "id": "f91d36c10ae0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.87,
+      "urgency_score": 43.73,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.87,
+        "recency": 2.73,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -446,9 +447,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e439c952a195",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:43:36Z",
-      "source_detection_latency_seconds": 12215.9,
+      "source_detection_latency_seconds": 12510.6,
       "factual_update": "Fulton Sheen became a TV sensation preaching faith, morality and warnings Michael Knowles says still resonate",
       "source": "Fox News",
       "source_tier": 2,
@@ -462,17 +463,17 @@
         "https://www.foxnews.com/politics/fulton-sheen-tv-sensation-preaching-faith-morality-warnings-michael-knowles-says-still-resonate"
       ],
       "risk_flags": [],
-      "age_minutes": 203.6
+      "age_minutes": 208.5
     },
     {
       "id": "4d6d56b37992",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.23,
+      "urgency_score": 42.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.23,
+        "recency": 14.5,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -483,9 +484,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e8e7b27918a3",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:30:27Z",
-      "source_detection_latency_seconds": 2204.9,
+      "source_detection_latency_seconds": 2499.6,
       "factual_update": "Rutgers records emphatic first win of 2026 season over Howard",
       "source": "New York Post",
       "source_tier": 3,
@@ -499,17 +500,17 @@
         "https://nypost.com/2026/09/25/sports/rutgers-records-emphatic-first-win-of-2026-season-over-howard/"
       ],
       "risk_flags": [],
-      "age_minutes": 36.7
+      "age_minutes": 41.7
     },
     {
       "id": "d655f037f57b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 42.93,
+      "urgency_score": 42.45,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.93,
+        "recency": 9.45,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -520,9 +521,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3ad47d72412c",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:47:37Z",
-      "source_detection_latency_seconds": 4774.9,
+      "source_detection_latency_seconds": 5069.6,
       "factual_update": "Police reveal evidence found on scene of mass shooting in California suburb",
       "source": "New York Post",
       "source_tier": 3,
@@ -536,17 +537,17 @@
         "https://nypost.com/2026/09/25/us-news/police-reveal-evidence-found-on-scene-of-mass-shooting-in-hawthorne/"
       ],
       "risk_flags": [],
-      "age_minutes": 79.6
+      "age_minutes": 84.5
     },
     {
       "id": "92c41503f04f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 41.85,
+      "urgency_score": 41.57,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.85,
+        "recency": 5.57,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -557,9 +558,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "66360a4ff772",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:54:43Z",
-      "source_detection_latency_seconds": 7948.9,
+      "source_detection_latency_seconds": 8243.6,
       "factual_update": "What to watch for at this weekend's MTV Video Music Awards",
       "source": "CBS News",
       "source_tier": 2,
@@ -573,17 +574,17 @@
         "https://www.cbsnews.com/video/what-to-watch-for-at-this-weekends-mtv-video-music-awards/"
       ],
       "risk_flags": [],
-      "age_minutes": 132.5
+      "age_minutes": 137.4
     },
     {
       "id": "e75fb2bc9795",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 41.04,
+      "urgency_score": 40.37,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.04,
+        "recency": 13.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -594,9 +595,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ce3cc130525d",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:22:17Z",
-      "source_detection_latency_seconds": 2694.9,
+      "source_detection_latency_seconds": 2989.6,
       "factual_update": "Brazil's Lula bans online gambling ahead of presidential election",
       "source": "BBC News",
       "source_tier": 2,
@@ -610,17 +611,54 @@
         "https://www.bbc.co.uk/news/articles/c914ddj21rzlo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 44.9
+      "age_minutes": 49.8
+    },
+    {
+      "id": "8ae1d885b640",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 40.11,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.11,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "bab9763892ed",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:08:00Z",
+      "source_detection_latency_seconds": 246.6,
+      "factual_update": "Charlie Kirk assassination report highlights several security failures at Utah Valley University",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/26/us-news/charlie-kirk-assassination-report-highlights-several-security-failures-at-utah-valley-university/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/26/us-news/charlie-kirk-assassination-report-highlights-several-security-failures-at-utah-valley-university/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 4.1
     },
     {
       "id": "d22a199399a3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.26,
+      "urgency_score": 39.77,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.26,
+        "recency": 9.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -631,9 +669,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "36205c0c497d",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:50:56Z",
-      "source_detection_latency_seconds": 4575.9,
+      "source_detection_latency_seconds": 4870.6,
       "factual_update": "OpenAI bots meddled with multiple US government agency sites",
       "source": "BBC News",
       "source_tier": 2,
@@ -647,17 +685,54 @@
         "https://www.bbc.co.uk/news/articles/cw62jje658dlo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 76.3
+      "age_minutes": 81.2
+    },
+    {
+      "id": "f914d14a005c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 39.06,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 19.06,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8f7f7f8cbafe",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T03:57:46Z",
+      "source_detection_latency_seconds": 860.6,
+      "factual_update": "Quantum computing could help US reduce reliance on China's rare earth supply chain, tech CEO says",
+      "source": "Fox Business",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxbusiness.com/technology/quantum-computing-could-help-us-reduce-reliance-chinas-rare-earth-supply-chain-tech-ceo-says",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox Business"
+      ],
+      "corroborating_links": [
+        "https://www.foxbusiness.com/technology/quantum-computing-could-help-us-reduce-reliance-chinas-rare-earth-supply-chain-tech-ceo-says"
+      ],
+      "risk_flags": [],
+      "age_minutes": 14.3
     },
     {
       "id": "c9d638f7d1f8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 38.26,
+      "urgency_score": 38.06,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.26,
+        "recency": 4.06,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -668,9 +743,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "230112605159",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:23:06Z",
-      "source_detection_latency_seconds": 9845.9,
+      "source_detection_latency_seconds": 10140.6,
       "factual_update": "Supreme Court again blocks Missouri's new House map that favored GOP",
       "source": "CBS News",
       "source_tier": 2,
@@ -686,17 +761,17 @@
         "https://www.cbsnews.com/video/supreme-court-allows-use-of-database-to-review-voter-rolls/"
       ],
       "risk_flags": [],
-      "age_minutes": 164.1
+      "age_minutes": 169.0
     },
     {
       "id": "ce767097dca0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 37.23,
+      "urgency_score": 36.78,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.23,
+        "recency": 8.78,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -707,9 +782,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4d08dc4cd858",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:40:18Z",
-      "source_detection_latency_seconds": 5213.9,
+      "source_detection_latency_seconds": 5508.6,
       "factual_update": "Steph Curry’s Warriors contract extension falls short of potential supermax deal",
       "source": "New York Post",
       "source_tier": 3,
@@ -723,56 +798,17 @@
         "https://nypost.com/2026/09/25/sports/steph-curry-warriors-agree-to-two-year-116-million-contract-extension/"
       ],
       "risk_flags": [],
-      "age_minutes": 86.9
-    },
-    {
-      "id": "1f1472646ae8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 36.84,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 20.84,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f34229574c09",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T04:01:46Z",
-      "source_detection_latency_seconds": 325.9,
-      "factual_update": "Chris Hansen Finally Watched Robert Pattinson Play Him in ‘Primetime’: ‘So Detached From Reality’",
-      "source": "Rolling Stone",
-      "source_tier": 3,
-      "primary_source_link": "https://www.rollingstone.com/tv-movies/tv-movie-news/chris-hansen-watched-robert-pattinson-primetime-film-1235632267/",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline",
-        "Rolling Stone"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/09/chris-hansen-finally-saw-primetime-still-not-fan-1237114384/",
-        "https://www.rollingstone.com/tv-movies/tv-movie-news/chris-hansen-watched-robert-pattinson-primetime-film-1235632267/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 5.4
+      "age_minutes": 91.8
     },
     {
       "id": "61afbacde14a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 36.76,
+      "urgency_score": 36.44,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.76,
+        "recency": 6.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -783,9 +819,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f8bd14b3c065",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:09:16Z",
-      "source_detection_latency_seconds": 7075.9,
+      "source_detection_latency_seconds": 7370.6,
       "factual_update": "TikTok settles lawsuit over youth safety concerns for at least $100 million",
       "source": "CBS News",
       "source_tier": 2,
@@ -801,17 +837,56 @@
         "https://www.cbsnews.com/news/tiktok-alabama-youth-safety-lawsuit-settlement/"
       ],
       "risk_flags": [],
-      "age_minutes": 117.9
+      "age_minutes": 122.8
+    },
+    {
+      "id": "1f1472646ae8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 35.84,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.84,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 4,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "f34229574c09",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:01:46Z",
+      "source_detection_latency_seconds": 620.6,
+      "factual_update": "Chris Hansen Finally Watched Robert Pattinson Play Him in ‘Primetime’: ‘So Detached From Reality’",
+      "source": "Rolling Stone",
+      "source_tier": 3,
+      "primary_source_link": "https://www.rollingstone.com/tv-movies/tv-movie-news/chris-hansen-watched-robert-pattinson-primetime-film-1235632267/",
+      "independent_source_count": 2,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline",
+        "Rolling Stone"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/09/chris-hansen-finally-saw-primetime-still-not-fan-1237114384/",
+        "https://www.rollingstone.com/tv-movies/tv-movie-news/chris-hansen-watched-robert-pattinson-primetime-film-1235632267/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 10.3
     },
     {
       "id": "f9aeb2a34fce",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 35.39,
+      "urgency_score": 35.28,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.39,
+        "recency": 2.28,
         "magnitude": 9,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -822,9 +897,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e3b2bb6d7a39",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:25:14Z",
-      "source_detection_latency_seconds": 13317.9,
+      "source_detection_latency_seconds": 13612.6,
       "factual_update": "The Papers: 'Verdicts that rocked football' and 'Burnham bottles it'",
       "source": "BBC News",
       "source_tier": 2,
@@ -838,17 +913,54 @@
         "https://www.bbc.co.uk/news/articles/ck9dwwp20690o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 222.0
+      "age_minutes": 226.9
+    },
+    {
+      "id": "79200072f713",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.84,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.84,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0fbde2e56927",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T03:32:46Z",
+      "source_detection_latency_seconds": 2360.6,
+      "factual_update": "Trump Rescinds Nearly $1 Billion in Congress-Approved Funding",
+      "source": "The Epoch Times",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theepochtimes.com/us/trump-rescinds-nearly-1-billion-in-congress-approved-funding-6095230",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Epoch Times"
+      ],
+      "corroborating_links": [
+        "https://www.theepochtimes.com/us/trump-rescinds-nearly-1-billion-in-congress-approved-funding-6095230"
+      ],
+      "risk_flags": [],
+      "age_minutes": 39.3
     },
     {
       "id": "01617b6dbc97",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.11,
+      "urgency_score": 32.49,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.11,
+        "recency": 12.49,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -859,9 +971,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e4afefc6a068",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:15:28Z",
-      "source_detection_latency_seconds": 3103.9,
+      "source_detection_latency_seconds": 3398.6,
       "factual_update": "Phillies shut out by Rays in opener of final regular-season series, pushing playoff hopes to the brink",
       "source": "Fox News",
       "source_tier": 2,
@@ -875,548 +987,30 @@
         "https://www.foxnews.com/outkick-sports/phillies-shut-out-rays-opener-final-regular-season-series-pushing-playoff-hopes-brink"
       ],
       "risk_flags": [],
-      "age_minutes": 51.7
-    },
-    {
-      "id": "2cddb3e77ffd",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.68,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 20.68,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "dc69f01ed438",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T04:01:00Z",
-      "source_detection_latency_seconds": 371.9,
-      "factual_update": "Important Moments at the UN General Assembly",
-      "source": "The American Conservative",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theamericanconservative.com/important-moments-at-the-un-general-assembly/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The American Conservative"
-      ],
-      "corroborating_links": [
-        "https://www.theamericanconservative.com/important-moments-at-the-un-general-assembly/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 6.2
-    },
-    {
-      "id": "f7a93c4f60a2",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.18,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.18,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 6,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "051ec68a5c57",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T00:15:49Z",
-      "source_detection_latency_seconds": 13882.9,
-      "factual_update": "Federal court says U.S. government can label Anthropic a supply chain risk",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/video/federal-court-us-government-can-label-anthropic-supply-chain-risk/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/video/federal-court-us-government-can-label-anthropic-supply-chain-risk/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 231.4
-    },
-    {
-      "id": "4def2d37d279",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.95,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.95,
-        "magnitude": 0,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f073476e4399",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T00:46:16Z",
-      "source_detection_latency_seconds": 12055.9,
-      "factual_update": "Nor'easter barrels down on East Coast, threatens millions with flooding, winds",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/news/east-coast-noreaster-severe-flooding-winds-evacuations/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/news/east-coast-noreaster-severe-flooding-winds-evacuations/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 200.9
-    },
-    {
-      "id": "9b378eea427c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.71,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.71,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "30f20091aa11",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T01:09:17Z",
-      "source_detection_latency_seconds": 10674.9,
-      "factual_update": "‘Love Hypothesis’ Director Claire Scanlon Breaks Down the Biggest ‘Star Wars’ Easter Eggs, From Gracie Abrams’ Song to Color-Coded Wardrobes",
-      "source": "Variety",
-      "source_tier": 3,
-      "primary_source_link": "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Variety"
-      ],
-      "corroborating_links": [
-        "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 177.9
-    },
-    {
-      "id": "c3ce0de18fdf",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.31,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 19.31,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f8a5f1170979",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T03:54:08Z",
-      "source_detection_latency_seconds": 783.9,
-      "factual_update": "Atlanta detective accused of swiping 12-pack of beer from Publix — then using undercover car to flee",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/25/us-news/atlanta-detective-accused-of-swiping-12-pack-of-beer-from-publix/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/25/us-news/atlanta-detective-accused-of-swiping-12-pack-of-beer-from-publix/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 13.1
-    },
-    {
-      "id": "fcd7f225cec7",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.76,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 3.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5a32863e4739",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T01:10:26Z",
-      "source_detection_latency_seconds": 10605.9,
-      "factual_update": "Iranian President Pezeshkian talks about proposal to reopen Strait of Hormuz",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/news/iran-president-masoud-pezeshkian-proposal-trump-strait-of-hormuz-war/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/news/iran-president-masoud-pezeshkian-proposal-trump-strait-of-hormuz-war/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 176.8
-    },
-    {
-      "id": "773c03001358",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.51,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.51,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4b0e3596cdf5",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T00:30:00Z",
-      "source_detection_latency_seconds": 13031.9,
-      "factual_update": "‘SNL’ Promotes Keri Powers & Rebecca Schwartz",
-      "source": "Deadline",
-      "source_tier": 3,
-      "primary_source_link": "https://deadline.com/2026/09/snl-promotes-keri-powers-rebecca-schwartz-1237114324/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/09/snl-promotes-keri-powers-rebecca-schwartz-1237114324/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 217.2
-    },
-    {
-      "id": "902656baae96",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.15,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.15,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2e79d798deb1",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T00:14:49Z",
-      "source_detection_latency_seconds": 13942.9,
-      "factual_update": "Iranian president pushes for new deal with U.S. in CBS News interview",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/video/iranian-president-pushes-new-deal-us/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/video/iranian-president-pushes-new-deal-us/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 232.4
-    },
-    {
-      "id": "94989c500f44",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.61,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 5.61,
-        "magnitude": 7,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "7acf026a4bed",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T01:50:38Z",
-      "source_detection_latency_seconds": 8193.9,
-      "factual_update": "Trump rejects Iran’s seven-day cease-fire proposal – new airstrikes ‘likely’ after midterm elections: report",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/25/us-news/trump-rejects-irans-seven-day-cease-fire-proposal-expects-airstrikes-to-resume-after-midterm-elections-report/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/25/us-news/trump-rejects-irans-seven-day-cease-fire-proposal-expects-airstrikes-to-resume-after-midterm-elections-report/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 136.6
-    },
-    {
-      "id": "5c5e77c710f7",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.9,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.9,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9782de041d11",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T03:34:44Z",
-      "source_detection_latency_seconds": 1947.9,
-      "factual_update": "Didn’t Get The Zelle? Remy Ma Seemingly Trolls Papoose In ‘Jezebel’-Inspired Outfit While Celebrating Her New EP (VIDEOS)",
-      "source": "The Shade Room",
-      "source_tier": 3,
-      "primary_source_link": "https://theshaderoom.com/remy-ma-jezebel-outfit-shades-papoose-alimony-ep-celebration-social-media-reacts/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Shade Room"
-      ],
-      "corroborating_links": [
-        "https://theshaderoom.com/remy-ma-jezebel-outfit-shades-papoose-alimony-ep-celebration-social-media-reacts/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 32.5
-    },
-    {
-      "id": "1e2ba7365d9c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.79,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 6.79,
-        "magnitude": 0,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0d40a5c4b749",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T02:09:42Z",
-      "source_detection_latency_seconds": 7049.9,
-      "factual_update": "Midterms too close to call, GOP’s missing positive message and other commentary",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/25/opinion/midterms-too-close-to-call-gops-missing-positive-message-and-other-commentary/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/25/opinion/midterms-too-close-to-call-gops-missing-positive-message-and-other-commentary/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 117.5
-    },
-    {
-      "id": "ab77b1534915",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.17,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.17,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "7c465fe4063f",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T03:30:00Z",
-      "source_detection_latency_seconds": 2231.9,
-      "factual_update": "Grok Is Coming to X Group Chats, but Apparently You Have to Invite the Vampire In",
-      "source": "Twitchy",
-      "source_tier": 3,
-      "primary_source_link": "https://twitchy.com/rickrobinson/2026/09/25/polymarket-says-grok-is-invading-your-group-chats-soon-n2432693",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Twitchy"
-      ],
-      "corroborating_links": [
-        "https://twitchy.com/rickrobinson/2026/09/25/polymarket-says-grok-is-invading-your-group-chats-soon-n2432693"
-      ],
-      "risk_flags": [],
-      "age_minutes": 37.2
-    },
-    {
-      "id": "dbbbc142de17",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.82,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 6.82,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9066d1d6d8b5",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T02:10:03Z",
-      "source_detection_latency_seconds": 7028.9,
-      "factual_update": "Doctor reveals '10-year rule' for evaluating brain fog and dementia symptoms",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/health/doctor-reveals-10-year-rule-evaluating-brain-fog-dementia-symptoms",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/health/doctor-reveals-10-year-rule-evaluating-brain-fog-dementia-symptoms"
-      ],
-      "risk_flags": [],
-      "age_minutes": 117.1
-    },
-    {
-      "id": "b4a0fdd15b3c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.4,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.4,
-        "magnitude": 7,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "13e53396c56e",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T01:00:33Z",
-      "source_detection_latency_seconds": 11198.9,
-      "factual_update": "Two More Russian Refineries Shut Down Operations After Drone Strikes",
-      "source": "Hot Air",
-      "source_tier": 3,
-      "primary_source_link": "https://hotair.com/john-s-2/2026/09/25/two-more-russian-refineries-shut-down-operations-after-drone-strikes-n3819364",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Hot Air"
-      ],
-      "corroborating_links": [
-        "https://hotair.com/john-s-2/2026/09/25/two-more-russian-refineries-shut-down-operations-after-drone-strikes-n3819364"
-      ],
-      "risk_flags": [],
-      "age_minutes": 186.6
+      "age_minutes": 56.6
     },
     {
       "id": "995f644eedd9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.5,
+      "urgency_score": 32.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.5,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "matched_storyline_id": "7f8409ce784a",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T04:04:54Z",
-      "source_detection_latency_seconds": 137.9,
+      "source_detection_latency_seconds": 432.6,
       "factual_update": "The High Priests of Performative Goodness",
       "source": "American Spectator",
       "source_tier": 3,
@@ -1430,30 +1024,30 @@
         "https://spectator.org/the-high-priests-of-performative-goodness/"
       ],
       "risk_flags": [],
-      "age_minutes": 2.3
+      "age_minutes": 7.2
     },
     {
       "id": "f87806b7da18",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.5,
+      "urgency_score": 32.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.5,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "matched_storyline_id": "c544784405b4",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T04:04:53Z",
-      "source_detection_latency_seconds": 138.9,
+      "source_detection_latency_seconds": 433.6,
       "factual_update": "Newsom Performs Another Political Stunt",
       "source": "American Spectator",
       "source_tier": 3,
@@ -1467,30 +1061,30 @@
         "https://spectator.org/newsom-performs-another-political-stunt/"
       ],
       "risk_flags": [],
-      "age_minutes": 2.3
+      "age_minutes": 7.2
     },
     {
       "id": "ed640146b599",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.49,
+      "urgency_score": 32.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.49,
+        "recency": 20.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "matched_storyline_id": "10aedb002f1f",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T04:04:51Z",
-      "source_detection_latency_seconds": 140.9,
+      "source_detection_latency_seconds": 435.6,
       "factual_update": "In Vino Veritas — and Civilization",
       "source": "American Spectator",
       "source_tier": 3,
@@ -1504,30 +1098,30 @@
         "https://spectator.org/in-vino-veritas-and-civilization/"
       ],
       "risk_flags": [],
-      "age_minutes": 2.3
+      "age_minutes": 7.3
     },
     {
       "id": "ca8d8b7a854e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.46,
+      "urgency_score": 32.43,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.46,
+        "recency": 20.43,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "matched_storyline_id": "eeb5757eb79d",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T04:04:42Z",
-      "source_detection_latency_seconds": 149.9,
+      "source_detection_latency_seconds": 444.6,
       "factual_update": "Anthony Volpe’s Yankees third base cameo was valuable — even if it was quiet",
       "source": "New York Post",
       "source_tier": 3,
@@ -1541,17 +1135,609 @@
         "https://nypost.com/2026/09/26/sports/anthony-volpes-yankees-third-base-cameo-was-valuable-even-if-it-was-quiet/"
       ],
       "risk_flags": [],
-      "age_minutes": 2.5
+      "age_minutes": 7.4
+    },
+    {
+      "id": "f7a93c4f60a2",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 32.07,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.07,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 6,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "051ec68a5c57",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T00:15:49Z",
+      "source_detection_latency_seconds": 14177.6,
+      "factual_update": "Federal court says U.S. government can label Anthropic a supply chain risk",
+      "source": "CBS News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.cbsnews.com/video/federal-court-us-government-can-label-anthropic-supply-chain-risk/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "CBS News"
+      ],
+      "corroborating_links": [
+        "https://www.cbsnews.com/video/federal-court-us-government-can-label-anthropic-supply-chain-risk/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 236.3
+    },
+    {
+      "id": "4def2d37d279",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.81,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.81,
+        "magnitude": 0,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "f073476e4399",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T00:46:16Z",
+      "source_detection_latency_seconds": 12350.6,
+      "factual_update": "Nor'easter barrels down on East Coast, threatens millions with flooding, winds",
+      "source": "CBS News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.cbsnews.com/news/east-coast-noreaster-severe-flooding-winds-evacuations/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "CBS News"
+      ],
+      "corroborating_links": [
+        "https://www.cbsnews.com/news/east-coast-noreaster-severe-flooding-winds-evacuations/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 205.8
+    },
+    {
+      "id": "2cddb3e77ffd",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.69,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.69,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "dc69f01ed438",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:01:00Z",
+      "source_detection_latency_seconds": 666.6,
+      "factual_update": "Important Moments at the UN General Assembly",
+      "source": "The American Conservative",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theamericanconservative.com/important-moments-at-the-un-general-assembly/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The American Conservative"
+      ],
+      "corroborating_links": [
+        "https://www.theamericanconservative.com/important-moments-at-the-un-general-assembly/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 11.1
+    },
+    {
+      "id": "9b378eea427c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.54,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.54,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "30f20091aa11",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T01:09:17Z",
+      "source_detection_latency_seconds": 10969.6,
+      "factual_update": "‘Love Hypothesis’ Director Claire Scanlon Breaks Down the Biggest ‘Star Wars’ Easter Eggs, From Gracie Abrams’ Song to Color-Coded Wardrobes",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/2026/film/features/the-love-hypothesis-star-wars-easter-eggs-1236875151/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 182.8
+    },
+    {
+      "id": "fcd7f225cec7",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.58,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 3.58,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5a32863e4739",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T01:10:26Z",
+      "source_detection_latency_seconds": 10900.6,
+      "factual_update": "Iranian President Pezeshkian talks about proposal to reopen Strait of Hormuz",
+      "source": "CBS News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.cbsnews.com/news/iran-president-masoud-pezeshkian-proposal-trump-strait-of-hormuz-war/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "CBS News"
+      ],
+      "corroborating_links": [
+        "https://www.cbsnews.com/news/iran-president-masoud-pezeshkian-proposal-trump-strait-of-hormuz-war/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 181.7
+    },
+    {
+      "id": "773c03001358",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.39,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.39,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "4b0e3596cdf5",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T00:30:00Z",
+      "source_detection_latency_seconds": 13326.6,
+      "factual_update": "‘SNL’ Promotes Keri Powers & Rebecca Schwartz",
+      "source": "Deadline",
+      "source_tier": 3,
+      "primary_source_link": "https://deadline.com/2026/09/snl-promotes-keri-powers-rebecca-schwartz-1237114324/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/09/snl-promotes-keri-powers-rebecca-schwartz-1237114324/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 222.1
+    },
+    {
+      "id": "c3ce0de18fdf",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.38,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 18.38,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "f8a5f1170979",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T03:54:08Z",
+      "source_detection_latency_seconds": 1078.6,
+      "factual_update": "Atlanta detective accused of swiping 12-pack of beer from Publix — then using undercover car to flee",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/25/us-news/atlanta-detective-accused-of-swiping-12-pack-of-beer-from-publix/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/25/us-news/atlanta-detective-accused-of-swiping-12-pack-of-beer-from-publix/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 18.0
+    },
+    {
+      "id": "902656baae96",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.05,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.05,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2e79d798deb1",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T00:14:49Z",
+      "source_detection_latency_seconds": 14237.6,
+      "factual_update": "Iranian president pushes for new deal with U.S. in CBS News interview",
+      "source": "CBS News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.cbsnews.com/video/iranian-president-pushes-new-deal-us/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "CBS News"
+      ],
+      "corroborating_links": [
+        "https://www.cbsnews.com/video/iranian-president-pushes-new-deal-us/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 237.3
+    },
+    {
+      "id": "1e2ba7365d9c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.47,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 6.47,
+        "magnitude": 0,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0d40a5c4b749",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T02:09:42Z",
+      "source_detection_latency_seconds": 7344.6,
+      "factual_update": "Midterms too close to call, GOP’s missing positive message and other commentary",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/25/opinion/midterms-too-close-to-call-gops-missing-positive-message-and-other-commentary/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/25/opinion/midterms-too-close-to-call-gops-missing-positive-message-and-other-commentary/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 122.4
+    },
+    {
+      "id": "5c5e77c710f7",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.14,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 15.14,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9782de041d11",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T03:34:44Z",
+      "source_detection_latency_seconds": 2242.6,
+      "factual_update": "Didn’t Get The Zelle? Remy Ma Seemingly Trolls Papoose In ‘Jezebel’-Inspired Outfit While Celebrating Her New EP (VIDEOS)",
+      "source": "The Shade Room",
+      "source_tier": 3,
+      "primary_source_link": "https://theshaderoom.com/remy-ma-jezebel-outfit-shades-papoose-alimony-ep-celebration-social-media-reacts/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Shade Room"
+      ],
+      "corroborating_links": [
+        "https://theshaderoom.com/remy-ma-jezebel-outfit-shades-papoose-alimony-ep-celebration-social-media-reacts/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 37.4
+    },
+    {
+      "id": "dbbbc142de17",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.49,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.49,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9066d1d6d8b5",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T02:10:03Z",
+      "source_detection_latency_seconds": 7323.6,
+      "factual_update": "Doctor reveals '10-year rule' for evaluating brain fog and dementia symptoms",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/health/doctor-reveals-10-year-rule-evaluating-brain-fog-dementia-symptoms",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/health/doctor-reveals-10-year-rule-evaluating-brain-fog-dementia-symptoms"
+      ],
+      "risk_flags": [],
+      "age_minutes": 122.1
+    },
+    {
+      "id": "ab77b1534915",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.44,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.44,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "7c465fe4063f",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T03:30:00Z",
+      "source_detection_latency_seconds": 2526.6,
+      "factual_update": "Grok Is Coming to X Group Chats, but Apparently You Have to Invite the Vampire In",
+      "source": "Twitchy",
+      "source_tier": 3,
+      "primary_source_link": "https://twitchy.com/rickrobinson/2026/09/25/polymarket-says-grok-is-invading-your-group-chats-soon-n2432693",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Twitchy"
+      ],
+      "corroborating_links": [
+        "https://twitchy.com/rickrobinson/2026/09/25/polymarket-says-grok-is-invading-your-group-chats-soon-n2432693"
+      ],
+      "risk_flags": [],
+      "age_minutes": 42.1
+    },
+    {
+      "id": "b4a0fdd15b3c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.24,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.24,
+        "magnitude": 7,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "13e53396c56e",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T01:00:33Z",
+      "source_detection_latency_seconds": 11493.6,
+      "factual_update": "Two More Russian Refineries Shut Down Operations After Drone Strikes",
+      "source": "Hot Air",
+      "source_tier": 3,
+      "primary_source_link": "https://hotair.com/john-s-2/2026/09/25/two-more-russian-refineries-shut-down-operations-after-drone-strikes-n3819364",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Hot Air"
+      ],
+      "corroborating_links": [
+        "https://hotair.com/john-s-2/2026/09/25/two-more-russian-refineries-shut-down-operations-after-drone-strikes-n3819364"
+      ],
+      "risk_flags": [],
+      "age_minutes": 191.6
+    },
+    {
+      "id": "54620bd7edfd",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.09,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.09,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:07:52Z",
+      "source_detection_latency_seconds": 254.6,
+      "factual_update": "Blessed Fulton Sheen: A Saint for America",
+      "source": "American Spectator",
+      "source_tier": 3,
+      "primary_source_link": "https://spectator.org/blessed-fulton-sheen-a-saint-for-america/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Spectator"
+      ],
+      "corroborating_links": [
+        "https://spectator.org/blessed-fulton-sheen-a-saint-for-america/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 4.2
+    },
+    {
+      "id": "14429d6eb2f0",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.08,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.08,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:07:51Z",
+      "source_detection_latency_seconds": 255.6,
+      "factual_update": "Bibi’s Churchillian Speech at the UN",
+      "source": "American Spectator",
+      "source_tier": 3,
+      "primary_source_link": "https://spectator.org/bibis-churchillian-speech-at-the-un/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Spectator"
+      ],
+      "corroborating_links": [
+        "https://spectator.org/bibis-churchillian-speech-at-the-un/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 4.3
+    },
+    {
+      "id": "e929d4c6bc4e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.08,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.08,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:07:51Z",
+      "source_detection_latency_seconds": 255.6,
+      "factual_update": "Clash of the Money Giants: China Lays the Groundwork to Rival the Dollar",
+      "source": "American Spectator",
+      "source_tier": 3,
+      "primary_source_link": "https://spectator.org/clash-of-the-money-giants-china-lays-the-groundwork-to-rival-the-dollar/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Spectator"
+      ],
+      "corroborating_links": [
+        "https://spectator.org/clash-of-the-money-giants-china-lays-the-groundwork-to-rival-the-dollar/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 4.3
     },
     {
       "id": "a5289ad93c96",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.34,
+      "urgency_score": 24.7,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.34,
+        "recency": 12.7,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1562,9 +1748,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "63600b208264",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:17:08Z",
-      "source_detection_latency_seconds": 3003.9,
+      "source_detection_latency_seconds": 3298.6,
       "factual_update": "Bill Giles, longtime Phillies exec who helped create Phillie Phanatic, dead at 92",
       "source": "New York Post",
       "source_tier": 3,
@@ -1578,17 +1764,17 @@
         "https://nypost.com/2026/09/25/sports/bill-giles-phillies-exec-who-helped-create-phanatic-dead-at-92/"
       ],
       "risk_flags": [],
-      "age_minutes": 50.1
+      "age_minutes": 55.0
     },
     {
       "id": "e9a33be888df",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.66,
+      "urgency_score": 24.49,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.66,
+        "recency": 3.49,
         "magnitude": 0,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -1599,9 +1785,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1cf24ba625a3",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:07:54Z",
-      "source_detection_latency_seconds": 10757.9,
+      "source_detection_latency_seconds": 11052.6,
       "factual_update": "Homan Says 157,000 Missing Unaccompanied Immigrant Children Located",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1615,17 +1801,17 @@
         "https://www.theepochtimes.com/us/homan-says-157000-missing-unaccompanied-immigrant-children-located-6095104"
       ],
       "risk_flags": [],
-      "age_minutes": 179.3
+      "age_minutes": 184.2
     },
     {
       "id": "65139d1215e7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.32,
+      "urgency_score": 24.12,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.32,
+        "recency": 4.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1636,9 +1822,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3f0702341e81",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:24:31Z",
-      "source_detection_latency_seconds": 9760.9,
+      "source_detection_latency_seconds": 10055.6,
       "factual_update": "Black woman found hanging from tree was dead before body was 'staged', police say",
       "source": "BBC News",
       "source_tier": 2,
@@ -1652,54 +1838,54 @@
         "https://www.bbc.co.uk/news/articles/cwp933nzpp9ro?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 162.7
+      "age_minutes": 167.6
     },
     {
-      "id": "178342fbe24e",
+      "id": "0756d12b3a57",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.24,
+      "urgency_score": 24.08,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.24,
+        "recency": 20.08,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "87aee4b7249c",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T03:08:32Z",
-      "source_detection_latency_seconds": 3519.9,
-      "factual_update": "Bud Light creates eye-popping ‘Celly Jar’ winnings for Kyle Juszczyk ‘drinking’ fine",
-      "source": "New York Post",
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T04:03:00Z",
+      "source_detection_latency_seconds": 546.6,
+      "factual_update": "The Left Is Right About AI",
+      "source": "The American Conservative",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/25/sports/bud-light-creates-celly-jar-to-reward-fans-with-37384/",
+      "primary_source_link": "https://www.theamericanconservative.com/the-left-is-right-about-ai/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "New York Post"
+        "The American Conservative"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/25/sports/bud-light-creates-celly-jar-to-reward-fans-with-37384/"
+        "https://www.theamericanconservative.com/the-left-is-right-about-ai/"
       ],
       "risk_flags": [],
-      "age_minutes": 58.7
+      "age_minutes": 9.1
     },
     {
       "id": "cd2550ccaa57",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.96,
+      "urgency_score": 23.77,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.96,
+        "recency": 3.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1710,9 +1896,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7ff250b44aa1",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:15:37Z",
-      "source_detection_latency_seconds": 10294.9,
+      "source_detection_latency_seconds": 10589.6,
       "factual_update": "Lynx coach Cheryl Reeve voices support for the trans community again after regular season finale vs Fever",
       "source": "Fox News",
       "source_tier": 2,
@@ -1726,17 +1912,54 @@
         "https://www.foxnews.com/outkick-sports/lynx-coach-cheryl-reeve-voices-support-trans-community-regular-season-finale-vs-fever"
       ],
       "risk_flags": [],
-      "age_minutes": 171.6
+      "age_minutes": 176.5
+    },
+    {
+      "id": "178342fbe24e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.65,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.65,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "87aee4b7249c",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T03:08:32Z",
+      "source_detection_latency_seconds": 3814.6,
+      "factual_update": "Bud Light creates eye-popping ‘Celly Jar’ winnings for Kyle Juszczyk ‘drinking’ fine",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/25/sports/bud-light-creates-celly-jar-to-reward-fans-with-37384/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/25/sports/bud-light-creates-celly-jar-to-reward-fans-with-37384/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 63.6
     },
     {
       "id": "1fe1b6ab723e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.7,
+      "urgency_score": 23.52,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.7,
+        "recency": 3.52,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1747,9 +1970,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e7d99ee298d8",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:08:57Z",
-      "source_detection_latency_seconds": 10694.9,
+      "source_detection_latency_seconds": 10989.6,
       "factual_update": "At Meta Connect, the company’s smart glasses were everywhere",
       "source": "TechCrunch",
       "source_tier": 2,
@@ -1763,91 +1986,17 @@
         "https://techcrunch.com/2026/09/25/at-meta-connect-the-companys-smart-glasses-were-everywhere/"
       ],
       "risk_flags": [],
-      "age_minutes": 178.2
-    },
-    {
-      "id": "3278a0081806",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.14,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.14,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "09d2d4ac1128",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T02:59:08Z",
-      "source_detection_latency_seconds": 4083.9,
-      "factual_update": "How ‘Deadliest Catch’ handled Todd Meadows’ tragic death in harrowing season finale",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/2026/09/25/entertainment/how-deadliest-catch-handled-todd-meadows-death-on-tv/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://pagesix.com/2026/09/25/entertainment/how-deadliest-catch-handled-todd-meadows-death-on-tv/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 68.1
-    },
-    {
-      "id": "5165ace876d1",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.08,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.08,
-        "magnitude": 9,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": -12
-      },
-      "matched_storyline_id": "97a3ffed270a",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T00:11:18Z",
-      "source_detection_latency_seconds": 14153.9,
-      "factual_update": "WATCH: Former Dem Lt Gov reveals why he resigned after sexual harassment probe rocked state",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/former-dem-lt-gov-reveals-why-he-resigned-after-sexual-harassment-probe-rocked-state",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/politics/former-dem-lt-gov-reveals-why-he-resigned-after-sexual-harassment-probe-rocked-state"
-      ],
-      "risk_flags": [],
-      "age_minutes": 235.9
+      "age_minutes": 183.2
     },
     {
       "id": "dfb7f6900c85",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.96,
+      "urgency_score": 22.82,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.96,
+        "recency": 2.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1858,9 +2007,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5a3a55dfb953",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:46:46Z",
-      "source_detection_latency_seconds": 12025.9,
+      "source_detection_latency_seconds": 12320.6,
       "factual_update": "Twin doctors who grew up in poverty returned to their hometown to co-run an ER",
       "source": "CBS News",
       "source_tier": 2,
@@ -1874,17 +2023,54 @@
         "https://www.cbsnews.com/news/identical-twin-doctors-travan-travis-jasper-richmond-virginia-hospital/"
       ],
       "risk_flags": [],
-      "age_minutes": 200.4
+      "age_minutes": 205.3
+    },
+    {
+      "id": "3278a0081806",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.6,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 10.6,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "09d2d4ac1128",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T02:59:08Z",
+      "source_detection_latency_seconds": 4378.6,
+      "factual_update": "How ‘Deadliest Catch’ handled Todd Meadows’ tragic death in harrowing season finale",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://pagesix.com/2026/09/25/entertainment/how-deadliest-catch-handled-todd-meadows-death-on-tv/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://pagesix.com/2026/09/25/entertainment/how-deadliest-catch-handled-todd-meadows-death-on-tv/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 73.0
     },
     {
       "id": "7400c51145d3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.82,
+      "urgency_score": 22.3,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.82,
+        "recency": 10.3,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1895,9 +2081,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4dd7cbb42601",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:56:15Z",
-      "source_detection_latency_seconds": 4256.9,
+      "source_detection_latency_seconds": 4551.6,
       "factual_update": "Carson Benge makes Mets rookie history with 20-20 campaign: ‘Something special’",
       "source": "New York Post",
       "source_tier": 3,
@@ -1911,17 +2097,17 @@
         "https://nypost.com/2026/09/25/sports/carson-benge-makes-mets-rookie-history-with-20-20-campaign-in-loss-to-nats/"
       ],
       "risk_flags": [],
-      "age_minutes": 70.9
+      "age_minutes": 75.9
     },
     {
       "id": "246e5591c692",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.25,
+      "urgency_score": 22.1,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.25,
+        "recency": 3.1,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1932,9 +2118,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7efa3770ca06",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:56:05Z",
-      "source_detection_latency_seconds": 11466.9,
+      "source_detection_latency_seconds": 11761.6,
       "factual_update": "Ole Miss star RB Kewan Lacy doubtful for Florida game: Rebels likely without key weapon for SEC showdown",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -1948,17 +2134,17 @@
         "https://www.cbssports.com/college-football/news/kewan-lacy-ole-miss-injury-doubtful-florida-game/"
       ],
       "risk_flags": [],
-      "age_minutes": 191.1
+      "age_minutes": 196.0
     },
     {
       "id": "b917311c4b97",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.12,
+      "urgency_score": 22.01,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.12,
+        "recency": 2.01,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1969,9 +2155,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4e9e72d57b6f",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:13:03Z",
-      "source_detection_latency_seconds": 14048.9,
+      "source_detection_latency_seconds": 14343.6,
       "factual_update": "Nation celebrates first \"Dolly Parton Day\" following country singer's death",
       "source": "CBS News",
       "source_tier": 2,
@@ -1985,54 +2171,17 @@
         "https://www.cbsnews.com/video/nation-celebrates-first-dolly-parton-day-following-country-singers-death/"
       ],
       "risk_flags": [],
-      "age_minutes": 234.1
-    },
-    {
-      "id": "c516ce454807",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 21.86,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 9.86,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8cab57065408",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T02:46:56Z",
-      "source_detection_latency_seconds": 4815.9,
-      "factual_update": "Suburban MN church removes basketball hoop after “disturbance”",
-      "source": "Power Line",
-      "source_tier": 3,
-      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/suburban-mn-church-removes-basketball-hoop-after-disturbance.php",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Power Line"
-      ],
-      "corroborating_links": [
-        "https://www.powerlineblog.com/archives/2026/09/suburban-mn-church-removes-basketball-hoop-after-disturbance.php"
-      ],
-      "risk_flags": [],
-      "age_minutes": 80.3
+      "age_minutes": 239.1
     },
     {
       "id": "96a224ba4dc6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.67,
+      "urgency_score": 21.55,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.67,
+        "recency": 2.55,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2043,9 +2192,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bb5c972c02d0",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:36:29Z",
-      "source_detection_latency_seconds": 12642.9,
+      "source_detection_latency_seconds": 12937.6,
       "factual_update": "International Documentary Association Calls On Israeli Government To Halt “Campaign Of Threats” Against ‘NAZA’ Directors",
       "source": "Deadline",
       "source_tier": 3,
@@ -2059,17 +2208,17 @@
         "https://deadline.com/2026/09/naza-directors-ida-letter-1237114249/"
       ],
       "risk_flags": [],
-      "age_minutes": 210.7
+      "age_minutes": 215.6
     },
     {
-      "id": "907445563743",
+      "id": "c516ce454807",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.55,
+      "urgency_score": 21.39,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.55,
+        "recency": 9.39,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2079,34 +2228,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "94f764ce6087",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T02:43:46Z",
-      "source_detection_latency_seconds": 5005.9,
-      "factual_update": "Woman bitten by possibly rabid coyote on Westchester hiking trail",
-      "source": "New York Post",
+      "matched_storyline_id": "8cab57065408",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T02:46:56Z",
+      "source_detection_latency_seconds": 5110.6,
+      "factual_update": "Suburban MN church removes basketball hoop after “disturbance”",
+      "source": "Power Line",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/25/us-news/woman-bitten-by-possibly-rabid-coyote-on-westchester-hiking-trail/",
+      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/suburban-mn-church-removes-basketball-hoop-after-disturbance.php",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "New York Post"
+        "Power Line"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/25/us-news/woman-bitten-by-possibly-rabid-coyote-on-westchester-hiking-trail/"
+        "https://www.powerlineblog.com/archives/2026/09/suburban-mn-church-removes-basketball-hoop-after-disturbance.php"
       ],
       "risk_flags": [],
-      "age_minutes": 83.4
+      "age_minutes": 85.2
     },
     {
       "id": "fef2aed24642",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.26,
+      "urgency_score": 21.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.26,
+        "recency": 2.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2117,9 +2266,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "eb2b6f8496af",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:19:37Z",
-      "source_detection_latency_seconds": 13654.9,
+      "source_detection_latency_seconds": 13949.6,
       "factual_update": "US Signs Pact to Deepen Investment in Nigeria’s Mining Sector",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -2133,17 +2282,54 @@
         "https://www.theepochtimes.com/world/us-signs-pact-to-deepen-investment-in-nigerias-mining-sector-6095119"
       ],
       "risk_flags": [],
-      "age_minutes": 227.6
+      "age_minutes": 232.5
+    },
+    {
+      "id": "907445563743",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 21.09,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 9.09,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "94f764ce6087",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T02:43:46Z",
+      "source_detection_latency_seconds": 5300.6,
+      "factual_update": "Woman bitten by possibly rabid coyote on Westchester hiking trail",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/25/us-news/woman-bitten-by-possibly-rabid-coyote-on-westchester-hiking-trail/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/25/us-news/woman-bitten-by-possibly-rabid-coyote-on-westchester-hiking-trail/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 88.3
     },
     {
       "id": "51dc4cd76dc5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.18,
+      "urgency_score": 20.74,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.18,
+        "recency": 8.74,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2154,9 +2340,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "eb926d5ce8b0",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:39:46Z",
-      "source_detection_latency_seconds": 5245.9,
+      "source_detection_latency_seconds": 5540.6,
       "factual_update": "Wild moment cop drags woman out of California county meeting after furious clash over data centers",
       "source": "New York Post",
       "source_tier": 3,
@@ -2170,54 +2356,17 @@
         "https://nypost.com/2026/09/25/us-news/tulare-county-board-meeting-erupts-over-proposed-ai-data-centers/"
       ],
       "risk_flags": [],
-      "age_minutes": 87.4
-    },
-    {
-      "id": "b52debb282e4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 21.08,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 9.08,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0d01be5f7735",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T02:38:40Z",
-      "source_detection_latency_seconds": 5311.9,
-      "factual_update": "At least 2 dead in horror SoCal wreck as mangled cars scattered across highway",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/25/us-news/7-vehicle-crash-in-oxnard-leaves-2-dead-5-hospitalized/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/25/us-news/7-vehicle-crash-in-oxnard-leaves-2-dead-5-hospitalized/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 88.5
+      "age_minutes": 92.3
     },
     {
       "id": "013526397e4c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.98,
+      "urgency_score": 20.74,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.98,
+        "recency": 4.74,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2228,9 +2377,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "747e3332a953",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:38:38Z",
-      "source_detection_latency_seconds": 8913.9,
+      "source_detection_latency_seconds": 9208.6,
       "factual_update": "Taylor Swift Shares Video of Her Cleveland Road Trip With Travis Kelce",
       "source": "E! News",
       "source_tier": 3,
@@ -2246,17 +2395,54 @@
         "https://www.eonline.com/news/1436476/taylor-swift-shares-travis-kelce-road-trip-in-cleveland-lyric-video?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 148.6
+      "age_minutes": 153.5
+    },
+    {
+      "id": "b52debb282e4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 20.64,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 8.64,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0d01be5f7735",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T02:38:40Z",
+      "source_detection_latency_seconds": 5606.6,
+      "factual_update": "At least 2 dead in horror SoCal wreck as mangled cars scattered across highway",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/25/us-news/7-vehicle-crash-in-oxnard-leaves-2-dead-5-hospitalized/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/25/us-news/7-vehicle-crash-in-oxnard-leaves-2-dead-5-hospitalized/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 93.4
     },
     {
       "id": "215e09594706",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.56,
+      "urgency_score": 20.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.56,
+        "recency": 8.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2267,9 +2453,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c18a4973da1f",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:32:49Z",
-      "source_detection_latency_seconds": 5662.9,
+      "source_detection_latency_seconds": 5957.6,
       "factual_update": "Pete Alonso wears shirt shading David Stearns for ‘f–king formulas’ — then homers twice",
       "source": "New York Post",
       "source_tier": 3,
@@ -2283,17 +2469,17 @@
         "https://nypost.com/2026/09/25/sports/pete-alonso-wears-shirt-shading-david-stearns-for-f-king-formulas-then-homers-twice/"
       ],
       "risk_flags": [],
-      "age_minutes": 94.4
+      "age_minutes": 99.3
     },
     {
       "id": "971970b674ee",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.53,
+      "urgency_score": 19.17,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.53,
+        "recency": 7.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2304,9 +2490,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6e4d570acd31",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:20:02Z",
-      "source_detection_latency_seconds": 6429.9,
+      "source_detection_latency_seconds": 6724.6,
       "factual_update": "Research advances understanding of tick-borne Powassan virus",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -2320,17 +2506,17 @@
         "https://medicalxpress.com/news/2026-09-advances-borne-powassan-virus.html"
       ],
       "risk_flags": [],
-      "age_minutes": 107.2
+      "age_minutes": 112.1
     },
     {
       "id": "b6c003921f30",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.78,
+      "urgency_score": 18.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.78,
+        "recency": 6.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2341,9 +2527,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "aa5d4876dc92",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:09:30Z",
-      "source_detection_latency_seconds": 7061.9,
+      "source_detection_latency_seconds": 7356.6,
       "factual_update": "‘Hanuman Ansh’ Indian Sleeper Hit’s International Distribution Strategy Unveiled by ‘K.G.F,’ ‘Kantara’ Outfit Hombale Films (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -2357,17 +2543,17 @@
         "https://variety.com/2026/film/news/hanuman-ansh-indian-sleeper-hit-hombale-films-strategy-1236876199/"
       ],
       "risk_flags": [],
-      "age_minutes": 117.7
+      "age_minutes": 122.6
     },
     {
       "id": "f8426b2cf2d9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.7,
+      "urgency_score": 18.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.7,
+        "recency": 6.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2378,9 +2564,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2fa2b38cf5d4",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:08:19Z",
-      "source_detection_latency_seconds": 7132.9,
+      "source_detection_latency_seconds": 7427.6,
       "factual_update": "Bizarre moment accused ATM thief throws thousands of dollars in cash from car during police chase",
       "source": "New York Post",
       "source_tier": 3,
@@ -2394,17 +2580,17 @@
         "https://nypost.com/2026/09/25/us-news/texas-police-pursuit-ends-with-suspect-throwing-stolen-cash-out-suv/"
       ],
       "risk_flags": [],
-      "age_minutes": 118.9
+      "age_minutes": 123.8
     },
     {
       "id": "1f46cc0f8bd7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.22,
+      "urgency_score": 17.92,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.22,
+        "recency": 5.92,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2415,9 +2601,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f172f7160d91",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T02:00:52Z",
-      "source_detection_latency_seconds": 7579.9,
+      "source_detection_latency_seconds": 7874.6,
       "factual_update": "Steelers Co-Owner Robert Citrone Wants To Stop Alleged Baby Mama From Posting About Him",
       "source": "TMZ",
       "source_tier": 3,
@@ -2431,17 +2617,17 @@
         "https://www.tmz.com/2026/09/25/robert-citrone-wants-to-stop-alleged-baby-mama-from-posting-about-him-on-social-media/"
       ],
       "risk_flags": [],
-      "age_minutes": 126.3
+      "age_minutes": 131.2
     },
     {
       "id": "dac045d01288",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.67,
+      "urgency_score": 17.4,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.67,
+        "recency": 5.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2452,9 +2638,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0f06ed73a211",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:51:34Z",
-      "source_detection_latency_seconds": 8137.9,
+      "source_detection_latency_seconds": 8432.6,
       "factual_update": "Raiders’ Klint Kubiak makes an eye popping observation for matchup against Saints",
       "source": "New York Post",
       "source_tier": 3,
@@ -2468,17 +2654,17 @@
         "https://nypost.com/2026/09/25/sports/klint-kubiak-calls-superdome-whole-new-ballgame/"
       ],
       "risk_flags": [],
-      "age_minutes": 135.6
+      "age_minutes": 140.5
     },
     {
       "id": "6db84a02f9f4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.92,
+      "urgency_score": 16.68,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.92,
+        "recency": 4.68,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2489,9 +2675,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bd8376b5bd72",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:37:24Z",
-      "source_detection_latency_seconds": 8987.9,
+      "source_detection_latency_seconds": 9282.6,
       "factual_update": "Virginia Man Who Exploited Dozens of Girls on Snapchat Gets 40 Years in Prison",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -2505,17 +2691,17 @@
         "https://www.theepochtimes.com/us/virginia-man-who-exploited-dozens-of-girls-on-snapchat-gets-40-years-in-prison-6095140"
       ],
       "risk_flags": [],
-      "age_minutes": 149.8
+      "age_minutes": 154.7
     },
     {
       "id": "a05a20f3d39c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.57,
+      "urgency_score": 16.35,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.57,
+        "recency": 4.35,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2526,9 +2712,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3576d70d1399",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:30:00Z",
-      "source_detection_latency_seconds": 9431.9,
+      "source_detection_latency_seconds": 9726.6,
       "factual_update": "Crazy Commies Continue Clown Car Cavalcade in Last Ditch Bar Circus",
       "source": "Twitchy",
       "source_tier": 3,
@@ -2542,17 +2728,17 @@
         "https://twitchy.com/gordon-kushner/2026/09/25/crazy-commies-continue-clown-car-cavalcade-in-last-ditch-bar-debacle-n2432686"
       ],
       "risk_flags": [],
-      "age_minutes": 157.2
+      "age_minutes": 162.1
     },
     {
       "id": "87a201406ce3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.32,
+      "urgency_score": 16.11,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.32,
+        "recency": 4.11,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2563,9 +2749,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6108f8c6bc8d",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:24:22Z",
-      "source_detection_latency_seconds": 9769.9,
+      "source_detection_latency_seconds": 10064.6,
       "factual_update": "Prince Harry Shares How Kids Archie, Lilibet Are Doing at U.K. School",
       "source": "E! News",
       "source_tier": 3,
@@ -2579,17 +2765,17 @@
         "https://www.eonline.com/news/1436477/prince-harry-meghan-markles-kids-archie-lilibet-are-happy-in-u-k-school?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 162.8
+      "age_minutes": 167.7
     },
     {
       "id": "d567adf65e38",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.17,
+      "urgency_score": 15.97,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.17,
+        "recency": 3.97,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2600,9 +2786,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d5bc68d99645",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:21:00Z",
-      "source_detection_latency_seconds": 9971.9,
+      "source_detection_latency_seconds": 10266.6,
       "factual_update": "31 Men’s Clothing Stores Where Our Style Editors Shop Online",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -2616,17 +2802,17 @@
         "https://www.rollingstone.com/product-recommendations/lifestyle/best-online-clothing-stores-for-men-1319702/"
       ],
       "risk_flags": [],
-      "age_minutes": 166.2
+      "age_minutes": 171.1
     },
     {
       "id": "d379a864eb4e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.0,
+      "urgency_score": 15.81,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.0,
+        "recency": 3.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2637,9 +2823,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b9d2ad1424dd",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:16:41Z",
-      "source_detection_latency_seconds": 10230.9,
+      "source_detection_latency_seconds": 10525.6,
       "factual_update": "Scarlett Johansson Takes Break From Filming Overseas for ‘Paper Tiger’ NYFF Premiere After Skipping Cannes: ‘I’m Hallucinating’",
       "source": "Variety",
       "source_tier": 3,
@@ -2653,17 +2839,17 @@
         "https://variety.com/2026/film/festivals/scarlett-johansson-paper-tiger-new-york-film-festival-premiere-adam-driver-1236872284/"
       ],
       "risk_flags": [],
-      "age_minutes": 170.5
+      "age_minutes": 175.4
     },
     {
       "id": "f4a98b7443b8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.83,
+      "urgency_score": 15.64,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.83,
+        "recency": 3.64,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2674,9 +2860,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d6cb2e6d755e",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:12:16Z",
-      "source_detection_latency_seconds": 10495.9,
+      "source_detection_latency_seconds": 10790.6,
       "factual_update": "Kim Kardashian, Lewis Hamilton Share Steamy Kiss in Romantic Paris Pic",
       "source": "E! News",
       "source_tier": 3,
@@ -2690,17 +2876,17 @@
         "https://www.eonline.com/news/1436475/kim-kardashian-lewis-hamilton-kiss-in-paris-vacation-photos?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 174.9
+      "age_minutes": 179.8
     },
     {
       "id": "5c83b96511bc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.63,
+      "urgency_score": 15.45,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.63,
+        "recency": 3.45,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2711,9 +2897,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3ec768037801",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:06:53Z",
-      "source_detection_latency_seconds": 10818.9,
+      "source_detection_latency_seconds": 11113.6,
       "factual_update": "Who’s Responsible for Texas?",
       "source": "National Review The Corner",
       "source_tier": 3,
@@ -2727,17 +2913,17 @@
         "https://www.nationalreview.com/corner/whos-responsible-for-texas/"
       ],
       "risk_flags": [],
-      "age_minutes": 180.3
+      "age_minutes": 185.2
     },
     {
       "id": "89583ef9cef5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.52,
+      "urgency_score": 15.35,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.52,
+        "recency": 3.35,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2748,9 +2934,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "392052087cc6",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:03:53Z",
-      "source_detection_latency_seconds": 10998.9,
+      "source_detection_latency_seconds": 11293.6,
       "factual_update": "Gisele Bündchen pleaded for Tom Brady’s time and attention in handwritten letter as their marriage crumbled: book",
       "source": "Page Six",
       "source_tier": 3,
@@ -2764,17 +2950,17 @@
         "https://pagesix.com/2026/09/25/celebrity-news/gisele-bundchen-pleaded-for-tom-bradys-time-and-attention-in-handwritten-letter-as-their-marriage-crumbled/"
       ],
       "risk_flags": [],
-      "age_minutes": 183.3
+      "age_minutes": 188.2
     },
     {
       "id": "cfd18875c3b1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.49,
+      "urgency_score": 15.32,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.49,
+        "recency": 3.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2785,9 +2971,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6f1508b1c81b",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:03:00Z",
-      "source_detection_latency_seconds": 11051.9,
+      "source_detection_latency_seconds": 11346.6,
       "factual_update": "Feel-Good Friday: One Texas Woman Stepped Up, 'Blessing' 81-Year-Old Deliveryman's Family",
       "source": "RedState",
       "source_tier": 3,
@@ -2801,84 +2987,10 @@
         "https://redstate.com/jenniferoo/2026/09/25/feel-good-friday-don-and-josephine-johnson-discover-the-power-of-internet-to-do-good-n2207382"
       ],
       "risk_flags": [],
-      "age_minutes": 184.2
+      "age_minutes": 189.1
     },
     {
       "id": "2e780ff6f263",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.4,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.4,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "864ba0e0804a",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T01:00:32Z",
-      "source_detection_latency_seconds": 11199.9,
-      "factual_update": "Mother Watched Her 4-Year-Old Daughter Being Chased By Her Father Before She Was Killed",
-      "source": "TMZ",
-      "source_tier": 3,
-      "primary_source_link": "https://www.tmz.com/2026/09/25/mom-saw-her-daughter-chased-by-father-before-she-was-killed/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "TMZ"
-      ],
-      "corroborating_links": [
-        "https://www.tmz.com/2026/09/25/mom-saw-her-daughter-chased-by-father-before-she-was-killed/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 186.7
-    },
-    {
-      "id": "8199aaf43975",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.34,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.34,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "a447259d3693",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
-      "source_published_at": "2026-09-26T00:58:34Z",
-      "source_detection_latency_seconds": 11317.9,
-      "factual_update": "Ovrkast Speaks Out Against Outkast’s Lawsuit, Says He Never Intended to ‘Confuse Fans’",
-      "source": "Rolling Stone",
-      "source_tier": 3,
-      "primary_source_link": "https://www.rollingstone.com/music/music-news/outkast-ovrkast-speaks-out-trademark-infringement-lawsuit-1235632244/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Rolling Stone"
-      ],
-      "corroborating_links": [
-        "https://www.rollingstone.com/music/music-news/outkast-ovrkast-speaks-out-trademark-infringement-lawsuit-1235632244/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 188.6
-    },
-    {
-      "id": "cc37f191fe99",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -2895,10 +3007,84 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "864ba0e0804a",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T01:00:32Z",
+      "source_detection_latency_seconds": 11494.6,
+      "factual_update": "Mother Watched Her 4-Year-Old Daughter Being Chased By Her Father Before She Was Killed",
+      "source": "TMZ",
+      "source_tier": 3,
+      "primary_source_link": "https://www.tmz.com/2026/09/25/mom-saw-her-daughter-chased-by-father-before-she-was-killed/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "TMZ"
+      ],
+      "corroborating_links": [
+        "https://www.tmz.com/2026/09/25/mom-saw-her-daughter-chased-by-father-before-she-was-killed/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 191.6
+    },
+    {
+      "id": "8199aaf43975",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 15.18,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.18,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "a447259d3693",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
+      "source_published_at": "2026-09-26T00:58:34Z",
+      "source_detection_latency_seconds": 11612.6,
+      "factual_update": "Ovrkast Speaks Out Against Outkast’s Lawsuit, Says He Never Intended to ‘Confuse Fans’",
+      "source": "Rolling Stone",
+      "source_tier": 3,
+      "primary_source_link": "https://www.rollingstone.com/music/music-news/outkast-ovrkast-speaks-out-trademark-infringement-lawsuit-1235632244/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Rolling Stone"
+      ],
+      "corroborating_links": [
+        "https://www.rollingstone.com/music/music-news/outkast-ovrkast-speaks-out-trademark-infringement-lawsuit-1235632244/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 193.5
+    },
+    {
+      "id": "cc37f191fe99",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 15.08,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.08,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "34dc63f6cc3f",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:55:30Z",
-      "source_detection_latency_seconds": 11501.9,
+      "source_detection_latency_seconds": 11796.6,
       "factual_update": "UFC Fight Night predictions -- Raul Rosas vs. Raoni Barcelos: Fight card, odds and expert picks for Vegas",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -2912,17 +3098,17 @@
         "https://www.cbssports.com/ufc/news/ufc-fight-night-card-predictions-raul-rosas-vs-raoni-barcelos-odds/"
       ],
       "risk_flags": [],
-      "age_minutes": 191.7
+      "age_minutes": 196.6
     },
     {
       "id": "53a636626ac9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.19,
+      "urgency_score": 15.04,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.19,
+        "recency": 3.04,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2933,9 +3119,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "282044b1a4bc",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:54:10Z",
-      "source_detection_latency_seconds": 11581.9,
+      "source_detection_latency_seconds": 11876.6,
       "factual_update": "Julia Haart’s ex husband facing criminal charges, jail over actions during brutal divorce",
       "source": "Page Six",
       "source_tier": 3,
@@ -2949,17 +3135,17 @@
         "https://pagesix.com/2026/09/25/society/julia-haarts-ex-husband-facing-criminal-charges-jail-over-alleged-actions-during-brutal-divorce/"
       ],
       "risk_flags": [],
-      "age_minutes": 193.0
+      "age_minutes": 197.9
     },
     {
       "id": "7421b782b14a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.16,
+      "urgency_score": 15.01,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.16,
+        "recency": 3.01,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2970,9 +3156,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a678ae9c4bd6",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:53:18Z",
-      "source_detection_latency_seconds": 11633.9,
+      "source_detection_latency_seconds": 11928.6,
       "factual_update": "Zuffa Boxing 11 start time -- Johnny Fisher vs. Michael Pirotton: Fight card, predictions for event in London",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -2986,17 +3172,17 @@
         "https://www.cbssports.com/boxing/news/zuffa-boxing-11-johnny-fisher-vs-michael-pirotton-start-time-fight-card-date-predictions/"
       ],
       "risk_flags": [],
-      "age_minutes": 193.9
+      "age_minutes": 198.8
     },
     {
       "id": "609dedf18abc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.09,
+      "urgency_score": 14.95,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.09,
+        "recency": 2.95,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3007,9 +3193,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c1d850aa415c",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:51:02Z",
-      "source_detection_latency_seconds": 11769.9,
+      "source_detection_latency_seconds": 12064.6,
       "factual_update": "RHONJ's Joe Giudice Defends Daughter Milania Amid Airport Incident",
       "source": "E! News",
       "source_tier": 3,
@@ -3023,17 +3209,17 @@
         "https://www.eonline.com/news/1436473/rhonjs-joe-giudice-defends-daughter-milania-giudice-amid-airport-incident?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 196.2
+      "age_minutes": 201.1
     },
     {
       "id": "3f08b02ad601",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.87,
+      "urgency_score": 14.73,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.87,
+        "recency": 2.73,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3044,9 +3230,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1df31f9f2d86",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:43:29Z",
-      "source_detection_latency_seconds": 12222.9,
+      "source_detection_latency_seconds": 12517.6,
       "factual_update": "NFL injury report for Week 3: Updates on Puka Nacua, Sam Darnold, Nick Bosa, Joey Porter and more",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3060,17 +3246,17 @@
         "https://www.cbssports.com/nfl/news/nfl-injury-report-for-week-3/"
       ],
       "risk_flags": [],
-      "age_minutes": 203.7
+      "age_minutes": 208.6
     },
     {
       "id": "ce5e7d6c39cd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.44,
+      "urgency_score": 14.33,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.44,
+        "recency": 2.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3081,9 +3267,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2127b66a687b",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:27:23Z",
-      "source_detection_latency_seconds": 13188.9,
+      "source_detection_latency_seconds": 13483.6,
       "factual_update": "Olivia Rodrigo’s ‘Unraveled’ Tour Setlist: Every Song Played on Opening Night in Connecticut",
       "source": "Variety",
       "source_tier": 3,
@@ -3097,17 +3283,17 @@
         "https://variety.com/2026/music/news/olivia-rodrigo-unraveled-tour-setlist-opening-connecticut-1236875900/"
       ],
       "risk_flags": [],
-      "age_minutes": 219.8
+      "age_minutes": 224.7
     },
     {
       "id": "03a4b9a605eb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.27,
+      "urgency_score": 14.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.27,
+        "recency": 2.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3118,9 +3304,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6985b5b3afd9",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:20:01Z",
-      "source_detection_latency_seconds": 13630.9,
+      "source_detection_latency_seconds": 13925.6,
       "factual_update": "Cystic fibrosis: Triple therapy is particularly effective in early childhood",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -3134,17 +3320,17 @@
         "https://medicalxpress.com/news/2026-09-cystic-fibrosis-triple-therapy-effective.html"
       ],
       "risk_flags": [],
-      "age_minutes": 227.2
+      "age_minutes": 232.1
     },
     {
       "id": "96566e1d6d96",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.26,
+      "urgency_score": 14.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.26,
+        "recency": 2.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3155,9 +3341,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8c931b55f47b",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:19:32Z",
-      "source_detection_latency_seconds": 13659.9,
+      "source_detection_latency_seconds": 13954.6,
       "factual_update": "Antonio Sabàto Jr. is getting back in the fast lane",
       "source": "Page Six",
       "source_tier": 3,
@@ -3171,17 +3357,17 @@
         "https://pagesix.com/2026/09/25/celebrity-news/antonio-sabato-jr-is-getting-back-in-the-fast-lane/"
       ],
       "risk_flags": [],
-      "age_minutes": 227.7
+      "age_minutes": 232.6
     },
     {
       "id": "bebc68000610",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.13,
+      "urgency_score": 14.03,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.13,
+        "recency": 2.03,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3192,9 +3378,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:13:54Z",
-      "source_detection_latency_seconds": 13997.9,
+      "source_detection_latency_seconds": 14292.6,
       "factual_update": "What to know about \"panda diplomacy\" as China sends 2 more furry friends to U.S.",
       "source": "CBS News",
       "source_tier": 2,
@@ -3208,17 +3394,17 @@
         "https://www.cbsnews.com/video/what-to-know-about-panda-diplomacy-as-china-sends-2-more-furry-friends-to-us/"
       ],
       "risk_flags": [],
-      "age_minutes": 233.3
+      "age_minutes": 238.2
     },
     {
       "id": "575ee62b7a31",
       "path": "normal",
       "eligible": false,
       "reason": "held_unconfirmed",
-      "urgency_score": 9.93,
+      "urgency_score": 9.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.93,
+        "recency": 16.12,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3229,9 +3415,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "e5043e708757",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T03:40:59Z",
-      "source_detection_latency_seconds": 1572.9,
+      "source_detection_latency_seconds": 1867.6,
       "factual_update": "Stephen Curry, Warriors reportedly agree to $116M extension: What it means for Golden State's future",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3247,17 +3433,17 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 26.2
+      "age_minutes": 31.1
     },
     {
       "id": "49ebd9512b29",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 6.89,
+      "urgency_score": 6.76,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.89,
+        "recency": 2.76,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3268,9 +3454,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T00:44:22Z",
-      "source_detection_latency_seconds": 12169.9,
+      "source_detection_latency_seconds": 12464.6,
       "factual_update": "Isaac Mizrahi on the ‘Unzipped’ Restoration, the John Galliano Met Gala Fiasco and Why the ‘Devil Wears Prada’ Cerulean Blue Speech ‘Makes Me Want to Kill Somebody’",
       "source": "Variety",
       "source_tier": 3,
@@ -3284,7 +3470,7 @@
         "https://variety.com/2026/film/columns/isaac-mizrahi-unzipped-restoration-john-galliano-met-gala-devil-wears-prada-cerulean-blue-1236876106/"
       ],
       "risk_flags": [],
-      "age_minutes": 202.8
+      "age_minutes": 207.7
     },
     {
       "id": "f976e49afd6d",
@@ -3294,7 +3480,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.91,
+        "recency": 3.73,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3305,9 +3491,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "72cfad9d108b",
-      "detected_at": "2026-09-26T04:07:11.867174Z",
+      "detected_at": "2026-09-26T04:12:06.590897Z",
       "source_published_at": "2026-09-26T01:14:32Z",
-      "source_detection_latency_seconds": 10359.9,
+      "source_detection_latency_seconds": 10654.6,
       "factual_update": "Attorneys For Three Of Nolan Wells’ Friends Reportedly Plan To Sue Ben Crump Over Claims Of Deleted Messages",
       "source": "The Shade Room",
       "source_tier": 3,
@@ -3323,8 +3509,15 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 172.7
+      "age_minutes": 177.6
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "a3a7136f5b75",
+      "status": "editorially_suppressed",
+      "storyline_id": "4eb560459af7",
+      "reason": "insufficient_material_developments,insufficient_independent_sources,insufficient_coverage"
+    }
+  ]
 }

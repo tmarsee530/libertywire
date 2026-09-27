@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T08:44:03.205762Z",
+  "generated_at": "2026-09-27T08:48:35.993408Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,20 +7,20 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 56,
-    "candidate_events": 54,
-    "fast_path_events": 0,
-    "held_for_normal_path": 54,
+    "reports_evaluated": 54,
+    "candidate_events": 52,
+    "fast_path_events": 1,
+    "held_for_normal_path": 51,
     "duplicate_reports_suppressed": 2,
-    "duplicate_event_rate_pct": 3.57,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
-    "published_fast_path_events": 0,
-    "detection_to_publication_latency_seconds": null,
+    "duplicate_event_rate_pct": 3.7,
+    "median_source_detection_latency_seconds": 514.0,
+    "high_urgency_capture_pct": 100.0,
+    "published_fast_path_events": 1,
+    "detection_to_publication_latency_seconds": 12.0,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 0,
+      "published": 1,
       "editorially_suppressed": 0,
       "deferred": 0,
       "missed": 0
@@ -29,53 +29,58 @@
   },
   "candidates": [
     {
-      "id": "589d932e1f6d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 59.29,
+      "id": "8e11e4b977e2",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 75.19,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.29,
+        "recency": 20.19,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
+        "velocity": 8,
+        "independent_confirmations": 6,
         "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
       "matched_storyline_id": "555d131c4817",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:00:55Z",
-      "source_detection_latency_seconds": 2588.2,
-      "factual_update": "At least 27 killed in 2 mass shootings in South Africa",
-      "source": "CBS News",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:40:02Z",
+      "source_detection_latency_seconds": 514.0,
+      "factual_update": "Two mass shootings in South Africa leave 27 dead",
+      "source": "BBC News",
       "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/news/mass-shooting-south-africa-johannesburg-capetown/",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 1,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/ck5ywnp075d1o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 3,
+      "trusted_independent_source_count": 2,
       "corroborating_sources": [
+        "BBC News",
         "CBS News",
         "New York Post"
       ],
       "corroborating_links": [
         "https://nypost.com/2026/09/27/world-news/south-africa-police-launch-manhunt-after-17-killed-in-tavern-shooting/",
+        "https://www.bbc.co.uk/news/articles/ck5ywnp075d1o?at_medium=RSS&at_campaign=rss",
         "https://www.cbsnews.com/news/mass-shooting-south-africa-johannesburg-capetown/"
       ],
       "risk_flags": [],
-      "age_minutes": 43.1
+      "age_minutes": 8.6,
+      "published_storyline_id": "555d131c4817",
+      "published_at": "2026-09-27T08:48:48.022663Z",
+      "detection_to_publication_latency_seconds": 12.0
     },
     {
       "id": "10ee3b398a30",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 45.68,
+      "urgency_score": 45.43,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.68,
+        "recency": 5.43,
         "magnitude": 14,
         "public_safety": 10,
         "institutional_prominence": 0,
@@ -86,9 +91,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "52c8df0c9c04",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:28:42Z",
-      "source_detection_latency_seconds": 8121.2,
+      "source_detection_latency_seconds": 8394.0,
       "factual_update": "Hurricane Nolo Skirts Hawaii but Could Still Unleash Powerful Winds, Flash Flooding",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -102,17 +107,17 @@
         "https://www.theepochtimes.com/us/hurricane-nolo-skirts-hawaii-but-could-still-unleash-powerful-winds-flash-flooding-6095547"
       ],
       "risk_flags": [],
-      "age_minutes": 135.4
+      "age_minutes": 139.9
     },
     {
       "id": "870106b1c212",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.52,
+      "urgency_score": 44.27,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.52,
+        "recency": 5.27,
         "magnitude": 10,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -123,9 +128,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c73f02ef4f9a",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:25:45Z",
-      "source_detection_latency_seconds": 8298.2,
+      "source_detection_latency_seconds": 8571.0,
       "factual_update": "Nearly 333 pounds of Buckhead tuna recalled across 5 states over elevated scombrotoxin levels",
       "source": "Fox Business",
       "source_tier": 2,
@@ -139,17 +144,17 @@
         "https://www.foxbusiness.com/lifestyle/nearly-333-pounds-buckhead-tuna-recalled-across-5-states-over-elevated-scombrotoxin-levels"
       ],
       "risk_flags": [],
-      "age_minutes": 138.3
+      "age_minutes": 142.8
     },
     {
       "id": "5577272f105a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.64,
+      "urgency_score": 42.99,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.64,
+        "recency": 13.99,
         "magnitude": 0,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -160,9 +165,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "25057e39aa23",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T08:03:20Z",
-      "source_detection_latency_seconds": 2443.2,
+      "source_detection_latency_seconds": 2716.0,
       "factual_update": "Men arrested and houses evacuated in major incident near RAF Fairford",
       "source": "BBC News",
       "source_tier": 2,
@@ -176,54 +181,17 @@
         "https://www.bbc.co.uk/news/articles/cqrm99mm9l84o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 40.7
-    },
-    {
-      "id": "87c1ee754633",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 39.02,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.02,
-        "magnitude": 8,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "be3780074895",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T04:45:08Z",
-      "source_detection_latency_seconds": 14335.2,
-      "factual_update": "Bangkok roads submerged as flood disaster declared",
-      "source": "BBC Science & Environment",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Science & Environment"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 238.9
+      "age_minutes": 45.3
     },
     {
       "id": "73672104beb0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 38.89,
+      "urgency_score": 38.05,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.89,
+        "recency": 18.05,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -234,9 +202,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f6b01e7c1d08",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T08:28:49Z",
-      "source_detection_latency_seconds": 914.2,
+      "source_detection_latency_seconds": 1187.0,
       "factual_update": "Ten NHS staff removed over Noah Woods data breach",
       "source": "BBC News",
       "source_tier": 2,
@@ -250,17 +218,17 @@
         "https://www.bbc.co.uk/news/articles/cmqjkk55qg25o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 15.2
+      "age_minutes": 19.8
     },
     {
       "id": "7dbf82aabc22",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 38.16,
+      "urgency_score": 37.35,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.16,
+        "recency": 17.35,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -271,9 +239,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "893680a3c219",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T08:24:52Z",
-      "source_detection_latency_seconds": 1151.2,
+      "source_detection_latency_seconds": 1424.0,
       "factual_update": "UK police arrest several under explosives act in 'major incident' near US air base",
       "source": "ABC News",
       "source_tier": 2,
@@ -287,289 +255,30 @@
         "https://abcnews.com/International/uk-police-arrest-explosives-act-major-incident-us/story?id=136793301"
       ],
       "risk_flags": [],
-      "age_minutes": 19.2
-    },
-    {
-      "id": "4c9826ec1666",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 37.16,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 16.16,
-        "magnitude": 0,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "792d651fc347",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:13:12Z",
-      "source_detection_latency_seconds": 1851.2,
-      "factual_update": "UK police evacuate homes near air base used by US — detain men on suspected explosives offenses",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/27/world-news/uk-police-evacuate-homes-near-air-base-used-by-us-detain-men-on-suspected-explosives-offenses/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/27/world-news/uk-police-evacuate-homes-near-air-base-used-by-us-detain-men-on-suspected-explosives-offenses/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 30.9
-    },
-    {
-      "id": "07976f869b2d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 35.18,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 15.18,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5a32863e4739",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:06:56Z",
-      "source_detection_latency_seconds": 2227.2,
-      "factual_update": "Trump rejects 7-day plan to reopen Strait of Hormuz",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 37.1
-    },
-    {
-      "id": "2540c6f630f0",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.96,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 20.96,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "36f865091d66",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:39:13Z",
-      "source_detection_latency_seconds": 290.2,
-      "factual_update": "‘Mike & Molly’ star Billy Gardell reveals weight loss surgery ‘probably saved’ his life",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/27/health/mike-molly-star-billy-gardell-reveals-weight-loss-surgery-probably-saved-his-life/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/27/health/mike-molly-star-billy-gardell-reveals-weight-loss-surgery-probably-saved-his-life/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 4.8
-    },
-    {
-      "id": "f453a8e0ddb5",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.09,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 12.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "cde2d4295da7",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T07:44:11Z",
-      "source_detection_latency_seconds": 3592.2,
-      "factual_update": "Iranian minister says only negotiation can end conflict after Trump rejects Hormuz deal",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 59.9
-    },
-    {
-      "id": "35fa5db2ba73",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.59,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.59,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2beac157c9c6",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T05:10:17Z",
-      "source_detection_latency_seconds": 12826.2,
-      "factual_update": "‘Saturday Night Live’: Jalen Brunson Dunks On ‘High School Musical’ Lead, Katseye Crowns Awkward New Girl Group In Season 52 Premiere",
-      "source": "Deadline",
-      "source_tier": 3,
-      "primary_source_link": "https://deadline.com/2026/09/saturday-night-live-jalen-brunson-high-school-musical-katseye-1237114610/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/09/saturday-night-live-jalen-brunson-high-school-musical-katseye-1237114610/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 213.8
-    },
-    {
-      "id": "9556a4c73400",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.7,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.7,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2b957553c4b1",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T07:22:12Z",
-      "source_detection_latency_seconds": 4911.2,
-      "factual_update": "The Papers: 'Noel's crying his heart out' and 'global IVF disaster'",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cky9zzre1259o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cky9zzre1259o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 81.9
-    },
-    {
-      "id": "3e5a9571c0ab",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.69,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.69,
-        "magnitude": 11,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "6ad079d9b721",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T05:13:45Z",
-      "source_detection_latency_seconds": 12618.2,
-      "factual_update": "Pinkerton: Pope Leo Attacks the Root of Left-Wing Radicalism in France",
-      "source": "Breitbart",
-      "source_tier": 3,
-      "primary_source_link": "https://www.breitbart.com/faith/2026/09/26/pinkerton-pope-leo-attacks-the-root-of-left-wing-radicalism-in-france/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Breitbart"
-      ],
-      "corroborating_links": [
-        "https://www.breitbart.com/faith/2026/09/26/pinkerton-pope-leo-attacks-the-root-of-left-wing-radicalism-in-france/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 210.3
+      "age_minutes": 23.7
     },
     {
       "id": "e639bdf650df",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.44,
+      "urgency_score": 36.66,
       "score_components": {
         "source_trust": 10,
-        "recency": 17.44,
+        "recency": 16.66,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "matched_storyline_id": "7dfa120db8ba",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T08:20:49Z",
-      "source_detection_latency_seconds": 1394.2,
+      "source_detection_latency_seconds": 1667.0,
       "factual_update": "Dog rescued from cliff ledge at landmark waterfall",
       "source": "BBC News",
       "source_tier": 2,
@@ -583,278 +292,54 @@
         "https://www.bbc.co.uk/news/articles/crn4554kxwdlo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 23.2
+      "age_minutes": 27.8
     },
     {
-      "id": "1a8a8db9ecbc",
+      "id": "4c9826ec1666",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.09,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "949355ffefb9",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T07:15:42Z",
-      "source_detection_latency_seconds": 5301.2,
-      "factual_update": "Why are Arsenal struggling to score in WSL?",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cv5yjx90r4yeo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/cv5yjx90r4yeo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 88.4
-    },
-    {
-      "id": "485eb8add453",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.02,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.02,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "24a1843ba57c",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T07:14:55Z",
-      "source_detection_latency_seconds": 5348.2,
-      "factual_update": "From turgid to thrusting - mixed start for new Scotland",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c67833k8dn0eo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/c67833k8dn0eo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 89.1
-    },
-    {
-      "id": "285c39987616",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.82,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 4.82,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "511a1cc67aa0",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T04:46:44Z",
-      "source_detection_latency_seconds": 14239.2,
-      "factual_update": "Florida man, 76, with suspended license allegedly admits to driving under the influence of rum, cocaine",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/us/florida-man-76-suspended-license-allegedly-admits-driving-under-influence-rum-cocaine",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS Sports",
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/college-football/news/college-football-rankings-tomorrows-top-25-florida-penn-state-michigan/",
-        "https://www.foxnews.com/us/florida-man-76-suspended-license-allegedly-admits-driving-under-influence-rum-cocaine"
-      ],
-      "risk_flags": [],
-      "age_minutes": 151.9
-    },
-    {
-      "id": "53a3c866f484",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.07,
-      "score_components": {
-        "source_trust": 15,
-        "recency": 3.07,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9c2f0de85a8b",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T05:27:03Z",
-      "source_detection_latency_seconds": 11820.2,
-      "factual_update": "Atlantic Tropical Weather Outlook",
-      "source": "National Hurricane Center Atlantic",
-      "source_tier": 1,
-      "primary_source_link": "https://www.nhc.noaa.gov/gtwo.php?basin=atlc",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "National Hurricane Center Atlantic"
-      ],
-      "corroborating_links": [
-        "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
-      ],
-      "risk_flags": [],
-      "age_minutes": 197.0
-    },
-    {
-      "id": "a81b5bd55275",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.58,
+      "urgency_score": 36.44,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.58,
+        "recency": 15.44,
         "magnitude": 0,
-        "public_safety": 0,
+        "public_safety": 5,
         "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "18798169f3f5",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:09:32Z",
-      "source_detection_latency_seconds": 2071.2,
-      "factual_update": "Long Island swimmer vanishes in ocean off Fire Island during deadly nor’easter as officials launch search",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/27/us-news/long-island-swimmer-vanishes-in-ocean-off-fire-island-during-deadly-noreaster-as-officials-launch-search/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/27/us-news/long-island-swimmer-vanishes-in-ocean-off-fire-island-during-deadly-noreaster-as-officials-launch-search/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 34.5
-    },
-    {
-      "id": "848b87c7a10a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.04,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 7.04,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8fa08a351873",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T06:50:09Z",
-      "source_detection_latency_seconds": 6834.2,
-      "factual_update": "'Man City? I feel cheated - when do Stoke City get our FA Cup?'",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c60m33473zxpo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/c60m33473zxpo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 113.9
-    },
-    {
-      "id": "40e5504af0dd",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.77,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 7.77,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
         "velocity": 0,
         "independent_confirmations": 0,
         "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "9b071703096f",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T07:00:00Z",
-      "source_detection_latency_seconds": 6243.2,
-      "factual_update": "These Sabrina the Teenage Witch Secrets Are Spellbinding",
-      "source": "E! News",
+      "matched_storyline_id": "792d651fc347",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:13:12Z",
+      "source_detection_latency_seconds": 2124.0,
+      "factual_update": "UK police evacuate homes near air base used by US — detain men on suspected explosives offenses",
+      "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://www.eonline.com/news/1259502/20-secrets-about-sabrina-the-teenage-witch-revealed?cmpid=rss-syndicate-genericrss-us-top_stories",
+      "primary_source_link": "https://nypost.com/2026/09/27/world-news/uk-police-evacuate-homes-near-air-base-used-by-us-detain-men-on-suspected-explosives-offenses/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "E! News"
+        "New York Post"
       ],
       "corroborating_links": [
-        "https://www.eonline.com/news/1259502/20-secrets-about-sabrina-the-teenage-witch-revealed?cmpid=rss-syndicate-genericrss-us-top_stories"
+        "https://nypost.com/2026/09/27/world-news/uk-police-evacuate-homes-near-air-base-used-by-us-detain-men-on-suspected-explosives-offenses/"
       ],
       "risk_flags": [],
-      "age_minutes": 104.1
+      "age_minutes": 35.4
     },
     {
-      "id": "9f2bd8484d77",
+      "id": "07976f869b2d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.34,
+      "urgency_score": 34.5,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.34,
+        "recency": 14.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -864,121 +349,47 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "35a524cab4b3",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T06:39:42Z",
-      "source_detection_latency_seconds": 7461.2,
-      "factual_update": "Nicki Minaj urges young Americans to 'vote red' in 2026 midterms while doubling down on Trump support",
-      "source": "Fox News",
+      "matched_storyline_id": "5a32863e4739",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:06:56Z",
+      "source_detection_latency_seconds": 2500.0,
+      "factual_update": "Trump rejects 7-day plan to reopen Strait of Hormuz",
+      "source": "CBS News",
       "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/nicki-minaj-urges-young-americans-vote-red-2026-midterms-doubling-down-trump-support",
+      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 1,
       "corroborating_sources": [
-        "Fox News"
+        "CBS News"
       ],
       "corroborating_links": [
-        "https://www.foxnews.com/politics/nicki-minaj-urges-young-americans-vote-red-2026-midterms-doubling-down-trump-support"
+        "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/"
       ],
       "risk_flags": [],
-      "age_minutes": 124.4
-    },
-    {
-      "id": "35f2b8b3cffb",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.21,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 14.21,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "66d94773b94b",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:00:19Z",
-      "source_detection_latency_seconds": 2624.2,
-      "factual_update": "Lindsay Clancy Alleged Copycat Corie Walsh's Chilling Facebook Posts About Slain Son",
-      "source": "TMZ",
-      "source_tier": 3,
-      "primary_source_link": "https://www.tmz.com/2026/09/27/corie-walsh-facebook-posts-of-her-son/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "TMZ"
-      ],
-      "corroborating_links": [
-        "https://www.tmz.com/2026/09/27/corie-walsh-facebook-posts-of-her-son/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 43.7
-    },
-    {
-      "id": "fde5bf32f447",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.16,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 14.16,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c628b1871dbf",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T08:00:00Z",
-      "source_detection_latency_seconds": 2643.2,
-      "factual_update": "Midterm Polling Suggests the Birth Pains of Post-Trump Politics",
-      "source": "The New York Sun",
-      "source_tier": 3,
-      "primary_source_link": "https://www.nysun.com/article/midterm-polling-suggests-the-birth-pains-of-post-trump-politics",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The New York Sun"
-      ],
-      "corroborating_links": [
-        "https://www.nysun.com/article/midterm-polling-suggests-the-birth-pains-of-post-trump-politics"
-      ],
-      "risk_flags": [],
-      "age_minutes": 44.1
+      "age_minutes": 41.7
     },
     {
       "id": "9fb98e29409c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.87,
+      "urgency_score": 32.9,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.87,
+        "recency": 20.9,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "matched_storyline_id": "ba1137b75f28",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T08:43:28Z",
-      "source_detection_latency_seconds": 35.2,
+      "source_detection_latency_seconds": 308.0,
       "factual_update": "Maren Morris flaunts bikini body in photo dump from her girls trip to Bali",
       "source": "New York Post",
       "source_tier": 3,
@@ -992,17 +403,535 @@
         "https://pagesix.com/2026/09/27/celebrity-news/maren-morris-flaunts-bikini-body-in-photo-dump-from-bali-vacation/"
       ],
       "risk_flags": [],
-      "age_minutes": 0.6
+      "age_minutes": 5.1
+    },
+    {
+      "id": "2540c6f630f0",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 32.03,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 20.03,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "36f865091d66",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:39:13Z",
+      "source_detection_latency_seconds": 563.0,
+      "factual_update": "‘Mike & Molly’ star Billy Gardell reveals weight loss surgery ‘probably saved’ his life",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/27/health/mike-molly-star-billy-gardell-reveals-weight-loss-surgery-probably-saved-his-life/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/27/health/mike-molly-star-billy-gardell-reveals-weight-loss-surgery-probably-saved-his-life/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 9.4
+    },
+    {
+      "id": "f453a8e0ddb5",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.55,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.55,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "cde2d4295da7",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T07:44:11Z",
+      "source_detection_latency_seconds": 3865.0,
+      "factual_update": "Iranian minister says only negotiation can end conflict after Trump rejects Hormuz deal",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 64.4
+    },
+    {
+      "id": "35fa5db2ba73",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.48,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.48,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2beac157c9c6",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T05:10:17Z",
+      "source_detection_latency_seconds": 13099.0,
+      "factual_update": "‘Saturday Night Live’: Jalen Brunson Dunks On ‘High School Musical’ Lead, Katseye Crowns Awkward New Girl Group In Season 52 Premiere",
+      "source": "Deadline",
+      "source_tier": 3,
+      "primary_source_link": "https://deadline.com/2026/09/saturday-night-live-jalen-brunson-high-school-musical-katseye-1237114610/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/09/saturday-night-live-jalen-brunson-high-school-musical-katseye-1237114610/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 218.3
+    },
+    {
+      "id": "3e5a9571c0ab",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.57,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.57,
+        "magnitude": 11,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "6ad079d9b721",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T05:13:45Z",
+      "source_detection_latency_seconds": 12891.0,
+      "factual_update": "Pinkerton: Pope Leo Attacks the Root of Left-Wing Radicalism in France",
+      "source": "Breitbart",
+      "source_tier": 3,
+      "primary_source_link": "https://www.breitbart.com/faith/2026/09/26/pinkerton-pope-leo-attacks-the-root-of-left-wing-radicalism-in-france/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Breitbart"
+      ],
+      "corroborating_links": [
+        "https://www.breitbart.com/faith/2026/09/26/pinkerton-pope-leo-attacks-the-root-of-left-wing-radicalism-in-france/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 214.8
+    },
+    {
+      "id": "9556a4c73400",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.27,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.27,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2b957553c4b1",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T07:22:12Z",
+      "source_detection_latency_seconds": 5184.0,
+      "factual_update": "The Papers: 'Noel's crying his heart out' and 'global IVF disaster'",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cky9zzre1259o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cky9zzre1259o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 86.4
+    },
+    {
+      "id": "1a8a8db9ecbc",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.69,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.69,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "949355ffefb9",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T07:15:42Z",
+      "source_detection_latency_seconds": 5574.0,
+      "factual_update": "Why are Arsenal struggling to score in WSL?",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cv5yjx90r4yeo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/cv5yjx90r4yeo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 92.9
+    },
+    {
+      "id": "485eb8add453",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.62,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.62,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "24a1843ba57c",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T07:14:55Z",
+      "source_detection_latency_seconds": 5621.0,
+      "factual_update": "From turgid to thrusting - mixed start for new Scotland",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c67833k8dn0eo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/c67833k8dn0eo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 93.7
+    },
+    {
+      "id": "53a3c866f484",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.93,
+      "score_components": {
+        "source_trust": 15,
+        "recency": 2.93,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9c2f0de85a8b",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T05:27:03Z",
+      "source_detection_latency_seconds": 12093.0,
+      "factual_update": "Atlantic Tropical Weather Outlook",
+      "source": "National Hurricane Center Atlantic",
+      "source_tier": 1,
+      "primary_source_link": "https://www.nhc.noaa.gov/gtwo.php?basin=atlc",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "National Hurricane Center Atlantic"
+      ],
+      "corroborating_links": [
+        "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
+      ],
+      "risk_flags": [],
+      "age_minutes": 201.5
+    },
+    {
+      "id": "a81b5bd55275",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.89,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.89,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "18798169f3f5",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:09:32Z",
+      "source_detection_latency_seconds": 2344.0,
+      "factual_update": "Long Island swimmer vanishes in ocean off Fire Island during deadly nor’easter as officials launch search",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/27/us-news/long-island-swimmer-vanishes-in-ocean-off-fire-island-during-deadly-noreaster-as-officials-launch-search/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/27/us-news/long-island-swimmer-vanishes-in-ocean-off-fire-island-during-deadly-noreaster-as-officials-launch-search/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 39.1
+    },
+    {
+      "id": "848b87c7a10a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.73,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.73,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8fa08a351873",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T06:50:09Z",
+      "source_detection_latency_seconds": 7107.0,
+      "factual_update": "'Man City? I feel cheated - when do Stoke City get our FA Cup?'",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/c60m33473zxpo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/c60m33473zxpo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 118.4
+    },
+    {
+      "id": "40e5504af0dd",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.43,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 7.43,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9b071703096f",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T07:00:00Z",
+      "source_detection_latency_seconds": 6516.0,
+      "factual_update": "These Sabrina the Teenage Witch Secrets Are Spellbinding",
+      "source": "E! News",
+      "source_tier": 3,
+      "primary_source_link": "https://www.eonline.com/news/1259502/20-secrets-about-sabrina-the-teenage-witch-revealed?cmpid=rss-syndicate-genericrss-us-top_stories",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "E! News"
+      ],
+      "corroborating_links": [
+        "https://www.eonline.com/news/1259502/20-secrets-about-sabrina-the-teenage-witch-revealed?cmpid=rss-syndicate-genericrss-us-top_stories"
+      ],
+      "risk_flags": [],
+      "age_minutes": 108.6
+    },
+    {
+      "id": "9f2bd8484d77",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.06,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.06,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "35a524cab4b3",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T06:39:42Z",
+      "source_detection_latency_seconds": 7734.0,
+      "factual_update": "Nicki Minaj urges young Americans to 'vote red' in 2026 midterms while doubling down on Trump support",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/politics/nicki-minaj-urges-young-americans-vote-red-2026-midterms-doubling-down-trump-support",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/politics/nicki-minaj-urges-young-americans-vote-red-2026-midterms-doubling-down-trump-support"
+      ],
+      "risk_flags": [],
+      "age_minutes": 128.9
+    },
+    {
+      "id": "35f2b8b3cffb",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.57,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.57,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "66d94773b94b",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:00:19Z",
+      "source_detection_latency_seconds": 2897.0,
+      "factual_update": "Lindsay Clancy Alleged Copycat Corie Walsh's Chilling Facebook Posts About Slain Son",
+      "source": "TMZ",
+      "source_tier": 3,
+      "primary_source_link": "https://www.tmz.com/2026/09/27/corie-walsh-facebook-posts-of-her-son/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "TMZ"
+      ],
+      "corroborating_links": [
+        "https://www.tmz.com/2026/09/27/corie-walsh-facebook-posts-of-her-son/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 48.3
+    },
+    {
+      "id": "fde5bf32f447",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.53,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.53,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c628b1871dbf",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T08:00:00Z",
+      "source_detection_latency_seconds": 2916.0,
+      "factual_update": "Midterm Polling Suggests the Birth Pains of Post-Trump Politics",
+      "source": "The New York Sun",
+      "source_tier": 3,
+      "primary_source_link": "https://www.nysun.com/article/midterm-polling-suggests-the-birth-pains-of-post-trump-politics",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The New York Sun"
+      ],
+      "corroborating_links": [
+        "https://www.nysun.com/article/midterm-polling-suggests-the-birth-pains-of-post-trump-politics"
+      ],
+      "risk_flags": [],
+      "age_minutes": 48.6
     },
     {
       "id": "dab63749f093",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.48,
+      "urgency_score": 25.24,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.48,
+        "recency": 5.24,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1013,9 +942,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d488fad44da0",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:25:05Z",
-      "source_detection_latency_seconds": 8338.2,
+      "source_detection_latency_seconds": 8611.0,
       "factual_update": "Why families are being urged to look closer on autumn walks",
       "source": "BBC News",
       "source_tier": 2,
@@ -1029,17 +958,17 @@
         "https://www.bbc.co.uk/news/articles/cvlylxxp3xg9o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 139.0
+      "age_minutes": 143.5
     },
     {
       "id": "821ef937c3fc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.98,
+      "urgency_score": 24.76,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.98,
+        "recency": 4.76,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1050,9 +979,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "82ded55e0df8",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:15:26Z",
-      "source_detection_latency_seconds": 8917.2,
+      "source_detection_latency_seconds": 9190.0,
       "factual_update": "Alcaraz wins after saving match points as Europe lead Laver Cup",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1066,17 +995,17 @@
         "https://www.bbc.co.uk/sport/tennis/articles/cm5yddy3wv90o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 148.6
+      "age_minutes": 153.2
     },
     {
       "id": "22cbd63ab6de",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.85,
+      "urgency_score": 24.63,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.85,
+        "recency": 4.63,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1087,9 +1016,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f235f35c93a9",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:12:48Z",
-      "source_detection_latency_seconds": 9075.2,
+      "source_detection_latency_seconds": 9348.0,
       "factual_update": "Bumblebee project seeking to help rare species",
       "source": "BBC Science & Environment",
       "source_tier": 2,
@@ -1103,17 +1032,17 @@
         "https://www.bbc.co.uk/news/articles/cmq5x129zqx1o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 151.3
+      "age_minutes": 155.8
     },
     {
       "id": "327e21161979",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.28,
+      "urgency_score": 24.09,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.28,
+        "recency": 4.09,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1124,9 +1053,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6b5bfec9bc4f",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:00:14Z",
-      "source_detection_latency_seconds": 9829.2,
+      "source_detection_latency_seconds": 10102.0,
       "factual_update": "'Knots Landing' star Ted Shackelford spotted with walker during rare Los Angeles outing at 80",
       "source": "Fox News",
       "source_tier": 2,
@@ -1140,17 +1069,17 @@
         "https://www.foxnews.com/entertainment/knots-landing-star-ted-shackelford-spotted-walker-rare-los-angeles-outing-80"
       ],
       "risk_flags": [],
-      "age_minutes": 163.8
+      "age_minutes": 168.4
     },
     {
       "id": "343a8c3a35b0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.47,
+      "urgency_score": 23.32,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.47,
+        "recency": 3.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1161,9 +1090,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "af7e8d11b17c",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:39:28Z",
-      "source_detection_latency_seconds": 11075.2,
+      "source_detection_latency_seconds": 11348.0,
       "factual_update": "White casts doubt on Fury-Joshua after 24 hours of chaos",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1177,17 +1106,17 @@
         "https://www.bbc.co.uk/sport/boxing/articles/cklyjjjge16vo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 184.6
+      "age_minutes": 189.1
     },
     {
       "id": "08f51cbc274f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.87,
+      "urgency_score": 22.39,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.87,
+        "recency": 10.39,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1198,9 +1127,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8bc62619f3d5",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:33:35Z",
-      "source_detection_latency_seconds": 4228.2,
+      "source_detection_latency_seconds": 4501.0,
       "factual_update": "Rob Bonta’s Paramount-WBD debacle has created political chaos",
       "source": "New York Post",
       "source_tier": 3,
@@ -1214,17 +1143,17 @@
         "https://nypost.com/2026/09/27/business/rob-bontas-paramount-wbd-debacle-has-created-political-chaos/"
       ],
       "risk_flags": [],
-      "age_minutes": 70.5
+      "age_minutes": 75.0
     },
     {
       "id": "a2cfeb4ee90e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.58,
+      "urgency_score": 22.11,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.58,
+        "recency": 10.11,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1235,9 +1164,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "02c30d98b43a",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:30:53Z",
-      "source_detection_latency_seconds": 4390.2,
+      "source_detection_latency_seconds": 4663.0,
       "factual_update": "MTV VMAs Hot Shots Guess Who!",
       "source": "TMZ",
       "source_tier": 3,
@@ -1251,17 +1180,17 @@
         "https://www.tmz.com/2026/09/27/vmas-hot-shots-guess-who/"
       ],
       "risk_flags": [],
-      "age_minutes": 73.2
+      "age_minutes": 77.7
     },
     {
       "id": "2b4723901d15",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.34,
+      "urgency_score": 21.24,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.34,
+        "recency": 2.24,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1272,9 +1201,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9e526f60b7fb",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:00:00Z",
-      "source_detection_latency_seconds": 13443.2,
+      "source_detection_latency_seconds": 13716.0,
       "factual_update": "American Christians Should Take Religious Persecution as Seriously as Christ Did",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -1288,17 +1217,17 @@
         "https://thedispatch.com/article/trump-administration-refugees-christianity/"
       ],
       "risk_flags": [],
-      "age_minutes": 224.1
+      "age_minutes": 228.6
     },
     {
       "id": "5a70dc2aca40",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.04,
+      "urgency_score": 19.69,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.04,
+        "recency": 7.69,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1309,9 +1238,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d155242c764d",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:03:26Z",
-      "source_detection_latency_seconds": 6037.2,
+      "source_detection_latency_seconds": 6310.0,
       "factual_update": "‘Godzilla Minus Zero’ review: Badass monster sequel is sensational",
       "source": "New York Post",
       "source_tier": 3,
@@ -1325,17 +1254,17 @@
         "https://nypost.com/2026/09/27/entertainment/godzilla-minus-zero-review-badass-monster-sequel-is-sensational/"
       ],
       "risk_flags": [],
-      "age_minutes": 100.6
+      "age_minutes": 105.2
     },
     {
       "id": "79c1a12abe86",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.92,
+      "urgency_score": 19.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.92,
+        "recency": 7.57,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1346,9 +1275,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b4e9e2519f76",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:01:57Z",
-      "source_detection_latency_seconds": 6126.2,
+      "source_detection_latency_seconds": 6399.0,
       "factual_update": "Gwyneth Paltrow Hot Shots To Celebrate Her 54th Birthday",
       "source": "TMZ",
       "source_tier": 3,
@@ -1362,17 +1291,17 @@
         "https://www.tmz.com/2026/09/27/gwyneth-paltrow-hot-pictures-for-her-birthday/"
       ],
       "risk_flags": [],
-      "age_minutes": 102.1
+      "age_minutes": 106.6
     },
     {
       "id": "cd33b2826735",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.87,
+      "urgency_score": 19.52,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.87,
+        "recency": 7.52,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1383,9 +1312,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0d8a375507fc",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:01:15Z",
-      "source_detection_latency_seconds": 6168.2,
+      "source_detection_latency_seconds": 6441.0,
       "factual_update": "Madonna Set to Perform at VMAs for First Time Since Infamous 2003 Kiss",
       "source": "TMZ",
       "source_tier": 3,
@@ -1399,17 +1328,17 @@
         "https://www.tmz.com/2026/09/27/madonna-set-to-perform-at-vmas-for-first-time-since-scandalous-kiss/"
       ],
       "risk_flags": [],
-      "age_minutes": 102.8
+      "age_minutes": 107.3
     },
     {
       "id": "ca9970ec78af",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.82,
+      "urgency_score": 19.48,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.82,
+        "recency": 7.48,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1420,9 +1349,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "edab4ba8998a",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:00:40Z",
-      "source_detection_latency_seconds": 6203.2,
+      "source_detection_latency_seconds": 6476.0,
       "factual_update": "Varieties of Trump Derangement Syndrome",
       "source": "American Greatness",
       "source_tier": 3,
@@ -1436,17 +1365,17 @@
         "https://amgreatness.com/2026/09/27/varieties-of-trump-derangement-syndrome/"
       ],
       "risk_flags": [],
-      "age_minutes": 103.4
+      "age_minutes": 107.9
     },
     {
       "id": "25eef9d6cae7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.81,
+      "urgency_score": 19.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.81,
+        "recency": 7.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1457,9 +1386,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cb673bdb00c9",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:00:31Z",
-      "source_detection_latency_seconds": 6212.2,
+      "source_detection_latency_seconds": 6485.0,
       "factual_update": "Election 2028: Perhaps Gavin Newsom Has a Chance?",
       "source": "American Greatness",
       "source_tier": 3,
@@ -1473,17 +1402,17 @@
         "https://amgreatness.com/2026/09/27/election-2028-perhaps-gavin-newsom-has-a-chance/"
       ],
       "risk_flags": [],
-      "age_minutes": 103.5
+      "age_minutes": 108.1
     },
     {
       "id": "7fa163b9b1c0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.81,
+      "urgency_score": 19.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.81,
+        "recency": 7.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1494,9 +1423,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4bf4fa04daa6",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:00:28Z",
-      "source_detection_latency_seconds": 6215.2,
+      "source_detection_latency_seconds": 6488.0,
       "factual_update": "Calling Bullsh-t on Universal Suffrage",
       "source": "American Greatness",
       "source_tier": 3,
@@ -1510,17 +1439,17 @@
         "https://amgreatness.com/2026/09/27/calling-bullsh-t-on-universal-suffrage/"
       ],
       "risk_flags": [],
-      "age_minutes": 103.6
+      "age_minutes": 108.1
     },
     {
       "id": "34e5e8f2a0b7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.77,
+      "urgency_score": 19.43,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.77,
+        "recency": 7.43,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1531,9 +1460,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1b9680807b45",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:00:00Z",
-      "source_detection_latency_seconds": 6243.2,
+      "source_detection_latency_seconds": 6516.0,
       "factual_update": "Dear Abby: My alcoholic son won’t get help for his addiction",
       "source": "New York Post",
       "source_tier": 3,
@@ -1547,17 +1476,17 @@
         "https://nypost.com/2026/09/27/lifestyle/dear-abby-my-alcoholic-son-wont-get-help-for-his-addiction/"
       ],
       "risk_flags": [],
-      "age_minutes": 104.1
+      "age_minutes": 108.6
     },
     {
       "id": "4f339ec98a39",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.77,
+      "urgency_score": 19.43,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.77,
+        "recency": 7.43,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1568,9 +1497,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9bd69ab99b86",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T07:00:00Z",
-      "source_detection_latency_seconds": 6243.2,
+      "source_detection_latency_seconds": 6516.0,
       "factual_update": "Open Thread",
       "source": "Reason",
       "source_tier": 3,
@@ -1584,17 +1513,17 @@
         "https://reason.com/volokh/2026/09/27/open-thread-340/"
       ],
       "risk_flags": [],
-      "age_minutes": 104.1
+      "age_minutes": 108.6
     },
     {
       "id": "3558fb01e96c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.71,
+      "urgency_score": 19.37,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.71,
+        "recency": 7.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1605,9 +1534,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1a52eed48dfa",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:59:11Z",
-      "source_detection_latency_seconds": 6292.2,
+      "source_detection_latency_seconds": 6565.0,
       "factual_update": "‘SNL’: Watch Katseye Perform ‘Animal,’ ‘Hootie Frutti’",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -1621,17 +1550,17 @@
         "https://www.rollingstone.com/music/music-news/snl-watch-katseye-perform-animal-hootie-frutti-wild-1235632299/"
       ],
       "risk_flags": [],
-      "age_minutes": 104.9
+      "age_minutes": 109.4
     },
     {
       "id": "99c5386c7466",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.72,
+      "urgency_score": 17.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.72,
+        "recency": 5.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1642,9 +1571,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3ff5054f2a60",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:29:23Z",
-      "source_detection_latency_seconds": 8080.2,
+      "source_detection_latency_seconds": 8353.0,
       "factual_update": "‘SNL’: Jalen Brunson Is MVP of the Office",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -1658,17 +1587,17 @@
         "https://www.rollingstone.com/tv-movies/tv-movie-news/snl-jalen-brunson-knicks-mvp-of-the-office-1235632437/"
       ],
       "risk_flags": [],
-      "age_minutes": 134.7
+      "age_minutes": 139.2
     },
     {
       "id": "af92215178d1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.54,
+      "urgency_score": 17.29,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.54,
+        "recency": 5.29,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1679,9 +1608,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "32c89dc1fa92",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T06:26:07Z",
-      "source_detection_latency_seconds": 8276.2,
+      "source_detection_latency_seconds": 8549.0,
       "factual_update": "Nor’easter uncovers 19th-century Nantucket shipwreck as storm batters East Coast",
       "source": "New York Post",
       "source_tier": 3,
@@ -1695,17 +1624,54 @@
         "https://nypost.com/2026/09/27/us-news/noreaster-uncovers-19th-century-shipwreck-warren-sawyer-on-nantucket/"
       ],
       "risk_flags": [],
-      "age_minutes": 137.9
+      "age_minutes": 142.5
+    },
+    {
+      "id": "ca6f6ffb5491",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 16.6,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 4.6,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "511a1cc67aa0",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T06:12:11Z",
+      "source_detection_latency_seconds": 9385.0,
+      "factual_update": "Tomorrow's Top 25 Today: Florida into top 10, Michigan and Penn State fall from college football rankings",
+      "source": "CBS Sports",
+      "source_tier": 3,
+      "primary_source_link": "https://www.cbssports.com/college-football/news/college-football-rankings-tomorrows-top-25-florida-penn-state-michigan/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBS Sports"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/college-football/news/college-football-rankings-tomorrows-top-25-florida-penn-state-michigan/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 156.4
     },
     {
       "id": "6cdd41f72999",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.77,
+      "urgency_score": 15.6,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.77,
+        "recency": 3.6,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1716,9 +1682,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bd95aff1b49d",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:47:33Z",
-      "source_detection_latency_seconds": 10590.2,
+      "source_detection_latency_seconds": 10863.0,
       "factual_update": "Uneven AEW All Out didn’t get any help from overbooked main event after epic ladder match",
       "source": "New York Post",
       "source_tier": 3,
@@ -1732,17 +1698,17 @@
         "https://nypost.com/2026/09/27/sports/aew-all-out-review-grade-will-ospreay-beats-jon-moxley/"
       ],
       "risk_flags": [],
-      "age_minutes": 176.5
+      "age_minutes": 181.0
     },
     {
       "id": "dcf215dd8321",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.5,
+      "urgency_score": 15.34,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.5,
+        "recency": 3.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1753,9 +1719,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "561864bda1e2",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:40:11Z",
-      "source_detection_latency_seconds": 11032.2,
+      "source_detection_latency_seconds": 11305.0,
       "factual_update": "Oregon’s Dan Lanning trolls USC’s home crowd and football culture",
       "source": "New York Post",
       "source_tier": 3,
@@ -1769,17 +1735,17 @@
         "https://nypost.com/2026/09/27/sports/oregons-dan-lanning-has-some-thoughts-on-uscs-crowd-culture/"
       ],
       "risk_flags": [],
-      "age_minutes": 183.9
+      "age_minutes": 188.4
     },
     {
       "id": "742fefe71e4d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.44,
+      "urgency_score": 15.29,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.44,
+        "recency": 3.29,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1790,9 +1756,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1085dfed09d1",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:38:33Z",
-      "source_detection_latency_seconds": 11130.2,
+      "source_detection_latency_seconds": 11403.0,
       "factual_update": "‘SNL’ Weekend Update Roasts Wincing Trump’s China Meeting, Pete Hegseth’s Transphobia",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -1806,17 +1772,17 @@
         "https://www.rollingstone.com/tv-movies/tv-movie-news/snl-weekend-update-roasts-trump-china-meeting-pete-hegseth-transphobia-1235632307/"
       ],
       "risk_flags": [],
-      "age_minutes": 185.5
+      "age_minutes": 190.0
     },
     {
       "id": "3d946981edb1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.33,
+      "urgency_score": 15.18,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.33,
+        "recency": 3.18,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1827,9 +1793,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9cbd9b221fd2",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:35:06Z",
-      "source_detection_latency_seconds": 11337.2,
+      "source_detection_latency_seconds": 11610.0,
       "factual_update": "Olivia Rodrigo’s dress melts off her body onstage during ‘Unraveled Tour’ concert in Connecticut",
       "source": "New York Post",
       "source_tier": 3,
@@ -1843,17 +1809,54 @@
         "https://pagesix.com/2026/09/27/entertainment/olivia-rodrigos-dress-melts-off-her-body-onstage-during-unraveled-tour-concert-in-connecticut/"
       ],
       "risk_flags": [],
-      "age_minutes": 189.0
+      "age_minutes": 193.5
+    },
+    {
+      "id": "24d8b9e46318",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.75,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.75,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-27T08:48:35.993408Z",
+      "source_published_at": "2026-09-27T05:20:44Z",
+      "source_detection_latency_seconds": 12472.0,
+      "factual_update": "Child's hidden letter found after 44 years",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqd08x91eympo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cqd08x91eympo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 207.9
     },
     {
       "id": "b957a0f23191",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.6,
+      "urgency_score": 14.49,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.6,
+        "recency": 2.49,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1864,9 +1867,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d25194e4a582",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T05:10:35Z",
-      "source_detection_latency_seconds": 12808.2,
+      "source_detection_latency_seconds": 13081.0,
       "factual_update": "How ‘SNL’ Introduced Season 52’s New Cast Members Saidah Belo-Osagie & Grace Reiter",
       "source": "Deadline",
       "source_tier": 3,
@@ -1880,17 +1883,17 @@
         "https://deadline.com/2026/09/snl-new-cast-members-season-52-skits-1237114592/"
       ],
       "risk_flags": [],
-      "age_minutes": 213.5
+      "age_minutes": 218.0
     },
     {
       "id": "9022896a215e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.31,
+      "urgency_score": 14.21,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.31,
+        "recency": 2.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1901,9 +1904,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "67a64243de09",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T04:58:53Z",
-      "source_detection_latency_seconds": 13510.2,
+      "source_detection_latency_seconds": 13783.0,
       "factual_update": "Tucker Carlson Returns to ‘SNL’ to Review ‘The Odyssey,’ Gender-Neutral ‘Spider-Man’ and Left-Wing ‘Obsession’",
       "source": "Variety",
       "source_tier": 3,
@@ -1917,17 +1920,17 @@
         "https://variety.com/2026/tv/news/snl-tucker-carlson-weekend-update-summer-movies-1236876744/"
       ],
       "risk_flags": [],
-      "age_minutes": 225.2
+      "age_minutes": 229.7
     },
     {
       "id": "1956a42a0867",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.23,
+      "urgency_score": 14.13,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.23,
+        "recency": 2.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1938,9 +1941,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3459c1cab92d",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
+      "detected_at": "2026-09-27T08:48:35.993408Z",
       "source_published_at": "2026-09-27T04:55:09Z",
-      "source_detection_latency_seconds": 13734.2,
+      "source_detection_latency_seconds": 14007.0,
       "factual_update": "‘SNL’s Weekend Update Mocks Paramount+, ‘Spider-Man’, ‘The Odyssey’ & ‘Obsession’",
       "source": "Deadline",
       "source_tier": 3,
@@ -1954,82 +1957,14 @@
         "https://deadline.com/2026/09/snls-weekend-update-spider-man-the-odyssey-obsession-1237114628/"
       ],
       "risk_flags": [],
-      "age_minutes": 228.9
-    },
-    {
-      "id": "efe60742bc63",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.05,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.05,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "9d43b7baeb86",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T04:46:45Z",
-      "source_detection_latency_seconds": 14238.2,
-      "factual_update": "‘SNL’ roasts Mayor Zohran Mamdani with ‘urgent message’ for New Yorkers during nor’easter",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/27/us-news/snl-roasts-mayor-zohran-mamdani-with-urgent-message-for-new-yorkers-during-noreaster/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/27/us-news/snl-roasts-mayor-zohran-mamdani-with-urgent-message-for-new-yorkers-during-noreaster/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 237.3
-    },
-    {
-      "id": "ce584eae39dc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.02,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.02,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "16b57a2df4cb",
-      "detected_at": "2026-09-27T08:44:03.205762Z",
-      "source_published_at": "2026-09-27T04:45:26Z",
-      "source_detection_latency_seconds": 14317.2,
-      "factual_update": "Lincoln Riley's latest failure against depleted Oregon raises the question: If not now at USC ... when?",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/college-football/news/lincoln-riley-usc-oregon-failure-hot-seat/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/college-football/news/lincoln-riley-usc-oregon-failure-hot-seat/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 238.6
+      "age_minutes": 233.4
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "8e11e4b977e2",
+      "status": "published",
+      "storyline_id": "555d131c4817"
+    }
+  ]
 }

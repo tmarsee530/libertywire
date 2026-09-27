@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T02:32:58.845512Z",
+  "generated_at": "2026-09-27T02:37:28.582723Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,12 +7,12 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 126,
-    "candidate_events": 119,
+    "reports_evaluated": 129,
+    "candidate_events": 117,
     "fast_path_events": 0,
-    "held_for_normal_path": 119,
-    "duplicate_reports_suppressed": 7,
-    "duplicate_event_rate_pct": 5.56,
+    "held_for_normal_path": 117,
+    "duplicate_reports_suppressed": 12,
+    "duplicate_event_rate_pct": 9.3,
     "median_source_detection_latency_seconds": null,
     "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
@@ -29,14 +29,55 @@
   },
   "candidates": [
     {
+      "id": "5fe70a8efbfb",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 56.79,
+      "score_components": {
+        "source_trust": 15,
+        "recency": 21.79,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 10,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "cf448bef8f5d",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:36:31Z",
+      "source_detection_latency_seconds": 57.6,
+      "factual_update": "Tropical Depression Fay Forecast Discussion Number 28",
+      "source": "National Hurricane Center Atlantic",
+      "source_tier": 1,
+      "primary_source_link": "https://www.nhc.noaa.gov/text/refresh/MIATCDAT1+shtml/270236.shtml",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "National Hurricane Center Atlantic"
+      ],
+      "corroborating_links": [
+        "https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/023627.shtml?cone",
+        "https://www.nhc.noaa.gov/text/refresh/MIAPWSAT1+shtml/270235.shtml",
+        "https://www.nhc.noaa.gov/text/refresh/MIATCDAT1+shtml/270236.shtml",
+        "https://www.nhc.noaa.gov/text/refresh/MIATCMAT1+shtml/270234.shtml",
+        "https://www.nhc.noaa.gov/text/refresh/MIATCPAT1+shtml/270235.shtml"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.0
+    },
+    {
       "id": "ca175e7cabdc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 54.6,
+      "urgency_score": 54.27,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.6,
+        "recency": 7.27,
         "magnitude": 8,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -47,9 +88,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f073476e4399",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:46:44Z",
-      "source_detection_latency_seconds": 6374.8,
+      "source_detection_latency_seconds": 6644.6,
       "factual_update": "Nor'easter brings heavy flooding, major power outages to the East Coast",
       "source": "CBS News",
       "source_tier": 2,
@@ -65,17 +106,56 @@
         "https://www.cbsnews.com/news/east-coast-noreaster-severe-flooding-winds-evacuations/"
       ],
       "risk_flags": [],
-      "age_minutes": 106.2
+      "age_minutes": 110.7
+    },
+    {
+      "id": "644d93d6894c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 47.9,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.9,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 4,
+        "independent_confirmations": 6,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5fb75e86cb00",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:16:52Z",
+      "source_detection_latency_seconds": 1236.6,
+      "factual_update": "Iran says it will wait for official US response after Trump rejects Strait of Hormuz proposal",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 2,
+      "trusted_independent_source_count": 2,
+      "corroborating_sources": [
+        "BBC News",
+        "CBS News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cmvgyyw2jeego?at_medium=RSS&at_campaign=rss",
+        "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.6
     },
     {
       "id": "cc248f40e3e6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 48.01,
+      "urgency_score": 47.48,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.01,
+        "recency": 11.48,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -86,9 +166,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fae5f3b40c0f",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:32:25Z",
-      "source_detection_latency_seconds": 3633.8,
+      "source_detection_latency_seconds": 3903.6,
       "factual_update": "FAA investigates software glitch in some Boeing 737 Max jets",
       "source": "CBS News",
       "source_tier": 2,
@@ -102,17 +182,17 @@
         "https://www.cbsnews.com/news/boeing-737-max-software-glitch-aborted-landings-faa-investigation/"
       ],
       "risk_flags": [],
-      "age_minutes": 60.6
+      "age_minutes": 65.1
     },
     {
       "id": "23f2332b26d5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 47.68,
+      "urgency_score": 47.47,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.68,
+        "recency": 4.47,
         "magnitude": 14,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -123,9 +203,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f4a0fb3a3eea",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:58:11Z",
-      "source_detection_latency_seconds": 9287.8,
+      "source_detection_latency_seconds": 9557.6,
       "factual_update": "Hurricane Polo is a strong Category 4 storm off Mexico. See its path.",
       "source": "CBS News",
       "source_tier": 2,
@@ -139,17 +219,17 @@
         "https://www.cbsnews.com/news/hurricane-polo-category-5-mexico-life-threatening-flooding/"
       ],
       "risk_flags": [],
-      "age_minutes": 154.8
+      "age_minutes": 159.3
     },
     {
       "id": "d73783fb8e45",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 45.81,
+      "urgency_score": 44.98,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.81,
+        "recency": 17.98,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -160,9 +240,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "607573f5ff87",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:17:18Z",
-      "source_detection_latency_seconds": 940.8,
+      "source_detection_latency_seconds": 1210.6,
       "factual_update": "Graham, Andrews neck and neck in South Carolina Senate race: Poll",
       "source": "The Hill",
       "source_tier": 2,
@@ -176,17 +256,17 @@
         "https://thehill.com/homenews/campaign/6113414-graham-andrews-south-carolina-poll-close/"
       ],
       "risk_flags": [],
-      "age_minutes": 15.7
+      "age_minutes": 20.2
     },
     {
       "id": "d0d78597512c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.46,
+      "urgency_score": 43.74,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.46,
+        "recency": 15.74,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -197,9 +277,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ea108afad87f",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:04:00Z",
-      "source_detection_latency_seconds": 1738.8,
+      "source_detection_latency_seconds": 2008.6,
       "factual_update": "Jon Watts to Direct Next ‘Star Wars’ Movie",
       "source": "Variety",
       "source_tier": 3,
@@ -213,17 +293,17 @@
         "https://variety.com/2026/film/news/jon-watts-to-direct-star-wars-1236876714/"
       ],
       "risk_flags": [],
-      "age_minutes": 29.0
+      "age_minutes": 33.5
     },
     {
       "id": "264144fb0a0e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.37,
+      "urgency_score": 43.27,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.37,
+        "recency": 2.27,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -234,9 +314,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "17fb6f5dafa6",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:50:22Z",
-      "source_detection_latency_seconds": 13356.8,
+      "source_detection_latency_seconds": 13626.6,
       "factual_update": "City council candidate faces 'riot participation' charge for ICE shooting protest",
       "source": "ABC News",
       "source_tier": 2,
@@ -250,17 +330,17 @@
         "https://abcnews.com/Politics/wireStory/texas-city-council-candidate-protested-ice-shooting-faces-136788596"
       ],
       "risk_flags": [],
-      "age_minutes": 222.6
+      "age_minutes": 227.1
     },
     {
       "id": "2da3b464903c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 42.11,
+      "urgency_score": 41.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 17.11,
+        "recency": 16.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -271,9 +351,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "16b57a2df4cb",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:07:50Z",
-      "source_detection_latency_seconds": 1508.8,
+      "source_detection_latency_seconds": 1778.6,
       "factual_update": "Wild scene as USC-Oregon brawl nearly erupts after brutal Dante Moore hit",
       "source": "New York Post",
       "source_tier": 3,
@@ -290,17 +370,17 @@
         "https://www.cbssports.com/college-football/news/dante-moore-injury-oregon-usc-late-hit/"
       ],
       "risk_flags": [],
-      "age_minutes": 25.1
+      "age_minutes": 29.6
     },
     {
       "id": "0d6b06bffec9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.34,
+      "urgency_score": 39.44,
       "score_components": {
         "source_trust": 10,
-        "recency": 20.34,
+        "recency": 19.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -311,9 +391,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2976a89cb8a8",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:25:07Z",
-      "source_detection_latency_seconds": 471.8,
+      "source_detection_latency_seconds": 741.6,
       "factual_update": "Controversial Orange Order march to go ahead for first time in nearly 30 years after late night drama",
       "source": "BBC News",
       "source_tier": 2,
@@ -327,17 +407,17 @@
         "https://www.bbc.co.uk/news/articles/ckjrxx22wqgdo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 7.9
+      "age_minutes": 12.4
     },
     {
       "id": "f527265254a6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 36.68,
+      "urgency_score": 36.3,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.68,
+        "recency": 8.3,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -348,9 +428,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0b7ee806e994",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:00:02Z",
-      "source_detection_latency_seconds": 5576.8,
+      "source_detection_latency_seconds": 5846.6,
       "factual_update": "Ro Khanna Wants Marwan Barghouti Freed; Israel Remembers Yahya Sinwar",
       "source": "Legal Insurrection",
       "source_tier": 3,
@@ -364,17 +444,17 @@
         "https://legalinsurrection.com/2026/09/ro-khanna-wants-marwan-barghouti-freed-israel-remembers-yahya-sinwar/?utm_source=rss&utm_medium=rss&utm_campaign=ro-khanna-wants-marwan-barghouti-freed-israel-remembers-yahya-sinwar"
       ],
       "risk_flags": [],
-      "age_minutes": 92.9
+      "age_minutes": 97.4
     },
     {
       "id": "a738798fdcb1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 36.56,
+      "urgency_score": 35.83,
       "score_components": {
         "source_trust": 10,
-        "recency": 16.56,
+        "recency": 15.83,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -385,9 +465,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "90d292004feb",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:04:33Z",
-      "source_detection_latency_seconds": 1705.8,
+      "source_detection_latency_seconds": 1975.6,
       "factual_update": "Israeli UN envoy's Starlink video reaches millions, with nearly 40% of Instagram viewers in Iran",
       "source": "Fox News",
       "source_tier": 2,
@@ -401,54 +481,17 @@
         "https://www.foxnews.com/world/israeli-un-envoy-starlink-video-reaches-millions-nearly-40-percent-instagram-viewers-iran"
       ],
       "risk_flags": [],
-      "age_minutes": 28.4
-    },
-    {
-      "id": "07976f869b2d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 36.34,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 16.34,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "a3ecd6ecc404",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:03:14Z",
-      "source_detection_latency_seconds": 1784.8,
-      "factual_update": "Trump rejects 7-day plan to reopen Strait of Hormuz",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-7-day-proposal/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 29.7
+      "age_minutes": 32.9
     },
     {
       "id": "418397963cd7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 36.0,
+      "urgency_score": 35.78,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.0,
+        "recency": 4.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -459,9 +502,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bbbc73115e58",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:04:51Z",
-      "source_detection_latency_seconds": 8887.8,
+      "source_detection_latency_seconds": 9157.6,
       "factual_update": "Florida drops impressive offensive performance to pull off massive win over No. 4 Ole Miss",
       "source": "Fox News",
       "source_tier": 2,
@@ -477,17 +520,17 @@
         "https://www.foxnews.com/outkick-sports/florida-drops-impressive-offensive-performance-pull-off-massive-win-no-4-ole-miss"
       ],
       "risk_flags": [],
-      "age_minutes": 148.1
+      "age_minutes": 152.6
     },
     {
       "id": "73e16a21d81a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 34.49,
+      "urgency_score": 34.25,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.49,
+        "recency": 5.25,
         "magnitude": 0,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -498,9 +541,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a6a105388fa2",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:14:09Z",
-      "source_detection_latency_seconds": 8329.8,
+      "source_detection_latency_seconds": 8599.6,
       "factual_update": "E. coli outbreak linked to raw milk cheese leads to 13 illnesses and eight hospitalizations across the US: FDA",
       "source": "Fox Business",
       "source_tier": 2,
@@ -514,17 +557,17 @@
         "https://www.foxbusiness.com/retail/e-coli-outbreak-linked-raw-milk-cheese-leads-13-illnesses-eight-hospitalizations-across-us-fda"
       ],
       "risk_flags": [],
-      "age_minutes": 138.8
+      "age_minutes": 143.3
     },
     {
       "id": "231163e001cd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 34.45,
+      "urgency_score": 34.17,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.45,
+        "recency": 6.17,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -535,9 +578,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cfdff9e84184",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:30:17Z",
-      "source_detection_latency_seconds": 7361.8,
+      "source_detection_latency_seconds": 7631.6,
       "factual_update": "Americans Are Not McLovin’ It: Russia Hits McDonald’s Warehouse Near Kyiv — Twice",
       "source": "Twitchy",
       "source_tier": 3,
@@ -551,17 +594,17 @@
         "https://twitchy.com/justmindy/2026/09/26/russiia-attacks-mcdonalds-warehouse-ukraine-n2432750"
       ],
       "risk_flags": [],
-      "age_minutes": 122.7
+      "age_minutes": 127.2
     },
     {
       "id": "762114aae26b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.94,
+      "urgency_score": 33.33,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.94,
+        "recency": 13.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -572,9 +615,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8f73faaba92d",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:47:22Z",
-      "source_detection_latency_seconds": 2736.8,
+      "source_detection_latency_seconds": 3006.6,
       "factual_update": "Hiker falls up to 1,000 feet to his death day after another body found on same mountain",
       "source": "Fox News",
       "source_tier": 2,
@@ -588,17 +631,54 @@
         "https://www.foxnews.com/us/hiker-falls-1000-feet-death-day-after-another-body-found-same-mountain"
       ],
       "risk_flags": [],
-      "age_minutes": 45.6
+      "age_minutes": 50.1
+    },
+    {
+      "id": "5be5538a2193",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 32.87,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 20.87,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5a5c7543a472",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:32:11Z",
+      "source_detection_latency_seconds": 317.6,
+      "factual_update": "Liberty brush off concerns over banged-up stars before playoffs",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/26/sports/liberty-brush-off-concerns-over-banged-up-stars-before-playoffs/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/26/sports/liberty-brush-off-concerns-over-banged-up-stars-before-playoffs/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 5.3
     },
     {
       "id": "21c7b9203bd2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.02,
+      "urgency_score": 32.44,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.02,
+        "recency": 12.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -609,9 +689,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9cdba66375de",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:40:30Z",
-      "source_detection_latency_seconds": 3148.8,
+      "source_detection_latency_seconds": 3418.6,
       "factual_update": "PNOE’s new face mask wants to make lab-grade breath testing a self-serve affair",
       "source": "TechCrunch",
       "source_tier": 2,
@@ -625,91 +705,17 @@
         "https://techcrunch.com/2026/09/26/pnoes-new-face-mask-wants-to-make-lab-grade-breath-testing-a-self-serve-affair/"
       ],
       "risk_flags": [],
-      "age_minutes": 52.5
-    },
-    {
-      "id": "37c03c9d52c4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.88,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 19.88,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fc0d5c71772b",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:22:52Z",
-      "source_detection_latency_seconds": 606.8,
-      "factual_update": "Netanyahu’s Overlooked Record on Israel’s Arab Citizens",
-      "source": "American Spectator",
-      "source_tier": 3,
-      "primary_source_link": "https://spectator.org/netanyahus-overlooked-record-on-israels-arab-citizens/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Spectator"
-      ],
-      "corroborating_links": [
-        "https://spectator.org/netanyahus-overlooked-record-on-israels-arab-citizens/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 10.1
-    },
-    {
-      "id": "3592a2b0da14",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.88,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 19.88,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "17ccb7c44b0c",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:22:51Z",
-      "source_detection_latency_seconds": 607.8,
-      "factual_update": "‘Sweet Caroline’ Must Die: The Stadium Song That Won’t Go Away",
-      "source": "American Spectator",
-      "source_tier": 3,
-      "primary_source_link": "https://spectator.org/sweet-caroline-must-die-the-stadium-song-that-wont-go-away/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Spectator"
-      ],
-      "corroborating_links": [
-        "https://spectator.org/sweet-caroline-must-die-the-stadium-song-that-wont-go-away/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 10.1
+      "age_minutes": 57.0
     },
     {
       "id": "384c23b80840",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.77,
+      "urgency_score": 31.56,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.77,
+        "recency": 4.56,
         "magnitude": 11,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -720,9 +726,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "595ed8fc8d3e",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:00:10Z",
-      "source_detection_latency_seconds": 9168.8,
+      "source_detection_latency_seconds": 9438.6,
       "factual_update": "Britain Naturalized a Hamas Bodyguard, and He Planned a Mass Attack on Jews in Europe",
       "source": "Twitchy",
       "source_tier": 3,
@@ -736,17 +742,17 @@
         "https://twitchy.com/justmindy/2026/09/26/hamas-security-uk-ismail-haniyeh-granted-citizenship-plots-against-jews-n2432748"
       ],
       "risk_flags": [],
-      "age_minutes": 152.8
+      "age_minutes": 157.3
     },
     {
       "id": "b09c672e4408",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.72,
+      "urgency_score": 31.2,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.72,
+        "recency": 11.2,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -757,9 +763,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "11f333d56936",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:30:00Z",
-      "source_detection_latency_seconds": 3778.8,
+      "source_detection_latency_seconds": 4048.6,
       "factual_update": "Google tests buying from Walmart-owned Flipkart through Gemini and AI Mode in India",
       "source": "TechCrunch",
       "source_tier": 2,
@@ -773,17 +779,91 @@
         "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/"
       ],
       "risk_flags": [],
-      "age_minutes": 63.0
+      "age_minutes": 67.5
+    },
+    {
+      "id": "37c03c9d52c4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.01,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.01,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "fc0d5c71772b",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:22:52Z",
+      "source_detection_latency_seconds": 876.6,
+      "factual_update": "Netanyahu’s Overlooked Record on Israel’s Arab Citizens",
+      "source": "American Spectator",
+      "source_tier": 3,
+      "primary_source_link": "https://spectator.org/netanyahus-overlooked-record-on-israels-arab-citizens/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Spectator"
+      ],
+      "corroborating_links": [
+        "https://spectator.org/netanyahus-overlooked-record-on-israels-arab-citizens/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 14.6
+    },
+    {
+      "id": "3592a2b0da14",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.01,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.01,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "17ccb7c44b0c",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:22:51Z",
+      "source_detection_latency_seconds": 877.6,
+      "factual_update": "‘Sweet Caroline’ Must Die: The Stadium Song That Won’t Go Away",
+      "source": "American Spectator",
+      "source_tier": 3,
+      "primary_source_link": "https://spectator.org/sweet-caroline-must-die-the-stadium-song-that-wont-go-away/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Spectator"
+      ],
+      "corroborating_links": [
+        "https://spectator.org/sweet-caroline-must-die-the-stadium-song-that-wont-go-away/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 14.6
     },
     {
       "id": "0ed17a474432",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.3,
+      "urgency_score": 30.45,
       "score_components": {
         "source_trust": 2,
-        "recency": 19.3,
+        "recency": 18.45,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -794,9 +874,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e727798b4a3d",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:19:52Z",
-      "source_detection_latency_seconds": 786.8,
+      "source_detection_latency_seconds": 1056.6,
       "factual_update": "Will AI Destroy Humanity? There May Be a Bigger Threat",
       "source": "American Spectator",
       "source_tier": 3,
@@ -810,17 +890,17 @@
         "https://spectator.org/will-ai-destroy-humanity-there-may-be-a-bigger-threat/"
       ],
       "risk_flags": [],
-      "age_minutes": 13.1
+      "age_minutes": 17.6
     },
     {
       "id": "c71489b90089",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.3,
+      "urgency_score": 30.45,
       "score_components": {
         "source_trust": 2,
-        "recency": 19.3,
+        "recency": 18.45,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -831,9 +911,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5a2cb56119f7",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:19:52Z",
-      "source_detection_latency_seconds": 786.8,
+      "source_detection_latency_seconds": 1056.6,
       "factual_update": "My Daughter Couldn’t Read, but at Least I Had Principles",
       "source": "American Spectator",
       "source_tier": 3,
@@ -847,17 +927,17 @@
         "https://spectator.org/my-daughter-couldnt-read-but-at-least-i-had-principles/"
       ],
       "risk_flags": [],
-      "age_minutes": 13.1
+      "age_minutes": 17.6
     },
     {
       "id": "c0d8ea1a6838",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.29,
+      "urgency_score": 30.44,
       "score_components": {
         "source_trust": 2,
-        "recency": 19.29,
+        "recency": 18.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -868,9 +948,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7f51eb800a69",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:19:51Z",
-      "source_detection_latency_seconds": 787.8,
+      "source_detection_latency_seconds": 1057.6,
       "factual_update": "Pope Leo XIV, Louis XVI, and the Catholic Faith That Wouldn’t Die",
       "source": "American Spectator",
       "source_tier": 3,
@@ -884,17 +964,17 @@
         "https://spectator.org/pope-leo-xiv-louis-xvi-and-the-catholic-faith-that-wouldnt-die/"
       ],
       "risk_flags": [],
-      "age_minutes": 13.1
+      "age_minutes": 17.6
     },
     {
       "id": "c0f1ab81724a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.1,
+      "urgency_score": 30.26,
       "score_components": {
         "source_trust": 2,
-        "recency": 19.1,
+        "recency": 18.26,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -905,9 +985,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "dff6696101e4",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T02:18:50Z",
-      "source_detection_latency_seconds": 848.8,
+      "source_detection_latency_seconds": 1118.6,
       "factual_update": "Jaxson Dart’s girlfriend writes heartfelt message to QB following devastating injury",
       "source": "New York Post",
       "source_tier": 3,
@@ -921,54 +1001,17 @@
         "https://nypost.com/2026/09/26/sports/jaxson-darts-girlfriend-writes-heartfelt-message-to-qb-following-devastating-injury/"
       ],
       "risk_flags": [],
-      "age_minutes": 14.1
-    },
-    {
-      "id": "850a5c1ecffe",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.72,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.72,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "b9eba62d7f6e",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:16:51Z",
-      "source_detection_latency_seconds": 967.8,
-      "factual_update": "Remembering Wendell Berry: Friendship, Faith, and a Love of the Land",
-      "source": "American Spectator",
-      "source_tier": 3,
-      "primary_source_link": "https://spectator.org/remembering-wendell-berry-friendship-faith-and-a-love-of-the-land/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Spectator"
-      ],
-      "corroborating_links": [
-        "https://spectator.org/remembering-wendell-berry-friendship-faith-and-a-love-of-the-land/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.1
+      "age_minutes": 18.6
     },
     {
       "id": "2dff23e47c5b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.5,
+      "urgency_score": 30.21,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.5,
+        "recency": 6.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -979,9 +1022,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3660413df8f2",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:52:15Z",
-      "source_detection_latency_seconds": 13243.8,
+      "source_detection_latency_seconds": 13513.6,
       "factual_update": "Trump says he ended Biden electric vehicle rule, updated fuel economy standards",
       "source": "The Hill",
       "source_tier": 2,
@@ -997,17 +1040,54 @@
         "https://thehill.com/homenews/administration/6113324-trump-eliminates-biden-ev-mandate/"
       ],
       "risk_flags": [],
-      "age_minutes": 122.0
+      "age_minutes": 126.5
+    },
+    {
+      "id": "850a5c1ecffe",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.9,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.9,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "b9eba62d7f6e",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:16:51Z",
+      "source_detection_latency_seconds": 1237.6,
+      "factual_update": "Remembering Wendell Berry: Friendship, Faith, and a Love of the Land",
+      "source": "American Spectator",
+      "source_tier": 3,
+      "primary_source_link": "https://spectator.org/remembering-wendell-berry-friendship-faith-and-a-love-of-the-land/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "American Spectator"
+      ],
+      "corroborating_links": [
+        "https://spectator.org/remembering-wendell-berry-friendship-faith-and-a-love-of-the-land/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.6
     },
     {
       "id": "cd654cc45ece",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.38,
+      "urgency_score": 29.27,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.38,
+        "recency": 2.27,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1018,9 +1098,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3e504fe02d36",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:50:34Z",
-      "source_detection_latency_seconds": 13344.8,
+      "source_detection_latency_seconds": 13614.6,
       "factual_update": "Civilian detained after 'violently engaging' security personnel at Florida Air Force base: report",
       "source": "Fox News",
       "source_tier": 2,
@@ -1034,91 +1114,17 @@
         "https://www.foxnews.com/us/civilian-detained-violently-engaging-security-personnel-florida-air-force-base"
       ],
       "risk_flags": [],
-      "age_minutes": 222.4
-    },
-    {
-      "id": "beceba36fef0",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.01,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.01,
-        "magnitude": 11,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "bfeffe60ebc1",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T22:33:31Z",
-      "source_detection_latency_seconds": 14367.8,
-      "factual_update": "Jonathan Cahn reveals untold details from viral airplane attack: ‘This was demonic’",
-      "source": "The Christian Post",
-      "source_tier": 3,
-      "primary_source_link": "https://www.christianpost.com/video/jonathan-cahn-reveals-untold-details-from-viral-airplane-attack.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Christian Post"
-      ],
-      "corroborating_links": [
-        "https://www.christianpost.com/video/jonathan-cahn-reveals-untold-details-from-viral-airplane-attack.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 239.5
-    },
-    {
-      "id": "4caea099cdd9",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.93,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 16.93,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f22ef6bf5bc3",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:06:46Z",
-      "source_detection_latency_seconds": 1572.8,
-      "factual_update": "Trump turns on Rep. Salazar following report Miami Republicans rejected immigration advertisement",
-      "source": "Washington Examiner",
-      "source_tier": 3,
-      "primary_source_link": "https://www.washingtonexaminer.com/news/white-house/4744311/trump-turns-on-salazar-miami-republicans/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Washington Examiner"
-      ],
-      "corroborating_links": [
-        "https://www.washingtonexaminer.com/news/white-house/4744311/trump-turns-on-salazar-miami-republicans/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 26.2
+      "age_minutes": 226.9
     },
     {
       "id": "73c075453655",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.44,
+      "urgency_score": 28.25,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.44,
+        "recency": 4.25,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1129,9 +1135,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e2d60df53569",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:03:39Z",
-      "source_detection_latency_seconds": 12559.8,
+      "source_detection_latency_seconds": 12829.6,
       "factual_update": "Can you eat ultra-processed foods and still be healthy? A dietitian analysed my weekly shop",
       "source": "BBC News",
       "source_tier": 2,
@@ -1147,17 +1153,17 @@
         "https://www.bbc.co.uk/news/articles/cqn4knlj9v81o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 159.9
+      "age_minutes": 164.4
     },
     {
-      "id": "17bc8945534c",
+      "id": "4caea099cdd9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.08,
+      "urgency_score": 28.18,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.08,
+        "recency": 16.18,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1167,34 +1173,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "dcd1a0a3caec",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:01:37Z",
-      "source_detection_latency_seconds": 1881.8,
-      "factual_update": "Shohei Ohtani will play in Dodgers’ regular-season finale — but shouldn’t",
-      "source": "New York Post",
+      "matched_storyline_id": "f22ef6bf5bc3",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:06:46Z",
+      "source_detection_latency_seconds": 1842.6,
+      "factual_update": "Trump turns on Rep. Salazar following report Miami Republicans rejected immigration advertisement",
+      "source": "Washington Examiner",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/sports/shohei-ohtani-slumping-again-dodgers-trouble/",
+      "primary_source_link": "https://www.washingtonexaminer.com/news/white-house/4744311/trump-turns-on-salazar-miami-republicans/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "New York Post"
+        "Washington Examiner"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/26/sports/shohei-ohtani-slumping-again-dodgers-trouble/"
+        "https://www.washingtonexaminer.com/news/white-house/4744311/trump-turns-on-salazar-miami-republicans/"
       ],
       "risk_flags": [],
-      "age_minutes": 31.4
+      "age_minutes": 30.7
     },
     {
       "id": "53a3c866f484",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.02,
+      "urgency_score": 27.89,
       "score_components": {
         "source_trust": 15,
-        "recency": 3.02,
+        "recency": 2.89,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1205,9 +1211,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9c2f0de85a8b",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:14:28Z",
-      "source_detection_latency_seconds": 11910.8,
+      "source_detection_latency_seconds": 12180.6,
       "factual_update": "Atlantic Tropical Weather Outlook",
       "source": "National Hurricane Center Atlantic",
       "source_tier": 1,
@@ -1221,17 +1227,17 @@
         "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
       ],
       "risk_flags": [],
-      "age_minutes": 198.5
+      "age_minutes": 203.0
     },
     {
-      "id": "361f4e8c53a7",
+      "id": "17bc8945534c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.97,
+      "urgency_score": 27.37,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.97,
+        "recency": 15.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1241,71 +1247,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "b2baeac8803f",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:00:57Z",
-      "source_detection_latency_seconds": 1921.8,
-      "factual_update": "Last-minute best bets for NFL Week 3: Seahawks cruise in Sam Darnold's return, Raiders suffer first loss",
-      "source": "CBS Sports",
+      "matched_storyline_id": "dcd1a0a3caec",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:01:37Z",
+      "source_detection_latency_seconds": 2151.6,
+      "factual_update": "Shohei Ohtani will play in Dodgers’ regular-season finale — but shouldn’t",
+      "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/nfl/news/last-minute-best-bets-for-nfl-week-3-seahawks/",
+      "primary_source_link": "https://nypost.com/2026/09/26/sports/shohei-ohtani-slumping-again-dodgers-trouble/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "CBS Sports"
+        "New York Post"
       ],
       "corroborating_links": [
-        "https://www.cbssports.com/nfl/news/last-minute-best-bets-for-nfl-week-3-seahawks/"
+        "https://nypost.com/2026/09/26/sports/shohei-ohtani-slumping-again-dodgers-trouble/"
       ],
       "risk_flags": [],
-      "age_minutes": 32.0
-    },
-    {
-      "id": "ab0ca42757c6",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.9,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.9,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "703b096a7acf",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:00:29Z",
-      "source_detection_latency_seconds": 1949.8,
-      "factual_update": "BBC: Bare Nails Trend Perpetuates White Supremacist Standards of Beauty",
-      "source": "Twitchy",
-      "source_tier": 3,
-      "primary_source_link": "https://twitchy.com/brettt/2026/09/26/bbc-bare-nails-trend-perpetuates-white-supremacist-standards-of-beauty-n2432751",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Twitchy"
-      ],
-      "corroborating_links": [
-        "https://twitchy.com/brettt/2026/09/26/bbc-bare-nails-trend-perpetuates-white-supremacist-standards-of-beauty-n2432751"
-      ],
-      "risk_flags": [],
-      "age_minutes": 32.5
+      "age_minutes": 35.9
     },
     {
       "id": "d0dca03201dc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.72,
+      "urgency_score": 27.33,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.72,
+        "recency": 8.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1316,9 +1285,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9de66263c253",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:00:25Z",
-      "source_detection_latency_seconds": 5553.8,
+      "source_detection_latency_seconds": 5823.6,
       "factual_update": "NYC Mayor Zohran Mamdani and the Socialist Prime Minister of Spain Play With Trash",
       "source": "Twitchy",
       "source_tier": 3,
@@ -1332,54 +1301,17 @@
         "https://twitchy.com/brettt/2026/09/26/nyc-mayor-zohran-mamdani-plays-trash-ball-with-the-socialist-prime-minister-of-spain-n2432749"
       ],
       "risk_flags": [],
-      "age_minutes": 92.6
+      "age_minutes": 97.1
     },
     {
-      "id": "aef0a8b7da48",
+      "id": "361f4e8c53a7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.44,
+      "urgency_score": 27.27,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.44,
-        "magnitude": 0,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8b715c490108",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T00:30:04Z",
-      "source_detection_latency_seconds": 7374.8,
-      "factual_update": "Half of new parents have unwanted, intrusive thoughts of harming their infants. Research suggests most aren't dangerous.",
-      "source": "Medical Xpress",
-      "source_tier": 3,
-      "primary_source_link": "https://medicalxpress.com/news/2026-09-parents-unwanted-intrusive-thoughts-infants.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Medical Xpress"
-      ],
-      "corroborating_links": [
-        "https://medicalxpress.com/news/2026-09-parents-unwanted-intrusive-thoughts-infants.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 122.9
-    },
-    {
-      "id": "c63eb61c9c03",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.26,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.26,
+        "recency": 15.27,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1389,64 +1321,27 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "a406b7c90cc7",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:56:23Z",
-      "source_detection_latency_seconds": 2195.8,
-      "factual_update": "Breaking down Liberty-Lynx WNBA playoff matchup, plus a prediction",
-      "source": "New York Post",
+      "matched_storyline_id": "b2baeac8803f",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:00:57Z",
+      "source_detection_latency_seconds": 2191.6,
+      "factual_update": "Last-minute best bets for NFL Week 3: Seahawks cruise in Sam Darnold's return, Raiders suffer first loss",
+      "source": "CBS Sports",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/sports/breaking-down-liberty-lynx-wnba-playoff-matchup-plus-prediction/",
+      "primary_source_link": "https://www.cbssports.com/nfl/news/last-minute-best-bets-for-nfl-week-3-seahawks/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "New York Post"
+        "CBS Sports"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/26/sports/breaking-down-liberty-lynx-wnba-playoff-matchup-plus-prediction/"
+        "https://www.cbssports.com/nfl/news/last-minute-best-bets-for-nfl-week-3-seahawks/"
       ],
       "risk_flags": [],
-      "age_minutes": 36.6
+      "age_minutes": 36.5
     },
     {
-      "id": "e9c32881c439",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.22,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.22,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f03a6daa0a89",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:56:10Z",
-      "source_detection_latency_seconds": 2208.8,
-      "factual_update": "Michael Goodwin: Gov. Hochul playing ‘big sister’ to Hizzoner shows she’s alligned with his agenda",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/opinion/michael-goodwin-gov-hochul-playing-big-sister-to-hizzoner-shows-shes-alligned-with-his-agenda/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/26/opinion/michael-goodwin-gov-hochul-playing-big-sister-to-hizzoner-shows-shes-alligned-with-his-agenda/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 36.8
-    },
-    {
-      "id": "c5a5a5fe6763",
+      "id": "ab0ca42757c6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -1463,10 +1358,158 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "703b096a7acf",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:00:29Z",
+      "source_detection_latency_seconds": 2219.6,
+      "factual_update": "BBC: Bare Nails Trend Perpetuates White Supremacist Standards of Beauty",
+      "source": "Twitchy",
+      "source_tier": 3,
+      "primary_source_link": "https://twitchy.com/brettt/2026/09/26/bbc-bare-nails-trend-perpetuates-white-supremacist-standards-of-beauty-n2432751",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Twitchy"
+      ],
+      "corroborating_links": [
+        "https://twitchy.com/brettt/2026/09/26/bbc-bare-nails-trend-perpetuates-white-supremacist-standards-of-beauty-n2432751"
+      ],
+      "risk_flags": [],
+      "age_minutes": 37.0
+    },
+    {
+      "id": "aef0a8b7da48",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.15,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 6.15,
+        "magnitude": 0,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8b715c490108",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T00:30:04Z",
+      "source_detection_latency_seconds": 7644.6,
+      "factual_update": "Half of new parents have unwanted, intrusive thoughts of harming their infants. Research suggests most aren't dangerous.",
+      "source": "Medical Xpress",
+      "source_tier": 3,
+      "primary_source_link": "https://medicalxpress.com/news/2026-09-parents-unwanted-intrusive-thoughts-infants.html",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Medical Xpress"
+      ],
+      "corroborating_links": [
+        "https://medicalxpress.com/news/2026-09-parents-unwanted-intrusive-thoughts-infants.html"
+      ],
+      "risk_flags": [],
+      "age_minutes": 127.4
+    },
+    {
+      "id": "c63eb61c9c03",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.59,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.59,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "a406b7c90cc7",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:56:23Z",
+      "source_detection_latency_seconds": 2465.6,
+      "factual_update": "Breaking down Liberty-Lynx WNBA playoff matchup, plus a prediction",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/26/sports/breaking-down-liberty-lynx-wnba-playoff-matchup-plus-prediction/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/26/sports/breaking-down-liberty-lynx-wnba-playoff-matchup-plus-prediction/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 41.1
+    },
+    {
+      "id": "e9c32881c439",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.56,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.56,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "f03a6daa0a89",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:56:10Z",
+      "source_detection_latency_seconds": 2478.6,
+      "factual_update": "Michael Goodwin: Gov. Hochul playing ‘big sister’ to Hizzoner shows she’s alligned with his agenda",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/26/opinion/michael-goodwin-gov-hochul-playing-big-sister-to-hizzoner-shows-shes-alligned-with-his-agenda/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/26/opinion/michael-goodwin-gov-hochul-playing-big-sister-to-hizzoner-shows-shes-alligned-with-his-agenda/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 41.3
+    },
+    {
+      "id": "c5a5a5fe6763",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.54,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.54,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "2b49a536104a",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:56:02Z",
-      "source_detection_latency_seconds": 2216.8,
+      "source_detection_latency_seconds": 2486.6,
       "factual_update": "Blood-soaked California poachers arrested after cops make horrifying discovery",
       "source": "New York Post",
       "source_tier": 3,
@@ -1480,17 +1523,17 @@
         "https://nypost.com/2026/09/26/us-news/blood-soaked-california-deer-hunters-arrested-after-cops-make-horrifying-discovery/"
       ],
       "risk_flags": [],
-      "age_minutes": 36.9
+      "age_minutes": 41.4
     },
     {
       "id": "d1a21ca2ccfc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.18,
+      "urgency_score": 26.52,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.18,
+        "recency": 14.52,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1501,9 +1544,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5a32863e4739",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:55:54Z",
-      "source_detection_latency_seconds": 2224.8,
+      "source_detection_latency_seconds": 2494.6,
       "factual_update": "Trump Rejects Iran’s Latest Peace Proposal",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1517,17 +1560,17 @@
         "https://www.theepochtimes.com/world/trump-rejects-irans-latest-peace-proposal-6095534"
       ],
       "risk_flags": [],
-      "age_minutes": 37.1
+      "age_minutes": 41.6
     },
     {
       "id": "4338fb906bc4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.15,
+      "urgency_score": 26.48,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.15,
+        "recency": 14.48,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1538,9 +1581,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7a250f7d0591",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:55:40Z",
-      "source_detection_latency_seconds": 2238.8,
+      "source_detection_latency_seconds": 2508.6,
       "factual_update": "Helicopter crash in Quebec kills all four people aboard",
       "source": "New York Post",
       "source_tier": 3,
@@ -1554,17 +1597,17 @@
         "https://nypost.com/2026/09/26/world-news/helicopter-crash-in-quebec-kills-all-four-people-aboard/"
       ],
       "risk_flags": [],
-      "age_minutes": 37.3
+      "age_minutes": 41.8
     },
     {
       "id": "b36bb2d84085",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.96,
+      "urgency_score": 26.3,
       "score_components": {
         "source_trust": 2,
-        "recency": 14.96,
+        "recency": 14.3,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1575,9 +1618,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f01ce7ca30e6",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:54:24Z",
-      "source_detection_latency_seconds": 2314.8,
+      "source_detection_latency_seconds": 2584.6,
       "factual_update": "Karoline Leavitt Dishes on Trump's Humiliation of World Leader. This is Priceless.",
       "source": "RedState",
       "source_tier": 3,
@@ -1591,17 +1634,17 @@
         "https://redstate.com/kyle-becker/2026/09/26/karoline-leavitt-stirs-controversy-by-dishing-on-trumps-humiliation-of-world-leader-n2207428"
       ],
       "risk_flags": [],
-      "age_minutes": 38.6
+      "age_minutes": 43.1
     },
     {
       "id": "9775125cce01",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.84,
+      "urgency_score": 26.19,
       "score_components": {
         "source_trust": 2,
-        "recency": 14.84,
+        "recency": 14.19,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1612,9 +1655,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3ec3399b5631",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:53:36Z",
-      "source_detection_latency_seconds": 2362.8,
+      "source_detection_latency_seconds": 2632.6,
       "factual_update": "Johnny Depp eats decorative plant at Las Vegas party in bizarre video",
       "source": "New York Post",
       "source_tier": 3,
@@ -1628,17 +1671,17 @@
         "https://pagesix.com/2026/09/26/celebrity-news/johnny-depp-eats-decorative-plant-at-las-vegas-party-in-bizarre-video/"
       ],
       "risk_flags": [],
-      "age_minutes": 39.4
+      "age_minutes": 43.9
     },
     {
       "id": "76684966671a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.44,
+      "urgency_score": 25.81,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.44,
+        "recency": 13.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1649,9 +1692,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:50:53Z",
-      "source_detection_latency_seconds": 2525.8,
+      "source_detection_latency_seconds": 2795.6,
       "factual_update": "Oregon Ducks QB Dante Moore carted off the field after a vicious hit to the head against USC",
       "source": "Fox News",
       "source_tier": 2,
@@ -1665,17 +1708,17 @@
         "https://www.foxnews.com/outkick-sports/oregon-ducks-qb-dante-moore-carted-off-field-vicious-hit-head-usc"
       ],
       "risk_flags": [],
-      "age_minutes": 42.1
+      "age_minutes": 46.6
     },
     {
-      "id": "5be5538a2193",
+      "id": "2b4f6ed375c9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.83,
+      "urgency_score": 25.61,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.83,
+        "recency": 21.61,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1686,33 +1729,33 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T02:32:11Z",
-      "source_detection_latency_seconds": 47.8,
-      "factual_update": "Liberty brush off concerns over banged-up stars before playoffs",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T02:35:41Z",
+      "source_detection_latency_seconds": 107.6,
+      "factual_update": "Sting’s son Steven Borden injured during match at AEW All Out in scary scene",
       "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/sports/liberty-brush-off-concerns-over-banged-up-stars-before-playoffs/",
+      "primary_source_link": "https://nypost.com/2026/09/26/sports/stings-son-steven-borden-injured-during-match-at-aew-all-out-in-scary-scene/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "New York Post"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/26/sports/liberty-brush-off-concerns-over-banged-up-stars-before-playoffs/"
+        "https://nypost.com/2026/09/26/sports/stings-son-steven-borden-injured-during-match-at-aew-all-out-in-scary-scene/"
       ],
       "risk_flags": [],
-      "age_minutes": 0.8
+      "age_minutes": 1.8
     },
     {
       "id": "e280745ddada",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.76,
+      "urgency_score": 25.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.76,
+        "recency": 13.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1723,9 +1766,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6d5a3f04b665",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:46:05Z",
-      "source_detection_latency_seconds": 2813.8,
+      "source_detection_latency_seconds": 3083.6,
       "factual_update": "US jury says Apple owes record $5.7 billion in patent case against San Diego company",
       "source": "New York Post",
       "source_tier": 3,
@@ -1739,17 +1782,17 @@
         "https://nypost.com/2026/09/26/business/us-jury-says-apple-owes-record-5-7-billion-in-patent-case-against-san-diego-company/"
       ],
       "risk_flags": [],
-      "age_minutes": 46.9
+      "age_minutes": 51.4
     },
     {
       "id": "9556a4c73400",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.24,
+      "urgency_score": 25.01,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.24,
+        "recency": 5.01,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1760,9 +1803,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2b957553c4b1",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:09:26Z",
-      "source_detection_latency_seconds": 8612.8,
+      "source_detection_latency_seconds": 8882.6,
       "factual_update": "The Papers: 'Noel's crying his heart out' and 'global IVF disaster'",
       "source": "BBC News",
       "source_tier": 2,
@@ -1776,17 +1819,17 @@
         "https://www.bbc.co.uk/news/articles/cky9zzre1259o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 143.5
+      "age_minutes": 148.0
     },
     {
       "id": "595f11f19366",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.16,
+      "urgency_score": 24.93,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.16,
+        "recency": 4.93,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1797,9 +1840,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f629dbd90e35",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:07:59Z",
-      "source_detection_latency_seconds": 8699.8,
+      "source_detection_latency_seconds": 8969.6,
       "factual_update": "Trump slams reporting on removal of his endorsements from GOP candidate’s website",
       "source": "The Hill",
       "source_tier": 2,
@@ -1813,17 +1856,17 @@
         "https://thehill.com/homenews/administration/6113353-trump-denies-byron-donalds-endorsement-story/"
       ],
       "risk_flags": [],
-      "age_minutes": 145.0
+      "age_minutes": 149.5
     },
     {
       "id": "d6f9483cc7e2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.07,
+      "urgency_score": 24.49,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.07,
+        "recency": 12.49,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1834,9 +1877,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7458a38c89dd",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:40:53Z",
-      "source_detection_latency_seconds": 3125.8,
+      "source_detection_latency_seconds": 3395.6,
       "factual_update": "Bulls aquire Buddy Hield from Hornets in late-offseason twist",
       "source": "New York Post",
       "source_tier": 3,
@@ -1850,54 +1893,17 @@
         "https://nypost.com/2026/09/26/sports/bulls-aquire-buddy-hield-from-hornets-in-late-offseason-move/"
       ],
       "risk_flags": [],
-      "age_minutes": 52.1
-    },
-    {
-      "id": "f90a13d79f1c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.83,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.83,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4291542c1109",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:30:55Z",
-      "source_detection_latency_seconds": 3723.8,
-      "factual_update": "Georgia Tech-Stanford predictions: Make picks, trades with Polymarket promo code CBSSPORTS",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/prediction/news/georgia-tech-stanford-predictions-make-picks-trades-with-polymarket-promo-code-cbssports/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/prediction/news/georgia-tech-stanford-predictions-make-picks-trades-with-polymarket-promo-code-cbssports/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.1
+      "age_minutes": 56.6
     },
     {
       "id": "e3fd6a220665",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.79,
+      "urgency_score": 23.58,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.79,
+        "recency": 4.58,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1908,9 +1914,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b5f0be58c182",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:00:28Z",
-      "source_detection_latency_seconds": 9150.8,
+      "source_detection_latency_seconds": 9420.6,
       "factual_update": "Report Finds Security Flaws at University Where Charlie Kirk Was Assassinated",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1924,91 +1930,17 @@
         "https://www.theepochtimes.com/us/report-finds-security-flaws-at-university-where-charlie-kirk-was-assassinated-6095259"
       ],
       "risk_flags": [],
-      "age_minutes": 152.5
-    },
-    {
-      "id": "36e201c9eb31",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.78,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.78,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "e01eba7483c5",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:30:31Z",
-      "source_detection_latency_seconds": 3747.8,
-      "factual_update": "Accused drug kingpin ‘Spider’ who commanded 1,000-person cocaine army to face justice in California",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/us-news/accused-colombian-drug-kingpin-extradited-to-california-to-face-drug-charges/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/26/us-news/accused-colombian-drug-kingpin-extradited-to-california-to-face-drug-charges/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.5
-    },
-    {
-      "id": "9c69e2dc431a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.63,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.63,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4e9e72d57b6f",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:29:14Z",
-      "source_detection_latency_seconds": 3824.8,
-      "factual_update": "Reba McEntire haunted by missed call from Dolly Parton a month before her death: ‘I’ll never know why’",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/2026/09/26/celebrity-news/reba-mcentire-reveals-missed-call-from-dolly-parton-before-her-death/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://pagesix.com/2026/09/26/celebrity-news/reba-mcentire-reveals-missed-call-from-dolly-parton-before-her-death/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 63.7
+      "age_minutes": 157.0
     },
     {
       "id": "f11e5ca8a099",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.63,
+      "urgency_score": 23.47,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.63,
+        "recency": 3.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2019,9 +1951,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5c577dae5204",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:32:55Z",
-      "source_detection_latency_seconds": 10803.8,
+      "source_detection_latency_seconds": 11073.6,
       "factual_update": "Enes Freedom rips Cheryl Reeve for saying women's sports advocates 'don’t want transgender people to exist'",
       "source": "Fox News",
       "source_tier": 2,
@@ -2035,17 +1967,17 @@
         "https://www.foxnews.com/outkick-sports/enes-freedom-rips-cheryl-reeve-for-saying-womens-sports-advocates-dont-want-transgender-people-to-exist"
       ],
       "risk_flags": [],
-      "age_minutes": 180.1
+      "age_minutes": 184.6
     },
     {
-      "id": "7d7ceb812b9e",
+      "id": "f90a13d79f1c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.41,
+      "urgency_score": 23.31,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.41,
+        "recency": 11.31,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2055,34 +1987,71 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "962fc7b33993",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:27:22Z",
-      "source_detection_latency_seconds": 3936.8,
-      "factual_update": "Gavin Newsom’s sanctuary lunacy: Coming to a beach near you",
+      "matched_storyline_id": "4291542c1109",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:30:55Z",
+      "source_detection_latency_seconds": 3993.6,
+      "factual_update": "Georgia Tech-Stanford predictions: Make picks, trades with Polymarket promo code CBSSPORTS",
+      "source": "CBS Sports",
+      "source_tier": 3,
+      "primary_source_link": "https://www.cbssports.com/prediction/news/georgia-tech-stanford-predictions-make-picks-trades-with-polymarket-promo-code-cbssports/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBS Sports"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/prediction/news/georgia-tech-stanford-predictions-make-picks-trades-with-polymarket-promo-code-cbssports/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 66.6
+    },
+    {
+      "id": "36e201c9eb31",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.26,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.26,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "e01eba7483c5",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:30:31Z",
+      "source_detection_latency_seconds": 4017.6,
+      "factual_update": "Accused drug kingpin ‘Spider’ who commanded 1,000-person cocaine army to face justice in California",
       "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/opinion/gavin-newsoms-sanctuary-lunacy-coming-to-a-beach-near-you/",
+      "primary_source_link": "https://nypost.com/2026/09/26/us-news/accused-colombian-drug-kingpin-extradited-to-california-to-face-drug-charges/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "New York Post"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/26/opinion/gavin-newsoms-sanctuary-lunacy-coming-to-a-beach-near-you/"
+        "https://nypost.com/2026/09/26/us-news/accused-colombian-drug-kingpin-extradited-to-california-to-face-drug-charges/"
       ],
       "risk_flags": [],
-      "age_minutes": 65.6
+      "age_minutes": 67.0
     },
     {
       "id": "7c689ea4368f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.37,
+      "urgency_score": 23.23,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.37,
+        "recency": 3.23,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2093,9 +2062,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "47a843d9bee6",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:25:29Z",
-      "source_detection_latency_seconds": 11249.8,
+      "source_detection_latency_seconds": 11519.6,
       "factual_update": "Pope Leo draws staggering 800,000 faithful to heart of Paris for massive outdoor Mass",
       "source": "Fox News",
       "source_tier": 2,
@@ -2109,91 +2078,17 @@
         "https://www.foxnews.com/world/pope-leo-draws-staggering-800000-faithful-heart-paris-massive-outdoor-mass"
       ],
       "risk_flags": [],
-      "age_minutes": 187.5
-    },
-    {
-      "id": "c0842f2840bc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.33,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.33,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "79ef082c1778",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:26:37Z",
-      "source_detection_latency_seconds": 3981.8,
-      "factual_update": "College football winners, losers in Week 4: Iowa emerges as Big Ten title threat, John Mateer struggles again",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/college-football/news/college-football-winners-losers-week-4-iowa-oklahoma-john-mateer/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/college-football/news/college-football-winners-losers-week-4-iowa-oklahoma-john-mateer/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 66.4
-    },
-    {
-      "id": "8e0d657e7e28",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.31,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 4.31,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "bdd989e3e4cd",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:50:00Z",
-      "source_detection_latency_seconds": 9778.8,
-      "factual_update": "Congress Is Funding a $200 Billion Navy Project Without the Full Scorecard",
-      "source": "PJ Media",
-      "source_tier": 3,
-      "primary_source_link": "https://pjmedia.com/david-manney/2026/09/26/congress-is-funding-a-200-billion-navy-project-without-the-full-scorecard-n4957676",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "PJ Media"
-      ],
-      "corroborating_links": [
-        "https://pjmedia.com/david-manney/2026/09/26/congress-is-funding-a-200-billion-navy-project-without-the-full-scorecard-n4957676"
-      ],
-      "risk_flags": [],
-      "age_minutes": 163.0
+      "age_minutes": 192.0
     },
     {
       "id": "adfd01fc1fc9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.28,
+      "urgency_score": 23.14,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.28,
+        "recency": 3.14,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2204,9 +2099,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c588d00f9070",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:22:47Z",
-      "source_detection_latency_seconds": 11411.8,
+      "source_detection_latency_seconds": 11681.6,
       "factual_update": "Internationals hold three-point lead over US",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2220,17 +2115,17 @@
         "https://www.bbc.co.uk/sport/golf/articles/c64gvvjze807o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 190.2
+      "age_minutes": 194.7
     },
     {
-      "id": "15dd58742e44",
+      "id": "9c69e2dc431a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.17,
+      "urgency_score": 23.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.17,
+        "recency": 11.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2240,34 +2135,71 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "79decb2149e4",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:25:13Z",
-      "source_detection_latency_seconds": 4065.8,
-      "factual_update": "Towering Topgolf nets are killing birds, animal activists allege in scathing lawsuit",
+      "matched_storyline_id": "4e9e72d57b6f",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:29:14Z",
+      "source_detection_latency_seconds": 4094.6,
+      "factual_update": "Reba McEntire haunted by missed call from Dolly Parton a month before her death: ‘I’ll never know why’",
       "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/us-news/towering-topgolf-nets-are-killing-birdies-animal-activists/",
+      "primary_source_link": "https://pagesix.com/2026/09/26/celebrity-news/reba-mcentire-reveals-missed-call-from-dolly-parton-before-her-death/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "New York Post"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/09/26/us-news/towering-topgolf-nets-are-killing-birdies-animal-activists/"
+        "https://pagesix.com/2026/09/26/celebrity-news/reba-mcentire-reveals-missed-call-from-dolly-parton-before-her-death/"
       ],
       "risk_flags": [],
-      "age_minutes": 67.8
+      "age_minutes": 68.2
     },
     {
-      "id": "c77589336f55",
+      "id": "8e0d657e7e28",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.94,
+      "urgency_score": 23.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.94,
+        "recency": 4.12,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "bdd989e3e4cd",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:50:00Z",
+      "source_detection_latency_seconds": 10048.6,
+      "factual_update": "Congress Is Funding a $200 Billion Navy Project Without the Full Scorecard",
+      "source": "PJ Media",
+      "source_tier": 3,
+      "primary_source_link": "https://pjmedia.com/david-manney/2026/09/26/congress-is-funding-a-200-billion-navy-project-without-the-full-scorecard-n4957676",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "PJ Media"
+      ],
+      "corroborating_links": [
+        "https://pjmedia.com/david-manney/2026/09/26/congress-is-funding-a-200-billion-navy-project-without-the-full-scorecard-n4957676"
+      ],
+      "risk_flags": [],
+      "age_minutes": 167.5
+    },
+    {
+      "id": "7d7ceb812b9e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.91,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 10.91,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2277,34 +2209,71 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "67277da11c78",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:23:05Z",
-      "source_detection_latency_seconds": 4193.8,
-      "factual_update": "AI killer robots back Klobuchar",
-      "source": "Power Line",
+      "matched_storyline_id": "962fc7b33993",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:27:22Z",
+      "source_detection_latency_seconds": 4206.6,
+      "factual_update": "Gavin Newsom’s sanctuary lunacy: Coming to a beach near you",
+      "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/ai-killer-robots-back-klobuchar.php",
+      "primary_source_link": "https://nypost.com/2026/09/26/opinion/gavin-newsoms-sanctuary-lunacy-coming-to-a-beach-near-you/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "Power Line"
+        "New York Post"
       ],
       "corroborating_links": [
-        "https://www.powerlineblog.com/archives/2026/09/ai-killer-robots-back-klobuchar.php"
+        "https://nypost.com/2026/09/26/opinion/gavin-newsoms-sanctuary-lunacy-coming-to-a-beach-near-you/"
       ],
       "risk_flags": [],
-      "age_minutes": 69.9
+      "age_minutes": 70.1
+    },
+    {
+      "id": "c0842f2840bc",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.83,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 10.83,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "79ef082c1778",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:26:37Z",
+      "source_detection_latency_seconds": 4251.6,
+      "factual_update": "College football winners, losers in Week 4: Iowa emerges as Big Ten title threat, John Mateer struggles again",
+      "source": "CBS Sports",
+      "source_tier": 3,
+      "primary_source_link": "https://www.cbssports.com/college-football/news/college-football-winners-losers-week-4-iowa-oklahoma-john-mateer/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBS Sports"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/college-football/news/college-football-winners-losers-week-4-iowa-oklahoma-john-mateer/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 70.9
     },
     {
       "id": "5da188eab587",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.87,
+      "urgency_score": 22.75,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.87,
+        "recency": 2.75,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2315,9 +2284,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3ebb35630e9b",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:09:23Z",
-      "source_detection_latency_seconds": 12215.8,
+      "source_detection_latency_seconds": 12485.6,
       "factual_update": "Ben Affleck admits his teenager roasted his dating history while at dinner",
       "source": "Fox News",
       "source_tier": 2,
@@ -2331,17 +2300,54 @@
         "https://www.foxnews.com/entertainment/ben-affleck-admits-teenager-roasted-dating-history-dinner"
       ],
       "risk_flags": [],
-      "age_minutes": 203.6
+      "age_minutes": 208.1
+    },
+    {
+      "id": "15dd58742e44",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.68,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 10.68,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "79decb2149e4",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:25:13Z",
+      "source_detection_latency_seconds": 4335.6,
+      "factual_update": "Towering Topgolf nets are killing birds, animal activists allege in scathing lawsuit",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/26/us-news/towering-topgolf-nets-are-killing-birdies-animal-activists/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/26/us-news/towering-topgolf-nets-are-killing-birdies-animal-activists/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 72.3
     },
     {
       "id": "fb8ba743f659",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.79,
+      "urgency_score": 22.67,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.79,
+        "recency": 2.67,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2352,9 +2358,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f1761c021ed7",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:06:31Z",
-      "source_detection_latency_seconds": 12387.8,
+      "source_detection_latency_seconds": 12657.6,
       "factual_update": "Fisher outpoints bloodied Pirotton on Zuffa debut",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2368,121 +2374,10 @@
         "https://www.bbc.co.uk/sport/boxing/articles/cq4g55ye1r4wo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 206.5
+      "age_minutes": 211.0
     },
     {
       "id": "b6ecf9c18bc2",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.78,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.78,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "91221ae7e2cb",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:06:07Z",
-      "source_detection_latency_seconds": 12411.8,
-      "factual_update": "Pickford or Trafford? The battle to be England's number one is now on",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/ckm2qqpjv7nro?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/ckm2qqpjv7nro?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 206.9
-    },
-    {
-      "id": "310ab98e9db8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.73,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.73,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "bb5ee00ed764",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:04:08Z",
-      "source_detection_latency_seconds": 12530.8,
-      "factual_update": "Christa Pike to be first woman executed in Tennessee in 200 years - but her defence say she's a victim too",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c6pwl9g9ne1lo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/c6pwl9g9ne1lo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 208.8
-    },
-    {
-      "id": "aabaf2db3128",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.69,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.69,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ab1570c4ec90",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:02:47Z",
-      "source_detection_latency_seconds": 12611.8,
-      "factual_update": "The young women guiding tourists through India's night sky",
-      "source": "BBC Science & Environment",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cvp8d0nezkeko?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Science & Environment"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cvp8d0nezkeko?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 210.2
-    },
-    {
-      "id": "ba161600ce87",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -2499,10 +2394,121 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "91221ae7e2cb",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:06:07Z",
+      "source_detection_latency_seconds": 12681.6,
+      "factual_update": "Pickford or Trafford? The battle to be England's number one is now on",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/ckm2qqpjv7nro?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/ckm2qqpjv7nro?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 211.4
+    },
+    {
+      "id": "310ab98e9db8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.61,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.61,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "bb5ee00ed764",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:04:08Z",
+      "source_detection_latency_seconds": 12800.6,
+      "factual_update": "Christa Pike to be first woman executed in Tennessee in 200 years - but her defence say she's a victim too",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c6pwl9g9ne1lo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/c6pwl9g9ne1lo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 213.3
+    },
+    {
+      "id": "aabaf2db3128",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.57,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.57,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ab1570c4ec90",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:02:47Z",
+      "source_detection_latency_seconds": 12881.6,
+      "factual_update": "The young women guiding tourists through India's night sky",
+      "source": "BBC Science & Environment",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cvp8d0nezkeko?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Science & Environment"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cvp8d0nezkeko?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 214.7
+    },
+    {
+      "id": "ba161600ce87",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.54,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 2.54,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "19bd35288685",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:01:47Z",
-      "source_detection_latency_seconds": 12671.8,
+      "source_detection_latency_seconds": 12941.6,
       "factual_update": "Celebrity Traitors 2 cast: Who are this year's 'big dogs' and dark horses?",
       "source": "BBC News",
       "source_tier": 2,
@@ -2516,17 +2522,17 @@
         "https://www.bbc.co.uk/news/articles/cv5yjzz803edo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 211.2
+      "age_minutes": 215.7
     },
     {
       "id": "60a11c0db859",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.63,
+      "urgency_score": 22.52,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.63,
+        "recency": 2.52,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2537,9 +2543,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8ad2f9dcdbd5",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:00:42Z",
-      "source_detection_latency_seconds": 12736.8,
+      "source_detection_latency_seconds": 13006.6,
       "factual_update": "Faisal Islam: The two big calls the chancellor has to make ahead of the Budget",
       "source": "BBC News",
       "source_tier": 2,
@@ -2553,17 +2559,17 @@
         "https://www.bbc.co.uk/news/articles/cklye5e40531o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 212.3
+      "age_minutes": 216.8
     },
     {
-      "id": "ba8228689af5",
+      "id": "c77589336f55",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.32,
+      "urgency_score": 22.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.32,
+        "recency": 10.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2573,34 +2579,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "5dc7e3fe3d27",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T01:17:19Z",
-      "source_detection_latency_seconds": 4539.8,
-      "factual_update": "'Hogwash': NRSC Leadership Blasts Politico Report on GOP Abandoning Key States As 'Misleading'",
-      "source": "RedState",
+      "matched_storyline_id": "67277da11c78",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:23:05Z",
+      "source_detection_latency_seconds": 4463.6,
+      "factual_update": "AI killer robots back Klobuchar",
+      "source": "Power Line",
       "source_tier": 3,
-      "primary_source_link": "https://redstate.com/kyle-becker/2026/09/26/hogwash-nrsc-leadership-blasts-politico-report-on-gop-abandoning-key-states-as-misleading-n2207427",
+      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/ai-killer-robots-back-klobuchar.php",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "RedState"
+        "Power Line"
       ],
       "corroborating_links": [
-        "https://redstate.com/kyle-becker/2026/09/26/hogwash-nrsc-leadership-blasts-politico-report-on-gop-abandoning-key-states-as-misleading-n2207427"
+        "https://www.powerlineblog.com/archives/2026/09/ai-killer-robots-back-klobuchar.php"
       ],
       "risk_flags": [],
-      "age_minutes": 75.7
+      "age_minutes": 74.4
     },
     {
       "id": "a773397ec649",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.3,
+      "urgency_score": 22.2,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.3,
+        "recency": 2.2,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2611,9 +2617,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a4c76d2f78dc",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:47:10Z",
-      "source_detection_latency_seconds": 13548.8,
+      "source_detection_latency_seconds": 13818.6,
       "factual_update": "Tuchel rues 'big mistakes' - did Man City charges have impact?",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2627,17 +2633,17 @@
         "https://www.bbc.co.uk/sport/football/articles/c6j4jjg5qxero?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 225.8
+      "age_minutes": 230.3
     },
     {
       "id": "88a60bdd99c1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.23,
+      "urgency_score": 22.13,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.23,
+        "recency": 2.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2648,9 +2654,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e3f96ae32232",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:44:08Z",
-      "source_detection_latency_seconds": 13730.8,
+      "source_detection_latency_seconds": 14000.6,
       "factual_update": "This week on \"Sunday Morning\" (Sept. 27)",
       "source": "CBS News",
       "source_tier": 2,
@@ -2664,17 +2670,17 @@
         "https://www.cbsnews.com/news/this-week-on-sunday-morning-sept-27-2026/"
       ],
       "risk_flags": [],
-      "age_minutes": 228.8
+      "age_minutes": 233.3
     },
     {
       "id": "7024c47e1552",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.23,
+      "urgency_score": 22.13,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.23,
+        "recency": 2.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2685,9 +2691,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c9e72397253b",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:43:58Z",
-      "source_detection_latency_seconds": 13740.8,
+      "source_detection_latency_seconds": 14010.6,
       "factual_update": "Texas dropped some celebrations against Tennessee that were about as unhinged as they come",
       "source": "Fox News",
       "source_tier": 2,
@@ -2701,17 +2707,17 @@
         "https://www.foxnews.com/outkick-sports/texas-dropped-celebrations-tennessee-unhinged"
       ],
       "risk_flags": [],
-      "age_minutes": 229.0
+      "age_minutes": 233.5
     },
     {
       "id": "497d312b112f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.14,
+      "urgency_score": 22.04,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.14,
+        "recency": 2.04,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2722,9 +2728,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2944a146da7d",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:39:52Z",
-      "source_detection_latency_seconds": 13986.8,
+      "source_detection_latency_seconds": 14256.6,
       "factual_update": "England embrace the chaos - but control also needed to win big prizes",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2738,54 +2744,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cqx2zz6d5716o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 233.1
-    },
-    {
-      "id": "7abdabfdaadc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.08,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.08,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "74c8953cf6c4",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T22:37:20Z",
-      "source_detection_latency_seconds": 14138.8,
-      "factual_update": "Former Kennedy Center employees claim officials halted repairs months prior to closure",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/administration/6113290-kennedy-center-whistleblower-letter-repairs/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Hill"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/homenews/administration/6113290-kennedy-center-whistleblower-letter-repairs/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 235.6
+      "age_minutes": 237.6
     },
     {
       "id": "b43fd4da72bf",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.04,
+      "urgency_score": 21.9,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.04,
+        "recency": 2.9,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2796,9 +2765,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3c3abe7ac3a9",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:15:00Z",
-      "source_detection_latency_seconds": 11878.8,
+      "source_detection_latency_seconds": 12148.6,
       "factual_update": "So-Called Moderate Governor Candidate Wants More Trans Books in Elementary Schools",
       "source": "Western Journal",
       "source_tier": 3,
@@ -2812,17 +2781,54 @@
         "https://www.westernjournal.com/called-moderate-governor-candidate-wants-trans-books-elementary-schools/"
       ],
       "risk_flags": [],
-      "age_minutes": 198.0
+      "age_minutes": 202.5
+    },
+    {
+      "id": "ba8228689af5",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 21.87,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 9.87,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5dc7e3fe3d27",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-27T01:17:19Z",
+      "source_detection_latency_seconds": 4809.6,
+      "factual_update": "'Hogwash': NRSC Leadership Blasts Politico Report on GOP Abandoning Key States As 'Misleading'",
+      "source": "RedState",
+      "source_tier": 3,
+      "primary_source_link": "https://redstate.com/kyle-becker/2026/09/26/hogwash-nrsc-leadership-blasts-politico-report-on-gop-abandoning-key-states-as-misleading-n2207427",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "RedState"
+      ],
+      "corroborating_links": [
+        "https://redstate.com/kyle-becker/2026/09/26/hogwash-nrsc-leadership-blasts-politico-report-on-gop-abandoning-key-states-as-misleading-n2207427"
+      ],
+      "risk_flags": [],
+      "age_minutes": 80.2
     },
     {
       "id": "5920ec970680",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.91,
+      "urgency_score": 21.78,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.91,
+        "recency": 2.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2833,9 +2839,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5a42df0f50e4",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:10:35Z",
-      "source_detection_latency_seconds": 12143.8,
+      "source_detection_latency_seconds": 12413.6,
       "factual_update": "LSU vs. Texas A&M prediction, pick, odds, spread: Tigers, Aggies meet in early SEC showdown",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -2849,17 +2855,17 @@
         "https://www.cbssports.com/college-football/news/lsu-texas-am-prediction-picks-odds-spread-where-to-watch-live/"
       ],
       "risk_flags": [],
-      "age_minutes": 202.4
+      "age_minutes": 206.9
     },
     {
       "id": "41a601e53ed7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.48,
+      "urgency_score": 21.06,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.48,
+        "recency": 9.06,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2870,9 +2876,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d155242c764d",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:08:45Z",
-      "source_detection_latency_seconds": 5053.8,
+      "source_detection_latency_seconds": 5323.6,
       "factual_update": "‘Godzilla Minus Zero’ Director Champions Franchise’s First R Rating as Sequel Rocks NYFF at World Premiere: ‘Censoring’ the Action ‘Was Not an Option’",
       "source": "Variety",
       "source_tier": 3,
@@ -2886,17 +2892,17 @@
         "https://variety.com/2026/film/news/godzilla-minus-zero-r-rated-takashi-yamazaki-nyff-1236876643/"
       ],
       "risk_flags": [],
-      "age_minutes": 84.2
+      "age_minutes": 88.7
     },
     {
       "id": "f4970cecd41b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.13,
+      "urgency_score": 20.73,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.13,
+        "recency": 8.73,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2907,9 +2913,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5277dda7e7ce",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:05:00Z",
-      "source_detection_latency_seconds": 5278.8,
+      "source_detection_latency_seconds": 5548.6,
       "factual_update": "Nothing Says ‘Broaden the Coalition’ Like Threatening to Whup Bill Maher",
       "source": "PJ Media",
       "source_tier": 3,
@@ -2923,17 +2929,17 @@
         "https://pjmedia.com/david-manney/2026/09/26/nothing-says-broaden-the-coalition-like-threatening-to-whup-bill-maher-n4957678"
       ],
       "risk_flags": [],
-      "age_minutes": 88.0
+      "age_minutes": 92.5
     },
     {
       "id": "f4690851c247",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.05,
+      "urgency_score": 20.66,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.05,
+        "recency": 8.66,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2944,9 +2950,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e11791740ee7",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:04:12Z",
-      "source_detection_latency_seconds": 5326.8,
+      "source_detection_latency_seconds": 5596.6,
       "factual_update": "Knicks 2026-27 training camp breakdown: Roster battles, newcomers and storylines to watch",
       "source": "New York Post",
       "source_tier": 3,
@@ -2960,17 +2966,17 @@
         "https://nypost.com/2026/09/26/sports/knicks-2026-27-training-camp-breakdown-roster-battles-rookies-and-newcomers/"
       ],
       "risk_flags": [],
-      "age_minutes": 88.8
+      "age_minutes": 93.3
     },
     {
       "id": "8b29eb9b1b1d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.81,
+      "urgency_score": 20.6,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.81,
+        "recency": 4.6,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2981,9 +2987,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "75529ca50c14",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:00:59Z",
-      "source_detection_latency_seconds": 9119.8,
+      "source_detection_latency_seconds": 9389.6,
       "factual_update": "Jalen Brunson hosts ‘SNL’ Season 52 premiere — Here’s how to watch for free",
       "source": "Page Six",
       "source_tier": 3,
@@ -2999,17 +3005,17 @@
         "https://www.rollingstone.com/product-recommendations/streaming/where-to-watch-snl-season-52-premiere-jalen-brunson-katseye-1235630773/"
       ],
       "risk_flags": [],
-      "age_minutes": 152.0
+      "age_minutes": 156.5
     },
     {
       "id": "def834860fb3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.76,
+      "urgency_score": 20.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.76,
+        "recency": 8.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3020,9 +3026,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fd4a3186d97a",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:00:54Z",
-      "source_detection_latency_seconds": 5524.8,
+      "source_detection_latency_seconds": 5794.6,
       "factual_update": "NFL Week 3 player props: Our favorite picks to score, including Seahawks rookie RB Jadarian Price",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3036,17 +3042,17 @@
         "https://www.cbssports.com/nfl/news/nfl-week-3-player-props-seahawks-jadarian-price/"
       ],
       "risk_flags": [],
-      "age_minutes": 92.1
+      "age_minutes": 96.6
     },
     {
       "id": "77930e3be21e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.69,
+      "urgency_score": 20.31,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.69,
+        "recency": 8.31,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3057,9 +3063,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fe76e8ca90f2",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T01:00:08Z",
-      "source_detection_latency_seconds": 5570.8,
+      "source_detection_latency_seconds": 5840.6,
       "factual_update": "Ina Garten Explains Why She’s “Always Said No” To A Biopic: “It’s My Story”",
       "source": "Deadline",
       "source_tier": 3,
@@ -3073,54 +3079,17 @@
         "https://deadline.com/2026/09/ina-garten-always-said-no-biopic-1237114577/"
       ],
       "risk_flags": [],
-      "age_minutes": 92.8
-    },
-    {
-      "id": "5f7a1190c5a1",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 20.49,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 8.49,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "95fbffd2ba8f",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-27T00:57:46Z",
-      "source_detection_latency_seconds": 5712.8,
-      "factual_update": "Wedding reception for ex-Trump official Alina Habba and Turkish billionaire begins at posh NYC hotel",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/26/us-news/ex-trump-official-alina-habba-weds-turkish-billionaire-at-waldorf-astoria/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/26/us-news/ex-trump-official-alina-habba-weds-turkish-billionaire-at-waldorf-astoria/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 95.2
+      "age_minutes": 97.3
     },
     {
       "id": "88e6028e03ce",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.21,
+      "urgency_score": 19.85,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.21,
+        "recency": 7.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3131,9 +3100,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c4a1020a858e",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:54:25Z",
-      "source_detection_latency_seconds": 5913.8,
+      "source_detection_latency_seconds": 6183.6,
       "factual_update": "USMNT start new era under Mauricio Pochettino with 4-1 rout of Peru behind Justin Ellis, Julian Hall goals",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3147,17 +3116,17 @@
         "https://www.cbssports.com/soccer/news/usmnt-mauricio-pochettino-4-1-peru-justin-ellis-julian-hall/"
       ],
       "risk_flags": [],
-      "age_minutes": 98.6
+      "age_minutes": 103.1
     },
     {
       "id": "68db742ce549",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.61,
+      "urgency_score": 19.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.61,
+        "recency": 2.5,
         "magnitude": 9,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3168,9 +3137,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:00:00Z",
-      "source_detection_latency_seconds": 12778.8,
+      "source_detection_latency_seconds": 13048.6,
       "factual_update": "Leading Democrat Official Resigns After Probe Uncovers Sexual Harassment of Young Female Staffer",
       "source": "Western Journal",
       "source_tier": 3,
@@ -3184,17 +3153,17 @@
         "https://www.westernjournal.com/leading-democrat-official-resigns-probe-uncovers-sexual-harassment-young-female-staffer/"
       ],
       "risk_flags": [],
-      "age_minutes": 213.0
+      "age_minutes": 217.5
     },
     {
       "id": "21580912d24b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.12,
+      "urgency_score": 18.81,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.12,
+        "recency": 6.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3205,9 +3174,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f84e8dba042e",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:40:10Z",
-      "source_detection_latency_seconds": 6768.8,
+      "source_detection_latency_seconds": 7038.6,
       "factual_update": "From ‘Dracula’ to ‘Ulysses,’ Ireland’s Literary Genius Enchants at New York’s Oldest Museum",
       "source": "The New York Sun",
       "source_tier": 3,
@@ -3221,17 +3190,17 @@
         "https://www.nysun.com/article/from-dracula-to-ulysses-irelands-literary-genius-enchants-at-new-yorks-oldest-museum"
       ],
       "risk_flags": [],
-      "age_minutes": 112.8
+      "age_minutes": 117.3
     },
     {
       "id": "3bdd7d90b42c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.04,
+      "urgency_score": 18.73,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.04,
+        "recency": 6.73,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3242,9 +3211,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1d4aafad9bfd",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:39:00Z",
-      "source_detection_latency_seconds": 6838.8,
+      "source_detection_latency_seconds": 7108.6,
       "factual_update": "Pitching Legend Justin Verlander Ends His Final Start With a Very Special Moment",
       "source": "RedState",
       "source_tier": 3,
@@ -3258,17 +3227,17 @@
         "https://redstate.com/nick-arama/2026/09/26/tiger-legend-justin-verlander-ended-his-final-start-with-a-very-special-moment-n2207421"
       ],
       "risk_flags": [],
-      "age_minutes": 114.0
+      "age_minutes": 118.5
     },
     {
       "id": "73db9eb55243",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.43,
+      "urgency_score": 18.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.43,
+        "recency": 6.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3279,9 +3248,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6745d2888680",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:30:00Z",
-      "source_detection_latency_seconds": 7378.8,
+      "source_detection_latency_seconds": 7648.6,
       "factual_update": "‘Godzilla Minus Zero’ Review: Godzilla and King Ghidorah Battle to the Death in the Even Grander Follow-Up to ‘Godzilla Minus One’",
       "source": "Variety",
       "source_tier": 3,
@@ -3295,17 +3264,17 @@
         "https://variety.com/2026/film/reviews/godzilla-minus-zero-review-takashi-yamazaki-nyff-1236876075/"
       ],
       "risk_flags": [],
-      "age_minutes": 123.0
+      "age_minutes": 127.5
     },
     {
       "id": "509bdb11596e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.43,
+      "urgency_score": 18.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.43,
+        "recency": 6.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3316,9 +3285,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "50f23d585239",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:30:00Z",
-      "source_detection_latency_seconds": 7378.8,
+      "source_detection_latency_seconds": 7648.6,
       "factual_update": "Why we won't know how visible the iPhone Duo's crease is for a long time",
       "source": "Engadget",
       "source_tier": 3,
@@ -3332,17 +3301,17 @@
         "https://www.engadget.com/2266671/iphone-duo-wont-know-how-visible-crease-for-long-time/"
       ],
       "risk_flags": [],
-      "age_minutes": 123.0
+      "age_minutes": 127.5
     },
     {
       "id": "d5dc597767c8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.06,
+      "urgency_score": 17.79,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.06,
+        "recency": 5.79,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3353,9 +3322,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "82a36f1ff8c2",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:24:00Z",
-      "source_detection_latency_seconds": 7738.8,
+      "source_detection_latency_seconds": 8008.6,
       "factual_update": "Manhole Suspects Arrested After Emerging Underground Near NYC Hotel Where Netanyahu Was Staying",
       "source": "PJ Media",
       "source_tier": 3,
@@ -3369,17 +3338,17 @@
         "https://pjmedia.com/bryan-s-jung/2026/09/26/manhole-suspects-arrested-after-emerging-underground-near-nyc-hotel-where-netanyahu-was-staying-n4957670"
       ],
       "risk_flags": [],
-      "age_minutes": 129.0
+      "age_minutes": 133.5
     },
     {
       "id": "fe5cfc3422f4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.78,
+      "urgency_score": 17.53,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.78,
+        "recency": 5.53,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3390,9 +3359,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3fbc1d9d3429",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:19:21Z",
-      "source_detection_latency_seconds": 8017.8,
+      "source_detection_latency_seconds": 8287.6,
       "factual_update": "Actress Lesley-Anne Down says playing Margaret Thatcher ‘almost killed me’",
       "source": "WND",
       "source_tier": 3,
@@ -3406,17 +3375,17 @@
         "https://www.wnd.com/2026/09/actress-lesley-anne-down-says-playing-margaret-thatcher/"
       ],
       "risk_flags": [],
-      "age_minutes": 133.6
+      "age_minutes": 138.1
     },
     {
       "id": "4d5a67386270",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.04,
+      "urgency_score": 16.82,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.04,
+        "recency": 4.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3427,9 +3396,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "38c2baec2542",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:05:36Z",
-      "source_detection_latency_seconds": 8842.8,
+      "source_detection_latency_seconds": 9112.6,
       "factual_update": "Four Americans dead after building collapses near the Acropolis in Athens",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -3443,17 +3412,17 @@
         "https://www.washingtonexaminer.com/news/crime/4744297/four-americans-dead-building-collapses-athens/"
       ],
       "risk_flags": [],
-      "age_minutes": 147.4
+      "age_minutes": 151.9
     },
     {
       "id": "5d36fbd1032f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.99,
+      "urgency_score": 16.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.99,
+        "recency": 4.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3464,9 +3433,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6e1840b4bb38",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:04:39Z",
-      "source_detection_latency_seconds": 8899.8,
+      "source_detection_latency_seconds": 9169.6,
       "factual_update": "Robert Pattinson Says It Would Be ‘Tough’ for His Batman to Exist Within James Gunn’s DCU",
       "source": "Variety",
       "source_tier": 3,
@@ -3480,17 +3449,17 @@
         "https://variety.com/2026/film/news/robert-pattinson-batman-superman-james-gunn-1236876674/"
       ],
       "risk_flags": [],
-      "age_minutes": 148.3
+      "age_minutes": 152.8
     },
     {
       "id": "9264bf711368",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.81,
+      "urgency_score": 16.59,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.81,
+        "recency": 4.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3501,9 +3470,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3d69f8bafc56",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:00:52Z",
-      "source_detection_latency_seconds": 9126.8,
+      "source_detection_latency_seconds": 9396.6,
       "factual_update": "Oklahoma coaching staff 'discussed' QB change as John Mateer's disastrous outing raises big questions",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3517,17 +3486,17 @@
         "https://www.cbssports.com/college-football/news/john-mateers-qb-change-oklahoma-georgia/"
       ],
       "risk_flags": [],
-      "age_minutes": 152.1
+      "age_minutes": 156.6
     },
     {
       "id": "63cb8d8bb9cc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.76,
+      "urgency_score": 16.56,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.76,
+        "recency": 4.56,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3538,9 +3507,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "44042c968ce3",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-27T00:00:00Z",
-      "source_detection_latency_seconds": 9178.8,
+      "source_detection_latency_seconds": 9448.6,
       "factual_update": "How powerful of a power bank do you need to safely charge a laptop?",
       "source": "Engadget",
       "source_tier": 3,
@@ -3554,17 +3523,17 @@
         "https://www.engadget.com/2266595/how-powerful-power-bank-needs-to-be-charge-laptop/"
       ],
       "risk_flags": [],
-      "age_minutes": 153.0
+      "age_minutes": 157.5
     },
     {
       "id": "e93d80289e4a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.67,
+      "urgency_score": 16.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.67,
+        "recency": 4.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3575,9 +3544,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "359f8d86214e",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:57:55Z",
-      "source_detection_latency_seconds": 9303.8,
+      "source_detection_latency_seconds": 9573.6,
       "factual_update": "Bobby Kennedy keeps me in the Trump column",
       "source": "WND",
       "source_tier": 3,
@@ -3591,17 +3560,17 @@
         "https://www.wnd.com/2026/09/bobby-kennedy-keeps-me-trump-column/"
       ],
       "risk_flags": [],
-      "age_minutes": 155.1
+      "age_minutes": 159.6
     },
     {
       "id": "ae78147ff1c2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.4,
+      "urgency_score": 16.21,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.4,
+        "recency": 4.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3612,9 +3581,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0a484fc8a9e0",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:52:00Z",
-      "source_detection_latency_seconds": 9658.8,
+      "source_detection_latency_seconds": 9928.6,
       "factual_update": "‘Jack & Christine’ Trailer: John Hawkes Turns A Dinner Party Into A Night of Chaos – Film News in Brief",
       "source": "Variety",
       "source_tier": 3,
@@ -3628,17 +3597,17 @@
         "https://variety.com/2026/film/news/film-news-in-brief-sept-21-2026-1236867385/"
       ],
       "risk_flags": [],
-      "age_minutes": 161.0
+      "age_minutes": 165.5
     },
     {
       "id": "2f2409a7f512",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.34,
+      "urgency_score": 16.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.34,
+        "recency": 4.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3649,9 +3618,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "966dc94b6060",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:50:34Z",
-      "source_detection_latency_seconds": 9744.8,
+      "source_detection_latency_seconds": 10014.6,
       "factual_update": "Could the Phillies blow their playoff berth? How recent slump, surging D-backs have made wild-card race messy",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3665,17 +3634,17 @@
         "https://www.cbssports.com/mlb/news/phillies-playoff-berth-diamondbacks-national-league-wild-card/"
       ],
       "risk_flags": [],
-      "age_minutes": 162.4
+      "age_minutes": 166.9
     },
     {
       "id": "83d96abf33ff",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.71,
+      "urgency_score": 15.55,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.71,
+        "recency": 3.55,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3686,9 +3655,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "450ae0ad4264",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:35:00Z",
-      "source_detection_latency_seconds": 10678.8,
+      "source_detection_latency_seconds": 10948.6,
       "factual_update": "Jacob Elordi Proves He's Kendall Jenner's No. 1 Fan",
       "source": "E! News",
       "source_tier": 3,
@@ -3702,121 +3671,10 @@
         "https://www.eonline.com/news/1436487/jacob-elordi-cheers-on-kendall-jenner-at-bottega-veneta-runway-show?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 178.0
+      "age_minutes": 182.5
     },
     {
       "id": "5d35c2b495b2",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.69,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.69,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "79fa09e751ea",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:34:30Z",
-      "source_detection_latency_seconds": 10708.8,
-      "factual_update": "Robert Eggers Wants To Do ‘Romeo & Juliet’ Because Things Got “So Dark” After ‘Werwulf’, Joking: “So, I’ll Do Something About Two Teenagers Killing Themselves”",
-      "source": "Deadline",
-      "source_tier": 3,
-      "primary_source_link": "https://deadline.com/2026/09/robert-eggers-making-romeo-juliet-after-so-dark-werwulf-1237114572/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/09/robert-eggers-making-romeo-juliet-after-so-dark-werwulf-1237114572/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 178.5
-    },
-    {
-      "id": "9cad6d3b4e0b",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.56,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.56,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "a83f712b2ae9",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:30:57Z",
-      "source_detection_latency_seconds": 10921.8,
-      "factual_update": "USC vs. Oregon prediction, pick, odds, spread: Trojans look to snap losing streak to Ducks",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/college-football/news/usc-oregon-prediction-picks-odds-spread-where-to-watch-live/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/college-football/news/usc-oregon-prediction-picks-odds-spread-where-to-watch-live/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 182.0
-    },
-    {
-      "id": "bb9cb849a01e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.54,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.54,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0f92e1392e79",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:30:22Z",
-      "source_detection_latency_seconds": 10956.8,
-      "factual_update": "Data Center Fined $1.1 Million for Unpermitted Gas Power Generators",
-      "source": "The Epoch Times",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theepochtimes.com/us/data-center-fined-1-1-million-for-unpermitted-gas-power-generators-6095268",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Epoch Times"
-      ],
-      "corroborating_links": [
-        "https://www.theepochtimes.com/us/data-center-fined-1-1-million-for-unpermitted-gas-power-generators-6095268"
-      ],
-      "risk_flags": [],
-      "age_minutes": 182.6
-    },
-    {
-      "id": "4eee1bddac19",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -3833,10 +3691,121 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "79fa09e751ea",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:34:30Z",
+      "source_detection_latency_seconds": 10978.6,
+      "factual_update": "Robert Eggers Wants To Do ‘Romeo & Juliet’ Because Things Got “So Dark” After ‘Werwulf’, Joking: “So, I’ll Do Something About Two Teenagers Killing Themselves”",
+      "source": "Deadline",
+      "source_tier": 3,
+      "primary_source_link": "https://deadline.com/2026/09/robert-eggers-making-romeo-juliet-after-so-dark-werwulf-1237114572/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/09/robert-eggers-making-romeo-juliet-after-so-dark-werwulf-1237114572/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 183.0
+    },
+    {
+      "id": "9cad6d3b4e0b",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 15.41,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.41,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "a83f712b2ae9",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:30:57Z",
+      "source_detection_latency_seconds": 11191.6,
+      "factual_update": "USC vs. Oregon prediction, pick, odds, spread: Trojans look to snap losing streak to Ducks",
+      "source": "CBS Sports",
+      "source_tier": 3,
+      "primary_source_link": "https://www.cbssports.com/college-football/news/usc-oregon-prediction-picks-odds-spread-where-to-watch-live/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBS Sports"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/college-football/news/usc-oregon-prediction-picks-odds-spread-where-to-watch-live/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 186.5
+    },
+    {
+      "id": "bb9cb849a01e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 15.39,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.39,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0f92e1392e79",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:30:22Z",
+      "source_detection_latency_seconds": 11226.6,
+      "factual_update": "Data Center Fined $1.1 Million for Unpermitted Gas Power Generators",
+      "source": "The Epoch Times",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theepochtimes.com/us/data-center-fined-1-1-million-for-unpermitted-gas-power-generators-6095268",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Epoch Times"
+      ],
+      "corroborating_links": [
+        "https://www.theepochtimes.com/us/data-center-fined-1-1-million-for-unpermitted-gas-power-generators-6095268"
+      ],
+      "risk_flags": [],
+      "age_minutes": 187.1
+    },
+    {
+      "id": "4eee1bddac19",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 15.37,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.37,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "9c1cc97cc4ad",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:30:00Z",
-      "source_detection_latency_seconds": 10978.8,
+      "source_detection_latency_seconds": 11248.6,
       "factual_update": "Why your iPhone hates printer cables",
       "source": "Engadget",
       "source_tier": 3,
@@ -3850,17 +3819,17 @@
         "https://www.engadget.com/2266565/why-iphone-hates-printer-cables/"
       ],
       "risk_flags": [],
-      "age_minutes": 183.0
+      "age_minutes": 187.5
     },
     {
       "id": "ce8af22f8f02",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.49,
+      "urgency_score": 15.34,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.49,
+        "recency": 3.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3871,9 +3840,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "42ea5a771881",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:29:00Z",
-      "source_detection_latency_seconds": 11038.8,
+      "source_detection_latency_seconds": 11308.6,
       "factual_update": "Federal Judge Delays Comey’s Trial for Threatening Trump Until Early 2027",
       "source": "PJ Media",
       "source_tier": 3,
@@ -3887,17 +3856,17 @@
         "https://pjmedia.com/bryan-s-jung/2026/09/26/federal-judge-delays-comeys-trial-for-threatening-trump-until-early-2027-n4957658"
       ],
       "risk_flags": [],
-      "age_minutes": 184.0
+      "age_minutes": 188.5
     },
     {
       "id": "ec622a47d212",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.21,
+      "urgency_score": 15.07,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.21,
+        "recency": 3.07,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3908,9 +3877,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "11f535908d7e",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:20:35Z",
-      "source_detection_latency_seconds": 11543.8,
+      "source_detection_latency_seconds": 11813.6,
       "factual_update": "Arizona vs. Washington State prediction, pick, odds, spread: Wildcats face another early road test",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3924,17 +3893,17 @@
         "https://www.cbssports.com/college-football/news/arizona-washington-state-prediction-pick-odds-spread-where-to-watch-live/"
       ],
       "risk_flags": [],
-      "age_minutes": 192.4
+      "age_minutes": 196.9
     },
     {
       "id": "0191facc145a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.96,
+      "urgency_score": 14.83,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.96,
+        "recency": 2.83,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3945,9 +3914,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4a495271efa8",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:12:16Z",
-      "source_detection_latency_seconds": 12042.8,
+      "source_detection_latency_seconds": 12312.6,
       "factual_update": "The chilling final words ‘Deadliest Catch’ star Todd Meadows told his kids just moments before his death",
       "source": "Page Six",
       "source_tier": 3,
@@ -3961,84 +3930,10 @@
         "https://pagesix.com/2026/09/26/entertainment/what-deadliest-catch-star-todd-meadows-told-his-kids-moments-before-his-death/"
       ],
       "risk_flags": [],
-      "age_minutes": 200.7
+      "age_minutes": 205.2
     },
     {
       "id": "a9ec3536fd0c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.84,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.84,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fe05b096032c",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:08:05Z",
-      "source_detection_latency_seconds": 12293.8,
-      "factual_update": "You don't come back from a 54-3 loss to UCLA: It feels like time for Maryland to move on from Mike Locksley",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/college-football/news/marylands-blowout-loss-to-ucla-signals-the-end-for-mike-locksley/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/college-football/news/marylands-blowout-loss-to-ucla-signals-the-end-for-mike-locksley/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 204.9
-    },
-    {
-      "id": "0f33b5c1eed1",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.73,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.73,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ce36bb51f1d5",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T23:04:12Z",
-      "source_detection_latency_seconds": 12526.8,
-      "factual_update": "Lawfare IS the punishment",
-      "source": "Power Line",
-      "source_tier": 3,
-      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/lawfare-is-the-punishment.php",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Power Line"
-      ],
-      "corroborating_links": [
-        "https://www.powerlineblog.com/archives/2026/09/lawfare-is-the-punishment.php"
-      ],
-      "risk_flags": [],
-      "age_minutes": 208.8
-    },
-    {
-      "id": "3cba137a5966",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -4055,10 +3950,84 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "fe05b096032c",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:08:05Z",
+      "source_detection_latency_seconds": 12563.6,
+      "factual_update": "You don't come back from a 54-3 loss to UCLA: It feels like time for Maryland to move on from Mike Locksley",
+      "source": "CBS Sports",
+      "source_tier": 3,
+      "primary_source_link": "https://www.cbssports.com/college-football/news/marylands-blowout-loss-to-ucla-signals-the-end-for-mike-locksley/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBS Sports"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/college-football/news/marylands-blowout-loss-to-ucla-signals-the-end-for-mike-locksley/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 209.4
+    },
+    {
+      "id": "0f33b5c1eed1",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.61,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.61,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ce36bb51f1d5",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
+      "source_published_at": "2026-09-26T23:04:12Z",
+      "source_detection_latency_seconds": 12796.6,
+      "factual_update": "Lawfare IS the punishment",
+      "source": "Power Line",
+      "source_tier": 3,
+      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/lawfare-is-the-punishment.php",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Power Line"
+      ],
+      "corroborating_links": [
+        "https://www.powerlineblog.com/archives/2026/09/lawfare-is-the-punishment.php"
+      ],
+      "risk_flags": [],
+      "age_minutes": 213.3
+    },
+    {
+      "id": "3cba137a5966",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.59,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.59,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "202fb352ec0a",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:03:41Z",
-      "source_detection_latency_seconds": 12557.8,
+      "source_detection_latency_seconds": 12827.6,
       "factual_update": "‘No child should be exposed’: DOJ settles with 6 hospitals to end gender surgeries",
       "source": "WND",
       "source_tier": 3,
@@ -4072,17 +4041,17 @@
         "https://www.wnd.com/2026/09/no-child-should-be-exposed-doj-settles-6/"
       ],
       "risk_flags": [],
-      "age_minutes": 209.3
+      "age_minutes": 213.8
     },
     {
       "id": "3febfbbc2546",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.62,
+      "urgency_score": 14.51,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.62,
+        "recency": 2.51,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4093,9 +4062,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "82a7c14fd5e3",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:00:23Z",
-      "source_detection_latency_seconds": 12755.8,
+      "source_detection_latency_seconds": 13025.6,
       "factual_update": "Planned Parenthood Honors Biden for Abortion Record",
       "source": "Legal Insurrection",
       "source_tier": 3,
@@ -4109,17 +4078,17 @@
         "https://legalinsurrection.com/2026/09/planned-parenthood-honors-biden-for-abortion-record/?utm_source=rss&utm_medium=rss&utm_campaign=planned-parenthood-honors-biden-for-abortion-record"
       ],
       "risk_flags": [],
-      "age_minutes": 212.6
+      "age_minutes": 217.1
     },
     {
       "id": "892d8e4fd7e9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.62,
+      "urgency_score": 14.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.62,
+        "recency": 2.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4130,9 +4099,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f6b55eb47acd",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:00:10Z",
-      "source_detection_latency_seconds": 12768.8,
+      "source_detection_latency_seconds": 13038.6,
       "factual_update": "Sunny Hostin Explains That As a Black Woman in the US, Her 'Average' Has to Be Excellent",
       "source": "Twitchy",
       "source_tier": 3,
@@ -4146,17 +4115,17 @@
         "https://twitchy.com/brettt/2026/09/26/sunny-hostin-explains-that-as-a-black-woman-in-the-us-her-average-has-to-be-excellent-n2432738"
       ],
       "risk_flags": [],
-      "age_minutes": 212.8
+      "age_minutes": 217.3
     },
     {
       "id": "4872e374b2f3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.61,
+      "urgency_score": 14.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.61,
+        "recency": 2.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4167,9 +4136,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "413a45d06288",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:00:00Z",
-      "source_detection_latency_seconds": 12778.8,
+      "source_detection_latency_seconds": 13048.6,
       "factual_update": "‘The Simpsons’ Boss on Season Premiere Guests Emma Thompson and Colin Jost; ‘Treehouse of Horror’ Spoilers; Jack in the Box Meal Easter Eggs and Movie Update",
       "source": "Variety",
       "source_tier": 3,
@@ -4183,17 +4152,17 @@
         "https://variety.com/2026/tv/news/simpsons-season-38-premiere-treehouse-horror-movie-update-1236876630/"
       ],
       "risk_flags": [],
-      "age_minutes": 213.0
+      "age_minutes": 217.5
     },
     {
       "id": "44c54e48c05a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.61,
+      "urgency_score": 14.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.61,
+        "recency": 2.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4204,9 +4173,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b5f4735671e2",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:00:00Z",
-      "source_detection_latency_seconds": 12778.8,
+      "source_detection_latency_seconds": 13048.6,
       "factual_update": "How to factory reset your Google Home Mini",
       "source": "Engadget",
       "source_tier": 3,
@@ -4220,17 +4189,17 @@
         "https://www.engadget.com/2266523/how-to-factory-reset-google-home-mini/"
       ],
       "risk_flags": [],
-      "age_minutes": 213.0
+      "age_minutes": 217.5
     },
     {
       "id": "6fbe5159d84e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.53,
+      "urgency_score": 14.42,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.53,
+        "recency": 2.42,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4241,9 +4210,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "93444948bcfd",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:56:33Z",
-      "source_detection_latency_seconds": 12985.8,
+      "source_detection_latency_seconds": 13255.6,
       "factual_update": "South Carolina vs. Alabama predictions: Make picks, trades with Kalshi promo code CBSSPORTS55",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -4257,17 +4226,17 @@
         "https://www.cbssports.com/prediction/news/south-carolina-vs-alabama-predictions-make-picks-trades-with-kalshi-promo-code-cbssports55/"
       ],
       "risk_flags": [],
-      "age_minutes": 216.4
+      "age_minutes": 220.9
     },
     {
       "id": "d054b496ad22",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.49,
+      "urgency_score": 14.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.49,
+        "recency": 2.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4278,9 +4247,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "41b8c6a85d2a",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:55:08Z",
-      "source_detection_latency_seconds": 13070.8,
+      "source_detection_latency_seconds": 13340.6,
       "factual_update": "Prince Harry gives update on how Prince Archie and Princess Lilibet are settling into their UK school",
       "source": "Page Six",
       "source_tier": 3,
@@ -4294,17 +4263,17 @@
         "https://pagesix.com/2026/09/26/royal-family/prince-harry-gives-school-update-on-prince-archie-princess-lilibet/"
       ],
       "risk_flags": [],
-      "age_minutes": 217.8
+      "age_minutes": 222.3
     },
     {
       "id": "01542c970477",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.25,
+      "urgency_score": 14.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.25,
+        "recency": 2.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4315,9 +4284,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a6cdf26a7852",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:45:00Z",
-      "source_detection_latency_seconds": 13678.8,
+      "source_detection_latency_seconds": 13948.6,
       "factual_update": "'Tremendous Heresy': CS Lewis' Family Confirms He'd Be 'Turning Over in His Grave' Over Netflix's Aslan Casting",
       "source": "Western Journal",
       "source_tier": 3,
@@ -4331,17 +4300,17 @@
         "https://www.westernjournal.com/tremendous-heresy-cs-lewis-family-confirms-turning-grave-netflixs-aslan-casting/"
       ],
       "risk_flags": [],
-      "age_minutes": 228.0
+      "age_minutes": 232.5
     },
     {
       "id": "65e6b25a8c9e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.25,
+      "urgency_score": 14.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.25,
+        "recency": 2.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4352,9 +4321,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c50826c96d45",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T22:45:00Z",
-      "source_detection_latency_seconds": 13678.8,
+      "source_detection_latency_seconds": 13948.6,
       "factual_update": "iPhone 18 Pro vs. iPhone 17 Pro: What's new?",
       "source": "Engadget",
       "source_tier": 3,
@@ -4368,44 +4337,7 @@
         "https://www.engadget.com/2267863/iphone-18-pro-vs-17-pro-comparison-explained/"
       ],
       "risk_flags": [],
-      "age_minutes": 228.0
-    },
-    {
-      "id": "4f3fc6638ebc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.08,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.08,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4996882aadea",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
-      "source_published_at": "2026-09-26T22:36:56Z",
-      "source_detection_latency_seconds": 14162.8,
-      "factual_update": "The Demand For Racism…",
-      "source": "Power Line",
-      "source_tier": 3,
-      "primary_source_link": "https://www.powerlineblog.com/archives/2026/09/the-demand-for-racism.php",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Power Line"
-      ],
-      "corroborating_links": [
-        "https://www.powerlineblog.com/archives/2026/09/the-demand-for-racism.php"
-      ],
-      "risk_flags": [],
-      "age_minutes": 236.0
+      "age_minutes": 232.5
     },
     {
       "id": "613090987f68",
@@ -4415,7 +4347,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.1,
+        "recency": 3.92,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4426,9 +4358,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "75b3788db2cd",
-      "detected_at": "2026-09-27T02:32:58.845512Z",
+      "detected_at": "2026-09-27T02:37:28.582723Z",
       "source_published_at": "2026-09-26T23:45:00Z",
-      "source_detection_latency_seconds": 10078.8,
+      "source_detection_latency_seconds": 10348.6,
       "factual_update": "Your old GPU could be worth more than you think",
       "source": "Engadget",
       "source_tier": 3,
@@ -4444,7 +4376,7 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 168.0
+      "age_minutes": 172.5
     }
   ],
   "publication_outcomes": []

@@ -1,39 +1,44 @@
 {
   "cycle": {
-    "started_at": "2026-09-28T18:37:29.412115Z",
-    "completed_at": "2026-09-28T18:37:52.000916Z",
-    "duration_seconds": 22.59,
-    "previous_completed_at": "2026-09-28T18:33:11.283403Z"
+    "started_at": "2026-09-28T18:42:07.577650Z",
+    "completed_at": "2026-09-28T18:42:29.402002Z",
+    "duration_seconds": 21.82,
+    "previous_completed_at": "2026-09-28T18:37:52.000916Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-09-28T18:37:34.748431Z",
+    "last_successful_run": "2026-09-28T18:42:12.494866Z",
     "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1389
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "The New York Sun",
+        "error": "403 Client Error: Forbidden for url: https://www.nysun.com/rss/articles.xml; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.nysun.com/"
+      }
+    ],
+    "stories_available": 1370
   },
   "content": {
-    "last_story_created": "2026-09-28T18:36:39Z",
-    "last_story_age_minutes": 1.2,
-    "last_timeline_update": "2026-09-28T18:36:39Z",
-    "last_timeline_age_minutes": 1.2,
-    "published_timelines": 39,
-    "manifest_updated_at": "2026-09-28T18:37:51.046190Z"
+    "last_story_created": "2026-09-28T18:40:52Z",
+    "last_story_age_minutes": 1.6,
+    "last_timeline_update": "2026-09-28T18:40:52Z",
+    "last_timeline_age_minutes": 1.6,
+    "published_timelines": 38,
+    "manifest_updated_at": "2026-09-28T18:42:28.524796Z"
   },
   "fast_path": {
-    "reports_evaluated": 447,
-    "candidate_events": 339,
+    "reports_evaluated": 451,
+    "candidate_events": 334,
     "fast_path_events": 5,
-    "held_for_normal_path": 334,
-    "duplicate_reports_suppressed": 108,
-    "duplicate_event_rate_pct": 24.16,
-    "median_source_detection_latency_seconds": 763.9,
+    "held_for_normal_path": 329,
+    "duplicate_reports_suppressed": 117,
+    "duplicate_event_rate_pct": 25.94,
+    "median_source_detection_latency_seconds": 3431.6,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 3,
-    "detection_to_publication_latency_seconds": 16.2,
+    "detection_to_publication_latency_seconds": 15.9,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
@@ -81,41 +86,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 5.39,
-      "completed_at": "2026-09-28T18:37:34.803661Z",
+      "duration_seconds": 4.98,
+      "completed_at": "2026-09-28T18:42:12.555515Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1389 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: The New York Sun: 403 Client Error: Forbidden for url: https://www.nysun.com/rss/articles.xml; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.nysun.com/"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 3.25,
-      "completed_at": "2026-09-28T18:37:38.051837Z",
+      "duration_seconds": 3.22,
+      "completed_at": "2026-09-28T18:42:15.776398Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 5 promoted, 334 kept on normal path, 108 duplicates grouped."
+      "message": "Fast path: 5 promoted, 329 kept on normal path, 117 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 11.25,
-      "completed_at": "2026-09-28T18:37:49.297886Z",
+      "duration_seconds": 11.05,
+      "completed_at": "2026-09-28T18:42:26.828730Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1212 storylines; 53 multi-family; 34 breaking; 40 developing; 0 hot"
+      "message": "Built 1198 storylines; 51 multi-family; 44 breaking; 49 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.54,
-      "completed_at": "2026-09-28T18:37:49.835823Z",
+      "duration_seconds": 0.52,
+      "completed_at": "2026-09-28T18:42:27.353798Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -125,11 +130,11 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 1.36,
-      "completed_at": "2026-09-28T18:37:51.197069Z",
+      "duration_seconds": 1.31,
+      "completed_at": "2026-09-28T18:42:28.665747Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
-      "message": "Published 39 autonomous source-backed story timelines"
+      "message": "Published 38 autonomous source-backed story timelines"
     },
     "homepage": {
       "label": "Homepage refresh",
@@ -137,7 +142,7 @@
       "criticality": "core",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-28T18:37:51.281582Z",
+      "completed_at": "2026-09-28T18:42:28.746196Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -147,11 +152,11 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.19,
-      "completed_at": "2026-09-28T18:37:51.473254Z",
+      "duration_seconds": 0.18,
+      "completed_at": "2026-09-28T18:42:28.929129Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
-      "message": "Archived 460 permanent timeline URLs; 39 currently active"
+      "message": "Archived 460 permanent timeline URLs; 38 currently active"
     },
     "notifications": {
       "label": "Notification foundation",
@@ -159,7 +164,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-09-28T18:37:51.579211Z",
+      "completed_at": "2026-09-28T18:42:29.033888Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -170,7 +175,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-09-28T18:37:51.605215Z",
+      "completed_at": "2026-09-28T18:42:29.059623Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -181,7 +186,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-09-28T18:37:51.651181Z",
+      "completed_at": "2026-09-28T18:42:29.104787Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -191,11 +196,11 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.14,
-      "completed_at": "2026-09-28T18:37:51.796380Z",
+      "duration_seconds": 0.1,
+      "completed_at": "2026-09-28T18:42:29.204054Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
-      "message": "Built RSS feed with 39 live timelines"
+      "message": "Built RSS feed with 38 live timelines"
     },
     "distribution": {
       "label": "Selective distribution queue",
@@ -203,7 +208,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-09-28T18:37:51.864056Z",
+      "completed_at": "2026-09-28T18:42:29.269523Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -214,7 +219,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-09-28T18:37:51.934598Z",
+      "completed_at": "2026-09-28T18:42:29.337776Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

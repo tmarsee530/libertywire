@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T09:57:14.465308Z",
+  "generated_at": "2026-09-28T10:01:53.911961Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,20 +7,20 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 98,
-    "candidate_events": 81,
-    "fast_path_events": 0,
-    "held_for_normal_path": 81,
-    "duplicate_reports_suppressed": 17,
-    "duplicate_event_rate_pct": 17.35,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
-    "published_fast_path_events": 0,
-    "detection_to_publication_latency_seconds": null,
+    "reports_evaluated": 106,
+    "candidate_events": 85,
+    "fast_path_events": 1,
+    "held_for_normal_path": 84,
+    "duplicate_reports_suppressed": 21,
+    "duplicate_event_rate_pct": 19.81,
+    "median_source_detection_latency_seconds": 2438.9,
+    "high_urgency_capture_pct": 100.0,
+    "published_fast_path_events": 1,
+    "detection_to_publication_latency_seconds": 13.8,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 0,
+      "published": 1,
       "editorially_suppressed": 0,
       "deferred": 0,
       "missed": 0
@@ -29,14 +29,64 @@
   },
   "candidates": [
     {
+      "id": "5505c73bcfb9",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 72.8,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 15.8,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 12,
+        "independent_confirmations": 6,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "4e7626aa8600",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:21:15Z",
+      "source_detection_latency_seconds": 2438.9,
+      "factual_update": "Iran says it is up to Trump to choose between diplomacy or war",
+      "source": "CBS News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-us-trump-talks-strait-of-hormuz/",
+      "independent_source_count": 6,
+      "trusted_independent_source_count": 2,
+      "corroborating_sources": [
+        "American Greatness",
+        "CBN News",
+        "CBS News",
+        "NPR News",
+        "The New York Sun",
+        "Washington Examiner"
+      ],
+      "corroborating_links": [
+        "https://amgreatness.com/2026/09/28/trump-anthropic-ceo-amodei-set-for-one-on-one-dinner-after-months-of-ai-clashes/",
+        "https://www.cbsnews.com/live-updates/iran-war-us-trump-talks-strait-of-hormuz/",
+        "https://www.npr.org/2026/09/28/nx-s1-5982739/what-to-know-about-the-810-million-in-spending-canceled-by-president-trump",
+        "https://www.nysun.com/article/ai-week-ai-force-ai-czar-white-house-ai-summit-all-back-cutting-edge-while-congress-undermines-revolution-and-data-centers-go-orbital",
+        "https://www.washingtonexaminer.com/news/investigations/4741854/trump-novel-legal-strategy-pummels-narco-terrorists-cartel-members/",
+        "https://www1.cbn.com/cbnnews/israel/2026/september/trump-rejects-iran-hormuz-plan-suggests-talks-will-continue-israel-welcomes-christians-to-sukkot-celebration"
+      ],
+      "risk_flags": [],
+      "age_minutes": 33.1,
+      "published_storyline_id": "4e7626aa8600",
+      "published_at": "2026-09-28T10:02:07.718725Z",
+      "detection_to_publication_latency_seconds": 13.8
+    },
+    {
       "id": "23f2332b26d5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 64.27,
+      "urgency_score": 63.9,
       "score_components": {
         "source_trust": 10,
-        "recency": 21.27,
+        "recency": 20.9,
         "magnitude": 14,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -47,9 +97,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f4a0fb3a3eea",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:53:51Z",
-      "source_detection_latency_seconds": 203.5,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:56:47Z",
+      "source_detection_latency_seconds": 306.9,
       "factual_update": "Hurricane Polo is a strong Category 3 storm off Mexico. See its path.",
       "source": "CBS News",
       "source_tier": 2,
@@ -63,17 +113,17 @@
         "https://www.cbsnews.com/news/hurricane-polo-category-5-mexico-life-threatening-flooding/"
       ],
       "risk_flags": [],
-      "age_minutes": 3.4
+      "age_minutes": 5.1
     },
     {
       "id": "033de7a33509",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 59.42,
+      "urgency_score": 59.12,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.42,
+        "recency": 6.12,
         "magnitude": 14,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -84,9 +134,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f4a0fb3a3eea",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:54:01Z",
-      "source_detection_latency_seconds": 7393.5,
+      "source_detection_latency_seconds": 7672.9,
       "factual_update": "Mexico's Baja California braces for Hurricane Polo as Hurricane Nolo threatens Hawaii",
       "source": "NPR News",
       "source_tier": 2,
@@ -102,56 +152,17 @@
         "https://www.npr.org/2026/09/28/nx-s1-5983317/hurricane-polo-hurricane-nolo"
       ],
       "risk_flags": [],
-      "age_minutes": 123.2
-    },
-    {
-      "id": "a09dfa6b0ddc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 56.55,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 16.55,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "47e9f08500a6",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:21:15Z",
-      "source_detection_latency_seconds": 2159.5,
-      "factual_update": "Iran says it is up to Trump to choose between diplomacy or war",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-us-trump-talks-strait-of-hormuz/",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBN News",
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/live-updates/iran-war-us-trump-talks-strait-of-hormuz/",
-        "https://www1.cbn.com/cbnnews/israel/2026/september/trump-rejects-iran-hormuz-plan-suggests-talks-will-continue-israel-welcomes-christians-to-sukkot-celebration"
-      ],
-      "risk_flags": [],
-      "age_minutes": 28.4
+      "age_minutes": 127.9
     },
     {
       "id": "f4ef68a83604",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 56.45,
+      "urgency_score": 55.88,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.45,
+        "recency": 11.88,
         "magnitude": 10,
         "public_safety": 10,
         "institutional_prominence": 0,
@@ -162,9 +173,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9c97a7f33f80",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:18Z",
-      "source_detection_latency_seconds": 3416.5,
+      "source_detection_latency_seconds": 3695.9,
       "factual_update": "Food safety becomes election issue as major outbreaks, recalls cause concern",
       "source": "CBS News",
       "source_tier": 2,
@@ -178,17 +189,17 @@
         "https://www.cbsnews.com/news/food-safety-outbreaks-recalls-midterm-elections/"
       ],
       "risk_flags": [],
-      "age_minutes": 56.9
+      "age_minutes": 61.6
     },
     {
       "id": "797a97c5fbae",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 50.59,
+      "urgency_score": 49.88,
       "score_components": {
         "source_trust": 15,
-        "recency": 15.59,
+        "recency": 14.88,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -199,9 +210,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b165e9f90952",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:22:48Z",
-      "source_detection_latency_seconds": 2066.5,
+      "source_detection_latency_seconds": 2345.9,
       "factual_update": "Tropical Depression Fay Graphics",
       "source": "National Hurricane Center Atlantic",
       "source_tier": 1,
@@ -219,17 +230,54 @@
         "https://www.nhc.noaa.gov/text/refresh/MIATCPAT1+shtml/280846.shtml"
       ],
       "risk_flags": [],
-      "age_minutes": 34.4
+      "age_minutes": 39.1
+    },
+    {
+      "id": "0237a1968e71",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 49.42,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 20.42,
+        "magnitude": 0,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c6aa595d03cc",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:54:27Z",
+      "source_detection_latency_seconds": 446.9,
+      "factual_update": "Congo Ebola outbreak tops 8,000 confirmed cases as disease remains out of control",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/International/wireStory/congo-ebola-outbreak-tops-8000-confirmed-cases-disease-136816027",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "ABC News"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/International/wireStory/congo-ebola-outbreak-tops-8000-confirmed-cases-disease-136816027"
+      ],
+      "risk_flags": [],
+      "age_minutes": 7.4
     },
     {
       "id": "a67531913a59",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.54,
+      "urgency_score": 43.2,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.54,
+        "recency": 7.2,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -240,9 +288,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "82c49fba074a",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:10:08Z",
-      "source_detection_latency_seconds": 6426.5,
+      "source_detection_latency_seconds": 6705.9,
       "factual_update": "Award-winner to fourth choice - what has gone wrong for Ramsdale?",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -256,17 +304,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cvgy802y2n9o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 107.1
+      "age_minutes": 111.8
     },
     {
       "id": "018d79f24da2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.06,
+      "urgency_score": 42.65,
       "score_components": {
         "source_trust": 10,
-        "recency": 9.06,
+        "recency": 8.65,
         "magnitude": 8,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -277,9 +325,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "71923b1fc599",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:28:30Z",
-      "source_detection_latency_seconds": 5324.5,
+      "source_detection_latency_seconds": 5603.9,
       "factual_update": "The four 'what next?' scenarios for Premier League after Man City ruling",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -294,202 +342,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cw3d77ne44k5o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 88.7
-    },
-    {
-      "id": "0237a1968e71",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 42.39,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 21.39,
-        "magnitude": 0,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:54:27Z",
-      "source_detection_latency_seconds": 167.5,
-      "factual_update": "Congo Ebola outbreak tops 8,000 confirmed cases as disease remains out of control",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/International/wireStory/congo-ebola-outbreak-tops-8000-confirmed-cases-disease-136816027",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/International/wireStory/congo-ebola-outbreak-tops-8000-confirmed-cases-disease-136816027"
-      ],
-      "risk_flags": [],
-      "age_minutes": 2.8
-    },
-    {
-      "id": "4ee484456843",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 41.43,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 21.43,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2976a89cb8a8",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:54:38Z",
-      "source_detection_latency_seconds": 156.5,
-      "factual_update": "Police block Protestant Orange Order from controversial parade route",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmqlwn60yyq9o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cmqlwn60yyq9o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 2.6
-    },
-    {
-      "id": "034fdfe1f25a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 39.59,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 19.59,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "27630c8f0362",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:45:37Z",
-      "source_detection_latency_seconds": 697.5,
-      "factual_update": "How to find your perfect pillow - according to an expert",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmn0jey2dde7o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cmn0jey2dde7o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 11.6
-    },
-    {
-      "id": "dd130cb7b007",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 39.41,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 12.41,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4eb1ffa53d17",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
-      "factual_update": "What to know about the $810 million in spending canceled by President Trump",
-      "source": "NPR News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.npr.org/2026/09/28/nx-s1-5982739/what-to-know-about-the-810-million-in-spending-canceled-by-president-trump",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "NPR News"
-      ],
-      "corroborating_links": [
-        "https://www.npr.org/2026/09/28/nx-s1-5982739/what-to-know-about-the-810-million-in-spending-canceled-by-president-trump"
-      ],
-      "risk_flags": [],
-      "age_minutes": 57.2
-    },
-    {
-      "id": "a8fcfb19e27e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.22,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 5.22,
-        "magnitude": 12,
-        "public_safety": 5,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "b074edc87744",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T07:33:28Z",
-      "source_detection_latency_seconds": 8626.5,
-      "factual_update": "Boston-bound Delta flight makes emergency landing in Portugal after smoke fills cabin",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/28/world-news/boston-bound-delta-flight-makes-emergency-landing-in-portugal-after-smoke-fills-cabin/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/28/world-news/boston-bound-delta-flight-makes-emergency-landing-in-portugal-after-smoke-fills-cabin/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 143.8
+      "age_minutes": 93.4
     },
     {
       "id": "b2a323e061fb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 37.88,
+      "urgency_score": 41.65,
       "score_components": {
         "source_trust": 10,
-        "recency": 17.88,
+        "recency": 21.65,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -500,9 +363,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1e76c0e9bd79",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:36:29Z",
-      "source_detection_latency_seconds": 1245.5,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:18Z",
+      "source_detection_latency_seconds": 95.9,
       "factual_update": "UK diesel price hits all-time high, RAC says",
       "source": "BBC News",
       "source_tier": 2,
@@ -516,17 +379,165 @@
         "https://www.bbc.co.uk/news/articles/c6n4k987k981o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 20.8
+      "age_minutes": 1.6
+    },
+    {
+      "id": "4ee484456843",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 41.61,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 21.61,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2976a89cb8a8",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:07Z",
+      "source_detection_latency_seconds": 106.9,
+      "factual_update": "Police block Protestant Orange Order from controversial parade route",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmqlwn60yyq9o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cmqlwn60yyq9o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.8
+    },
+    {
+      "id": "31856e77bfb4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 40.4,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 20.4,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "a387a065e95d",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:54:22Z",
+      "source_detection_latency_seconds": 451.9,
+      "factual_update": "District attorney reopens case of alleged Cornell University 'gang rape'",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/US/district-attorney-reopens-case-alleged-cornell-university-gang/story?id=136806149",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "ABC News"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/US/district-attorney-reopens-case-alleged-cornell-university-gang/story?id=136806149"
+      ],
+      "risk_flags": [],
+      "age_minutes": 7.5
+    },
+    {
+      "id": "034fdfe1f25a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 38.69,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 18.69,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "27630c8f0362",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:45:37Z",
+      "source_detection_latency_seconds": 976.9,
+      "factual_update": "How to find your perfect pillow - according to an expert",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmn0jey2dde7o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cmn0jey2dde7o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 16.3
+    },
+    {
+      "id": "a8fcfb19e27e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.99,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 4.99,
+        "magnitude": 12,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "b074edc87744",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T07:33:28Z",
+      "source_detection_latency_seconds": 8905.9,
+      "factual_update": "Boston-bound Delta flight makes emergency landing in Portugal after smoke fills cabin",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/28/world-news/boston-bound-delta-flight-makes-emergency-landing-in-portugal-after-smoke-fills-cabin/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/28/world-news/boston-bound-delta-flight-makes-emergency-landing-in-portugal-after-smoke-fills-cabin/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 148.4
     },
     {
       "id": "e24d73046ce2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 36.48,
+      "urgency_score": 36.09,
       "score_components": {
         "source_trust": 10,
-        "recency": 8.48,
+        "recency": 8.09,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -537,9 +548,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6f60a0146f68",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:21:54Z",
-      "source_detection_latency_seconds": 5720.5,
+      "source_detection_latency_seconds": 5999.9,
       "factual_update": "You need £17,000 for a first home - here's how to save it",
       "source": "BBC News",
       "source_tier": 2,
@@ -557,17 +568,17 @@
         "https://www.engadget.com/2268196/you-can-now-preorder-the-tiny-boox-picco-ereader/"
       ],
       "risk_flags": [],
-      "age_minutes": 95.3
+      "age_minutes": 100.0
     },
     {
       "id": "4c2915befb8f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 35.67,
+      "urgency_score": 35.14,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.67,
+        "recency": 11.14,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -578,9 +589,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "15a401cb3e9f",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:20:18Z",
-      "source_detection_latency_seconds": 9416.5,
+      "source_detection_latency_seconds": 9695.9,
       "factual_update": "Eviction of 87-year-old sparks protests in Madrid over housing crisis",
       "source": "NPR News",
       "source_tier": 2,
@@ -596,17 +607,165 @@
         "https://www.npr.org/2026/09/28/nx-s1-5983303/encampment-protest-madrid-housing-crisis"
       ],
       "risk_flags": [],
-      "age_minutes": 63.4
+      "age_minutes": 68.0
+    },
+    {
+      "id": "e2e5d7c1dbba",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 34.59,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.59,
+        "magnitude": 0,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:00Z",
+      "source_detection_latency_seconds": 113.9,
+      "factual_update": "The dangerous assumption people make about aging — and how you can prevent a silent but potentially deadly disease",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/28/health/the-dangerous-assumption-people-make-about-aging/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/28/health/the-dangerous-assumption-people-make-about-aging/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.9
+    },
+    {
+      "id": "868c751481a9",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 34.59,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.59,
+        "magnitude": 0,
+        "public_safety": 5,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:00Z",
+      "source_detection_latency_seconds": 113.9,
+      "factual_update": "New York Public Library hosted author who compared Israel to a ‘dog shelter’",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/28/us-news/new-york-public-library-hosted-author-who-compared-israel-to-a-dog-shelter-called-zionists-intellectual-thugs/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/28/us-news/new-york-public-library-hosted-author-who-compared-israel-to-a-dog-shelter-called-zionists-intellectual-thugs/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.9
+    },
+    {
+      "id": "256e4c829d44",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.76,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 21.76,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:49Z",
+      "source_detection_latency_seconds": 64.9,
+      "factual_update": "MARTHA MACCALLUM: After 22 years, here's why I'm grateful to call Fox home",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/opinion/martha-maccallum-22-years-grateful-call-fox-home",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/opinion/martha-maccallum-22-years-grateful-call-fox-home"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.1
+    },
+    {
+      "id": "a1db4e2973c8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.72,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 21.72,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:37Z",
+      "source_detection_latency_seconds": 76.9,
+      "factual_update": "Restaurants lock up customers' phones as devices become the 'new cigarettes'",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/food-drink/restaurants-lock-up-customers-phones-devices-become-new-cigarettes",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/food-drink/restaurants-lock-up-customers-phones-devices-become-new-cigarettes"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.3
     },
     {
       "id": "f8bcd8db42f8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.92,
+      "urgency_score": 33.29,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.92,
+        "recency": 13.29,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -617,9 +776,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a379b6da8312",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:11:30Z",
-      "source_detection_latency_seconds": 2744.5,
+      "source_detection_latency_seconds": 3023.9,
       "factual_update": "British chess prodigy, 11, becomes youngest woman grandmaster",
       "source": "BBC News",
       "source_tier": 2,
@@ -633,17 +792,17 @@
         "https://www.bbc.co.uk/news/articles/cqwyzrg7xm2zo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 45.7
+      "age_minutes": 50.4
     },
     {
       "id": "2666435b2093",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.43,
+      "urgency_score": 32.82,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.43,
+        "recency": 12.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -654,9 +813,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "467931c8a8d6",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:07:52Z",
-      "source_detection_latency_seconds": 2962.5,
+      "source_detection_latency_seconds": 3241.9,
       "factual_update": "Avanti West Coast services to be nationalised from March",
       "source": "BBC News",
       "source_tier": 2,
@@ -670,54 +829,17 @@
         "https://www.bbc.co.uk/news/articles/c60qxk7d2539o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 49.4
-    },
-    {
-      "id": "31856e77bfb4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 33.38,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 21.38,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:54:22Z",
-      "source_detection_latency_seconds": 172.5,
-      "factual_update": "District attorney reopens case of alleged Cornell University 'gang rape'",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/US/district-attorney-reopens-case-alleged-cornell-university-gang/story?id=136806149",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/US/district-attorney-reopens-case-alleged-cornell-university-gang/story?id=136806149"
-      ],
-      "risk_flags": [],
-      "age_minutes": 2.9
+      "age_minutes": 54.0
     },
     {
       "id": "8b2c49abf075",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.5,
+      "urgency_score": 31.93,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.5,
+        "recency": 11.93,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -728,9 +850,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2a2aac5ffc9b",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:43Z",
-      "source_detection_latency_seconds": 3391.5,
+      "source_detection_latency_seconds": 3670.9,
       "factual_update": "DANA PERINO: The untold story of the remarkable people who make Fox News possible",
       "source": "Fox News",
       "source_tier": 2,
@@ -744,17 +866,17 @@
         "https://www.foxnews.com/opinion/dana-perino-untold-story-remarkable-people-make-fox-news-possible"
       ],
       "risk_flags": [],
-      "age_minutes": 56.5
+      "age_minutes": 61.2
     },
     {
       "id": "f845808ecaec",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.43,
+      "urgency_score": 31.86,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.43,
+        "recency": 11.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -765,9 +887,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b21baae91353",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:09Z",
-      "source_detection_latency_seconds": 3425.5,
+      "source_detection_latency_seconds": 3704.9,
       "factual_update": "HUD’s homelessness reforms put human lives ahead of housing bureaucracy",
       "source": "Fox News",
       "source_tier": 2,
@@ -781,17 +903,17 @@
         "https://www.foxnews.com/opinion/huds-homelessness-reforms-put-human-lives-ahead-housing-bureaucracy"
       ],
       "risk_flags": [],
-      "age_minutes": 57.1
+      "age_minutes": 61.7
     },
     {
       "id": "3d0488c6192a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.42,
+      "urgency_score": 31.85,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.42,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -802,9 +924,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7c051f678926",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:02Z",
-      "source_detection_latency_seconds": 3432.5,
+      "source_detection_latency_seconds": 3711.9,
       "factual_update": "Trump’s Greenland bases could change Arctic defense. I learned why at 76 below zero",
       "source": "Fox News",
       "source_tier": 2,
@@ -818,17 +940,17 @@
         "https://www.foxnews.com/opinion/trumps-greenland-bases-change-arctic-defense-learned-why-76-below-zero"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "59b72672f046",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.41,
+      "urgency_score": 31.85,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -839,9 +961,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "383439e427d7",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "Welcome to the 'Wild West' of AI in schools: Research is scarce, but experiments abound",
       "source": "NPR News",
       "source_tier": 2,
@@ -855,17 +977,17 @@
         "https://www.npr.org/2026/09/28/nx-s1-5759718/ai-schools-experiment-research"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "b544a0e63c8d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.41,
+      "urgency_score": 31.85,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -876,9 +998,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "113765ae9fc1",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "How to limit the rat numbers? Train the humans",
       "source": "NPR News",
       "source_tier": 2,
@@ -892,17 +1014,17 @@
         "https://www.npr.org/2026/09/28/nx-s1-5980436/rats-dc-new-york-rangers"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "df17ec11ea2c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.41,
+      "urgency_score": 31.85,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -913,9 +1035,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5de7430032a9",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "5 tips for parents worried about their kids' screen time and online safety",
       "source": "NPR News",
       "source_tier": 2,
@@ -929,17 +1051,17 @@
         "https://www.npr.org/2026/09/28/nx-s1-5965849/screens-teens-parents-social-media-safety"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "cd36f4e79da1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.41,
+      "urgency_score": 31.85,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -950,9 +1072,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cedc55a20537",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "Nevada abortion rights group launches $1M campaign on ballot measure",
       "source": "The Hill",
       "source_tier": 2,
@@ -966,17 +1088,17 @@
         "https://thehill.com/homenews/6112367-nevada-abortion-rights-ad-campaign/"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "760f672b8f1e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.41,
+      "urgency_score": 31.85,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -987,9 +1109,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "01535bd871d9",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "Nvidia unveils new system to put guardrails on AI agents",
       "source": "The Hill",
       "source_tier": 2,
@@ -1003,54 +1125,17 @@
         "https://thehill.com/policy/technology/6114306-nvidia-unveiled-ai-agent-guardrails/"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
-    },
-    {
-      "id": "0eb504ffa2d5",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.93,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 7.93,
-        "magnitude": 8,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fbfdbbe7fba4",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T08:15:15Z",
-      "source_detection_latency_seconds": 6119.5,
-      "factual_update": "Lightdox Acquires Rights To ‘My Home Of Wind And Sand’ Before Zurich Film Festival World Premiere",
-      "source": "Deadline",
-      "source_tier": 3,
-      "primary_source_link": "https://deadline.com/2026/09/my-home-of-wind-and-sand-lightdox-sales-acquisition-1237115070/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/09/my-home-of-wind-and-sand-lightdox-sales-acquisition-1237115070/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 102.0
+      "age_minutes": 61.9
     },
     {
       "id": "208ad9179e21",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.77,
+      "urgency_score": 31.6,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.77,
+        "recency": 3.6,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1061,9 +1146,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ddac79f216dd",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:00:50Z",
-      "source_detection_latency_seconds": 10584.5,
+      "source_detection_latency_seconds": 10863.9,
       "factual_update": "The Winds of War Blow Through a Desolate Continent",
       "source": "American Greatness",
       "source_tier": 3,
@@ -1077,17 +1162,54 @@
         "https://amgreatness.com/2026/09/28/the-winds-of-war-blow-through-a-desolate-continent/"
       ],
       "risk_flags": [],
-      "age_minutes": 176.4
+      "age_minutes": 181.1
+    },
+    {
+      "id": "0eb504ffa2d5",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.57,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 7.57,
+        "magnitude": 8,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "fbfdbbe7fba4",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T08:15:15Z",
+      "source_detection_latency_seconds": 6398.9,
+      "factual_update": "Lightdox Acquires Rights To ‘My Home Of Wind And Sand’ Before Zurich Film Festival World Premiere",
+      "source": "Deadline",
+      "source_tier": 3,
+      "primary_source_link": "https://deadline.com/2026/09/my-home-of-wind-and-sand-lightdox-sales-acquisition-1237115070/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/09/my-home-of-wind-and-sand-lightdox-sales-acquisition-1237115070/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 106.6
     },
     {
       "id": "642819b60264",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.74,
+      "urgency_score": 31.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.74,
+        "recency": 3.57,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1098,9 +1220,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0c1770eaefb2",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:00:00Z",
-      "source_detection_latency_seconds": 10634.5,
+      "source_detection_latency_seconds": 10913.9,
       "factual_update": "Inside Israel’s War Room | Interview: Elliot Kaufman and Yonah Jeremy Bob",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -1114,17 +1236,17 @@
         "https://thedispatch.com/podcast/remnant/inside-israels-war-room-interview-elliot-kaufman-and-yonah-jeremy-bob/"
       ],
       "risk_flags": [],
-      "age_minutes": 177.2
+      "age_minutes": 181.9
     },
     {
       "id": "f929604d8c04",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.43,
+      "urgency_score": 30.86,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.43,
+        "recency": 11.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1135,9 +1257,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d9bf0646f7b2",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:07Z",
-      "source_detection_latency_seconds": 3427.5,
+      "source_detection_latency_seconds": 3706.9,
       "factual_update": "Socialist Senate Hopeful Angie Nixon Slapped With Criminal Referral for Concealing Back Taxes and Student Loans From the Senate",
       "source": "Washington Free Beacon",
       "source_tier": 3,
@@ -1151,17 +1273,17 @@
         "https://freebeacon.com/democrats/socialist-senate-hopeful-angie-nixon-slapped-with-criminal-referral-for-concealing-back-taxes-and-student-loans-from-the-senate/"
       ],
       "risk_flags": [],
-      "age_minutes": 57.1
+      "age_minutes": 61.8
     },
     {
       "id": "0bdd5bdb6a46",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.41,
+      "urgency_score": 30.85,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1172,9 +1294,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fd847954979b",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "Scranton Mayor Running for Congress Turned Her Own Street Into a One-Way, Angering Residents: 'Somebody's Going To Get Killed There'",
       "source": "Washington Free Beacon",
       "source_tier": 3,
@@ -1188,17 +1310,17 @@
         "https://freebeacon.com/democrats/scranton-mayor-running-for-congress-turned-her-own-street-into-a-one-way-angering-residents-somebodys-going-to-get-killed-there/"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "222801aeebf6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.31,
+      "urgency_score": 30.02,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.31,
+        "recency": 6.02,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1209,9 +1331,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b3fbfac0f083",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:52:23Z",
-      "source_detection_latency_seconds": 7491.5,
+      "source_detection_latency_seconds": 7770.9,
       "factual_update": "Trump-Xi summit: What wasn't said might matter the most",
       "source": "BBC News",
       "source_tier": 2,
@@ -1227,17 +1349,17 @@
         "https://www.bbc.co.uk/news/articles/cxp84g2ly1mjo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 124.9
+      "age_minutes": 129.5
     },
     {
       "id": "0aa88ae3fc0b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.07,
+      "urgency_score": 29.25,
       "score_components": {
         "source_trust": 10,
-        "recency": 18.07,
+        "recency": 17.25,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1248,9 +1370,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:37:33Z",
-      "source_detection_latency_seconds": 1181.5,
+      "source_detection_latency_seconds": 1460.9,
       "factual_update": "What we know about RAF Fairford counter-terror probe and the five men arrested",
       "source": "BBC News",
       "source_tier": 2,
@@ -1264,17 +1386,17 @@
         "https://www.bbc.co.uk/news/articles/c85ydnwqpzyzo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 19.7
+      "age_minutes": 24.3
     },
     {
       "id": "dec513cbeea9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.78,
+      "urgency_score": 28.97,
       "score_components": {
         "source_trust": 2,
-        "recency": 17.78,
+        "recency": 16.97,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1285,9 +1407,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "fdc6704a2191",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:35:57Z",
-      "source_detection_latency_seconds": 1277.5,
+      "source_detection_latency_seconds": 1556.9,
       "factual_update": "Iranian National Sentenced to 18 Months for Smuggling US Technology to Iran via China",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1301,17 +1423,17 @@
         "https://www.theepochtimes.com/us/iranian-national-sentenced-to-18-months-for-smuggling-us-technology-to-iran-via-china-6095747"
       ],
       "risk_flags": [],
-      "age_minutes": 21.3
+      "age_minutes": 25.9
     },
     {
       "id": "f84a31eeb884",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.54,
+      "urgency_score": 27.79,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.54,
+        "recency": 15.79,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1322,9 +1444,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "124dc4b692de",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:28:43Z",
-      "source_detection_latency_seconds": 1711.5,
+      "source_detection_latency_seconds": 1990.9,
       "factual_update": "HLD Talent Signs Content Creator Heather Bowling",
       "source": "Deadline",
       "source_tier": 3,
@@ -1338,17 +1460,17 @@
         "https://deadline.com/2026/09/hld-talent-signs-heather-bowling-1237113705/"
       ],
       "risk_flags": [],
-      "age_minutes": 28.5
+      "age_minutes": 33.2
     },
     {
       "id": "e789f6d85ec1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.84,
+      "urgency_score": 27.62,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.84,
+        "recency": 4.62,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1359,9 +1481,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "61bfa5b63262",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:25:45Z",
-      "source_detection_latency_seconds": 9089.5,
+      "source_detection_latency_seconds": 9368.9,
       "factual_update": "America once jailed people for blasphemy. Why don't we know?",
       "source": "The Christian Post",
       "source_tier": 3,
@@ -1377,47 +1499,10 @@
         "https://www.heritage.org/global-politics/report/the-balkans-emerge-americas-energy-security-partner-europe"
       ],
       "risk_flags": [],
-      "age_minutes": 151.5
+      "age_minutes": 156.1
     },
     {
       "id": "ca9e839e3ce6",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.52,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 7.52,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5a32863e4739",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T08:09:54Z",
-      "source_detection_latency_seconds": 6440.5,
-      "factual_update": "Iran live updates: Saudi foreign minister arrives in US for Rubio talks",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/International/live-updates/iran-live-updates-saudi-foreign-minister-arrives-us/?id=136814503",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/International/live-updates/iran-live-updates-saudi-foreign-minister-arrives-us/?id=136814503"
-      ],
-      "risk_flags": [],
-      "age_minutes": 107.3
-    },
-    {
-      "id": "0a9af0570eb0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -1434,10 +1519,47 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "5a32863e4739",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T08:09:54Z",
+      "source_detection_latency_seconds": 6719.9,
+      "factual_update": "Iran live updates: Saudi foreign minister arrives in US for Rubio talks",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/International/live-updates/iran-live-updates-saudi-foreign-minister-arrives-us/?id=136814503",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "ABC News"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/International/live-updates/iran-live-updates-saudi-foreign-minister-arrives-us/?id=136814503"
+      ],
+      "risk_flags": [],
+      "age_minutes": 112.0
+    },
+    {
+      "id": "0a9af0570eb0",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.86,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.86,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "1c7ce3f16b65",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:05:20Z",
-      "source_detection_latency_seconds": 6714.5,
+      "source_detection_latency_seconds": 6993.9,
       "factual_update": "Angela Scanlon takes over Sara Cox's drivetime slot on Radio 2",
       "source": "BBC News",
       "source_tier": 2,
@@ -1451,17 +1573,17 @@
         "https://www.bbc.co.uk/news/articles/cmqxvnyg0xz7o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 111.9
+      "age_minutes": 116.6
     },
     {
       "id": "71fb752cf44e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.85,
+      "urgency_score": 26.54,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.85,
+        "recency": 6.54,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1472,9 +1594,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "216ebe138464",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:00:36Z",
-      "source_detection_latency_seconds": 6998.5,
+      "source_detection_latency_seconds": 7277.9,
       "factual_update": "Honor’s Magic 9 Pro Max has a big camera and a bigger battery",
       "source": "The Verge",
       "source_tier": 2,
@@ -1488,17 +1610,17 @@
         "https://www.theverge.com/tech/1001219/honor-magic-9-pro-max-arri-cameras-snapdragon-battery-design-china"
       ],
       "risk_flags": [],
-      "age_minutes": 116.6
+      "age_minutes": 121.3
     },
     {
       "id": "2ea77cf90e84",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.74,
+      "urgency_score": 26.43,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.74,
+        "recency": 6.43,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1509,9 +1631,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "53bde6bd5cf8",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:58:53Z",
-      "source_detection_latency_seconds": 7101.5,
+      "source_detection_latency_seconds": 7380.9,
       "factual_update": "All the goals from the Women's Super League - matchweek four",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1525,17 +1647,17 @@
         "https://www.bbc.co.uk/sport/football/videos/cwe8elr46xppo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 118.4
+      "age_minutes": 123.0
     },
     {
       "id": "f0e6f81922ed",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.61,
+      "urgency_score": 26.31,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.61,
+        "recency": 6.31,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1546,9 +1668,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "31cf7dd96b2d",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:56:56Z",
-      "source_detection_latency_seconds": 7218.5,
+      "source_detection_latency_seconds": 7497.9,
       "factual_update": "A 31-year wait for success - but can Everton fans still celebrate?",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1562,54 +1684,128 @@
         "https://www.bbc.co.uk/sport/football/articles/c0m3lpj4gm4o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 120.3
+      "age_minutes": 125.0
     },
     {
-      "id": "38d652575fed",
+      "id": "ba5d3f239c1a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.79,
+      "urgency_score": 25.59,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.79,
+        "recency": 21.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "d0a0a5de8c08",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T09:10:30Z",
-      "source_detection_latency_seconds": 2804.5,
-      "factual_update": "Florence Pugh Speaks Out Over Cornell University Sexual Assault Case: ‘We Need Our Men to Be as Horrified and Sickened as Us’",
-      "source": "Variety",
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:00Z",
+      "source_detection_latency_seconds": 113.9,
+      "factual_update": "Mamdani’s claimed triumph over DoorDash ‘corporate greed’ isn’t all it seems",
+      "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://variety.com/2026/film/global/florence-pugh-cornell-university-sexual-assault-case-1236877220/",
+      "primary_source_link": "https://nypost.com/2026/09/28/opinion/mamdanis-triumph-over-doordash-greed-isnt-all-it-seems/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "Variety"
+        "New York Post"
       ],
       "corroborating_links": [
-        "https://variety.com/2026/film/global/florence-pugh-cornell-university-sexual-assault-case-1236877220/"
+        "https://nypost.com/2026/09/28/opinion/mamdanis-triumph-over-doordash-greed-isnt-all-it-seems/"
       ],
       "risk_flags": [],
-      "age_minutes": 46.7
+      "age_minutes": 1.9
+    },
+    {
+      "id": "aab437a4bc5b",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.59,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.59,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:00Z",
+      "source_detection_latency_seconds": 113.9,
+      "factual_update": "Email spam filters cost GOP fundraisers estimated $117M in donations last year: bombshell study",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/28/business/email-spam-filters-cost-gop-fundraisers-estimated-117m-in-donations-last-year-bombshell-study/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/28/business/email-spam-filters-cost-gop-fundraisers-estimated-117m-in-donations-last-year-bombshell-study/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.9
+    },
+    {
+      "id": "88f8dfd23a23",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.59,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.59,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T10:00:00Z",
+      "source_detection_latency_seconds": 113.9,
+      "factual_update": "What to Watch this week: Tom Cruise transforms for “Digger”, “Marshals” returns for a new season",
+      "source": "Entertainment Weekly",
+      "source_tier": 3,
+      "primary_source_link": "https://ew.com/what-to-watch-this-week-movies-tv-shows-schedule-11777263",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Entertainment Weekly"
+      ],
+      "corroborating_links": [
+        "https://ew.com/what-to-watch-this-week-movies-tv-shows-schedule-11777263"
+      ],
+      "risk_flags": [],
+      "age_minutes": 1.9
     },
     {
       "id": "00b22d1353e0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.49,
+      "urgency_score": 25.24,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.49,
+        "recency": 5.24,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1620,9 +1816,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8fc1b10f8e02",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:38:21Z",
-      "source_detection_latency_seconds": 8333.5,
+      "source_detection_latency_seconds": 8612.9,
       "factual_update": "Why the PM could finally drop the triple lock pension pledge",
       "source": "BBC News",
       "source_tier": 2,
@@ -1636,17 +1832,91 @@
         "https://www.bbc.co.uk/news/articles/c6jdvmy1287yo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 138.9
+      "age_minutes": 143.5
+    },
+    {
+      "id": "38d652575fed",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.16,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.16,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d0a0a5de8c08",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:10:30Z",
+      "source_detection_latency_seconds": 3083.9,
+      "factual_update": "Florence Pugh Speaks Out Over Cornell University Sexual Assault Case: ‘We Need Our Men to Be as Horrified and Sickened as Us’",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/2026/film/global/florence-pugh-cornell-university-sexual-assault-case-1236877220/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/2026/film/global/florence-pugh-cornell-university-sexual-assault-case-1236877220/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 51.4
+    },
+    {
+      "id": "997330e1877d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.07,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 21.07,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T09:57:36Z",
+      "source_detection_latency_seconds": 257.9,
+      "factual_update": "International Oscar Submissions: Italy, France, Spain, Poland, Indonesia and More Join the List",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/lists/international-oscar-submissions-2027/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/lists/international-oscar-submissions-2027/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 4.3
     },
     {
       "id": "f871c5ea1538",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.77,
+      "urgency_score": 24.19,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.77,
+        "recency": 12.19,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1657,9 +1927,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d17559c989ac",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:02:51Z",
-      "source_detection_latency_seconds": 3263.5,
+      "source_detection_latency_seconds": 3542.9,
       "factual_update": "Theranos fraudster Elizabeth Holmes writes cryptic post from prison: ‘The truth will set you free’",
       "source": "New York Post",
       "source_tier": 3,
@@ -1673,17 +1943,17 @@
         "https://nypost.com/2026/09/28/us-news/theranos-fraudster-elizabeth-holmes-writes-cryptic-post-from-prison-the-truth-will-set-you-free/"
       ],
       "risk_flags": [],
-      "age_minutes": 54.4
+      "age_minutes": 59.0
     },
     {
       "id": "085eb61e740a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.47,
+      "urgency_score": 23.9,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.47,
+        "recency": 11.9,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1694,9 +1964,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "75657cd81b0f",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:28Z",
-      "source_detection_latency_seconds": 3406.5,
+      "source_detection_latency_seconds": 3685.9,
       "factual_update": "‘I Am Always Intrigued by People Who Kill’: Far-Left Jeweler Hosting Talarico and Brown Fundraiser Calls US a Sh—thole, Runs Creepy Female Serial Killer Ads",
       "source": "Washington Free Beacon",
       "source_tier": 3,
@@ -1710,17 +1980,17 @@
         "https://freebeacon.com/democrats/i-am-always-intrigued-by-people-who-kill-far-left-jeweler-hosting-talarico-and-brown-fundraiser-calls-us-a-sh-thole-runs-creepy-female-serial-killer-ads/"
       ],
       "risk_flags": [],
-      "age_minutes": 56.8
+      "age_minutes": 61.4
     },
     {
       "id": "a4a650c892a6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.46,
+      "urgency_score": 23.89,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.46,
+        "recency": 11.89,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1731,9 +2001,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8efadc6282dd",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:21Z",
-      "source_detection_latency_seconds": 3413.5,
+      "source_detection_latency_seconds": 3692.9,
       "factual_update": "For 9/11 Survivor, Every Day Is Sept. 11",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1747,17 +2017,17 @@
         "https://www.theepochtimes.com/us/for-9-11-survivor-every-day-is-sept-11-post-6092629"
       ],
       "risk_flags": [],
-      "age_minutes": 56.9
+      "age_minutes": 61.5
     },
     {
       "id": "255074ee3fff",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.42,
+      "urgency_score": 23.86,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.42,
+        "recency": 11.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1768,9 +2038,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bef6ad767860",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:06Z",
-      "source_detection_latency_seconds": 3428.5,
+      "source_detection_latency_seconds": 3707.9,
       "factual_update": "Scientists overcome key barrier to self-amplifying vaccines",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -1784,17 +2054,17 @@
         "https://medicalxpress.com/news/2026-09-scientists-key-barrier-amplifying-vaccines.html"
       ],
       "risk_flags": [],
-      "age_minutes": 57.1
+      "age_minutes": 61.8
     },
     {
       "id": "5f698b7d54de",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.41,
+      "urgency_score": 23.85,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.41,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1805,9 +2075,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2f80ed650298",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:00Z",
-      "source_detection_latency_seconds": 3434.5,
+      "source_detection_latency_seconds": 3713.9,
       "factual_update": "Why AOC probably should look to advance in 2028",
       "source": "New York Post",
       "source_tier": 3,
@@ -1821,17 +2091,17 @@
         "https://nypost.com/2026/09/28/opinion/why-aoc-probably-should-look-to-advance-in-2028/"
       ],
       "risk_flags": [],
-      "age_minutes": 57.2
+      "age_minutes": 61.9
     },
     {
       "id": "44697da28e7a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.13,
+      "urgency_score": 23.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 12.13,
+        "recency": 11.57,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1842,9 +2112,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "edc4da039045",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:57:40Z",
-      "source_detection_latency_seconds": 3574.5,
+      "source_detection_latency_seconds": 3853.9,
       "factual_update": "China Detains Beijing house church leaders in latest crackdown on unregistered churches",
       "source": "The Christian Post",
       "source_tier": 3,
@@ -1858,54 +2128,17 @@
         "https://www.christianpost.com/news/china-detains-pastors-latest-crackdown-unregistered-churches.html"
       ],
       "risk_flags": [],
-      "age_minutes": 59.6
-    },
-    {
-      "id": "7939fcdb75e7",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.61,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.61,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": null,
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T08:53:20Z",
-      "source_detection_latency_seconds": 3834.5,
-      "factual_update": "Orange Order march row goes to heart of ongoing divisions in Northern Ireland",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/ckx2zq7x32wro?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/ckx2zq7x32wro?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 63.9
+      "age_minutes": 64.2
     },
     {
       "id": "5eea6ee273a3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.32,
+      "urgency_score": 23.17,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.32,
+        "recency": 3.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1916,9 +2149,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8e2f868b4f36",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T06:48:04Z",
-      "source_detection_latency_seconds": 11350.5,
+      "source_detection_latency_seconds": 11629.9,
       "factual_update": "Sen Kennedy says no living politicians should have buildings named after them after Trump's moves",
       "source": "Fox News",
       "source_tier": 2,
@@ -1932,17 +2165,54 @@
         "https://www.foxnews.com/politics/sen-kennedy-says-no-living-politicians-should-have-buildings-named-after-them-after-trumps-moves"
       ],
       "risk_flags": [],
-      "age_minutes": 189.2
+      "age_minutes": 193.8
+    },
+    {
+      "id": "7939fcdb75e7",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.08,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.08,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T08:53:20Z",
+      "source_detection_latency_seconds": 4113.9,
+      "factual_update": "Orange Order march row goes to heart of ongoing divisions in Northern Ireland",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/ckx2zq7x32wro?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/ckx2zq7x32wro?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 68.6
     },
     {
       "id": "ed49b98e3828",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.19,
+      "urgency_score": 23.04,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.19,
+        "recency": 3.04,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1953,9 +2223,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b8f25a1d53bb",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T06:44:04Z",
-      "source_detection_latency_seconds": 11590.5,
+      "source_detection_latency_seconds": 11869.9,
       "factual_update": "Olympic champion Marchant retires from cycling",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1969,54 +2239,17 @@
         "https://www.bbc.co.uk/sport/cycling/articles/c98r6z3y00n2o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 193.2
-    },
-    {
-      "id": "199005e2194a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.09,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "58998034b726",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T08:48:44Z",
-      "source_detection_latency_seconds": 4110.5,
-      "factual_update": "Pope Leo calls out ‘false compassion’ of medically assisted suicide during French hospital visit",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/28/world-news/pope-leo-calls-out-false-compassion-of-medically-assisted-suicide-during-french-hospital-visit/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/28/world-news/pope-leo-calls-out-false-compassion-of-medically-assisted-suicide-during-french-hospital-visit/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 68.5
+      "age_minutes": 197.8
     },
     {
       "id": "50c7f91127bb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.87,
+      "urgency_score": 22.74,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.87,
+        "recency": 2.74,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2027,9 +2260,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a5245f7b61bd",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T06:33:44Z",
-      "source_detection_latency_seconds": 12210.5,
+      "source_detection_latency_seconds": 12489.9,
       "factual_update": "Broncos deny Rams and Seahawks lose - five things from NFL week three",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2043,17 +2276,54 @@
         "https://www.bbc.co.uk/sport/american-football/articles/cxj06lm00356o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 203.5
+      "age_minutes": 208.2
+    },
+    {
+      "id": "199005e2194a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.58,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 10.58,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "58998034b726",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
+      "source_published_at": "2026-09-28T08:48:44Z",
+      "source_detection_latency_seconds": 4389.9,
+      "factual_update": "Pope Leo calls out ‘false compassion’ of medically assisted suicide during French hospital visit",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/09/28/world-news/pope-leo-calls-out-false-compassion-of-medically-assisted-suicide-during-french-hospital-visit/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/09/28/world-news/pope-leo-calls-out-false-compassion-of-medically-assisted-suicide-during-french-hospital-visit/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 73.2
     },
     {
       "id": "0e6a6183c5a5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.83,
+      "urgency_score": 22.34,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.83,
+        "recency": 10.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2064,9 +2334,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b6c007ea3b70",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:46:22Z",
-      "source_detection_latency_seconds": 4252.5,
+      "source_detection_latency_seconds": 4531.9,
       "factual_update": "Texas delivery driver Donald Johnson’s viral $700K fundraiser taken down after organizer revealed to be his daughter",
       "source": "New York Post",
       "source_tier": 3,
@@ -2080,17 +2350,17 @@
         "https://nypost.com/2026/09/28/us-news/texas-delivery-driver-donald-johnsons-viral-700k-fundraiser-taken-down-after-organizer-revealed-to-be-his-daughter/"
       ],
       "risk_flags": [],
-      "age_minutes": 70.9
+      "age_minutes": 75.5
     },
     {
       "id": "9cb11741add4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.2,
+      "urgency_score": 22.1,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.2,
+        "recency": 2.1,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2101,9 +2371,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "861eec0c940b",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T06:06:48Z",
-      "source_detection_latency_seconds": 13826.5,
+      "source_detection_latency_seconds": 14105.9,
       "factual_update": "Flex your football brain with our daily quizzes",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2117,17 +2387,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cm36ly6e94x8o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 230.4
+      "age_minutes": 235.1
     },
     {
       "id": "a6a3cb210fe1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.71,
+      "urgency_score": 21.27,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.71,
+        "recency": 9.27,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2138,9 +2408,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "11f34037c295",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:35:27Z",
-      "source_detection_latency_seconds": 4907.5,
+      "source_detection_latency_seconds": 5186.9,
       "factual_update": "‘Harry Potter’ Producer David Barron Backs AI Adaptation Of ‘The Call Of The Wild’",
       "source": "Deadline",
       "source_tier": 3,
@@ -2154,17 +2424,17 @@
         "https://deadline.com/2026/09/harry-potter-david-barron-backs-ai-the-call-of-the-wild-1237115076/"
       ],
       "risk_flags": [],
-      "age_minutes": 81.8
+      "age_minutes": 86.4
     },
     {
       "id": "feda4c625b7d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.6,
+      "urgency_score": 21.17,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.6,
+        "recency": 9.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2175,9 +2445,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0da08d19f063",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:34:21Z",
-      "source_detection_latency_seconds": 4973.5,
+      "source_detection_latency_seconds": 5252.9,
       "factual_update": "Banijay Entertainment, Combining All3 Media, Unveils Milestone Mipcom 2026 Lineup, Bowing ’Reputation,’ ‘Date Knight’ and a Formidable Format Franchise Offer (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -2191,17 +2461,17 @@
         "https://variety.com/2026/tv/global/banijay-entertainment-unveils-milestone-mipcom-2026-lineup-1236877216/"
       ],
       "risk_flags": [],
-      "age_minutes": 82.9
+      "age_minutes": 87.5
     },
     {
       "id": "fbfa6363a5fe",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.19,
+      "urgency_score": 20.78,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.19,
+        "recency": 8.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2212,9 +2482,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6e9436ef0284",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:30:00Z",
-      "source_detection_latency_seconds": 5234.5,
+      "source_detection_latency_seconds": 5513.9,
       "factual_update": "STAT+: Once described as obesity medicines for ‘patients,’ GLP-1s are increasingly lifestyle drugs for ‘customers’",
       "source": "STAT",
       "source_tier": 3,
@@ -2228,17 +2498,17 @@
         "https://www.statnews.com/2026/09/28/glp1-marketing-shift-obesity-medicine-weight-loss-drug/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 87.2
+      "age_minutes": 91.9
     },
     {
       "id": "3dca07157e8c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.03,
+      "urgency_score": 19.84,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.03,
+        "recency": 3.84,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2249,9 +2519,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6582da59ed46",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:07:24Z",
-      "source_detection_latency_seconds": 10190.5,
+      "source_detection_latency_seconds": 10469.9,
       "factual_update": "Watch Drake Join Karol G for ‘One Dance’ Performance in Houston",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -2267,17 +2537,17 @@
         "https://www.rollingstone.com/music/music-news/drake-karol-g-one-dance-live-houston-1235632791/"
       ],
       "risk_flags": [],
-      "age_minutes": 169.8
+      "age_minutes": 174.5
     },
     {
       "id": "2d77a1389751",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.86,
+      "urgency_score": 18.55,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.86,
+        "recency": 6.55,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2288,9 +2558,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "369fdd003cef",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:00:45Z",
-      "source_detection_latency_seconds": 6989.5,
+      "source_detection_latency_seconds": 7268.9,
       "factual_update": "'RHOBH' Star Dorit Kemsley Claims PK Kept Her In Dark About Finances During Marriage",
       "source": "TMZ",
       "source_tier": 3,
@@ -2304,54 +2574,17 @@
         "https://www.tmz.com/2026/09/28/dorit-kemsley-claims-pk-kept-her-out-of-finances-during-marriage/"
       ],
       "risk_flags": [],
-      "age_minutes": 116.5
-    },
-    {
-      "id": "f502f455deeb",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 18.81,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 6.81,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "93cbe2c5d634",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T08:00:00Z",
-      "source_detection_latency_seconds": 7034.5,
-      "factual_update": "Trump Goes All In on AI as Washington Battles Over Safety, China and Big Tech",
-      "source": "The New York Sun",
-      "source_tier": 3,
-      "primary_source_link": "https://www.nysun.com/article/ai-week-ai-force-ai-czar-white-house-ai-summit-all-back-cutting-edge-while-congress-undermines-revolution-and-data-centers-go-orbital",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The New York Sun"
-      ],
-      "corroborating_links": [
-        "https://www.nysun.com/article/ai-week-ai-force-ai-czar-white-house-ai-summit-all-back-cutting-edge-while-congress-undermines-revolution-and-data-centers-go-orbital"
-      ],
-      "risk_flags": [],
-      "age_minutes": 117.2
+      "age_minutes": 121.1
     },
     {
       "id": "08eb565baef4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.81,
+      "urgency_score": 18.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.81,
+        "recency": 6.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2362,9 +2595,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2044214d25fe",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:00:00Z",
-      "source_detection_latency_seconds": 7034.5,
+      "source_detection_latency_seconds": 7313.9,
       "factual_update": "Hasan Piker, Depicting Himself as the Zoomer Rush Limbaugh, Twists the Legacy of Talk Radio Titan",
       "source": "The New York Sun",
       "source_tier": 3,
@@ -2378,17 +2611,17 @@
         "https://www.nysun.com/article/hasan-piker-depicting-himself-as-the-zoomer-rush-limbaugh-twists-the-legacy-of-talk-radio-titan"
       ],
       "risk_flags": [],
-      "age_minutes": 117.2
+      "age_minutes": 121.9
     },
     {
       "id": "6da3f5563efd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.81,
+      "urgency_score": 18.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.81,
+        "recency": 6.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2399,9 +2632,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "45921baf3e45",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:00:00Z",
-      "source_detection_latency_seconds": 7034.5,
+      "source_detection_latency_seconds": 7313.9,
       "factual_update": "Andy Burnham’s Ministry of Truth",
       "source": "The New York Sun",
       "source_tier": 3,
@@ -2415,17 +2648,17 @@
         "https://www.nysun.com/article/andy-burnhams-ministry-of-truth"
       ],
       "risk_flags": [],
-      "age_minutes": 117.2
+      "age_minutes": 121.9
     },
     {
       "id": "5f2cc1ec22cb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.22,
+      "urgency_score": 17.94,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.22,
+        "recency": 5.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2436,9 +2669,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7e2901eae2fb",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:50:59Z",
-      "source_detection_latency_seconds": 7575.5,
+      "source_detection_latency_seconds": 7854.9,
       "factual_update": "US Army to temporarily store advanced missile systems on Okinawa",
       "source": "Stars and Stripes",
       "source_tier": 3,
@@ -2452,17 +2685,17 @@
         "https://www.stripes.com/branches/army/2026-09-28/army-typhon-himars-kadena-okinawa-22990011.html"
       ],
       "risk_flags": [],
-      "age_minutes": 126.3
+      "age_minutes": 130.9
     },
     {
       "id": "a9b7dde65e79",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.53,
+      "urgency_score": 17.27,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.53,
+        "recency": 5.27,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2473,9 +2706,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bd13245b88ee",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:39:05Z",
-      "source_detection_latency_seconds": 8289.5,
+      "source_detection_latency_seconds": 8568.9,
       "factual_update": "Watch Luke Bryan Showcase ‘Signs’ on ‘Fallon’",
       "source": "Rolling Stone",
       "source_tier": 3,
@@ -2489,17 +2722,17 @@
         "https://www.rollingstone.com/music/music-news/luke-bryan-signs-performance-interview-fallon-1235632801/"
       ],
       "risk_flags": [],
-      "age_minutes": 138.2
+      "age_minutes": 142.8
     },
     {
       "id": "ede908a06ad4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.39,
+      "urgency_score": 17.15,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.39,
+        "recency": 5.15,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2510,9 +2743,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3605090d36a7",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:36:40Z",
-      "source_detection_latency_seconds": 8434.5,
+      "source_detection_latency_seconds": 8713.9,
       "factual_update": "Suspects Arrested Under Explosives Act Near U.S. Airbase in England",
       "source": "American Greatness",
       "source_tier": 3,
@@ -2526,54 +2759,17 @@
         "https://amgreatness.com/2026/09/28/suspects-arrested-under-explosives-act-near-u-s-airbase-in-england/"
       ],
       "risk_flags": [],
-      "age_minutes": 140.6
-    },
-    {
-      "id": "2a324ddbf1fe",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 17.38,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 5.38,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4e7626aa8600",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T07:36:29Z",
-      "source_detection_latency_seconds": 8445.5,
-      "factual_update": "Trump, Anthropic CEO Amodei Set for One-on-One Dinner After Months of AI Clashes",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/09/28/trump-anthropic-ceo-amodei-set-for-one-on-one-dinner-after-months-of-ai-clashes/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/09/28/trump-anthropic-ceo-amodei-set-for-one-on-one-dinner-after-months-of-ai-clashes/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 140.8
+      "age_minutes": 145.2
     },
     {
       "id": "e7d7e31b4ab5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.38,
+      "urgency_score": 17.13,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.38,
+        "recency": 5.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2584,9 +2780,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "371eacbff239",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:36:21Z",
-      "source_detection_latency_seconds": 8453.5,
+      "source_detection_latency_seconds": 8732.9,
       "factual_update": "Coast Guard Seizes More Than 25,000 Pounds of Cocaine in Pacific Crackdown",
       "source": "American Greatness",
       "source_tier": 3,
@@ -2600,17 +2796,17 @@
         "https://amgreatness.com/2026/09/28/coast-guard-seizes-more-than-25000-pounds-of-cocaine-in-pacific-crackdown/"
       ],
       "risk_flags": [],
-      "age_minutes": 140.9
+      "age_minutes": 145.5
     },
     {
       "id": "0d2a0dd81936",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.05,
+      "urgency_score": 16.82,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.05,
+        "recency": 4.82,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2621,9 +2817,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bb4e2df7b624",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:30:03Z",
-      "source_detection_latency_seconds": 8831.5,
+      "source_detection_latency_seconds": 9110.9,
       "factual_update": "Lamar Odom Says Top NBA Players List Missed Mark, Jalen Brunson Should Be #1",
       "source": "TMZ",
       "source_tier": 3,
@@ -2637,17 +2833,17 @@
         "https://www.tmz.com/2026/09/28/lamar-odom-says-jalen-brunson-should-be-top-player-espn-list/"
       ],
       "risk_flags": [],
-      "age_minutes": 147.2
+      "age_minutes": 151.8
     },
     {
       "id": "2557a9ef7a3f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.8,
+      "urgency_score": 15.62,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.8,
+        "recency": 3.62,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2658,9 +2854,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ed0b45233556",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:01:33Z",
-      "source_detection_latency_seconds": 10541.5,
+      "source_detection_latency_seconds": 10820.9,
       "factual_update": "Guess Who This Bowl Cut Boy Turned Into!",
       "source": "TMZ",
       "source_tier": 3,
@@ -2674,17 +2870,17 @@
         "https://www.tmz.com/2026/09/28/shaun-white-childhood-picture-game/"
       ],
       "risk_flags": [],
-      "age_minutes": 175.7
+      "age_minutes": 180.3
     },
     {
       "id": "655727534f7d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.76,
+      "urgency_score": 15.59,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.76,
+        "recency": 3.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2695,9 +2891,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "66671ded7c6c",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:00:42Z",
-      "source_detection_latency_seconds": 10592.5,
+      "source_detection_latency_seconds": 10871.9,
       "factual_update": "Charlie Kirk, Martin Luther King, Jr., and Sam Francis",
       "source": "American Greatness",
       "source_tier": 3,
@@ -2711,17 +2907,17 @@
         "https://amgreatness.com/2026/09/28/charlie-kirk-martin-luther-king-jr-and-sam-francis/"
       ],
       "risk_flags": [],
-      "age_minutes": 176.5
+      "age_minutes": 181.2
     },
     {
       "id": "cf6f7d18f977",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.74,
+      "urgency_score": 15.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.74,
+        "recency": 3.57,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2732,9 +2928,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "29fe1c10e1a6",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:00:00Z",
-      "source_detection_latency_seconds": 10634.5,
+      "source_detection_latency_seconds": 10913.9,
       "factual_update": "Dear Abby: My dad’s hospitality is being taken advantage of by my relative",
       "source": "New York Post",
       "source_tier": 3,
@@ -2748,17 +2944,17 @@
         "https://nypost.com/2026/09/28/lifestyle/dear-abby-my-dads-hospitality-is-being-taken-advantage-of-by-my-relative/"
       ],
       "risk_flags": [],
-      "age_minutes": 177.2
+      "age_minutes": 181.9
     },
     {
       "id": "9e3903178366",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.74,
+      "urgency_score": 15.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.74,
+        "recency": 3.57,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2769,9 +2965,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9bd69ab99b86",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:00:00Z",
-      "source_detection_latency_seconds": 10634.5,
+      "source_detection_latency_seconds": 10913.9,
       "factual_update": "Open Thread",
       "source": "Reason",
       "source_tier": 3,
@@ -2785,17 +2981,17 @@
         "https://reason.com/volokh/2026/09/28/open-thread-341/"
       ],
       "risk_flags": [],
-      "age_minutes": 177.2
+      "age_minutes": 181.9
     },
     {
       "id": "fb89ea9d680e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.74,
+      "urgency_score": 15.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.74,
+        "recency": 3.57,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2806,9 +3002,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "581600d5651d",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:00:00Z",
-      "source_detection_latency_seconds": 10634.5,
+      "source_detection_latency_seconds": 10913.9,
       "factual_update": "We're Coming Clean About What the Laguna Beach Cast Is Up to Now",
       "source": "E! News",
       "source_tier": 3,
@@ -2822,17 +3018,17 @@
         "https://www.eonline.com/news/1424095/laguna-beach-cast-where-are-they-now?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 177.2
+      "age_minutes": 181.9
     },
     {
       "id": "b8452eba2e77",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.58,
+      "urgency_score": 15.33,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.58,
+        "recency": 5.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2843,9 +3039,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "4e1c361b2be4",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T07:40:05Z",
-      "source_detection_latency_seconds": 8229.5,
+      "source_detection_latency_seconds": 8508.9,
       "factual_update": "Taylor Swift breaks record for most MTV VMAs as Madonna also wins",
       "source": "BBC Entertainment & Arts",
       "source_tier": 2,
@@ -2861,54 +3057,17 @@
         "https://www.bbc.co.uk/news/videos/ckvgy6j4594yo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 137.2
-    },
-    {
-      "id": "dcafc8a891d6",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.02,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.02,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ae47458dfd15",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
-      "source_published_at": "2026-09-28T05:58:32Z",
-      "source_detection_latency_seconds": 14322.5,
-      "factual_update": "Texas driver arrested after ‘intentionally’ crashing into a closed Kroger to use bathroom: cops",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/09/28/us-news/texas-man-arrested-after-intentionally-crashing-into-a-closed-kroger-to-use-bathroom-cops/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/09/28/us-news/texas-man-arrested-after-intentionally-crashing-into-a-closed-kroger-to-use-bathroom-cops/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 238.7
+      "age_minutes": 141.8
     },
     {
       "id": "5e63833bc70c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 11.19,
+      "urgency_score": 10.78,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.19,
+        "recency": 8.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2919,9 +3078,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "c59da133861c",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:30:00Z",
-      "source_detection_latency_seconds": 5234.5,
+      "source_detection_latency_seconds": 5513.9,
       "factual_update": "Opinion: AI is eroding the barriers that kept biological weapons rare",
       "source": "STAT",
       "source_tier": 3,
@@ -2936,17 +3095,17 @@
         "https://www.statnews.com/2026/09/28/heart-structure-left-atrial-septal-pouch-lasp-anatomy-discovery/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 87.2
+      "age_minutes": 91.9
     },
     {
       "id": "2985ae65438e",
       "path": "normal",
       "eligible": false,
       "reason": "held_unconfirmed",
-      "urgency_score": 3.63,
+      "urgency_score": 3.14,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.63,
+        "recency": 10.14,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2957,9 +3116,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "c323c3e8a61e",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T08:44:29Z",
-      "source_detection_latency_seconds": 4365.5,
+      "source_detection_latency_seconds": 4644.9,
       "factual_update": "Morning news brief",
       "source": "NPR News",
       "source_tier": 2,
@@ -2979,7 +3138,7 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 72.8
+      "age_minutes": 77.4
     },
     {
       "id": "9c66619a6706",
@@ -2989,7 +3148,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 10,
-        "recency": 12.42,
+        "recency": 11.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3000,9 +3159,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "778c8485b20a",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T09:00:04Z",
-      "source_detection_latency_seconds": 3430.5,
+      "source_detection_latency_seconds": 3709.9,
       "factual_update": "Data centers could be the sleeper issue of the 2026 midterm elections",
       "source": "Fox News",
       "source_tier": 2,
@@ -3018,7 +3177,7 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 57.2
+      "age_minutes": 61.8
     },
     {
       "id": "829d6eae0e48",
@@ -3028,7 +3187,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.77,
+        "recency": 2.64,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3039,9 +3198,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "025b4c2804e5",
-      "detected_at": "2026-09-28T09:57:14.465308Z",
+      "detected_at": "2026-09-28T10:01:53.911961Z",
       "source_published_at": "2026-09-28T06:29:55Z",
-      "source_detection_latency_seconds": 12439.5,
+      "source_detection_latency_seconds": 12718.9,
       "factual_update": "‘Rams got robbed’: Controversial call that may have changed everything in brutal Broncos loss",
       "source": "New York Post",
       "source_tier": 3,
@@ -3057,8 +3216,14 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 207.3
+      "age_minutes": 212.0
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "5505c73bcfb9",
+      "status": "published",
+      "storyline_id": "4e7626aa8600"
+    }
+  ]
 }

@@ -1,44 +1,49 @@
 {
   "cycle": {
-    "started_at": "2026-10-01T13:13:26.069268Z",
-    "completed_at": "2026-10-01T13:13:48.652519Z",
-    "duration_seconds": 22.58,
-    "previous_completed_at": "2026-10-01T13:09:08.738565Z"
+    "started_at": "2026-10-01T13:18:06.277852Z",
+    "completed_at": "2026-10-01T13:18:28.312835Z",
+    "duration_seconds": 22.03,
+    "previous_completed_at": "2026-10-01T13:13:48.652519Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-01T13:13:31.904798Z",
+    "last_successful_run": "2026-10-01T13:18:11.663536Z",
     "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1382
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "Variety",
+        "error": "403 Client Error: Forbidden for url: https://variety.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://variety.com/feed/rss/"
+      }
+    ],
+    "stories_available": 1373
   },
   "content": {
-    "last_story_created": "2026-10-01T13:13:48.644108Z",
+    "last_story_created": "2026-10-01T13:18:28.304545Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-10-01T13:13:45.229451Z",
+    "last_timeline_update": "2026-10-01T13:18:24.992901Z",
     "last_timeline_age_minutes": 0.1,
     "published_timelines": 38,
-    "manifest_updated_at": "2026-10-01T13:13:47.680209Z"
+    "manifest_updated_at": "2026-10-01T13:18:27.401896Z"
   },
   "fast_path": {
-    "reports_evaluated": 279,
-    "candidate_events": 225,
-    "fast_path_events": 6,
+    "reports_evaluated": 278,
+    "candidate_events": 224,
+    "fast_path_events": 5,
     "held_for_normal_path": 219,
     "duplicate_reports_suppressed": 54,
-    "duplicate_event_rate_pct": 19.35,
-    "median_source_detection_latency_seconds": 578.0,
+    "duplicate_event_rate_pct": 19.42,
+    "median_source_detection_latency_seconds": 682.8,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 3,
-    "detection_to_publication_latency_seconds": 15.7,
+    "detection_to_publication_latency_seconds": 15.6,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
       "published": 3,
-      "editorially_suppressed": 3,
+      "editorially_suppressed": 2,
       "deferred": 0,
       "missed": 0
     },
@@ -81,11 +86,11 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 5.89,
-      "completed_at": "2026-10-01T13:13:31.956952Z",
+      "duration_seconds": 5.44,
+      "completed_at": "2026-10-01T13:18:11.715532Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1382 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: Variety: 403 Client Error: Forbidden for url: https://variety.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://variety.com/feed/rss/"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
@@ -93,29 +98,29 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 1.76,
-      "completed_at": "2026-10-01T13:13:33.718330Z",
+      "completed_at": "2026-10-01T13:18:13.474647Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 6 promoted, 219 kept on normal path, 54 duplicates grouped."
+      "message": "Fast path: 5 promoted, 219 kept on normal path, 54 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 11.48,
-      "completed_at": "2026-10-01T13:13:45.199126Z",
+      "duration_seconds": 11.49,
+      "completed_at": "2026-10-01T13:18:24.962985Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1209 storylines; 69 multi-family; 35 breaking; 38 developing; 0 hot"
+      "message": "Built 1206 storylines; 66 multi-family; 30 breaking; 31 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.53,
-      "completed_at": "2026-10-01T13:13:45.727172Z",
+      "duration_seconds": 0.52,
+      "completed_at": "2026-10-01T13:18:25.482830Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -125,8 +130,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 2.09,
-      "completed_at": "2026-10-01T13:13:47.813857Z",
+      "duration_seconds": 2.05,
+      "completed_at": "2026-10-01T13:18:27.535444Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 38 autonomous source-backed story timelines"
@@ -137,7 +142,7 @@
       "criticality": "core",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-10-01T13:13:47.901161Z",
+      "completed_at": "2026-10-01T13:18:27.622128Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -148,10 +153,10 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.22,
-      "completed_at": "2026-10-01T13:13:48.120549Z",
+      "completed_at": "2026-10-01T13:18:27.840515Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
-      "message": "Archived 579 permanent timeline URLs; 38 currently active"
+      "message": "Archived 580 permanent timeline URLs; 38 currently active"
     },
     "notifications": {
       "label": "Notification foundation",
@@ -159,7 +164,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-10-01T13:13:48.233631Z",
+      "completed_at": "2026-10-01T13:18:27.953344Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -169,8 +174,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.02,
-      "completed_at": "2026-10-01T13:13:48.258941Z",
+      "duration_seconds": 0.03,
+      "completed_at": "2026-10-01T13:18:27.978833Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -181,7 +186,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-10-01T13:13:48.300138Z",
+      "completed_at": "2026-10-01T13:18:28.020047Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -191,22 +196,22 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.16,
-      "completed_at": "2026-10-01T13:13:48.455419Z",
+      "duration_seconds": 0.1,
+      "completed_at": "2026-10-01T13:18:28.122303Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
-      "message": "Built RSS feed with 36 live timelines"
+      "message": "Built RSS feed with 37 live timelines"
     },
     "distribution": {
       "label": "Selective distribution queue",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.07,
-      "completed_at": "2026-10-01T13:13:48.521531Z",
+      "duration_seconds": 0.06,
+      "completed_at": "2026-10-01T13:18:28.187402Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
-      "message": "Built 8 selective distribution candidates; suppressed 0 duplicate event promotions"
+      "message": "Built 9 selective distribution candidates; suppressed 0 duplicate event promotions"
     },
     "sitemap": {
       "label": "Sitemap refresh",
@@ -214,7 +219,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-10-01T13:13:48.594701Z",
+      "completed_at": "2026-10-01T13:18:28.256212Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

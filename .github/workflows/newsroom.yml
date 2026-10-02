@@ -18,6 +18,11 @@ on:
       - 'tests/test_timeline_quality.py'
       - 'tests/test_timeline_semantic_audit.py'
       - 'scripts/audit_timeline_semantics.py'
+      - 'scripts/timeline_editorial.py'
+      - 'data/timeline_editorial.json'
+      - 'tests/test_timeline_editorial.py'
+      - 'assets/timeline-growth.js'
+      - 'tests/test_timeline_growth.js'
       - 'tests/test_timeline_state.js'
       - 'tests/test_reliability_hardening.py'
       - 'assets/timeline-state.js'
@@ -77,7 +82,7 @@ jobs:
       - name: Test fast path and core timeline product
         run: |
           python -m unittest discover -s tests -v
-          node --test tests/test_timeline_state.js
+          node --test tests/test_timeline_state.js tests/test_timeline_growth.js
           node --test email-service/test/*.test.js
       - name: Run resilient maintenance pipeline
         run: python scripts/run_newsroom.py --mode maintenance

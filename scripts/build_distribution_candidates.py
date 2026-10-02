@@ -190,11 +190,24 @@ def main():
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"storylines": []}
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"ids": []}
     published = {str(x) for x in manifest.get("ids", [])}
+    index_path=MANIFEST.parent/'timeline_state_index.json'
+    index=json.loads(index_path.read_text()).get('timelines',{}) if index_path.exists() else {}
 
     items = []
     for record in history.get("storylines", []):
         if str(record.get("id")) not in published:
             continue
+        live=index.get(str(record.get('id')))
+        if not live:continue
+        # Distribution must use what readers actually see, including reviewed
+        # scope repairs and canonical ownership, not the unfiltered archive.
+        developments=live.get('developments') or []
+        current=developments[0] if developments else {}
+        families={s.get('source_family') or s.get('source') for d in developments for s in d.get('sources',[]) if s.get('source')}
+        record={**record,'current_title':live.get('title'),'status':live.get('status'),
+                'last_seen':live.get('last_updated'),'material_update_count':len(developments),
+                'current_source_family_count':len(families),
+                'current_status':{**current,'summary':live.get('currentStatus')}}
         item = candidate(record, now)
         if item:
             items.append(item)
@@ -213,7 +226,18 @@ def main():
     items, suppressed = dedupe_events(items)
     items = items[:MAX_CANDIDATES]
 
+    flagship_posts=[]
+    for sid,entry in index.items():
+        if sid not in published or not entry.get('featured'):continue
+        url=f"{BASE}/stories/{sid}/?"+urlencode({'utm_source':'x','utm_medium':'social','utm_campaign':'flagship_timeline','utm_content':sid})
+        title=clean(entry.get('title'))
+        headline=title if len(title)<=70 else title[:67].rstrip()+'…'
+        flagship_posts.append({'timeline_id':sid,'title':title,'url':url,
+                              'suggested_post_x':headline+'\n\nWhat happened, what changed, and the sources.\n'+url,
+                              'review_required':True,'auto_post_enabled':False})
     payload = {
+        'experiment_id':'flagship-timelines-2026-10',
+        'flagship_posts':flagship_posts,
         "generated_at": now.isoformat().replace("+00:00", "Z"),
         "auto_post_enabled": False,
         "policy": {

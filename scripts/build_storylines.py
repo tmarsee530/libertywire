@@ -7,10 +7,12 @@ from functools import lru_cache
 from pathlib import Path
 try:
  from canonical_ownership import ownership_map
+ from timeline_editorial import prepare_records
  from event_identity import best_match as best_event_match, compare as compare_events
  from timeline_intelligence import commentary_only, meaningful_updates
 except ModuleNotFoundError:
  from scripts.canonical_ownership import ownership_map
+ from scripts.timeline_editorial import prepare_records
  from scripts.event_identity import best_match as best_event_match, compare as compare_events
  from scripts.timeline_intelligence import commentary_only, meaningful_updates
 ROOT=Path(__file__).resolve().parents[1];NEWS=ROOT/'data'/'news.json';OUT=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';FAST=ROOT/'data'/'breaking_fast_path.json'
@@ -167,6 +169,7 @@ def prior_records():
  if not HISTORY.exists():return []
  try:
   records=json.loads(HISTORY.read_text()).get('storylines',[])
+  records,_review=prepare_records(records)
   ids={str(item.get('id')) for item in records if item.get('id')}
   aliases,_groups=ownership_map(records,ids)
   by_id={str(item.get('id')):item for item in records if item.get('id')}

@@ -79,7 +79,7 @@
   }
 
   async function homepageIndex(){
-    if(!root||!root.document||!storageAvailable(root.localStorage))return {};
+    if(!root||!root.document)return {};
     try{const response=await root.fetch(`/data/timeline_state_index.json?t=${Date.now()}`,{cache:'no-store'});if(!response.ok)return{};return (await response.json()).timelines||{}}catch(e){return{}}
   }
 

@@ -11,7 +11,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=40">';state_js='<script src="assets/timeline-state.js?v=3" defer></script>';js='<script src="assets/homepage-v2.js?v=44" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=40">';state_js='<script src="assets/timeline-state.js?v=3" defer></script>';js='<script src="assets/homepage-v2.js?v=45" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -108,7 +108,7 @@ try:
   return out
  def material_developments(story):
   developments=state_index.get(str(story.get('id')),{}).get('developments',[])
-  if developments:
+  if isinstance(developments,list) and str(story.get('id')) in state_index:
    return [(dict(item,title=item.get('source_title') or item.get('label')),item.get('label') or item.get('source_title') or '') for item in developments[:8] if item.get('link')]
   return labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
  rows=[]

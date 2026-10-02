@@ -1,43 +1,48 @@
 {
   "cycle": {
-    "started_at": "2026-10-02T14:03:09.503630Z",
-    "completed_at": "2026-10-02T14:03:23.742054Z",
-    "duration_seconds": 14.24,
-    "previous_completed_at": "2026-10-02T13:58:48.609086Z"
+    "started_at": "2026-10-02T14:07:41.522965Z",
+    "completed_at": "2026-10-02T14:08:03.318948Z",
+    "duration_seconds": 21.8,
+    "previous_completed_at": "2026-10-02T14:03:23.742054Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-02T14:03:13.891666Z",
-    "age_minutes": 0.2,
+    "last_successful_run": "2026-10-02T14:07:47.796323Z",
+    "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1373
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "Judicial Watch",
+        "error": "403 Client Error: Forbidden for url: https://www.judicialwatch.org/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.judicialwatch.org/"
+      }
+    ],
+    "stories_available": 1364
   },
   "content": {
-    "last_story_created": "2026-10-02T14:03:23.735828Z",
+    "last_story_created": "2026-10-02T14:08:03.308633Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-10-02T14:03:22.107680Z",
+    "last_timeline_update": "2026-10-02T14:08:00.835105Z",
     "last_timeline_age_minutes": 0.0,
-    "published_timelines": 36,
-    "manifest_updated_at": "2026-10-02T14:03:23.058062Z"
+    "published_timelines": 35,
+    "manifest_updated_at": "2026-10-02T14:08:02.374431Z"
   },
   "fast_path": {
-    "reports_evaluated": 351,
-    "candidate_events": 275,
-    "fast_path_events": 5,
-    "held_for_normal_path": 270,
+    "reports_evaluated": 355,
+    "candidate_events": 279,
+    "fast_path_events": 4,
+    "held_for_normal_path": 275,
     "duplicate_reports_suppressed": 76,
-    "duplicate_event_rate_pct": 21.65,
-    "median_source_detection_latency_seconds": 596.0,
+    "duplicate_event_rate_pct": 21.41,
+    "median_source_detection_latency_seconds": 886.4,
     "high_urgency_capture_pct": 100.0,
-    "published_fast_path_events": 3,
-    "detection_to_publication_latency_seconds": 9.1,
+    "published_fast_path_events": 2,
+    "detection_to_publication_latency_seconds": 14.5,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 3,
+      "published": 2,
       "editorially_suppressed": 2,
       "deferred": 0,
       "missed": 0
@@ -81,41 +86,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 4.43,
-      "completed_at": "2026-10-02T14:03:13.935876Z",
+      "duration_seconds": 6.33,
+      "completed_at": "2026-10-02T14:07:47.851256Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1373 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: Judicial Watch: 403 Client Error: Forbidden for url: https://www.judicialwatch.org/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.judicialwatch.org/"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 1.34,
-      "completed_at": "2026-10-02T14:03:15.272846Z",
+      "duration_seconds": 2.25,
+      "completed_at": "2026-10-02T14:07:50.097913Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 5 promoted, 270 kept on normal path, 76 duplicates grouped."
+      "message": "Fast path: 4 promoted, 275 kept on normal path, 76 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 6.81,
-      "completed_at": "2026-10-02T14:03:22.085163Z",
+      "duration_seconds": 10.7,
+      "completed_at": "2026-10-02T14:08:00.802505Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1222 storylines; 51 multi-family; 29 breaking; 32 developing; 0 hot"
+      "message": "Built 1221 storylines; 50 multi-family; 38 breaking; 42 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.32,
-      "completed_at": "2026-10-02T14:03:22.405007Z",
+      "duration_seconds": 0.49,
+      "completed_at": "2026-10-02T14:08:01.287897Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -125,19 +130,19 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.76,
-      "completed_at": "2026-10-02T14:03:23.162885Z",
+      "duration_seconds": 1.22,
+      "completed_at": "2026-10-02T14:08:02.511020Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
-      "message": "Published 36 autonomous source-backed story timelines"
+      "message": "Published 35 autonomous source-backed story timelines"
     },
     "homepage": {
       "label": "Homepage refresh",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.03,
-      "completed_at": "2026-10-02T14:03:23.225819Z",
+      "duration_seconds": 0.05,
+      "completed_at": "2026-10-02T14:08:02.602796Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -147,19 +152,19 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.14,
-      "completed_at": "2026-10-02T14:03:23.361166Z",
+      "duration_seconds": 0.22,
+      "completed_at": "2026-10-02T14:08:02.821701Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
-      "message": "Archived 624 permanent timeline URLs; 36 currently active"
+      "message": "Archived 624 permanent timeline URLs; 35 currently active"
     },
     "notifications": {
       "label": "Notification foundation",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.05,
-      "completed_at": "2026-10-02T14:03:23.447122Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-10-02T14:08:02.938167Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -169,8 +174,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.02,
-      "completed_at": "2026-10-02T14:03:23.466576Z",
+      "duration_seconds": 0.03,
+      "completed_at": "2026-10-02T14:08:02.966165Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -180,8 +185,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.03,
-      "completed_at": "2026-10-02T14:03:23.498373Z",
+      "duration_seconds": 0.04,
+      "completed_at": "2026-10-02T14:08:03.010426Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -192,29 +197,29 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.11,
-      "completed_at": "2026-10-02T14:03:23.604550Z",
+      "completed_at": "2026-10-02T14:08:03.118146Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
-      "message": "Built RSS feed with 36 live timelines"
+      "message": "Built RSS feed with 35 live timelines"
     },
     "distribution": {
       "label": "Selective distribution queue",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.05,
-      "completed_at": "2026-10-02T14:03:23.652682Z",
+      "duration_seconds": 0.07,
+      "completed_at": "2026-10-02T14:08:03.188222Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
-      "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
+      "message": "Built 11 selective distribution candidates; suppressed 1 duplicate event promotions"
     },
     "sitemap": {
       "label": "Sitemap refresh",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.05,
-      "completed_at": "2026-10-02T14:03:23.702793Z",
+      "duration_seconds": 0.07,
+      "completed_at": "2026-10-02T14:08:03.261386Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

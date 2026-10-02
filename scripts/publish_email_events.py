@@ -21,6 +21,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "history.json"
 MANIFEST = ROOT / "data" / "published_timelines.json"
+SEMANTIC_AUDIT = ROOT / "data" / "timeline_semantic_audit.json"
 HEALTH = ROOT / "data" / "email_delivery_health.json"
 BASE = "https://rallypointnews.com"
 
@@ -38,13 +39,22 @@ def atomic_json(path, payload):
     os.replace(temporary, path)
 
 
-def eligible_events(history, manifest, now=None):
+def blocked_timelines(audit):
+    blocked = set()
+    for timeline_id, item in (audit.get("timelines") or {}).items():
+        if any(finding.get("severity") == "high" for finding in item.get("findings", [])):
+            blocked.add(str(timeline_id))
+    return blocked
+
+
+def eligible_events(history, manifest, now=None, semantic_audit=None):
     cutoff = (now or datetime.now(timezone.utc)) - timedelta(hours=48)
-    active = set(manifest.get("ids") or [])
+    active = {str(value) for value in (manifest.get("ids") or [])}
+    blocked = blocked_timelines(semantic_audit or {})
     events = []
     for record in history.get("storylines") or []:
-        timeline_id = record.get("id")
-        if timeline_id not in active:
+        timeline_id = str(record.get("id") or "")
+        if timeline_id not in active or timeline_id in blocked:
             continue
         for update in record.get("updates") or []:
             eligible, reason = notification_significance(update)
@@ -84,11 +94,14 @@ def main():
     if not api or not secret:
         print("Email pilot setup is pending; newsroom publication continues.")
         return 0
-    events = eligible_events(load(HISTORY, {"storylines": []}), load(MANIFEST, {"ids": []}))
+    audit = load(SEMANTIC_AUDIT, {"timelines": {}})
+    events = eligible_events(load(HISTORY, {"storylines": []}), load(MANIFEST, {"ids": []}), semantic_audit=audit)
     try:
         result = request_json(api + "/v1/events", "POST", {"events": events}, secret)
         health = request_json(api + "/v1/health")
         health["last_ingest"] = {key: result.get(key, 0) for key in ("events_created", "deliveries_queued", "events_deduped")}
+        health["semantic_quality_gate_enabled"] = True
+        health["semantic_quality_blocked_timelines"] = len(blocked_timelines(audit))
         atomic_json(HEALTH, health)
         print(f"Email pilot: {result.get('events_created', 0)} event(s), {result.get('deliveries_queued', 0)} delivery item(s), {result.get('events_deduped', 0)} deduped.")
     except (urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError) as error:

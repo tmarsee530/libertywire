@@ -1,40 +1,35 @@
 {
   "cycle": {
-    "started_at": "2026-10-02T07:43:06.251866Z",
-    "completed_at": "2026-10-02T07:43:27.998908Z",
-    "duration_seconds": 21.75,
-    "previous_completed_at": "2026-10-02T07:38:14.835469Z"
+    "started_at": "2026-10-02T07:47:45.064619Z",
+    "completed_at": "2026-10-02T07:48:04.354893Z",
+    "duration_seconds": 19.29,
+    "previous_completed_at": "2026-10-02T07:43:27.998908Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-02T07:43:12.777771Z",
-    "age_minutes": 0.3,
+    "last_successful_run": "2026-10-02T07:47:49.723878Z",
+    "age_minutes": 0.2,
     "configured_sources": 80,
-    "successful_sources": 79,
-    "failed_sources": 1,
-    "source_failure_pct": 1.2,
-    "failed_source_details": [
-      {
-        "source": "Judicial Watch",
-        "error": "HTTPSConnectionPool(host='www.judicialwatch.org', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 500 error responses'))"
-      }
-    ],
-    "stories_available": 1370
+    "successful_sources": 80,
+    "failed_sources": 0,
+    "source_failure_pct": 0.0,
+    "failed_source_details": [],
+    "stories_available": 1377
   },
   "content": {
-    "last_story_created": "2026-10-02T07:43:27.994406Z",
+    "last_story_created": "2026-10-02T07:48:04.350404Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-10-02T07:43:25.188623Z",
+    "last_timeline_update": "2026-10-02T07:48:01.682387Z",
     "last_timeline_age_minutes": 0.0,
     "published_timelines": 39,
-    "manifest_updated_at": "2026-10-02T07:43:26.941586Z"
+    "manifest_updated_at": "2026-10-02T07:48:03.302882Z"
   },
   "fast_path": {
-    "reports_evaluated": 108,
-    "candidate_events": 102,
+    "reports_evaluated": 104,
+    "candidate_events": 97,
     "fast_path_events": 0,
-    "held_for_normal_path": 102,
-    "duplicate_reports_suppressed": 6,
-    "duplicate_event_rate_pct": 5.56,
+    "held_for_normal_path": 97,
+    "duplicate_reports_suppressed": 7,
+    "duplicate_event_rate_pct": 6.73,
     "median_source_detection_latency_seconds": null,
     "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
@@ -86,41 +81,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 6.58,
-      "completed_at": "2026-10-02T07:43:12.830359Z",
+      "duration_seconds": 4.72,
+      "completed_at": "2026-10-02T07:47:49.783668Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "FAILED: Judicial Watch: HTTPSConnectionPool(host='www.judicialwatch.org', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 500 error responses'))"
+      "message": "Generated 1377 stories from 80/80 healthy sources; default radar depth 20/source."
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.7,
-      "completed_at": "2026-10-02T07:43:13.532033Z",
+      "duration_seconds": 0.64,
+      "completed_at": "2026-10-02T07:47:50.423761Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 0 promoted, 102 kept on normal path, 6 duplicates grouped."
+      "message": "Fast path: 0 promoted, 97 kept on normal path, 7 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 11.63,
-      "completed_at": "2026-10-02T07:43:25.158295Z",
+      "duration_seconds": 11.23,
+      "completed_at": "2026-10-02T07:48:01.649711Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1200 storylines; 62 multi-family; 2 breaking; 4 developing; 0 hot"
+      "message": "Built 1202 storylines; 62 multi-family; 3 breaking; 4 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.54,
-      "completed_at": "2026-10-02T07:43:25.696610Z",
+      "duration_seconds": 0.49,
+      "completed_at": "2026-10-02T07:48:02.140192Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -130,8 +125,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 1.42,
-      "completed_at": "2026-10-02T07:43:27.113686Z",
+      "duration_seconds": 1.33,
+      "completed_at": "2026-10-02T07:48:03.470696Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 39 autonomous source-backed story timelines"
@@ -142,7 +137,7 @@
       "criticality": "core",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-10-02T07:43:27.209923Z",
+      "completed_at": "2026-10-02T07:48:03.564633Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -152,8 +147,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.23,
-      "completed_at": "2026-10-02T07:43:27.443361Z",
+      "duration_seconds": 0.22,
+      "completed_at": "2026-10-02T07:48:03.780730Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 619 permanent timeline URLs; 39 currently active"
@@ -164,7 +159,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.08,
-      "completed_at": "2026-10-02T07:43:27.562517Z",
+      "completed_at": "2026-10-02T07:48:03.900682Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -175,7 +170,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-10-02T07:43:27.587988Z",
+      "completed_at": "2026-10-02T07:48:03.928064Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -186,7 +181,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-10-02T07:43:27.630792Z",
+      "completed_at": "2026-10-02T07:48:03.972195Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -196,8 +191,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.18,
-      "completed_at": "2026-10-02T07:43:27.809268Z",
+      "duration_seconds": 0.19,
+      "completed_at": "2026-10-02T07:48:04.158891Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 39 live timelines"
@@ -208,7 +203,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-10-02T07:43:27.877607Z",
+      "completed_at": "2026-10-02T07:48:04.230593Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 1 duplicate event promotions"
@@ -219,7 +214,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.07,
-      "completed_at": "2026-10-02T07:43:27.948762Z",
+      "completed_at": "2026-10-02T07:48:04.305045Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

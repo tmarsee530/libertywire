@@ -158,7 +158,7 @@ class TimelineRenderingTests(unittest.TestCase):
                 body = (stories / legacy["id"] / "index.html").read_text()
                 self.assertIn(f'https://rallypointnews.com/stories/{legacy["id"]}/', body)
                 self.assertIn('data-update-id=', body)
-                self.assertIn('/assets/timeline-state.js?v=3', body)
+                self.assertIn('/assets/timeline-state.js?v=4', body)
                 self.assertIn('data-follow-control', body)
                 self.assertIn('id="timeline-follow-data"', body)
                 index = json.loads(state_index.read_text())

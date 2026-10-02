@@ -43,6 +43,8 @@ def write_standard():
     # they must not compete with the current canonical event URL in the sitemap.
     manifest = load_json(ROOT / "data" / "published_timelines.json")
     authoritative_ids = {str(x) for x in manifest.get("ids", []) if x}
+    state_index = load_json(ROOT / "data" / "timeline_state_index.json")
+    state_dates = {sid: value.get("last_updated") for sid, value in state_index.get("timelines", {}).items()}
     history = load_json(ROOT / "data" / "history.json")
     history_dates = {str(x.get("id")): x.get("last_seen") for x in history.get("storylines", []) if x.get("id") and x.get("last_seen")}
     stories = ROOT / "stories"
@@ -50,7 +52,7 @@ def write_standard():
         for sid in sorted(authoritative_ids):
             page = stories / sid / "index.html"
             if page.exists():
-                entries.append((BASE + f"/stories/{sid}/", history_dates.get(sid) or iso_mtime(page)))
+                entries.append((BASE + f"/stories/{sid}/", state_dates.get(sid) or history_dates.get(sid) or iso_mtime(page)))
 
     for loc, lastmod in entries:
         u = SubElement(root, "url")

@@ -1,0 +1,22 @@
+name: Semantic Quality Gate Tests
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_timeline_semantics.py'
+      - 'scripts/apply_semantic_distribution_gate.py'
+      - 'scripts/publish_email_events.py'
+      - 'tests/test_semantic_distribution_gate.py'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile gate code
+        run: python -m py_compile scripts/audit_timeline_semantics.py scripts/apply_semantic_distribution_gate.py scripts/publish_email_events.py
+      - name: Run semantic gate tests
+        run: python -m pytest -q tests/test_semantic_distribution_gate.py

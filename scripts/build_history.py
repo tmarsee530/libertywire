@@ -10,6 +10,8 @@ except ModuleNotFoundError:  # package import in the unit-test runner
     from scripts.timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
 ROOT=Path(__file__).resolve().parents[1]
 STORYLINES=ROOT/"data"/"storylines.json";OUT=ROOT/"data"/"history.json"
+MANIFEST=ROOT/"data"/"published_timelines.json"
+RECOVERY=ROOT/"data"/"timeline_history_recovery.json"
 MAX_ENTRIES=1000;RETENTION_DAYS=30;MAX_TITLES=16;MAX_COVERAGE=40
 
 def parse_dt(value):
@@ -42,6 +44,11 @@ def merge_same_id(left,right):
     merged.update(serializable_model(merged))
     return merged
 
+def bounded_history(records, published_ids, limit=MAX_ENTRIES):
+    """Reserve the bounded archive for established URLs before transient clusters."""
+    ordered=sorted(records,key=lambda x:(x.get("id") in published_ids,parse_dt(x.get("last_seen")) or datetime.min.replace(tzinfo=timezone.utc)),reverse=True)[:limit]
+    return sorted(ordered,key=lambda x:parse_dt(x.get("last_seen")) or datetime.min.replace(tzinfo=timezone.utc),reverse=True)
+
 def main():
     now=datetime.now(timezone.utc);cutoff=now-timedelta(days=RETENTION_DAYS)
     current=json.loads(STORYLINES.read_text()) if STORYLINES.exists() else {"storylines":[]}
@@ -49,11 +56,17 @@ def main():
     if OUT.exists():
         try:old=json.loads(OUT.read_text())
         except (json.JSONDecodeError,OSError):pass
+    manifest=OUT.parent/MANIFEST.name; recovery_path=OUT.parent/RECOVERY.name
+    published_ids=set(json.loads(manifest.read_text()).get("ids",[])) if manifest.exists() else set()
+    recovery=json.loads(recovery_path.read_text()).get("storylines",[]) if recovery_path.exists() else []
+    published_ids.update(x["id"] for x in recovery)
     prior={}
     for record in old.get("storylines",[]):
         sid=record.get("id")
         if not sid:continue
         prior[sid]=merge_same_id(prior[sid],record) if sid in prior else record
+    for record in recovery:
+        prior.setdefault(record["id"],record)
     merged=[]
     for item in current.get("storylines",[]):
         sid=item.get("id")
@@ -103,11 +116,10 @@ def main():
     for sid,record in prior.items():
         if sid in active_ids:continue
         last=parse_dt(record.get("last_seen"))
-        if last and last>=cutoff:
+        if last and (last>=cutoff or sid in published_ids):
             if int(record.get("timeline_schema_version",0) or 0)<SCHEMA_VERSION:record={**record,**serializable_model(record)}
             merged.append(record)
-    merged.sort(key=lambda x:parse_dt(x.get("last_seen")) or datetime.min.replace(tzinfo=timezone.utc),reverse=True)
-    merged=merged[:MAX_ENTRIES]
+    merged=bounded_history(merged,published_ids)
     payload={"generated_at":now.isoformat().replace("+00:00","Z"),"retention_days":RETENTION_DAYS,"storyline_count":len(merged),"storylines":merged}
     if OUT.exists():
         try:

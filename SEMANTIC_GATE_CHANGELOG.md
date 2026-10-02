@@ -1,0 +1,1 @@
+High-severity semantic audit findings now suppress derived distribution candidates and email-pilot event ingestion. Medium findings remain review-only. Timeline publication/history is unchanged.

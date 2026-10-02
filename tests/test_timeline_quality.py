@@ -204,7 +204,7 @@ class CanonicalOwnershipTests(unittest.TestCase):
             "max_source_family_count": families, "coverage": items, **model,
         }
 
-    def test_identical_update_sets_have_one_authoritative_owner(self):
+    def test_identical_update_sets_preserve_the_active_authoritative_owner(self):
         items = [
             report("US and Denmark reach Greenland security agreement", "Source A", 0),
             report("Agreement grants permanent US security role in Greenland", "Source B", 20),
@@ -212,8 +212,11 @@ class CanonicalOwnershipTests(unittest.TestCase):
         older = self.timeline("older-owner", items, "2026-09-18T10:00:00Z", 4)
         duplicate = self.timeline("newer-copy", items, "2026-09-18T12:00:00Z", 3)
         groups = canonical_groups([older, duplicate], {"newer-copy"})
+        self.assertEqual(groups[0]["owner_id"], "newer-copy")
+        self.assertEqual(groups[0]["suppressed_ids"], ["older-owner"])
+        # If both are current, established source breadth still breaks ties.
+        groups = canonical_groups([older, duplicate], {"older-owner", "newer-copy"})
         self.assertEqual(groups[0]["owner_id"], "older-owner")
-        self.assertEqual(groups[0]["suppressed_ids"], ["newer-copy"])
 
     def test_near_identical_update_sets_collapse_only_with_event_identity(self):
         shared = [

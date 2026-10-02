@@ -48,7 +48,10 @@ def audit_timeline(timeline_id, timeline):
             continue
         identity = compare(title, label)
         token_similarity = _similarity(fact_tokens(title), fact_tokens(label))
-        if not identity.same_event and identity.confidence >= 0.45 and token_similarity < 0.42:
+        # Low overlap is also evidence for review. Requiring a minimum matching
+        # confidence hid the most obvious contamination (entirely unrelated
+        # headlines). This audit flags uncertainty; it never deletes updates.
+        if not identity.same_event and token_similarity < 0.42:
             findings.append({"type":"possible_cross_event_update","severity":"high" if identity.confidence >= 0.6 else "medium","update_id":development.get("id"),"label":label,"identity_reason":identity.reason,"identity_confidence":round(identity.confidence,3),"token_similarity":round(token_similarity,3)})
     for index, left in enumerate(developments):
         left_label = str(left.get("label") or "")

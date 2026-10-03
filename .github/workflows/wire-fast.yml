@@ -10,8 +10,6 @@ permissions:
 
 concurrency:
   group: rally-point-wire-fast
-  # One refresh may run and one may wait. A new tick must never kill a healthy
-  # publisher that is seconds away from committing verified newsroom state.
   cancel-in-progress: false
 
 jobs:
@@ -31,12 +29,15 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_writer_queue.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
       - name: Check auxiliary code without blocking publication
         continue-on-error: true
         run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
+      - name: Refresh timeline research queue
+        continue-on-error: true
+        run: python scripts/build_writer_queue.py
       - name: Publish eligible events to email pilot
         continue-on-error: true
         env:
@@ -64,6 +65,9 @@ jobs:
           grep -q '"ideology_used_in_selection": false' data/distribution_candidates.json
           grep -q '"same_event_duplicate_promotion_suppressed": true' data/distribution_candidates.json
           grep -q 'utm_campaign=live_timeline' data/distribution_candidates.json
+          test -s data/writer_queue.json
+          grep -q '"product": "canonical_timeline_research"' data/writer_queue.json
+          grep -q '"fallback_independent_research_enabled": true' data/writer_queue.json
           grep -q 'application/rss+xml' index.html
           grep -q 'More live timelines' stories/*/index.html
           test -s assets/timeline-state.js
@@ -98,6 +102,7 @@ jobs:
       - name: Commit fresh timelines and homepage when changed
         run: |
           python scripts/stage_publication.py
+          git add data/writer_queue.json
           if git diff --cached --quiet; then
             echo "No headline or discovery changes."
             exit 0
@@ -118,7 +123,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # repository_dispatch is the single authoritative clock. Cron recovery
-          # lives in wire-watchdog.yml so it never competes in this queue.
           sleep 240
-          curl --fail-with-body -L             -X POST             -H "Accept: application/vnd.github+json"             -H "Authorization: Bearer $GH_TOKEN"             -H "X-GitHub-Api-Version: 2022-11-28"             "https://api.github.com/repos/${{ github.repository }}/dispatches"             -d '{"event_type":"fast_wire_tick"}'
+          curl --fail-with-body -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GH_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/${{ github.repository }}/dispatches" -d '{"event_type":"fast_wire_tick"}'

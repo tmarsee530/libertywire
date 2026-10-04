@@ -1,40 +1,35 @@
 {
   "cycle": {
-    "started_at": "2026-10-04T03:40:11.283410Z",
-    "completed_at": "2026-10-04T03:40:26.817207Z",
-    "duration_seconds": 15.53,
-    "previous_completed_at": "2026-10-04T03:35:53.278574Z"
+    "started_at": "2026-10-04T03:44:41.659934Z",
+    "completed_at": "2026-10-04T03:44:57.434713Z",
+    "duration_seconds": 15.77,
+    "previous_completed_at": "2026-10-04T03:40:26.817207Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-04T03:40:15.676210Z",
-    "age_minutes": 0.2,
+    "last_successful_run": "2026-10-04T03:44:48.767556Z",
+    "age_minutes": 0.1,
     "configured_sources": 80,
-    "successful_sources": 79,
-    "failed_sources": 1,
-    "source_failure_pct": 1.2,
-    "failed_source_details": [
-      {
-        "source": "Federal Reserve Press Releases",
-        "error": "404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml; no advertised RSS/Atom feed found"
-      }
-    ],
-    "stories_available": 1365
+    "successful_sources": 80,
+    "failed_sources": 0,
+    "source_failure_pct": 0.0,
+    "failed_source_details": [],
+    "stories_available": 1385
   },
   "content": {
-    "last_story_created": "2026-10-04T03:40:26.813929Z",
+    "last_story_created": "2026-10-04T03:44:57.432108Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-10-04T03:40:24.457922Z",
+    "last_timeline_update": "2026-10-04T03:44:55.464632Z",
     "last_timeline_age_minutes": 0.0,
     "published_timelines": 65,
-    "manifest_updated_at": "2026-10-04T03:40:26.013744Z"
+    "manifest_updated_at": "2026-10-04T03:44:56.696526Z"
   },
   "fast_path": {
-    "reports_evaluated": 103,
-    "candidate_events": 94,
+    "reports_evaluated": 101,
+    "candidate_events": 92,
     "fast_path_events": 0,
-    "held_for_normal_path": 94,
+    "held_for_normal_path": 92,
     "duplicate_reports_suppressed": 9,
-    "duplicate_event_rate_pct": 8.74,
+    "duplicate_event_rate_pct": 8.91,
     "median_source_detection_latency_seconds": null,
     "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
@@ -86,41 +81,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 4.44,
-      "completed_at": "2026-10-04T03:40:15.722979Z",
+      "duration_seconds": 7.15,
+      "completed_at": "2026-10-04T03:44:48.807397Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "FAILED: Federal Reserve Press Releases: 404 Client Error: Not Found for url: https://www.federalreserve.gov/feeds/press_all.xml; no advertised RSS/Atom feed found"
+      "message": "Generated 1385 stories from 80/80 healthy sources; default radar depth 20/source."
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.52,
-      "completed_at": "2026-10-04T03:40:16.242739Z",
+      "duration_seconds": 0.49,
+      "completed_at": "2026-10-04T03:44:49.299600Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 0 promoted, 94 kept on normal path, 9 duplicates grouped."
+      "message": "Fast path: 0 promoted, 92 kept on normal path, 9 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 8.19,
-      "completed_at": "2026-10-04T03:40:24.433633Z",
+      "duration_seconds": 6.14,
+      "completed_at": "2026-10-04T03:44:55.444097Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1271 storylines; 44 multi-family; 1 breaking; 1 developing; 0 hot"
+      "message": "Built 1279 storylines; 44 multi-family; 1 breaking; 1 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.4,
-      "completed_at": "2026-10-04T03:40:24.832605Z",
+      "duration_seconds": 0.29,
+      "completed_at": "2026-10-04T03:44:55.733756Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -130,8 +125,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 1.41,
-      "completed_at": "2026-10-04T03:40:26.246276Z",
+      "duration_seconds": 1.19,
+      "completed_at": "2026-10-04T03:44:56.924551Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 65 autonomous source-backed story timelines"
@@ -141,8 +136,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.04,
-      "completed_at": "2026-10-04T03:40:26.300607Z",
+      "duration_seconds": 0.03,
+      "completed_at": "2026-10-04T03:44:56.986846Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -152,8 +147,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.12,
-      "completed_at": "2026-10-04T03:40:26.416444Z",
+      "duration_seconds": 0.14,
+      "completed_at": "2026-10-04T03:44:57.124276Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 680 permanent timeline URLs; 65 currently active"
@@ -163,8 +158,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.06,
-      "completed_at": "2026-10-04T03:40:26.492401Z",
+      "duration_seconds": 0.05,
+      "completed_at": "2026-10-04T03:44:57.202637Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -175,7 +170,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.02,
-      "completed_at": "2026-10-04T03:40:26.512358Z",
+      "completed_at": "2026-10-04T03:44:57.219414Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -186,7 +181,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-10-04T03:40:26.543809Z",
+      "completed_at": "2026-10-04T03:44:57.245828Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -196,8 +191,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.12,
-      "completed_at": "2026-10-04T03:40:26.667213Z",
+      "duration_seconds": 0.07,
+      "completed_at": "2026-10-04T03:44:57.311603Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 65 live timelines"
@@ -208,7 +203,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-10-04T03:40:26.721434Z",
+      "completed_at": "2026-10-04T03:44:57.357621Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -219,7 +214,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-10-04T03:40:26.776430Z",
+      "completed_at": "2026-10-04T03:44:57.405362Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T10:02:39.544898Z",
+  "generated_at": "2026-10-05T10:07:13.296071Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,20 +7,20 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 110,
-    "candidate_events": 99,
-    "fast_path_events": 0,
-    "held_for_normal_path": 99,
-    "duplicate_reports_suppressed": 11,
-    "duplicate_event_rate_pct": 10.0,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
-    "published_fast_path_events": 0,
-    "detection_to_publication_latency_seconds": null,
+    "reports_evaluated": 115,
+    "candidate_events": 97,
+    "fast_path_events": 3,
+    "held_for_normal_path": 94,
+    "duplicate_reports_suppressed": 18,
+    "duplicate_event_rate_pct": 15.65,
+    "median_source_detection_latency_seconds": 354.3,
+    "high_urgency_capture_pct": 100.0,
+    "published_fast_path_events": 3,
+    "detection_to_publication_latency_seconds": 14.5,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 0,
+      "published": 3,
       "editorially_suppressed": 0,
       "deferred": 0,
       "missed": 0
@@ -29,98 +29,156 @@
   },
   "candidates": [
     {
-      "id": "de426af7fc91",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 67.05,
+      "id": "70df80c034a5",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 93.22,
       "score_components": {
         "source_trust": 10,
-        "recency": 16.05,
+        "recency": 21.22,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 12,
+        "velocity": 12,
+        "independent_confirmations": 12,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "400f33f7b0a2",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:03:38Z",
+      "source_detection_latency_seconds": 215.3,
+      "factual_update": "Trump chooses top spy boss to run new AI taskforce",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqj6jenp26zyo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 5,
+      "trusted_independent_source_count": 3,
+      "corroborating_sources": [
+        "ABC News",
+        "American Greatness",
+        "BBC News",
+        "CBS News",
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/Politics/election-looms-supreme-court-reconvenes-new-wave-trump/story?id=136871786",
+        "https://amgreatness.com/2026/10/04/trump-administration-expels-two-iranian-diplomats-who-defied-order-to-leave-us/",
+        "https://amgreatness.com/2026/10/04/trump-announces-new-super-intelligence-force-to-secure-american-si-dominance/",
+        "https://amgreatness.com/2026/10/05/how-trump-became-the-abundance-president/",
+        "https://pagesix.com/2026/10/05/society/ivanka-trump-jared-kushner-finally-get-into-ultra-exclusive-indian-creek-country-club-that-bezos-is-desperate-to-join/",
+        "https://www.bbc.co.uk/news/articles/cqj6jenp26zyo?at_medium=RSS&at_campaign=rss",
+        "https://www.cbsnews.com/live-updates/trump-iran-war-us-midterm-elections-troops-deployment/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 3.6,
+      "published_storyline_id": "4897171b8b9b",
+      "published_at": "2026-10-05T10:07:27.758798Z",
+      "detection_to_publication_latency_seconds": 14.5
+    },
+    {
+      "id": "b6dabff748f4",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 77.74,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 20.74,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 3,
         "velocity": 12,
-        "independent_confirmations": 0,
+        "independent_confirmations": 6,
         "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
       "matched_storyline_id": "2573a528784e",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:14:58Z",
-      "source_detection_latency_seconds": 2861.5,
-      "factual_update": "Andrew takes legal action over arrest search warrants with hearing this week",
-      "source": "BBC News",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:01:19Z",
+      "source_detection_latency_seconds": 354.3,
+      "factual_update": "Former Prince Andrew files legal action to quash warrants that led to residence searches",
+      "source": "NPR News",
       "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c689zl5eljdzo?at_medium=RSS&at_campaign=rss",
+      "primary_source_link": "https://www.npr.org/2026/10/05/g-s1-146396/former-prince-andrew-legal-action",
       "independent_source_count": 4,
-      "trusted_independent_source_count": 1,
+      "trusted_independent_source_count": 2,
       "corroborating_sources": [
         "BBC News",
         "Deadline",
-        "New York Post",
-        "Variety"
+        "NPR News",
+        "New York Post"
       ],
       "corroborating_links": [
         "https://deadline.com/2026/10/prince-andrew-legal-action-police-epstein-files-arrest-1237146498/",
         "https://nypost.com/2026/10/05/world-news/ex-prince-andrew-takes-cops-to-court-over-epstein-files-arrest-report/",
-        "https://variety.com/2026/global/news/former-prince-andrew-legal-action-police-arrest-1236898938/",
-        "https://www.bbc.co.uk/news/articles/c689zl5eljdzo?at_medium=RSS&at_campaign=rss"
+        "https://www.bbc.co.uk/news/articles/c689zl5eljdzo?at_medium=RSS&at_campaign=rss",
+        "https://www.npr.org/2026/10/05/g-s1-146396/former-prince-andrew-legal-action"
       ],
       "risk_flags": [],
-      "age_minutes": 31.5
+      "age_minutes": 5.9,
+      "published_storyline_id": "2573a528784e",
+      "published_at": "2026-10-05T10:07:27.758798Z",
+      "detection_to_publication_latency_seconds": 14.5
     },
     {
-      "id": "98a74dd24967",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 62.19,
+      "id": "185f217f3ea9",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 76.47,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.19,
+        "recency": 20.47,
         "magnitude": 11,
         "public_safety": 0,
         "institutional_prominence": 3,
-        "velocity": 8,
+        "velocity": 12,
         "independent_confirmations": 6,
         "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
       "matched_storyline_id": "c323c3e8a61e",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:45:43Z",
-      "source_detection_latency_seconds": 4616.5,
+      "source_detection_latency_seconds": 4890.3,
       "factual_update": "Morning news brief",
       "source": "NPR News",
       "source_tier": 2,
       "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5986099/morning-news-brief",
-      "independent_source_count": 3,
+      "independent_source_count": 4,
       "trusted_independent_source_count": 2,
       "corroborating_sources": [
         "American Greatness",
         "Defense News",
-        "NPR News"
+        "NPR News",
+        "Twitchy"
       ],
       "corroborating_links": [
         "https://amgreatness.com/2026/10/05/morning-greatness-us-withdraws-b-1-bombers-from-british-airbase-following-attempted-terror-attack/",
+        "https://twitchy.com/fuzzychimp/2026/10/05/monday-morning-meme-madness-n2432799",
         "https://www.defensenews.com/air/2026/10/05/us-removes-b-1-bombers-from-uk-base-amid-security-concerns/",
         "https://www.npr.org/2026/10/05/nx-s1-5986099/morning-news-brief"
       ],
       "risk_flags": [],
-      "age_minutes": 76.9
+      "age_minutes": 7.2,
+      "published_storyline_id": "21cc56ab4677",
+      "published_at": "2026-10-05T10:07:27.758798Z",
+      "detection_to_publication_latency_seconds": 14.5
     },
     {
-      "id": "4767e00b1355",
+      "id": "fac15ed1a630",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 59.81,
+      "urgency_score": 68.49,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.81,
+        "recency": 20.49,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -131,39 +189,41 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c875facfa2da",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:00:27Z",
-      "source_detection_latency_seconds": 3732.5,
+      "source_detection_latency_seconds": 4006.3,
       "factual_update": "America must defend our digital infrastructure, here and overseas, to win the next war",
       "source": "Fox News",
       "source_tier": 2,
       "primary_source_link": "https://www.foxnews.com/opinion/america-defend-digital-infrastructure-win-next-war",
-      "independent_source_count": 4,
+      "independent_source_count": 5,
       "trusted_independent_source_count": 1,
       "corroborating_sources": [
         "American Greatness",
         "Fox News",
+        "Reason",
         "STAT",
         "The New York Sun"
       ],
       "corroborating_links": [
         "https://amgreatness.com/2026/10/05/while-others-talked-america-acted/",
+        "https://reason.com/2026/10/05/a-new-debt-record/",
         "https://www.foxnews.com/opinion/america-defend-digital-infrastructure-win-next-war",
         "https://www.nysun.com/article/count-on-ai-to-end-up-calling-the-shots-if-assisted-suicide-is-legalized-in-america",
         "https://www.statnews.com/2026/10/05/hospital-bills-drug-prices-insurance-premiums-spiral-part-5-out-of-pocket-series/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 62.2
+      "age_minutes": 7.1
     },
     {
       "id": "ef306d980198",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 51.89,
+      "urgency_score": 51.18,
       "score_components": {
         "source_trust": 10,
-        "recency": 15.89,
+        "recency": 15.18,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -174,9 +234,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "013a0974393b",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:30:07Z",
-      "source_detection_latency_seconds": 1952.5,
+      "source_detection_latency_seconds": 2226.3,
       "factual_update": "England to play 50-over warm-up in stark Ashes contrast",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -190,17 +250,17 @@
         "https://www.bbc.co.uk/sport/cricket/articles/cr0j0w2nj19no?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 32.5
+      "age_minutes": 37.1
     },
     {
       "id": "d4f024b3a61f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 49.46,
+      "urgency_score": 48.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.46,
+        "recency": 20.5,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -210,10 +270,10 @@
         "material_change": 6,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "4b8556334e64",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "matched_storyline_id": "8ff027e235a6",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T10:00:11Z",
-      "source_detection_latency_seconds": 148.5,
+      "source_detection_latency_seconds": 422.3,
       "factual_update": "2026 Nobel Prize in Medicine awarded for brain research tool called optogenetics",
       "source": "STAT",
       "source_tier": 3,
@@ -227,7 +287,7 @@
         "https://www.statnews.com/2026/10/05/nobel-prize-medicine-2026-winner-deisseroth-hegemann-nagel/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 2.5
+      "age_minutes": 7.0
     },
     {
       "id": "17ebb134d264",
@@ -248,7 +308,7 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "31e5aed50ca5",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-06T17:08:54Z",
       "source_detection_latency_seconds": 0,
       "factual_update": "There are no tropical cyclones at this time.",
@@ -271,10 +331,10 @@
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 46.49,
+      "urgency_score": 46.2,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.49,
+        "recency": 6.2,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -285,9 +345,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f22b626c9b4d",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:00:32Z",
-      "source_detection_latency_seconds": 7327.5,
+      "source_detection_latency_seconds": 7601.3,
       "factual_update": "AI is supercharging political ad wars. But viral doesn’t mean victorious",
       "source": "Fox News",
       "source_tier": 2,
@@ -303,17 +363,17 @@
         "https://www.tmz.com/2026/10/05/john-starks-says-knicks-still-team-to-beat/"
       ],
       "risk_flags": [],
-      "age_minutes": 122.1
+      "age_minutes": 126.7
     },
     {
       "id": "d82096780210",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.87,
+      "urgency_score": 43.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.87,
+        "recency": 15.16,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -324,9 +384,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a4e251693aec",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:30:00Z",
-      "source_detection_latency_seconds": 1959.5,
+      "source_detection_latency_seconds": 2233.3,
       "factual_update": "NYC teacher praised Oct. 7 mastermind in Park Slope Food Coop group chat, lawsuit says: ‘Long live Yahya Al-Sinwar’",
       "source": "New York Post",
       "source_tier": 3,
@@ -340,17 +400,17 @@
         "https://nypost.com/2026/10/05/us-news/nyc-teacher-praised-oct-7-mastermind-in-park-slope-food-coop-group-chat-lawsuit/"
       ],
       "risk_flags": [],
-      "age_minutes": 32.7
+      "age_minutes": 37.2
     },
     {
       "id": "28c21dceff02",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.64,
+      "urgency_score": 42.9,
       "score_components": {
         "source_trust": 10,
-        "recency": 16.64,
+        "recency": 15.9,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -361,9 +421,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4a344834926d",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:34:44Z",
-      "source_detection_latency_seconds": 1675.5,
+      "source_detection_latency_seconds": 1949.3,
       "factual_update": "Court of Appeal hears residents' parade challenge over Drumcree dispute",
       "source": "BBC News",
       "source_tier": 2,
@@ -377,17 +437,17 @@
         "https://www.bbc.co.uk/news/articles/cmj47xdq5nz9o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 27.9
+      "age_minutes": 32.5
     },
     {
       "id": "44e556a3d077",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.15,
+      "urgency_score": 42.83,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.15,
+        "recency": 6.83,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -398,9 +458,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4b8556334e64",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:10:15Z",
-      "source_detection_latency_seconds": 6744.5,
+      "source_detection_latency_seconds": 7018.3,
       "factual_update": "The Nobel Prize week is kicking off in Stockholm with the medicine award",
       "source": "ABC News",
       "source_tier": 2,
@@ -414,54 +474,17 @@
         "https://abcnews.com/International/wireStory/nobel-prize-week-kicking-off-stockholm-medicine-award-136995821"
       ],
       "risk_flags": [],
-      "age_minutes": 112.4
-    },
-    {
-      "id": "d41be657623e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 43.12,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 13.12,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 6,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "400f33f7b0a2",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:10:58Z",
-      "source_detection_latency_seconds": 3101.5,
-      "factual_update": "As election looms, Supreme Court reconvenes to new wave of Trump cases",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/Politics/election-looms-supreme-court-reconvenes-new-wave-trump/story?id=136871786",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/Politics/election-looms-supreme-court-reconvenes-new-wave-trump/story?id=136871786"
-      ],
-      "risk_flags": [],
-      "age_minutes": 51.7
+      "age_minutes": 117.0
     },
     {
       "id": "296b86a7cdc0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 42.87,
+      "urgency_score": 42.34,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.87,
+        "recency": 11.34,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -472,9 +495,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bc428f2a7cd5",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:00:57Z",
-      "source_detection_latency_seconds": 3702.5,
+      "source_detection_latency_seconds": 3976.3,
       "factual_update": "Democratic Prosecutors Subpoena Oil Industry for Decades of Private Communications With Industry and Conservative Groups: Dark Money Fuels New War on Oil",
       "source": "Washington Free Beacon",
       "source_tier": 3,
@@ -488,17 +511,17 @@
         "https://freebeacon.com/energy/democratic-prosecutors-subpoena-oil-industry-for-decades-of-private-communications-with-industry-and-conservative-groups-dark-money-fuels-new-war-on-oil/"
       ],
       "risk_flags": [],
-      "age_minutes": 61.7
+      "age_minutes": 66.3
     },
     {
       "id": "40e29c3837fe",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 41.76,
+      "urgency_score": 41.23,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.76,
+        "recency": 11.23,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -509,9 +532,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "73da0057c524",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
+      "source_detection_latency_seconds": 4033.3,
       "factual_update": "Supreme Court's new term kicks off with blockbuster climate change case",
       "source": "NPR News",
       "source_tier": 2,
@@ -525,121 +548,10 @@
         "https://www.npr.org/2026/10/05/nx-s1-5970070/supreme-court-climate-change-boulder-county"
       ],
       "risk_flags": [],
-      "age_minutes": 62.7
+      "age_minutes": 67.2
     },
     {
       "id": "ff5100f53182",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 41.74,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 21.74,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "15d16f23cfba",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T10:01:29Z",
-      "source_detection_latency_seconds": 70.5,
-      "factual_update": "Phone calls, records suggest some Cornell students tried to contain rape allegations",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/US/damage-control-phone-calls-records-suggest-cornell-frat/story?id=136987960",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/US/damage-control-phone-calls-records-suggest-cornell-frat/story?id=136987960"
-      ],
-      "risk_flags": [],
-      "age_minutes": 1.2
-    },
-    {
-      "id": "a5a880c6829c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 41.42,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 21.42,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "75bb1f831744",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T10:00:00Z",
-      "source_detection_latency_seconds": 159.5,
-      "factual_update": "Our minds aren’t equipped to handle AI",
-      "source": "The Verge",
-      "source_tier": 2,
-      "primary_source_link": "https://www.theverge.com/ai-artificial-intelligence/1003794/ai-education-computational-model-thought",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Verge"
-      ],
-      "corroborating_links": [
-        "https://www.theverge.com/ai-artificial-intelligence/1003794/ai-education-computational-model-thought"
-      ],
-      "risk_flags": [],
-      "age_minutes": 2.7
-    },
-    {
-      "id": "13948d44c793",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 41.13,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 21.13,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "768d1bd0996e",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:58:37Z",
-      "source_detection_latency_seconds": 242.5,
-      "factual_update": "Scott out of England squad and faces injury lay-off",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cqm2dyrg84ymo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/cqm2dyrg84ymo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 4.0
-    },
-    {
-      "id": "9cb5ebdd74ff",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -656,34 +568,71 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "fcbdd58aa5a1",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:57:06Z",
-      "source_detection_latency_seconds": 333.5,
-      "factual_update": "Shadow chancellor to unveil Tory plans to cut taxes and regulations",
-      "source": "BBC News",
+      "matched_storyline_id": "15d16f23cfba",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:01:41Z",
+      "source_detection_latency_seconds": 332.3,
+      "factual_update": "Phone calls, records suggest some Cornell students tried to contain rape allegations",
+      "source": "ABC News",
       "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqj9kje82jm1o?at_medium=RSS&at_campaign=rss",
+      "primary_source_link": "https://abcnews.com/US/damage-control-phone-calls-records-suggest-cornell-frat/story?id=136987960",
       "independent_source_count": 1,
       "trusted_independent_source_count": 1,
       "corroborating_sources": [
-        "BBC News"
+        "ABC News"
       ],
       "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cqj9kje82jm1o?at_medium=RSS&at_campaign=rss"
+        "https://abcnews.com/US/damage-control-phone-calls-records-suggest-cornell-frat/story?id=136987960"
       ],
       "risk_flags": [],
-      "age_minutes": 5.6
+      "age_minutes": 5.5
+    },
+    {
+      "id": "13948d44c793",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 40.19,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 20.19,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "768d1bd0996e",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:58:37Z",
+      "source_detection_latency_seconds": 516.3,
+      "factual_update": "Scott out of England squad and faces injury lay-off",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/cqm2dyrg84ymo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/cqm2dyrg84ymo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 8.6
     },
     {
       "id": "db2cbca633c5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.79,
+      "urgency_score": 40.17,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.79,
+        "recency": 13.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -694,9 +643,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f9e1fdd5eee0",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:15:55Z",
-      "source_detection_latency_seconds": 2804.5,
+      "source_detection_latency_seconds": 3078.3,
       "factual_update": "Spain's prime minister calls early elections as pressure mounts over housing crisis",
       "source": "NPR News",
       "source_tier": 2,
@@ -710,17 +659,54 @@
         "https://www.npr.org/2026/10/05/nx-s1-5991404/spain-snap-elections"
       ],
       "risk_flags": [],
-      "age_minutes": 46.7
+      "age_minutes": 51.3
+    },
+    {
+      "id": "9cb5ebdd74ff",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 39.88,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 19.88,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "fcbdd58aa5a1",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:57:06Z",
+      "source_detection_latency_seconds": 607.3,
+      "factual_update": "Shadow chancellor to unveil Tory plans to cut taxes and regulations",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqj9kje82jm1o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cqj9kje82jm1o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 10.1
     },
     {
       "id": "387249765ad8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.37,
+      "urgency_score": 39.46,
       "score_components": {
         "source_trust": 10,
-        "recency": 20.37,
+        "recency": 19.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -731,9 +717,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b0a59799504a",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:54:57Z",
-      "source_detection_latency_seconds": 462.5,
+      "source_detection_latency_seconds": 736.3,
       "factual_update": "Average five-year mortgage rate hits 6% for first time in three years",
       "source": "BBC News",
       "source_tier": 2,
@@ -747,17 +733,17 @@
         "https://www.bbc.co.uk/news/articles/c8r4yxpry5e9o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 7.7
+      "age_minutes": 12.3
     },
     {
       "id": "7b37f87f723f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 40.21,
+      "urgency_score": 39.31,
       "score_components": {
         "source_trust": 10,
-        "recency": 20.21,
+        "recency": 19.31,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -768,9 +754,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6704c7f6f18d",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:54:11Z",
-      "source_detection_latency_seconds": 508.5,
+      "source_detection_latency_seconds": 782.3,
       "factual_update": "Connor out, Lewis in as England name World Cup squad",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -784,17 +770,17 @@
         "https://www.bbc.co.uk/sport/rugby-league/articles/cmgj94zd59ljo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 8.5
+      "age_minutes": 13.0
     },
     {
       "id": "69160655ff0c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 39.78,
+      "urgency_score": 38.89,
       "score_components": {
         "source_trust": 10,
-        "recency": 19.78,
+        "recency": 18.89,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -805,9 +791,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "79c1e0679ef2",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:52:00Z",
-      "source_detection_latency_seconds": 639.5,
+      "source_detection_latency_seconds": 913.3,
       "factual_update": "Japanese leader calls woman's murder, allegedly by U.S. Marine, \"heinous crime\"",
       "source": "CBS News",
       "source_tier": 2,
@@ -821,54 +807,54 @@
         "https://www.cbsnews.com/news/japan-womans-murder-us-marine-okinawa-heinous-outrage/"
       ],
       "risk_flags": [],
-      "age_minutes": 10.7
+      "age_minutes": 15.2
     },
     {
-      "id": "cc4287db616c",
+      "id": "3a1a3728a47f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 38.93,
+      "urgency_score": 38.47,
       "score_components": {
-        "source_trust": 10,
-        "recency": 2.93,
-        "magnitude": 12,
+        "source_trust": 2,
+        "recency": 20.47,
+        "magnitude": 10,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 6,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "6c73af3ebcd5",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T06:40:58Z",
-      "source_detection_latency_seconds": 12101.5,
-      "factual_update": "Senior Trump administration officials met to discuss Iran war at Camp David",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/live-updates/trump-iran-war-us-midterm-elections-troops-deployment/",
+      "matched_storyline_id": null,
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:00:00Z",
+      "source_detection_latency_seconds": 433.3,
+      "factual_update": "How the self-appointed spokesman of Minnesota’s Somali community duped friendly media and convicted fraudsters",
+      "source": "Washington Examiner",
+      "source_tier": 3,
+      "primary_source_link": "https://www.washingtonexaminer.com/news/investigations/4752756/self-appointed-spokesman-minnesota-somali-community-duped-media-fraudsters/",
       "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
+      "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "CBS News"
+        "Washington Examiner"
       ],
       "corroborating_links": [
-        "https://www.cbsnews.com/live-updates/trump-iran-war-us-midterm-elections-troops-deployment/"
+        "https://www.washingtonexaminer.com/news/investigations/4752756/self-appointed-spokesman-minnesota-somali-community-duped-media-fraudsters/"
       ],
       "risk_flags": [],
-      "age_minutes": 201.7
+      "age_minutes": 7.2
     },
     {
       "id": "d1f2eda9283d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 38.14,
+      "urgency_score": 37.82,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.14,
+        "recency": 6.82,
         "magnitude": 7,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -879,9 +865,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9bb02d69c47a",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:10:06Z",
-      "source_detection_latency_seconds": 6753.5,
+      "source_detection_latency_seconds": 7027.3,
       "factual_update": "Another U.S. strike on alleged drug-smuggling boat kills 4, SOUTHCOM says",
       "source": "CBS News",
       "source_tier": 2,
@@ -895,17 +881,54 @@
         "https://www.cbsnews.com/news/us-strike-alleged-drug-smuggling-boat-caribbean-4-dead-southcom/"
       ],
       "risk_flags": [],
-      "age_minutes": 112.6
+      "age_minutes": 117.1
+    },
+    {
+      "id": "63fb8f2cc42d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 35.34,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 15.34,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:31:09Z",
+      "source_detection_latency_seconds": 2164.3,
+      "factual_update": "Andrew Mountbatten-Windsor Taking Legal Action Against Police Over Search Warrants in Arrest",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/2026/global/news/former-prince-andrew-legal-action-police-arrest-1236898938/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/2026/global/news/former-prince-andrew-legal-action-police-arrest-1236898938/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 36.1
     },
     {
       "id": "79ec91f76961",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 35.62,
+      "urgency_score": 34.88,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.62,
+        "recency": 15.88,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -916,9 +939,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "48e6855af948",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:34:37Z",
-      "source_detection_latency_seconds": 1682.5,
+      "source_detection_latency_seconds": 1956.3,
       "factual_update": "InterTalent Agency Promotes Pair To Run Creator Division",
       "source": "Deadline",
       "source_tier": 3,
@@ -932,91 +955,17 @@
         "https://deadline.com/2026/10/intertalent-creator-division-heads-mccombe-bendien-1237146531/"
       ],
       "risk_flags": [],
-      "age_minutes": 28.0
-    },
-    {
-      "id": "2bbea60d5e94",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 34.51,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.51,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8b48649df2db",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:27:41Z",
-      "source_detection_latency_seconds": 2098.5,
-      "factual_update": "John Kennedy Says He May Run for President",
-      "source": "The New York Sun",
-      "source_tier": 3,
-      "primary_source_link": "https://www.nysun.com/article/john-kennedy-says-he-may-run-for-president",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The New York Sun"
-      ],
-      "corroborating_links": [
-        "https://www.nysun.com/article/john-kennedy-says-he-may-run-for-president"
-      ],
-      "risk_flags": [],
-      "age_minutes": 35.0
-    },
-    {
-      "id": "271561d9eddf",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 34.47,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 14.47,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0e9cf003bdb6",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:20:45Z",
-      "source_detection_latency_seconds": 2514.5,
-      "factual_update": "US removes all bombers from RAF Fairford base",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmwyve191dlko?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cmwyve191dlko?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 41.9
+      "age_minutes": 32.6
     },
     {
       "id": "637e2d6f5b70",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 34.45,
+      "urgency_score": 34.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.45,
+        "recency": 6.16,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1027,9 +976,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2def3bb81c36",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:00:00Z",
-      "source_detection_latency_seconds": 7359.5,
+      "source_detection_latency_seconds": 7633.3,
       "factual_update": "‘You Saved the Spirit of the World’: Netanyahu Hails Indian Pilot Who Thwarted Hijacking Aimed at Ben Gurion Airport",
       "source": "The New York Sun",
       "source_tier": 3,
@@ -1043,17 +992,91 @@
         "https://www.nysun.com/article/you-saved-the-spirit-of-the-world-netanyahu-congratulates-indian-co-pilot-who-help-thwart-hijacking"
       ],
       "risk_flags": [],
-      "age_minutes": 122.7
+      "age_minutes": 127.2
+    },
+    {
+      "id": "2bbea60d5e94",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.82,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.82,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8b48649df2db",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:27:41Z",
+      "source_detection_latency_seconds": 2372.3,
+      "factual_update": "John Kennedy Says He May Run for President",
+      "source": "The New York Sun",
+      "source_tier": 3,
+      "primary_source_link": "https://www.nysun.com/article/john-kennedy-says-he-may-run-for-president",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The New York Sun"
+      ],
+      "corroborating_links": [
+        "https://www.nysun.com/article/john-kennedy-says-he-may-run-for-president"
+      ],
+      "risk_flags": [],
+      "age_minutes": 39.5
+    },
+    {
+      "id": "271561d9eddf",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.82,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 13.82,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0e9cf003bdb6",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:20:45Z",
+      "source_detection_latency_seconds": 2788.3,
+      "factual_update": "US removes all bombers from RAF Fairford base",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmwyve191dlko?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cmwyve191dlko?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 46.5
     },
     {
       "id": "06ac2f01299e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 34.34,
+      "urgency_score": 33.7,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.34,
+        "recency": 13.7,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1064,9 +1087,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "167226af19ec",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:19:51Z",
-      "source_detection_latency_seconds": 2568.5,
+      "source_detection_latency_seconds": 2842.3,
       "factual_update": "BT agrees rescue deal to buy broadband operator TalkTalk",
       "source": "BBC News",
       "source_tier": 2,
@@ -1080,56 +1103,17 @@
         "https://www.bbc.co.uk/news/articles/cvze4g06526ro?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 42.8
-    },
-    {
-      "id": "a5de9ff74a0f",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 34.32,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 3.32,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 4,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "26d1492bf212",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T06:15:29Z",
-      "source_detection_latency_seconds": 13630.5,
-      "factual_update": "Trump unveils 'Super Intelligence Force' to oversee AI policy",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cqj6jenp26zyo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "American Greatness",
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/10/04/trump-announces-new-super-intelligence-force-to-secure-american-si-dominance/",
-        "https://www.bbc.co.uk/news/articles/cqj6jenp26zyo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 189.1
+      "age_minutes": 47.4
     },
     {
       "id": "e2c1586e2fe3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.9,
+      "urgency_score": 33.37,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.9,
+        "recency": 11.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -1140,9 +1124,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "974338baa51e",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:01:11Z",
-      "source_detection_latency_seconds": 3688.5,
+      "source_detection_latency_seconds": 3962.3,
       "factual_update": "Top Supreme Court Cases to Watch for 2026–2027 Term",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1156,17 +1140,54 @@
         "https://www.theepochtimes.com/us/top-supreme-court-cases-to-watch-for-2026-2027-term-6097011"
       ],
       "risk_flags": [],
-      "age_minutes": 61.5
+      "age_minutes": 66.0
+    },
+    {
+      "id": "c8ffe712fa1f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.33,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 21.33,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:04:08Z",
+      "source_detection_latency_seconds": 185.3,
+      "factual_update": "Why are data centres such a big deal in Scotland?",
+      "source": "BBC Science & Environment",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c6qxv55882z1o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Science & Environment"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/c6qxv55882z1o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 3.1
     },
     {
       "id": "343f40eb52a3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.83,
+      "urgency_score": 33.3,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.83,
+        "recency": 11.3,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -1177,9 +1198,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8abaaeeacd93",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T09:00:35Z",
-      "source_detection_latency_seconds": 3724.5,
+      "source_detection_latency_seconds": 3998.3,
       "factual_update": "Supreme Court to Hear Pivotal Climate Case With Billions at Stake",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1193,844 +1214,30 @@
         "https://www.theepochtimes.com/us/supreme-court-to-hear-pivotal-climate-case-with-billions-at-stake-6097759"
       ],
       "risk_flags": [],
-      "age_minutes": 62.1
-    },
-    {
-      "id": "36f8dfc5d61b",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 33.42,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 21.42,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "a176d7c8ba25",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T10:00:00Z",
-      "source_detection_latency_seconds": 159.5,
-      "factual_update": "Ivanka Trump, Jared Kushner finally get into ultra-exclusive Indian Creek Country Club that Bezos is desperate to join",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/2026/10/05/society/ivanka-trump-jared-kushner-finally-get-into-ultra-exclusive-indian-creek-country-club-that-bezos-is-desperate-to-join/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://pagesix.com/2026/10/05/society/ivanka-trump-jared-kushner-finally-get-into-ultra-exclusive-indian-creek-country-club-that-bezos-is-desperate-to-join/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 2.7
-    },
-    {
-      "id": "88f8dfd23a23",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 33.42,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 21.42,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2e949dd7d1b9",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T10:00:00Z",
-      "source_detection_latency_seconds": 159.5,
-      "factual_update": "What to Watch this week: Jessica Chastain is “Other Mommy”, and “Carrie” brings her horrors to TV",
-      "source": "Entertainment Weekly",
-      "source_tier": 3,
-      "primary_source_link": "https://ew.com/what-to-watch-this-week-movies-tv-shows-schedule-11777263",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Entertainment Weekly"
-      ],
-      "corroborating_links": [
-        "https://ew.com/what-to-watch-this-week-movies-tv-shows-schedule-11777263"
-      ],
-      "risk_flags": [],
-      "age_minutes": 2.7
-    },
-    {
-      "id": "2b59da71ba58",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.2,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 20.2,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ea72cec2b189",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:54:08Z",
-      "source_detection_latency_seconds": 511.5,
-      "factual_update": "Louisa Compton Appointed To Channel 4 Board Alongside Next Content Chief",
-      "source": "Deadline",
-      "source_tier": 3,
-      "primary_source_link": "https://deadline.com/2026/10/channel-4-board-louisa-compton-ian-katz-replacement-1237146542/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/10/channel-4-board-louisa-compton-ian-katz-replacement-1237146542/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 8.5
-    },
-    {
-      "id": "28841518e9bc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 32.18,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 12.18,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0edb4a1402ab",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:03:30Z",
-      "source_detection_latency_seconds": 3549.5,
-      "factual_update": "How the eviction of an elderly resident in Madrid has led to an early general election",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/videos/c83vqk2k2k20o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/videos/c83vqk2k2k20o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 59.2
-    },
-    {
-      "id": "a7673533269c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.86,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.86,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ae0d9aa1e0d3",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:53Z",
-      "source_detection_latency_seconds": 3706.5,
-      "factual_update": "Wall Street has a new rival, and it's deep in the heart of this southern state",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/wall-street-new-rival-deep-heart-southern-state",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/politics/wall-street-new-rival-deep-heart-southern-state"
-      ],
-      "risk_flags": [],
-      "age_minutes": 61.8
-    },
-    {
-      "id": "ba4e551760f2",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.77,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.77,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c1feaf5ca4de",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:06Z",
-      "source_detection_latency_seconds": 3753.5,
-      "factual_update": "LEE CARTER: Polls say Democrats could swamp Republicans. As a pollster, I have a question",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/opinion/lee-carter-polls-say-democrats-could-swamp-republicans-pollster-question",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/opinion/lee-carter-polls-say-democrats-could-swamp-republicans-pollster-question"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.6
-    },
-    {
-      "id": "3e280be0d886",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.76,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8e682462f963",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "From floating saunas to clinical trials: How heat might help mental health",
-      "source": "NPR News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5979044/sauna-heat-therapy-mental-health-depression",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "NPR News"
-      ],
-      "corroborating_links": [
-        "https://www.npr.org/2026/10/05/nx-s1-5979044/sauna-heat-therapy-mental-health-depression"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.7
-    },
-    {
-      "id": "72236f657ed4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.76,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0070ebb702c7",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "Voters are increasingly using AI chatbots to fact-check and compare candidates",
-      "source": "NPR News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5977852/ai-chatbots-midterm-election",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "NPR News"
-      ],
-      "corroborating_links": [
-        "https://www.npr.org/2026/10/05/nx-s1-5977852/ai-chatbots-midterm-election"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.7
-    },
-    {
-      "id": "b3102ccf49fa",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.76,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "0c2531abc9eb",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "Super El Niño is here. What's so super about it?",
-      "source": "NPR News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5981261/super-el-nino-floods-droughts",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "NPR News"
-      ],
-      "corroborating_links": [
-        "https://www.npr.org/2026/10/05/nx-s1-5981261/super-el-nino-floods-droughts"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.7
-    },
-    {
-      "id": "7bb3ecf45969",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.76,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "04ec774dbe2a",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "Republicans and Democrats find a unifying target: Pharmacy benefit managers",
-      "source": "NPR News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5943563/pharmacy-benefit-managers-pbms-tennessee-arkansas-regulation",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "NPR News"
-      ],
-      "corroborating_links": [
-        "https://www.npr.org/2026/10/05/nx-s1-5943563/pharmacy-benefit-managers-pbms-tennessee-arkansas-regulation"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.7
-    },
-    {
-      "id": "ef1b59658477",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.27,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.27,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5e9ba216baa6",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T08:55:48Z",
-      "source_detection_latency_seconds": 4011.5,
-      "factual_update": "ENES KANTER FREEDOM: I know the price of silence and won't stop defending women's sports",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/opinion/enes-kanter-freedom-price-silence-wont-stop-defending-womens-sports",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/opinion/enes-kanter-freedom-price-silence-wont-stop-defending-womens-sports"
-      ],
-      "risk_flags": [],
-      "age_minutes": 66.9
-    },
-    {
-      "id": "70c2a3421614",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.26,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.26,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4cab55aea449",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T08:55:39Z",
-      "source_detection_latency_seconds": 4020.5,
-      "factual_update": "All the goals from the Women's Super League - matchweek five",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/videos/cmx2d59jn021o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/videos/cmx2d59jn021o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 67.0
-    },
-    {
-      "id": "511f5fa8435d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.87,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.87,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8d94eaa05ae7",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:57Z",
-      "source_detection_latency_seconds": 3702.5,
-      "factual_update": "‘Independent’ Nebraska Senate Hopeful Dan Osborn Left Kellogg’s Picket Line To Address Fringe Young Democrats Conference That Backed a Prostitutes’ Union",
-      "source": "Washington Free Beacon",
-      "source_tier": 3,
-      "primary_source_link": "https://freebeacon.com/democrats/independent-nebraska-senate-hopeful-dan-osborn-left-kelloggs-picket-line-to-address-fringe-young-democrats-conference-that-backed-a-prostitutes-union/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Washington Free Beacon"
-      ],
-      "corroborating_links": [
-        "https://freebeacon.com/democrats/independent-nebraska-senate-hopeful-dan-osborn-left-kelloggs-picket-line-to-address-fringe-young-democrats-conference-that-backed-a-prostitutes-union/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 61.7
-    },
-    {
-      "id": "aba72c6e2455",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.8,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.8,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "bbbaf812794f",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:20Z",
-      "source_detection_latency_seconds": 3739.5,
-      "factual_update": "‘UK Democracy Has an Upper Hand’: Abdul El-Sayed Praised British Government as Superior to United States",
-      "source": "Washington Free Beacon",
-      "source_tier": 3,
-      "primary_source_link": "https://freebeacon.com/democrats/uk-democracy-has-an-upper-hand-abdul-el-sayed-praised-british-government-as-superior-to-united-states/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Washington Free Beacon"
-      ],
-      "corroborating_links": [
-        "https://freebeacon.com/democrats/uk-democracy-has-an-upper-hand-abdul-el-sayed-praised-british-government-as-superior-to-united-states/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.3
-    },
-    {
-      "id": "e64bbff1536e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.45,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 6.45,
-        "magnitude": 7,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "6909ba9d7ce0",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T08:00:00Z",
-      "source_detection_latency_seconds": 7359.5,
-      "factual_update": "Brian Cox Goes Digital: Top British TV Scientist Strikes Content Deal With New Sony Studio",
-      "source": "Deadline",
-      "source_tier": 3,
-      "primary_source_link": "https://deadline.com/2026/10/brian-cox-youtube-deal-sony-bbc-presenter-scientist-1237146484/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Deadline"
-      ],
-      "corroborating_links": [
-        "https://deadline.com/2026/10/brian-cox-youtube-deal-sony-bbc-presenter-scientist-1237146484/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 122.7
-    },
-    {
-      "id": "9d87c37972fb",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.6,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 4.6,
-        "magnitude": 8,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "431536e612bb",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T07:26:15Z",
-      "source_detection_latency_seconds": 9384.5,
-      "factual_update": "John Oliver Reacquires Russell Crowe’s Infamous Jock Strap: ‘We F-ucking Bought It Back’",
-      "source": "Rolling Stone",
-      "source_tier": 3,
-      "primary_source_link": "https://www.rollingstone.com/tv-movies/tv-movie-news/john-oliver-russell-crowe-jock-strap-last-week-tonight-1235636701/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Rolling Stone"
-      ],
-      "corroborating_links": [
-        "https://www.rollingstone.com/tv-movies/tv-movie-news/john-oliver-russell-crowe-jock-strap-last-week-tonight-1235636701/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 156.4
-    },
-    {
-      "id": "b59a554ee468",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.29,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 20.29,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": -12
-      },
-      "matched_storyline_id": "d4eef238d803",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:54:34Z",
-      "source_detection_latency_seconds": 485.5,
-      "factual_update": "WATCH: People train to run 50K while eating Taco Bell",
-      "source": "ABC News",
-      "source_tier": 2,
-      "primary_source_link": "https://abcnews.com/video/136996517/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "ABC News"
-      ],
-      "corroborating_links": [
-        "https://abcnews.com/video/136996517/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 8.1
-    },
-    {
-      "id": "4b534e16e502",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.1,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 8.1,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "152f754d67f8",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T08:22:41Z",
-      "source_detection_latency_seconds": 5998.5,
-      "factual_update": "'Not again': Arrest of US marine for murder reignites protests in Japan's Okinawa",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cwgkv70gg1j3o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cwgkv70gg1j3o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 100.0
-    },
-    {
-      "id": "66c4e2f555bb",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.8,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 7.8,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3159ee1cc103",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T08:18:58Z",
-      "source_detection_latency_seconds": 6221.5,
-      "factual_update": "Protesters scuffle with police as migrants brought ashore on south coast",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmrly809n8p6o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cmrly809n8p6o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 103.7
-    },
-    {
-      "id": "1e3aad0c0f1d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.99,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 6.99,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f482abef4cd6",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T08:08:02Z",
-      "source_detection_latency_seconds": 6877.5,
-      "factual_update": "£800m in, £800m out - Why Man City scandal shines light on Man Utd finances",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/ckg5j87jy3zmo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/articles/ckg5j87jy3zmo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 114.6
-    },
-    {
-      "id": "8d2b3dbc5e4a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.65,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 14.65,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2de65c827b71",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:21:58Z",
-      "source_detection_latency_seconds": 2441.5,
-      "factual_update": "Investigators: FlyDubai Co-Pilot Planned to Crash Jet into Israel's Ben-Gurion Airport; PM Speaks with 'Hero' Captain",
-      "source": "CBN News",
-      "source_tier": 3,
-      "primary_source_link": "https://www1.cbn.com/cbnnews/israel/2026/october/investigators-flydubai-co-pilot-planned-to-crash-jet-into-israels-ben-gurion-airport-pm-speaks-with-hero-captain",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBN News"
-      ],
-      "corroborating_links": [
-        "https://www1.cbn.com/cbnnews/israel/2026/october/investigators-flydubai-co-pilot-planned-to-crash-jet-into-israels-ben-gurion-airport-pm-speaks-with-hero-captain"
-      ],
-      "risk_flags": [],
-      "age_minutes": 40.7
-    },
-    {
-      "id": "1e80e6dc2e46",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.24,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 6.24,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4cc4d8b08f74",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T07:56:41Z",
-      "source_detection_latency_seconds": 7558.5,
-      "factual_update": "Potty training scheme to roll out to 20 more areas",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/ck4glnl2v9p5o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/ck4glnl2v9p5o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 126.0
+      "age_minutes": 66.6
     },
     {
       "id": "7a7805779a94",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.42,
+      "urgency_score": 32.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.42,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "matched_storyline_id": "86c17fc31c68",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T10:00:00Z",
-      "source_detection_latency_seconds": 159.5,
+      "source_detection_latency_seconds": 433.3,
       "factual_update": "Kalshi bets big on NY with $3M Housing Works donation — despite legal battle with Gov. Hochul",
       "source": "New York Post",
       "source_tier": 3,
@@ -2044,30 +1251,30 @@
         "https://nypost.com/2026/10/05/business/kalshi-bets-big-on-ny-with-3m-housing-works-donation-despite-hochul-legal-battle/"
       ],
       "risk_flags": [],
-      "age_minutes": 2.7
+      "age_minutes": 7.2
     },
     {
       "id": "479b19da00a7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.42,
+      "urgency_score": 32.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.42,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "matched_storyline_id": "710b64d985d5",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T10:00:00Z",
-      "source_detection_latency_seconds": 159.5,
+      "source_detection_latency_seconds": 433.3,
       "factual_update": "This Two and a Half Men Star Auditioned to Play The O.C.'s Sandy Cohen",
       "source": "E! News",
       "source_tier": 3,
@@ -2081,17 +1288,17 @@
         "https://www.eonline.com/news/1435619/jon-cryer-auditioned-for-sandy-in-the-o-c-before-peter-gallaghers-casting?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 2.7
+      "age_minutes": 7.2
     },
     {
-      "id": "d46d67552b74",
+      "id": "88f8dfd23a23",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.14,
+      "urgency_score": 32.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.14,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2101,34 +1308,774 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "efdf9423d754",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:11:07Z",
-      "source_detection_latency_seconds": 3092.5,
-      "factual_update": "Accused flydubai hijacker expected to face death penalty after planning to crash jet into Tel Aviv airport: report",
-      "source": "New York Post",
+      "matched_storyline_id": "83bf0ffaecb2",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:00:00Z",
+      "source_detection_latency_seconds": 433.3,
+      "factual_update": "What to Watch this week: Jessica Chastain is “Other Mommy”, and “Carrie” brings her horrors to TV",
+      "source": "Entertainment Weekly",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/10/05/world-news/accused-flydubai-hijacker-expected-to-face-death-penalty-after-planning-to-crash-jet-into-tel-aviv-airport-report/",
+      "primary_source_link": "https://ew.com/what-to-watch-this-week-movies-tv-shows-schedule-11777263",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "New York Post"
+        "Entertainment Weekly"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/10/05/world-news/accused-flydubai-hijacker-expected-to-face-death-penalty-after-planning-to-crash-jet-into-tel-aviv-airport-report/"
+        "https://ew.com/what-to-watch-this-week-movies-tv-shows-schedule-11777263"
       ],
       "risk_flags": [],
-      "age_minutes": 51.5
+      "age_minutes": 7.2
+    },
+    {
+      "id": "28841518e9bc",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.63,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.63,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0edb4a1402ab",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:03:30Z",
+      "source_detection_latency_seconds": 3823.3,
+      "factual_update": "How the eviction of an elderly resident in Madrid has led to an early general election",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/videos/c83vqk2k2k20o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/videos/c83vqk2k2k20o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 63.7
+    },
+    {
+      "id": "a7673533269c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.33,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.33,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ae0d9aa1e0d3",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:53Z",
+      "source_detection_latency_seconds": 3980.3,
+      "factual_update": "Wall Street has a new rival, and it's deep in the heart of this southern state",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/politics/wall-street-new-rival-deep-heart-southern-state",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/politics/wall-street-new-rival-deep-heart-southern-state"
+      ],
+      "risk_flags": [],
+      "age_minutes": 66.3
+    },
+    {
+      "id": "2b59da71ba58",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.3,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.3,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ea72cec2b189",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:54:08Z",
+      "source_detection_latency_seconds": 785.3,
+      "factual_update": "Louisa Compton Appointed To Channel 4 Board Alongside Next Content Chief",
+      "source": "Deadline",
+      "source_tier": 3,
+      "primary_source_link": "https://deadline.com/2026/10/channel-4-board-louisa-compton-ian-katz-replacement-1237146542/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/10/channel-4-board-louisa-compton-ian-katz-replacement-1237146542/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 13.1
+    },
+    {
+      "id": "ba4e551760f2",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.24,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.24,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c1feaf5ca4de",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:06Z",
+      "source_detection_latency_seconds": 4027.3,
+      "factual_update": "LEE CARTER: Polls say Democrats could swamp Republicans. As a pollster, I have a question",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/opinion/lee-carter-polls-say-democrats-could-swamp-republicans-pollster-question",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/opinion/lee-carter-polls-say-democrats-could-swamp-republicans-pollster-question"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.1
+    },
+    {
+      "id": "7bb3ecf45969",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.23,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "04ec774dbe2a",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "Republicans and Democrats find a unifying target: Pharmacy benefit managers",
+      "source": "NPR News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5943563/pharmacy-benefit-managers-pbms-tennessee-arkansas-regulation",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "NPR News"
+      ],
+      "corroborating_links": [
+        "https://www.npr.org/2026/10/05/nx-s1-5943563/pharmacy-benefit-managers-pbms-tennessee-arkansas-regulation"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
+    },
+    {
+      "id": "3e280be0d886",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.23,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8e682462f963",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "From floating saunas to clinical trials: How heat might help mental health",
+      "source": "NPR News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5979044/sauna-heat-therapy-mental-health-depression",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "NPR News"
+      ],
+      "corroborating_links": [
+        "https://www.npr.org/2026/10/05/nx-s1-5979044/sauna-heat-therapy-mental-health-depression"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
+    },
+    {
+      "id": "72236f657ed4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.23,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0070ebb702c7",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "Voters are increasingly using AI chatbots to fact-check and compare candidates",
+      "source": "NPR News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5977852/ai-chatbots-midterm-election",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "NPR News"
+      ],
+      "corroborating_links": [
+        "https://www.npr.org/2026/10/05/nx-s1-5977852/ai-chatbots-midterm-election"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
+    },
+    {
+      "id": "b3102ccf49fa",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.23,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0c2531abc9eb",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "Super El Niño is here. What's so super about it?",
+      "source": "NPR News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.npr.org/2026/10/05/nx-s1-5981261/super-el-nino-floods-droughts",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "NPR News"
+      ],
+      "corroborating_links": [
+        "https://www.npr.org/2026/10/05/nx-s1-5981261/super-el-nino-floods-droughts"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
+    },
+    {
+      "id": "ef1b59658477",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.77,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 10.77,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5e9ba216baa6",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T08:55:48Z",
+      "source_detection_latency_seconds": 4285.3,
+      "factual_update": "ENES KANTER FREEDOM: I know the price of silence and won't stop defending women's sports",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/opinion/enes-kanter-freedom-price-silence-wont-stop-defending-womens-sports",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/opinion/enes-kanter-freedom-price-silence-wont-stop-defending-womens-sports"
+      ],
+      "risk_flags": [],
+      "age_minutes": 71.4
+    },
+    {
+      "id": "70c2a3421614",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.75,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 10.75,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "4cab55aea449",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T08:55:39Z",
+      "source_detection_latency_seconds": 4294.3,
+      "factual_update": "All the goals from the Women's Super League - matchweek five",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/videos/cmx2d59jn021o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/videos/cmx2d59jn021o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 71.6
+    },
+    {
+      "id": "511f5fa8435d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.34,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.34,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "8d94eaa05ae7",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:57Z",
+      "source_detection_latency_seconds": 3976.3,
+      "factual_update": "‘Independent’ Nebraska Senate Hopeful Dan Osborn Left Kellogg’s Picket Line To Address Fringe Young Democrats Conference That Backed a Prostitutes’ Union",
+      "source": "Washington Free Beacon",
+      "source_tier": 3,
+      "primary_source_link": "https://freebeacon.com/democrats/independent-nebraska-senate-hopeful-dan-osborn-left-kelloggs-picket-line-to-address-fringe-young-democrats-conference-that-backed-a-prostitutes-union/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Washington Free Beacon"
+      ],
+      "corroborating_links": [
+        "https://freebeacon.com/democrats/independent-nebraska-senate-hopeful-dan-osborn-left-kelloggs-picket-line-to-address-fringe-young-democrats-conference-that-backed-a-prostitutes-union/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 66.3
+    },
+    {
+      "id": "aba72c6e2455",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.27,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.27,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "bbbaf812794f",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:20Z",
+      "source_detection_latency_seconds": 4013.3,
+      "factual_update": "‘UK Democracy Has an Upper Hand’: Abdul El-Sayed Praised British Government as Superior to United States",
+      "source": "Washington Free Beacon",
+      "source_tier": 3,
+      "primary_source_link": "https://freebeacon.com/democrats/uk-democracy-has-an-upper-hand-abdul-el-sayed-praised-british-government-as-superior-to-united-states/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Washington Free Beacon"
+      ],
+      "corroborating_links": [
+        "https://freebeacon.com/democrats/uk-democracy-has-an-upper-hand-abdul-el-sayed-praised-british-government-as-superior-to-united-states/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 66.9
+    },
+    {
+      "id": "e64bbff1536e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.16,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 6.16,
+        "magnitude": 7,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "6909ba9d7ce0",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T08:00:00Z",
+      "source_detection_latency_seconds": 7633.3,
+      "factual_update": "Brian Cox Goes Digital: Top British TV Scientist Strikes Content Deal With New Sony Studio",
+      "source": "Deadline",
+      "source_tier": 3,
+      "primary_source_link": "https://deadline.com/2026/10/brian-cox-youtube-deal-sony-bbc-presenter-scientist-1237146484/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Deadline"
+      ],
+      "corroborating_links": [
+        "https://deadline.com/2026/10/brian-cox-youtube-deal-sony-bbc-presenter-scientist-1237146484/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 127.2
+    },
+    {
+      "id": "9d87c37972fb",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.4,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 4.4,
+        "magnitude": 8,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "431536e612bb",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T07:26:15Z",
+      "source_detection_latency_seconds": 9658.3,
+      "factual_update": "John Oliver Reacquires Russell Crowe’s Infamous Jock Strap: ‘We F-ucking Bought It Back’",
+      "source": "Rolling Stone",
+      "source_tier": 3,
+      "primary_source_link": "https://www.rollingstone.com/tv-movies/tv-movie-news/john-oliver-russell-crowe-jock-strap-last-week-tonight-1235636701/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Rolling Stone"
+      ],
+      "corroborating_links": [
+        "https://www.rollingstone.com/tv-movies/tv-movie-news/john-oliver-russell-crowe-jock-strap-last-week-tonight-1235636701/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 161.0
+    },
+    {
+      "id": "4b534e16e502",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.73,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 7.73,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "152f754d67f8",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T08:22:41Z",
+      "source_detection_latency_seconds": 6272.3,
+      "factual_update": "'Not again': Arrest of US marine for murder reignites protests in Japan's Okinawa",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cwgkv70gg1j3o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cwgkv70gg1j3o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 104.5
+    },
+    {
+      "id": "66c4e2f555bb",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.45,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 7.45,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "3159ee1cc103",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T08:18:58Z",
+      "source_detection_latency_seconds": 6495.3,
+      "factual_update": "Protesters scuffle with police as migrants brought ashore on south coast",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/cmrly809n8p6o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/cmrly809n8p6o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 108.3
+    },
+    {
+      "id": "b59a554ee468",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 27.38,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 19.38,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": -12
+      },
+      "matched_storyline_id": "d4eef238d803",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:54:34Z",
+      "source_detection_latency_seconds": 759.3,
+      "factual_update": "WATCH: People train to run 50K while eating Taco Bell",
+      "source": "ABC News",
+      "source_tier": 2,
+      "primary_source_link": "https://abcnews.com/video/136996517/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "ABC News"
+      ],
+      "corroborating_links": [
+        "https://abcnews.com/video/136996517/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 12.7
+    },
+    {
+      "id": "1e3aad0c0f1d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.68,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 6.68,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "f482abef4cd6",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T08:08:02Z",
+      "source_detection_latency_seconds": 7151.3,
+      "factual_update": "£800m in, £800m out - Why Man City scandal shines light on Man Utd finances",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/football/articles/ckg5j87jy3zmo?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/football/articles/ckg5j87jy3zmo?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 119.2
+    },
+    {
+      "id": "8d2b3dbc5e4a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.99,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.99,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2de65c827b71",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:21:58Z",
+      "source_detection_latency_seconds": 2715.3,
+      "factual_update": "Investigators: FlyDubai Co-Pilot Planned to Crash Jet into Israel's Ben-Gurion Airport; PM Speaks with 'Hero' Captain",
+      "source": "CBN News",
+      "source_tier": 3,
+      "primary_source_link": "https://www1.cbn.com/cbnnews/israel/2026/october/investigators-flydubai-co-pilot-planned-to-crash-jet-into-israels-ben-gurion-airport-pm-speaks-with-hero-captain",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBN News"
+      ],
+      "corroborating_links": [
+        "https://www1.cbn.com/cbnnews/israel/2026/october/investigators-flydubai-co-pilot-planned-to-crash-jet-into-israels-ben-gurion-airport-pm-speaks-with-hero-captain"
+      ],
+      "risk_flags": [],
+      "age_minutes": 45.3
+    },
+    {
+      "id": "1e80e6dc2e46",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.96,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 5.96,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "4cc4d8b08f74",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T07:56:41Z",
+      "source_detection_latency_seconds": 7832.3,
+      "factual_update": "Potty training scheme to roll out to 20 more areas",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/ck4glnl2v9p5o?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/ck4glnl2v9p5o?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 130.5
     },
     {
       "id": "33edca72f922",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.12,
+      "urgency_score": 24.89,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.12,
+        "recency": 4.89,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2139,9 +2086,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6479bbbed486",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:36:56Z",
-      "source_detection_latency_seconds": 8743.5,
+      "source_detection_latency_seconds": 9017.3,
       "factual_update": "Chiefs and 49ers remain unbeaten - five things from NFL week four",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2155,17 +2102,17 @@
         "https://www.bbc.co.uk/sport/american-football/articles/crd6dqwx9q6qo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 145.7
+      "age_minutes": 150.3
     },
     {
-      "id": "31b71b0c4c59",
+      "id": "d46d67552b74",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.76,
+      "urgency_score": 24.55,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.76,
+        "recency": 12.55,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2175,145 +2122,71 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "f8b83c2d87f1",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:01Z",
-      "source_detection_latency_seconds": 3758.5,
-      "factual_update": "Same calories, different responses: Food processing influences metabolism and brain activity",
-      "source": "Medical Xpress",
-      "source_tier": 3,
-      "primary_source_link": "https://medicalxpress.com/news/2026-10-calories-responses-food-metabolism-brain.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Medical Xpress"
-      ],
-      "corroborating_links": [
-        "https://medicalxpress.com/news/2026-10-calories-responses-food-metabolism-brain.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.6
-    },
-    {
-      "id": "3272076f37d8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.76,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "73946974788c",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "Dems expand effort to flip House seats held by GOP with six more targets",
+      "matched_storyline_id": "efdf9423d754",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:11:07Z",
+      "source_detection_latency_seconds": 3366.3,
+      "factual_update": "Accused flydubai hijacker expected to face death penalty after planning to crash jet into Tel Aviv airport: report",
       "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/10/05/us-news/dems-expand-effort-to-flip-house-seats-held-by-gop-with-six-more-targets/",
+      "primary_source_link": "https://nypost.com/2026/10/05/world-news/accused-flydubai-hijacker-expected-to-face-death-penalty-after-planning-to-crash-jet-into-tel-aviv-airport-report/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "New York Post"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/10/05/us-news/dems-expand-effort-to-flip-house-seats-held-by-gop-with-six-more-targets/"
+        "https://nypost.com/2026/10/05/world-news/accused-flydubai-hijacker-expected-to-face-death-penalty-after-planning-to-crash-jet-into-tel-aviv-airport-report/"
       ],
       "risk_flags": [],
-      "age_minutes": 62.7
+      "age_minutes": 56.1
     },
     {
-      "id": "39cff431cc6d",
+      "id": "d0daed6989c6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.76,
+      "urgency_score": 24.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.76,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "0563d57a9d58",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "Spike in mortgage rates compounds inflation and debt woes",
+      "matched_storyline_id": null,
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T10:00:00Z",
+      "source_detection_latency_seconds": 433.3,
+      "factual_update": "How 2028 contenders are boosting their bona fides during midterm season",
       "source": "Washington Examiner",
       "source_tier": 3,
-      "primary_source_link": "https://www.washingtonexaminer.com/news/4752575/spike-mortgage-rates-inflation-debt-woes/",
+      "primary_source_link": "https://www.washingtonexaminer.com/news/campaigns/presidential/4750255/2028-presidential-contenders-midterm-season/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "Washington Examiner"
       ],
       "corroborating_links": [
-        "https://www.washingtonexaminer.com/news/4752575/spike-mortgage-rates-inflation-debt-woes/"
+        "https://www.washingtonexaminer.com/news/campaigns/presidential/4750255/2028-presidential-contenders-midterm-season/"
       ],
       "risk_flags": [],
-      "age_minutes": 62.7
-    },
-    {
-      "id": "c550cad71033",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.76,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ddbe215ed4b7",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:00:00Z",
-      "source_detection_latency_seconds": 3759.5,
-      "factual_update": "1960s feminism, abortion, and the occult broke her. Then Jesus saved her.",
-      "source": "The Blaze",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theblaze.com/shows/relatable/1960s-feminism-and-occult-broke-her-then-jesus-saved-her",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Blaze"
-      ],
-      "corroborating_links": [
-        "https://www.theblaze.com/shows/relatable/1960s-feminism-and-occult-broke-her-then-jesus-saved-her"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.7
+      "age_minutes": 7.2
     },
     {
       "id": "06ffdaf7319b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.57,
+      "urgency_score": 23.41,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.57,
+        "recency": 3.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2324,9 +2197,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0919958ac529",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:52Z",
-      "source_detection_latency_seconds": 10907.5,
+      "source_detection_latency_seconds": 11181.3,
       "factual_update": "The politics of hypocrisy: How scandal is treated with selective outrage",
       "source": "Fox News",
       "source_tier": 2,
@@ -2340,17 +2213,17 @@
         "https://www.foxnews.com/opinion/politics-hypocrisy-how-scandal-treated-selective-outrage"
       ],
       "risk_flags": [],
-      "age_minutes": 181.8
+      "age_minutes": 186.4
     },
     {
       "id": "0e926550b729",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.57,
+      "urgency_score": 23.41,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.57,
+        "recency": 3.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2361,9 +2234,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "07fb98208191",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:51Z",
-      "source_detection_latency_seconds": 10908.5,
+      "source_detection_latency_seconds": 11182.3,
       "factual_update": "£117m Rogers failed at Bournemouth - and feared he may not make it",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2377,54 +2250,165 @@
         "https://www.bbc.co.uk/sport/football/articles/ckp84r967d3go?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 181.8
+      "age_minutes": 186.4
     },
     {
-      "id": "9634ce3f934f",
+      "id": "31b71b0c4c59",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.49,
+      "urgency_score": 23.23,
       "score_components": {
         "source_trust": 2,
-        "recency": 19.49,
+        "recency": 11.23,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T09:50:32Z",
-      "source_detection_latency_seconds": 727.5,
-      "factual_update": "US Marine arrested in Japan over suspected killing of woman as Tokyo lodges ‘strong protest’",
+      "matched_storyline_id": "f8b83c2d87f1",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:01Z",
+      "source_detection_latency_seconds": 4032.3,
+      "factual_update": "Same calories, different responses: Food processing influences metabolism and brain activity",
+      "source": "Medical Xpress",
+      "source_tier": 3,
+      "primary_source_link": "https://medicalxpress.com/news/2026-10-calories-responses-food-metabolism-brain.html",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Medical Xpress"
+      ],
+      "corroborating_links": [
+        "https://medicalxpress.com/news/2026-10-calories-responses-food-metabolism-brain.html"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
+    },
+    {
+      "id": "3272076f37d8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.23,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "73946974788c",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "Dems expand effort to flip House seats held by GOP with six more targets",
       "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/10/05/us-news/us-marine-arrested-in-japan-over-suspected-killing-of-woman-as-tokyo-lodges-strong-protest/",
+      "primary_source_link": "https://nypost.com/2026/10/05/us-news/dems-expand-effort-to-flip-house-seats-held-by-gop-with-six-more-targets/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "New York Post"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/10/05/us-news/us-marine-arrested-in-japan-over-suspected-killing-of-woman-as-tokyo-lodges-strong-protest/"
+        "https://nypost.com/2026/10/05/us-news/dems-expand-effort-to-flip-house-seats-held-by-gop-with-six-more-targets/"
       ],
       "risk_flags": [],
-      "age_minutes": 12.1
+      "age_minutes": 67.2
+    },
+    {
+      "id": "39cff431cc6d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.23,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "0563d57a9d58",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "Spike in mortgage rates compounds inflation and debt woes",
+      "source": "Washington Examiner",
+      "source_tier": 3,
+      "primary_source_link": "https://www.washingtonexaminer.com/news/4752575/spike-mortgage-rates-inflation-debt-woes/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Washington Examiner"
+      ],
+      "corroborating_links": [
+        "https://www.washingtonexaminer.com/news/4752575/spike-mortgage-rates-inflation-debt-woes/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
+    },
+    {
+      "id": "c550cad71033",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 23.23,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 11.23,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ddbe215ed4b7",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:00:00Z",
+      "source_detection_latency_seconds": 4033.3,
+      "factual_update": "1960s feminism, abortion, and the occult broke her. Then Jesus saved her.",
+      "source": "The Blaze",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theblaze.com/shows/relatable/1960s-feminism-and-occult-broke-her-then-jesus-saved-her",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Blaze"
+      ],
+      "corroborating_links": [
+        "https://www.theblaze.com/shows/relatable/1960s-feminism-and-occult-broke-her-then-jesus-saved-her"
+      ],
+      "risk_flags": [],
+      "age_minutes": 67.2
     },
     {
       "id": "ed0164bf98e7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.05,
+      "urgency_score": 22.92,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.05,
+        "recency": 2.92,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2435,9 +2419,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7a51854166cd",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T06:45:08Z",
-      "source_detection_latency_seconds": 11851.5,
+      "source_detection_latency_seconds": 12125.3,
       "factual_update": "Coast Guard personnel exchange gunfire with shooters across US-Mexico border",
       "source": "Fox News",
       "source_tier": 2,
@@ -2451,17 +2435,54 @@
         "https://www.foxnews.com/world/coast-guard-personnel-exchange-gunfire-shooters-us-mexico-border"
       ],
       "risk_flags": [],
-      "age_minutes": 197.5
+      "age_minutes": 202.1
+    },
+    {
+      "id": "9634ce3f934f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.62,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 18.62,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:50:32Z",
+      "source_detection_latency_seconds": 1001.3,
+      "factual_update": "US Marine arrested in Japan over suspected killing of woman as Tokyo lodges ‘strong protest’",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/10/05/us-news/us-marine-arrested-in-japan-over-suspected-killing-of-woman-as-tokyo-lodges-strong-protest/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/10/05/us-news/us-marine-arrested-in-japan-over-suspected-killing-of-woman-as-tokyo-lodges-strong-protest/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 16.7
     },
     {
       "id": "fd4ac0a70a1c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.0,
+      "urgency_score": 22.5,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.0,
+        "recency": 10.5,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2472,9 +2493,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5cdb002bf1f9",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:53:18Z",
-      "source_detection_latency_seconds": 4161.5,
+      "source_detection_latency_seconds": 4435.3,
       "factual_update": "Spanish PM Sanchez calls snap election for November 29",
       "source": "New York Post",
       "source_tier": 3,
@@ -2488,54 +2509,17 @@
         "https://nypost.com/2026/10/05/world-news/spanish-pm-sanchez-calls-snap-general-election-for-november-29/"
       ],
       "risk_flags": [],
-      "age_minutes": 69.4
-    },
-    {
-      "id": "902a2f0fee09",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.55,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.55,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d1e30be3fbdf",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T07:00:21Z",
-      "source_detection_latency_seconds": 10938.5,
-      "factual_update": "How Trump Became the Abundance President",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/10/05/how-trump-became-the-abundance-president/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/10/05/how-trump-became-the-abundance-president/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 182.3
+      "age_minutes": 73.9
     },
     {
       "id": "a9bcb3824a66",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.54,
+      "urgency_score": 22.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.54,
+        "recency": 3.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2546,9 +2530,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0e5bc6162f7c",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:00Z",
-      "source_detection_latency_seconds": 10959.5,
+      "source_detection_latency_seconds": 11233.3,
       "factual_update": "Talent Agency Cosmic Opens London Office, Led by Gabrielle de Cevins",
       "source": "Variety",
       "source_tier": 3,
@@ -2562,17 +2546,17 @@
         "https://variety.com/2026/film/global/cosmic-london-gabrielle-de-cevins-1236894598/"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
+      "age_minutes": 187.2
     },
     {
       "id": "123157f24b32",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.45,
+      "urgency_score": 22.34,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.45,
+        "recency": 2.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2583,9 +2567,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bb30ba9b9dff",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T06:23:08Z",
-      "source_detection_latency_seconds": 13171.5,
+      "source_detection_latency_seconds": 13445.3,
       "factual_update": "Who am I? Guess Premier League star No 77",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2599,17 +2583,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cr3eqepqqq7po?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 219.5
+      "age_minutes": 224.1
     },
     {
       "id": "0e9b1690bcff",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.05,
+      "urgency_score": 21.91,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.05,
+        "recency": 2.91,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2620,9 +2604,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3b7432221bad",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T06:45:01Z",
-      "source_detection_latency_seconds": 11858.5,
+      "source_detection_latency_seconds": 12132.3,
       "factual_update": "Former ‘Survivor’ star faces arrest, FBI probe after vanishing with son following nasty divorce — as dad pleads for son’s safe return: report",
       "source": "New York Post",
       "source_tier": 3,
@@ -2636,17 +2620,17 @@
         "https://nypost.com/2026/10/05/us-news/fbi-investigating-disappearance-of-survivor-china-star-jaime-dugan-and-16-year-old-son-after-she-failed-to-return-him-to-his-father-report/"
       ],
       "risk_flags": [],
-      "age_minutes": 197.6
+      "age_minutes": 202.2
     },
     {
       "id": "dd4e6fb40a3d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.71,
+      "urgency_score": 20.32,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.71,
+        "recency": 8.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2657,9 +2641,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "79b3a3a2b891",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:30:00Z",
-      "source_detection_latency_seconds": 5559.5,
+      "source_detection_latency_seconds": 5833.3,
       "factual_update": "STAT+: Divergent trial results on cancer vaccines have the field grappling with hard questions",
       "source": "STAT",
       "source_tier": 3,
@@ -2673,17 +2657,17 @@
         "https://www.statnews.com/2026/10/05/cancer-vaccines-mrna-clinical-trials/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 92.7
+      "age_minutes": 97.2
     },
     {
       "id": "709c97fea2b0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.74,
+      "urgency_score": 19.4,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.74,
+        "recency": 7.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2694,9 +2678,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3a010d64eabf",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:18:13Z",
-      "source_detection_latency_seconds": 6266.5,
+      "source_detection_latency_seconds": 6540.3,
       "factual_update": "Google's Fitbit Edge leaks out with a screen and Pixel 11 colors",
       "source": "Engadget",
       "source_tier": 3,
@@ -2710,17 +2694,54 @@
         "https://www.engadget.com/2276917/google-fitbit-edge-leaks-out-with-a-screen-and-pixel-11-colors/"
       ],
       "risk_flags": [],
-      "age_minutes": 104.4
+      "age_minutes": 109.0
+    },
+    {
+      "id": "bab52ea8ac4c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 19.16,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 15.16,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-10-05T10:07:13.296071Z",
+      "source_published_at": "2026-10-05T09:30:00Z",
+      "source_detection_latency_seconds": 2233.3,
+      "factual_update": "Mexican woman arrested for trying to smuggle $628K worth of cocaine into the US, CBP says",
+      "source": "The Blaze",
+      "source_tier": 3,
+      "primary_source_link": "https://www.theblaze.com/mexican-smuggling-cocaine-laredo-port",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The Blaze"
+      ],
+      "corroborating_links": [
+        "https://www.theblaze.com/mexican-smuggling-cocaine-laredo-port"
+      ],
+      "risk_flags": [],
+      "age_minutes": 37.2
     },
     {
       "id": "59133488773c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.13,
+      "urgency_score": 18.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.13,
+        "recency": 7.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2731,9 +2752,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:23:09Z",
-      "source_detection_latency_seconds": 5970.5,
+      "source_detection_latency_seconds": 6244.3,
       "factual_update": "Bolsonaro and Lula Head to a Runoff in Brazil's Presidential Election",
       "source": "CBN News",
       "source_tier": 3,
@@ -2747,17 +2768,17 @@
         "https://www1.cbn.com/cbnnews/politics/2026/october/bolsonaro-and-lula-head-to-a-eunoff-in-brazils-presidential-election"
       ],
       "risk_flags": [],
-      "age_minutes": 99.5
+      "age_minutes": 104.1
     },
     {
       "id": "0b6ac1b6eadb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.47,
+      "urgency_score": 18.19,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.47,
+        "recency": 6.19,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2768,9 +2789,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a9c4b1ab0f51",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:00:20Z",
-      "source_detection_latency_seconds": 7339.5,
+      "source_detection_latency_seconds": 7613.3,
       "factual_update": "Brickbat: No Right to an Attorney",
       "source": "Reason",
       "source_tier": 3,
@@ -2784,17 +2805,17 @@
         "https://reason.com/2026/10/05/brickbat-no-right-to-an-attorney/"
       ],
       "risk_flags": [],
-      "age_minutes": 122.3
+      "age_minutes": 126.9
     },
     {
       "id": "af987a8daf35",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.46,
+      "urgency_score": 18.17,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.46,
+        "recency": 6.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2805,9 +2826,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "df6ce6ae12e8",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:00:08Z",
-      "source_detection_latency_seconds": 7351.5,
+      "source_detection_latency_seconds": 7625.3,
       "factual_update": "Chris Brown’s Ex Diamond Claims He’s Threatening Her Current BF, Harassing Her",
       "source": "TMZ",
       "source_tier": 3,
@@ -2821,17 +2842,17 @@
         "https://www.tmz.com/2026/10/05/chris-brown-ex-diamond-claims-he-is-threatening-her-boyfriend/"
       ],
       "risk_flags": [],
-      "age_minutes": 122.5
+      "age_minutes": 127.1
     },
     {
       "id": "16f7e75c2a1c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.45,
+      "urgency_score": 18.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.45,
+        "recency": 6.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2842,9 +2863,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "67a196143e5f",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:00:00Z",
-      "source_detection_latency_seconds": 7359.5,
+      "source_detection_latency_seconds": 7633.3,
       "factual_update": "John de Mol’s Formats Giant Talpa Studios Heads to Mipcom With New Shows ‘Sing With Me,’ ‘The Golden Elevators’ (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -2858,17 +2879,17 @@
         "https://variety.com/2026/tv/global/talpa-studios-mipcom-sing-with-me-the-golden-elevators-1236898478/"
       ],
       "risk_flags": [],
-      "age_minutes": 122.7
+      "age_minutes": 127.2
     },
     {
       "id": "64c83f7de9c5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.45,
+      "urgency_score": 18.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.45,
+        "recency": 6.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2879,9 +2900,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7118866ab77f",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:00:00Z",
-      "source_detection_latency_seconds": 7359.5,
+      "source_detection_latency_seconds": 7633.3,
       "factual_update": "Execs Launch IP Studio & Unveil Viking Mythology Series",
       "source": "Deadline",
       "source_tier": 3,
@@ -2895,17 +2916,17 @@
         "https://deadline.com/2026/10/forge-films-company-launch-lost-in-hel-viking-series-1237145372/"
       ],
       "risk_flags": [],
-      "age_minutes": 122.7
+      "age_minutes": 127.2
     },
     {
       "id": "573af1c5cb33",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.71,
+      "urgency_score": 17.32,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.71,
+        "recency": 8.32,
         "magnitude": 0,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -2916,9 +2937,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "15b45df1b166",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:30:00Z",
-      "source_detection_latency_seconds": 5559.5,
+      "source_detection_latency_seconds": 5833.3,
       "factual_update": "Opinion: Energy drinks’ new college sports partnerships make them more dangerous than ever",
       "source": "STAT",
       "source_tier": 3,
@@ -2932,17 +2953,17 @@
         "https://www.statnews.com/2026/10/05/energy-drinks-public-health-college-sports-partnerships-research/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 92.7
+      "age_minutes": 97.2
     },
     {
       "id": "cedc8f1eb548",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.55,
+      "urgency_score": 17.31,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.55,
+        "recency": 5.31,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2953,9 +2974,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "df2a2f52a769",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:45:00Z",
-      "source_detection_latency_seconds": 8259.5,
+      "source_detection_latency_seconds": 8533.3,
       "factual_update": "Vulnerable Votes: Hulk Actor Mark Ruffalo Says Elon Musk Could Rig the Midterm Elections",
       "source": "Twitchy",
       "source_tier": 3,
@@ -2969,17 +2990,17 @@
         "https://twitchy.com/warren-squire/2026/10/05/mark-ruffalo-warns-democrats-need-to-be-watchful-for-voting-machine-manipulation-suggests-elon-musk-n2432974"
       ],
       "risk_flags": [],
-      "age_minutes": 137.7
+      "age_minutes": 142.2
     },
     {
       "id": "6029feabb1c7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.99,
+      "urgency_score": 16.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.99,
+        "recency": 4.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2990,9 +3011,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cf1cf9eff240",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:34:16Z",
-      "source_detection_latency_seconds": 8903.5,
+      "source_detection_latency_seconds": 9177.3,
       "factual_update": "Indiana murder suspect arrested 20 years after allegedly killing boy and stepmom when he was a teen",
       "source": "New York Post",
       "source_tier": 3,
@@ -3006,17 +3027,17 @@
         "https://nypost.com/2026/10/05/us-news/indiana-murder-suspect-michael-jerome-james-arrested-20-years-after-allegedly-killing-boy-and-stepmom/"
       ],
       "risk_flags": [],
-      "age_minutes": 148.4
+      "age_minutes": 153.0
     },
     {
       "id": "c8bd8b2855f7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.78,
+      "urgency_score": 16.57,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.78,
+        "recency": 4.57,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3027,9 +3048,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a568b906973e",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:30:00Z",
-      "source_detection_latency_seconds": 9159.5,
+      "source_detection_latency_seconds": 9433.3,
       "factual_update": "ITV Studios Travels to Mipcom With 10 New Titles on Its Formats Slate, Led by ‘The Chase Around the World’ (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -3043,17 +3064,17 @@
         "https://variety.com/2026/tv/global/itv-studios-mipcom-formats-slate-the-chase-around-the-world-1236898689/"
       ],
       "risk_flags": [],
-      "age_minutes": 152.7
+      "age_minutes": 157.2
     },
     {
       "id": "d2127766ed78",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.47,
+      "urgency_score": 16.27,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.47,
+        "recency": 4.27,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3064,9 +3085,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b314032c8193",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:23:18Z",
-      "source_detection_latency_seconds": 9561.5,
+      "source_detection_latency_seconds": 9835.3,
       "factual_update": "North Korea says missile ‘skip points’ expose gaps in South Korean, Japanese tracking",
       "source": "Stars and Stripes",
       "source_tier": 3,
@@ -3080,17 +3101,17 @@
         "https://www.stripes.com/theaters/asia_pacific/2026-10-05/north-korea-missile-launch-tracking-23059362.html"
       ],
       "risk_flags": [],
-      "age_minutes": 159.4
+      "age_minutes": 163.9
     },
     {
       "id": "28dd0e439ae0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.28,
+      "urgency_score": 16.09,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.28,
+        "recency": 4.09,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3101,9 +3122,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "395ea706b92d",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:19:03Z",
-      "source_detection_latency_seconds": 9816.5,
+      "source_detection_latency_seconds": 10090.3,
       "factual_update": "More Gen Z college freshmen are quitting school early and moving back home with mom and dad",
       "source": "New York Post",
       "source_tier": 3,
@@ -3117,17 +3138,17 @@
         "https://nypost.com/2026/10/05/lifestyle/gen-z-college-freshmen-are-quitting-college-early-and-moving-back-home-with-parents/"
       ],
       "risk_flags": [],
-      "age_minutes": 163.6
+      "age_minutes": 168.2
     },
     {
       "id": "851e9c07ce93",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.96,
+      "urgency_score": 15.78,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.96,
+        "recency": 3.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3138,9 +3159,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b5574a455739",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:11:04Z",
-      "source_detection_latency_seconds": 10295.5,
+      "source_detection_latency_seconds": 10569.3,
       "factual_update": "Gillian Anderson Explains Confrontation With “Distracting” Superfans Who Sat In Front Row Of West End Show: “We Can All See You”",
       "source": "Deadline",
       "source_tier": 3,
@@ -3154,17 +3175,17 @@
         "https://deadline.com/2026/10/gillian-anderson-confront-distracting-fans-west-end-show-1237146461/"
       ],
       "risk_flags": [],
-      "age_minutes": 171.6
+      "age_minutes": 176.2
     },
     {
       "id": "ef0d5831133d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.81,
+      "urgency_score": 15.64,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.81,
+        "recency": 3.64,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3175,9 +3196,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e003a981b504",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:07:22Z",
-      "source_detection_latency_seconds": 10517.5,
+      "source_detection_latency_seconds": 10791.3,
       "factual_update": "MBC Studios Sets November 19 Release For Landmark Production ‘Traveller’s Hell’",
       "source": "Deadline",
       "source_tier": 3,
@@ -3191,17 +3212,17 @@
         "https://deadline.com/2026/10/mbc-studios-november-19-release-landmark-travellers-hell-1237146471/"
       ],
       "risk_flags": [],
-      "age_minutes": 175.3
+      "age_minutes": 179.9
     },
     {
       "id": "018744ef1ecc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.7,
+      "urgency_score": 15.54,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.7,
+        "recency": 3.54,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3212,9 +3233,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3306baa05f06",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:04:28Z",
-      "source_detection_latency_seconds": 10691.5,
+      "source_detection_latency_seconds": 10965.3,
       "factual_update": "La Oreja de Van Gogh Songs Set to Power an Ambitious Romantic Musical From Fernando González Molina (EXCLUSIVE)",
       "source": "Variety",
       "source_tier": 3,
@@ -3228,17 +3249,17 @@
         "https://variety.com/2026/film/global/la-oreja-de-van-gogh-fernando-gonzalez-molina-1236898493/"
       ],
       "risk_flags": [],
-      "age_minutes": 178.2
+      "age_minutes": 182.8
     },
     {
       "id": "8509f1b083d7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.59,
+      "urgency_score": 15.43,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.59,
+        "recency": 3.43,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3249,9 +3270,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "99350eb3515b",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:01:14Z",
-      "source_detection_latency_seconds": 10885.5,
+      "source_detection_latency_seconds": 11159.3,
       "factual_update": "State Trooper In 'Thelma & Louise' 'Memba Him?!",
       "source": "TMZ",
       "source_tier": 3,
@@ -3265,17 +3286,17 @@
         "https://www.tmz.com/2026/10/05/jason-beghe-as-state-trooper-in-thelma-and-louise/"
       ],
       "risk_flags": [],
-      "age_minutes": 181.4
+      "age_minutes": 186.0
     },
     {
       "id": "ce83baa7476d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.55,
+      "urgency_score": 15.39,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.55,
+        "recency": 3.39,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3286,9 +3307,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7023a22d0516",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:10Z",
-      "source_detection_latency_seconds": 10949.5,
+      "source_detection_latency_seconds": 11223.3,
       "factual_update": "The Cornell Seven and the Sensate-Pornographic Society",
       "source": "American Greatness",
       "source_tier": 3,
@@ -3302,17 +3323,17 @@
         "https://amgreatness.com/2026/10/05/the-cornell-seven-and-the-sensate-pornographic-society/"
       ],
       "risk_flags": [],
-      "age_minutes": 182.5
+      "age_minutes": 187.1
     },
     {
       "id": "4322fc74aca8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.54,
+      "urgency_score": 15.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.54,
+        "recency": 3.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3323,9 +3344,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a4fe58788c36",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:00Z",
-      "source_detection_latency_seconds": 10959.5,
+      "source_detection_latency_seconds": 11233.3,
       "factual_update": "Dear Abby: My partner refuses to draw boundaries with his adult children",
       "source": "New York Post",
       "source_tier": 3,
@@ -3339,17 +3360,17 @@
         "https://nypost.com/2026/10/05/lifestyle/dear-abby-my-partner-refuses-to-draw-boundaries-with-his-adult-children/"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
+      "age_minutes": 187.2
     },
     {
       "id": "3e650e5c1429",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.54,
+      "urgency_score": 15.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.54,
+        "recency": 3.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3360,9 +3381,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9bd69ab99b86",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:00Z",
-      "source_detection_latency_seconds": 10959.5,
+      "source_detection_latency_seconds": 11233.3,
       "factual_update": "Open Thread",
       "source": "Reason",
       "source_tier": 3,
@@ -3376,17 +3397,17 @@
         "https://reason.com/volokh/2026/10/05/open-thread-348/"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
+      "age_minutes": 187.2
     },
     {
       "id": "4a1bc1e09efd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.54,
+      "urgency_score": 15.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.54,
+        "recency": 3.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3397,9 +3418,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "efb1c997cd67",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:00Z",
-      "source_detection_latency_seconds": 10959.5,
+      "source_detection_latency_seconds": 11233.3,
       "factual_update": "The Death of Homo Economicus | Interview: Nick Eberstadt",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -3413,17 +3434,17 @@
         "https://thedispatch.com/podcast/remnant/the-death-of-homo-economicus-interview-nick-eberstadt/"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
+      "age_minutes": 187.2
     },
     {
       "id": "b9cbef5e6187",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.54,
+      "urgency_score": 15.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.54,
+        "recency": 3.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3434,9 +3455,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e8969ff9ece2",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:00Z",
-      "source_detection_latency_seconds": 10959.5,
+      "source_detection_latency_seconds": 11233.3,
       "factual_update": "How Newlyweds Taylor Swift and Travis Kelce Became Winning Teammates",
       "source": "E! News",
       "source_tier": 3,
@@ -3450,17 +3471,17 @@
         "https://www.eonline.com/news/1421007/taylor-swift-travis-kelce-engaged-their-love-story?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
+      "age_minutes": 187.2
     },
     {
       "id": "15d0c340a9f3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.54,
+      "urgency_score": 15.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.54,
+        "recency": 3.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3471,9 +3492,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f0f3de1bb1d1",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T07:00:00Z",
-      "source_detection_latency_seconds": 10959.5,
+      "source_detection_latency_seconds": 11233.3,
       "factual_update": "Was 2003 the Greatest Year in Pop Culture? Watch and Decide",
       "source": "E! News",
       "source_tier": 3,
@@ -3487,54 +3508,17 @@
         "https://www.eonline.com/news/1435584/greatest-year-in-pop-culture-2003-how-the-o-c-inspired-laguna-beach?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
-    },
-    {
-      "id": "0dd54b142f06",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 15.31,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 3.31,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "b0d096520ebe",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T06:53:21Z",
-      "source_detection_latency_seconds": 11358.5,
-      "factual_update": "Trump Administration Expels Two Iranian Diplomats Who Defied Order to Leave US",
-      "source": "American Greatness",
-      "source_tier": 3,
-      "primary_source_link": "https://amgreatness.com/2026/10/04/trump-administration-expels-two-iranian-diplomats-who-defied-order-to-leave-us/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "American Greatness"
-      ],
-      "corroborating_links": [
-        "https://amgreatness.com/2026/10/04/trump-administration-expels-two-iranian-diplomats-who-defied-order-to-leave-us/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 189.3
+      "age_minutes": 187.2
     },
     {
       "id": "b440764aa0c9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.31,
+      "urgency_score": 15.16,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.31,
+        "recency": 3.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3545,9 +3529,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "15a7adaf88a6",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T06:53:12Z",
-      "source_detection_latency_seconds": 11367.5,
+      "source_detection_latency_seconds": 11641.3,
       "factual_update": "IRS Employees Caught Snooping Through Tax Records of Public Figures, Watchdog Finds",
       "source": "American Greatness",
       "source_tier": 3,
@@ -3561,17 +3545,17 @@
         "https://amgreatness.com/2026/10/04/irs-employees-caught-snooping-through-tax-records-of-public-figures-watchdog-finds/"
       ],
       "risk_flags": [],
-      "age_minutes": 189.5
+      "age_minutes": 194.0
     },
     {
       "id": "22c059f2748c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.51,
+      "urgency_score": 14.4,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.51,
+        "recency": 2.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3582,9 +3566,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a4cf764f6daf",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T06:25:31Z",
-      "source_detection_latency_seconds": 13028.5,
+      "source_detection_latency_seconds": 13302.3,
       "factual_update": "Traffic builds on western Pacific Typhoon Freeway",
       "source": "Stars and Stripes Storm Tracker",
       "source_tier": 3,
@@ -3598,54 +3582,17 @@
         "https://www.stripes.com/theaters/asia_pacific/storm_tracker/2026-10-05/traffic-builds-on-western-pacific-typhoon-freeway-23059270.html"
       ],
       "risk_flags": [],
-      "age_minutes": 217.1
-    },
-    {
-      "id": "1db6fa32b485",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.09,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "541ed7a3ee64",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
-      "source_published_at": "2026-10-05T06:07:12Z",
-      "source_detection_latency_seconds": 14127.5,
-      "factual_update": "Last Japan-based cruiser departs Yokosuka as Navy phases out Ticonderoga class",
-      "source": "Stars and Stripes",
-      "source_tier": 3,
-      "primary_source_link": "https://www.stripes.com/theaters/asia_pacific/2026-10-05/uss-robert-smalls-cruiser-yokosuka-japan-23059177.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Stars and Stripes"
-      ],
-      "corroborating_links": [
-        "https://www.stripes.com/theaters/asia_pacific/2026-10-05/uss-robert-smalls-cruiser-yokosuka-japan-23059177.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 235.5
+      "age_minutes": 221.7
     },
     {
       "id": "b8356df8ef11",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 8.71,
+      "urgency_score": 8.32,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.71,
+        "recency": 8.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3656,9 +3603,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "8ff027e235a6",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T08:30:00Z",
-      "source_detection_latency_seconds": 5559.5,
+      "source_detection_latency_seconds": 5833.3,
       "factual_update": "Opinion: Will Claude ever win a Nobel Prize for medicine?",
       "source": "STAT",
       "source_tier": 3,
@@ -3672,17 +3619,17 @@
         "https://www.statnews.com/2026/10/05/could-ai-win-nobel-prize-medicine/?utm_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 92.7
+      "age_minutes": 97.2
     },
     {
       "id": "f52ea4ee5902",
       "path": "normal",
       "eligible": false,
       "reason": "held_unconfirmed",
-      "urgency_score": 2.42,
+      "urgency_score": 1.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 21.42,
+        "recency": 20.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3692,10 +3639,10 @@
         "material_change": 2,
         "risk_penalty": -35
       },
-      "matched_storyline_id": "26d248100264",
-      "detected_at": "2026-10-05T10:02:39.544898Z",
+      "matched_storyline_id": "e8bb9e7248fe",
+      "detected_at": "2026-10-05T10:07:13.296071Z",
       "source_published_at": "2026-10-05T10:00:00Z",
-      "source_detection_latency_seconds": 159.5,
+      "source_detection_latency_seconds": 433.3,
       "factual_update": "These foods could be boosting your brain — while others may be doing damage",
       "source": "New York Post",
       "source_tier": 3,
@@ -3713,8 +3660,24 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 2.7
+      "age_minutes": 7.2
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "70df80c034a5",
+      "status": "published",
+      "storyline_id": "4897171b8b9b"
+    },
+    {
+      "candidate_id": "b6dabff748f4",
+      "status": "published",
+      "storyline_id": "2573a528784e"
+    },
+    {
+      "candidate_id": "185f217f3ea9",
+      "status": "published",
+      "storyline_id": "21cc56ab4677"
+    }
+  ]
 }

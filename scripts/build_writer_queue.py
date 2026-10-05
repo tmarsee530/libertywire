@@ -10,28 +10,16 @@ from __future__ import annotations
 import json,re
 from datetime import datetime,timezone
 from pathlib import Path
+try:
+ from source_families import family
+except ModuleNotFoundError:
+ from scripts.source_families import family
 ROOT=Path(__file__).resolve().parents[1]
 STORYLINES=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';OUT=ROOT/'data'/'writer_queue.json'
 MAX_CANDIDATES=8;MIN_SOURCES=2;MIN_SOURCE_FAMILIES=2;MAX_RESEARCH_LEADS=4
 STOP={'a','an','and','are','as','at','be','been','but','by','for','from','has','have','he','her','his','in','into','is','it','its','new','of','on','or','says','she','that','the','their','this','to','us','u','s','was','were','will','with'}
-SOURCE_FAMILIES={
- 'Fox News':'fox','Fox News Politics':'fox','Fox News World':'fox','Fox Business':'fox',
- 'National Review':'national-review','National Review The Corner':'national-review',
- 'The Daily Signal':'daily-signal','Daily Signal':'daily-signal','The Daily Signal Politics':'daily-signal','Daily Signal Politics':'daily-signal',
- 'RealClearPolitics':'realclear','RealClearPolicy':'realclear','RealClearWorld':'realclear','RealClearDefense':'realclear',
- 'Associated Press':'ap','AP':'ap','Reuters':'reuters','NPR News':'npr','NPR Culture':'npr','NPR':'npr',
- 'CBS News':'cbs','CBS Sports':'cbs','ABC News':'abc','NBC News':'nbc','CNN':'cnn',
- 'BBC News':'bbc','BBC Sport':'bbc','BBC Sports':'bbc','BBC Entertainment':'bbc','BBC Science':'bbc',
- 'New York Post':'new-york-post','Page Six':'new-york-post','New York Times':'new-york-times','Washington Post':'washington-post',
- 'Stars and Stripes':'stars-and-stripes','Stars and Stripes Storm Tracker':'stars-and-stripes',
- 'Axios':'axios','Politico':'politico','Breitbart':'breitbart','Daily Caller':'daily-caller','Daily Wire':'daily-wire','Hot Air':'hot-air','National Pulse':'national-pulse','RedState':'redstate','WND':'wnd',
- 'Washington Times':'washington-times','Washington Examiner':'washington-examiner','Newsmax':'newsmax','The Blaze':'blaze','Washington Free Beacon':'free-beacon','The Federalist':'federalist','Townhall':'townhall','PJ Media':'pj-media','American Thinker':'american-thinker','Commentary Magazine':'commentary','American Spectator':'american-spectator','Twitchy':'twitchy','LifeSiteNews':'lifesitenews','The Epoch Times':'epoch-times','Human Events':'human-events','The College Fix':'college-fix','Legal Insurrection':'legal-insurrection','Just the News':'just-the-news',
- 'Reason':'reason','The American Conservative':'american-conservative','City Journal':'city-journal','American Greatness':'american-greatness','The Post Millennial':'post-millennial','Western Journal':'western-journal','Power Line':'power-line','The Spectator World':'spectator-world','The Dispatch':'dispatch','The Daily Economy':'daily-economy','Foundation for Economic Education':'fee','Cato Institute':'cato','Heritage Foundation':'heritage','Judicial Watch':'judicial-watch',
- 'The Hill':'the-hill','SCOTUSblog':'scotusblog','Defense News':'defense-news','SpaceNews':'spacenews','Ars Technica':'ars-technica'
-}
 def substantive(payload):return {k:v for k,v in payload.items() if k!='generated_at'}
 def tokens(text):return {w for w in re.findall(r"[a-z0-9]+",str(text or '').lower()) if len(w)>2 and w not in STOP}
-def family(source):return SOURCE_FAMILIES.get(str(source or '').strip(),str(source or '').strip().lower() or 'unknown')
 def source_families(storyline):return sorted({family(x) for x in storyline.get('sources',[]) if x})
 def requirements():return {'fresh_verification':True,'prefer_primary_sources':True,'independent_corroboration_required_for_disputed_or_high_risk_claims':True,'attribute_disputed_claims':True,'distinguish_allegations_from_established_facts':True,'preserve_source_links':True,'state_material_uncertainty':True,'automatic_publication_allowed':False}
 def main():

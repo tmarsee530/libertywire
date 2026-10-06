@@ -29,12 +29,15 @@ jobs:
       - name: Install ingestion dependencies
         run: pip install -r requirements.txt
       - name: Verify publisher and reliability code before fetching
-        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_writer_queue.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
+        run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/source_families.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_writer_queue.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
       - name: Check auxiliary code without blocking publication
         continue-on-error: true
-        run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py
+        run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py scripts/audit_source_family_normalization.py
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
+      - name: Audit publisher-family normalization
+        continue-on-error: true
+        run: python scripts/audit_source_family_normalization.py
       - name: Refresh timeline research queue
         continue-on-error: true
         run: python scripts/build_writer_queue.py
@@ -102,7 +105,7 @@ jobs:
       - name: Commit fresh timelines and homepage when changed
         run: |
           python scripts/stage_publication.py
-          git add data/writer_queue.json
+          git add data/writer_queue.json data/source_family_audit.json
           if git diff --cached --quiet; then
             echo "No headline or discovery changes."
             exit 0

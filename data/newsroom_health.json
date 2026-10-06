@@ -1,48 +1,43 @@
 {
   "cycle": {
-    "started_at": "2026-10-06T17:00:57.426467Z",
-    "completed_at": "2026-10-06T17:01:24.092076Z",
-    "duration_seconds": 26.67,
-    "previous_completed_at": "2026-10-06T16:56:35.360064Z"
+    "started_at": "2026-10-06T17:05:45.709924Z",
+    "completed_at": "2026-10-06T17:06:16.156926Z",
+    "duration_seconds": 30.45,
+    "previous_completed_at": "2026-10-06T17:01:24.092076Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-06T17:01:02.008950Z",
+    "last_successful_run": "2026-10-06T17:05:52.780674Z",
     "age_minutes": 0.4,
     "configured_sources": 80,
-    "successful_sources": 79,
-    "failed_sources": 1,
-    "source_failure_pct": 1.2,
-    "failed_source_details": [
-      {
-        "source": "New York Post",
-        "error": "403 Client Error: Forbidden for url: https://nypost.com/feed/"
-      }
-    ],
-    "stories_available": 1361
+    "successful_sources": 80,
+    "failed_sources": 0,
+    "source_failure_pct": 0.0,
+    "failed_source_details": [],
+    "stories_available": 1375
   },
   "content": {
-    "last_story_created": "2026-10-06T17:01:24.072471Z",
+    "last_story_created": "2026-10-06T17:06:16.143930Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-10-06T17:01:18.316416Z",
+    "last_timeline_update": "2026-10-06T17:06:10.227014Z",
     "last_timeline_age_minutes": 0.1,
     "published_timelines": 128,
-    "manifest_updated_at": "2026-10-06T17:01:21.700861Z"
+    "manifest_updated_at": "2026-10-06T17:06:13.816588Z"
   },
   "fast_path": {
-    "reports_evaluated": 445,
-    "candidate_events": 356,
-    "fast_path_events": 2,
-    "held_for_normal_path": 354,
+    "reports_evaluated": 460,
+    "candidate_events": 371,
+    "fast_path_events": 1,
+    "held_for_normal_path": 370,
     "duplicate_reports_suppressed": 89,
-    "duplicate_event_rate_pct": 20.0,
-    "median_source_detection_latency_seconds": 1865.7,
+    "duplicate_event_rate_pct": 19.35,
+    "median_source_detection_latency_seconds": 430.9,
     "high_urgency_capture_pct": 100.0,
-    "published_fast_path_events": 1,
-    "detection_to_publication_latency_seconds": 19.5,
+    "published_fast_path_events": 0,
+    "detection_to_publication_latency_seconds": null,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 1,
+      "published": 0,
       "editorially_suppressed": 1,
       "deferred": 0,
       "missed": 0
@@ -86,41 +81,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 4.64,
-      "completed_at": "2026-10-06T17:01:02.068968Z",
+      "duration_seconds": 7.13,
+      "completed_at": "2026-10-06T17:05:52.837515Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "FAILED: New York Post: 403 Client Error: Forbidden for url: https://nypost.com/feed/"
+      "message": "Generated 1375 stories from 80/80 healthy sources; default radar depth 20/source."
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 3.26,
-      "completed_at": "2026-10-06T17:01:05.326266Z",
+      "duration_seconds": 3.51,
+      "completed_at": "2026-10-06T17:05:56.347628Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 2 promoted, 354 kept on normal path, 89 duplicates grouped."
+      "message": "Fast path: 1 promoted, 370 kept on normal path, 89 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 12.96,
-      "completed_at": "2026-10-06T17:01:18.283380Z",
+      "duration_seconds": 13.85,
+      "completed_at": "2026-10-06T17:06:10.196199Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1260 storylines; 34 multi-family; 9 breaking; 13 developing; 0 hot"
+      "message": "Built 1273 storylines; 35 multi-family; 10 breaking; 15 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.53,
-      "completed_at": "2026-10-06T17:01:18.812876Z",
+      "duration_seconds": 0.57,
+      "completed_at": "2026-10-06T17:06:10.761711Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -130,8 +125,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 4.26,
-      "completed_at": "2026-10-06T17:01:23.075040Z",
+      "duration_seconds": 4.42,
+      "completed_at": "2026-10-06T17:06:15.185802Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 128 autonomous source-backed story timelines"
@@ -142,7 +137,7 @@
       "criticality": "core",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-10-06T17:01:23.179811Z",
+      "completed_at": "2026-10-06T17:06:15.291317Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -152,8 +147,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.26,
-      "completed_at": "2026-10-06T17:01:23.437260Z",
+      "duration_seconds": 0.29,
+      "completed_at": "2026-10-06T17:06:15.577396Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 765 permanent timeline URLs; 128 currently active"
@@ -163,8 +158,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.09,
-      "completed_at": "2026-10-06T17:01:23.573201Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-10-06T17:06:15.716493Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -175,7 +170,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-10-06T17:01:23.600821Z",
+      "completed_at": "2026-10-06T17:06:15.742194Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -186,7 +181,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-10-06T17:01:23.645754Z",
+      "completed_at": "2026-10-06T17:06:15.786854Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -196,8 +191,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.17,
-      "completed_at": "2026-10-06T17:01:23.813635Z",
+      "duration_seconds": 0.12,
+      "completed_at": "2026-10-06T17:06:15.904566Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 75 live timelines"
@@ -208,7 +203,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.09,
-      "completed_at": "2026-10-06T17:01:23.907726Z",
+      "completed_at": "2026-10-06T17:06:15.996255Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -218,8 +213,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.1,
-      "completed_at": "2026-10-06T17:01:24.003670Z",
+      "duration_seconds": 0.09,
+      "completed_at": "2026-10-06T17:06:16.086141Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

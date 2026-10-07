@@ -1,44 +1,49 @@
 {
   "cycle": {
-    "started_at": "2026-10-07T14:40:11.821297Z",
-    "completed_at": "2026-10-07T14:40:28.597104Z",
-    "duration_seconds": 16.78,
-    "previous_completed_at": "2026-10-07T14:35:53.469195Z"
+    "started_at": "2026-10-07T14:44:50.144357Z",
+    "completed_at": "2026-10-07T14:45:13.046309Z",
+    "duration_seconds": 22.9,
+    "previous_completed_at": "2026-10-07T14:40:28.597104Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-07T14:40:15.786586Z",
-    "age_minutes": 0.2,
+    "last_successful_run": "2026-10-07T14:44:57.383805Z",
+    "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 80,
-    "failed_sources": 0,
-    "source_failure_pct": 0.0,
-    "failed_source_details": [],
-    "stories_available": 1384
+    "successful_sources": 79,
+    "failed_sources": 1,
+    "source_failure_pct": 1.2,
+    "failed_source_details": [
+      {
+        "source": "SpaceNews",
+        "error": "HTTPSConnectionPool(host='spacenews.com', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 429 error responses')); feed autodiscovery failed: HTTPSConnectionPool(host='spacenews.com', port=443): Max retrie"
+      }
+    ],
+    "stories_available": 1366
   },
   "content": {
-    "last_story_created": "2026-10-07T14:40:28.590904Z",
+    "last_story_created": "2026-10-07T14:45:13.038569Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-10-07T14:40:24.493152Z",
+    "last_timeline_update": "2026-10-07T14:45:07.939462Z",
     "last_timeline_age_minutes": 0.1,
     "published_timelines": 160,
-    "manifest_updated_at": "2026-10-07T14:40:27.116260Z"
+    "manifest_updated_at": "2026-10-07T14:45:11.268577Z"
   },
   "fast_path": {
-    "reports_evaluated": 389,
-    "candidate_events": 300,
-    "fast_path_events": 5,
+    "reports_evaluated": 393,
+    "candidate_events": 301,
+    "fast_path_events": 6,
     "held_for_normal_path": 295,
-    "duplicate_reports_suppressed": 89,
-    "duplicate_event_rate_pct": 22.88,
-    "median_source_detection_latency_seconds": 2415.9,
+    "duplicate_reports_suppressed": 92,
+    "duplicate_event_rate_pct": 23.41,
+    "median_source_detection_latency_seconds": 1637.1,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 3,
-    "detection_to_publication_latency_seconds": 11.3,
+    "detection_to_publication_latency_seconds": 13.7,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
       "published": 3,
-      "editorially_suppressed": 2,
+      "editorially_suppressed": 3,
       "deferred": 0,
       "missed": 0
     },
@@ -81,41 +86,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 4.0,
-      "completed_at": "2026-10-07T14:40:15.822722Z",
+      "duration_seconds": 7.29,
+      "completed_at": "2026-10-07T14:44:57.434205Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "Generated 1384 stories from 80/80 healthy sources; default radar depth 20/source."
+      "message": "FAILED: SpaceNews: HTTPSConnectionPool(host='spacenews.com', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 429 error responses')); feed autodiscovery failed: HTTPSConnectionPool(host='spacenews.com', port=443): Max retrie"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 1.37,
-      "completed_at": "2026-10-07T14:40:17.190667Z",
+      "duration_seconds": 1.84,
+      "completed_at": "2026-10-07T14:44:59.269688Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 5 promoted, 295 kept on normal path, 89 duplicates grouped."
+      "message": "Fast path: 6 promoted, 295 kept on normal path, 92 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 7.28,
-      "completed_at": "2026-10-07T14:40:24.473421Z",
+      "duration_seconds": 8.65,
+      "completed_at": "2026-10-07T14:45:07.915465Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1278 storylines; 47 multi-family; 43 breaking; 48 developing; 0 hot"
+      "message": "Built 1256 storylines; 48 multi-family; 45 breaking; 50 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.33,
-      "completed_at": "2026-10-07T14:40:24.799645Z",
+      "duration_seconds": 0.44,
+      "completed_at": "2026-10-07T14:45:08.351796Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -125,8 +130,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 3.22,
-      "completed_at": "2026-10-07T14:40:28.024724Z",
+      "duration_seconds": 4.04,
+      "completed_at": "2026-10-07T14:45:12.389186Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 160 autonomous source-backed story timelines"
@@ -136,8 +141,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.03,
-      "completed_at": "2026-10-07T14:40:28.091764Z",
+      "duration_seconds": 0.04,
+      "completed_at": "2026-10-07T14:45:12.443497Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -147,8 +152,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.15,
-      "completed_at": "2026-10-07T14:40:28.244782Z",
+      "duration_seconds": 0.11,
+      "completed_at": "2026-10-07T14:45:12.556362Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 809 permanent timeline URLs; 160 currently active"
@@ -158,8 +163,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.05,
-      "completed_at": "2026-10-07T14:40:28.331890Z",
+      "duration_seconds": 0.06,
+      "completed_at": "2026-10-07T14:45:12.635312Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -170,7 +175,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.02,
-      "completed_at": "2026-10-07T14:40:28.347945Z",
+      "completed_at": "2026-10-07T14:45:12.651760Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -181,7 +186,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-10-07T14:40:28.373171Z",
+      "completed_at": "2026-10-07T14:45:12.678467Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -191,8 +196,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.07,
-      "completed_at": "2026-10-07T14:40:28.444648Z",
+      "duration_seconds": 0.19,
+      "completed_at": "2026-10-07T14:45:12.868729Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 75 live timelines"
@@ -203,7 +208,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.06,
-      "completed_at": "2026-10-07T14:40:28.499801Z",
+      "completed_at": "2026-10-07T14:45:12.931450Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -214,7 +219,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.06,
-      "completed_at": "2026-10-07T14:40:28.556800Z",
+      "completed_at": "2026-10-07T14:45:12.992881Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

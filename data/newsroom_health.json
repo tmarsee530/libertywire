@@ -1,41 +1,49 @@
 {
   "cycle": {
-    "started_at": "2026-10-07T09:51:15.139944Z",
-    "completed_at": "2026-10-07T09:52:32.652526Z",
-    "duration_seconds": 77.51,
-    "previous_completed_at": "2026-10-07T09:46:53.491789Z"
+    "started_at": "2026-10-07T09:56:51.314921Z",
+    "completed_at": "2026-10-07T09:58:13.957133Z",
+    "duration_seconds": 82.64,
+    "previous_completed_at": "2026-10-07T09:52:32.652526Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-07T09:52:20.560660Z",
-    "age_minutes": 0.2,
+    "last_successful_run": "2026-10-07T09:57:57.535076Z",
+    "age_minutes": 0.3,
     "configured_sources": 80,
-    "successful_sources": 79,
-    "failed_sources": 1,
-    "source_failure_pct": 1.2,
+    "successful_sources": 77,
+    "failed_sources": 3,
+    "source_failure_pct": 3.8,
     "failed_source_details": [
+      {
+        "source": "Washington Examiner",
+        "error": "403 Client Error: Forbidden for url: https://www.washingtonexaminer.com/tag/news.rss; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.washingtonexaminer.com/"
+      },
       {
         "source": "Reason",
         "error": "HTTPSConnectionPool(host='reason.com', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 504 error responses')); feed autodiscovery failed: HTTPSConnectionPool(host='reason.com', port=443): Max retries exce"
+      },
+      {
+        "source": "Western Journal",
+        "error": "403 Client Error: Forbidden for url: https://www.westernjournal.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.westernjournal.com/"
       }
     ],
-    "stories_available": 1364
+    "stories_available": 1334
   },
   "content": {
-    "last_story_created": "2026-10-07T09:49:31Z",
-    "last_story_age_minutes": 3.0,
-    "last_timeline_update": "2026-10-07T09:49:31Z",
-    "last_timeline_age_minutes": 3.0,
+    "last_story_created": "2026-10-07T09:55:00Z",
+    "last_story_age_minutes": 3.2,
+    "last_timeline_update": "2026-10-07T09:55:00Z",
+    "last_timeline_age_minutes": 3.2,
     "published_timelines": 151,
-    "manifest_updated_at": "2026-10-07T09:52:31.116906Z"
+    "manifest_updated_at": "2026-10-07T09:58:11.876073Z"
   },
   "fast_path": {
-    "reports_evaluated": 117,
-    "candidate_events": 103,
+    "reports_evaluated": 116,
+    "candidate_events": 102,
     "fast_path_events": 1,
-    "held_for_normal_path": 102,
+    "held_for_normal_path": 101,
     "duplicate_reports_suppressed": 14,
-    "duplicate_event_rate_pct": 11.97,
-    "median_source_detection_latency_seconds": 1794.7,
+    "duplicate_event_rate_pct": 12.07,
+    "median_source_detection_latency_seconds": 2131.6,
     "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 0,
     "detection_to_publication_latency_seconds": null,
@@ -86,41 +94,41 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 65.46,
-      "completed_at": "2026-10-07T09:52:20.599674Z",
+      "duration_seconds": 66.26,
+      "completed_at": "2026-10-07T09:57:57.579045Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
-      "message": "FAILED: Reason: HTTPSConnectionPool(host='reason.com', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 504 error responses')); feed autodiscovery failed: HTTPSConnectionPool(host='reason.com', port=443): Max retries exce"
+      "message": "FAILED: Western Journal: 403 Client Error: Forbidden for url: https://www.westernjournal.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://www.westernjournal.com/"
     },
     "fast_path": {
       "label": "Breaking-news fast path",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.41,
-      "completed_at": "2026-10-07T09:52:21.010993Z",
+      "duration_seconds": 0.56,
+      "completed_at": "2026-10-07T09:57:58.142315Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 1 promoted, 102 kept on normal path, 14 duplicates grouped."
+      "message": "Fast path: 1 promoted, 101 kept on normal path, 14 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 7.43,
-      "completed_at": "2026-10-07T09:52:28.437867Z",
+      "duration_seconds": 10.16,
+      "completed_at": "2026-10-07T09:58:08.306782Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1264 storylines; 40 multi-family; 6 breaking; 7 developing; 0 hot"
+      "message": "Built 1242 storylines; 37 multi-family; 6 breaking; 7 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.35,
-      "completed_at": "2026-10-07T09:52:28.792412Z",
+      "duration_seconds": 0.47,
+      "completed_at": "2026-10-07T09:58:08.776948Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -130,8 +138,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 3.24,
-      "completed_at": "2026-10-07T09:52:32.033325Z",
+      "duration_seconds": 4.28,
+      "completed_at": "2026-10-07T09:58:13.056347Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 151 autonomous source-backed story timelines"
@@ -141,8 +149,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.03,
-      "completed_at": "2026-10-07T09:52:32.104985Z",
+      "duration_seconds": 0.04,
+      "completed_at": "2026-10-07T09:58:13.141143Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -152,19 +160,19 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.16,
-      "completed_at": "2026-10-07T09:52:32.261992Z",
+      "duration_seconds": 0.34,
+      "completed_at": "2026-10-07T09:58:13.479558Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
-      "message": "Archived 797 permanent timeline URLs; 151 currently active"
+      "message": "Archived 798 permanent timeline URLs; 151 currently active"
     },
     "notifications": {
       "label": "Notification foundation",
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.05,
-      "completed_at": "2026-10-07T09:52:32.354966Z",
+      "duration_seconds": 0.07,
+      "completed_at": "2026-10-07T09:58:13.590213Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -175,7 +183,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.02,
-      "completed_at": "2026-10-07T09:52:32.371922Z",
+      "completed_at": "2026-10-07T09:58:13.612073Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -186,7 +194,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-10-07T09:52:32.398059Z",
+      "completed_at": "2026-10-07T09:58:13.646653Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -197,7 +205,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.1,
-      "completed_at": "2026-10-07T09:52:32.500264Z",
+      "completed_at": "2026-10-07T09:58:13.746638Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 75 live timelines"
@@ -207,8 +215,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.06,
-      "completed_at": "2026-10-07T09:52:32.557041Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-10-07T09:58:13.831323Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -218,8 +226,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.06,
-      "completed_at": "2026-10-07T09:52:32.615874Z",
+      "duration_seconds": 0.08,
+      "completed_at": "2026-10-07T09:58:13.907878Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

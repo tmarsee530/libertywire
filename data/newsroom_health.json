@@ -1,13 +1,13 @@
 {
   "cycle": {
-    "started_at": "2026-10-07T06:52:22.077393Z",
-    "completed_at": "2026-10-07T06:53:48.843208Z",
-    "duration_seconds": 86.77,
-    "previous_completed_at": "2026-10-07T06:48:03.152872Z"
+    "started_at": "2026-10-07T06:58:07.433283Z",
+    "completed_at": "2026-10-07T06:59:34.515149Z",
+    "duration_seconds": 87.08,
+    "previous_completed_at": "2026-10-07T06:53:48.843208Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-10-07T06:53:28.050967Z",
-    "age_minutes": 0.3,
+    "last_successful_run": "2026-10-07T06:59:13.329808Z",
+    "age_minutes": 0.4,
     "configured_sources": 80,
     "successful_sources": 79,
     "failed_sources": 1,
@@ -18,32 +18,32 @@
         "error": "HTTPSConnectionPool(host='reason.com', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 504 error responses')); feed autodiscovery failed: HTTPSConnectionPool(host='reason.com', port=443): Max retries exce"
       }
     ],
-    "stories_available": 1368
+    "stories_available": 1367
   },
   "content": {
-    "last_story_created": "2026-10-07T06:50:58Z",
-    "last_story_age_minutes": 2.8,
-    "last_timeline_update": "2026-10-07T06:50:58Z",
-    "last_timeline_age_minutes": 2.8,
+    "last_story_created": "2026-10-07T06:57:14Z",
+    "last_story_age_minutes": 2.3,
+    "last_timeline_update": "2026-10-07T06:57:14Z",
+    "last_timeline_age_minutes": 2.3,
     "published_timelines": 149,
-    "manifest_updated_at": "2026-10-07T06:53:46.362015Z"
+    "manifest_updated_at": "2026-10-07T06:59:32.004933Z"
   },
   "fast_path": {
-    "reports_evaluated": 112,
-    "candidate_events": 99,
-    "fast_path_events": 1,
+    "reports_evaluated": 107,
+    "candidate_events": 98,
+    "fast_path_events": 0,
     "held_for_normal_path": 98,
-    "duplicate_reports_suppressed": 13,
-    "duplicate_event_rate_pct": 11.61,
-    "median_source_detection_latency_seconds": 1762.2,
-    "high_urgency_capture_pct": 100.0,
+    "duplicate_reports_suppressed": 9,
+    "duplicate_event_rate_pct": 8.41,
+    "median_source_detection_latency_seconds": null,
+    "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
     "detection_to_publication_latency_seconds": null,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
       "published": 0,
-      "editorially_suppressed": 1,
+      "editorially_suppressed": 0,
       "deferred": 0,
       "missed": 0
     },
@@ -86,8 +86,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 66.02,
-      "completed_at": "2026-10-07T06:53:28.101766Z",
+      "duration_seconds": 65.95,
+      "completed_at": "2026-10-07T06:59:13.382894Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
       "message": "FAILED: Reason: HTTPSConnectionPool(host='reason.com', port=443): Max retries exceeded with url: /feed/ (Caused by ResponseError('too many 504 error responses')); feed autodiscovery failed: HTTPSConnectionPool(host='reason.com', port=443): Max retries exce"
@@ -97,30 +97,30 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.66,
-      "completed_at": "2026-10-07T06:53:28.766757Z",
+      "duration_seconds": 0.67,
+      "completed_at": "2026-10-07T06:59:14.055659Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 1 promoted, 98 kept on normal path, 13 duplicates grouped."
+      "message": "Fast path: 0 promoted, 98 kept on normal path, 9 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 13.13,
-      "completed_at": "2026-10-07T06:53:41.893590Z",
+      "duration_seconds": 13.28,
+      "completed_at": "2026-10-07T06:59:27.334602Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1262 storylines; 40 multi-family; 4 breaking; 8 developing; 0 hot"
+      "message": "Built 1262 storylines; 40 multi-family; 4 breaking; 9 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.65,
-      "completed_at": "2026-10-07T06:53:42.545400Z",
+      "duration_seconds": 0.67,
+      "completed_at": "2026-10-07T06:59:28.001080Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -130,8 +130,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 5.33,
-      "completed_at": "2026-10-07T06:53:47.871331Z",
+      "duration_seconds": 5.47,
+      "completed_at": "2026-10-07T06:59:33.470781Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 149 autonomous source-backed story timelines"
@@ -142,7 +142,7 @@
       "criticality": "core",
       "attempts": 1,
       "duration_seconds": 0.05,
-      "completed_at": "2026-10-07T06:53:47.980410Z",
+      "completed_at": "2026-10-07T06:59:33.579152Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -153,7 +153,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.29,
-      "completed_at": "2026-10-07T06:53:48.267249Z",
+      "completed_at": "2026-10-07T06:59:33.865067Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 796 permanent timeline URLs; 149 currently active"
@@ -164,7 +164,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.09,
-      "completed_at": "2026-10-07T06:53:48.409800Z",
+      "completed_at": "2026-10-07T06:59:34.007685Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -175,7 +175,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.03,
-      "completed_at": "2026-10-07T06:53:48.435300Z",
+      "completed_at": "2026-10-07T06:59:34.033110Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -186,7 +186,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.04,
-      "completed_at": "2026-10-07T06:53:48.477041Z",
+      "completed_at": "2026-10-07T06:59:34.075200Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -196,8 +196,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.12,
-      "completed_at": "2026-10-07T06:53:48.594597Z",
+      "duration_seconds": 0.19,
+      "completed_at": "2026-10-07T06:59:34.261121Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 75 live timelines"
@@ -207,8 +207,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.09,
-      "completed_at": "2026-10-07T06:53:48.688549Z",
+      "duration_seconds": 0.1,
+      "completed_at": "2026-10-07T06:59:34.357090Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 1 duplicate event promotions"
@@ -218,8 +218,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.09,
-      "completed_at": "2026-10-07T06:53:48.781896Z",
+      "duration_seconds": 0.1,
+      "completed_at": "2026-10-07T06:59:34.453334Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

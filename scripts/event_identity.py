@@ -124,7 +124,7 @@ def commercial_retail_offer(title):
 
 def incompatible_commercial_retail_offer(anchor, report):
     """A retail promotion cannot become a development in unrelated news."""
-    return bool(not commercial_retail_offer(anchor) and commercial_retail_offer(report))
+    return bool(not RETAIL_EVENT.search(str(anchor or "")) and commercial_retail_offer(report))
 
 
 def _normalized(value):

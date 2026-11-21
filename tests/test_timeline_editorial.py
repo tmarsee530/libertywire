@@ -55,6 +55,39 @@ class ReviewedTimelineTests(unittest.TestCase):
         again, _ = prepare_records(fixed, {"events": {}, "aliases": {}})
         self.assertEqual(fixed, again)
 
+    def test_retail_promotions_cannot_contaminate_october_news_event(self):
+        raw = {"id": "fe81d65952a8",
+               "current_title": "Three Years After October 7, The Truth Is Out",
+               "coverage": [
+                   source("Three Years After October 7, The Truth Is Out", 0),
+                   source("October 7 anniversary draws renewed scrutiny of the attacks", 1),
+                   source("October Prime Day laptop deals include Apple MacBooks and Samsung up to 43% off", 2),
+                   source("Last-chance October Prime Day deals including 50% off a Shark vacuum", 3),
+                   source("Fore! October Prime Day golf deals on balls and tees", 4),
+               ]}
+        before = copy.deepcopy(raw)
+        fixed, decisions = prepare_records([raw], {"events": {}, "aliases": {}})
+        self.assertEqual(raw, before)
+        self.assertEqual(len(fixed[0]["coverage"]), 2)
+        self.assertEqual([x["reason"] for x in decisions],
+                         ["unrelated_commercial_retail_offer"] * 3)
+        self.assertEqual(fixed[0]["id"], raw["id"])
+        repeated, again = prepare_records(fixed, {"events": {}, "aliases": {}})
+        self.assertEqual(fixed, repeated)
+        self.assertEqual(again, [])
+
+    def test_genuine_retail_reporting_and_retail_roundup_stay_intact(self):
+        anchor = "Amazon reports stronger sales during Prime Day promotion"
+        raw = {"id": "cafe0000beef", "current_title": anchor, "coverage": [
+            source(anchor, 0),
+            source("Amazon Prime Day sales climb as retailers report higher spending", 1),
+            source("Amazon Prime Day laptop deals and discounts", 2),
+        ]}
+        fixed, decisions = prepare_records([raw], {"events": {}, "aliases": {}})
+        # The rule is one directional: industry reporting may mention deals.
+        self.assertEqual(decisions, [])
+        self.assertEqual(len(fixed[0]["coverage"]), 3)
+
     def test_reviewed_alias_combines_sources_under_one_owner(self):
         config = self.config(); config['aliases'] = {'abcdef123456': SID}
         second = self.record('abcdef123456')

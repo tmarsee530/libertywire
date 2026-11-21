@@ -30,7 +30,19 @@
   const imageByLink=new Map((news.stories||[]).map(x=>[x.link,x.image])),ranked=[...d.storylines].sort((a,b)=>Number(b.importance_score||0)-Number(a.importance_score||0)),multi=ranked.filter(x=>x.homepage_eligible!==false&&Number(x.source_family_count||x.source_count||0)>=2);if(!multi.length)return;
   const timelineReady=x=>Boolean(x?.id&&publishedIds.has(String(x.id))&&timelineStateIndex[String(x.id)]);
   const storyCta=(story,items,fallback)=>{if(!timelineReady(story))return'';const api=window.RallyPointTimelineState,n=newSince(story,items),followed=Boolean(api&&api.isFollowed(localStorage,String(story.id))),label=n?(n+' new development'+(n===1?'':'s')+' →'):(followed?'Following · '+fallback:fallback);return `<a class="timeline-link${n?' has-new':''}${followed?' is-following':''}" href="/stories/${esc(story.id)}/">${esc(label)}</a>`};
-  const timelineStories=multi.filter(timelineReady);if(!timelineStories.length)return;
+  let semanticFindings={};
+  try{
+   const response=await fetch(`data/timeline_semantic_audit.json?t=${Date.now()}`,{cache:'no-store'});
+   if(response.ok){const audit=await response.json();if(audit.generated_from===manifest.generated_at)semanticFindings=audit.timelines||{}}
+  }catch(e){}
+  const homepageQuality=story=>{
+   const entry=timelineStateIndex[String(story.id)];if(!entry)return -Infinity;
+   const findings=semanticFindings[String(story.id)]?.findings||[];
+   if(findings.some(x=>x.severity==='high'))return -Infinity;
+   const families=new Set((entry.developments||[]).flatMap(d=>(d.sources||[]).map(s=>String(s.source_family||s.source||'').toLowerCase()).filter(Boolean)));
+   return Number(story.importance_score||0)+2*Math.min(families.size,5)+(entry.status==='breaking'?2:0)-(findings.some(x=>x.type==='possible_cross_event_update')?10:0);
+  };
+  const timelineStories=multi.filter(timelineReady).filter(s=>Number.isFinite(homepageQuality(s))).sort((a,b)=>homepageQuality(b)-homepageQuality(a));if(!timelineStories.length)return;
   const lead=timelineStories[0],c=materialDevelopments(lead,8),first=c[0],leadHot=canonicalStatus(lead)==='hot';
   if(first){
    const el=document.getElementById('lead'),leadUpdated=isLiveUpdated(lead);

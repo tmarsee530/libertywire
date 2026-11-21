@@ -2,9 +2,9 @@
 from pathlib import Path
 import html,json,re
 try:
- from homepage_selection import homepage_eligible
+ from homepage_selection import homepage_eligible, homepage_quality
 except ModuleNotFoundError:
- from scripts.homepage_selection import homepage_eligible
+ from scripts.homepage_selection import homepage_eligible, homepage_quality
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
 # The v2 stylesheet is self-contained. Remove the obsolete original theme and hidden chrome
@@ -15,7 +15,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=42">';state_js='<script src="assets/timeline-state.js?v=4" defer></script>';js='<script src="assets/homepage-v2.js?v=48" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=42">';state_js='<script src="assets/timeline-state.js?v=4" defer></script>';js='<script src="assets/homepage-v2.js?v=49" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -65,7 +65,14 @@ if ns!=s:s=ns;changed=True
 try:
  d=json.loads((root/'data/storylines.json').read_text());stories=d.get('storylines',[])[:48]
  manifest=json.loads((root/'data/published_timelines.json').read_text());published_ids={str(x) for x in manifest.get('ids',[])}
- state_index=json.loads((root/'data/timeline_state_index.json').read_text()).get('timelines',{})
+ state_payload=json.loads((root/'data/timeline_state_index.json').read_text())
+ state_index=state_payload.get('timelines',{})
+ try:
+  audit=json.loads((root/'data/timeline_semantic_audit.json').read_text())
+  audited=audit.get('timelines',{}) if audit.get('generated_from')==state_payload.get('generated_at') else {}
+ except (OSError,ValueError):
+  audited={}
+ stories.sort(key=lambda story:homepage_quality(story,state_index.get(str(story.get('id')),{}),(audited.get(str(story.get('id'))) or {}).get('findings',[])),reverse=True)
  def e(v):return html.escape(str(v or ''),quote=True)
  stop={'the','and','for','from','with','into','over','after','amid','says','said','report','reports','live','update','updates','latest','breaking','exclusive','video','photo','photos','this','that','these','those','new','news'}
  state={'approves','approved','blocks','blocked','orders','ordered','resigns','resigned','dies','died','killed','arrests','arrested','indicts','indicted','charges','charged','wins','won','loses','lost','launches','launched','strikes','struck','evacuates','evacuated','confirms','confirmed','withdraws','withdrew','suspends','suspended','rejects','rejected','passes','passed','fails','failed','overturns','overturned','delays','delayed','cancels','canceled','cancelled','announces','announced'}
@@ -131,6 +138,7 @@ try:
   # timeline title or reintroduce contamination on the homepage.
   primary_title=authoritative.get('title') or story.get('title') or first.get('title')
   if not homepage_eligible(primary_title):continue
+  if homepage_quality(story,authoritative,(audited.get(str(story.get('id'))) or {}).get('findings',[]))==float('-inf'):continue
   if lead_story is None:lead_story=(story,authoritative,primary_title,first)
   primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(primary_title)+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)

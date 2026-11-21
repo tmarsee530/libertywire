@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.homepage_selection import homepage_eligible
+from scripts.homepage_selection import homepage_eligible, homepage_quality, published_publisher_count
 
 
 class HomepageNewsworthinessTests(unittest.TestCase):
@@ -26,6 +26,33 @@ class HomepageNewsworthinessTests(unittest.TestCase):
         for title in titles:
             with self.subTest(title=title):
                 self.assertTrue(homepage_eligible(title))
+
+    def test_lead_prefers_verified_publishers_and_breaking_news(self):
+        minor = {"importance_score": 22.69}
+        material = {"importance_score": 21.87}
+        two_publishers = {"status": "developing", "developments": [
+            {"sources": [{"source_family": "tmz"}]},
+            {"sources": [{"source_family": "page six"}]},
+        ]}
+        four_publishers = {"status": "breaking", "developments": [
+            {"sources": [{"source_family": "npr"}, {"source_family": "american greatness"}]},
+            {"sources": [{"source_family": "bbc news"}, {"source_family": "tmz"}]},
+        ]}
+        self.assertEqual(published_publisher_count(four_publishers), 4)
+        self.assertGreater(homepage_quality(material, four_publishers),
+                           homepage_quality(minor, two_publishers))
+
+    def test_semantic_risks_do_not_win_top_promotion(self):
+        record = {"importance_score": 50}
+        published = {"status": "breaking", "developments": [
+            {"sources": [{"source_family": "one"}, {"source_family": "two"}]},
+        ]}
+        baseline = homepage_quality(record, published)
+        medium = homepage_quality(record, published, [{"severity": "medium", "type": "possible_cross_event_update"}])
+        high = homepage_quality(record, published, [{"severity": "high", "type": "current_status_mismatch"}])
+        self.assertEqual(baseline - medium, 10)
+        self.assertEqual(high, float("-inf"))
+        self.assertEqual(homepage_quality(record, {}), float("-inf"))
 
     def test_rejects_blank_titles(self):
         self.assertFalse(homepage_eligible("  "))

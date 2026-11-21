@@ -73,6 +73,38 @@ SPORTS_CONTENT_PATTERNS = {
 }
 
 
+
+# A named head-to-head fixture is an exact event discriminator, not merely a
+# shared sport or publisher. Do not merge separate games because both articles
+# discuss predictions, odds or the same team.
+_MATCHUP = re.compile(
+    r"\\b([A-Z][A-Za-z0-9'’.-]*(?:\\s+[A-Z][A-Za-z0-9'’.-]*){0,3})"
+    r"\\s+vs\\.?\\s+"
+    r"([A-Z][A-Za-z0-9'’.-]*(?:\\s+[A-Z][A-Za-z0-9'’.-]*){0,3})\\b"
+)
+_MATCHUP_NOISE = {"Week", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday",
+                 "Thursday", "Friday", "College", "Football", "NFL", "NCAA"}
+
+
+def named_fixture(value):
+    """Return a normalized pair of teams when a headline names an X vs Y game."""
+    match = _MATCHUP.search(str(value or ""))
+    if not match:
+        return None
+    left, right = match.groups()
+    def normalize(part):
+        words = [w.lower().strip(".") for w in part.split() if w not in _MATCHUP_NOISE]
+        return " ".join(words)
+    a, b = normalize(left), normalize(right)
+    return tuple(sorted((a, b))) if a and b else None
+
+
+def incompatible_named_fixtures(left, right):
+    """Only a *known different* named fixture is a hard incompatibility."""
+    a, b = named_fixture(left), named_fixture(right)
+    return bool(a and b and a != b)
+
+
 def _normalized(value):
     low = str(value or "").lower().replace("’", "'")
     for phrase, replacement in WORD_ALIASES.items():
@@ -130,6 +162,9 @@ def compare(left, right):
         overlap / max(1, len(all_words_left | all_words_right)),
     )
     causal = any(re.search(pattern, str(left or "").lower()) or re.search(pattern, str(right or "").lower()) for pattern in CAUSAL_PATTERNS)
+
+    if incompatible_named_fixtures(left, right):
+        return EventMatch(False, round(lexical, 3), "different_named_sports_fixture", tuple(sorted(shared_a)), tuple(sorted(shared_ac)), tuple(sorted(shared_s)))
 
     # Sports pages routinely share teams, players, leagues and dates while
     # describing different games or content products. Those broad entities

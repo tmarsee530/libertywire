@@ -19,6 +19,19 @@ class TimelineSemanticAuditTests(unittest.TestCase):
         timeline = {"title":"White House bars CNN reporters from entry","currentStatus":"White House bars CNN reporters from entry.","developments":[self.development("one","White House bars CNN reporters from entry"),self.development("two","White House bars CNN reporters from entry today")]}
         self.assertIn("possible_duplicate_development", {item["type"] for item in audit_timeline("one", timeline)})
 
+    def test_unrelated_named_fixtures_are_high_severity(self):
+        title = "Georgia vs. South Carolina prediction, odds, time: Week 12"
+        timeline = {"title": title, "currentStatus": title,
+                    "developments": [
+                        self.development("current", title),
+                        self.development("old", "Alabama vs. Georgia prediction, odds, time: Week 6"),
+                    ]}
+        findings = audit_timeline("sports", timeline)
+        mismatch = [item for item in findings if item["type"] == "different_named_sports_fixture"]
+        self.assertEqual(len(mismatch), 1)
+        self.assertEqual(mismatch[0]["severity"], "high")
+        self.assertEqual(mismatch[0]["update_id"], "old")
+
     def test_clean_timeline_stays_healthy(self):
         payload = {"generated_at":"2026-09-29T00:00:00Z","timelines":{"one":{"title":"Agency orders Pine County evacuation after wildfire","currentStatus":"Agency orders Pine County evacuation after wildfire.","url":"/stories/one/","developments":[self.development("one","Agency orders Pine County evacuation after wildfire")]}}}
         report = build_report(payload)

@@ -35,6 +35,26 @@ class ReviewedTimelineTests(unittest.TestCase):
         again, _ = prepare_records([raw], self.config())
         self.assertEqual(fixed, again)
 
+    def test_unreviewed_game_timelines_drop_other_matchups_without_mutating_history(self):
+        raw = {"id": "dfd058af0a3d",
+               "current_title": "Georgia vs. South Carolina prediction, odds, time: 2026 college football Week 12 picks",
+               "coverage": [
+                   source("Georgia vs. South Carolina prediction, odds, time: 2026 college football Week 12 picks", 1),
+                   source("South Carolina vs. Georgia picks for 2026 Week 12", 2),
+                   source("College football odds, predictions: Alabama vs. Georgia lead Week 6 slate", 3),
+                   source("New Mexico State vs. FIU prediction, odds, time: Week 6 college football picks", 4),
+               ]}
+        original = copy.deepcopy(raw)
+        fixed, decisions = prepare_records([raw], {"events": {}, "aliases": {}})
+        self.assertEqual(raw, original)
+        self.assertEqual(len(fixed[0]["coverage"]), 2)
+        self.assertEqual(len(decisions), 2)
+        self.assertEqual({x["reason"] for x in decisions}, {"different_named_sports_fixture"})
+        self.assertEqual(fixed[0]["id"], raw["id"])
+        self.assertTrue(all("Georgia" in x["title"] for x in fixed[0]["coverage"]))
+        again, _ = prepare_records(fixed, {"events": {}, "aliases": {}})
+        self.assertEqual(fixed, again)
+
     def test_reviewed_alias_combines_sources_under_one_owner(self):
         config = self.config(); config['aliases'] = {'abcdef123456': SID}
         second = self.record('abcdef123456')

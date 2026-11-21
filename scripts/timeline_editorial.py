@@ -6,8 +6,10 @@ import hashlib
 from pathlib import Path
 try:
     from timeline_intelligence import canonical_link, serializable_model, current_status, source_family
+    from event_identity import incompatible_named_fixtures
 except ModuleNotFoundError:
     from scripts.timeline_intelligence import canonical_link, serializable_model, current_status, source_family
+    from scripts.event_identity import incompatible_named_fixtures
 
 CONFIG = Path(__file__).resolve().parents[1] / "data" / "timeline_editorial.json"
 
@@ -49,7 +51,25 @@ def prepare_records(records, config=None):
         owner = aliases.get(sid, sid)
         event = events.get(owner)
         if not event:
-            grouped[sid] = dict(original)
+            # Preserve raw history. For publication copies only, exclude reports
+            # that explicitly name a different sporting fixture. A shared league,
+            # team, betting topic or broad event does not justify cross-game reuse.
+            anchor = str(original.get("current_title") or "")
+            coverage = []
+            for source in original.get("coverage", []):
+                if incompatible_named_fixtures(anchor, source.get("title")):
+                    decisions.append({"timeline_id": sid, "owner_id": sid,
+                                      "source_title": source.get("title"), "link": source.get("link"),
+                                      "reason": "different_named_sports_fixture"})
+                else:
+                    coverage.append(source)
+            record = dict(original)
+            if len(coverage) != len(original.get("coverage", [])):
+                record["coverage"] = coverage
+                record.update(serializable_model(record))
+                if record.get("updates"):
+                    record["last_seen"] = record["updates"][-1].get("date") or record.get("last_seen")
+            grouped[sid] = record
             continue
         coverage = []
         for source in original.get("coverage", []):

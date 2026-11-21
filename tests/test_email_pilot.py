@@ -48,6 +48,18 @@ class EmailPilotEventTests(unittest.TestCase):
         second=events([update("u1","BREAKING","Edited wording")])[0]
         self.assertEqual((first["timeline_id"],first["material_update_id"]),(second["timeline_id"],second["material_update_id"]))
 
+    def test_high_severity_timeline_is_withheld_from_email(self):
+        history = {"storylines": [
+            {"id": TIMELINE, "updates": [update("u1", "BREAKING")]},
+            {"id": "clean123", "updates": [update("u2", "BREAKING")]},
+        ]}
+        audit = {"timelines": {
+            TIMELINE: {"findings": [{"severity": "high", "type": "commentary_as_current_status"}]},
+            "clean123": {"findings": [{"severity": "medium", "type": "possible_duplicate_development"}]},
+        }}
+        result = pilot.eligible_events(history, {"ids": [TIMELINE, "clean123"]}, NOW, semantic_audit=audit)
+        self.assertEqual([event["timeline_id"] for event in result], ["clean123"])
+
     def test_canonical_timeline_url_unchanged(self):
         self.assertEqual(events([update("u1","BREAKING")])[0]["canonical_url"],f"https://rallypointnews.com/stories/{TIMELINE}/")
 

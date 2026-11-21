@@ -27,6 +27,7 @@ AUXILIARY_PATHS = {
     "metadata": (),  # Metadata is installed into the already-core homepage.
     "recent": ("recent",),
     "feed": ("feed.xml",),
+    "semantic_audit": ("data/timeline_semantic_audit.json",),
     "distribution": ("data/distribution_candidates.json",),
     "sitemap": ("sitemap.xml", "news-sitemap.xml"),
 }

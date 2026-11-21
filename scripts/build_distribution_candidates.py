@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "history.json"
 MANIFEST = ROOT / "data" / "published_timelines.json"
 OUT = ROOT / "data" / "distribution_candidates.json"
+SEMANTIC_AUDIT = ROOT / "data" / "timeline_semantic_audit.json"
 BASE = "https://rallypointnews.com"
 MAX_AGE_HOURS = 12
 MAX_CANDIDATES = 12
@@ -63,6 +64,18 @@ def same_event(left, right):
     containment = overlap / max(1, min(len(a), len(b)))
     jaccard = overlap / max(1, len(a | b))
     return overlap >= 3 and (containment >= 0.58 or jaccard >= 0.46)
+
+
+def blocked_timelines(audit, generated_at):
+    """Apply only a current audit of the exact published timeline snapshot."""
+    if not isinstance(audit, dict) or audit.get("generated_from") != generated_at:
+        raise ValueError("Semantic audit missing or stale; cannot prepare external promotion")
+    blocked = {}
+    for sid, entry in (audit.get("timelines") or {}).items():
+        severe = sorted({str(f.get("type") or "semantic_failure") for f in entry.get("findings", []) if f.get("severity") == "high"})
+        if severe:
+            blocked[str(sid)] = severe
+    return blocked
 
 
 def tracked_url(sid, source):
@@ -191,7 +204,11 @@ def main():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {"ids": []}
     published = {str(x) for x in manifest.get("ids", [])}
     index_path=MANIFEST.parent/'timeline_state_index.json'
-    index=json.loads(index_path.read_text()).get('timelines',{}) if index_path.exists() else {}
+    state_payload=json.loads(index_path.read_text()) if index_path.exists() else {}
+    index=state_payload.get('timelines',{})
+    audit=json.loads(SEMANTIC_AUDIT.read_text(encoding="utf-8"))
+    blocked=blocked_timelines(audit, state_payload.get("generated_at"))
+    suppressed_semantic=[]
 
     items = []
     for record in history.get("storylines", []):
@@ -199,6 +216,9 @@ def main():
             continue
         live=index.get(str(record.get('id')))
         if not live:continue
+        if str(record.get('id')) in blocked:
+            suppressed_semantic.append({'timeline_id':str(record.get('id')),'reason':'high_severity_semantic_audit','finding_types':blocked[str(record.get('id'))]})
+            continue
         # Distribution must use what readers actually see, including reviewed
         # scope repairs and canonical ownership, not the unfiltered archive.
         developments=live.get('developments') or []
@@ -228,7 +248,7 @@ def main():
 
     flagship_posts=[]
     for sid,entry in index.items():
-        if sid not in published or not entry.get('featured'):continue
+        if sid not in published or sid in blocked or not entry.get('featured'):continue
         url=f"{BASE}/stories/{sid}/?"+urlencode({'utm_source':'x','utm_medium':'social','utm_campaign':'flagship_timeline','utm_content':sid})
         title=clean(entry.get('title'))
         headline=title if len(title)<=70 else title[:67].rstrip()+'…'
@@ -248,9 +268,13 @@ def main():
             "ideology_used_in_selection": False,
             "sensitive_claims_require_extra_corroboration": True,
             "measurable_social_links": True,
+            "high_severity_semantic_findings_suppressed": True,
             "max_age_hours": MAX_AGE_HOURS,
         },
         "candidate_count": len(items),
+        "semantic_quality_gate_enabled": True,
+        "suppressed_semantic_count": len(suppressed_semantic),
+        "suppressed_semantic_quality": suppressed_semantic,
         "suppressed_duplicate_count": len(suppressed),
         "candidates": items,
         "suppressed_duplicates": suppressed,

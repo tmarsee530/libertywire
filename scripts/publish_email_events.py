@@ -22,6 +22,8 @@ ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "history.json"
 MANIFEST = ROOT / "data" / "published_timelines.json"
 HEALTH = ROOT / "data" / "email_delivery_health.json"
+SEMANTIC_AUDIT = ROOT / "data" / "timeline_semantic_audit.json"
+STATE_INDEX = ROOT / "data" / "timeline_state_index.json"
 BASE = "https://rallypointnews.com"
 
 
@@ -38,13 +40,15 @@ def atomic_json(path, payload):
     os.replace(temporary, path)
 
 
-def eligible_events(history, manifest, now=None):
+def eligible_events(history, manifest, now=None, semantic_audit=None):
     cutoff = (now or datetime.now(timezone.utc)) - timedelta(hours=48)
-    active = set(manifest.get("ids") or [])
+    active = {str(x) for x in (manifest.get("ids") or [])}
+    blocked = {str(sid) for sid, record in (semantic_audit or {}).get("timelines", {}).items()
+               if any(f.get("severity") == "high" for f in record.get("findings", []))}
     events = []
     for record in history.get("storylines") or []:
-        timeline_id = record.get("id")
-        if timeline_id not in active:
+        timeline_id = str(record.get("id") or "")
+        if timeline_id not in active or timeline_id in blocked:
             continue
         for update in record.get("updates") or []:
             eligible, reason = notification_significance(update)
@@ -84,7 +88,12 @@ def main():
     if not api or not secret:
         print("Email pilot setup is pending; newsroom publication continues.")
         return 0
-    events = eligible_events(load(HISTORY, {"storylines": []}), load(MANIFEST, {"ids": []}))
+    state = load(STATE_INDEX, {})
+    audit = load(SEMANTIC_AUDIT, {})
+    if not state.get("generated_at") or audit.get("generated_from") != state.get("generated_at"):
+        print("::warning::Email promotion withheld: semantic audit missing or stale.")
+        return 0
+    events = eligible_events(load(HISTORY, {"storylines": []}), load(MANIFEST, {"ids": []}), semantic_audit=audit)
     try:
         result = request_json(api + "/v1/events", "POST", {"events": events}, secret)
         health = request_json(api + "/v1/health")

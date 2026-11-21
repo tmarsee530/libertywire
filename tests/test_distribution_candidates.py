@@ -14,6 +14,15 @@ class DistributionCandidateTests(unittest.TestCase):
         right = {"title": "Federal Reserve cuts interest rates by quarter point"}
         self.assertFalse(dist.same_event(left, right))
 
+    def test_semantic_gate_blocks_only_high_findings(self):
+        audit = {"generated_from": "snapshot-1", "timelines": {
+            "bad": {"findings": [{"severity": "high", "type": "current_status_mismatch"}]},
+            "review": {"findings": [{"severity": "medium", "type": "possible_duplicate_development"}]},
+        }}
+        self.assertEqual(dist.blocked_timelines(audit, "snapshot-1"), {"bad": ["current_status_mismatch"]})
+        with self.assertRaises(ValueError):
+            dist.blocked_timelines(audit, "snapshot-2")
+
     def test_tracked_urls_are_platform_specific(self):
         x = dist.tracked_url("abc123def456", "x")
         facebook = dist.tracked_url("abc123def456", "facebook")

@@ -6,10 +6,10 @@ import hashlib
 from pathlib import Path
 try:
     from timeline_intelligence import canonical_link, serializable_model, current_status, source_family
-    from event_identity import incompatible_named_fixtures
+    from event_identity import incompatible_named_fixtures, incompatible_commercial_retail_offer
 except ModuleNotFoundError:
     from scripts.timeline_intelligence import canonical_link, serializable_model, current_status, source_family
-    from scripts.event_identity import incompatible_named_fixtures
+    from scripts.event_identity import incompatible_named_fixtures, incompatible_commercial_retail_offer
 
 CONFIG = Path(__file__).resolve().parents[1] / "data" / "timeline_editorial.json"
 
@@ -57,10 +57,15 @@ def prepare_records(records, config=None):
             anchor = str(original.get("current_title") or "")
             coverage = []
             for source in original.get("coverage", []):
+                reason = None
                 if incompatible_named_fixtures(anchor, source.get("title")):
+                    reason = "different_named_sports_fixture"
+                elif incompatible_commercial_retail_offer(anchor, source.get("title")):
+                    reason = "unrelated_commercial_retail_offer"
+                if reason:
                     decisions.append({"timeline_id": sid, "owner_id": sid,
                                       "source_title": source.get("title"), "link": source.get("link"),
-                                      "reason": "different_named_sports_fixture"})
+                                      "reason": reason})
                 else:
                     coverage.append(source)
             record = dict(original)

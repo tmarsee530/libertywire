@@ -44,6 +44,7 @@ STAGES = [
     {"key": "metadata", "label": "Discovery metadata", "script": "scripts/install_discovery_metadata.py", "expected": "index.html", "core": False, "outputs": ("index.html",)},
     {"key": "recent", "label": "Recent-headlines page", "script": "scripts/build_recent.py", "expected": "recent/index.html", "core": False, "outputs": ("recent",)},
     {"key": "feed", "label": "Live timeline RSS", "script": "scripts/build_feed.py", "expected": "feed.xml", "core": False, "outputs": ("feed.xml",)},
+    {"key": "semantic_audit", "label": "Published timeline semantic audit", "script": "scripts/audit_timeline_semantics.py", "expected": "data/timeline_semantic_audit.json", "core": False, "outputs": ("data/timeline_semantic_audit.json",)},
     {"key": "distribution", "label": "Selective distribution queue", "script": "scripts/build_distribution_candidates.py", "expected": "data/distribution_candidates.json", "core": False, "outputs": ("data/distribution_candidates.json",)},
     {"key": "sitemap", "label": "Sitemap refresh", "script": "scripts/build_sitemaps.py", "expected": "sitemap.xml", "core": False, "outputs": ("sitemap.xml", "news-sitemap.xml")},
 ]

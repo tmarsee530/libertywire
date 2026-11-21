@@ -108,10 +108,10 @@ def incompatible_named_fixtures(left, right):
 # Ads and product roundups frequently share calendar words (October,
 # November, "week") with actual news events. This is a *high precision*
 # commercial-offer discriminator, not a ban on retail-industry reporting.
-RETAIL_EVENT = re.compile(r"\b(?:prime day|prime big deal days|black friday|cyber monday)\b", re.I)
+RETAIL_EVENT = re.compile(r"\b(?:prime day|prime big deals? days?|black friday|cyber monday)\b", re.I)
 RETAIL_OFFER = re.compile(
     r"\b(?:deals?|discounts?|coupons?|shopping picks?|gift guides?|"
-    r"save (?:up to |\$|\d)|on sale|flash sale|"
+    r"save (?:on |up to |\$|\d)|on sale|flash sale|discounted|hidden gems|"
     r"off (?:at|on|select|all) |(?:\d{1,3}%|\$\d+)\s*off)\b", re.I
 )
 

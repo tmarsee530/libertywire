@@ -150,7 +150,7 @@ try:
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows[1:] if lead_story else rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  # The fallback belongs *after* the lead, so the first prominent crawlable
  # headline is the lead event, not a dense list of secondary news.
- old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
+ old=re.search(r'\\n?<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->(?:\\n)?',s,re.S)
  if old:
   s=s[:old.start()]+s[old.end():];changed=True
  lead_section=re.search(r'<section class="lead" id="lead-wrap">.*?</section>',s,re.S)

@@ -11,7 +11,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=41">';state_js='<script src="assets/timeline-state.js?v=4" defer></script>';js='<script src="assets/homepage-v2.js?v=46" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=42">';state_js='<script src="assets/timeline-state.js?v=4" defer></script>';js='<script src="assets/homepage-v2.js?v=47" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -35,7 +35,7 @@ ns=s.replace('PAGE CHECKS FOR UPDATES EVERY 60 SECONDS','UPDATED THROUGHOUT THE 
 if ns!=s:s=ns;changed=True
 for a,b in {'Rally Point News — AI-Native Multi-Source Newsroom':'Rally Point News — Top Stories & The Wire','Rally Point News — Top Stories, Rally Briefs & Live Headlines':'Rally Point News — Top Stories & The Wire','Original multi-source reporting synthesized by the Rally Point News AI newsroom, with sources and uncertainty kept visible.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.','Top stories ranked by importance, original source-based Rally Briefs, and live headlines from across the news landscape.':'Top stories and a fast, continuously updated wire of headlines from across the news landscape.'}.items():
  if a in s:s=s.replace(a,b);changed=True
-nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="#lead">Top Timeline</a><a href="#grid">Live Timelines</a><a href="/stories/">All Timelines</a><a href="/stories/#featured">Featured</a><a href="/following/">Your Stories</a><a href="/recent/">Recent</a><a href="/archive/">Archive</a><a href="/sources/">Sources</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
+nav='''<!-- RALLY_POINT_CORE_NAV_START -->\n<nav class="newsroom-nav newsroom-nav-core" aria-label="Rally Point sections"><a href="/" aria-current="page">Home</a><a href="/stories/">Live Timelines</a><a href="/recent/">Latest</a><a href="/about/">About</a></nav>\n<!-- RALLY_POINT_CORE_NAV_END -->'''
 m=re.search(r'<!-- RALLY_POINT_CORE_NAV_START -->.*?<!-- RALLY_POINT_CORE_NAV_END -->',s,re.S)
 if m:
  if m.group()!=nav:s=s[:m.start()]+nav+s[m.end():];changed=True
@@ -113,6 +113,7 @@ try:
   return labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
  rows=[]
  for story in stories:
+  if len(rows)>=10:break
   if str(story.get('id')) not in published_ids:continue
   authoritative=state_index.get(str(story.get('id')),{})
   labeled=material_developments(story)
@@ -126,7 +127,7 @@ try:
   primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(primary_title)+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open timeline →</a>'
-  rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><span class="server-timeline-label">LIVE TIMELINE</span><h2>'+primary+'</h2>'+(('<p>'+related_html+'</p>') if related_html else '')+timeline+'</section>')
+  rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><h2>'+primary+'</h2>'+timeline+'</section>')
  block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
  old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
  if old:

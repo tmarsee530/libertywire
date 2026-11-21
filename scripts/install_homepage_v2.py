@@ -115,7 +115,7 @@ try:
   if isinstance(developments,list) and str(story.get('id')) in state_index:
    return [(dict(item,title=item.get('source_title') or item.get('label')),item.get('label') or item.get('source_title') or '') for item in developments[:8] if item.get('link')]
   return labels(distinct([x for x in story.get('coverage',[]) if x.get('link')],8))
- rows=[]
+ rows=[];lead_story=None
  for story in stories:
   if len(rows)>=10:break
   if str(story.get('id')) not in published_ids:continue
@@ -129,17 +129,35 @@ try:
   # timeline title or reintroduce contamination on the homepage.
   primary_title=authoritative.get('title') or story.get('title') or first.get('title')
   if not homepage_eligible(primary_title):continue
+  if lead_story is None:lead_story=(story,authoritative,primary_title,first)
   primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(primary_title)+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open timeline →</a>'
   rows.append('<section class="server-story'+(' is-hot' if hot else '')+'"><h2>'+primary+'</h2>'+timeline+'</section>')
- block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
- old=re.search(r'<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->',s,re.S)
+ # Render the lead directly in crawlable HTML. JavaScript may enhance this
+ # section, but network failure or disabled JS must never leave placeholder text.
+ # Use the canonical state index, not an unreviewed raw cluster headline.
+ if lead_story:
+  story,authoritative,primary_title,first=lead_story
+  sid=e(story.get('id'));label=e(primary_title)
+  summary=str(authoritative.get('currentStatus') or '').strip()
+  summary_html=('<p class="lead-summary">'+e(summary)+'</p>') if summary and summary.rstrip('.').lower()!=primary_title.rstrip('.').lower() else ''
+  lead_content='<div class="lead-package"><div class="lead-copy"><div class="lead-topic">TOP DEVELOPING STORY</div><h1><a href="/stories/'+sid+'/">'+label+'</a></h1>'+summary_html+'<div class="source-tag">'+str(len(authoritative.get('developments') or []))+' distinct developments</div><a class="timeline-link" href="/stories/'+sid+'/">Follow the timeline →</a></div></div>'
+  lead_markup='<section class="lead" id="lead-wrap"><div class="lead-inner"><div id="lead" aria-live="polite">'+lead_content+'</div></div></section>'
+  prior_lead=re.search(r'<section class="lead" id="lead-wrap">.*?</section>',s,re.S)
+  if prior_lead and prior_lead.group()!=lead_markup:
+   s=s[:prior_lead.start()]+lead_markup+s[prior_lead.end():];changed=True
+ block='<!-- RALLY_POINT_SERVER_WIRE_START --><div id="server-wire" aria-label="Current headlines">'+''.join(rows[1:] if lead_story else rows)+'</div><!-- RALLY_POINT_SERVER_WIRE_END -->'
+ # The fallback belongs *after* the lead, so the first prominent crawlable
+ # headline is the lead event, not a dense list of secondary news.
+ old=re.search(r'\n?<!-- RALLY_POINT_SERVER_WIRE_START -->.*?<!-- RALLY_POINT_SERVER_WIRE_END -->(?:\n)?',s,re.S)
  if old:
-  if old.group()!=block:s=s[:old.start()]+block+s[old.end():];changed=True
- else:
-  marker='<main id="main-content">'
-  if marker in s:s=s.replace(marker,marker+'\n'+block,1);changed=True
+  s=s[:old.start()]+s[old.end():];changed=True
+ lead_section=re.search(r'<section class="lead" id="lead-wrap">.*?</section>',s,re.S)
+ if lead_section:
+  s=s[:lead_section.end()]+'\n'+block+s[lead_section.end():];changed=True
+ elif '<main id="main-content">' in s:
+  s=s.replace('<main id="main-content">','<main id="main-content">\n'+block,1);changed=True
 except (OSError,json.JSONDecodeError):pass
 if changed:p.write_text(s);print('Installed lean Rally Point homepage shell with resilient Wire fallback')
 else:print('Rally Point lean homepage already installed')

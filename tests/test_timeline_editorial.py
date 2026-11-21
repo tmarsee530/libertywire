@@ -64,13 +64,17 @@ class ReviewedTimelineTests(unittest.TestCase):
                    source("October Prime Day laptop deals include Apple MacBooks and Samsung up to 43% off", 2),
                    source("Last-chance October Prime Day deals including 50% off a Shark vacuum", 3),
                    source("Fore! October Prime Day golf deals on balls and tees", 4),
+                   source("15 hidden gems the Page Six team is eyeing during Amazon’s October Prime Day", 5),
+                   source("Save on MacBooks, iPads and Apple Watches during October Prime Day", 6),
+                   source("No Sweat: These Top-Rated Luxury Home Saunas Are All Discounted During October Prime Day", 7),
+                   source("The Best Espresso Machine Deals on Amazon for Prime Big Deals Day", 8),
                ]}
         before = copy.deepcopy(raw)
         fixed, decisions = prepare_records([raw], {"events": {}, "aliases": {}})
         self.assertEqual(raw, before)
         self.assertEqual(len(fixed[0]["coverage"]), 2)
         self.assertEqual([x["reason"] for x in decisions],
-                         ["unrelated_commercial_retail_offer"] * 3)
+                         ["unrelated_commercial_retail_offer"] * 7)
         self.assertEqual(fixed[0]["id"], raw["id"])
         repeated, again = prepare_records(fixed, {"events": {}, "aliases": {}})
         self.assertEqual(fixed, repeated)

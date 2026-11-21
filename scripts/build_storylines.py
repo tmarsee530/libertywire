@@ -10,18 +10,18 @@ try:
  from timeline_editorial import prepare_records
  from event_identity import best_match as best_event_match, compare as compare_events
  from timeline_intelligence import commentary_only, meaningful_updates
+ from source_families import family
 except ModuleNotFoundError:
  from scripts.canonical_ownership import ownership_map
  from scripts.timeline_editorial import prepare_records
  from scripts.event_identity import best_match as best_event_match, compare as compare_events
  from scripts.timeline_intelligence import commentary_only, meaningful_updates
+ from scripts.source_families import family
 ROOT=Path(__file__).resolve().parents[1];NEWS=ROOT/'data'/'news.json';OUT=ROOT/'data'/'storylines.json';HISTORY=ROOT/'data'/'history.json';FAST=ROOT/'data'/'breaking_fast_path.json'
 STOP={'this','that','with','from','have','will','into','after','over','about','says','said','amid','their','they','what','when','where','which','while','could','would','should','more','than','news','report','reports','live','update','updates','high','school','football','years','later','remember','watch','media','next','week','weeks','bill','bills','today','latest','breaking','exclusive','video','photos','photo','trump','president','senate','house','court','federal','government','election','elections','primary','judge','official','officials','american','america','state','states'}
 SIGNALS={'supreme court':7,'congress':5,'senate':4,'house ':4,'white house':4,'president':4,'governor':3,'election':5,'war':7,'military':4,'attack':5,'ceasefire':5,'invasion':6,'nuclear':7,'emergency':5,'disaster':6,'hurricane':5,'earthquake':6,'wildfire':5,'evacuation':5,'crash':4,'killed':4,'death':3,'public safety':4,'economy':5,'inflation':4,'jobs':3,'unemployment':4,'federal reserve':5,'interest rate':4,'shutdown':5,'tariff':4,'oil':3,'market':3,'recession':6,'bank':3,'shipping':3,'supply chain':3,'federal court':4,'court':2,'judge':2,'law':2,'policy':2,'border':4,'immigration':3,'artificial intelligence':3,'cyber':4,'outage':4,'data breach':4,'technology':2}
 BREAKING_SIGNALS={'attack':4,'nuclear':5,'emergency':4,'disaster':5,'earthquake':5,'wildfire':4,'evacuation':4,'crash':3,'killed':3,'shutdown':3,'outage':3,'data breach':3,'ceasefire':3,'invasion':5,'war':4,'interest rate':2,'federal reserve':2,'supreme court':3}
 RISK=('accused','alleged','arrested','indicted','charged','dead','dies','killed','murder','rape','sexual assault','abuse','doxx','election called','projected winner','bankruptcy','insider trading','fraud','corruption','married her brother','married his sister','leaked','classified document')
-SOURCE_FAMILIES={'Fox News':'fox','Fox News Politics':'fox','Fox News World':'fox','Fox Business':'fox','National Review':'national-review','National Review The Corner':'national-review','The Daily Signal':'daily-signal','Daily Signal':'daily-signal','The Daily Signal Politics':'daily-signal','Daily Signal Politics':'daily-signal','RealClearPolitics':'realclear','RealClearPolicy':'realclear','RealClearWorld':'realclear','RealClearDefense':'realclear','Associated Press':'ap','AP':'ap','NPR News':'npr','NPR':'npr'}
-def family(source):return SOURCE_FAMILIES.get(str(source or '').strip(),str(source or '').strip().lower() or 'unknown')
 @lru_cache(maxsize=50000)
 def tokens(title):
  low=str(title or '').lower().replace('artificial intelligence',' ai ')

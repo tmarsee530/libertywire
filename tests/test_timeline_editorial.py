@@ -64,13 +64,17 @@ class ReviewedTimelineTests(unittest.TestCase):
                    source("October Prime Day laptop deals include Apple MacBooks and Samsung up to 43% off", 2),
                    source("Last-chance October Prime Day deals including 50% off a Shark vacuum", 3),
                    source("Fore! October Prime Day golf deals on balls and tees", 4),
+                   source("15 hidden gems the Page Six team is eyeing during Amazon’s October Prime Day", 5),
+                   source("Save on MacBooks, iPads and Apple Watches during October Prime Day", 6),
+                   source("No Sweat: These Top-Rated Luxury Home Saunas Are All Discounted During October Prime Day", 7),
+                   source("The Best Espresso Machine Deals on Amazon for Prime Big Deals Day", 8),
                ]}
         before = copy.deepcopy(raw)
         fixed, decisions = prepare_records([raw], {"events": {}, "aliases": {}})
         self.assertEqual(raw, before)
         self.assertEqual(len(fixed[0]["coverage"]), 2)
         self.assertEqual([x["reason"] for x in decisions],
-                         ["unrelated_commercial_retail_offer"] * 3)
+                         ["unrelated_commercial_retail_offer"] * 7)
         self.assertEqual(fixed[0]["id"], raw["id"])
         repeated, again = prepare_records(fixed, {"events": {}, "aliases": {}})
         self.assertEqual(fixed, repeated)
@@ -87,6 +91,57 @@ class ReviewedTimelineTests(unittest.TestCase):
         # The rule is one directional: industry reporting may mention deals.
         self.assertEqual(decisions, [])
         self.assertEqual(len(fixed[0]["coverage"]), 3)
+
+    def test_fort_hood_execution_is_not_other_homicides(self):
+        event = load_config()["events"]["27d9cc4ad2ed"]
+        valid = [
+            "Trump approves firing squad execution of 2009 Fort Hood shooter Nidal Hasan",
+            "Fort Hood shooter to be executed by Army firing squad",
+            "Pentagon confirms execution decision for Nidal Hasan",
+        ]
+        unrelated = [
+            "Gender-Dysphoric Man Who Killed Female Victim Gets Plea Deal",
+            "Man who killed dog walker should be deported, says judge",
+            "Man killed girlfriend by forcing her to take abortion pills",
+        ]
+        for title in valid:
+            with self.subTest(title=title):
+                self.assertTrue(in_scope(title, "https://news.test/a", event))
+        for title in unrelated:
+            with self.subTest(title=title):
+                self.assertFalse(in_scope(title, "https://news.test/a", event))
+        raw = {"id": "27d9cc4ad2ed", "current_title": "We Now Know When Nidal Hasan Will Be Executed",
+               "coverage": [source(t, n) for n, t in enumerate(valid + unrelated)]}
+        original = copy.deepcopy(raw)
+        fixed, decisions = prepare_records([raw], load_config())
+        self.assertEqual(raw, original)
+        self.assertEqual(fixed[0]["id"], raw["id"])
+        self.assertEqual(len(fixed[0]["coverage"]), len(valid))
+        self.assertEqual(len(decisions), len(unrelated))
+        self.assertEqual({d["reason"] for d in decisions}, {"reviewed_event_scope"})
+
+    def test_farage_suspect_does_not_inherit_other_arrests(self):
+        event = load_config()["events"]["d1bb2b487208"]
+        valid = ["Widdecombe suspect charged with preparing acts against Farage",
+                 "Nigel Farage terror plot suspect appears in court"]
+        unrelated = ["Rick Ross arrested on domestic violence charges",
+                     "Iran-linked terror suspect charged over UK air base",
+                     "Survivor 51 contestant loses part of thumb",
+                     "Woman arrested over alleged material support for Palestine Islamic Jihad"]
+        for title in valid:
+            with self.subTest(title=title):
+                self.assertTrue(in_scope(title, "https://news.test/a", event))
+        for title in unrelated:
+            with self.subTest(title=title):
+                self.assertFalse(in_scope(title, "https://news.test/a", event))
+        raw = {"id": "d1bb2b487208", "current_title": valid[0],
+               "coverage": [source(t, n) for n, t in enumerate(valid + unrelated)]}
+        before = copy.deepcopy(raw)
+        fixed, decisions = prepare_records([raw], load_config())
+        self.assertEqual(raw, before)
+        self.assertEqual(fixed[0]["id"], raw["id"])
+        self.assertEqual(len(fixed[0]["coverage"]), 2)
+        self.assertEqual(len(decisions), len(unrelated))
 
     def test_reviewed_alias_combines_sources_under_one_owner(self):
         config = self.config(); config['aliases'] = {'abcdef123456': SID}

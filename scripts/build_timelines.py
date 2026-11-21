@@ -11,10 +11,12 @@ try:
     from canonical_ownership import canonical_groups, enforce_unique_updates, ownership_map, violations
     from timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
     from timeline_editorial import load_config, prepare_records
+    from source_families import family as family_name
 except ModuleNotFoundError:  # package import in the unit-test runner
     from scripts.canonical_ownership import canonical_groups, enforce_unique_updates, ownership_map, violations
     from scripts.timeline_intelligence import SCHEMA_VERSION, canonical_link, serializable_model
     from scripts.timeline_editorial import load_config, prepare_records
+    from scripts.source_families import family as family_name
 
 ROOT = Path(__file__).resolve().parents[1]
 HISTORY = ROOT / "data" / "history.json"
@@ -49,11 +51,6 @@ def source_domain(link):
 def tokens_for_related(value):
     stop={"this","that","with","from","after","about","into","over","news","live","latest","breaking","update","updates"}
     return {x for x in re.findall(r"[a-z0-9\u0027]{4,}", clean_title(value).lower()) if x not in stop}
-
-def family_name(source):
-    s = str(source or "").strip().lower()
-    aliases = {"fox news politics":"fox news","fox news world":"fox news","fox business":"fox news","national review the corner":"national review","realclearpolicy":"realclear","realclearworld":"realclear","realcleardefense":"realclear","realclearpolitics":"realclear"}
-    return aliases.get(s, s)
 
 def timeline_model(record):
     if int(record.get("timeline_schema_version", 0) or 0) == SCHEMA_VERSION and isinstance(record.get("updates"), list) and record.get("current_status"):

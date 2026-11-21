@@ -32,6 +32,27 @@ class TimelineSemanticAuditTests(unittest.TestCase):
         self.assertEqual(mismatch[0]["severity"], "high")
         self.assertEqual(mismatch[0]["update_id"], "old")
 
+    def test_october_prime_day_shopping_is_high_severity_in_october_seven_story(self):
+        title = "Three Years After October 7, The Truth Is Out"
+        timeline = {"title": title, "currentStatus": title, "developments": [
+            self.development("real", title),
+            self.development("ad", "October Prime Day laptop deals include MacBooks up to 43% off"),
+        ]}
+        findings = audit_timeline("october-seven", timeline)
+        blocked = [item for item in findings if item["type"] == "unrelated_commercial_retail_offer"]
+        self.assertEqual(len(blocked), 1)
+        self.assertEqual(blocked[0]["severity"], "high")
+        self.assertEqual(blocked[0]["update_id"], "ad")
+
+    def test_retail_reporting_is_not_a_false_positive(self):
+        title = "Prime Day organizers report stronger holiday shopping sales"
+        timeline = {"title": title, "currentStatus": title, "developments": [
+            self.development("real", title),
+            self.development("deal", "October Prime Day laptop deals include discounts"),
+        ]}
+        findings = audit_timeline("retail", timeline)
+        self.assertNotIn("unrelated_commercial_retail_offer", {x["type"] for x in findings})
+
     def test_clean_timeline_stays_healthy(self):
         payload = {"generated_at":"2026-09-29T00:00:00Z","timelines":{"one":{"title":"Agency orders Pine County evacuation after wildfire","currentStatus":"Agency orders Pine County evacuation after wildfire.","url":"/stories/one/","developments":[self.development("one","Agency orders Pine County evacuation after wildfire")]}}}
         report = build_report(payload)

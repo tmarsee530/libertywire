@@ -7,10 +7,10 @@ import re
 from pathlib import Path
 
 try:
-    from event_identity import compare, incompatible_named_fixtures
+    from event_identity import compare, incompatible_named_fixtures, incompatible_commercial_retail_offer
     from timeline_intelligence import commentary_only, fact_tokens
 except ModuleNotFoundError:
-    from scripts.event_identity import compare, incompatible_named_fixtures
+    from scripts.event_identity import compare, incompatible_named_fixtures, incompatible_commercial_retail_offer
     from scripts.timeline_intelligence import commentary_only, fact_tokens
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +48,10 @@ def audit_timeline(timeline_id, timeline):
             continue
         if incompatible_named_fixtures(title, label):
             findings.append({"type": "different_named_sports_fixture", "severity": "high",
+                             "update_id": development.get("id"), "label": label})
+            continue
+        if incompatible_commercial_retail_offer(title, label):
+            findings.append({"type": "unrelated_commercial_retail_offer", "severity": "high",
                              "update_id": development.get("id"), "label": label})
             continue
         identity = compare(title, label)

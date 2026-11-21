@@ -105,6 +105,28 @@ def incompatible_named_fixtures(left, right):
     return bool(a and b and a != b)
 
 
+# Ads and product roundups frequently share calendar words (October,
+# November, "week") with actual news events. This is a *high precision*
+# commercial-offer discriminator, not a ban on retail-industry reporting.
+RETAIL_EVENT = re.compile(r"\b(?:prime day|prime big deal days|black friday|cyber monday)\b", re.I)
+RETAIL_OFFER = re.compile(
+    r"\b(?:deals?|discounts?|coupons?|shopping picks?|gift guides?|"
+    r"save (?:up to |\$|\d)|on sale|flash sale|"
+    r"off (?:at|on|select|all) |(?:\d{1,3}%|\$\d+)\s*off)\b", re.I
+)
+
+
+def commercial_retail_offer(title):
+    """Identify explicit sales/promotional roundups, not retail-event news."""
+    value = str(title or "")
+    return bool(RETAIL_EVENT.search(value) and RETAIL_OFFER.search(value))
+
+
+def incompatible_commercial_retail_offer(anchor, report):
+    """A retail promotion cannot become a development in unrelated news."""
+    return bool(not RETAIL_EVENT.search(str(anchor or "")) and commercial_retail_offer(report))
+
+
 def _normalized(value):
     low = str(value or "").lower().replace("’", "'")
     for phrase, replacement in WORD_ALIASES.items():

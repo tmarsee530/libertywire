@@ -88,6 +88,57 @@ class ReviewedTimelineTests(unittest.TestCase):
         self.assertEqual(decisions, [])
         self.assertEqual(len(fixed[0]["coverage"]), 3)
 
+    def test_fort_hood_execution_is_not_other_homicides(self):
+        event = load_config()["events"]["27d9cc4ad2ed"]
+        valid = [
+            "Trump approves firing squad execution of 2009 Fort Hood shooter Nidal Hasan",
+            "Fort Hood shooter to be executed by Army firing squad",
+            "Pentagon confirms execution decision for Nidal Hasan",
+        ]
+        unrelated = [
+            "Gender-Dysphoric Man Who Killed Female Victim Gets Plea Deal",
+            "Man who killed dog walker should be deported, says judge",
+            "Man killed girlfriend by forcing her to take abortion pills",
+        ]
+        for title in valid:
+            with self.subTest(title=title):
+                self.assertTrue(in_scope(title, "https://news.test/a", event))
+        for title in unrelated:
+            with self.subTest(title=title):
+                self.assertFalse(in_scope(title, "https://news.test/a", event))
+        raw = {"id": "27d9cc4ad2ed", "current_title": "We Now Know When Nidal Hasan Will Be Executed",
+               "coverage": [source(t, n) for n, t in enumerate(valid + unrelated)]}
+        original = copy.deepcopy(raw)
+        fixed, decisions = prepare_records([raw], load_config())
+        self.assertEqual(raw, original)
+        self.assertEqual(fixed[0]["id"], raw["id"])
+        self.assertEqual(len(fixed[0]["coverage"]), len(valid))
+        self.assertEqual(len(decisions), len(unrelated))
+        self.assertEqual({d["reason"] for d in decisions}, {"reviewed_event_scope"})
+
+    def test_farage_suspect_does_not_inherit_other_arrests(self):
+        event = load_config()["events"]["d1bb2b487208"]
+        valid = ["Widdecombe suspect charged with preparing acts against Farage",
+                 "Nigel Farage terror plot suspect appears in court"]
+        unrelated = ["Rick Ross arrested on domestic violence charges",
+                     "Iran-linked terror suspect charged over UK air base",
+                     "Survivor 51 contestant loses part of thumb",
+                     "Woman arrested over alleged material support for Palestine Islamic Jihad"]
+        for title in valid:
+            with self.subTest(title=title):
+                self.assertTrue(in_scope(title, "https://news.test/a", event))
+        for title in unrelated:
+            with self.subTest(title=title):
+                self.assertFalse(in_scope(title, "https://news.test/a", event))
+        raw = {"id": "d1bb2b487208", "current_title": valid[0],
+               "coverage": [source(t, n) for n, t in enumerate(valid + unrelated)]}
+        before = copy.deepcopy(raw)
+        fixed, decisions = prepare_records([raw], load_config())
+        self.assertEqual(raw, before)
+        self.assertEqual(fixed[0]["id"], raw["id"])
+        self.assertEqual(len(fixed[0]["coverage"]), 2)
+        self.assertEqual(len(decisions), len(unrelated))
+
     def test_reviewed_alias_combines_sources_under_one_owner(self):
         config = self.config(); config['aliases'] = {'abcdef123456': SID}
         second = self.record('abcdef123456')

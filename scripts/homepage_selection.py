@@ -17,3 +17,29 @@ def homepage_eligible(title: str) -> bool:
     if not title:
         return False
     return not (((SPORTS.search(title) or FIXTURE.search(title)) and BETTING.search(title)) or SHOPPING.search(title))
+
+def published_publisher_count(entry: dict) -> int:
+    """Count distinct named publishers in the actual published developments."""
+    families = set()
+    for development in (entry or {}).get("developments", []):
+        for source in development.get("sources", []):
+            name = str(source.get("source_family") or source.get("source") or "").strip().lower()
+            if name:
+                families.add(name)
+    return len(families)
+
+
+def homepage_quality(story: dict, published: dict, findings: list | None = None) -> float:
+    """Prefer source-backed, coherent developing news to noisy raw clusters."""
+    if not published:
+        return float("-inf")
+    score = float(story.get("importance_score") or 0)
+    families = published_publisher_count(published)
+    score += 2 * min(families, 5)
+    if str(published.get("status") or "").lower() == "breaking":
+        score += 2
+    if any(f.get("severity") == "high" for f in (findings or [])):
+        return float("-inf")
+    if any(f.get("type") == "possible_cross_event_update" for f in (findings or [])):
+        score -= 10
+    return round(score, 3)

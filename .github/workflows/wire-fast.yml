@@ -33,7 +33,7 @@ jobs:
         run: python -m py_compile scripts/run_newsroom.py scripts/fetch_news.py scripts/event_identity.py scripts/canonical_ownership.py scripts/timeline_intelligence.py scripts/source_families.py scripts/build_history.py scripts/build_storylines.py scripts/build_timelines.py scripts/build_writer_queue.py scripts/install_homepage_v2.py scripts/verify_core_publication.py scripts/stage_publication.py
       - name: Check auxiliary code without blocking publication
         continue-on-error: true
-        run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py scripts/audit_source_family_normalization.py
+        run: python -m py_compile scripts/build_breaking_fast_path.py scripts/build_archive.py scripts/build_notification_foundation.py scripts/publish_email_events.py scripts/build_recent.py scripts/build_feed.py scripts/build_distribution_candidates.py scripts/build_sitemaps.py scripts/install_discovery_metadata.py scripts/audit_source_family_normalization.py scripts/audit_timeline_semantics.py
       - name: Run resilient live-news pipeline
         run: python scripts/run_newsroom.py --mode fast
       - name: Audit publisher-family normalization
@@ -65,6 +65,8 @@ jobs:
           test -s feed.xml
           grep -q 'Rally Point News — Live Timelines' feed.xml
           test -s data/distribution_candidates.json
+          test -s data/timeline_semantic_audit.json
+          grep -q '"semantic_quality_gate_enabled": true' data/distribution_candidates.json
           grep -q '"auto_post_enabled": false' data/distribution_candidates.json
           grep -q '"ideology_used_in_selection": false' data/distribution_candidates.json
           grep -q '"same_event_duplicate_promotion_suppressed": true' data/distribution_candidates.json

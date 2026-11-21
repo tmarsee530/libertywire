@@ -9,7 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: rally-point-wire-fast
+  # v2 isolates fresh dispatches from GitHub's orphaned October 7 v1 queue.
+  group: rally-point-wire-fast-v2
   cancel-in-progress: false
 
 jobs:

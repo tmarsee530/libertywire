@@ -257,5 +257,40 @@ class TimelineHistoryTests(unittest.TestCase):
         self.assertIn("current_status", merged)
 
 
+
+class SharedPublisherFamilyTests(unittest.TestCase):
+    def test_storyline_and_timeline_publisher_families_agree(self):
+        pairs = [
+            ("CBS News", "CBS Sports"),
+            ("New York Post", "Page Six"),
+            ("BBC News", "BBC Sport"),
+            ("Fox News", "Fox Business"),
+            ("NPR News", "NPR Culture"),
+        ]
+        for main_source, section_source in pairs:
+            with self.subTest(main_source=main_source, section_source=section_source):
+                self.assertEqual(build_storylines.family(main_source), build_storylines.family(section_source))
+                self.assertEqual(build_timelines.family_name(main_source), build_storylines.family(main_source))
+                self.assertEqual(build_timelines.family_name(section_source), build_storylines.family(section_source))
+
+    def test_same_publisher_sections_do_not_qualify_as_independent_timeline_sources(self):
+        base = {
+            "id": "abc123def456",
+            "current_title": "Agency issues report on downtown bridge closure",
+            "timeline_schema_version": build_timelines.SCHEMA_VERSION,
+            "material_update_count": 2,
+            "current_status": {"summary": "Bridge closure confirmed"},
+            "updates": [{"id": "first"}, {"id": "second"}],
+            "max_source_family_count": 3,
+        }
+        repeated_family = {**base, "coverage": [
+            {"source": "CBS News"}, {"source": "CBS Sports"}, {"source": "Reuters"},
+        ]}
+        self.assertFalse(build_timelines.eligible(repeated_family))
+        independent = {**base, "coverage": [
+            {"source": "CBS News"}, {"source": "Reuters"}, {"source": "BBC News"},
+        ]}
+        self.assertTrue(build_timelines.eligible(independent))
+
 if __name__ == "__main__":
     unittest.main()

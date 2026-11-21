@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import html,json,re
+try:
+ from homepage_selection import homepage_eligible
+except ModuleNotFoundError:
+ from scripts.homepage_selection import homepage_eligible
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
 # The v2 stylesheet is self-contained. Remove the obsolete original theme and hidden chrome
@@ -124,6 +128,7 @@ try:
   # correctly rejected, so its evolving title must not override the published
   # timeline title or reintroduce contamination on the homepage.
   primary_title=authoritative.get('title') or story.get('title') or first.get('title')
+  if not homepage_eligible(primary_title):continue
   primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(primary_title)+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open timeline →</a>'

@@ -66,6 +66,20 @@ class EventIdentityCorpusTests(unittest.TestCase):
             "Top US and China trade negotiators meet in New York ahead of Trump-Xi summit",
         ).same_event)
 
+    def test_named_sports_fixtures_never_merge_across_games(self):
+        base = "Georgia vs. South Carolina prediction, odds, time: Week 12 picks"
+        distinct = [
+            "College football odds, predictions: Alabama vs. Georgia lead Week 6 slate",
+            "New Mexico State vs. FIU prediction, odds, time: Week 6 picks",
+            "Southern Miss vs. Troy prediction, odds, time: Week 6 picks",
+        ]
+        for title in distinct:
+            with self.subTest(title=title):
+                result = compare(base, title)
+                self.assertFalse(result.same_event)
+                self.assertEqual(result.reason, "different_named_sports_fixture")
+        self.assertFalse(compare(base, "South Carolina vs. Georgia betting odds").reason == "different_named_sports_fixture")
+
     def test_player_injury_does_not_merge_with_unrelated_nfl_products(self):
         injury = "Bears QB Caleb Williams exits against Vikings after non-contact hamstring injury"
         unrelated = [

@@ -78,9 +78,9 @@ SPORTS_CONTENT_PATTERNS = {
 # shared sport or publisher. Do not merge separate games because both articles
 # discuss predictions, odds or the same team.
 _MATCHUP = re.compile(
-    r"\\b([A-Z][A-Za-z0-9'’.-]*(?:\\s+[A-Z][A-Za-z0-9'’.-]*){0,3})"
-    r"\\s+vs\\.?\\s+"
-    r"([A-Z][A-Za-z0-9'’.-]*(?:\\s+[A-Z][A-Za-z0-9'’.-]*){0,3})\\b"
+    r"\b([A-Z][A-Za-z0-9'’.-]*(?:\s+[A-Z][A-Za-z0-9'’.-]*){0,3})"
+    r"\s+vs\.?\s+"
+    r"([A-Z][A-Za-z0-9'’.-]*(?:\s+[A-Z][A-Za-z0-9'’.-]*){0,3})\b"
 )
 _MATCHUP_NOISE = {"Week", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday",
                  "Thursday", "Friday", "College", "Football", "NFL", "NCAA"}

@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import html,json,re
+try:
+ from homepage_selection import homepage_eligible
+except ModuleNotFoundError:
+ from scripts.homepage_selection import homepage_eligible
 from datetime import datetime
 root=Path(__file__).resolve().parents[1];p=root/'index.html';s=p.read_text();changed=False
 # The v2 stylesheet is self-contained. Remove the obsolete original theme and hidden chrome
@@ -11,7 +15,7 @@ if ns!=s:s=ns;changed=True
 for pattern in [r'\n?<link rel="preconnect" href="https://fonts\.googleapis\.com">',r'\n?<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>',r'\n?<link href="https://fonts\.googleapis\.com/css2\?[^\"]+" rel="stylesheet">',r'\n?<style>.*?</style>',r'\n?<div class="utility-bar">.*?</div>',r'\n?<div class="ticker-bar".*?</div></div></div>']:
  ns=re.sub(pattern,'',s,count=1,flags=re.S)
  if ns!=s:s=ns;changed=True
-css='<link rel="stylesheet" href="assets/homepage-v2.css?v=42">';state_js='<script src="assets/timeline-state.js?v=4" defer></script>';js='<script src="assets/homepage-v2.js?v=47" defer></script>'
+css='<link rel="stylesheet" href="assets/homepage-v2.css?v=42">';state_js='<script src="assets/timeline-state.js?v=4" defer></script>';js='<script src="assets/homepage-v2.js?v=48" defer></script>'
 ns=re.sub(r'<link rel="stylesheet" href="assets/homepage-v2\.css(?:\?v=\d+)?">',css,s)
 if ns!=s:s=ns;changed=True
 ns=re.sub(r'<script src="assets/homepage-v2\.js(?:\?v=\d+)?" defer></script>',js,s)
@@ -124,6 +128,7 @@ try:
   # correctly rejected, so its evolving title must not override the published
   # timeline title or reintroduce contamination on the homepage.
   primary_title=authoritative.get('title') or story.get('title') or first.get('title')
+  if not homepage_eligible(primary_title):continue
   primary='<a href="/stories/'+e(story.get('id'))+'/">'+e(primary_title)+'</a>'
   related_html=' · '.join('<a href="'+e(x['link'])+'" rel="noopener" title="'+e(x.get('title'))+'" aria-label="'+e(x.get('title'))+'">'+e(label)+'</a> <span>'+e(x.get('source'))+'</span>' for x,label in related)
   timeline='<a class="timeline-link" href="/stories/'+e(story.get('id'))+'/">Open timeline →</a>'

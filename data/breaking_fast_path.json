@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T13:16:40.296023Z",
+  "generated_at": "2026-11-22T13:21:17.887063Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -9,19 +9,19 @@
   "metrics": {
     "reports_evaluated": 114,
     "candidate_events": 102,
-    "fast_path_events": 0,
-    "held_for_normal_path": 102,
+    "fast_path_events": 1,
+    "held_for_normal_path": 101,
     "duplicate_reports_suppressed": 12,
     "duplicate_event_rate_pct": 10.53,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
+    "median_source_detection_latency_seconds": 206.9,
+    "high_urgency_capture_pct": 100.0,
     "published_fast_path_events": 0,
     "detection_to_publication_latency_seconds": null,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
       "published": 0,
-      "editorially_suppressed": 0,
+      "editorially_suppressed": 1,
       "deferred": 0,
       "missed": 0
     },
@@ -29,47 +29,47 @@
   },
   "candidates": [
     {
-      "id": "6eb631143df7",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 55.27,
+      "id": "0c81b3f93d03",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 72.25,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.27,
+        "recency": 21.25,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
         "velocity": 12,
-        "independent_confirmations": 6,
+        "independent_confirmations": 12,
         "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "f6cef29a4106",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
-      "factual_update": "Trump administration ready to deploy ‘secret weapon’ against higher education",
-      "source": "The Hill",
+      "matched_storyline_id": "012c1661c6d4",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:17:51Z",
+      "source_detection_latency_seconds": 206.9,
+      "factual_update": "Trump says he wants \"permanent\" deal with Iran",
+      "source": "CBS News",
       "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/education/6231125-trump-college-accreditation-intellectual-diversity/",
+      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-trump-tehran-denies-chemical-weapons/",
       "independent_source_count": 4,
-      "trusted_independent_source_count": 2,
+      "trusted_independent_source_count": 3,
       "corroborating_sources": [
+        "CBS News",
         "Fox News",
-        "Reason",
         "The Epoch Times",
         "The Hill"
       ],
       "corroborating_links": [
-        "https://reason.com/2026/11/22/america-needs-more-nurses-the-trump-administration-wants-to-make-them-much-harder-to-hire/",
         "https://thehill.com/homenews/education/6231125-trump-college-accreditation-intellectual-diversity/",
+        "https://www.cbsnews.com/live-updates/iran-war-trump-tehran-denies-chemical-weapons/",
         "https://www.foxnews.com/politics/apex-predator-center-farmers-vs-environmentalists-fight-trump-weighs-major-move-out-control",
         "https://www.theepochtimes.com/us/analysts-say-trump-xi-putin-summit-exposed-deep-divide-6127777"
       ],
       "risk_flags": [],
-      "age_minutes": 76.2
+      "age_minutes": 3.4
     },
     {
       "id": "3c48de72e2e7",
@@ -90,7 +90,7 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "31e5aed50ca5",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-23T23:26:43Z",
       "source_detection_latency_seconds": 0,
       "factual_update": "There are no tropical cyclones at this time.",
@@ -117,10 +117,10 @@
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 50.61,
+      "urgency_score": 50.36,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 21,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -131,9 +131,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a675766b9b0b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "House Democrats split over risking lame-duck shutdown to defund Iran war",
       "source": "The Hill",
       "source_tier": 2,
@@ -147,7 +147,7 @@
         "https://thehill.com/homenews/house/6234623-house-lame-duck-shutdown-risk/"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "582e5f699fa0",
@@ -168,7 +168,7 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c5d44086061a",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-25T10:00:00Z",
       "source_detection_latency_seconds": 0,
       "factual_update": "Americans don’t have to choose between our AI future and ripping off copyright owners",
@@ -195,10 +195,10 @@
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 49.41,
+      "urgency_score": 48.76,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.41,
+        "recency": 13.76,
         "magnitude": 11,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -209,9 +209,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "55c991ee51b1",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:34:21Z",
-      "source_detection_latency_seconds": 2539.3,
+      "source_detection_latency_seconds": 2816.9,
       "factual_update": "Iran live updates: IRGC says Bahrain attacks targeted US Patriot sites",
       "source": "ABC News",
       "source_tier": 2,
@@ -225,17 +225,17 @@
         "https://abcnews.com/International/live-updates/iran-live-updates-tanker-attacked-strait-hormuz-ukmto/?id=138171071"
       ],
       "risk_flags": [],
-      "age_minutes": 42.3
+      "age_minutes": 46.9
     },
     {
       "id": "adb45f19beb5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 47.19,
+      "urgency_score": 46.32,
       "score_components": {
         "source_trust": 2,
-        "recency": 19.19,
+        "recency": 18.32,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -246,9 +246,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e0269cd9e573",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T13:03:00Z",
-      "source_detection_latency_seconds": 820.3,
+      "source_detection_latency_seconds": 1097.9,
       "factual_update": "Tia Glover admits her home is a ‘war zone’ as marital woes with husband Rob play out on ‘RHOP’",
       "source": "New York Post",
       "source_tier": 3,
@@ -262,17 +262,17 @@
         "https://pagesix.com/2026/11/22/entertainment/tia-glover-admits-her-home-is-a-war-zone-as-marital-woes-with-husband-rob-play-out-on-rhop/"
       ],
       "risk_flags": [],
-      "age_minutes": 13.7
+      "age_minutes": 18.3
     },
     {
       "id": "d663613313a1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.49,
+      "urgency_score": 43.97,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.49,
+        "recency": 10.97,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -283,9 +283,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3b6017a29ef8",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:11:41Z",
-      "source_detection_latency_seconds": 3899.3,
+      "source_detection_latency_seconds": 4176.9,
       "factual_update": "NATO emergency talks on tap as US commander assess defenses after Russian missiles hit Poland",
       "source": "Stars and Stripes",
       "source_tier": 3,
@@ -299,17 +299,17 @@
         "https://www.stripes.com/theaters/europe/2026-11-22/poland-russia-nato-missiles-23541547.html"
       ],
       "risk_flags": [],
-      "age_minutes": 65.0
+      "age_minutes": 69.6
     },
     {
       "id": "86c4e817690b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 42.22,
+      "urgency_score": 41.89,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.22,
+        "recency": 6.89,
         "magnitude": 11,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -320,9 +320,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b05d1b4d77f6",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:25:14Z",
-      "source_detection_latency_seconds": 6686.3,
+      "source_detection_latency_seconds": 6963.9,
       "factual_update": "Russia-bound ship still on fire after attack in Gulf of Finland",
       "source": "BBC News",
       "source_tier": 2,
@@ -336,585 +336,30 @@
         "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 111.4
-    },
-    {
-      "id": "2425d62ced85",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 39.44,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 20.44,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "91153d3bbdf8",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:09:20Z",
-      "source_detection_latency_seconds": 440.3,
-      "factual_update": "Midterms Over, Presidential Hopefuls in Both Parties Begin Hinting at Announcement Plans",
-      "source": "The New York Sun",
-      "source_tier": 3,
-      "primary_source_link": "https://www.nysun.com/article/midterms-over-presidential-hopefuls-in-both-parties-begin-hinting-at-announcement-plans",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The New York Sun"
-      ],
-      "corroborating_links": [
-        "https://www.nysun.com/article/midterms-over-presidential-hopefuls-in-both-parties-begin-hinting-at-announcement-plans"
-      ],
-      "risk_flags": [],
-      "age_minutes": 7.3
-    },
-    {
-      "id": "f1c00677928e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.89,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.89,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "cee3a5793b5a",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:01:25Z",
-      "source_detection_latency_seconds": 915.3,
-      "factual_update": "Cornyn calls Cruz ‘fragile thing’ amid Texas judgeship dispute",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/senate/6235682-cornyn-cruz-judicial-nominee-clash/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Hill"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/homenews/senate/6235682-cornyn-cruz-judicial-nominee-clash/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 15.3
-    },
-    {
-      "id": "aa1c513ae4d8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.8,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.8,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "24f74e5e8781",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:58Z",
-      "source_detection_latency_seconds": 942.3,
-      "factual_update": "Iconic MTV star turns 60, shares her no-guilt approach to fitness, food and aging well",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/health/iconic-mtv-star-turns-60-shares-no-guilt-approach-fitness-food-aging-well",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/health/iconic-mtv-star-turns-60-shares-no-guilt-approach-fitness-food-aging-well"
-      ],
-      "risk_flags": [],
-      "age_minutes": 15.7
-    },
-    {
-      "id": "eb9c2c54ecc0",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.79,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.79,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "95b0f122a301",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:53Z",
-      "source_detection_latency_seconds": 947.3,
-      "factual_update": "One of the best financial lessons we can teach children is how to grow for the future",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/opinion/best-financial-lessons-teach-children-grow-future",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/opinion/best-financial-lessons-teach-children-grow-future"
-      ],
-      "risk_flags": [],
-      "age_minutes": 15.8
-    },
-    {
-      "id": "84606f684926",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.78,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.78,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c8d86be17bfb",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:52Z",
-      "source_detection_latency_seconds": 948.3,
-      "factual_update": "Newsom's bid to empty California's death row collides with voters' repeated rejection of abolition",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/newsoms-bid-empty-californias-death-row-collides-voters-repeated-rejection-abolition",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/politics/newsoms-bid-empty-californias-death-row-collides-voters-repeated-rejection-abolition"
-      ],
-      "risk_flags": [],
-      "age_minutes": 15.8
-    },
-    {
-      "id": "42edd5845718",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.76,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.76,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "b92fb9b19125",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:46Z",
-      "source_detection_latency_seconds": 954.3,
-      "factual_update": "$275M Obama-era solar fraud case could net taxpayers $1B, but Trump's DOJ backs Biden dismissal",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/275m-obama-era-solar-fraud-case-net-taxpayers-1b-trump-doj-backs-biden-dismissal",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/politics/275m-obama-era-solar-fraud-case-net-taxpayers-1b-trump-doj-backs-biden-dismissal"
-      ],
-      "risk_flags": [],
-      "age_minutes": 15.9
-    },
-    {
-      "id": "be82baf02f20",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.74,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.74,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "943611189a4a",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:38Z",
-      "source_detection_latency_seconds": 962.3,
-      "factual_update": "DAVID MARCUS: Listen to Jon before you gobble turkey with Trump-hating loved ones",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/opinion/david-marcus-listen-jon-before-you-gobble-turkey-trump-hating-loved-ones",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/opinion/david-marcus-listen-jon-before-you-gobble-turkey-trump-hating-loved-ones"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.0
-    },
-    {
-      "id": "5328c3f24e10",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.62,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "586c3677f1ee",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "The three amigos",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/opinion/international/6235604-the-three-amigos/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Hill"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/opinion/international/6235604-the-three-amigos/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "d1afb959f577",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.62,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "01d2e67cfbc6",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "Impeaching Hegseth is a trap Democrats should avoid",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/opinion/congress-blog/6233288-political-risks-hegseth-impeachment/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Hill"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/opinion/congress-blog/6233288-political-risks-hegseth-impeachment/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "ef027bd52336",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 38.3,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 19.3,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ed40971e283b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:03:34Z",
-      "source_detection_latency_seconds": 786.3,
-      "factual_update": "5-Year-Old Boy Shot In The Head After Gun Was Left Unsecured in His Family's Home",
-      "source": "TMZ",
-      "source_tier": 3,
-      "primary_source_link": "https://www.tmz.com/2026/11/22/detroit-5-year-old-boy-shot-in-the-head/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "TMZ"
-      ],
-      "corroborating_links": [
-        "https://www.tmz.com/2026/11/22/detroit-5-year-old-boy-shot-in-the-head/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 13.1
-    },
-    {
-      "id": "49d9e5890543",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 37.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "18a6c4a47dba",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "Are scientists on the verge of discovering the secret language of whales?",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/science/are-scientists-cracking-the-secret-language-of-whales/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/science/are-scientists-cracking-the-secret-language-of-whales/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "695c6dfef634",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 37.24,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 10.24,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 3,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ba8b551bf05f",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T12:00:09Z",
-      "source_detection_latency_seconds": 4591.3,
-      "factual_update": "NYC college put on notice after Jewish campus group shunned by student government: 'rude awakening'",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/nyc-college-put-notice-jewish-campus-group-shunned-student-government-rude-awakening",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/politics/nyc-college-put-notice-jewish-campus-group-shunned-student-government-rude-awakening"
-      ],
-      "risk_flags": [],
-      "age_minutes": 76.5
-    },
-    {
-      "id": "0ced6e98a170",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 36.18,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 16.18,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5d123202472f",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T12:45:57Z",
-      "source_detection_latency_seconds": 1843.3,
-      "factual_update": "England won't get carried away by All Blacks win",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/rugby-union/articles/ckr5gdpm1q5no?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/rugby-union/articles/ckr5gdpm1q5no?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 30.7
-    },
-    {
-      "id": "3d97e0803e68",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 35.08,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.08,
-        "magnitude": 9,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "1b054e70a37b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T09:20:45Z",
-      "source_detection_latency_seconds": 14155.3,
-      "factual_update": "South Korea education minister resigns over exam cheating scandal",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/cw3dgk29d37no?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/cw3dgk29d37no?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 235.9
-    },
-    {
-      "id": "e228688d447e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 34.57,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 7.57,
-        "magnitude": 11,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "f62a4ad4ce25",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T11:30:00Z",
-      "source_detection_latency_seconds": 6400.3,
-      "factual_update": "The Post’s 225 icons: George Washington’s surprise attack was America’s greatest Christmas gift",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/us-news/the-posts-225-icons-george-washingtons-surprise-attack-was-americas-greatest-christmas-gift/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/us-news/the-posts-225-icons-george-washingtons-surprise-attack-was-americas-greatest-christmas-gift/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 106.7
+      "age_minutes": 116.1
     },
     {
       "id": "0c6f238e7b82",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.21,
+      "urgency_score": 40.25,
       "score_components": {
         "source_trust": 10,
-        "recency": 21.21,
+        "recency": 20.25,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "matched_storyline_id": "7a3dd037647e",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T13:13:02Z",
-      "source_detection_latency_seconds": 218.3,
+      "source_detection_latency_seconds": 495.9,
       "factual_update": "Army plans to carry out detonation at Iowa plant despite indefinite pause",
       "source": "CBS News",
       "source_tier": 2,
@@ -928,30 +373,30 @@
         "https://www.cbsnews.com/news/us-army-iowa-plant-detonation-court-records/"
       ],
       "risk_flags": [],
-      "age_minutes": 3.6
+      "age_minutes": 8.3
     },
     {
       "id": "7b306ae35bb3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.8,
+      "urgency_score": 39.86,
       "score_components": {
         "source_trust": 10,
-        "recency": 20.8,
+        "recency": 19.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "matched_storyline_id": "2a2aee290975",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T13:11:04Z",
-      "source_detection_latency_seconds": 336.3,
+      "source_detection_latency_seconds": 613.9,
       "factual_update": "It's Medicare open enrollment time. Here's what you need to know",
       "source": "NPR News",
       "source_tier": 2,
@@ -965,17 +410,535 @@
         "https://www.npr.org/2026/11/22/nx-s1-6036735/medicare-open-enrollment-2027"
       ],
       "risk_flags": [],
-      "age_minutes": 5.6
+      "age_minutes": 10.2
+    },
+    {
+      "id": "2425d62ced85",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 38.52,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.52,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "91153d3bbdf8",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:09:20Z",
+      "source_detection_latency_seconds": 717.9,
+      "factual_update": "Midterms Over, Presidential Hopefuls in Both Parties Begin Hinting at Announcement Plans",
+      "source": "The New York Sun",
+      "source_tier": 3,
+      "primary_source_link": "https://www.nysun.com/article/midterms-over-presidential-hopefuls-in-both-parties-begin-hinting-at-announcement-plans",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "The New York Sun"
+      ],
+      "corroborating_links": [
+        "https://www.nysun.com/article/midterms-over-presidential-hopefuls-in-both-parties-begin-hinting-at-announcement-plans"
+      ],
+      "risk_flags": [],
+      "age_minutes": 12.0
+    },
+    {
+      "id": "f1c00677928e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 38.03,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 18.03,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "cee3a5793b5a",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:01:25Z",
+      "source_detection_latency_seconds": 1192.9,
+      "factual_update": "Cornyn calls Cruz ‘fragile thing’ amid Texas judgeship dispute",
+      "source": "The Hill",
+      "source_tier": 2,
+      "primary_source_link": "https://thehill.com/homenews/senate/6235682-cornyn-cruz-judicial-nominee-clash/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "The Hill"
+      ],
+      "corroborating_links": [
+        "https://thehill.com/homenews/senate/6235682-cornyn-cruz-judicial-nominee-clash/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 19.9
+    },
+    {
+      "id": "aa1c513ae4d8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.95,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.95,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "24f74e5e8781",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:58Z",
+      "source_detection_latency_seconds": 1219.9,
+      "factual_update": "Iconic MTV star turns 60, shares her no-guilt approach to fitness, food and aging well",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/health/iconic-mtv-star-turns-60-shares-no-guilt-approach-fitness-food-aging-well",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/health/iconic-mtv-star-turns-60-shares-no-guilt-approach-fitness-food-aging-well"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.3
+    },
+    {
+      "id": "eb9c2c54ecc0",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.94,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.94,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "95b0f122a301",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:53Z",
+      "source_detection_latency_seconds": 1224.9,
+      "factual_update": "One of the best financial lessons we can teach children is how to grow for the future",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/opinion/best-financial-lessons-teach-children-grow-future",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/opinion/best-financial-lessons-teach-children-grow-future"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.4
+    },
+    {
+      "id": "84606f684926",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.93,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.93,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c8d86be17bfb",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:52Z",
+      "source_detection_latency_seconds": 1225.9,
+      "factual_update": "Newsom's bid to empty California's death row collides with voters' repeated rejection of abolition",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/politics/newsoms-bid-empty-californias-death-row-collides-voters-repeated-rejection-abolition",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/politics/newsoms-bid-empty-californias-death-row-collides-voters-repeated-rejection-abolition"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.4
+    },
+    {
+      "id": "42edd5845718",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.92,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.92,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "b92fb9b19125",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:46Z",
+      "source_detection_latency_seconds": 1231.9,
+      "factual_update": "$275M Obama-era solar fraud case could net taxpayers $1B, but Trump's DOJ backs Biden dismissal",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/politics/275m-obama-era-solar-fraud-case-net-taxpayers-1b-trump-doj-backs-biden-dismissal",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/politics/275m-obama-era-solar-fraud-case-net-taxpayers-1b-trump-doj-backs-biden-dismissal"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.5
+    },
+    {
+      "id": "be82baf02f20",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.89,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.89,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "943611189a4a",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:38Z",
+      "source_detection_latency_seconds": 1239.9,
+      "factual_update": "DAVID MARCUS: Listen to Jon before you gobble turkey with Trump-hating loved ones",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/opinion/david-marcus-listen-jon-before-you-gobble-turkey-trump-hating-loved-ones",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/opinion/david-marcus-listen-jon-before-you-gobble-turkey-trump-hating-loved-ones"
+      ],
+      "risk_flags": [],
+      "age_minutes": 20.7
+    },
+    {
+      "id": "5328c3f24e10",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.78,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "586c3677f1ee",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "The three amigos",
+      "source": "The Hill",
+      "source_tier": 2,
+      "primary_source_link": "https://thehill.com/opinion/international/6235604-the-three-amigos/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "The Hill"
+      ],
+      "corroborating_links": [
+        "https://thehill.com/opinion/international/6235604-the-three-amigos/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "d1afb959f577",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.78,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "01d2e67cfbc6",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "Impeaching Hegseth is a trap Democrats should avoid",
+      "source": "The Hill",
+      "source_tier": 2,
+      "primary_source_link": "https://thehill.com/opinion/congress-blog/6233288-political-risks-hegseth-impeachment/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "The Hill"
+      ],
+      "corroborating_links": [
+        "https://thehill.com/opinion/congress-blog/6233288-political-risks-hegseth-impeachment/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "ef027bd52336",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 37.43,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 18.43,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ed40971e283b",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:03:34Z",
+      "source_detection_latency_seconds": 1063.9,
+      "factual_update": "5-Year-Old Boy Shot In The Head After Gun Was Left Unsecured in His Family's Home",
+      "source": "TMZ",
+      "source_tier": 3,
+      "primary_source_link": "https://www.tmz.com/2026/11/22/detroit-5-year-old-boy-shot-in-the-head/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "TMZ"
+      ],
+      "corroborating_links": [
+        "https://www.tmz.com/2026/11/22/detroit-5-year-old-boy-shot-in-the-head/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 17.7
+    },
+    {
+      "id": "49d9e5890543",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 36.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "18a6c4a47dba",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "Are scientists on the verge of discovering the secret language of whales?",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/science/are-scientists-cracking-the-secret-language-of-whales/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/science/are-scientists-cracking-the-secret-language-of-whales/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "695c6dfef634",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 36.77,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.77,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 3,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ba8b551bf05f",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:00:09Z",
+      "source_detection_latency_seconds": 4868.9,
+      "factual_update": "NYC college put on notice after Jewish campus group shunned by student government: 'rude awakening'",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/politics/nyc-college-put-notice-jewish-campus-group-shunned-student-government-rude-awakening",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/politics/nyc-college-put-notice-jewish-campus-group-shunned-student-government-rude-awakening"
+      ],
+      "risk_flags": [],
+      "age_minutes": 81.1
+    },
+    {
+      "id": "0ced6e98a170",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 35.45,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 15.45,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5d123202472f",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:45:57Z",
+      "source_detection_latency_seconds": 2120.9,
+      "factual_update": "England won't get carried away by All Blacks win",
+      "source": "BBC Sport",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/sport/rugby-union/articles/ckr5gdpm1q5no?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Sport"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/sport/rugby-union/articles/ckr5gdpm1q5no?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 35.3
+    },
+    {
+      "id": "e228688d447e",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 34.23,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 7.23,
+        "magnitude": 11,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "f62a4ad4ce25",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T11:30:00Z",
+      "source_detection_latency_seconds": 6677.9,
+      "factual_update": "The Post’s 225 icons: George Washington’s surprise attack was America’s greatest Christmas gift",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/us-news/the-posts-225-icons-george-washingtons-surprise-attack-was-americas-greatest-christmas-gift/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/us-news/the-posts-225-icons-george-washingtons-surprise-attack-was-americas-greatest-christmas-gift/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 111.3
     },
     {
       "id": "53a3c866f484",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.33,
+      "urgency_score": 32.0,
       "score_components": {
         "source_trust": 15,
-        "recency": 7.33,
+        "recency": 7.0,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -986,9 +949,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9c2f0de85a8b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:26:43Z",
-      "source_detection_latency_seconds": 6597.3,
+      "source_detection_latency_seconds": 6874.9,
       "factual_update": "Atlantic Tropical Weather Outlook",
       "source": "National Hurricane Center Atlantic",
       "source_tier": 1,
@@ -1002,17 +965,17 @@
         "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
       ],
       "risk_flags": [],
-      "age_minutes": 110.0
+      "age_minutes": 114.6
     },
     {
       "id": "84736ba79063",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 32.28,
+      "urgency_score": 31.81,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.28,
+        "recency": 9.81,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 6,
@@ -1023,9 +986,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "eb9b8d45abc0",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:34Z",
-      "source_detection_latency_seconds": 4566.3,
+      "source_detection_latency_seconds": 4843.9,
       "factual_update": "Today in Supreme Court History: November 22, 1963",
       "source": "Reason",
       "source_tier": 3,
@@ -1039,17 +1002,17 @@
         "https://reason.com/volokh/2026/11/22/today-in-supreme-court-history-november-22-1963-9/"
       ],
       "risk_flags": [],
-      "age_minutes": 76.1
+      "age_minutes": 80.7
     },
     {
       "id": "4bf8745996d9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.04,
+      "urgency_score": 30.54,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.04,
+        "recency": 10.54,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1060,9 +1023,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "41db4d3b414f",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:07:41Z",
-      "source_detection_latency_seconds": 4139.3,
+      "source_detection_latency_seconds": 4416.9,
       "factual_update": "GLP-1 drugs could have a surprisingly large environmental payoff",
       "source": "Ars Technica",
       "source_tier": 2,
@@ -1076,276 +1039,17 @@
         "https://arstechnica.com/health/2026/11/glp-1-drugs-could-have-a-surprisingly-large-environmental-payoff/"
       ],
       "risk_flags": [],
-      "age_minutes": 69.0
-    },
-    {
-      "id": "38181c61da85",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.66,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.66,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "709d767e9458",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:11Z",
-      "source_detection_latency_seconds": 989.3,
-      "factual_update": "Escape From New York Week at Legal Insurrection",
-      "source": "Legal Insurrection",
-      "source_tier": 3,
-      "primary_source_link": "https://legalinsurrection.com/2026/11/escape-from-new-york-week-at-legal-insurrection-2/?utm_source=rss&utm_medium=rss&utm_campaign=escape-from-new-york-week-at-legal-insurrection-2",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Legal Insurrection"
-      ],
-      "corroborating_links": [
-        "https://legalinsurrection.com/2026/11/escape-from-new-york-week-at-legal-insurrection-2/?utm_source=rss&utm_medium=rss&utm_campaign=escape-from-new-york-week-at-legal-insurrection-2"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.5
-    },
-    {
-      "id": "31aab3aa48bc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.64,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.64,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "21cf7d0b2c6b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:06Z",
-      "source_detection_latency_seconds": 994.3,
-      "factual_update": "Badenoch Condemns Tory Drug-Rape Councillor but Still Backs James Cleverly… Who Joked About Rape-Drugging His Own Wife.",
-      "source": "National Pulse",
-      "source_tier": 3,
-      "primary_source_link": "https://thenationalpulse.com/2026/11/22/badenoch-condemns-tory-drug-rape-councillor-but-still-backs-james-cleverly-who-joked-about-rape-drugging-his-own-wife/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "National Pulse"
-      ],
-      "corroborating_links": [
-        "https://thenationalpulse.com/2026/11/22/badenoch-condemns-tory-drug-rape-councillor-but-still-backs-james-cleverly-who-joked-about-rape-drugging-his-own-wife/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.6
-    },
-    {
-      "id": "26183904471b",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "06fbb714c18d",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "Titans vs. Cowboys predicton: Obscene shootout on tap as defenses no-show",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/betting/titans-vs-cowboys-predicton-obscene-shootout-on-tap-as-defenses-no-show/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/betting/titans-vs-cowboys-predicton-obscene-shootout-on-tap-as-defenses-no-show/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "36b6a273b9ad",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d647556b005d",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "Saints vs. Bears prediction: Caleb Williams won’t destroy New Orleans",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/betting/saints-vs-bears-prediction-nfl-week-11-odds-picks-best-bets/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/betting/saints-vs-bears-prediction-nfl-week-11-odds-picks-best-bets/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "14cdef41dd37",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5c0e6cb9c1a2",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "It’s mass chaos as Big Ten power rankings reflect fluid title matchup",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/sports/its-mass-chaos-as-big-ten-power-rankings-reflect-fluid-title-matchup/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/sports/its-mass-chaos-as-big-ten-power-rankings-reflect-fluid-title-matchup/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "07aa4d69ca37",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "7ccb0328beb8",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "100 years of wonder: The most iconic moments in Macy’s Thanksgiving Day Parade history",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/lifestyle/history-of-macys-thanksgiving-day-parade-giant-balloons-milestones/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/lifestyle/history-of-macys-thanksgiving-day-parade-giant-balloons-milestones/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
-    },
-    {
-      "id": "85e6199b93ca",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3cf35ac15b2c",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:00:00Z",
-      "source_detection_latency_seconds": 1000.3,
-      "factual_update": "Sunday Puzzle: What's the only...",
-      "source": "NPR Culture",
-      "source_tier": 3,
-      "primary_source_link": "https://www.npr.org/2026/11/22/g-s1-154253/sunday-puzzle-whats-the-only",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "NPR Culture"
-      ],
-      "corroborating_links": [
-        "https://www.npr.org/2026/11/22/g-s1-154253/sunday-puzzle-whats-the-only"
-      ],
-      "risk_flags": [],
-      "age_minutes": 16.7
+      "age_minutes": 73.6
     },
     {
       "id": "dffbb8e2e0a9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.3,
+      "urgency_score": 29.83,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.3,
+        "recency": 9.83,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1356,9 +1060,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0565d4f46f3d",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:45Z",
-      "source_detection_latency_seconds": 4555.3,
+      "source_detection_latency_seconds": 4832.9,
       "factual_update": "Watford seek sixth manager in 18 months after sacking Dionisi",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1372,17 +1076,313 @@
         "https://www.bbc.co.uk/sport/football/articles/cyvz6r4g1jqo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 75.9
+      "age_minutes": 80.5
+    },
+    {
+      "id": "38181c61da85",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.81,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.81,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "709d767e9458",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:11Z",
+      "source_detection_latency_seconds": 1266.9,
+      "factual_update": "Escape From New York Week at Legal Insurrection",
+      "source": "Legal Insurrection",
+      "source_tier": 3,
+      "primary_source_link": "https://legalinsurrection.com/2026/11/escape-from-new-york-week-at-legal-insurrection-2/?utm_source=rss&utm_medium=rss&utm_campaign=escape-from-new-york-week-at-legal-insurrection-2",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Legal Insurrection"
+      ],
+      "corroborating_links": [
+        "https://legalinsurrection.com/2026/11/escape-from-new-york-week-at-legal-insurrection-2/?utm_source=rss&utm_medium=rss&utm_campaign=escape-from-new-york-week-at-legal-insurrection-2"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.1
+    },
+    {
+      "id": "31aab3aa48bc",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.8,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.8,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "21cf7d0b2c6b",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:06Z",
+      "source_detection_latency_seconds": 1271.9,
+      "factual_update": "Badenoch Condemns Tory Drug-Rape Councillor but Still Backs James Cleverly… Who Joked About Rape-Drugging His Own Wife.",
+      "source": "National Pulse",
+      "source_tier": 3,
+      "primary_source_link": "https://thenationalpulse.com/2026/11/22/badenoch-condemns-tory-drug-rape-councillor-but-still-backs-james-cleverly-who-joked-about-rape-drugging-his-own-wife/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "National Pulse"
+      ],
+      "corroborating_links": [
+        "https://thenationalpulse.com/2026/11/22/badenoch-condemns-tory-drug-rape-councillor-but-still-backs-james-cleverly-who-joked-about-rape-drugging-his-own-wife/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.2
+    },
+    {
+      "id": "fe10170e9481",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.8,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.8,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "9b4b34fbe760",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:00:26Z",
+      "source_detection_latency_seconds": 4851.9,
+      "factual_update": "Newsom and Biden overruled thousands of jurors with the stroke of a pen",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/opinion/newsom-biden-overruled-thousands-jurors-stroke-pen",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/opinion/newsom-biden-overruled-thousands-jurors-stroke-pen"
+      ],
+      "risk_flags": [],
+      "age_minutes": 80.9
+    },
+    {
+      "id": "26183904471b",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "06fbb714c18d",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "Titans vs. Cowboys predicton: Obscene shootout on tap as defenses no-show",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/betting/titans-vs-cowboys-predicton-obscene-shootout-on-tap-as-defenses-no-show/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/betting/titans-vs-cowboys-predicton-obscene-shootout-on-tap-as-defenses-no-show/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "36b6a273b9ad",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d647556b005d",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "Saints vs. Bears prediction: Caleb Williams won’t destroy New Orleans",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/betting/saints-vs-bears-prediction-nfl-week-11-odds-picks-best-bets/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/betting/saints-vs-bears-prediction-nfl-week-11-odds-picks-best-bets/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "14cdef41dd37",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "5c0e6cb9c1a2",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "It’s mass chaos as Big Ten power rankings reflect fluid title matchup",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/sports/its-mass-chaos-as-big-ten-power-rankings-reflect-fluid-title-matchup/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/sports/its-mass-chaos-as-big-ten-power-rankings-reflect-fluid-title-matchup/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "07aa4d69ca37",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "7ccb0328beb8",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "100 years of wonder: The most iconic moments in Macy’s Thanksgiving Day Parade history",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/lifestyle/history-of-macys-thanksgiving-day-parade-giant-balloons-milestones/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/lifestyle/history-of-macys-thanksgiving-day-parade-giant-balloons-milestones/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
+    },
+    {
+      "id": "85e6199b93ca",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.78,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.78,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "3cf35ac15b2c",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:00:00Z",
+      "source_detection_latency_seconds": 1277.9,
+      "factual_update": "Sunday Puzzle: What's the only...",
+      "source": "NPR Culture",
+      "source_tier": 3,
+      "primary_source_link": "https://www.npr.org/2026/11/22/g-s1-154253/sunday-puzzle-whats-the-only",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "NPR Culture"
+      ],
+      "corroborating_links": [
+        "https://www.npr.org/2026/11/22/g-s1-154253/sunday-puzzle-whats-the-only"
+      ],
+      "risk_flags": [],
+      "age_minutes": 21.3
     },
     {
       "id": "c8f6bf2c82a2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.25,
+      "urgency_score": 29.78,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.25,
+        "recency": 9.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1393,9 +1393,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "33f0e28ef662",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:16Z",
-      "source_detection_latency_seconds": 4584.3,
+      "source_detection_latency_seconds": 4861.9,
       "factual_update": "CEO SUNDAY: P.F. Chang’s boss shares how he helped the iconic chain 'believe in itself again'",
       "source": "Fox Business",
       "source_tier": 2,
@@ -1409,17 +1409,17 @@
         "https://www.foxbusiness.com/business-leaders/ceo-sunday-p-f-changs-boss-shares-how-he-helped-iconic-chain-believe-itself-again"
       ],
       "risk_flags": [],
-      "age_minutes": 76.4
+      "age_minutes": 81.0
     },
     {
       "id": "a80fb33c73e3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.25,
+      "urgency_score": 29.78,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.25,
+        "recency": 9.78,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1430,9 +1430,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c3c30e8f387e",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:15Z",
-      "source_detection_latency_seconds": 4585.3,
+      "source_detection_latency_seconds": 4862.9,
       "factual_update": "Illegal immigrant avoids charges after Florida grandmother killed outside grocery store, enraging family",
       "source": "Fox News",
       "source_tier": 2,
@@ -1446,17 +1446,17 @@
         "https://www.foxnews.com/us/illegal-immigrant-avoids-charges-florida-grandmother-killed-outside-grocery-store-enraging-family"
       ],
       "risk_flags": [],
-      "age_minutes": 76.4
+      "age_minutes": 81.0
     },
     {
       "id": "f82b92b25de1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.23,
+      "urgency_score": 29.77,
       "score_components": {
         "source_trust": 10,
-        "recency": 10.23,
+        "recency": 9.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1467,9 +1467,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e9867c0a6c9d",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:08Z",
-      "source_detection_latency_seconds": 4592.3,
+      "source_detection_latency_seconds": 4869.9,
       "factual_update": "Forget what Randi Weingarten says, school choice didn’t hurt Republicans in midterms",
       "source": "Fox News",
       "source_tier": 2,
@@ -1483,17 +1483,17 @@
         "https://www.foxnews.com/opinion/forget-what-randi-weingarten-says-school-choice-didnt-hurt-republicans-midterms"
       ],
       "risk_flags": [],
-      "age_minutes": 76.5
+      "age_minutes": 81.2
     },
     {
       "id": "45629b369726",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.28,
+      "urgency_score": 28.86,
       "score_components": {
         "source_trust": 10,
-        "recency": 9.28,
+        "recency": 8.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1504,9 +1504,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7745fc882f17",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:50:20Z",
-      "source_detection_latency_seconds": 5180.3,
+      "source_detection_latency_seconds": 5457.9,
       "factual_update": "Theresa May 'aghast' at Burnham's EU plans and says 'Brexit is done'",
       "source": "BBC News",
       "source_tier": 2,
@@ -1520,54 +1520,17 @@
         "https://www.bbc.co.uk/news/articles/cvj6l8y3x1x4o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 86.3
-    },
-    {
-      "id": "51037c3d1ddc",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 28.11,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 8.11,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "012c1661c6d4",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T11:36:55Z",
-      "source_detection_latency_seconds": 5985.3,
-      "factual_update": "Trump says he wants \"permanent\" deal with Iran",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/live-updates/iran-war-trump-tehran-denies-chemical-weapons/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/live-updates/iran-war-trump-tehran-denies-chemical-weapons/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 99.8
+      "age_minutes": 91.0
     },
     {
       "id": "42fdb70f5e16",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.8,
+      "urgency_score": 27.17,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.8,
+        "recency": 13.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1578,9 +1541,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "243fc4629ea3",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:30:00Z",
-      "source_detection_latency_seconds": 2800.3,
+      "source_detection_latency_seconds": 3077.9,
       "factual_update": "Giants vs. Jaguars: Preview, prediction, what to watch for in Week 11",
       "source": "New York Post",
       "source_tier": 3,
@@ -1595,54 +1558,17 @@
         "https://nypost.com/2026/11/22/sports/jets-vs-chargers-preview-prediction-what-to-watch-for-in-week-11/"
       ],
       "risk_flags": [],
-      "age_minutes": 46.7
-    },
-    {
-      "id": "1a6379571633",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.53,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 14.53,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d94834f94f89",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T12:35:13Z",
-      "source_detection_latency_seconds": 2487.3,
-      "factual_update": "Borgata Sportsbook promo code 2026: Bet $20, get $100 instantly in bonus bets",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/betting/news/borgata-promo-code/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/betting/news/borgata-promo-code/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 41.5
+      "age_minutes": 51.3
     },
     {
       "id": "420e4c697391",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.17,
+      "urgency_score": 25.89,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.17,
+        "recency": 5.89,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1653,9 +1579,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cd28529836fe",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:09:29Z",
-      "source_detection_latency_seconds": 7631.3,
+      "source_detection_latency_seconds": 7908.9,
       "factual_update": "Did Springboks win change the narrative for Ireland?",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1669,17 +1595,54 @@
         "https://www.bbc.co.uk/sport/rugby-union/articles/c64gnry013mko?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 127.2
+      "age_minutes": 131.8
+    },
+    {
+      "id": "1a6379571633",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.88,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.88,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d94834f94f89",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:35:13Z",
+      "source_detection_latency_seconds": 2764.9,
+      "factual_update": "Borgata Sportsbook promo code 2026: Bet $20, get $100 instantly in bonus bets",
+      "source": "CBS Sports",
+      "source_tier": 3,
+      "primary_source_link": "https://www.cbssports.com/betting/news/borgata-promo-code/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "CBS Sports"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/betting/news/borgata-promo-code/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 46.1
     },
     {
       "id": "17643ae73c24",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.05,
+      "urgency_score": 25.77,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.05,
+        "recency": 5.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1690,9 +1653,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b230a80c97e8",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:07:32Z",
-      "source_detection_latency_seconds": 7748.3,
+      "source_detection_latency_seconds": 8025.9,
       "factual_update": "Verstappen a constant amid chaos as he says Russell is 'so far below my level'",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -1706,91 +1669,17 @@
         "https://www.bbc.co.uk/sport/formula1/articles/c3n0l5p5x5x5o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 129.1
+      "age_minutes": 133.8
     },
     {
-      "id": "35aee7c35c0c",
+      "id": "bb8ed17371a2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.8,
+      "urgency_score": 25.41,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.8,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "244f04c96e7b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T12:30:00Z",
-      "source_detection_latency_seconds": 2800.3,
-      "factual_update": "Dolphins vs. Bills prediction, props: Josh Allen is primed to run wild in Week 11",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/betting/dolphins-vs-bills-prediction-nfl-odds-picks-best-bets-week-11/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/betting/dolphins-vs-bills-prediction-nfl-odds-picks-best-bets-week-11/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 46.7
-    },
-    {
-      "id": "c17c746ef53c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.8,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.8,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c86fb9689f64",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T12:30:00Z",
-      "source_detection_latency_seconds": 2800.3,
-      "factual_update": "Former All-Star has created NBA’s biggest ‘f–king mess’ — and it just keeps getting worse",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/22/sports/dejounte-murray-has-created-nbas-biggest-mess-that-keeps-getting-worse/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/22/sports/dejounte-murray-has-created-nbas-biggest-mess-that-keeps-getting-worse/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 46.7
-    },
-    {
-      "id": "113992ea311a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.67,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 21.67,
+        "recency": 21.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1801,33 +1690,33 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T13:15:09Z",
-      "source_detection_latency_seconds": 91.3,
-      "factual_update": "Miley Cyrus and Maxx Morando Marry at Palm Springs Wedding",
-      "source": "Rolling Stone",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:18:35Z",
+      "source_detection_latency_seconds": 162.9,
+      "factual_update": "Independent Study Confirms First-Ever Black Hole Image, Validating Einstein’s Theory",
+      "source": "The New York Sun",
       "source_tier": 3,
-      "primary_source_link": "https://www.rollingstone.com/music/music-news/miley-cyrus-maxx-morando-married-springs-wedding-1235662077/",
+      "primary_source_link": "https://www.nysun.com/article/independent-study-confirms-first-ever-black-hole-image-validating-einsteins-theory",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "Rolling Stone"
+        "The New York Sun"
       ],
       "corroborating_links": [
-        "https://www.rollingstone.com/music/music-news/miley-cyrus-maxx-morando-married-springs-wedding-1235662077/"
+        "https://www.nysun.com/article/independent-study-confirms-first-ever-black-hole-image-validating-einsteins-theory"
       ],
       "risk_flags": [],
-      "age_minutes": 1.5
+      "age_minutes": 2.7
     },
     {
       "id": "3a5d3c073efc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.66,
+      "urgency_score": 25.41,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.66,
+        "recency": 5.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1838,9 +1727,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3d3d8bf28152",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:59Z",
-      "source_detection_latency_seconds": 8141.3,
+      "source_detection_latency_seconds": 8418.9,
       "factual_update": "NFL Week 11 expert picks, odds, best bets, teasers, predictions, survivor picks: Who wins 49ers or Vikings?",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -1858,17 +1747,17 @@
         "https://www.cbssports.com/nfl/news/priscos-week-11-nfl-picks-odds-expert-picks-predictions/"
       ],
       "risk_flags": [],
-      "age_minutes": 135.7
+      "age_minutes": 140.3
     },
     {
       "id": "a5a0ef045ebd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.66,
+      "urgency_score": 25.4,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.66,
+        "recency": 5.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1879,9 +1768,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "961450f74579",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:54Z",
-      "source_detection_latency_seconds": 8146.3,
+      "source_detection_latency_seconds": 8423.9,
       "factual_update": "Jeffries calling Jerusalem NYC's ‘sixth borough’ resurfaces as progressives swing against Israel",
       "source": "Fox News",
       "source_tier": 2,
@@ -1895,17 +1784,17 @@
         "https://www.foxnews.com/politics/jeffries-calling-jerusalem-nycs-sixth-borough-resurfaces-progressives-swing-against-israel"
       ],
       "risk_flags": [],
-      "age_minutes": 135.8
+      "age_minutes": 140.4
     },
     {
       "id": "373ccb004239",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.66,
+      "urgency_score": 25.4,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.66,
+        "recency": 5.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1916,9 +1805,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d93003f670b7",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:50Z",
-      "source_detection_latency_seconds": 8150.3,
+      "source_detection_latency_seconds": 8427.9,
       "factual_update": "6 vintage Thanksgiving recipes of decades past, from oyster stuffing to hot Dr Pepper",
       "source": "Fox News",
       "source_tier": 2,
@@ -1932,17 +1821,17 @@
         "https://www.foxnews.com/food-drink/6-vintage-thanksgiving-recipes-decades-past-from-oyster-stuffing-hot-dr-pepper"
       ],
       "risk_flags": [],
-      "age_minutes": 135.8
+      "age_minutes": 140.5
     },
     {
       "id": "7ec9b4b28812",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.63,
+      "urgency_score": 25.38,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.63,
+        "recency": 5.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1953,9 +1842,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "aa2120949f13",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:27Z",
-      "source_detection_latency_seconds": 8173.3,
+      "source_detection_latency_seconds": 8450.9,
       "factual_update": "Harvard scientist may never prove mysterious space object’s origin after mission scrapped",
       "source": "Fox News",
       "source_tier": 2,
@@ -1969,17 +1858,17 @@
         "https://www.foxnews.com/us/harvard-scientist-may-never-prove-mysterious-space-objects-origin-after-mission-scrapped"
       ],
       "risk_flags": [],
-      "age_minutes": 136.2
+      "age_minutes": 140.8
     },
     {
       "id": "77cbd13908d2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.62,
+      "urgency_score": 25.36,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.62,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1990,9 +1879,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "834faa28b31a",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:11Z",
-      "source_detection_latency_seconds": 8189.3,
+      "source_detection_latency_seconds": 8466.9,
       "factual_update": "MAGA’s cool factor faces a test as Dallas Young Republicans confront midterm defeats",
       "source": "Fox News",
       "source_tier": 2,
@@ -2006,17 +1895,17 @@
         "https://www.foxnews.com/media/magas-cool-factor-faces-test-dallas-young-republicans-confront-midterm-defeats"
       ],
       "risk_flags": [],
-      "age_minutes": 136.5
+      "age_minutes": 141.1
     },
     {
       "id": "11e532056e92",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.61,
+      "urgency_score": 25.36,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2027,9 +1916,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "530aa41da37b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:04Z",
-      "source_detection_latency_seconds": 8196.3,
+      "source_detection_latency_seconds": 8473.9,
       "factual_update": "Kate Middleton's unexpected house rule for George, Charlotte and Louis: author",
       "source": "Fox News",
       "source_tier": 2,
@@ -2043,17 +1932,17 @@
         "https://www.foxnews.com/entertainment/kate-middleton-unexpected-house-rule-george-charlotte-louis-author"
       ],
       "risk_flags": [],
-      "age_minutes": 136.6
+      "age_minutes": 141.2
     },
     {
       "id": "fff756a04ffc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.57,
+      "urgency_score": 25.32,
       "score_components": {
         "source_trust": 10,
-        "recency": 5.57,
+        "recency": 5.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2064,9 +1953,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9148621aa7ab",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:59:15Z",
-      "source_detection_latency_seconds": 8245.3,
+      "source_detection_latency_seconds": 8522.9,
       "factual_update": "'Let fantastically promising McConnell loose against Pumas'",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2080,17 +1969,128 @@
         "https://www.bbc.co.uk/sport/rugby-union/articles/cmgqxvzyq959o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 137.4
+      "age_minutes": 142.0
+    },
+    {
+      "id": "35aee7c35c0c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.17,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.17,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "244f04c96e7b",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:30:00Z",
+      "source_detection_latency_seconds": 3077.9,
+      "factual_update": "Dolphins vs. Bills prediction, props: Josh Allen is primed to run wild in Week 11",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/betting/dolphins-vs-bills-prediction-nfl-odds-picks-best-bets-week-11/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/betting/dolphins-vs-bills-prediction-nfl-odds-picks-best-bets-week-11/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 51.3
+    },
+    {
+      "id": "c17c746ef53c",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.17,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.17,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c86fb9689f64",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:30:00Z",
+      "source_detection_latency_seconds": 3077.9,
+      "factual_update": "Former All-Star has created NBA’s biggest ‘f–king mess’ — and it just keeps getting worse",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/22/sports/dejounte-murray-has-created-nbas-biggest-mess-that-keeps-getting-worse/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/22/sports/dejounte-murray-has-created-nbas-biggest-mess-that-keeps-getting-worse/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 51.3
+    },
+    {
+      "id": "113992ea311a",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.69,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 20.69,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 0,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": null,
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T13:15:09Z",
+      "source_detection_latency_seconds": 368.9,
+      "factual_update": "Miley Cyrus and Maxx Morando Marry at Palm Springs Wedding",
+      "source": "Rolling Stone",
+      "source_tier": 3,
+      "primary_source_link": "https://www.rollingstone.com/music/music-news/miley-cyrus-maxx-morando-married-springs-wedding-1235662077/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Rolling Stone"
+      ],
+      "corroborating_links": [
+        "https://www.rollingstone.com/music/music-news/miley-cyrus-maxx-morando-married-springs-wedding-1235662077/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 6.1
     },
     {
       "id": "2a03be428eda",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.27,
+      "urgency_score": 24.67,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.27,
+        "recency": 12.67,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2101,9 +2101,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "60c55289324e",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:26:05Z",
-      "source_detection_latency_seconds": 3035.3,
+      "source_detection_latency_seconds": 3312.9,
       "factual_update": "Bowl projections: Slotting all 47 games as Week 12 upsets provide massive shakeup to postseason picture",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -2117,17 +2117,54 @@
         "https://www.cbssports.com/college-football/news/college-football-bowl-projections-cfp-bracket-predictions-week-13-2026/"
       ],
       "risk_flags": [],
-      "age_minutes": 50.6
+      "age_minutes": 55.2
+    },
+    {
+      "id": "f3a74cd5c1a2",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.57,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 4.57,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "67e8aaa0c80e",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T10:44:12Z",
+      "source_detection_latency_seconds": 9425.9,
+      "factual_update": "Mysterious Mercury gets a visitor - after spacecraft's eight-year epic voyage",
+      "source": "BBC Science & Environment",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC Science & Environment"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 157.1
     },
     {
       "id": "ef1eb625f6f2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.8,
+      "urgency_score": 24.4,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.8,
+        "recency": 8.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2138,9 +2175,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "02bc303ccbdc",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:45:00Z",
-      "source_detection_latency_seconds": 5500.3,
+      "source_detection_latency_seconds": 5777.9,
       "factual_update": "Hope Revived for NYC Gun-Lovers as Anti-Handgun Laws Come Under Fire Yet Again Thanks to Renewed Federal Lawsuit",
       "source": "Western Journal",
       "source_tier": 3,
@@ -2156,54 +2193,17 @@
         "https://www.westernjournal.com/hope-revived-nyc-gun-lovers-anti-handgun-laws-come-fire-yet-thanks-renewed-federal-lawsuit/"
       ],
       "risk_flags": [],
-      "age_minutes": 91.7
-    },
-    {
-      "id": "f3a74cd5c1a2",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 24.79,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 4.79,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "67e8aaa0c80e",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T10:44:12Z",
-      "source_detection_latency_seconds": 9148.3,
-      "factual_update": "Mysterious Mercury gets a visitor - after spacecraft's eight-year epic voyage",
-      "source": "BBC Science & Environment",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Science & Environment"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 152.5
+      "age_minutes": 96.3
     },
     {
       "id": "39f1a4415023",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.62,
+      "urgency_score": 24.37,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.62,
+        "recency": 5.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2214,9 +2214,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6d7641046e7c",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:15Z",
-      "source_detection_latency_seconds": 8185.3,
+      "source_detection_latency_seconds": 8462.9,
       "factual_update": "Biden-Era Spending Bill Passed Unconstitutionally With Proxy Votes, Appeals Court Rules",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -2230,17 +2230,17 @@
         "https://www.theepochtimes.com/us/biden-era-spending-bill-passed-unconstitutionally-with-proxy-votes-appeals-court-rules-6127806"
       ],
       "risk_flags": [],
-      "age_minutes": 136.4
+      "age_minutes": 141.0
     },
     {
       "id": "de088d56a669",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.61,
+      "urgency_score": 24.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2251,9 +2251,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ac46ff7eb3f8",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "Third round of November Social Security payments goes out in three days",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -2267,17 +2267,17 @@
         "https://www.washingtonexaminer.com/news/4783093/third-round-november-social-security-payments-goes-out-three-days/"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "834f41f3777f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.61,
+      "urgency_score": 24.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2288,9 +2288,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4666762cfbd0",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "Congress Demands Answers for Disturbing String of Suicides at NSA, Cyber Command",
       "source": "Western Journal",
       "source_tier": 3,
@@ -2304,17 +2304,17 @@
         "https://www.westernjournal.com/congress-probes-disturbing-string-suicides-nsa-cyber-command/"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "efae0e06a833",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.18,
+      "urgency_score": 23.99,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.18,
+        "recency": 3.99,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2325,9 +2325,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8cedf6ee1a31",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:30:36Z",
-      "source_detection_latency_seconds": 9964.3,
+      "source_detection_latency_seconds": 10241.9,
       "factual_update": "NFL player Harrell in hospital after alleged driver assault",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2341,17 +2341,17 @@
         "https://www.bbc.co.uk/sport/american-football/articles/c3ly71pg27wvo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 166.1
+      "age_minutes": 170.7
     },
     {
       "id": "65ca53b32ee6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.1,
+      "urgency_score": 22.96,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.1,
+        "recency": 2.96,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2362,9 +2362,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "047eb38b0afe",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:35Z",
-      "source_detection_latency_seconds": 11765.3,
+      "source_detection_latency_seconds": 12042.9,
       "factual_update": "American Culture Quiz: Test yourself on maritime mysteries and patriotic performers",
       "source": "Fox News",
       "source_tier": 2,
@@ -2378,17 +2378,17 @@
         "https://www.foxnews.com/lifestyle/american-culture-quiz-test-yourself-maritime-mysteries-patriotic-performers"
       ],
       "risk_flags": [],
-      "age_minutes": 196.1
+      "age_minutes": 200.7
     },
     {
       "id": "2e35b31e3506",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.08,
+      "urgency_score": 22.94,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2399,9 +2399,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "eb651bd382a5",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:04Z",
-      "source_detection_latency_seconds": 11796.3,
+      "source_detection_latency_seconds": 12073.9,
       "factual_update": "Injured Jacks out of T20 Australia tour",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2415,17 +2415,17 @@
         "https://www.bbc.co.uk/sport/cricket/articles/c8p3v1p45360o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 196.6
+      "age_minutes": 201.2
     },
     {
       "id": "161a339eea01",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.08,
+      "urgency_score": 22.94,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2436,9 +2436,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "570924002768",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:00Z",
-      "source_detection_latency_seconds": 11800.3,
+      "source_detection_latency_seconds": 12077.9,
       "factual_update": "He expected a small-business loan. It turned out to be a trap",
       "source": "NPR News",
       "source_tier": 2,
@@ -2452,17 +2452,17 @@
         "https://www.npr.org/2026/11/22/nx-s1-5752261/small-business-loan-merchant-cash-advance"
       ],
       "risk_flags": [],
-      "age_minutes": 196.7
+      "age_minutes": 201.3
     },
     {
       "id": "59a6dd375497",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.76,
+      "urgency_score": 22.64,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.76,
+        "recency": 2.64,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2473,9 +2473,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1a47c9c7bc2b",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:49:15Z",
-      "source_detection_latency_seconds": 12445.3,
+      "source_detection_latency_seconds": 12722.9,
       "factual_update": "Verstappen wins extraordinary Las Vegas Grand Prix as Ferraris collide",
       "source": "BBC News",
       "source_tier": 2,
@@ -2489,17 +2489,17 @@
         "https://www.bbc.co.uk/sport/formula1/articles/cqx2ex25pvn9o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 207.4
+      "age_minutes": 212.0
     },
     {
       "id": "cf6fee852b7f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.4,
+      "urgency_score": 22.29,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.4,
+        "recency": 2.29,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2510,9 +2510,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9fd1c4d6c443",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:35:05Z",
-      "source_detection_latency_seconds": 13295.3,
+      "source_detection_latency_seconds": 13572.9,
       "factual_update": "Verstappen's superb racecraft & Russell's costly mistake - driver ratings",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2526,17 +2526,17 @@
         "https://www.bbc.co.uk/sport/formula1/articles/c83vg92x21vzo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 221.6
+      "age_minutes": 226.2
     },
     {
       "id": "e2cc3d38ac0a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.32,
+      "urgency_score": 22.21,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.32,
+        "recency": 2.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2547,9 +2547,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "cae88621a46e",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:31:31Z",
-      "source_detection_latency_seconds": 13509.3,
+      "source_detection_latency_seconds": 13786.9,
       "factual_update": "Multiple people shot at 'large' party in California, sheriff's office says",
       "source": "ABC News",
       "source_tier": 2,
@@ -2563,54 +2563,54 @@
         "https://abcnews.com/US/multiple-people-shot-large-party-california-sheriffs-office/story?id=138356134"
       ],
       "risk_flags": [],
-      "age_minutes": 225.2
+      "age_minutes": 229.8
     },
     {
-      "id": "fe10170e9481",
+      "id": "b183e99b19e1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.26,
+      "urgency_score": 21.8,
       "score_components": {
-        "source_trust": 10,
-        "recency": 10.26,
+        "source_trust": 2,
+        "recency": 9.8,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
+        "existing_timeline_interest": 8,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": null,
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T12:00:26Z",
-      "source_detection_latency_seconds": 4574.3,
-      "factual_update": "Newsom and Biden overruled thousands of jurors with the stroke of a pen",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/opinion/newsom-biden-overruled-thousands-jurors-stroke-pen",
+      "matched_storyline_id": "f6cef29a4106",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T12:00:28Z",
+      "source_detection_latency_seconds": 4849.9,
+      "factual_update": "America Needs More Nurses. The Trump Administration Wants To Make Them Much Harder To Hire.",
+      "source": "Reason",
+      "source_tier": 3,
+      "primary_source_link": "https://reason.com/2026/11/22/america-needs-more-nurses-the-trump-administration-wants-to-make-them-much-harder-to-hire/",
       "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
+      "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "Fox News"
+        "Reason"
       ],
       "corroborating_links": [
-        "https://www.foxnews.com/opinion/newsom-biden-overruled-thousands-jurors-stroke-pen"
+        "https://reason.com/2026/11/22/america-needs-more-nurses-the-trump-administration-wants-to-make-them-much-harder-to-hire/"
       ],
       "risk_flags": [],
-      "age_minutes": 76.2
+      "age_minutes": 80.8
     },
     {
       "id": "95784ee3535d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.22,
+      "urgency_score": 21.76,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.22,
+        "recency": 9.76,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2621,9 +2621,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4bdee85cc608",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:00Z",
-      "source_detection_latency_seconds": 4600.3,
+      "source_detection_latency_seconds": 4877.9,
       "factual_update": "New Democratic kingmakers emerge out of midterm elections as 2028 hopefuls hunt for support",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -2637,17 +2637,17 @@
         "https://www.washingtonexaminer.com/news/4810241/new-democratic-kingmakers-midterm-elections-2028-hopefuls-hunt-support/"
       ],
       "risk_flags": [],
-      "age_minutes": 76.7
+      "age_minutes": 81.3
     },
     {
       "id": "69a424486f9a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.22,
+      "urgency_score": 21.76,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.22,
+        "recency": 9.76,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2658,9 +2658,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "935c2e1ea876",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:00Z",
-      "source_detection_latency_seconds": 4600.3,
+      "source_detection_latency_seconds": 4877.9,
       "factual_update": "AOC Demanded 'Material Gains for the Working Class' in Germany — Wait Until You See Where She Slept",
       "source": "RedState",
       "source_tier": 3,
@@ -2674,17 +2674,17 @@
         "https://redstate.com/rusty-weiss/2026/11/22/aoc-demanded-material-gains-for-the-working-class-in-germany-wait-until-you-see-where-she-slept-n2209670"
       ],
       "risk_flags": [],
-      "age_minutes": 76.7
+      "age_minutes": 81.3
     },
     {
       "id": "f921be6c5777",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.22,
+      "urgency_score": 21.76,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.22,
+        "recency": 9.76,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2695,9 +2695,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "997b71227c79",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T12:00:00Z",
-      "source_detection_latency_seconds": 4600.3,
+      "source_detection_latency_seconds": 4877.9,
       "factual_update": "The Rising Religious Left May Buoy Conservative Christians Too",
       "source": "The Dispatch",
       "source_tier": 3,
@@ -2711,17 +2711,17 @@
         "https://thedispatch.com/newsletter/dispatch-faith/religious-left-conservative-christians/"
       ],
       "risk_flags": [],
-      "age_minutes": 76.7
+      "age_minutes": 81.3
     },
     {
       "id": "5846a9988db7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.63,
+      "urgency_score": 19.29,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.63,
+        "recency": 7.29,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2732,9 +2732,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "be61039c6b55",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:30:47Z",
-      "source_detection_latency_seconds": 6353.3,
+      "source_detection_latency_seconds": 6630.9,
       "factual_update": "Rents, Internet Speeds, and Airfares: 3 Deregulation Success Stories From Milei's Argentina",
       "source": "Reason",
       "source_tier": 3,
@@ -2748,17 +2748,17 @@
         "https://reason.com/2026/11/22/mileis-deregulatory-success-stories/"
       ],
       "risk_flags": [],
-      "age_minutes": 105.9
+      "age_minutes": 110.5
     },
     {
       "id": "f04c704c3939",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.57,
+      "urgency_score": 19.23,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.57,
+        "recency": 7.23,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2769,9 +2769,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "10a5d837bbf7",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:30:00Z",
-      "source_detection_latency_seconds": 6400.3,
+      "source_detection_latency_seconds": 6677.9,
       "factual_update": "The Right to Self-Defense May Not Save You in 2026 Thanks to These Legal Land Mines",
       "source": "Western Journal",
       "source_tier": 3,
@@ -2785,17 +2785,17 @@
         "https://www.westernjournal.com/right-self-defense-may-not-save-2026-thanks-legal-land-mines/"
       ],
       "risk_flags": [],
-      "age_minutes": 106.7
+      "age_minutes": 111.3
     },
     {
       "id": "8702a7f80fd5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.78,
+      "urgency_score": 17.52,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.78,
+        "recency": 5.52,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2806,9 +2806,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "628888ab9d43",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:02:58Z",
-      "source_detection_latency_seconds": 8022.3,
+      "source_detection_latency_seconds": 8299.9,
       "factual_update": "Tommy Lee Jones says ‘God loved me’ by putting him in Texas, opens up about life on his 6,000-acre ranch",
       "source": "New York Post",
       "source_tier": 3,
@@ -2822,17 +2822,17 @@
         "https://pagesix.com/2026/11/22/celebrity-news/tommy-lee-jones-says-god-loved-him-for-texas-home/"
       ],
       "risk_flags": [],
-      "age_minutes": 133.7
+      "age_minutes": 138.3
     },
     {
       "id": "e5edcc9abe9f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.61,
+      "urgency_score": 17.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2843,9 +2843,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1e2fca1f241a",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "What Is the Fantasy in Grand Theft Auto Really All About?",
       "source": "National Review",
       "source_tier": 3,
@@ -2859,17 +2859,17 @@
         "https://www.nationalreview.com/article/what-is-the-fantasy-in-grand-theft-auto-really-all-about"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "0905d81f7744",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.61,
+      "urgency_score": 17.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2880,9 +2880,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "19af3e720752",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "A Glorious Man",
       "source": "National Review",
       "source_tier": 3,
@@ -2896,17 +2896,17 @@
         "https://www.nationalreview.com/article/a-glorious-man"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "73d5ad9e26a1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.61,
+      "urgency_score": 17.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2917,9 +2917,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d80abc552b84",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "How Washington Could Exploit Qatar’s LNG Shopping Spree",
       "source": "National Review",
       "source_tier": 3,
@@ -2933,17 +2933,17 @@
         "https://www.nationalreview.com/article/how-washington-could-exploit-qatar-s-lng-shopping-spree"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "77dd780e77e7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.61,
+      "urgency_score": 17.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2954,9 +2954,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4fd701b15f89",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "Populism Isn’t Built for Setbacks",
       "source": "National Review",
       "source_tier": 3,
@@ -2970,17 +2970,17 @@
         "https://www.nationalreview.com/article/populism-isn-t-built-for-setbacks"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "ff19bfd10ab9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.61,
+      "urgency_score": 17.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.61,
+        "recency": 5.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2991,9 +2991,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "3f858ce07384",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T11:00:00Z",
-      "source_detection_latency_seconds": 8200.3,
+      "source_detection_latency_seconds": 8477.9,
       "factual_update": "How House Democrats used social media ads to target vulnerable Republicans",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -3007,47 +3007,10 @@
         "https://www.washingtonexaminer.com/news/campaigns/congressional/4810472/how-house-democrats-used-social-media-ads-to-target-vulnerable-republicans/"
       ],
       "risk_flags": [],
-      "age_minutes": 136.7
+      "age_minutes": 141.3
     },
     {
       "id": "51612ae69196",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 17.06,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 5.06,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "bf878dd5ba71",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
-      "source_published_at": "2026-11-22T10:49:39Z",
-      "source_detection_latency_seconds": 8821.3,
-      "factual_update": "HGTV star Ty Pennington calls out ‘excessive’ home renovation trend people do in kitchens",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/2026/11/22/celebrity-news/hgtv-star-ty-pennington-calls-out-excessive-home-renovation-trend-people-do-in-kitchens/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://pagesix.com/2026/11/22/celebrity-news/hgtv-star-ty-pennington-calls-out-excessive-home-renovation-trend-people-do-in-kitchens/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 147.0
-    },
-    {
-      "id": "34754496a1b6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -3064,10 +3027,47 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "bf878dd5ba71",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
+      "source_published_at": "2026-11-22T10:49:39Z",
+      "source_detection_latency_seconds": 9098.9,
+      "factual_update": "HGTV star Ty Pennington calls out ‘excessive’ home renovation trend people do in kitchens",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://pagesix.com/2026/11/22/celebrity-news/hgtv-star-ty-pennington-calls-out-excessive-home-renovation-trend-people-do-in-kitchens/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://pagesix.com/2026/11/22/celebrity-news/hgtv-star-ty-pennington-calls-out-excessive-home-renovation-trend-people-do-in-kitchens/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 151.6
+    },
+    {
+      "id": "34754496a1b6",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 16.61,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 4.61,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "fdddc249a3c0",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:45:00Z",
-      "source_detection_latency_seconds": 9100.3,
+      "source_detection_latency_seconds": 9377.9,
       "factual_update": "As Libs Ditch Thanksgiving to Celebrate American Natives, Let's Remember Some Buried Little Girls Alive to Please Their Gods",
       "source": "Western Journal",
       "source_tier": 3,
@@ -3081,17 +3081,17 @@
         "https://www.westernjournal.com/libs-ditch-thanksgiving-celebrate-american-natives-remember-buried-little-girls-alive-please-gods/"
       ],
       "risk_flags": [],
-      "age_minutes": 151.7
+      "age_minutes": 156.3
     },
     {
       "id": "8b3c5e8bc1d2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.59,
+      "urgency_score": 16.38,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.59,
+        "recency": 4.38,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3102,9 +3102,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e163ffebfe0e",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:40:00Z",
-      "source_detection_latency_seconds": 9400.3,
+      "source_detection_latency_seconds": 9677.9,
       "factual_update": "Why a Computer Scientist Thinks Superintelligence Won’t Happen",
       "source": "Hot Air",
       "source_tier": 3,
@@ -3118,17 +3118,17 @@
         "https://hotair.com/headlines/2026/11/22/why-a-computer-scientist-thinks-superintelligence-wont-happen-n3821242"
       ],
       "risk_flags": [],
-      "age_minutes": 156.7
+      "age_minutes": 161.3
     },
     {
       "id": "cda38dfb9f51",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.41,
+      "urgency_score": 16.21,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.41,
+        "recency": 4.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3139,9 +3139,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d7a04e48d4a1",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:36:00Z",
-      "source_detection_latency_seconds": 9640.3,
+      "source_detection_latency_seconds": 9917.9,
       "factual_update": "BBC Apologizes After ‘Strictly Come Dancing’ Is Interrupted By Sex Noises",
       "source": "Deadline",
       "source_tier": 3,
@@ -3155,17 +3155,17 @@
         "https://deadline.com/2026/11/bbc-apologizes-strictly-come-dancing-interrupted-sex-noise-1237231116/"
       ],
       "risk_flags": [],
-      "age_minutes": 160.7
+      "age_minutes": 165.3
     },
     {
       "id": "7c0baa6ae08f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.19,
+      "urgency_score": 16.0,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.19,
+        "recency": 4.0,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3176,9 +3176,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e03b23678f71",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:30:53Z",
-      "source_detection_latency_seconds": 9947.3,
+      "source_detection_latency_seconds": 10224.9,
       "factual_update": "‘Socialist’ AOC spent $12K on glam German digs while pushing for ‘working class’ rights",
       "source": "New York Post",
       "source_tier": 3,
@@ -3192,17 +3192,17 @@
         "https://nypost.com/2026/11/22/us-news/aoc-spent-12k-on-glam-german-digs-while-pushing-for-working-class-rights/"
       ],
       "risk_flags": [],
-      "age_minutes": 165.8
+      "age_minutes": 170.4
     },
     {
       "id": "f12ff3b2d357",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.95,
+      "urgency_score": 15.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.95,
+        "recency": 3.77,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3213,9 +3213,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "74f28e9965ff",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:25:00Z",
-      "source_detection_latency_seconds": 10300.3,
+      "source_detection_latency_seconds": 10577.9,
       "factual_update": "Sapphic Traffic? Author Sells Zero Copies of Her ‘Young Adult’ Lesbian Love Story Novel at Book Fair",
       "source": "Twitchy",
       "source_tier": 3,
@@ -3229,17 +3229,17 @@
         "https://twitchy.com/warren-squire/2026/11/22/lgbtq-author-posts-pic-of-her-selling-zero-books-at-book-fair-n2434642"
       ],
       "risk_flags": [],
-      "age_minutes": 171.7
+      "age_minutes": 176.3
     },
     {
       "id": "902830d9f9ff",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.58,
+      "urgency_score": 15.41,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.58,
+        "recency": 3.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3250,9 +3250,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c7c86541438e",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:15:00Z",
-      "source_detection_latency_seconds": 10900.3,
+      "source_detection_latency_seconds": 11177.9,
       "factual_update": "Staggering Blue City Utility Cost Hikes Push Over 100 Furious Customers to Pack Back-to-Back Hearings to Fight Back",
       "source": "Western Journal",
       "source_tier": 3,
@@ -3266,17 +3266,17 @@
         "https://www.westernjournal.com/staggering-blue-city-utility-cost-hikes-push-100-furious-customers-pack-back-back-hearings-fight-back/"
       ],
       "risk_flags": [],
-      "age_minutes": 181.7
+      "age_minutes": 186.3
     },
     {
       "id": "35f86b2bc834",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.16,
+      "urgency_score": 15.01,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.16,
+        "recency": 3.01,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3287,9 +3287,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ae44b5128e1a",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:02:29Z",
-      "source_detection_latency_seconds": 11651.3,
+      "source_detection_latency_seconds": 11928.9,
       "factual_update": "A Courageous and Consequential Justice",
       "source": "Washington Free Beacon",
       "source_tier": 3,
@@ -3303,17 +3303,17 @@
         "https://freebeacon.com/america/a-courageous-and-consequential-justice/"
       ],
       "risk_flags": [],
-      "age_minutes": 194.2
+      "age_minutes": 198.8
     },
     {
       "id": "c49bdcfb4371",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.13,
+      "urgency_score": 14.99,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.13,
+        "recency": 2.99,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3324,9 +3324,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "09cbbc255dc5",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:01:37Z",
-      "source_detection_latency_seconds": 11703.3,
+      "source_detection_latency_seconds": 11980.9,
       "factual_update": "NFL Week 11 Titans vs. Cowboys odds, predictions: Use Polymarket promo code CBSSPORTS to get a $25 bonus",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3340,17 +3340,17 @@
         "https://www.cbssports.com/prediction/news/nfl-week-11-titans-vs-cowboys-odds-predictions-use-polymarket-promo-code-cbssports-to-get-a-25-bonus/"
       ],
       "risk_flags": [],
-      "age_minutes": 195.1
+      "age_minutes": 199.7
     },
     {
       "id": "852cadd345fa",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.09,
+      "urgency_score": 14.95,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.09,
+        "recency": 2.95,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3361,9 +3361,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "559d9e654373",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:23Z",
-      "source_detection_latency_seconds": 11777.3,
+      "source_detection_latency_seconds": 12054.9,
       "factual_update": "Rocky Road",
       "source": "Washington Free Beacon",
       "source_tier": 3,
@@ -3377,17 +3377,17 @@
         "https://freebeacon.com/culture/rocky-road/"
       ],
       "risk_flags": [],
-      "age_minutes": 196.3
+      "age_minutes": 200.9
     },
     {
       "id": "4e75c3a933fc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.08,
+      "urgency_score": 14.94,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3398,9 +3398,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bb578d509d9c",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:00Z",
-      "source_detection_latency_seconds": 11800.3,
+      "source_detection_latency_seconds": 12077.9,
       "factual_update": "US, Russia, and China can all agree on one thing: The UN should stay out of its business",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -3414,17 +3414,17 @@
         "https://www.washingtonexaminer.com/news/world/4810026/us-russia-china-agree-un-out-of-its-business/"
       ],
       "risk_flags": [],
-      "age_minutes": 196.7
+      "age_minutes": 201.3
     },
     {
       "id": "e357f239240c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.08,
+      "urgency_score": 14.94,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3435,9 +3435,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4c9cab0b6b8f",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:00Z",
-      "source_detection_latency_seconds": 11800.3,
+      "source_detection_latency_seconds": 12077.9,
       "factual_update": "No one knows the day or hour of Jesus’ return — but Polymarket traders are betting on it anyway",
       "source": "The Blaze",
       "source_tier": 3,
@@ -3451,17 +3451,17 @@
         "https://www.theblaze.com/shows/predictable-with-stu-burguiere/no-one-knows-the-day-or-hour-of-jesus-return-but-polymarket-traders-are-betting-on-it-anyway"
       ],
       "risk_flags": [],
-      "age_minutes": 196.7
+      "age_minutes": 201.3
     },
     {
       "id": "bb1aeed7f2f9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.08,
+      "urgency_score": 14.94,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3472,9 +3472,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1f0387cdc87f",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:00Z",
-      "source_detection_latency_seconds": 11800.3,
+      "source_detection_latency_seconds": 12077.9,
       "factual_update": "Chinese Spy Mistress of Jensen Huang Allegedly Used Affair to Funnel $7 Billion in Restricted Nvidia Chips to China",
       "source": "Western Journal",
       "source_tier": 3,
@@ -3488,17 +3488,17 @@
         "https://www.westernjournal.com/chinese-spy-mistress-jensen-huang-allegedly-used-affair-funnel-7-billion-restricted-nvidia-chips-china/"
       ],
       "risk_flags": [],
-      "age_minutes": 196.7
+      "age_minutes": 201.3
     },
     {
       "id": "4739330eb1fe",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.02,
+      "urgency_score": 14.88,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.02,
+        "recency": 2.88,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3509,9 +3509,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "79970deb576d",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:58:00Z",
-      "source_detection_latency_seconds": 11920.3,
+      "source_detection_latency_seconds": 12197.9,
       "factual_update": "Vanessa DiBernardo caps 12-year wait with 'saucy' title-winning olimpico for Current and MVP honors",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3525,17 +3525,17 @@
         "https://www.cbssports.com/soccer/news/vanessa-dibernardo-olimpico-nwsl-current-mvp/"
       ],
       "risk_flags": [],
-      "age_minutes": 198.7
+      "age_minutes": 203.3
     },
     {
       "id": "9a00ab16e347",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.83,
+      "urgency_score": 14.7,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.83,
+        "recency": 2.7,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3546,9 +3546,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "246dabe33369",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:51:29Z",
-      "source_detection_latency_seconds": 12311.3,
+      "source_detection_latency_seconds": 12588.9,
       "factual_update": "Meet the dad with his own army of 400 tanks that have featured in films like ‘Spider-Man,’ ‘Fast and Furious’",
       "source": "New York Post",
       "source_tier": 3,
@@ -3562,17 +3562,17 @@
         "https://nypost.com/2026/11/22/lifestyle/english-dad-nick-mead-tanks-a-lot-farm-offers-400-tanks-used-in-hollywood-movies/"
       ],
       "risk_flags": [],
-      "age_minutes": 205.2
+      "age_minutes": 209.8
     },
     {
       "id": "e89d909e8548",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.66,
+      "urgency_score": 14.54,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.66,
+        "recency": 2.54,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3583,9 +3583,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e09ac530528c",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:45:17Z",
-      "source_detection_latency_seconds": 12683.3,
+      "source_detection_latency_seconds": 12960.9,
       "factual_update": "Fire at Indonesian candy factory leaves 3 dead, dozens of workers unaccounted for",
       "source": "New York Post",
       "source_tier": 3,
@@ -3599,17 +3599,17 @@
         "https://nypost.com/2026/11/22/world-news/indonesia-candy-factory-fire-leaves-3-dead-dozens-of-workers-unaccounted-for/"
       ],
       "risk_flags": [],
-      "age_minutes": 211.4
+      "age_minutes": 216.0
     },
     {
       "id": "0796d1202d3c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.56,
+      "urgency_score": 14.44,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.56,
+        "recency": 2.44,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3620,9 +3620,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "25b20b0debff",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:41:26Z",
-      "source_detection_latency_seconds": 12914.3,
+      "source_detection_latency_seconds": 13191.9,
       "factual_update": "SXSW Forges Partnership With Egypt’s UTH Festival Dedicated to Youth Culture",
       "source": "Variety",
       "source_tier": 3,
@@ -3636,17 +3636,17 @@
         "https://variety.com/2026/film/global/sxsw-partnership-egypt-uth-festival-youth-culture-1236955220/"
       ],
       "risk_flags": [],
-      "age_minutes": 215.2
+      "age_minutes": 219.9
     },
     {
       "id": "7f2d966bd01c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.28,
+      "urgency_score": 14.18,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.28,
+        "recency": 2.18,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3657,9 +3657,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "56718bc52bf7",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:30:00Z",
-      "source_detection_latency_seconds": 13600.3,
+      "source_detection_latency_seconds": 13877.9,
       "factual_update": "DC's new boss is a Christian. Why are superhero fans so worried?",
       "source": "The Blaze",
       "source_tier": 3,
@@ -3673,17 +3673,17 @@
         "https://www.theblaze.com/lifestyle/dc-s-new-boss-is-a-christian-why-are-superhero-fans-so-worried"
       ],
       "risk_flags": [],
-      "age_minutes": 226.7
+      "age_minutes": 231.3
     },
     {
       "id": "156e356ab7f4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.24,
+      "urgency_score": 14.14,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.24,
+        "recency": 2.14,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3694,9 +3694,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8383802dbd70",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T09:28:22Z",
-      "source_detection_latency_seconds": 13698.3,
+      "source_detection_latency_seconds": 13975.9,
       "factual_update": "Neon-Backed Biopic ‘Caesar,’ About Syrian Officer Who Blew the Whistle on Assad Regime Torture, to Be Directed by Ameer Fakher Eldin",
       "source": "Variety",
       "source_tier": 3,
@@ -3710,17 +3710,17 @@
         "https://variety.com/2026/film/global/ameer-fakher-eldin-caesar-syrian-assad-torture-1236955196/"
       ],
       "risk_flags": [],
-      "age_minutes": 228.3
+      "age_minutes": 232.9
     },
     {
       "id": "95ca2a46556a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 11.08,
+      "urgency_score": 10.94,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.08,
+        "recency": 2.94,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3731,9 +3731,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "92df737c9cc7",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:00Z",
-      "source_detection_latency_seconds": 11800.3,
+      "source_detection_latency_seconds": 12077.9,
       "factual_update": "NPR's Senior Podcast Challenge: Early entries we love",
       "source": "NPR News",
       "source_tier": 2,
@@ -3747,17 +3747,17 @@
         "https://www.npr.org/2026/11/22/nx-s1-6044221/npr-senior-podcast-challenge-early-entries"
       ],
       "risk_flags": [],
-      "age_minutes": 196.7
+      "age_minutes": 201.3
     },
     {
       "id": "b6a74900124d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 7.1,
+      "urgency_score": 6.96,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.1,
+        "recency": 2.96,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3768,9 +3768,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:00:35Z",
-      "source_detection_latency_seconds": 11765.3,
+      "source_detection_latency_seconds": 12042.9,
       "factual_update": "I Ate My Words After I Ate Wild Turkey for Thanksgiving",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -3784,17 +3784,17 @@
         "https://www.theepochtimes.com/article/i-ate-my-words-after-i-ate-wild-turkey-for-thanksgiving-6118018"
       ],
       "risk_flags": [],
-      "age_minutes": 196.1
+      "age_minutes": 200.7
     },
     {
       "id": "9d24784e6474",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 4.16,
+      "urgency_score": 3.97,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.16,
+        "recency": 3.97,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3805,9 +3805,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "900afff232e1",
-      "detected_at": "2026-11-22T13:16:40.296023Z",
+      "detected_at": "2026-11-22T13:21:17.887063Z",
       "source_published_at": "2026-11-22T10:30:00Z",
-      "source_detection_latency_seconds": 10000.3,
+      "source_detection_latency_seconds": 10277.9,
       "factual_update": "Bombshell Video: Newly Elected Dem Reveals Establishment Dems Vowed 'To Make Life a Living Hell' If He Fails to Fall in Line",
       "source": "Western Journal",
       "source_tier": 3,
@@ -3821,8 +3821,15 @@
         "https://www.westernjournal.com/bombshell-video-newly-elected-dem-reveals-establishment-dems-vowed-make-life-living-fails-fall-line/"
       ],
       "risk_flags": [],
-      "age_minutes": 166.7
+      "age_minutes": 171.3
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "0c81b3f93d03",
+      "status": "editorially_suppressed",
+      "storyline_id": "012c1661c6d4",
+      "reason": "insufficient_material_developments,insufficient_independent_sources"
+    }
+  ]
 }

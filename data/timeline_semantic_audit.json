@@ -1,13 +1,13 @@
 {
-  "generated_from": "2026-11-25T02:43:57.631065Z",
+  "generated_from": "2026-11-25T02:48:57.590915Z",
   "schema_version": 1,
   "timeline_count": 280,
-  "timelines_with_findings": 162,
+  "timelines_with_findings": 163,
   "high_severity_findings": 0,
-  "medium_severity_findings": 567,
+  "medium_severity_findings": 570,
   "finding_counts": {
-    "possible_cross_event_update": 539,
-    "possible_duplicate_development": 28
+    "possible_cross_event_update": 541,
+    "possible_duplicate_development": 29
   },
   "status": "HEALTHY",
   "timelines": {
@@ -512,6 +512,44 @@
           "identity_reason": "insufficient_event_evidence",
           "identity_confidence": 0.222,
           "token_similarity": 0.3
+        }
+      ]
+    },
+    "195e62a5e73e": {
+      "title": "Judge Makes DOJ Rewrite Its Plan Before Agents Search Ilhan Omar\u2019s Home",
+      "url": "/stories/195e62a5e73e/",
+      "findings": [
+        {
+          "type": "possible_cross_event_update",
+          "severity": "medium",
+          "update_id": "1cd9232b140a5174",
+          "label": "Federal court releases Rep. Ilhan Omar D.C. home raid documents",
+          "identity_reason": "insufficient_event_evidence",
+          "identity_confidence": 0.286,
+          "token_similarity": 0.333
+        },
+        {
+          "type": "possible_cross_event_update",
+          "severity": "medium",
+          "update_id": "ea66215b2c3941dc",
+          "label": "Ilhan Omar Raid Documents Released, and They\u2019re Devastating for Her",
+          "identity_reason": "insufficient_event_evidence",
+          "identity_confidence": 0.1,
+          "token_similarity": 0.4
+        },
+        {
+          "type": "possible_duplicate_development",
+          "severity": "medium",
+          "update_ids": [
+            "1cd9232b140a5174",
+            "ea66215b2c3941dc"
+          ],
+          "labels": [
+            "Federal court releases Rep. Ilhan Omar D.C. home raid documents",
+            "Ilhan Omar Raid Documents Released, and They\u2019re Devastating for Her"
+          ],
+          "token_similarity": 0.8,
+          "identity_confidence": 0.794
         }
       ]
     },

@@ -1,40 +1,44 @@
 {
   "cycle": {
-    "started_at": "2026-11-26T11:06:52.587120Z",
-    "completed_at": "2026-11-26T11:07:38.492420Z",
-    "duration_seconds": 45.91,
-    "previous_completed_at": "2026-11-26T11:02:31.948796Z"
+    "started_at": "2026-11-26T11:11:56.184712Z",
+    "completed_at": "2026-11-26T11:12:21.536708Z",
+    "duration_seconds": 25.35,
+    "previous_completed_at": "2026-11-26T11:07:38.492420Z"
   },
   "ingestion": {
-    "last_successful_run": "2026-11-26T11:07:01.710192Z",
-    "age_minutes": 0.6,
+    "last_successful_run": "2026-11-26T11:11:58.882610Z",
+    "age_minutes": 0.4,
     "configured_sources": 80,
-    "successful_sources": 79,
-    "failed_sources": 1,
-    "source_failure_pct": 1.2,
+    "successful_sources": 78,
+    "failed_sources": 2,
+    "source_failure_pct": 2.5,
     "failed_source_details": [
+      {
+        "source": "WND",
+        "error": "Exceeded 30 redirects."
+      },
       {
         "source": "Entertainment Weekly",
         "error": "403 Client Error: Forbidden for url: https://ew.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://ew.com/"
       }
     ],
-    "stories_available": 1336
+    "stories_available": 1316
   },
   "content": {
-    "last_story_created": "2026-11-26T11:07:38.487941Z",
+    "last_story_created": "2026-11-26T11:12:21.533431Z",
     "last_story_age_minutes": 0.0,
-    "last_timeline_update": "2026-11-26T11:07:20.652525Z",
-    "last_timeline_age_minutes": 0.3,
+    "last_timeline_update": "2026-11-26T11:12:10.578139Z",
+    "last_timeline_age_minutes": 0.2,
     "published_timelines": 327,
-    "manifest_updated_at": "2026-11-26T11:07:30.753763Z"
+    "manifest_updated_at": "2026-11-26T11:12:16.599673Z"
   },
   "fast_path": {
-    "reports_evaluated": 117,
-    "candidate_events": 108,
+    "reports_evaluated": 123,
+    "candidate_events": 114,
     "fast_path_events": 0,
-    "held_for_normal_path": 108,
+    "held_for_normal_path": 114,
     "duplicate_reports_suppressed": 9,
-    "duplicate_event_rate_pct": 7.69,
+    "duplicate_event_rate_pct": 7.32,
     "median_source_detection_latency_seconds": null,
     "high_urgency_capture_pct": null,
     "published_fast_path_events": 0,
@@ -86,8 +90,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 9.18,
-      "completed_at": "2026-11-26T11:07:01.762957Z",
+      "duration_seconds": 2.74,
+      "completed_at": "2026-11-26T11:11:58.929132Z",
       "consecutive_failures": 0,
       "artifact": "data/news.json",
       "message": "FAILED: Entertainment Weekly: 403 Client Error: Forbidden for url: https://ew.com/feed/; feed autodiscovery failed: 403 Client Error: Forbidden for url: https://ew.com/"
@@ -97,30 +101,30 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.7,
-      "completed_at": "2026-11-26T11:07:02.462749Z",
+      "duration_seconds": 0.44,
+      "completed_at": "2026-11-26T11:11:59.370012Z",
       "consecutive_failures": 0,
       "artifact": "data/breaking_fast_path.json",
-      "message": "Fast path: 0 promoted, 108 kept on normal path, 9 duplicates grouped."
+      "message": "Fast path: 0 promoted, 114 kept on normal path, 9 duplicates grouped."
     },
     "clustering": {
       "label": "Story clustering",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 18.16,
-      "completed_at": "2026-11-26T11:07:20.620639Z",
+      "duration_seconds": 11.18,
+      "completed_at": "2026-11-26T11:12:10.553694Z",
       "consecutive_failures": 0,
       "artifact": "data/storylines.json",
-      "message": "Built 1164 storylines; 54 multi-family; 1 breaking; 2 developing; 0 hot"
+      "message": "Built 1152 storylines; 51 multi-family; 2 breaking; 3 developing; 0 hot"
     },
     "history": {
       "label": "Timeline history",
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.82,
-      "completed_at": "2026-11-26T11:07:21.442729Z",
+      "duration_seconds": 0.55,
+      "completed_at": "2026-11-26T11:12:11.103890Z",
       "consecutive_failures": 0,
       "artifact": "data/history.json",
       "message": "History updated; 1000 retained storylines"
@@ -130,8 +134,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 14.37,
-      "completed_at": "2026-11-26T11:07:35.815734Z",
+      "duration_seconds": 8.65,
+      "completed_at": "2026-11-26T11:12:19.752339Z",
       "consecutive_failures": 0,
       "artifact": "data/published_timelines.json",
       "message": "Published 327 autonomous source-backed story timelines"
@@ -141,8 +145,8 @@
       "status": "HEALTHY",
       "criticality": "core",
       "attempts": 1,
-      "duration_seconds": 0.06,
-      "completed_at": "2026-11-26T11:07:35.946317Z",
+      "duration_seconds": 0.05,
+      "completed_at": "2026-11-26T11:12:19.850468Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Installed lean Rally Point homepage shell with resilient Wire fallback"
@@ -152,8 +156,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.35,
-      "completed_at": "2026-11-26T11:07:36.293490Z",
+      "duration_seconds": 0.21,
+      "completed_at": "2026-11-26T11:12:20.061057Z",
       "consecutive_failures": 0,
       "artifact": "archive/index.html",
       "message": "Archived 1045 permanent timeline URLs; 327 currently active"
@@ -163,8 +167,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.12,
-      "completed_at": "2026-11-26T11:07:36.478143Z",
+      "duration_seconds": 0.1,
+      "completed_at": "2026-11-26T11:12:20.208087Z",
       "consecutive_failures": 0,
       "artifact": "data/notification_health.json",
       "message": "Notification foundation ready: 0 candidate(s), 0 suppressed, 0 deduped; delivery disabled"
@@ -175,7 +179,7 @@
       "criticality": "auxiliary",
       "attempts": 1,
       "duration_seconds": 0.02,
-      "completed_at": "2026-11-26T11:07:36.502738Z",
+      "completed_at": "2026-11-26T11:12:20.228340Z",
       "consecutive_failures": 0,
       "artifact": "index.html",
       "message": "Discovery metadata already current"
@@ -185,8 +189,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.04,
-      "completed_at": "2026-11-26T11:07:36.545641Z",
+      "duration_seconds": 0.03,
+      "completed_at": "2026-11-26T11:12:20.262138Z",
       "consecutive_failures": 0,
       "artifact": "recent/index.html",
       "message": "Built recent-headlines page with 150 attributed links."
@@ -196,8 +200,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.15,
-      "completed_at": "2026-11-26T11:07:36.692400Z",
+      "duration_seconds": 0.12,
+      "completed_at": "2026-11-26T11:12:20.382939Z",
       "consecutive_failures": 0,
       "artifact": "feed.xml",
       "message": "Built RSS feed with 75 live timelines"
@@ -207,8 +211,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 1.43,
-      "completed_at": "2026-11-26T11:07:38.125356Z",
+      "duration_seconds": 0.86,
+      "completed_at": "2026-11-26T11:12:21.246021Z",
       "consecutive_failures": 0,
       "artifact": "data/timeline_semantic_audit.json",
       "message": "}"
@@ -218,8 +222,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.14,
-      "completed_at": "2026-11-26T11:07:38.261824Z",
+      "duration_seconds": 0.11,
+      "completed_at": "2026-11-26T11:12:21.353051Z",
       "consecutive_failures": 0,
       "artifact": "data/distribution_candidates.json",
       "message": "Built 12 selective distribution candidates; suppressed 0 duplicate event promotions"
@@ -229,8 +233,8 @@
       "status": "HEALTHY",
       "criticality": "auxiliary",
       "attempts": 1,
-      "duration_seconds": 0.14,
-      "completed_at": "2026-11-26T11:07:38.399550Z",
+      "duration_seconds": 0.11,
+      "completed_at": "2026-11-26T11:12:21.461578Z",
       "consecutive_failures": 0,
       "artifact": "sitemap.xml",
       "message": "Built focused sitemap for homepage, Story Desk, and authoritative canonical timelines"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T02:34:26.653239Z",
+  "generated_at": "2026-11-28T02:39:34.532984Z",
   "schema_version": 1,
   "policy": {
     "fast_path_rule": "trusted primary source or two independent trusted sources; uncertain claims are held",
@@ -7,20 +7,20 @@
     "ideology_used_in_scoring": false
   },
   "metrics": {
-    "reports_evaluated": 161,
-    "candidate_events": 116,
-    "fast_path_events": 0,
-    "held_for_normal_path": 116,
-    "duplicate_reports_suppressed": 45,
-    "duplicate_event_rate_pct": 27.95,
-    "median_source_detection_latency_seconds": null,
-    "high_urgency_capture_pct": null,
-    "published_fast_path_events": 0,
-    "detection_to_publication_latency_seconds": null,
+    "reports_evaluated": 159,
+    "candidate_events": 115,
+    "fast_path_events": 1,
+    "held_for_normal_path": 114,
+    "duplicate_reports_suppressed": 44,
+    "duplicate_event_rate_pct": 27.67,
+    "median_source_detection_latency_seconds": 4174.5,
+    "high_urgency_capture_pct": 100.0,
+    "published_fast_path_events": 1,
+    "detection_to_publication_latency_seconds": 26.6,
     "correction_events": 0,
     "correction_rate_pct": 0.0,
     "publication_outcomes": {
-      "published": 0,
+      "published": 1,
       "editorially_suppressed": 0,
       "deferred": 0,
       "missed": 0
@@ -29,53 +29,74 @@
   },
   "candidates": [
     {
-      "id": "251dea84a0c6",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 57.23,
+      "id": "ee97aa5d6b19",
+      "path": "breaking",
+      "eligible": true,
+      "reason": "independently_corroborated",
+      "urgency_score": 79.99,
       "score_components": {
         "source_trust": 10,
-        "recency": 17.23,
+        "recency": 19.99,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
+        "velocity": 12,
+        "independent_confirmations": 12,
         "existing_timeline_interest": 8,
         "material_change": 6,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "25b58e78c0c7",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T00:23:58Z",
-      "source_detection_latency_seconds": 7828.7,
-      "factual_update": "Mamdani handed out $95K in staff raises the same day he warned of $12B budget deficit: report",
-      "source": "Fox News",
+      "matched_storyline_id": "b58ec883d8bb",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:30:00Z",
+      "source_detection_latency_seconds": 4174.5,
+      "factual_update": "We found 60-odd Black Friday deals we love for $100 or less",
+      "source": "The Verge",
       "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/politics/mamdani-handed-95k-staff-raises-same-day-warned-12b-budget-deficit-report",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 1,
+      "primary_source_link": "https://www.theverge.com/gadgets/1043445/black-friday-best-cheap-tech-deals-under-100-2026",
+      "independent_source_count": 9,
+      "trusted_independent_source_count": 3,
       "corroborating_sources": [
+        "CBS News",
+        "CBS Sports",
+        "E! News",
         "Fox News",
-        "PJ Media"
+        "New York Post",
+        "Page Six",
+        "RedState",
+        "Rolling Stone",
+        "The Verge"
       ],
       "corroborating_links": [
-        "https://pjmedia.com/catherinesalgado/2026/11/27/mamdani-gave-staffers-raises-as-he-confessed-to-a-budget-deficit-n4959786",
-        "https://www.foxnews.com/politics/mamdani-handed-95k-staff-raises-same-day-warned-12b-budget-deficit-report"
+        "https://nypost.com/shopping/best-black-friday-streaming-deals-2026/",
+        "https://nypost.com/shopping/black-friday-headphones-deals-2026/",
+        "https://pagesix.com/style/black-friday-beauty-sales-deals-2026/",
+        "https://redstate.com/nick-arama/2026/11/27/anti-israel-protests-against-stores-on-black-friday-n2209866",
+        "https://www.cbsnews.com/video/shoppers-expected-to-spend-nearly-13-billion-this-black-friday-adobe-says/",
+        "https://www.cbssports.com/betting/news/use-betmgm-bonus-code-cbssports-to-get-1500-bonus-bets-texas-texas-am-black-friday/",
+        "https://www.cbssports.com/betting/news/use-draftkings-promo-code-to-get-200-bonus-bets-free-nba-league-pass-for-texas-texas-am-on-black-friday/",
+        "https://www.eonline.com/news/1438441/the-best-black-friday-le-creuset-deals-under-s300?cmpid=rss-syndicate-genericrss-us-top_stories",
+        "https://www.foxnews.com/outkick-sports/steelers-silence-aaron-rodgers-noise-cruise-past-broncos-remain-perfect-home-black-friday",
+        "https://www.rollingstone.com/product-recommendations/tech/apple-airpods-black-friday-deal-2026-1235665455/",
+        "https://www.theverge.com/gadgets/1039190/best-black-friday-2026-deals-tech-gadgets-gift-ideas",
+        "https://www.theverge.com/gadgets/1043445/black-friday-best-cheap-tech-deals-under-100-2026",
+        "https://www.theverge.com/gadgets/1043935/best-black-friday-apple-deals-2026"
       ],
       "risk_flags": [],
-      "age_minutes": 24.4
+      "age_minutes": 9.6,
+      "published_storyline_id": "f44bd885e3ae",
+      "published_at": "2026-11-28T02:40:01.083075Z",
+      "detection_to_publication_latency_seconds": 26.6
     },
     {
       "id": "a446fe873f10",
       "path": "normal",
       "eligible": false,
       "reason": "held_unconfirmed",
-      "urgency_score": 52.59,
+      "urgency_score": 51.81,
       "score_components": {
         "source_trust": 10,
-        "recency": 15.59,
+        "recency": 14.81,
         "magnitude": 24,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -86,9 +107,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "c69cc2b09fa4",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:37:06Z",
-      "source_detection_latency_seconds": 7040.7,
+      "source_detection_latency_seconds": 7348.5,
       "factual_update": "How severe weather rocked this Thanksgiving, from power outages to flight delays",
       "source": "CBS News",
       "source_tier": 2,
@@ -121,17 +142,17 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 34.4
+      "age_minutes": 39.6
     },
     {
       "id": "458ec8962fb1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 48.17,
+      "urgency_score": 47.36,
       "score_components": {
         "source_trust": 10,
-        "recency": 16.17,
+        "recency": 15.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -142,9 +163,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "95f9c004e576",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:20:01Z",
-      "source_detection_latency_seconds": 8065.7,
+      "source_detection_latency_seconds": 8373.5,
       "factual_update": "Jermaine Haley, WWE star known as Bronson Reed, dead at 38",
       "source": "Fox News",
       "source_tier": 2,
@@ -167,7 +188,7 @@
         "https://www.tmz.com/2026/11/27/wwe-superstar-bronson-reed-dead-at-38/"
       ],
       "risk_flags": [],
-      "age_minutes": 30.8
+      "age_minutes": 35.9
     },
     {
       "id": "17ebb134d264",
@@ -188,7 +209,7 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "31e5aed50ca5",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-29T11:22:49Z",
       "source_detection_latency_seconds": 0,
       "factual_update": "There are no tropical cyclones at this time.",
@@ -211,10 +232,10 @@
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 44.07,
+      "urgency_score": 43.27,
       "score_components": {
         "source_trust": 2,
-        "recency": 16.07,
+        "recency": 15.27,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -225,9 +246,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8524c2e24a4a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T02:03:02Z",
-      "source_detection_latency_seconds": 1884.7,
+      "source_detection_latency_seconds": 2192.5,
       "factual_update": "Warriors receive good Steph Curry news amid oblique injury",
       "source": "New York Post",
       "source_tier": 3,
@@ -241,17 +262,17 @@
         "https://nypost.com/2026/11/27/sports/warriors-receive-good-steph-curry-news-amid-oblique-injury/"
       ],
       "risk_flags": [],
-      "age_minutes": 31.4
+      "age_minutes": 36.5
     },
     {
       "id": "974bdc699d9f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 43.75,
+      "urgency_score": 43.16,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.75,
+        "recency": 11.16,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -262,9 +283,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "76e64977db7b",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:31:43Z",
-      "source_detection_latency_seconds": 3763.7,
+      "source_detection_latency_seconds": 4071.5,
       "factual_update": "American Airlines planes clip wings during busy holiday travel weekend at Reagan National in DC",
       "source": "Fox News",
       "source_tier": 2,
@@ -281,17 +302,76 @@
         "https://www.foxnews.com/us/american-airlines-planes-clip-wings-busy-holiday-travel-weekend-reagan-national-dc"
       ],
       "risk_flags": [],
-      "age_minutes": 62.7
+      "age_minutes": 67.9
+    },
+    {
+      "id": "d04994bc89c9",
+      "path": "normal",
+      "eligible": false,
+      "reason": "held_unconfirmed",
+      "urgency_score": 40.02,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 21.02,
+        "magnitude": 12,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 12,
+        "independent_confirmations": 6,
+        "existing_timeline_interest": 8,
+        "material_change": 6,
+        "risk_penalty": -35
+      },
+      "matched_storyline_id": "25b58e78c0c7",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T00:23:58Z",
+      "source_detection_latency_seconds": 8136.5,
+      "factual_update": "Mamdani handed out $95K in staff raises the same day he warned of $12B budget deficit: report",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/politics/mamdani-handed-95k-staff-raises-same-day-warned-12b-budget-deficit-report",
+      "independent_source_count": 8,
+      "trusted_independent_source_count": 2,
+      "corroborating_sources": [
+        "CBS Sports",
+        "E! News",
+        "Fox Business",
+        "Fox News",
+        "Page Six",
+        "RedState",
+        "Rolling Stone",
+        "TMZ",
+        "The Verge"
+      ],
+      "corroborating_links": [
+        "https://pagesix.com/2026/11/27/style/the-best-macys-tennis-diamond-bracelets-under-200-for-black-friday/",
+        "https://redstate.com/nick-arama/2026/11/27/mamdani-raises-to-staffers-n2209874",
+        "https://www.cbssports.com/nfl/news/black-friday-scorigami-steelers-broncos-final-score-nfl-history/",
+        "https://www.eonline.com/news/1438443/michael-kors-black-friday-sale-s67-greta-leather-satchel?cmpid=rss-syndicate-genericrss-us-top_stories",
+        "https://www.foxbusiness.com/fox-news-politics/mamdani-targets-amazon-black-friday-150k-customers-push-back-against-delivery-crackdown",
+        "https://www.foxnews.com/deals/black-friday-sales",
+        "https://www.foxnews.com/deals/irestore-black-friday-deal",
+        "https://www.foxnews.com/politics/mamdani-handed-95k-staff-raises-same-day-warned-12b-budget-deficit-report",
+        "https://www.rollingstone.com/product-recommendations/tech/best-headphone-earbud-deals-black-friday-cyber-monday-2026-1235663158/",
+        "https://www.theverge.com/gadgets/1040471/4k-bluray-movie-film-black-friday-deal-sale",
+        "https://www.theverge.com/gadgets/1043976/sony-wh1000xm4c-noise-canceling-headphones-black-friday-2026-deal-sale",
+        "https://www.theverge.com/gadgets/1044487/best-black-friday-robot-vacuum-mop-deals-2026",
+        "https://www.tmz.com/2026/11/27/dk-metcalf-seemingly-criticizes-aaron-rodgers/"
+      ],
+      "risk_flags": [
+        "unconfirmed_claim"
+      ],
+      "age_minutes": 4.6
     },
     {
       "id": "f5acf77d6d42",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 39.34,
+      "urgency_score": 39.02,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.34,
+        "recency": 6.02,
         "magnitude": 12,
         "public_safety": 5,
         "institutional_prominence": 0,
@@ -302,9 +382,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "07c15cd2dc43",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:30:00Z",
-      "source_detection_latency_seconds": 7466.7,
+      "source_detection_latency_seconds": 7774.5,
       "factual_update": "The Wild Story of How Andy Ngo Allegedly Caught a Cross-Dressing Murderer (CONTENT WARNING)",
       "source": "Twitchy",
       "source_tier": 3,
@@ -318,17 +398,17 @@
         "https://twitchy.com/aaronwalker/2026/11/27/the-wild-story-of-how-andy-ngo-allegedly-discovered-a-trans-murderer-n2434814"
       ],
       "risk_flags": [],
-      "age_minutes": 124.4
+      "age_minutes": 129.6
     },
     {
       "id": "07d4fc521cc1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 39.2,
+      "urgency_score": 38.24,
       "score_components": {
         "source_trust": 10,
-        "recency": 19.2,
+        "recency": 18.24,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -339,9 +419,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2a15344d9c2d",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T02:20:49Z",
-      "source_detection_latency_seconds": 817.7,
+      "source_detection_latency_seconds": 1125.5,
       "factual_update": "Set time aside for children to read for pleasure, schools to be told",
       "source": "BBC News",
       "source_tier": 2,
@@ -355,17 +435,17 @@
         "https://www.bbc.co.uk/news/articles/c65y1vp4ndqjo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 13.6
+      "age_minutes": 18.8
     },
     {
       "id": "af2ca00aa305",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 37.23,
+      "urgency_score": 36.77,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.23,
+        "recency": 8.77,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -376,9 +456,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "93abceb31986",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:07:35Z",
-      "source_detection_latency_seconds": 5211.7,
+      "source_detection_latency_seconds": 5519.5,
       "factual_update": "Lakers forward has ‘a lot of special things’ planned being back in LA",
       "source": "New York Post",
       "source_tier": 3,
@@ -392,54 +472,17 @@
         "https://nypost.com/2026/11/27/sports/lakers-ziaire-williams-community-events-los-angeles/"
       ],
       "risk_flags": [],
-      "age_minutes": 86.9
-    },
-    {
-      "id": "6fa5c185ac26",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 35.62,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 15.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "2395c60a43e4",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T02:00:10Z",
-      "source_detection_latency_seconds": 2056.7,
-      "factual_update": "Wall Street stages major comeback during Thanksgiving-shortened trading week",
-      "source": "Fox Business",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxbusiness.com/markets/wall-street-stages-major-comeback-thanksgiving-shortened-trading-week",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox Business"
-      ],
-      "corroborating_links": [
-        "https://www.foxbusiness.com/markets/wall-street-stages-major-comeback-thanksgiving-shortened-trading-week"
-      ],
-      "risk_flags": [],
-      "age_minutes": 34.3
+      "age_minutes": 92.0
     },
     {
       "id": "013919c6873e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 35.3,
+      "urgency_score": 34.88,
       "score_components": {
         "source_trust": 10,
-        "recency": 8.3,
+        "recency": 7.88,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -450,9 +493,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c31510e437ad",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:56:55Z",
-      "source_detection_latency_seconds": 5851.7,
+      "source_detection_latency_seconds": 6159.5,
       "factual_update": "'Poison seller' Kenneth Law apologises in court to the families of his victims",
       "source": "BBC News",
       "source_tier": 2,
@@ -466,17 +509,54 @@
         "https://www.bbc.co.uk/news/articles/cmx2898wq2qjo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 97.5
+      "age_minutes": 102.7
+    },
+    {
+      "id": "6fa5c185ac26",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 34.83,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 14.83,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "2395c60a43e4",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:00:10Z",
+      "source_detection_latency_seconds": 2364.5,
+      "factual_update": "Wall Street stages major comeback during Thanksgiving-shortened trading week",
+      "source": "Fox Business",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxbusiness.com/markets/wall-street-stages-major-comeback-thanksgiving-shortened-trading-week",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox Business"
+      ],
+      "corroborating_links": [
+        "https://www.foxbusiness.com/markets/wall-street-stages-major-comeback-thanksgiving-shortened-trading-week"
+      ],
+      "risk_flags": [],
+      "age_minutes": 39.4
     },
     {
       "id": "d0f3f33fd367",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 34.91,
+      "urgency_score": 34.17,
       "score_components": {
         "source_trust": 10,
-        "recency": 14.91,
+        "recency": 14.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -487,9 +567,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ebe476c393da",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:55:33Z",
-      "source_detection_latency_seconds": 2333.7,
+      "source_detection_latency_seconds": 2641.5,
       "factual_update": "Hundreds of thousands still without power a day after US slammed with Thanksgiving storms",
       "source": "BBC Science & Environment",
       "source_tier": 2,
@@ -503,54 +583,54 @@
         "https://www.bbc.co.uk/news/articles/cre3dj5n7dpwo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 38.9
+      "age_minutes": 44.0
     },
     {
-      "id": "6dc48d427b94",
+      "id": "8b6e333b98d5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.71,
+      "urgency_score": 33.09,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.71,
+        "recency": 21.09,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
         "velocity": 0,
         "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
+        "existing_timeline_interest": 0,
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "530f819e6c4a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:47:07Z",
-      "source_detection_latency_seconds": 2839.7,
-      "factual_update": "Seahawks, 49ers matchup changes drastically as Brock Purdy ruled out while Sam Darnold returns from injury",
+      "matched_storyline_id": null,
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:35:20Z",
+      "source_detection_latency_seconds": 254.5,
+      "factual_update": "Multiple Florida State captains refuse handshakes with Florida at coin toss, raising sportsmanship questions",
       "source": "Fox News",
       "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/outkick-sports/seahawks-49ers-matchup-changes-drastically-brock-purdy-ruled-out-sam-darnold-returns-injury",
+      "primary_source_link": "https://www.foxnews.com/outkick-sports/multiple-florida-state-captains-refuse-handshakes-florida-coin-toss-raising-sportsmanship-questions",
       "independent_source_count": 1,
       "trusted_independent_source_count": 1,
       "corroborating_sources": [
         "Fox News"
       ],
       "corroborating_links": [
-        "https://www.foxnews.com/outkick-sports/seahawks-49ers-matchup-changes-drastically-brock-purdy-ruled-out-sam-darnold-returns-injury"
+        "https://www.foxnews.com/outkick-sports/multiple-florida-state-captains-refuse-handshakes-florida-coin-toss-raising-sportsmanship-questions"
       ],
       "risk_flags": [],
-      "age_minutes": 47.3
+      "age_minutes": 4.2
     },
     {
       "id": "fa93ee784ec8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 33.53,
+      "urgency_score": 33.05,
       "score_components": {
         "source_trust": 10,
-        "recency": 9.53,
+        "recency": 9.05,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -561,9 +641,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0f388c6cbc94",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:10:47Z",
-      "source_detection_latency_seconds": 5019.7,
+      "source_detection_latency_seconds": 5327.5,
       "factual_update": "U.S. forces disable commercial ship that allegedly tried to breach Iran blockade",
       "source": "CBS News",
       "source_tier": 2,
@@ -579,17 +659,54 @@
         "https://www.cbsnews.com/live-updates/iran-war-trump-us-threats-diplomacy-strait-of-hormuz/"
       ],
       "risk_flags": [],
-      "age_minutes": 83.7
+      "age_minutes": 88.8
+    },
+    {
+      "id": "6dc48d427b94",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 33.02,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 13.02,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "530f819e6c4a",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:47:07Z",
+      "source_detection_latency_seconds": 3147.5,
+      "factual_update": "Seahawks, 49ers matchup changes drastically as Brock Purdy ruled out while Sam Darnold returns from injury",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/outkick-sports/seahawks-49ers-matchup-changes-drastically-brock-purdy-ruled-out-sam-darnold-returns-injury",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/outkick-sports/seahawks-49ers-matchup-changes-drastically-brock-purdy-ruled-out-sam-darnold-returns-injury"
+      ],
+      "risk_flags": [],
+      "age_minutes": 52.5
     },
     {
       "id": "e1c820745b11",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.95,
+      "urgency_score": 31.75,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.95,
+        "recency": 3.75,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -600,9 +717,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ca58804f8a38",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:42:45Z",
-      "source_detection_latency_seconds": 10301.7,
+      "source_detection_latency_seconds": 10609.5,
       "factual_update": "Farhan Akhtar, Ashutosh Gowariker and Madhur Bhandarkar Look Back at ‘Dil Chahta Hai,’ ‘Lagaan’ and ‘Chandni Bar’ at 25",
       "source": "Variety",
       "source_tier": 3,
@@ -616,17 +733,54 @@
         "https://variety.com/2026/film/festivals/farhan-akhtar-ashutosh-gowariker-madhur-bhandarkar-iffi-goa-1236959836/"
       ],
       "risk_flags": [],
-      "age_minutes": 171.7
+      "age_minutes": 176.8
+    },
+    {
+      "id": "5b0d5ad41e05",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 31.62,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 19.62,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "90ff004ab281",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:28:07Z",
+      "source_detection_latency_seconds": 687.5,
+      "factual_update": "Keep online activity private and save 75% with Proton VPN’s Black Friday Deal",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/27/shopping/save-75-with-proton-vpns-black-friday-deal/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/27/shopping/save-75-with-proton-vpns-black-friday-deal/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 11.5
     },
     {
       "id": "0aa2dee70567",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.79,
+      "urgency_score": 31.4,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.79,
+        "recency": 7.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -637,9 +791,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5ffabbce4b02",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:50:40Z",
-      "source_detection_latency_seconds": 6226.7,
+      "source_detection_latency_seconds": 6534.5,
       "factual_update": "Aaron Rodgers claims he was barred from Steelers facility before infamous interview in message to Al Michaels",
       "source": "Fox News",
       "source_tier": 2,
@@ -655,54 +809,17 @@
         "https://www.foxnews.com/outkick-sports/aaron-rodgers-claims-barred-steelers-facility-infamous-interview-message-al-michaels"
       ],
       "risk_flags": [],
-      "age_minutes": 103.8
-    },
-    {
-      "id": "ecd790245e38",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 31.65,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 11.65,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "299aeb62ce16",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:30:50Z",
-      "source_detection_latency_seconds": 3816.7,
-      "factual_update": "How gamers are using AI and leaked files to clone Grand Theft Auto 6",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c64gn8pe5eeqo?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/c64gn8pe5eeqo?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 63.6
+      "age_minutes": 108.9
     },
     {
       "id": "4c6c993e110b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.42,
+      "urgency_score": 31.25,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.42,
+        "recency": 3.25,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -713,9 +830,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5b8ff30bc310",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:28:25Z",
-      "source_detection_latency_seconds": 11161.7,
+      "source_detection_latency_seconds": 11469.5,
       "factual_update": "Defamation Case by Ex-Husband Against Ex-Wife, Based on Her Allegations to Police, Can Go Forward",
       "source": "Reason",
       "source_tier": 3,
@@ -729,17 +846,17 @@
         "https://reason.com/volokh/2026/11/27/defamation-case-by-ex-husband-against-ex-wife-based-on-her-allegations-to-police-can-go-forward/"
       ],
       "risk_flags": [],
-      "age_minutes": 186.0
+      "age_minutes": 191.2
     },
     {
-      "id": "d181b0842c43",
+      "id": "ecd790245e38",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 31.21,
+      "urgency_score": 31.06,
       "score_components": {
         "source_trust": 10,
-        "recency": 11.21,
+        "recency": 11.06,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -749,34 +866,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "7b5af6c8f598",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:27:03Z",
-      "source_detection_latency_seconds": 4043.7,
-      "factual_update": "Dean says ‘Pennsylvania deserves better’ as she mulls challenging Fetterman",
-      "source": "The Hill",
+      "matched_storyline_id": "299aeb62ce16",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:30:50Z",
+      "source_detection_latency_seconds": 4124.5,
+      "factual_update": "How gamers are using AI and leaked files to clone Grand Theft Auto 6",
+      "source": "BBC News",
       "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/house/6245814-madeleine-dean-senate-bid-fetterman/",
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c64gn8pe5eeqo?at_medium=RSS&at_campaign=rss",
       "independent_source_count": 1,
       "trusted_independent_source_count": 1,
       "corroborating_sources": [
-        "The Hill"
+        "BBC News"
       ],
       "corroborating_links": [
-        "https://thehill.com/homenews/house/6245814-madeleine-dean-senate-bid-fetterman/"
+        "https://www.bbc.co.uk/news/articles/c64gn8pe5eeqo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 67.4
+      "age_minutes": 68.7
     },
     {
       "id": "adf1fdd29b2e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.9,
+      "urgency_score": 30.76,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.9,
+        "recency": 2.76,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -787,9 +904,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "25266a2b5a2b",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:11:57Z",
-      "source_detection_latency_seconds": 12149.7,
+      "source_detection_latency_seconds": 12457.5,
       "factual_update": "‘Graceful Warrior’: Gary Sinise on His Son’s Courage, Faith, and Enduring Legacy",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -803,17 +920,17 @@
         "https://www.theepochtimes.com/epochtv/graceful-warrior-gary-sinise-on-his-sons-courage-faith-and-enduring-legacy-6129998"
       ],
       "risk_flags": [],
-      "age_minutes": 202.5
+      "age_minutes": 207.6
     },
     {
       "id": "be356d5cae93",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.87,
+      "urgency_score": 30.72,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.87,
+        "recency": 2.72,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -824,9 +941,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ae9a5a056144",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:10:42Z",
-      "source_detection_latency_seconds": 12224.7,
+      "source_detection_latency_seconds": 12532.5,
       "factual_update": "Predicting Awards Season’s First Big Week: Who Wins at the Gothams, NYFCC, NBR and More",
       "source": "Variety",
       "source_tier": 3,
@@ -840,17 +957,54 @@
         "https://variety.com/lists/gotham-nyfcc-nbr-afi-lafca-predictions-2026/"
       ],
       "risk_flags": [],
-      "age_minutes": 203.7
+      "age_minutes": 208.9
+    },
+    {
+      "id": "d181b0842c43",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 30.65,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 10.65,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "7b5af6c8f598",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:27:03Z",
+      "source_detection_latency_seconds": 4351.5,
+      "factual_update": "Dean says ‘Pennsylvania deserves better’ as she mulls challenging Fetterman",
+      "source": "The Hill",
+      "source_tier": 2,
+      "primary_source_link": "https://thehill.com/homenews/house/6245814-madeleine-dean-senate-bid-fetterman/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "The Hill"
+      ],
+      "corroborating_links": [
+        "https://thehill.com/homenews/house/6245814-madeleine-dean-senate-bid-fetterman/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 72.5
     },
     {
       "id": "fa9482c530d1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 30.54,
+      "urgency_score": 30.36,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.54,
+        "recency": 3.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -861,9 +1015,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "aa3c8710a47a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:31:45Z",
-      "source_detection_latency_seconds": 10961.7,
+      "source_detection_latency_seconds": 11269.5,
       "factual_update": "Mexican President Claudia Sheinbaum protests new DEA tip line for reporting criminals, corrupt officials",
       "source": "Fox News",
       "source_tier": 2,
@@ -877,344 +1031,10 @@
         "https://www.foxnews.com/us/mexico-president-claudia-sheinbaum-protests-new-dea-tip-line-reporting-criminals-corrupt-officials"
       ],
       "risk_flags": [],
-      "age_minutes": 182.7
-    },
-    {
-      "id": "316ff7cc9f9d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.25,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.25,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fb8c8539f7f6",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T02:15:45Z",
-      "source_detection_latency_seconds": 1121.7,
-      "factual_update": "LA brewery reveals opening of fourth location in Santa Monica",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/27/business/la-brewery-reveals-opening-of-fourth-location-in-santa-monica/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/27/business/la-brewery-reveals-opening-of-fourth-location-in-santa-monica/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 18.7
-    },
-    {
-      "id": "f8a7b1aec91f",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.11,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 18.11,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ec99b04e9faf",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T02:15:00Z",
-      "source_detection_latency_seconds": 1166.7,
-      "factual_update": "Mexico Filed a Complaint on the DEA’s Tip Line, but a Sinaloa Journalist Already Used It",
-      "source": "PJ Media",
-      "source_tier": 3,
-      "primary_source_link": "https://pjmedia.com/david-manney/2026/11/27/mexico-filed-a-complaint-on-the-deas-tip-line-a-sinaloa-journalist-already-used-it-n4959787",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "PJ Media"
-      ],
-      "corroborating_links": [
-        "https://pjmedia.com/david-manney/2026/11/27/mexico-filed-a-complaint-on-the-deas-tip-line-a-sinaloa-journalist-already-used-it-n4959787"
-      ],
-      "risk_flags": [],
-      "age_minutes": 19.4
-    },
-    {
-      "id": "63a1cba6e49e",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 30.02,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.02,
-        "magnitude": 12,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 6,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "84e46fa14be4",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T22:35:47Z",
-      "source_detection_latency_seconds": 14319.7,
-      "factual_update": "Kushner Warns Ukraine War Could Escalate, Says Putin Has Agreed Not to Use Nuclear Weapons",
-      "source": "The Epoch Times",
-      "source_tier": 3,
-      "primary_source_link": "https://www.theepochtimes.com/world/kushner-warns-ukraine-war-could-escalate-says-putin-has-agreed-not-to-use-nuclear-weapons-6130118",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "The Epoch Times"
-      ],
-      "corroborating_links": [
-        "https://www.theepochtimes.com/world/kushner-warns-ukraine-war-could-escalate-says-putin-has-agreed-not-to-use-nuclear-weapons-6130118"
-      ],
-      "risk_flags": [],
-      "age_minutes": 238.7
+      "age_minutes": 187.8
     },
     {
       "id": "82f984c6a47a",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.96,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.96,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "53d436f57620",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:15:13Z",
-      "source_detection_latency_seconds": 4753.7,
-      "factual_update": "It turns out Florida Gators coach Jon Sumrall is just as superstitious as his fanbase",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/outkick-sports/florida-gators-coach-jon-sumrall-superstitious-fanbase",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.foxnews.com/outkick-sports/florida-gators-coach-jon-sumrall-superstitious-fanbase"
-      ],
-      "risk_flags": [],
-      "age_minutes": 79.2
-    },
-    {
-      "id": "1cab6d8942e8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.88,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.88,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c1b2f785965a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:14:25Z",
-      "source_detection_latency_seconds": 4801.7,
-      "factual_update": "Woman surprises hospital valet who supported her through cancer treatment with Bills tickets",
-      "source": "CBS News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.cbsnews.com/video/woman-surprises-hospital-valet-who-supported-her-through-cancer-treatment-with-bills-tickets/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS News"
-      ],
-      "corroborating_links": [
-        "https://www.cbsnews.com/video/woman-surprises-hospital-valet-who-supported-her-through-cancer-treatment-with-bills-tickets/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 80.0
-    },
-    {
-      "id": "89439e6919aa",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.69,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 9.69,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "d2454d5f09b6",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:12:28Z",
-      "source_detection_latency_seconds": 4918.7,
-      "factual_update": "'I don't know what I'd do without it': Why shoppers and staff fear losing Poundland",
-      "source": "BBC News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/news/articles/c65y1l9j7j9ko?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC News"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/news/articles/c65y1l9j7j9ko?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 82.0
-    },
-    {
-      "id": "94395763244b",
-      "path": "normal",
-      "eligible": false,
-      "reason": "held_unconfirmed",
-      "urgency_score": 29.65,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 20.65,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 12,
-        "independent_confirmations": 12,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": -35
-      },
-      "matched_storyline_id": "90ff004ab281",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:30:00Z",
-      "source_detection_latency_seconds": 3866.7,
-      "factual_update": "We found 60-odd Black Friday deals we love for $100 or less",
-      "source": "The Verge",
-      "source_tier": 2,
-      "primary_source_link": "https://www.theverge.com/gadgets/1043445/black-friday-best-cheap-tech-deals-under-100-2026",
-      "independent_source_count": 10,
-      "trusted_independent_source_count": 3,
-      "corroborating_sources": [
-        "CBS News",
-        "CBS Sports",
-        "E! News",
-        "Fox Business",
-        "Fox News",
-        "New York Post",
-        "Page Six",
-        "RedState",
-        "Rolling Stone",
-        "TMZ",
-        "The Verge"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/27/shopping/save-75-with-proton-vpns-black-friday-deal/",
-        "https://nypost.com/shopping/best-black-friday-streaming-deals-2026/",
-        "https://nypost.com/shopping/black-friday-furniture-deals-sales-2026/",
-        "https://pagesix.com/2026/11/27/style/the-best-macys-tennis-diamond-bracelets-under-200-for-black-friday/",
-        "https://pagesix.com/style/black-friday-beauty-sales-deals-2026/",
-        "https://redstate.com/nick-arama/2026/11/27/anti-israel-protests-against-stores-on-black-friday-n2209866",
-        "https://www.cbsnews.com/video/shoppers-expected-to-spend-nearly-13-billion-this-black-friday-adobe-says/",
-        "https://www.cbssports.com/betting/news/use-betmgm-bonus-code-cbssports-to-get-1500-bonus-bets-texas-texas-am-black-friday/",
-        "https://www.cbssports.com/betting/news/use-draftkings-promo-code-to-get-200-bonus-bets-free-nba-league-pass-for-texas-texas-am-on-black-friday/",
-        "https://www.cbssports.com/nfl/news/black-friday-scorigami-steelers-broncos-final-score-nfl-history/",
-        "https://www.eonline.com/news/1438441/the-best-black-friday-le-creuset-deals-under-s300?cmpid=rss-syndicate-genericrss-us-top_stories",
-        "https://www.eonline.com/news/1438443/michael-kors-black-friday-sale-s67-greta-leather-satchel?cmpid=rss-syndicate-genericrss-us-top_stories",
-        "https://www.foxbusiness.com/fox-news-politics/mamdani-targets-amazon-black-friday-150k-customers-push-back-against-delivery-crackdown",
-        "https://www.foxnews.com/deals/black-friday-sales",
-        "https://www.foxnews.com/deals/irestore-black-friday-deal",
-        "https://www.foxnews.com/outkick-sports/steelers-silence-aaron-rodgers-noise-cruise-past-broncos-remain-perfect-home-black-friday",
-        "https://www.rollingstone.com/product-recommendations/tech/apple-airpods-black-friday-deal-2026-1235665455/",
-        "https://www.rollingstone.com/product-recommendations/tech/best-headphone-earbud-deals-black-friday-cyber-monday-2026-1235663158/",
-        "https://www.theverge.com/gadgets/1039190/best-black-friday-2026-deals-tech-gadgets-gift-ideas",
-        "https://www.theverge.com/gadgets/1040471/4k-bluray-movie-film-black-friday-deal-sale",
-        "https://www.theverge.com/gadgets/1043445/black-friday-best-cheap-tech-deals-under-100-2026",
-        "https://www.theverge.com/gadgets/1043935/best-black-friday-apple-deals-2026",
-        "https://www.theverge.com/gadgets/1043976/sony-wh1000xm4c-noise-canceling-headphones-black-friday-2026-deal-sale",
-        "https://www.theverge.com/gadgets/1044487/best-black-friday-robot-vacuum-mop-deals-2026",
-        "https://www.tmz.com/2026/11/27/dk-metcalf-seemingly-criticizes-aaron-rodgers/"
-      ],
-      "risk_flags": [
-        "unconfirmed_claim"
-      ],
-      "age_minutes": 6.3
-    },
-    {
-      "id": "1389721c2fd8",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 29.47,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 5.47,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 4,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "ec0397b59489",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T00:15:17Z",
-      "source_detection_latency_seconds": 8349.7,
-      "factual_update": "Justin Herbert ruled out against Patriots as DJ Uiagalelei gets first career start for Chargers",
-      "source": "Fox News",
-      "source_tier": 2,
-      "primary_source_link": "https://www.foxnews.com/outkick-sports/justin-herbert-ruled-out-patriots-dj-uiagalelei-first-career-start-chargers",
-      "independent_source_count": 2,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "CBS Sports",
-        "Fox News"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/nfl/news/chargers-poised-to-start-dj-uiagalelei-with-justin-herbert-ruled-out-for-week-12/",
-        "https://www.foxnews.com/outkick-sports/justin-herbert-ruled-out-patriots-dj-uiagalelei-first-career-start-chargers"
-      ],
-      "risk_flags": [],
-      "age_minutes": 139.2
-    },
-    {
-      "id": "16b8e0bb34f3",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -1231,10 +1051,234 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "53d436f57620",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:15:13Z",
+      "source_detection_latency_seconds": 5061.5,
+      "factual_update": "It turns out Florida Gators coach Jon Sumrall is just as superstitious as his fanbase",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/outkick-sports/florida-gators-coach-jon-sumrall-superstitious-fanbase",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.foxnews.com/outkick-sports/florida-gators-coach-jon-sumrall-superstitious-fanbase"
+      ],
+      "risk_flags": [],
+      "age_minutes": 84.4
+    },
+    {
+      "id": "1cab6d8942e8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.39,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.39,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "c1b2f785965a",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:14:25Z",
+      "source_detection_latency_seconds": 5109.5,
+      "factual_update": "Woman surprises hospital valet who supported her through cancer treatment with Bills tickets",
+      "source": "CBS News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.cbsnews.com/video/woman-surprises-hospital-valet-who-supported-her-through-cancer-treatment-with-bills-tickets/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "CBS News"
+      ],
+      "corroborating_links": [
+        "https://www.cbsnews.com/video/woman-surprises-hospital-valet-who-supported-her-through-cancer-treatment-with-bills-tickets/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 85.2
+    },
+    {
+      "id": "316ff7cc9f9d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.34,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.34,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "fb8c8539f7f6",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:15:45Z",
+      "source_detection_latency_seconds": 1429.5,
+      "factual_update": "LA brewery reveals opening of fourth location in Santa Monica",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/27/business/la-brewery-reveals-opening-of-fourth-location-in-santa-monica/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/27/business/la-brewery-reveals-opening-of-fourth-location-in-santa-monica/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 23.8
+    },
+    {
+      "id": "f8a7b1aec91f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.21,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 17.21,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ec99b04e9faf",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:15:00Z",
+      "source_detection_latency_seconds": 1474.5,
+      "factual_update": "Mexico Filed a Complaint on the DEA’s Tip Line, but a Sinaloa Journalist Already Used It",
+      "source": "PJ Media",
+      "source_tier": 3,
+      "primary_source_link": "https://pjmedia.com/david-manney/2026/11/27/mexico-filed-a-complaint-on-the-deas-tip-line-a-sinaloa-journalist-already-used-it-n4959787",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "PJ Media"
+      ],
+      "corroborating_links": [
+        "https://pjmedia.com/david-manney/2026/11/27/mexico-filed-a-complaint-on-the-deas-tip-line-a-sinaloa-journalist-already-used-it-n4959787"
+      ],
+      "risk_flags": [],
+      "age_minutes": 24.6
+    },
+    {
+      "id": "89439e6919aa",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.21,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 9.21,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d2454d5f09b6",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:12:28Z",
+      "source_detection_latency_seconds": 5226.5,
+      "factual_update": "'I don't know what I'd do without it': Why shoppers and staff fear losing Poundland",
+      "source": "BBC News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.bbc.co.uk/news/articles/c65y1l9j7j9ko?at_medium=RSS&at_campaign=rss",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "BBC News"
+      ],
+      "corroborating_links": [
+        "https://www.bbc.co.uk/news/articles/c65y1l9j7j9ko?at_medium=RSS&at_campaign=rss"
+      ],
+      "risk_flags": [],
+      "age_minutes": 87.1
+    },
+    {
+      "id": "1389721c2fd8",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 29.2,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 5.2,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 4,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ec0397b59489",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T00:15:17Z",
+      "source_detection_latency_seconds": 8657.5,
+      "factual_update": "Justin Herbert ruled out against Patriots as DJ Uiagalelei gets first career start for Chargers",
+      "source": "Fox News",
+      "source_tier": 2,
+      "primary_source_link": "https://www.foxnews.com/outkick-sports/justin-herbert-ruled-out-patriots-dj-uiagalelei-first-career-start-chargers",
+      "independent_source_count": 2,
+      "trusted_independent_source_count": 1,
+      "corroborating_sources": [
+        "CBS Sports",
+        "Fox News"
+      ],
+      "corroborating_links": [
+        "https://www.cbssports.com/nfl/news/chargers-poised-to-start-dj-uiagalelei-with-justin-herbert-ruled-out-for-week-12/",
+        "https://www.foxnews.com/outkick-sports/justin-herbert-ruled-out-patriots-dj-uiagalelei-first-career-start-chargers"
+      ],
+      "risk_flags": [],
+      "age_minutes": 144.3
+    },
+    {
+      "id": "16b8e0bb34f3",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.98,
+      "score_components": {
+        "source_trust": 10,
+        "recency": 8.98,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "ee48a2602a06",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:10:00Z",
-      "source_detection_latency_seconds": 5066.7,
+      "source_detection_latency_seconds": 5374.5,
       "factual_update": "Documentary clip reveals new details on Princess Kate's cancer journey",
       "source": "CBS News",
       "source_tier": 2,
@@ -1248,17 +1292,17 @@
         "https://www.cbsnews.com/video/documentary-clip-reveals-new-details-on-princess-kates-cancer-journey/"
       ],
       "risk_flags": [],
-      "age_minutes": 84.4
+      "age_minutes": 89.6
     },
     {
       "id": "c69f37fc8da7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.15,
+      "urgency_score": 28.69,
       "score_components": {
         "source_trust": 10,
-        "recency": 9.15,
+        "recency": 8.69,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1269,9 +1313,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7ab52b556c3b",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:06:41Z",
-      "source_detection_latency_seconds": 5265.7,
+      "source_detection_latency_seconds": 5573.5,
       "factual_update": "U.S. Air Force cloud platform breached by hackers, report says",
       "source": "CBS News",
       "source_tier": 2,
@@ -1285,17 +1329,17 @@
         "https://www.cbsnews.com/news/u-s-air-force-cloud-platform-breached-by-hackers/"
       ],
       "risk_flags": [],
-      "age_minutes": 87.8
+      "age_minutes": 92.9
     },
     {
       "id": "3d7160996658",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 29.04,
+      "urgency_score": 28.58,
       "score_components": {
         "source_trust": 10,
-        "recency": 9.04,
+        "recency": 8.58,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1306,9 +1350,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "13b6d6504a84",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:05:28Z",
-      "source_detection_latency_seconds": 5338.7,
+      "source_detection_latency_seconds": 5646.5,
       "factual_update": "Pittsburgh Steelers take the field for first game since star quarterback Rodgers' release",
       "source": "CBS News",
       "source_tier": 2,
@@ -1322,17 +1366,17 @@
         "https://www.cbsnews.com/video/pittsburgh-steelers-take-the-field-for-first-game-since-star-quarterback-rodgers-release/"
       ],
       "risk_flags": [],
-      "age_minutes": 89.0
+      "age_minutes": 94.1
     },
     {
       "id": "1f595683fc6d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.86,
+      "urgency_score": 28.42,
       "score_components": {
         "source_trust": 10,
-        "recency": 8.86,
+        "recency": 8.42,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1343,9 +1387,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "dd7031604413",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:03:29Z",
-      "source_detection_latency_seconds": 5457.7,
+      "source_detection_latency_seconds": 5765.5,
       "factual_update": "Lawmakers ask Trump to rescind Putin's G20 invitation over alleged intelligence-sharing with Iran",
       "source": "CBS News",
       "source_tier": 2,
@@ -1359,17 +1403,17 @@
         "https://www.cbsnews.com/video/lawmakers-ask-trump-to-rescind-putins-g20-invitation-over-alleged-intelligence-sharing-with-iran/"
       ],
       "risk_flags": [],
-      "age_minutes": 91.0
+      "age_minutes": 96.1
     },
     {
       "id": "9b59404c77e9",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.83,
+      "urgency_score": 28.39,
       "score_components": {
         "source_trust": 10,
-        "recency": 8.83,
+        "recency": 8.39,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1380,9 +1424,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ec7fe28cf3cd",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:03:11Z",
-      "source_detection_latency_seconds": 5475.7,
+      "source_detection_latency_seconds": 5783.5,
       "factual_update": "Should I get a flu vaccine now?",
       "source": "BBC News",
       "source_tier": 2,
@@ -1396,17 +1440,54 @@
         "https://www.bbc.co.uk/news/articles/cq8e018jyjngo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 91.3
+      "age_minutes": 96.4
+    },
+    {
+      "id": "6132e4833000",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 28.37,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 16.37,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "09434de155c4",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:10:00Z",
+      "source_detection_latency_seconds": 1774.5,
+      "factual_update": "Mamdani Gave Staffers Raises as He Confessed to a Budget Deficit",
+      "source": "PJ Media",
+      "source_tier": 3,
+      "primary_source_link": "https://pjmedia.com/catherinesalgado/2026/11/27/mamdani-gave-staffers-raises-as-he-confessed-to-a-budget-deficit-n4959786",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "PJ Media"
+      ],
+      "corroborating_links": [
+        "https://pjmedia.com/catherinesalgado/2026/11/27/mamdani-gave-staffers-raises-as-he-confessed-to-a-budget-deficit-n4959786"
+      ],
+      "risk_flags": [],
+      "age_minutes": 29.6
     },
     {
       "id": "53a3c866f484",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 28.24,
+      "urgency_score": 28.08,
       "score_components": {
         "source_trust": 15,
-        "recency": 3.24,
+        "recency": 3.08,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1417,9 +1498,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "9c2f0de85a8b",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:22:49Z",
-      "source_detection_latency_seconds": 11497.7,
+      "source_detection_latency_seconds": 11805.5,
       "factual_update": "Atlantic Tropical Weather Outlook",
       "source": "National Hurricane Center Atlantic",
       "source_tier": 1,
@@ -1433,91 +1514,17 @@
         "https://www.nhc.noaa.gov/gtwo.php?basin=atlc"
       ],
       "risk_flags": [],
-      "age_minutes": 191.6
-    },
-    {
-      "id": "1bf128936735",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.62,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.62,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "4731e9539d35",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T02:00:10Z",
-      "source_detection_latency_seconds": 2056.7,
-      "factual_update": "Aaron Rodgers calls out Tom Brady for comments on locker room ‘sanctity’",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/27/sports/aaron-rodgers-calls-out-tom-brady-for-comments-on-locker-room-sanctity/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/27/sports/aaron-rodgers-calls-out-tom-brady-for-comments-on-locker-room-sanctity/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 34.3
-    },
-    {
-      "id": "ea81bb41ee29",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 27.59,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 15.59,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "fa969c93a07f",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T02:00:00Z",
-      "source_detection_latency_seconds": 2066.7,
-      "factual_update": "Shear delight: UGG Black Friday deals take 50% off boots and slippers",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/shopping/black-friday-uggs-deals-sales-2026/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/shopping/black-friday-uggs-deals-sales-2026/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 34.4
+      "age_minutes": 196.8
     },
     {
       "id": "2c37ec600e1a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.33,
+      "urgency_score": 27.21,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.33,
+        "recency": 2.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 9,
@@ -1528,9 +1535,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a95796c46bde",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:49:45Z",
-      "source_detection_latency_seconds": 13481.7,
+      "source_detection_latency_seconds": 13789.5,
       "factual_update": "Canadian Supreme Court largely upholds Quebec’s ban on religious symbols for public sector workers",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -1544,17 +1551,17 @@
         "https://www.washingtonexaminer.com/news/world/4816704/canada-supreme-court-upholds-quebec-ban-religious-symbols-public-workers/"
       ],
       "risk_flags": [],
-      "age_minutes": 224.7
+      "age_minutes": 229.8
     },
     {
       "id": "83af3df8fc4b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.27,
+      "urgency_score": 26.86,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.27,
+        "recency": 7.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1565,9 +1572,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8d46587eeb04",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:56:38Z",
-      "source_detection_latency_seconds": 5868.7,
+      "source_detection_latency_seconds": 6176.5,
       "factual_update": "Tracking FBS conference championship scenarios: Big Ten, SEC still unsettled entering Week 13",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -1581,17 +1588,17 @@
         "https://www.cbssports.com/college-football/news/conference-championship-scenarios-2026-big-ten-sec-acc-big-12/"
       ],
       "risk_flags": [],
-      "age_minutes": 97.8
+      "age_minutes": 102.9
     },
     {
       "id": "bd4b150d8a51",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.22,
+      "urgency_score": 26.86,
       "score_components": {
         "source_trust": 10,
-        "recency": 7.22,
+        "recency": 6.86,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1602,9 +1609,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ebe476c393da",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:43:00Z",
-      "source_detection_latency_seconds": 6686.7,
+      "source_detection_latency_seconds": 6994.5,
       "factual_update": "Power being slowly restored as heavy Thanksgiving storm eases",
       "source": "CBS News",
       "source_tier": 2,
@@ -1618,17 +1625,17 @@
         "https://www.cbsnews.com/news/east-coast-thanksgiving-storm-power-outages-cleanup/"
       ],
       "risk_flags": [],
-      "age_minutes": 111.4
+      "age_minutes": 116.6
     },
     {
-      "id": "9679520735dc",
+      "id": "1bf128936735",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 27.1,
+      "urgency_score": 26.83,
       "score_components": {
         "source_trust": 2,
-        "recency": 15.1,
+        "recency": 14.83,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1638,34 +1645,71 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "6b42fa22ef99",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:56:47Z",
-      "source_detection_latency_seconds": 2259.7,
-      "factual_update": "Bose’s Best Headphones and Earbuds Are Steeply Discounted for Black Friday",
-      "source": "Rolling Stone",
+      "matched_storyline_id": "4731e9539d35",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:00:10Z",
+      "source_detection_latency_seconds": 2364.5,
+      "factual_update": "Aaron Rodgers calls out Tom Brady for comments on locker room ‘sanctity’",
+      "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://www.rollingstone.com/product-recommendations/tech/bose-headphones-deals-black-friday-2026-1235665533/",
+      "primary_source_link": "https://nypost.com/2026/11/27/sports/aaron-rodgers-calls-out-tom-brady-for-comments-on-locker-room-sanctity/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "Rolling Stone"
+        "New York Post"
       ],
       "corroborating_links": [
-        "https://www.rollingstone.com/product-recommendations/tech/bose-headphones-deals-black-friday-2026-1235665533/"
+        "https://nypost.com/2026/11/27/sports/aaron-rodgers-calls-out-tom-brady-for-comments-on-locker-room-sanctity/"
       ],
       "risk_flags": [],
-      "age_minutes": 37.7
+      "age_minutes": 39.4
+    },
+    {
+      "id": "ea81bb41ee29",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 26.81,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 14.81,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "fa969c93a07f",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T02:00:00Z",
+      "source_detection_latency_seconds": 2374.5,
+      "factual_update": "Shear delight: UGG Black Friday deals take 50% off boots and slippers",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/shopping/black-friday-uggs-deals-sales-2026/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/shopping/black-friday-uggs-deals-sales-2026/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 39.6
     },
     {
       "id": "1e357907d372",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.93,
+      "urgency_score": 26.58,
       "score_components": {
         "source_trust": 10,
-        "recency": 6.93,
+        "recency": 6.58,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1676,9 +1720,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e2a38e334612",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:38:55Z",
-      "source_detection_latency_seconds": 6931.7,
+      "source_detection_latency_seconds": 7239.5,
       "factual_update": "The Papers: 'Catherine on cancer fight' and 'Benefits and pensions chaos'",
       "source": "BBC News",
       "source_tier": 2,
@@ -1692,54 +1736,17 @@
         "https://www.bbc.co.uk/news/articles/ck792l9q07xro?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 115.5
-    },
-    {
-      "id": "8085dd5cbdde",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 26.55,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 6.55,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "3e321503463a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T00:33:21Z",
-      "source_detection_latency_seconds": 7265.7,
-      "factual_update": "Mamdani recovering after ‘successful’ Achilles surgery",
-      "source": "The Hill",
-      "source_tier": 2,
-      "primary_source_link": "https://thehill.com/homenews/state-watch/6245795-nyc-mayor-achilles-surgery-success/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "The Hill"
-      ],
-      "corroborating_links": [
-        "https://thehill.com/homenews/state-watch/6245795-nyc-mayor-achilles-surgery-success/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 121.1
+      "age_minutes": 120.7
     },
     {
       "id": "51c3a4495bdf",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 26.49,
+      "urgency_score": 26.37,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.49,
+        "recency": 2.37,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1750,9 +1757,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "51f1262e123c",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:56:41Z",
-      "source_detection_latency_seconds": 13065.7,
+      "source_detection_latency_seconds": 13373.5,
       "factual_update": "Employees at GTA 6 developer Rockstar Games reject union",
       "source": "The Hill",
       "source_tier": 2,
@@ -1768,17 +1775,17 @@
         "https://www.engadget.com/2329878/gta-6-performance-ways-make-sure-console-not-holding-back/"
       ],
       "risk_flags": [],
-      "age_minutes": 217.8
+      "age_minutes": 222.9
     },
     {
-      "id": "3727d050d61d",
+      "id": "9679520735dc",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.83,
+      "urgency_score": 26.34,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.83,
+        "recency": 14.34,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1788,34 +1795,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "ebe476c393da",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:48:00Z",
-      "source_detection_latency_seconds": 2786.7,
-      "factual_update": "Sen. Deb Fischer's Office Says Her Husband Died by Suicide in Revelation the Day After Thanksgiving",
-      "source": "RedState",
+      "matched_storyline_id": "6b42fa22ef99",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:56:47Z",
+      "source_detection_latency_seconds": 2567.5,
+      "factual_update": "Bose’s Best Headphones and Earbuds Are Steeply Discounted for Black Friday",
+      "source": "Rolling Stone",
       "source_tier": 3,
-      "primary_source_link": "https://redstate.com/jenniferoo/2026/11/27/ne-sen-deb-fischers-husband-committed-suicide-according-to-statement-from-the-senators-office-n2209870",
+      "primary_source_link": "https://www.rollingstone.com/product-recommendations/tech/bose-headphones-deals-black-friday-2026-1235665533/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "RedState"
+        "Rolling Stone"
       ],
       "corroborating_links": [
-        "https://redstate.com/jenniferoo/2026/11/27/ne-sen-deb-fischers-husband-committed-suicide-according-to-statement-from-the-senators-office-n2209870"
+        "https://www.rollingstone.com/product-recommendations/tech/bose-headphones-deals-black-friday-2026-1235665533/"
       ],
       "risk_flags": [],
-      "age_minutes": 46.4
+      "age_minutes": 42.8
     },
     {
-      "id": "594c4eb237d6",
+      "id": "8085dd5cbdde",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.83,
+      "urgency_score": 26.23,
       "score_components": {
-        "source_trust": 2,
-        "recency": 13.83,
+        "source_trust": 10,
+        "recency": 6.23,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1825,71 +1832,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "64bbee46f794",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:48:00Z",
-      "source_detection_latency_seconds": 2786.7,
-      "factual_update": "The 15 best Black Friday jewelry sales: BaubleBar, Mejuri and more A-list-worn brands",
-      "source": "Page Six",
-      "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/style/black-friday-jewelry-deals-sales-2026/",
+      "matched_storyline_id": "3e321503463a",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T00:33:21Z",
+      "source_detection_latency_seconds": 7573.5,
+      "factual_update": "Mamdani recovering after ‘successful’ Achilles surgery",
+      "source": "The Hill",
+      "source_tier": 2,
+      "primary_source_link": "https://thehill.com/homenews/state-watch/6245795-nyc-mayor-achilles-surgery-success/",
       "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
+      "trusted_independent_source_count": 1,
       "corroborating_sources": [
-        "Page Six"
+        "The Hill"
       ],
       "corroborating_links": [
-        "https://pagesix.com/style/black-friday-jewelry-deals-sales-2026/"
+        "https://thehill.com/homenews/state-watch/6245795-nyc-mayor-achilles-surgery-success/"
       ],
       "risk_flags": [],
-      "age_minutes": 46.4
-    },
-    {
-      "id": "4d668c647174",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 25.69,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 13.69,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "03b0301e2441",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:47:00Z",
-      "source_detection_latency_seconds": 2846.7,
-      "factual_update": "From CBD gummies to sauna blankets — 37 Black Friday wellness deals I’m obsessed with",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/shopping/black-friday-health-wellness-deals-2026/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/shopping/black-friday-health-wellness-deals-2026/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 47.4
+      "age_minutes": 126.2
     },
     {
       "id": "943a4d522edf",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.66,
+      "urgency_score": 25.52,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.66,
+        "recency": 2.52,
         "magnitude": 12,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -1900,9 +1870,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": null,
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:03:05Z",
-      "source_detection_latency_seconds": 12681.7,
+      "source_detection_latency_seconds": 12989.5,
       "factual_update": "NY State Senate Majority Leader Andrea Stewart-Cousins Dies at 76",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -1916,17 +1886,128 @@
         "https://www.theepochtimes.com/us/ny-state-senate-majority-leader-andrea-stewart-cousins-dies-at-76-post-6130259"
       ],
       "risk_flags": [],
-      "age_minutes": 211.4
+      "age_minutes": 216.5
+    },
+    {
+      "id": "3727d050d61d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.14,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.14,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "ebe476c393da",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:48:00Z",
+      "source_detection_latency_seconds": 3094.5,
+      "factual_update": "Sen. Deb Fischer's Office Says Her Husband Died by Suicide in Revelation the Day After Thanksgiving",
+      "source": "RedState",
+      "source_tier": 3,
+      "primary_source_link": "https://redstate.com/jenniferoo/2026/11/27/ne-sen-deb-fischers-husband-committed-suicide-according-to-statement-from-the-senators-office-n2209870",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "RedState"
+      ],
+      "corroborating_links": [
+        "https://redstate.com/jenniferoo/2026/11/27/ne-sen-deb-fischers-husband-committed-suicide-according-to-statement-from-the-senators-office-n2209870"
+      ],
+      "risk_flags": [],
+      "age_minutes": 51.6
+    },
+    {
+      "id": "594c4eb237d6",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.14,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.14,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "64bbee46f794",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:48:00Z",
+      "source_detection_latency_seconds": 3094.5,
+      "factual_update": "The 15 best Black Friday jewelry sales: BaubleBar, Mejuri and more A-list-worn brands",
+      "source": "Page Six",
+      "source_tier": 3,
+      "primary_source_link": "https://pagesix.com/style/black-friday-jewelry-deals-sales-2026/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Page Six"
+      ],
+      "corroborating_links": [
+        "https://pagesix.com/style/black-friday-jewelry-deals-sales-2026/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 51.6
+    },
+    {
+      "id": "4d668c647174",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 25.0,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 13.0,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "03b0301e2441",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:47:00Z",
+      "source_detection_latency_seconds": 3154.5,
+      "factual_update": "From CBD gummies to sauna blankets — 37 Black Friday wellness deals I’m obsessed with",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/shopping/black-friday-health-wellness-deals-2026/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/shopping/black-friday-health-wellness-deals-2026/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 52.6
     },
     {
       "id": "80f8aab7f777",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 25.38,
+      "urgency_score": 24.72,
       "score_components": {
         "source_trust": 2,
-        "recency": 13.38,
+        "recency": 12.72,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -1937,9 +2018,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "01079e30a0ab",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:44:45Z",
-      "source_detection_latency_seconds": 2981.7,
+      "source_detection_latency_seconds": 3289.5,
       "factual_update": "Central Michigan vs. Ball State live stream, where to watch online, CBS Sports Network channel finder, odds",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -1953,54 +2034,17 @@
         "https://www.cbssports.com/college-football/news/college-football-schedule-week-13-cbs-sports-network-2026/"
       ],
       "risk_flags": [],
-      "age_minutes": 49.7
-    },
-    {
-      "id": "a90e8d6e4b1d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 24.95,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 12.95,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "e3ccaa427725",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:41:27Z",
-      "source_detection_latency_seconds": 3179.7,
-      "factual_update": "Banged-up Rangers struggle against even-worse-off Blackhawks for third straight loss",
-      "source": "New York Post",
-      "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/27/sports/banged-up-rangers-struggle-against-even-worse-off-blackhawks-for-third-straight-loss/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "New York Post"
-      ],
-      "corroborating_links": [
-        "https://nypost.com/2026/11/27/sports/banged-up-rangers-struggle-against-even-worse-off-blackhawks-for-third-straight-loss/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 53.0
+      "age_minutes": 54.8
     },
     {
       "id": "86b761fa638b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.86,
+      "urgency_score": 24.61,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.86,
+        "recency": 4.61,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2011,9 +2055,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "331e4d4967d4",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:03:21Z",
-      "source_detection_latency_seconds": 9065.7,
+      "source_detection_latency_seconds": 9373.5,
       "factual_update": "5 affordable sleep gifts designed to block noise and light for better rest",
       "source": "Fox News",
       "source_tier": 2,
@@ -2027,17 +2071,17 @@
         "https://www.foxnews.com/health/5-affordable-sleep-gifts-designed-block-noise-light-better-rest"
       ],
       "risk_flags": [],
-      "age_minutes": 151.1
+      "age_minutes": 156.2
     },
     {
       "id": "f7299fca6240",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 24.83,
+      "urgency_score": 24.59,
       "score_components": {
         "source_trust": 10,
-        "recency": 4.83,
+        "recency": 4.59,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2048,9 +2092,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a24b408fdb65",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:02:49Z",
-      "source_detection_latency_seconds": 9097.7,
+      "source_detection_latency_seconds": 9405.5,
       "factual_update": "This purple electric Chinese minivan can go up to 559 miles on a charge",
       "source": "The Verge",
       "source_tier": 2,
@@ -2064,17 +2108,54 @@
         "https://www.theverge.com/transportation/1044706/this-purple-electric-chinese-minivan-can-go-up-to-559-miles-on-a-charge"
       ],
       "risk_flags": [],
-      "age_minutes": 151.6
+      "age_minutes": 156.8
+    },
+    {
+      "id": "a90e8d6e4b1d",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 24.3,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 12.3,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "e3ccaa427725",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:41:27Z",
+      "source_detection_latency_seconds": 3487.5,
+      "factual_update": "Banged-up Rangers struggle against even-worse-off Blackhawks for third straight loss",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/27/sports/banged-up-rangers-struggle-against-even-worse-off-blackhawks-for-third-straight-loss/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/27/sports/banged-up-rangers-struggle-against-even-worse-off-blackhawks-for-third-straight-loss/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 58.1
     },
     {
       "id": "a711668c57db",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.87,
+      "urgency_score": 23.63,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.87,
+        "recency": 4.63,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2085,9 +2166,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5458cc19f9ac",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:03:42Z",
-      "source_detection_latency_seconds": 9044.7,
+      "source_detection_latency_seconds": 9352.5,
       "factual_update": "OpenAI countersues Apple for allegedly stealing trade secrets",
       "source": "Washington Examiner",
       "source_tier": 3,
@@ -2101,54 +2182,17 @@
         "https://www.washingtonexaminer.com/news/business/4816737/openai-countersues-apple-allegedly-stealing-trade-secrets/"
       ],
       "risk_flags": [],
-      "age_minutes": 150.7
-    },
-    {
-      "id": "9c710f9c74a7",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 23.81,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 11.81,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "c13e9a5f8db0",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:32:13Z",
-      "source_detection_latency_seconds": 3733.7,
-      "factual_update": "Report: Biden Memoir Flops, Sells Nearly 40x Less in Full Week than Obama did in One Day",
-      "source": "Breitbart",
-      "source_tier": 3,
-      "primary_source_link": "https://www.breitbart.com/politics/2026/11/27/biden-memoir-sales-trail-obama-clinton-debut-week/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Breitbart"
-      ],
-      "corroborating_links": [
-        "https://www.breitbart.com/politics/2026/11/27/biden-memoir-sales-trail-obama-clinton-debut-week/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 62.2
+      "age_minutes": 155.9
     },
     {
       "id": "e23d423e7c66",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.5,
+      "urgency_score": 23.33,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.5,
+        "recency": 3.33,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2159,9 +2203,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ff1d66145e2d",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:30:42Z",
-      "source_detection_latency_seconds": 11024.7,
+      "source_detection_latency_seconds": 11332.5,
       "factual_update": "Blue Jays to sign former Yankees All-Star Jazz Chisholm Jr to $20 million contract: report",
       "source": "Fox News",
       "source_tier": 2,
@@ -2175,17 +2219,17 @@
         "https://www.foxnews.com/outkick-sports/blue-jays-sign-former-yankees-all-star-jazz-chisholm-jr-20-million-contract-report"
       ],
       "risk_flags": [],
-      "age_minutes": 183.7
+      "age_minutes": 188.9
     },
     {
       "id": "59992b622cec",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.5,
+      "urgency_score": 23.32,
       "score_components": {
         "source_trust": 10,
-        "recency": 3.5,
+        "recency": 3.32,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2196,9 +2240,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "69aaa68a8c59",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:30:32Z",
-      "source_detection_latency_seconds": 11034.7,
+      "source_detection_latency_seconds": 11342.5,
       "factual_update": "Yooka-Laylee’s free upgrade is skipping Xbox",
       "source": "The Verge",
       "source_tier": 2,
@@ -2212,17 +2256,17 @@
         "https://www.theverge.com/games/1044715/yooka-laylees-free-upgrade-is-skipping-xbox"
       ],
       "risk_flags": [],
-      "age_minutes": 183.9
+      "age_minutes": 189.0
     },
     {
-      "id": "57bcf7971217",
+      "id": "9c710f9c74a7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 23.07,
+      "urgency_score": 23.22,
       "score_components": {
         "source_trust": 2,
-        "recency": 11.07,
+        "recency": 11.22,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2232,34 +2276,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "3b8ef7657e21",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:25:47Z",
-      "source_detection_latency_seconds": 4119.7,
-      "factual_update": "Rams snag 49ers tight end from practice squad amid injury crisis",
-      "source": "New York Post",
+      "matched_storyline_id": "50df0323931c",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:32:13Z",
+      "source_detection_latency_seconds": 4041.5,
+      "factual_update": "Report: Biden Memoir Flops, Sells Nearly 40x Less in Full Week than Obama did in One Day",
+      "source": "Breitbart",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/27/sports/rams-49ers-tight-end-practice-squad-injury-crisis/",
+      "primary_source_link": "https://www.breitbart.com/politics/2026/11/27/biden-memoir-sales-trail-obama-clinton-debut-week/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "New York Post"
+        "Breitbart"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/11/27/sports/rams-49ers-tight-end-practice-squad-injury-crisis/"
+        "https://www.breitbart.com/politics/2026/11/27/biden-memoir-sales-trail-obama-clinton-debut-week/"
       ],
       "risk_flags": [],
-      "age_minutes": 68.7
+      "age_minutes": 67.4
     },
     {
       "id": "6db2d3367a8c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.8,
+      "urgency_score": 22.66,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.8,
+        "recency": 2.66,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2270,9 +2314,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b21d9431bac0",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:08:17Z",
-      "source_detection_latency_seconds": 12369.7,
+      "source_detection_latency_seconds": 12677.5,
       "factual_update": "Iowa lead detonation results expected soon, EPA says",
       "source": "CBS News",
       "source_tier": 2,
@@ -2286,17 +2330,17 @@
         "https://www.cbsnews.com/news/iowa-lead-detonation-epa-testing-results-soon/"
       ],
       "risk_flags": [],
-      "age_minutes": 206.2
+      "age_minutes": 211.3
     },
     {
       "id": "0dec8f22512a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.79,
+      "urgency_score": 22.65,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.79,
+        "recency": 2.65,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2307,9 +2351,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4869bd7da6a8",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:08:04Z",
-      "source_detection_latency_seconds": 12382.7,
+      "source_detection_latency_seconds": 12690.5,
       "factual_update": "Meta whistleblower says gag order reminiscent of ‘1984’",
       "source": "The Hill",
       "source_tier": 2,
@@ -2323,17 +2367,17 @@
         "https://thehill.com/policy/technology/6245761-sarah-wynn-williams-meta-gag-order/"
       ],
       "risk_flags": [],
-      "age_minutes": 206.4
+      "age_minutes": 211.5
     },
     {
       "id": "ba4de2203f35",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.73,
+      "urgency_score": 22.55,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.73,
+        "recency": 3.55,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 3,
@@ -2344,9 +2388,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "acf32eca8530",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:37:04Z",
-      "source_detection_latency_seconds": 10642.7,
+      "source_detection_latency_seconds": 10950.5,
       "factual_update": "\"His Majesty\"'s \"International Common Law Court of Justice\" Threat to \"Illuminati Police Forces\" Was Criminally Punishable",
       "source": "Reason",
       "source_tier": 3,
@@ -2360,17 +2404,17 @@
         "https://reason.com/volokh/2026/11/27/his-majestys-international-common-law-court-of-justice-threat-to-illuminati-police-forces-was-criminally-punishable/"
       ],
       "risk_flags": [],
-      "age_minutes": 177.4
+      "age_minutes": 182.5
     },
     {
-      "id": "59886a80f12f",
+      "id": "57bcf7971217",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.65,
+      "urgency_score": 22.52,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.65,
+        "recency": 10.52,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2380,34 +2424,34 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "6b3ee0ee5e57",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:21:55Z",
-      "source_detection_latency_seconds": 4351.7,
-      "factual_update": "Frail 92-year-old Texas mom charged with killing her 5-year-old son — 57 years after his death",
+      "matched_storyline_id": "3b8ef7657e21",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:25:47Z",
+      "source_detection_latency_seconds": 4427.5,
+      "factual_update": "Rams snag 49ers tight end from practice squad amid injury crisis",
       "source": "New York Post",
       "source_tier": 3,
-      "primary_source_link": "https://nypost.com/2026/11/27/us-news/texas-mom-92-charged-with-killing-her-5-year-old-son-57-years-later/",
+      "primary_source_link": "https://nypost.com/2026/11/27/sports/rams-49ers-tight-end-practice-squad-injury-crisis/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
         "New York Post"
       ],
       "corroborating_links": [
-        "https://nypost.com/2026/11/27/us-news/texas-mom-92-charged-with-killing-her-5-year-old-son-57-years-later/"
+        "https://nypost.com/2026/11/27/sports/rams-49ers-tight-end-practice-squad-injury-crisis/"
       ],
       "risk_flags": [],
-      "age_minutes": 72.5
+      "age_minutes": 73.8
     },
     {
       "id": "d78cc9877c26",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.55,
+      "urgency_score": 22.42,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.55,
+        "recency": 2.42,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2418,9 +2462,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "4777a1ff530d",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:58:49Z",
-      "source_detection_latency_seconds": 12937.7,
+      "source_detection_latency_seconds": 13245.5,
       "factual_update": "Wilshere v Ramsey - Arsenal legends treading similar managerial paths",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2434,17 +2478,17 @@
         "https://www.bbc.co.uk/sport/football/articles/cm1dvn9w1px4o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 215.6
+      "age_minutes": 220.8
     },
     {
       "id": "f091a93b5a2d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.53,
+      "urgency_score": 22.4,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.53,
+        "recency": 2.4,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2455,9 +2499,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e2c2ee55eb6e",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:58:01Z",
-      "source_detection_latency_seconds": 12985.7,
+      "source_detection_latency_seconds": 13293.5,
       "factual_update": "Australia drop Lyon for New Zealand Tests",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2471,91 +2515,17 @@
         "https://www.bbc.co.uk/sport/cricket/articles/ckjre1p5g4l7o?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 216.4
-    },
-    {
-      "id": "7dcbe267a4be",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.45,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 10.45,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "245d347f1a14",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:20:01Z",
-      "source_detection_latency_seconds": 4465.7,
-      "factual_update": "Board game brings oral health inequalities research to life",
-      "source": "Medical Xpress",
-      "source_tier": 3,
-      "primary_source_link": "https://medicalxpress.com/news/2026-11-board-game-oral-health-inequalities.html",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Medical Xpress"
-      ],
-      "corroborating_links": [
-        "https://medicalxpress.com/news/2026-11-board-game-oral-health-inequalities.html"
-      ],
-      "risk_flags": [],
-      "age_minutes": 74.4
-    },
-    {
-      "id": "bc2244c14de4",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.45,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 10.45,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "6a75740671f5",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T01:20:00Z",
-      "source_detection_latency_seconds": 4466.7,
-      "factual_update": "Semi-Truck Jacknifes Across Busy Freeway in Icy Conditions",
-      "source": "Hot Air",
-      "source_tier": 3,
-      "primary_source_link": "https://hotair.com/headlines/2026/11/27/semi-truck-jacknifes-across-busy-freeway-in-icy-conditions-n3821386",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Hot Air"
-      ],
-      "corroborating_links": [
-        "https://hotair.com/headlines/2026/11/27/semi-truck-jacknifes-across-busy-freeway-in-icy-conditions-n3821386"
-      ],
-      "risk_flags": [],
-      "age_minutes": 74.4
+      "age_minutes": 221.6
     },
     {
       "id": "55b7ef61ae3c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.34,
+      "urgency_score": 22.22,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.34,
+        "recency": 2.22,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2566,9 +2536,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "448a39c27a7c",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:50:25Z",
-      "source_detection_latency_seconds": 13441.7,
+      "source_detection_latency_seconds": 13749.5,
       "factual_update": "\"Face the Nation with Margaret Brennan\" guests for Nov. 29, 2026",
       "source": "CBS News",
       "source_tier": 2,
@@ -2582,17 +2552,17 @@
         "https://www.cbsnews.com/news/face-the-nation-guests-nov-29-2026/"
       ],
       "risk_flags": [],
-      "age_minutes": 224.0
+      "age_minutes": 229.2
     },
     {
       "id": "ac3a70e360c2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.28,
+      "urgency_score": 22.17,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.28,
+        "recency": 2.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2603,9 +2573,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2fa28190c829",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:47:57Z",
-      "source_detection_latency_seconds": 13589.7,
+      "source_detection_latency_seconds": 13897.5,
       "factual_update": "Glasner praises 'smart' Igor Jesus after Chelsea win",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2619,17 +2589,54 @@
         "https://www.bbc.co.uk/sport/football/videos/ck7v2lpe2rpgo?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 226.5
+      "age_minutes": 231.6
+    },
+    {
+      "id": "59886a80f12f",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 22.12,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 10.12,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "6b3ee0ee5e57",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:21:55Z",
+      "source_detection_latency_seconds": 4659.5,
+      "factual_update": "Frail 92-year-old Texas mom charged with killing her 5-year-old son — 57 years after his death",
+      "source": "New York Post",
+      "source_tier": 3,
+      "primary_source_link": "https://nypost.com/2026/11/27/us-news/texas-mom-92-charged-with-killing-her-5-year-old-son-57-years-later/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "New York Post"
+      ],
+      "corroborating_links": [
+        "https://nypost.com/2026/11/27/us-news/texas-mom-92-charged-with-killing-her-5-year-old-son-57-years-later/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 77.7
     },
     {
       "id": "2cba0b01d965",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.23,
+      "urgency_score": 22.11,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.23,
+        "recency": 2.11,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2640,9 +2647,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "a90e01a18521",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:45:22Z",
-      "source_detection_latency_seconds": 13744.7,
+      "source_detection_latency_seconds": 14052.5,
       "factual_update": "Chelsea must stick together in 'difficult moment' - Alonso",
       "source": "BBC Sport",
       "source_tier": 2,
@@ -2656,17 +2663,91 @@
         "https://www.bbc.co.uk/sport/football/videos/cq3dgpj5xn0do?at_medium=RSS&at_campaign=rss"
       ],
       "risk_flags": [],
-      "age_minutes": 229.1
+      "age_minutes": 234.2
+    },
+    {
+      "id": "7dcbe267a4be",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 21.93,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 9.93,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "245d347f1a14",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:20:01Z",
+      "source_detection_latency_seconds": 4773.5,
+      "factual_update": "Board game brings oral health inequalities research to life",
+      "source": "Medical Xpress",
+      "source_tier": 3,
+      "primary_source_link": "https://medicalxpress.com/news/2026-11-board-game-oral-health-inequalities.html",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Medical Xpress"
+      ],
+      "corroborating_links": [
+        "https://medicalxpress.com/news/2026-11-board-game-oral-health-inequalities.html"
+      ],
+      "risk_flags": [],
+      "age_minutes": 79.6
+    },
+    {
+      "id": "bc2244c14de4",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 21.93,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 9.93,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "6a75740671f5",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T01:20:00Z",
+      "source_detection_latency_seconds": 4774.5,
+      "factual_update": "Semi-Truck Jacknifes Across Busy Freeway in Icy Conditions",
+      "source": "Hot Air",
+      "source_tier": 3,
+      "primary_source_link": "https://hotair.com/headlines/2026/11/27/semi-truck-jacknifes-across-busy-freeway-in-icy-conditions-n3821386",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Hot Air"
+      ],
+      "corroborating_links": [
+        "https://hotair.com/headlines/2026/11/27/semi-truck-jacknifes-across-busy-freeway-in-icy-conditions-n3821386"
+      ],
+      "risk_flags": [],
+      "age_minutes": 79.6
     },
     {
       "id": "778344ac5428",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.17,
+      "urgency_score": 21.66,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.17,
+        "recency": 9.66,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2677,9 +2758,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "00f5f8a3bae4",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:17:16Z",
-      "source_detection_latency_seconds": 4630.7,
+      "source_detection_latency_seconds": 4938.5,
       "factual_update": "49ers QB Brock Purdy Supports Charity Feeding the Hungry, Much to the Alphabet Mafia's Displeasure",
       "source": "RedState",
       "source_tier": 3,
@@ -2693,54 +2774,17 @@
         "https://redstate.com/jerrywilson/2026/11/27/49ers-qb-brock-purdy-supports-charity-feeding-the-hungry-much-to-the-alphabet-mafias-displeasure-n2209873"
       ],
       "risk_flags": [],
-      "age_minutes": 77.2
-    },
-    {
-      "id": "73f1f02fcaa9",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 22.05,
-      "score_components": {
-        "source_trust": 10,
-        "recency": 2.05,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "16a67e3b31a5",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T22:37:16Z",
-      "source_detection_latency_seconds": 14230.7,
-      "factual_update": "Bremen fight back to earn draw in six-goal thriller",
-      "source": "BBC Sport",
-      "source_tier": 2,
-      "primary_source_link": "https://www.bbc.co.uk/sport/football/videos/cm0qjlq19qw3o?at_medium=RSS&at_campaign=rss",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 1,
-      "corroborating_sources": [
-        "BBC Sport"
-      ],
-      "corroborating_links": [
-        "https://www.bbc.co.uk/sport/football/videos/cm0qjlq19qw3o?at_medium=RSS&at_campaign=rss"
-      ],
-      "risk_flags": [],
-      "age_minutes": 237.2
+      "age_minutes": 82.3
     },
     {
       "id": "2fb95f438901",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 22.02,
+      "urgency_score": 21.51,
       "score_components": {
         "source_trust": 2,
-        "recency": 10.02,
+        "recency": 9.51,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2751,9 +2795,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "959a613c4cdb",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:15:45Z",
-      "source_detection_latency_seconds": 4721.7,
+      "source_detection_latency_seconds": 5029.5,
       "factual_update": "Boy Goes to Hospital With Stomach Pain. Doctors Are Stumped When They Find What’s Growing Inside Him",
       "source": "RedState",
       "source_tier": 3,
@@ -2767,17 +2811,17 @@
         "https://redstate.com/kyle-becker/2026/11/27/boy-goes-to-hospital-with-stomach-pain-doctors-are-stumped-when-they-find-whats-growing-inside-him-n2209871"
       ],
       "risk_flags": [],
-      "age_minutes": 78.7
+      "age_minutes": 83.8
     },
     {
       "id": "d7c688a52c4b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.53,
+      "urgency_score": 21.05,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.53,
+        "recency": 9.05,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2788,9 +2832,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0afb14a6880a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:10:47Z",
-      "source_detection_latency_seconds": 5019.7,
+      "source_detection_latency_seconds": 5327.5,
       "factual_update": "Antisemitic mob violence again shows why NYC needs the SRG",
       "source": "New York Post",
       "source_tier": 3,
@@ -2804,17 +2848,17 @@
         "https://nypost.com/2026/11/27/opinion/antisemitic-mob-violence-again-shows-why-nyc-needs-the-srg/"
       ],
       "risk_flags": [],
-      "age_minutes": 83.7
+      "age_minutes": 88.8
     },
     {
       "id": "b64e85d32bc5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.34,
+      "urgency_score": 20.87,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.34,
+        "recency": 8.87,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2825,9 +2869,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b7893efa19b6",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:08:45Z",
-      "source_detection_latency_seconds": 5141.7,
+      "source_detection_latency_seconds": 5449.5,
       "factual_update": "Noah's Ark Researcher Reveals Stunning New Detail About Wood Discovered at the Site",
       "source": "CBN News",
       "source_tier": 3,
@@ -2841,17 +2885,17 @@
         "https://www1.cbn.com/cbnnews/world/2026/november/noahs-ark-researcher-reveals-stunning-new-detail-about-wood-discovered-at-the-site"
       ],
       "risk_flags": [],
-      "age_minutes": 85.7
+      "age_minutes": 90.8
     },
     {
       "id": "c3402fd83357",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 21.11,
+      "urgency_score": 20.66,
       "score_components": {
         "source_trust": 2,
-        "recency": 9.11,
+        "recency": 8.66,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2862,9 +2906,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "bfda0d7aa2ec",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:06:19Z",
-      "source_detection_latency_seconds": 5287.7,
+      "source_detection_latency_seconds": 5595.5,
       "factual_update": "John Harbaugh’s wife perfectly sums up NFL Thanksgiving Day drama",
       "source": "New York Post",
       "source_tier": 3,
@@ -2878,17 +2922,17 @@
         "https://nypost.com/2026/11/27/sports/john-harbaughs-wife-perfectly-sums-up-nfl-thanksgiving-day-drama/"
       ],
       "risk_flags": [],
-      "age_minutes": 88.1
+      "age_minutes": 93.3
     },
     {
       "id": "0bd51ef822a5",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.93,
+      "urgency_score": 20.48,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.93,
+        "recency": 8.48,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2899,9 +2943,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "2f2c31dfc08b",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:04:14Z",
-      "source_detection_latency_seconds": 5412.7,
+      "source_detection_latency_seconds": 5720.5,
       "factual_update": "Wall Street Review: Stocks Rebound in Holiday Week as AI Trade Revives",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -2915,17 +2959,17 @@
         "https://www.theepochtimes.com/business/wall-street-review-stocks-rebound-in-holiday-week-as-ai-trade-revives-6130228"
       ],
       "risk_flags": [],
-      "age_minutes": 90.2
+      "age_minutes": 95.3
     },
     {
       "id": "216cbe35f871",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.8,
+      "urgency_score": 20.36,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.8,
+        "recency": 8.36,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2936,9 +2980,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ebe476c393da",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:02:47Z",
-      "source_detection_latency_seconds": 5499.7,
+      "source_detection_latency_seconds": 5807.5,
       "factual_update": "NBC Pulls Ad That Criticizes U.S.’ Israel Policy & Aired During ‘SNL’ Thanksgiving Special",
       "source": "Deadline",
       "source_tier": 3,
@@ -2952,17 +2996,17 @@
         "https://deadline.com/2026/11/nbc-pulls-ad-israel-gaza-1237234472/"
       ],
       "risk_flags": [],
-      "age_minutes": 91.7
+      "age_minutes": 96.8
     },
     {
       "id": "b1dcb3830c9b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.61,
+      "urgency_score": 20.18,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.61,
+        "recency": 8.18,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -2973,9 +3017,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c1ce1e712f63",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:00:35Z",
-      "source_detection_latency_seconds": 5631.7,
+      "source_detection_latency_seconds": 5939.5,
       "factual_update": "Houston, We Have a Zoning Solution: SpaceX Plans Data Centers in Orbit",
       "source": "Legal Insurrection",
       "source_tier": 3,
@@ -2989,17 +3033,17 @@
         "https://legalinsurrection.com/2026/11/houston-we-have-a-zoning-solution-spacex-plans-data-centers-in-orbit/?utm_source=rss&utm_medium=rss&utm_campaign=houston-we-have-a-zoning-solution-spacex-plans-data-centers-in-orbit"
       ],
       "risk_flags": [],
-      "age_minutes": 93.9
+      "age_minutes": 99.0
     },
     {
       "id": "7c340ea36be0",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 20.56,
+      "urgency_score": 20.13,
       "score_components": {
         "source_trust": 2,
-        "recency": 8.56,
+        "recency": 8.13,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3010,9 +3054,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "1631049e04ba",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:00:00Z",
-      "source_detection_latency_seconds": 5666.7,
+      "source_detection_latency_seconds": 5974.5,
       "factual_update": "The 5 steamiest sex scenes of ‘The Hunting Wives’ Season 2",
       "source": "New York Post",
       "source_tier": 3,
@@ -3026,17 +3070,17 @@
         "https://decider.com/2026/11/27/the-hunting-wives-season-2-sex-scenes/"
       ],
       "risk_flags": [],
-      "age_minutes": 94.4
+      "age_minutes": 99.6
     },
     {
       "id": "e237cb0b2315",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 19.67,
+      "urgency_score": 19.29,
       "score_components": {
         "source_trust": 2,
-        "recency": 7.67,
+        "recency": 7.29,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3047,9 +3091,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b03420f9bb0d",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:49:07Z",
-      "source_detection_latency_seconds": 6319.7,
+      "source_detection_latency_seconds": 6627.5,
       "factual_update": "Travis Barker Shares Sweet Way Son Rocky, 3, is His Literal Mini-Me",
       "source": "E! News",
       "source_tier": 3,
@@ -3063,17 +3107,17 @@
         "https://www.eonline.com/news/1438453/travis-barker-says-how-his-kourtney-kardashians-son-rocky-is-his-mini-me?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 105.3
+      "age_minutes": 110.5
     },
     {
       "id": "dc78ba0fb96d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.37,
+      "urgency_score": 18.05,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.37,
+        "recency": 6.05,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3084,9 +3128,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "d2db85f16e8f",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:30:31Z",
-      "source_detection_latency_seconds": 7435.7,
+      "source_detection_latency_seconds": 7743.5,
       "factual_update": "College football picks: Predictions against the spread, odds, betting lines for top 25 games in Week 13",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3100,17 +3144,17 @@
         "https://www.cbssports.com/college-football/news/college-football-picks-predictions-spread-odds-betting-lines-top-25-week-13/"
       ],
       "risk_flags": [],
-      "age_minutes": 123.9
+      "age_minutes": 129.1
     },
     {
       "id": "875101c64b9a",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.34,
+      "urgency_score": 18.02,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.34,
+        "recency": 6.02,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3121,9 +3165,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "01e1589fb32f",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:30:00Z",
-      "source_detection_latency_seconds": 7466.7,
+      "source_detection_latency_seconds": 7774.5,
       "factual_update": "Don’t Fear 2028: MAGA’s Sky Hasn’t Fallen Yet",
       "source": "Hot Air",
       "source_tier": 3,
@@ -3137,17 +3181,17 @@
         "https://hotair.com/headlines/2026/11/27/dont-fear-2028-magas-sky-hasnt-fallen-yet-n3821346"
       ],
       "risk_flags": [],
-      "age_minutes": 124.4
+      "age_minutes": 129.6
     },
     {
       "id": "ee7e0bb9ac7d",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 18.34,
+      "urgency_score": 18.02,
       "score_components": {
         "source_trust": 2,
-        "recency": 6.34,
+        "recency": 6.02,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3158,9 +3202,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "6b146f126cb5",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:30:00Z",
-      "source_detection_latency_seconds": 7466.7,
+      "source_detection_latency_seconds": 7774.5,
       "factual_update": "‘Outlander: Blood of My Blood’ Bosses on the Season 2 Finale Twist That Would Rewrite the Series’ Lore, Who Won’t Appear on the Show — and Its Uncertain Future",
       "source": "Variety",
       "source_tier": 3,
@@ -3174,17 +3218,17 @@
         "https://variety.com/2026/tv/news/outlander-blood-of-my-blood-finale-spoiler-is-william-beauchamp-jamies-brother-1236958034/"
       ],
       "risk_flags": [],
-      "age_minutes": 124.4
+      "age_minutes": 129.6
     },
     {
       "id": "f07fa63a5241",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 17.77,
+      "urgency_score": 17.48,
       "score_components": {
         "source_trust": 2,
-        "recency": 5.77,
+        "recency": 5.48,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3195,9 +3239,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "89e68d932f7d",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:20:34Z",
-      "source_detection_latency_seconds": 8032.7,
+      "source_detection_latency_seconds": 8340.5,
       "factual_update": "Texas vs. Texas A&M prediction, pick, odds, spread: No. 3 Longhorns battles Aggies in Lone Star Showdown",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3211,17 +3255,54 @@
         "https://www.cbssports.com/college-football/news/texas-vs-texas-a-m-prediction-pick-odds-spread-where-to-watch/"
       ],
       "risk_flags": [],
-      "age_minutes": 133.9
+      "age_minutes": 139.0
+    },
+    {
+      "id": "2044370c9f09",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 16.96,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 4.96,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "d5b84001544f",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-28T00:10:32Z",
+      "source_detection_latency_seconds": 8942.5,
+      "factual_update": "Aaron Rodgers: Holding McCarthy Accountable Justified Breaking Locker Room Code of Silence",
+      "source": "Breitbart",
+      "source_tier": 3,
+      "primary_source_link": "https://www.breitbart.com/sports/2026/11/27/aaron-rodgers-holding-mccarthy-accountable-justified-breaking-locker-room-code-of-silence/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Breitbart"
+      ],
+      "corroborating_links": [
+        "https://www.breitbart.com/sports/2026/11/27/aaron-rodgers-holding-mccarthy-accountable-justified-breaking-locker-room-code-of-silence/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 149.0
     },
     {
       "id": "18250569f69c",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.85,
+      "urgency_score": 16.61,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.85,
+        "recency": 4.61,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3232,9 +3313,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c3b5bcb5961a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T00:03:18Z",
-      "source_detection_latency_seconds": 9068.7,
+      "source_detection_latency_seconds": 9376.5,
       "factual_update": "2026 NBA betting promos: Get almost $4,000 in bonuses from top online betting apps, sportsbooks for Nov. 27",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3248,17 +3329,17 @@
         "https://www.cbssports.com/betting/news/2026-nba-betting-promos-get-almost-4000-in-bonuses-from-top-online-betting-apps-sportsbooks-for-nov-27/"
       ],
       "risk_flags": [],
-      "age_minutes": 151.1
+      "age_minutes": 156.3
     },
     {
       "id": "8543980af4b4",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.41,
+      "urgency_score": 16.19,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.41,
+        "recency": 4.19,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3269,9 +3350,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e1382aafb7f6",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:53:42Z",
-      "source_detection_latency_seconds": 9644.7,
+      "source_detection_latency_seconds": 9952.5,
       "factual_update": "William Shatner, 95, hits back at ‘Halloween’ director’s ‘piece of s–t’ criticism",
       "source": "Page Six",
       "source_tier": 3,
@@ -3285,17 +3366,17 @@
         "https://pagesix.com/2026/11/27/entertainment/william-shatner-95-hits-back-at-halloween-directors-piece-of-s-t-criticism/"
       ],
       "risk_flags": [],
-      "age_minutes": 160.7
+      "age_minutes": 165.9
     },
     {
       "id": "84ac264b04cd",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.34,
+      "urgency_score": 16.12,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.34,
+        "recency": 4.12,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3306,9 +3387,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "c6f35966547c",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:52:10Z",
-      "source_detection_latency_seconds": 9736.7,
+      "source_detection_latency_seconds": 10044.5,
       "factual_update": "Brittany Mahomes Slams Call From Controversial Chiefs, Bills Game",
       "source": "E! News",
       "source_tier": 3,
@@ -3322,17 +3403,17 @@
         "https://www.eonline.com/news/1438452/brittany-mahomes-slams-call-from-chiefs-bills-thanksgiving-game?cmpid=rss-syndicate-genericrss-us-top_stories"
       ],
       "risk_flags": [],
-      "age_minutes": 162.3
+      "age_minutes": 167.4
     },
     {
       "id": "df2c54f414b1",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.11,
+      "urgency_score": 15.91,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.11,
+        "recency": 3.91,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3343,9 +3424,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "5fc415af9aea",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:46:48Z",
-      "source_detection_latency_seconds": 10058.7,
+      "source_detection_latency_seconds": 10366.5,
       "factual_update": "Donald Trump Jr.’s Outrage Gifts Netflix’s ‘Hunting Wives’ Some Priceless Streisand Effect PR",
       "source": "Deadline",
       "source_tier": 3,
@@ -3359,17 +3440,54 @@
         "https://deadline.com/2026/11/trump-jr-hunting-wives-kiss-1237234421/"
       ],
       "risk_flags": [],
-      "age_minutes": 167.6
+      "age_minutes": 172.8
+    },
+    {
+      "id": "d041ae8b6ada",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 15.88,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 3.88,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "48c61d7153d4",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-27T23:46:10Z",
+      "source_detection_latency_seconds": 10404.5,
+      "factual_update": "Sen. Eric Schmitt Rejects Democrat Demand to Remove USAID Files: 'No Way'",
+      "source": "Breitbart",
+      "source_tier": 3,
+      "primary_source_link": "https://www.breitbart.com/politics/2026/11/27/sen-eric-schmitt-rejects-democrat-demand-pull-usaid-files-no-way/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Breitbart"
+      ],
+      "corroborating_links": [
+        "https://www.breitbart.com/politics/2026/11/27/sen-eric-schmitt-rejects-democrat-demand-pull-usaid-files-no-way/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 173.4
     },
     {
       "id": "7da426ac740f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 16.05,
+      "urgency_score": 15.85,
       "score_components": {
         "source_trust": 2,
-        "recency": 4.05,
+        "recency": 3.85,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3380,9 +3498,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "7c9287e5ffd3",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:45:17Z",
-      "source_detection_latency_seconds": 10149.7,
+      "source_detection_latency_seconds": 10457.5,
       "factual_update": "Mason Rudolph and Steelers defense can clean up Aaron Rodgers' mess, but the franchise's problems run deeper",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3396,17 +3514,17 @@
         "https://www.cbssports.com/nfl/news/mason-rudolph-defense-can-steady-steelers-but-real-progress-far-off/"
       ],
       "risk_flags": [],
-      "age_minutes": 169.2
+      "age_minutes": 174.3
     },
     {
       "id": "c7bde940356b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.64,
+      "urgency_score": 15.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.64,
+        "recency": 3.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3417,9 +3535,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "24cf000fa4cd",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:34:30Z",
-      "source_detection_latency_seconds": 10796.7,
+      "source_detection_latency_seconds": 11104.5,
       "factual_update": "The post-election economic boom",
       "source": "Power Line",
       "source_tier": 3,
@@ -3433,17 +3551,17 @@
         "https://www.powerlineblog.com/archives/2026/11/the-post-election-economic-boom-2.php"
       ],
       "risk_flags": [],
-      "age_minutes": 179.9
+      "age_minutes": 185.1
     },
     {
       "id": "e739467bbf46",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.34,
+      "urgency_score": 15.17,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.34,
+        "recency": 3.17,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3454,9 +3572,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f6b0c7c09fda",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:26:00Z",
-      "source_detection_latency_seconds": 11306.7,
+      "source_detection_latency_seconds": 11614.5,
       "factual_update": "‘Politics Is Not a Priority’: Georgia Republicans Mourn Two Young Campaign Volunteers",
       "source": "PJ Media",
       "source_tier": 3,
@@ -3470,17 +3588,17 @@
         "https://pjmedia.com/chris-queen/2026/11/27/politics-is-not-a-priority-georgia-republicans-mourn-two-young-campaign-volunteers-n4959785"
       ],
       "risk_flags": [],
-      "age_minutes": 188.4
+      "age_minutes": 193.6
     },
     {
       "id": "0602bcf8f33b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.31,
+      "urgency_score": 15.14,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.31,
+        "recency": 3.14,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3491,9 +3609,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0884b1da2d26",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:25:01Z",
-      "source_detection_latency_seconds": 11365.7,
+      "source_detection_latency_seconds": 11673.5,
       "factual_update": "Pharma Company to Move Production to U.S. After Trump Trade Crackdown",
       "source": "Breitbart",
       "source_tier": 3,
@@ -3507,17 +3625,17 @@
         "https://www.breitbart.com/politics/2026/11/27/pharma-company-to-move-production-to-u-s-after-trump-trade-crackdown/"
       ],
       "risk_flags": [],
-      "age_minutes": 189.4
+      "age_minutes": 194.6
     },
     {
       "id": "23fa04e76101",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 15.21,
+      "urgency_score": 15.05,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.21,
+        "recency": 3.05,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3528,9 +3646,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8c8867ac6497",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:22:00Z",
-      "source_detection_latency_seconds": 11546.7,
+      "source_detection_latency_seconds": 11854.5,
       "factual_update": "Feel-Good Friday: Georgia Teen Inspires by Taking Over Family Meal Prep Duties During Mom's Cancer",
       "source": "RedState",
       "source_tier": 3,
@@ -3544,121 +3662,10 @@
         "https://redstate.com/jenniferoo/2026/11/27/feel-good-friday-georgia-teen-of-mom-who-battled-breast-cancer-took-over-cooking-for-his-siblings-n2209860"
       ],
       "risk_flags": [],
-      "age_minutes": 192.4
+      "age_minutes": 197.6
     },
     {
       "id": "b68ee606739c",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.96,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.96,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "8185680d33f3",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T23:13:49Z",
-      "source_detection_latency_seconds": 12037.7,
-      "factual_update": "Fantasy football rankings Week 12: Dave Richard's tough start/sit calls pinpoint which Jaguars WRs to play",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/fantasy/football/news/fantasy-football-rankings-week-12-dave-richards-tough-startsit-calls/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/fantasy/football/news/fantasy-football-rankings-week-12-dave-richards-tough-startsit-calls/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 200.6
-    },
-    {
-      "id": "d09d95dacc47",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.96,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.96,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "02e4f8853257",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T23:13:47Z",
-      "source_detection_latency_seconds": 12039.7,
-      "factual_update": "NBC Pulls Spot Advocating for End of U.S. Military Aid to Israel, Will Review Approval Procedures After Outcry",
-      "source": "Variety",
-      "source_tier": 3,
-      "primary_source_link": "https://variety.com/2026/tv/news/nbc-israel-military-aid-spot-middle-east-girl-1236959795/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Variety"
-      ],
-      "corroborating_links": [
-        "https://variety.com/2026/tv/news/nbc-israel-military-aid-spot-middle-east-girl-1236959795/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 200.7
-    },
-    {
-      "id": "1fca95730d94",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.93,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.93,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "5cf5577c1eb7",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T23:12:45Z",
-      "source_detection_latency_seconds": 12101.7,
-      "factual_update": "West Hollywood Gas Station Explodes in Flames After Car Crash",
-      "source": "TMZ",
-      "source_tier": 3,
-      "primary_source_link": "https://www.tmz.com/2026/11/27/los-angeles-gas-station-explodes/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "TMZ"
-      ],
-      "corroborating_links": [
-        "https://www.tmz.com/2026/11/27/los-angeles-gas-station-explodes/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 201.7
-    },
-    {
-      "id": "609b0245c02b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -3675,27 +3682,64 @@
         "material_change": 2,
         "risk_penalty": 0
       },
-      "matched_storyline_id": "17bc298629b7",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T23:08:35Z",
-      "source_detection_latency_seconds": 12351.7,
-      "factual_update": "Joan Smalls claims Candice Swanepoel got her fired from modeling gig in wake of Tom Brady romance drama: ‘So diabolical’",
-      "source": "Page Six",
+      "matched_storyline_id": "8185680d33f3",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-27T23:13:49Z",
+      "source_detection_latency_seconds": 12345.5,
+      "factual_update": "Fantasy football rankings Week 12: Dave Richard's tough start/sit calls pinpoint which Jaguars WRs to play",
+      "source": "CBS Sports",
       "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/2026/11/27/celebrity-news/joan-smalls-claims-candice-swanepoel-had-her-dropped-from-modeling-job-amid-tom-brady-romance/",
+      "primary_source_link": "https://www.cbssports.com/fantasy/football/news/fantasy-football-rankings-week-12-dave-richards-tough-startsit-calls/",
       "independent_source_count": 1,
       "trusted_independent_source_count": 0,
       "corroborating_sources": [
-        "Page Six"
+        "CBS Sports"
       ],
       "corroborating_links": [
-        "https://pagesix.com/2026/11/27/celebrity-news/joan-smalls-claims-candice-swanepoel-had-her-dropped-from-modeling-job-amid-tom-brady-romance/"
+        "https://www.cbssports.com/fantasy/football/news/fantasy-football-rankings-week-12-dave-richards-tough-startsit-calls/"
       ],
       "risk_flags": [],
-      "age_minutes": 205.9
+      "age_minutes": 205.8
     },
     {
-      "id": "4aaae7fe9ec7",
+      "id": "d09d95dacc47",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.81,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.81,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "02e4f8853257",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-27T23:13:47Z",
+      "source_detection_latency_seconds": 12347.5,
+      "factual_update": "NBC Pulls Spot Advocating for End of U.S. Military Aid to Israel, Will Review Approval Procedures After Outcry",
+      "source": "Variety",
+      "source_tier": 3,
+      "primary_source_link": "https://variety.com/2026/tv/news/nbc-israel-military-aid-spot-middle-east-girl-1236959795/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Variety"
+      ],
+      "corroborating_links": [
+        "https://variety.com/2026/tv/news/nbc-israel-military-aid-spot-middle-east-girl-1236959795/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 205.8
+    },
+    {
+      "id": "1fca95730d94",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
@@ -3712,10 +3756,84 @@
         "material_change": 2,
         "risk_penalty": 0
       },
+      "matched_storyline_id": "5cf5577c1eb7",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-27T23:12:45Z",
+      "source_detection_latency_seconds": 12409.5,
+      "factual_update": "West Hollywood Gas Station Explodes in Flames After Car Crash",
+      "source": "TMZ",
+      "source_tier": 3,
+      "primary_source_link": "https://www.tmz.com/2026/11/27/los-angeles-gas-station-explodes/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "TMZ"
+      ],
+      "corroborating_links": [
+        "https://www.tmz.com/2026/11/27/los-angeles-gas-station-explodes/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 206.8
+    },
+    {
+      "id": "609b0245c02b",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.67,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.67,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
+      "matched_storyline_id": "17bc298629b7",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
+      "source_published_at": "2026-11-27T23:08:35Z",
+      "source_detection_latency_seconds": 12659.5,
+      "factual_update": "Joan Smalls claims Candice Swanepoel got her fired from modeling gig in wake of Tom Brady romance drama: ‘So diabolical’",
+      "source": "Page Six",
+      "source_tier": 3,
+      "primary_source_link": "https://pagesix.com/2026/11/27/celebrity-news/joan-smalls-claims-candice-swanepoel-had-her-dropped-from-modeling-job-amid-tom-brady-romance/",
+      "independent_source_count": 1,
+      "trusted_independent_source_count": 0,
+      "corroborating_sources": [
+        "Page Six"
+      ],
+      "corroborating_links": [
+        "https://pagesix.com/2026/11/27/celebrity-news/joan-smalls-claims-candice-swanepoel-had-her-dropped-from-modeling-job-amid-tom-brady-romance/"
+      ],
+      "risk_flags": [],
+      "age_minutes": 211.0
+    },
+    {
+      "id": "4aaae7fe9ec7",
+      "path": "normal",
+      "eligible": false,
+      "reason": "normal_path",
+      "urgency_score": 14.64,
+      "score_components": {
+        "source_trust": 2,
+        "recency": 2.64,
+        "magnitude": 0,
+        "public_safety": 0,
+        "institutional_prominence": 0,
+        "velocity": 0,
+        "independent_confirmations": 0,
+        "existing_timeline_interest": 8,
+        "material_change": 2,
+        "risk_penalty": 0
+      },
       "matched_storyline_id": "61b5f80cfeb0",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:07:41Z",
-      "source_detection_latency_seconds": 12405.7,
+      "source_detection_latency_seconds": 12713.5,
       "factual_update": "BBC Shrugs Off New Antisemitism Probe As Complaints Mount",
       "source": "PJ Media",
       "source_tier": 3,
@@ -3729,17 +3847,17 @@
         "https://pjmedia.com/aaron-hanscom/2026/11/27/bbc-shrugs-off-new-antisemitism-probe-n4959778"
       ],
       "risk_flags": [],
-      "age_minutes": 206.8
+      "age_minutes": 211.9
     },
     {
       "id": "8cf195dd8c25",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.7,
+      "urgency_score": 14.56,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.7,
+        "recency": 2.56,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3750,9 +3868,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "f64ac09c6d9a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:04:31Z",
-      "source_detection_latency_seconds": 12595.7,
+      "source_detection_latency_seconds": 12903.5,
       "factual_update": "Day in Photos: Elections in Taiwan and Spain, Christmas Markets Open, and Florida Boat Traffic",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -3766,17 +3884,17 @@
         "https://www.theepochtimes.com/article/day-in-photos-elections-in-taiwan-and-spain-christmas-markets-open-and-florida-boat-traffic-6130254"
       ],
       "risk_flags": [],
-      "age_minutes": 209.9
+      "age_minutes": 215.1
     },
     {
       "id": "71d28bceb2fb",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.6,
+      "urgency_score": 14.47,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.6,
+        "recency": 2.47,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3787,9 +3905,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "88a35be3c04f",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:00:44Z",
-      "source_detection_latency_seconds": 12822.7,
+      "source_detection_latency_seconds": 13130.5,
       "factual_update": "Friday's Final Word",
       "source": "Hot Air",
       "source_tier": 3,
@@ -3803,17 +3921,17 @@
         "https://hotair.com/ed-morrissey/2026/11/27/fridays-final-word-n3821389"
       ],
       "risk_flags": [],
-      "age_minutes": 213.7
+      "age_minutes": 218.8
     },
     {
       "id": "a281784cacd8",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.59,
+      "urgency_score": 14.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.59,
+        "recency": 2.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3824,9 +3942,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "ed7f3470eec8",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:00:36Z",
-      "source_detection_latency_seconds": 12830.7,
+      "source_detection_latency_seconds": 13138.5,
       "factual_update": "Minnesota vs. Wisconsin picks, odds, prediction, time: 2026 college football Rivalry Week betting preview",
       "source": "CBS Sports",
       "source_tier": 3,
@@ -3840,17 +3958,17 @@
         "https://www.cbssports.com/betting/news/minnesota-vs-wisconsin-picks-odds-prediction-time-2026-college-football-rivalry-week-betting-preview/"
       ],
       "risk_flags": [],
-      "age_minutes": 213.8
+      "age_minutes": 219.0
     },
     {
       "id": "40a19645c70f",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.59,
+      "urgency_score": 14.46,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.59,
+        "recency": 2.46,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3861,9 +3979,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "929686a7e99a",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:00:25Z",
-      "source_detection_latency_seconds": 12841.7,
+      "source_detection_latency_seconds": 13149.5,
       "factual_update": "Eric Holder Wants 2028 Dem Candidates to Make America a ‘DEI Infused Nation’",
       "source": "Legal Insurrection",
       "source_tier": 3,
@@ -3877,17 +3995,17 @@
         "https://legalinsurrection.com/2026/11/eric-holder-wants-2028-dem-candidates-to-make-america-a-dei-infused-nation/?utm_source=rss&utm_medium=rss&utm_campaign=eric-holder-wants-2028-dem-candidates-to-make-america-a-dei-infused-nation"
       ],
       "risk_flags": [],
-      "age_minutes": 214.0
+      "age_minutes": 219.2
     },
     {
       "id": "9ec508d57f5e",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.58,
+      "urgency_score": 14.45,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.58,
+        "recency": 2.45,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3898,9 +4016,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e6ca327582fe",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:00:00Z",
-      "source_detection_latency_seconds": 12866.7,
+      "source_detection_latency_seconds": 13174.5,
       "factual_update": "With Jensen Huang's Reinstatement, Reason and Economic Literacy Prevail .",
       "source": "Hot Air",
       "source_tier": 3,
@@ -3914,17 +4032,17 @@
         "https://hotair.com/headlines/2026/11/27/with-jensen-huangs-reinstatement-reason-and-economic-literacy-prevail-n3821345"
       ],
       "risk_flags": [],
-      "age_minutes": 214.4
+      "age_minutes": 219.6
     },
     {
       "id": "395777b855a6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.53,
+      "urgency_score": 14.41,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.53,
+        "recency": 2.41,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3935,9 +4053,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "e9a373f7f99e",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:58:16Z",
-      "source_detection_latency_seconds": 12970.7,
+      "source_detection_latency_seconds": 13278.5,
       "factual_update": "Moment Kate Middleton broke down in tears over sweet audio messages from her kids after beating cancer",
       "source": "Page Six",
       "source_tier": 3,
@@ -3951,17 +4069,17 @@
         "https://pagesix.com/2026/11/27/royal-family/kate-middleton-cries-over-audio-messages-from-her-kids-after-beating-cancer/"
       ],
       "risk_flags": [],
-      "age_minutes": 216.2
+      "age_minutes": 221.3
     },
     {
       "id": "a1f3b817d9d2",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.37,
+      "urgency_score": 14.25,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.37,
+        "recency": 2.25,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -3972,9 +4090,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "0532a32f7167",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:51:45Z",
-      "source_detection_latency_seconds": 13361.7,
+      "source_detection_latency_seconds": 13669.5,
       "factual_update": "NTD Evening News Full Broadcast (Nov. 27)",
       "source": "The Epoch Times",
       "source_tier": 3,
@@ -3988,17 +4106,17 @@
         "https://www.theepochtimes.com/epochtv/ntd-evening-news-full-broadcast-nov-27-4-post-2-post-2-post-6130225"
       ],
       "risk_flags": [],
-      "age_minutes": 222.7
+      "age_minutes": 227.8
     },
     {
       "id": "41953a4633a7",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.33,
+      "urgency_score": 14.21,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.33,
+        "recency": 2.21,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4009,9 +4127,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "8cc32944e516",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:49:57Z",
-      "source_detection_latency_seconds": 13469.7,
+      "source_detection_latency_seconds": 13777.5,
       "factual_update": "Actor Tim Robinson Calls Cops 'Scumbag Pigs' in Vile Police Dog Tribute Post",
       "source": "Breitbart",
       "source_tier": 3,
@@ -4025,17 +4143,17 @@
         "https://www.breitbart.com/entertainment/2026/11/27/actor-tim-robinson-calls-cops-scumbag-pigs-in-vile-police-dog-tribute-post/"
       ],
       "risk_flags": [],
-      "age_minutes": 224.5
+      "age_minutes": 229.6
     },
     {
       "id": "df4771b81e35",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 14.22,
+      "urgency_score": 14.11,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.22,
+        "recency": 2.11,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4046,9 +4164,9 @@
         "risk_penalty": 0
       },
       "matched_storyline_id": "b60e4a595761",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:45:00Z",
-      "source_detection_latency_seconds": 13766.7,
+      "source_detection_latency_seconds": 14074.5,
       "factual_update": "‘Percy Jackson and the Olympians’ Star Leah Sava Jeffries on Her Idea for Annabeth’s Gray Contacts and the Big Fan Surprise Coming in the Season 3 Finale: A ‘Dream Came True’",
       "source": "Variety",
       "source_tier": 3,
@@ -4062,91 +4180,17 @@
         "https://variety.com/2026/tv/news/percy-jackson-season-3-gray-contacts-finale-1236958463/"
       ],
       "risk_flags": [],
-      "age_minutes": 229.4
-    },
-    {
-      "id": "73567105cc33",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.09,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "e38d5eb1a439",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T22:38:59Z",
-      "source_detection_latency_seconds": 14127.7,
-      "factual_update": "Oprah called this Amazon puffer jacket ‘terrific,’ and it’s on sale for less than $80",
-      "source": "Page Six",
-      "source_tier": 3,
-      "primary_source_link": "https://pagesix.com/2026/11/27/style/oprah-terrific-amazon-puffer-coat-is-under-80-for-black-friday/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Page Six"
-      ],
-      "corroborating_links": [
-        "https://pagesix.com/2026/11/27/style/oprah-terrific-amazon-puffer-coat-is-under-80-for-black-friday/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 235.5
-    },
-    {
-      "id": "eb4ee9b04c2d",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 14.03,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 2.03,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 8,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": "071cbb42c15e",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T22:35:57Z",
-      "source_detection_latency_seconds": 14309.7,
-      "factual_update": "Fantasy football Week 12 injury updates: Brock Bowers' uncertain status leaves managers needing a Plan B",
-      "source": "CBS Sports",
-      "source_tier": 3,
-      "primary_source_link": "https://www.cbssports.com/fantasy/football/news/fantasy-football-week-12-injury-updates-brock-bowers-uncertain/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "CBS Sports"
-      ],
-      "corroborating_links": [
-        "https://www.cbssports.com/fantasy/football/news/fantasy-football-week-12-injury-updates-brock-bowers-uncertain/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 238.5
+      "age_minutes": 234.6
     },
     {
       "id": "a8c6095bff7b",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 10.11,
+      "urgency_score": 10.0,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.11,
+        "recency": 2.0,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4157,9 +4201,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "b7678d267156",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:39:50Z",
-      "source_detection_latency_seconds": 14076.7,
+      "source_detection_latency_seconds": 14384.5,
       "factual_update": "Russian sabotage spikes in Europe, including ‘risk of mass-casualty incident’: Analysis",
       "source": "The Hill",
       "source_tier": 2,
@@ -4173,91 +4217,17 @@
         "https://thehill.com/policy/international/6245694-russian-sabotage-ukraine-war-zelensky-trump-putin-friend/"
       ],
       "risk_flags": [],
-      "age_minutes": 234.6
-    },
-    {
-      "id": "2044370c9f09",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 9.22,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 5.22,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": null,
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-28T00:10:32Z",
-      "source_detection_latency_seconds": 8634.7,
-      "factual_update": "Aaron Rodgers: Holding McCarthy Accountable Justified Breaking Locker Room Code of Silence",
-      "source": "Breitbart",
-      "source_tier": 3,
-      "primary_source_link": "https://www.breitbart.com/sports/2026/11/27/aaron-rodgers-holding-mccarthy-accountable-justified-breaking-locker-room-code-of-silence/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Breitbart"
-      ],
-      "corroborating_links": [
-        "https://www.breitbart.com/sports/2026/11/27/aaron-rodgers-holding-mccarthy-accountable-justified-breaking-locker-room-code-of-silence/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 143.9
-    },
-    {
-      "id": "d041ae8b6ada",
-      "path": "normal",
-      "eligible": false,
-      "reason": "normal_path",
-      "urgency_score": 8.09,
-      "score_components": {
-        "source_trust": 2,
-        "recency": 4.09,
-        "magnitude": 0,
-        "public_safety": 0,
-        "institutional_prominence": 0,
-        "velocity": 0,
-        "independent_confirmations": 0,
-        "existing_timeline_interest": 0,
-        "material_change": 2,
-        "risk_penalty": 0
-      },
-      "matched_storyline_id": null,
-      "detected_at": "2026-11-28T02:34:26.653239Z",
-      "source_published_at": "2026-11-27T23:46:10Z",
-      "source_detection_latency_seconds": 10096.7,
-      "factual_update": "Sen. Eric Schmitt Rejects Democrat Demand to Remove USAID Files: 'No Way'",
-      "source": "Breitbart",
-      "source_tier": 3,
-      "primary_source_link": "https://www.breitbart.com/politics/2026/11/27/sen-eric-schmitt-rejects-democrat-demand-pull-usaid-files-no-way/",
-      "independent_source_count": 1,
-      "trusted_independent_source_count": 0,
-      "corroborating_sources": [
-        "Breitbart"
-      ],
-      "corroborating_links": [
-        "https://www.breitbart.com/politics/2026/11/27/sen-eric-schmitt-rejects-democrat-demand-pull-usaid-files-no-way/"
-      ],
-      "risk_flags": [],
-      "age_minutes": 168.3
+      "age_minutes": 239.7
     },
     {
       "id": "a7a2998b2867",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 3.15,
+      "urgency_score": 2.99,
       "score_components": {
         "source_trust": 2,
-        "recency": 3.15,
+        "recency": 2.99,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4268,9 +4238,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "097d796454a5",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:20:06Z",
-      "source_detection_latency_seconds": 11660.7,
+      "source_detection_latency_seconds": 11968.5,
       "factual_update": "New analysis: Swedish aid for access to contraception saves women's lives",
       "source": "Medical Xpress",
       "source_tier": 3,
@@ -4284,17 +4254,17 @@
         "https://medicalxpress.com/news/2026-11-analysis-swedish-aid-access-contraception.html"
       ],
       "risk_flags": [],
-      "age_minutes": 194.3
+      "age_minutes": 199.5
     },
     {
       "id": "2d80f135a9c6",
       "path": "normal",
       "eligible": false,
       "reason": "normal_path",
-      "urgency_score": 2.14,
+      "urgency_score": 2.03,
       "score_components": {
         "source_trust": 2,
-        "recency": 2.14,
+        "recency": 2.03,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4305,9 +4275,9 @@
         "risk_penalty": -12
       },
       "matched_storyline_id": "6ac0b1fbf4df",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T22:41:23Z",
-      "source_detection_latency_seconds": 13983.7,
+      "source_detection_latency_seconds": 14291.5,
       "factual_update": "WATCH: Hockey Fan Elbows His Own Son While Fighting for a Puck",
       "source": "Breitbart",
       "source_tier": 3,
@@ -4321,7 +4291,7 @@
         "https://www.breitbart.com/sports/2026/11/27/watch-hockey-fan-elbows-his-own-son-while-fighting-for-a-puck/"
       ],
       "risk_flags": [],
-      "age_minutes": 233.1
+      "age_minutes": 238.2
     },
     {
       "id": "facf019d3a57",
@@ -4331,7 +4301,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 10,
-        "recency": 13.08,
+        "recency": 12.43,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4342,9 +4312,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "06c01c8b398e",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-28T01:42:28Z",
-      "source_detection_latency_seconds": 3118.7,
+      "source_detection_latency_seconds": 3426.5,
       "factual_update": "Taliban reportedly strips women of their names in Afghan province, now being called 'goat' or 'grandmother'",
       "source": "Fox News",
       "source_tier": 2,
@@ -4360,7 +4330,7 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 52.0
+      "age_minutes": 57.1
     },
     {
       "id": "3b9e00da4a3e",
@@ -4370,7 +4340,7 @@
       "urgency_score": 0,
       "score_components": {
         "source_trust": 10,
-        "recency": 2.74,
+        "recency": 2.6,
         "magnitude": 0,
         "public_safety": 0,
         "institutional_prominence": 0,
@@ -4381,9 +4351,9 @@
         "risk_penalty": -35
       },
       "matched_storyline_id": "119ddb923efd",
-      "detected_at": "2026-11-28T02:34:26.653239Z",
+      "detected_at": "2026-11-28T02:39:34.532984Z",
       "source_published_at": "2026-11-27T23:06:05Z",
-      "source_detection_latency_seconds": 12501.7,
+      "source_detection_latency_seconds": 12809.5,
       "factual_update": "Low levels of common vitamin could be stealing nearly 30 minutes of your sleep",
       "source": "Fox News",
       "source_tier": 2,
@@ -4399,8 +4369,14 @@
       "risk_flags": [
         "unconfirmed_claim"
       ],
-      "age_minutes": 208.4
+      "age_minutes": 213.5
     }
   ],
-  "publication_outcomes": []
+  "publication_outcomes": [
+    {
+      "candidate_id": "ee97aa5d6b19",
+      "status": "published",
+      "storyline_id": "f44bd885e3ae"
+    }
+  ]
 }
